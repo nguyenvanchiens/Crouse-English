@@ -1,0 +1,58 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "to-v-hay-v-ing",
+  title: "Nhớ làm hay nhớ đã làm?",
+  minutes: 22,
+  lecture: {
+    title: "Động từ đổi nghĩa khi đi với to V hay V-ing",
+    blocks: [
+      p("Một anh học trò của tôi khoe với đồng nghiệp người Anh: **I stopped to check emails at night.** Anh định nói “Tôi đã bỏ thói quen kiểm tra email buổi tối”, nhưng câu tiếng Anh lại có nghĩa “Buổi tối tôi dừng việc đang làm lại để kiểm tra email”, tức là ngược hẳn. Chỉ đổi **checking** thành **to check** mà nghĩa khác hoàn toàn. Có một nhóm động từ như vậy: **remember, forget, stop, try, regret, mean**. Ở trình độ B2, dùng sai chúng là lỗi người bản xứ nhận ra ngay."),
+      table(
+        ["Động từ", "+ to V", "+ V-ing"],
+        ["remember", "nhớ để làm (việc chưa làm): Remember to call her.", "nhớ là đã làm: I remember calling her."],
+        ["forget", "quên làm (nên không làm): I forgot to lock the door.", "quên là đã làm (thường dùng: never forget): I'll never forget meeting you."],
+        ["stop", "dừng lại để làm việc khác: We stopped to have lunch.", "thôi, ngừng hẳn việc đang làm: He stopped smoking."],
+        ["try", "cố gắng làm (việc khó): I tried to open the window.", "thử làm xem có hiệu quả không: Try restarting your computer."],
+        ["regret", "lấy làm tiếc phải báo (trang trọng): We regret to inform you…", "hối tiếc vì đã làm: I regret leaving my job."],
+        ["mean", "định làm, cố ý làm: I didn't mean to upset you.", "đồng nghĩa với việc, kéo theo: The new job means moving to Hanoi."],
+      ),
+      p("Có một quy luật giúp bạn đoán được phần lớn: **to V thường hướng về phía trước** (việc chưa xảy ra, mục đích), còn **V-ing thường nhìn lại** việc đã hoặc đang xảy ra. Nhớ to V là nhớ để làm việc sắp tới; nhớ V-ing là nhớ lại việc đã làm."),
+      ex("Did you remember to bring your passport?", "Anh có nhớ mang theo hộ chiếu không?", "Việc mang hộ chiếu xảy ra sau việc nhớ, nên dùng to V."),
+      ex("I clearly remember putting my keys on the table.", "Tôi nhớ rõ là mình đã để chìa khóa trên bàn.", "Việc để chìa khóa xảy ra trước, bây giờ nhớ lại, nên dùng V-ing."),
+      ex("On the way to Da Lat, we stopped to take some photos.", "Trên đường lên Đà Lạt, chúng tôi dừng xe để chụp vài tấm ảnh.", "Stop to V: dừng việc đang làm (lái xe) để làm việc khác (chụp ảnh)."),
+      ex("If you can't sleep, try drinking warm milk before bed.", "Nếu mất ngủ, bạn thử uống sữa ấm trước khi ngủ xem sao.", "Try V-ing: thử một cách để xem có hiệu quả không."),
+      ex("We regret to inform you that the event has been cancelled.", "Chúng tôi rất tiếc phải thông báo rằng sự kiện đã bị hủy.", "Regret to inform / to announce / to say: mẫu câu trang trọng trong thông báo."),
+      mistake("I stopped to smoke last year and I feel much better now.", "I stopped smoking last year and I feel much better now.", "Tiếng Việt “dừng hút thuốc” và “dừng lại để hút thuốc” đều có chữ “dừng”, nên học trò hay nhầm. Muốn nói bỏ thuốc thì dùng stop + V-ing. Stop to smoke nghĩa là dừng lại để châm điếu thuốc."),
+      mistake("The TV isn't working. Try to turn it off and on again.", "The TV isn't working. Try turning it off and on again.", "Tiếng Việt “thử” và “cố” khác nhau, nhưng tiếng Anh cùng dùng try. Nhớ quy tắc: “thử xem sao” là try + V-ing; “cố gắng” là try + to V."),
+      mistake("Don't forget locking the door when you leave.", "Don't forget to lock the door when you leave.", "Việc khóa cửa chưa xảy ra, nên dùng to V. Forget + V-ing gần như chỉ dùng trong câu “I'll never forget + V-ing”."),
+      tip("Mẹo ghi nhớ: **to** giống như **mũi tên chỉ về phía trước**. Thấy việc sắp làm, việc chưa xảy ra, mục đích thì dùng **to V**. Còn **-ing** giống **cuốn phim quay lại**: việc đã làm, thói quen đã có, một cách thử nghiệm."),
+      teacher("Đừng học nhóm động từ này bằng cách chép bảng rồi đọc thuộc. Tôi luôn bảo học trò **tự đặt cho mỗi động từ hai câu về chính đời mình**, một câu to V, một câu V-ing, rồi dán lên gương: “I must remember to call Mum on Sunday.”, “I remember going to the beach with my father.” **Câu có kỷ niệm của bạn thì không bao giờ quên**. Còn khi viết email trang trọng, hãy nhớ riêng mẫu **We regret to inform you…**, thư từ chối và thông báo hủy nào cũng có nó."),
+    ],
+  },
+  words: [
+    word("habit", "/ˈhæb.ɪt/", "thói quen", "Smoking is a hard habit to break.", "hab|it", 0, "Bật rõ âm /t/ ở cuối, đừng đọc thành “hép-bi”."),
+    word("intend", "/ɪnˈtend/", "định, có ý định", "I didn't intend to stay so long.", "in|tend", 1),
+    word("quit", "/kwɪt/", "bỏ (thói quen, công việc)", "He quit smoking when his son was born.", "quit", 0, "Đọc /kwɪt/ như “quýt” ngắn, nhớ âm /t/ cuối."),
+    word("attempt", "/əˈtempt/", "cố gắng, thử làm", "She attempted to fix the printer herself.", "at|tempt", 1, "Cuối từ là cụm /mpt/: khép môi ở /m/, bật nhẹ /p/ rồi /t/."),
+    word("inform", "/ɪnˈfɔːm/", "thông báo", "We regret to inform you that the tour is full.", "in|form", 1),
+    word("reminder", "/rɪˈmaɪn.dər/", "lời nhắc, tin nhắc", "I set a reminder on my phone to pay the bill.", "re|mind|er", 1),
+    word("forgetful", "/fəˈɡet.fəl/", "hay quên", "My grandfather has become a little forgetful.", "for|get|ful", 1),
+    word("unfortunately", "/ʌnˈfɔː.tʃən.ət.li/", "không may, đáng tiếc là", "Unfortunately, I forgot to bring my laptop.", "un|for|tu|nate|ly", 1, "Năm âm tiết, trọng âm ở âm thứ hai: un-FOR-tu-nate-ly."),
+  ],
+  exercises: [
+    mc("b2-n15-1", "Please remember ___ the lights before you leave the office.", ["to turn off", "turning off", "turn off", "turned off"], 0, "Việc tắt đèn chưa xảy ra, cần nhớ để làm, nên dùng remember + to V."),
+    mc("b2-n15-2", "On the way home, I stopped ___ some bread for breakfast.", ["buying", "to buy", "buy"], 1, "Dừng lại để mua bánh mì: stop + to V chỉ mục đích."),
+    fill("b2-n15-3", "The printer isn't working. Try ___ it off and on again. (turn)", ["turning"], "Thử một cách xem có được không: try + V-ing."),
+    fill("b2-n15-4", "We regret ___ you that your flight has been cancelled. (inform)", ["to inform"], "Regret + to V trong thông báo trang trọng: lấy làm tiếc phải báo tin."),
+    reorder("b2-n15-5", "I will never forget meeting you.", "Never forget + V-ing: không bao giờ quên một việc đã xảy ra."),
+    reorder("b2-n15-6", "I didn't mean to hurt your feelings.", "Mean + to V: cố ý, định làm. Đây là câu xin lỗi rất hay dùng."),
+    listen("b2-n15-7", "I remember locking the door, but now it's open.", ["Tôi nhớ phải khóa cửa trước khi đi.", "Tôi quên khóa cửa nên cửa bị mở.", "Tôi nhớ là đã khóa cửa rồi, vậy mà giờ cửa lại mở."], 2, "Remember + V-ing: nhớ lại việc đã làm."),
+    listen("b2-n15-8", "Taking the new job will mean moving to another city.", ["Tôi định chuyển đến thành phố khác để tìm việc.", "Nhận công việc mới đồng nghĩa với việc phải chuyển đến thành phố khác.", "Tôi không muốn chuyển đến thành phố khác."], 1, "Mean + V-ing: kéo theo, đồng nghĩa với việc."),
+  ],
+  speaking: [
+    say("Don't forget to call me when you arrive.", "Đừng quên gọi cho tôi khi bạn đến nơi nhé."),
+    say("I remember visiting this temple when I was a child.", "Tôi nhớ là đã đến thăm ngôi chùa này hồi còn nhỏ."),
+    say("If you feel tired, try going for a short walk.", "Nếu thấy mệt, bạn thử đi bộ một chút xem sao."),
+  ],
+});

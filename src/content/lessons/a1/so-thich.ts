@@ -1,0 +1,68 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "so-thich",
+  title: "Sở thích của bạn",
+  minutes: 20,
+  lecture: {
+    title: "like, love, enjoy, hate + V-ing",
+    blocks: [
+      p("Trò chuyện với bạn mới, với đồng nghiệp nước ngoài trong giờ nghỉ trưa, câu chuyện gần như luôn chuyển sang **sở thích**: Bạn thích làm gì lúc rảnh? Để trả lời, bạn cần bốn động từ chỉ cảm xúc và một quy tắc nhỏ: sau chúng, động từ thứ hai thêm **-ing**."),
+      table(
+        ["Mức độ", "Động từ", "Ví dụ"],
+        ["Rất thích", "love", "I love reading."],
+        ["Thích", "like", "She likes cooking."],
+        ["Thích thú, tận hưởng", "enjoy", "We enjoy swimming in the sea."],
+        ["Không thích", "don't like / doesn't like", "He doesn't like dancing."],
+        ["Ghét", "hate", "I hate getting up early."],
+      ),
+      p("Công thức: **like / love / enjoy / hate + V-ing**. Sau các động từ này cũng có thể dùng danh từ: I love music. She likes football. Nhớ rằng với **he, she, it**, động từ chính vẫn phải thêm **-s**: she likes, he loves, my father enjoys. Like, love, hate cũng có thể đi với **to + động từ** (I like to read), nhưng **enjoy chỉ đi với V-ing**. Bài này tập trung vào dạng V-ing vì dùng được cho cả bốn động từ."),
+      table(
+        ["Quy tắc thêm -ing", "Ví dụ"],
+        ["Thường: thêm -ing", "read → reading, cook → cooking, play → playing"],
+        ["Tận cùng -e câm: bỏ e, thêm -ing", "dance → dancing, write → writing"],
+        ["Từ một âm tiết, tận cùng một nguyên âm + một phụ âm: gấp đôi phụ âm", "swim → swimming, run → running, shop → shopping"],
+      ),
+      mistake("I like read books.", "I like reading books.", "Tiếng Việt nói “tôi thích đọc sách”, hai động từ đứng cạnh nhau mà không đổi gì. Tiếng Anh không để hai động từ nguyên mẫu đứng liền nhau như thế: phải nói like reading (hoặc like to read)."),
+      mistake("I very like music.", "I really like music. / I like music very much.", "Người Việt dịch từng chữ “tôi rất thích”. Trong tiếng Anh, very không đứng trước like. Dùng really trước động từ, hoặc very much ở cuối câu."),
+      ex("My father enjoys fishing at the weekend.", "Bố tôi thích đi câu cá vào cuối tuần.", "My father là he nên enjoys có -s; fish thành fishing."),
+      ex("I love listening to music on the bus.", "Tôi rất thích nghe nhạc trên xe buýt.", "Nhớ có to sau listen: listen to music."),
+      ex("She hates shopping, but she loves cooking.", "Cô ấy ghét đi mua sắm, nhưng lại rất thích nấu ăn.", "Shop gấp đôi p thành shopping."),
+      p("Để hỏi người khác có thích gì không, dùng **Do / Does + chủ ngữ + like + V-ing?** Câu trả lời ngắn **không lặp lại like**, mà dùng **do / don't** hoặc **does / doesn't**."),
+      table(
+        ["Câu hỏi", "Trả lời có", "Trả lời không"],
+        ["Do you like singing?", "Yes, I do.", "No, I don't."],
+        ["Does he like football?", "Yes, he does.", "No, he doesn't."],
+        ["Do they like swimming?", "Yes, they do.", "No, they don't."],
+      ),
+      mistake("Do you like cooking? Yes, I like.", "Do you like cooking? Yes, I do.", "Tiếng Việt trả lời “Có, tôi thích”, nên người Việt hay đáp Yes, I like. Tiếng Anh không để like đứng trơ trọi ở cuối; câu trả lời ngắn chỉ cần Yes, I do."),
+      tip("Đuôi **-ing** đọc là /ɪŋ/: kết thúc bằng âm mũi ở cuống lưỡi, gần giống vần “inh” của tiếng Việt, nhưng **không bật thành /k/**: swimming là /ˈswɪm.ɪŋ/, không phải “xuy-mink”."),
+      teacher("Học trò hay hỏi tôi: thầy ơi, sao em nói mãi vẫn quên -ing? Tôi luôn trả lời: vì các em học quy tắc mà không học **cả cụm**. Hãy viết ra năm sở thích thật của chính mình dưới dạng cụm hoàn chỉnh: **I love cooking. I enjoy walking. I hate waiting.** Dán lên tủ lạnh, mỗi lần mở tủ đọc to một câu. Câu nói về chính mình thì nhớ lâu gấp mười câu trong sách."),
+    ],
+  },
+  words: [
+    word("hobby", "/ˈhɒb.i/", "sở thích", "My hobby is reading.", "hob|by", 0),
+    word("enjoy", "/ɪnˈdʒɔɪ/", "thích thú, tận hưởng", "I enjoy cooking for my family.", "en|joy", 1, "Nhấn âm sau: en-JOY."),
+    word("hate", "/heɪt/", "ghét", "He hates waiting for the bus.", "hate", 0, "Bật âm /t/ ở cuối để không nghe thành hay /heɪ/."),
+    word("swim", "/swɪm/", "bơi", "Do you like swimming?", "swim", 0, "Khép môi ở âm /m/ cuối; swimming gấp đôi chữ m."),
+    word("dance", "/dɑːns/", "nhảy, khiêu vũ", "My daughter loves dancing.", "dance", 0, "Kết thúc bằng /ns/, nhớ đọc rõ âm /s/."),
+    word("read", "/riːd/", "đọc", "She loves reading books.", "read", 0, "Kéo dài âm /iː/ và nhớ đọc âm /d/ ở cuối, đừng đọc thành “ri”."),
+    word("music", "/ˈmjuː.zɪk/", "âm nhạc", "I listen to music every day.", "mu|sic", 0, "Âm giữa là /z/, không phải /s/: MYOO-zik."),
+    word("football", "/ˈfʊt.bɔːl/", "bóng đá", "My brothers love playing football.", "foot|ball", 0),
+  ],
+  exercises: [
+    mc("a1-n07-1", "I enjoy ___ in the sea.", ["to swim", "swim", "swimming"], 2, "Sau enjoy luôn dùng V-ing. Swim gấp đôi m thành swimming."),
+    mc("a1-n07-2", "Do you like cooking? Yes, I ___.", ["like", "do", "am"], 1, "Câu hỏi bắt đầu bằng Do thì trả lời ngắn Yes, I do."),
+    fill("a1-n07-3", "She loves ___ to music. (listen)", ["listening", "to listen"], "Sau love dùng V-ing: listening (to listen cũng đúng)."),
+    fill("a1-n07-4", "He enjoys ___ on Sundays. (dance)", ["dancing"], "Dance tận cùng bằng -e câm: bỏ e rồi thêm -ing."),
+    reorder("a1-n07-5", "Does your brother like playing football?", "Your brother là he nên câu hỏi dùng Does, và like giữ nguyên; sau like là V-ing."),
+    reorder("a1-n07-6", "My mother really loves cooking.", "Really đứng trước động từ loves để nhấn mạnh; không dùng very trước động từ."),
+    listen("a1-n07-7", "I hate getting up early.", ["Tôi ghét dậy sớm.", "Tôi thích dậy sớm.", "Tôi ghét đi ngủ muộn."], 0, "Hate là ghét; get up early là dậy sớm."),
+    listen("a1-n07-8", "Does she like reading? No, she doesn't.", ["Cô ấy có thích đọc sách không? Có.", "Cô ấy có thích viết không? Không.", "Cô ấy có thích đọc sách không? Không."], 2, "No, she doesn't là câu trả lời không."),
+  ],
+  speaking: [
+    say("I love reading books.", "Tôi rất thích đọc sách."),
+    say("My brother enjoys playing football.", "Anh trai tôi thích chơi bóng đá."),
+    say("Do you like dancing? Yes, I do.", "Bạn có thích nhảy không? Có, tôi thích."),
+  ],
+});

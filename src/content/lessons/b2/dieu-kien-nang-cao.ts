@@ -1,0 +1,63 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "dieu-kien-nang-cao",
+  title: "Điều kiện không chỉ có if",
+  minutes: 23,
+  lecture: {
+    title: "Unless, provided that, as long as, in case, otherwise, suppose",
+    blocks: [
+      p("Sếp người Úc nhắn bạn: **Unless you hear from me, go ahead with the launch.** Nhiều bạn đọc xong vẫn không chắc: rốt cuộc là làm hay chờ? Trong công việc, hợp đồng, bảo hiểm, điều kiện được nói bằng rất nhiều từ khác ngoài **if**, và mỗi từ mang một sắc thái riêng. Hiểu sai một chữ **unless** hay **in case** có khi là làm sai cả một việc."),
+      table(
+        ["Từ nối", "Nghĩa", "Ví dụ"],
+        ["unless", "trừ khi, nếu… không", "We'll start at nine unless the client calls."],
+        ["provided / providing (that)", "với điều kiện là (chặt chẽ, trang trọng)", "You can work from home provided that you answer your emails."],
+        ["as long as / so long as", "miễn là", "As long as you're honest with me, I'll support you."],
+        ["in case", "phòng khi, để phòng trường hợp", "Take a charger in case your battery runs out."],
+        ["otherwise", "nếu không thì", "Save the file now. Otherwise, you may lose it."],
+        ["suppose / supposing (that)", "giả sử", "Suppose the flight is cancelled, what will we do?"],
+      ),
+      p("Quy tắc về thì giống hệt câu điều kiện với if: sau **unless, provided that, as long as, in case** ta dùng **hiện tại đơn** để nói về tương lai, không dùng will. Riêng **otherwise** không mở đầu mệnh đề điều kiện mà mở đầu **mệnh đề kết quả**, nên phía sau nó dùng will, may, would… bình thường."),
+      ex("Unless we receive the payment by Friday, we will stop the delivery.", "Nếu đến thứ Sáu chúng tôi không nhận được thanh toán, chúng tôi sẽ ngừng giao hàng.", "Unless = if… not. Câu này tương đương: If we don't receive the payment by Friday…"),
+      mistake("Unless you don't hurry, you'll miss the train.", "Unless you hurry, you'll miss the train.", "Tiếng Việt nói “trừ khi… không thì…” rất quen miệng, nên học trò thêm don't vào sau unless. Nhưng unless đã mang sẵn nghĩa phủ định; thêm not nữa là phủ định hai lần, câu thành ngược nghĩa."),
+      ex("I'll bring my laptop in case the projector doesn't work.", "Tôi sẽ mang theo máy tính xách tay phòng khi máy chiếu không chạy.", "Tôi mang máy tính dù thế nào đi nữa. In case nói về việc làm trước để đề phòng."),
+      table(
+        ["Câu", "Ý nghĩa thật"],
+        ["I'll call you if I'm late.", "Chỉ gọi khi nào bị muộn. Không muộn thì không gọi."],
+        ["I'll give you my number in case I'm late.", "Đưa số điện thoại ngay bây giờ, để phòng trường hợp bị muộn."],
+      ),
+      mistake("Take a jacket in case it will be cold.", "Take a jacket in case it gets cold.", "Tiếng Việt nói “phòng khi trời sẽ lạnh”, và chữ “sẽ” kéo theo will. Sau in case, cũng như sau if, dùng hiện tại đơn để nói về tương lai."),
+      ex("We need to leave now. Otherwise, we'll be late for the meeting.", "Chúng ta phải đi ngay bây giờ. Nếu không thì sẽ trễ họp mất.", "Otherwise = nếu không làm điều vừa nói. Nó thường đứng đầu câu thứ hai hoặc sau dấu chấm phẩy; trong văn nói và văn thân mật, nó cũng hay đứng ngay sau dấu phẩy."),
+      p("**Suppose / supposing** dùng để đưa ra một giả thiết rồi hỏi tiếp, rất hay gặp khi bàn phương án dự phòng. Dùng **hiện tại** khi tình huống hoàn toàn có thể xảy ra, dùng **quá khứ** khi nó khó xảy ra hoặc chỉ là tưởng tượng."),
+      ex("Supposing you lost your job tomorrow, what would you do?", "Giả sử ngày mai bạn mất việc, bạn sẽ làm gì?", "Lost là quá khứ giả định, đi với would ở vế sau, giống câu điều kiện loại 2."),
+      mistake("Suppose if the client says no, what will we do?", "Suppose the client says no, what will we do?", "Dịch từng chữ “giả sử nếu” nên học trò đặt cả suppose lẫn if. Suppose đã làm nhiệm vụ của if, chỉ dùng một trong hai."),
+      tip("Mẹo nhớ nhanh: **unless = if not**; **in case = chuẩn bị trước cho chắc**; **as long as = miễn là**; **otherwise = không thì…**. Khi làm bài, hãy thử thay unless bằng if… not. Nếu câu vẫn đúng nghĩa thì bạn đã chọn đúng."),
+      teacher("Có một bẫy mà năm nào tôi cũng thấy học trò rơi vào: nhầm **in case** với **if**. Tôi hay bảo các em tự hỏi một câu: **việc này làm bây giờ, hay chỉ làm khi chuyện kia xảy ra?** Làm ngay bây giờ để phòng hờ thì dùng in case, chờ chuyện xảy ra mới làm thì dùng if. Mỗi sáng trước khi ra khỏi nhà, hãy tự nói một câu với in case: **I'm taking a raincoat in case it rains.** Nói mãi thành quen, lúc cần sẽ tự bật ra đúng."),
+    ],
+  },
+  words: [
+    word("condition", "/kənˈdɪʃ.ən/", "điều kiện", "You can take the day off on one condition: finish the report first.", "con|di|tion", 1),
+    word("guarantee", "/ˌɡær.ənˈtiː/", "sự bảo đảm; bảo đảm", "We can't guarantee delivery unless you order today.", "guar|an|tee", 2, "Trọng âm ở âm tiết cuối: guar-an-TEE. Chữ u không đọc."),
+    word("deposit", "/dɪˈpɒz.ɪt/", "tiền đặt cọc", "You'll get your deposit back provided that the flat is left clean.", "de|pos|it", 1, "Trọng âm ở âm tiết thứ hai: de-POS-it. Chữ s đọc là /z/."),
+    word("insurance", "/ɪnˈʃɔː.rəns/", "bảo hiểm", "Buy travel insurance in case you get ill abroad.", "in|sur|ance", 1),
+    word("emergency", "/ɪˈmɜː.dʒən.si/", "trường hợp khẩn cấp", "Keep this number in case of an emergency.", "e|mer|gen|cy", 1),
+    word("backup", "/ˈbæk.ʌp/", "bản sao lưu, phương án dự phòng", "Always make a backup of your files.", "back|up", 0),
+    word("penalty", "/ˈpen.əl.ti/", "tiền phạt, hình phạt", "There is a penalty if you cancel the contract early.", "pen|al|ty", 0),
+    word("warranty", "/ˈwɒr.ən.ti/", "giấy bảo hành, chế độ bảo hành", "The laptop is still under warranty, so the repair is free.", "war|ran|ty", 0, "Âm đầu đọc là /wɒ/, gần “wo”, không đọc là “wa”."),
+  ],
+  exercises: [
+    mc("b2-n06-1", "We won't sign the contract ___ they lower the price.", ["unless", "in case", "otherwise", "as long as"], 0, "Unless = if… not: nếu họ không hạ giá thì chúng ta không ký."),
+    mc("b2-n06-2", "Take some cash ___ the card machine isn't working.", ["unless", "provided that", "in case"], 2, "Mang tiền mặt trước để phòng hờ, nên dùng in case."),
+    fill("b2-n06-3", "Save your work regularly. ___, you might lose everything. (nếu không thì)", ["Otherwise", "If not"], "Otherwise (hoặc If not) mở đầu mệnh đề kết quả: nếu không làm điều vừa nói thì…"),
+    fill("b2-n06-4", "You can borrow my car as long as you ___ it back by six. (bring)", ["bring"], "Sau as long as dùng hiện tại đơn để nói về tương lai, không dùng will bring."),
+    reorder("b2-n06-5", "Suppose the client says no?", "Suppose + mệnh đề ở thì hiện tại, đọc lên giọng như một câu hỏi, nghĩa là: nhỡ khách hàng từ chối thì sao?"),
+    reorder("b2-n06-6", "Leave now, otherwise you'll be late.", "Otherwise đứng giữa hai mệnh đề và mở đầu phần kết quả."),
+    listen("b2-n06-7", "Unless you hear from me, start the meeting without me.", ["Khi nào tôi báo thì mới bắt đầu cuộc họp.", "Nếu tôi không báo gì thì cứ bắt đầu cuộc họp, không cần chờ tôi.", "Bạn nhớ nghe tôi nói xong rồi mới bắt đầu cuộc họp."], 1, "Unless you hear from me = if you don't hear from me: nếu không có tin gì từ tôi."),
+    listen("b2-n06-8", "You can work from home provided that you're online by nine.", ["Bạn phải lên văn phòng trước chín giờ.", "Bạn được làm ở nhà nếu chín giờ mới lên mạng.", "Bạn không được làm ở nhà sau chín giờ.", "Bạn được làm ở nhà với điều kiện là có mặt trên mạng trước chín giờ."], 3, "Provided that: với điều kiện là. By nine: muộn nhất là chín giờ."),
+  ],
+  speaking: [
+    say("I'll send you a copy in case you need it.", "Tôi sẽ gửi anh một bản phòng khi anh cần đến."),
+    say("We won't sign the contract unless they lower the price.", "Chúng tôi sẽ không ký hợp đồng trừ khi họ hạ giá."),
+    say("As long as we work together, we'll finish on time.", "Miễn là chúng ta làm cùng nhau, chúng ta sẽ xong đúng hạn."),
+  ],
+});

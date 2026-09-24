@@ -1,0 +1,68 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "dang-lam-gi",
+  title: "Bạn đang làm gì?",
+  minutes: 22,
+  lecture: {
+    title: "Thì hiện tại tiếp diễn: am, is, are + V-ing",
+    blocks: [
+      p("Mẹ gọi điện lúc tám giờ tối: “Con đang làm gì đấy?” Bạn trả lời: “Con đang nấu cơm.” Tiếng Việt chỉ cần thêm chữ **đang**. Tiếng Anh cần hai phần đi cùng nhau: **am/is/are** và **động từ thêm -ing**. Đó là thì **hiện tại tiếp diễn**, dùng cho việc đang diễn ra ngay lúc nói."),
+      table(
+        ["Chủ ngữ", "Khẳng định", "Phủ định", "Câu hỏi"],
+        ["I", "I'm working.", "I'm not working.", "Am I working?"],
+        ["he / she / it", "She's working.", "She isn't working.", "Is she working?"],
+        ["you / we / they", "They're working.", "They aren't working.", "Are they working?"],
+      ),
+      ex("What are you doing? I'm cooking dinner.", "Bạn đang làm gì thế? Mình đang nấu bữa tối."),
+      ex("Be quiet! The baby is sleeping.", "Khẽ thôi! Em bé đang ngủ."),
+      ex("I'm not watching TV. I'm reading a book.", "Tôi không xem ti vi. Tôi đang đọc sách."),
+      mistake("I watching TV.", "I'm watching TV.", "Người Việt ghép “đang” với đuôi -ing rồi quên mất am/is/are. Hai phần phải luôn đi cùng nhau: thiếu to be là câu sai."),
+      mistake("She is work now.", "She is working now.", "Ngược lại, có bạn nhớ is nhưng quên -ing. Is work không phải câu tiếng Anh: phải là is working."),
+      p("Thêm **-ing** không phải lúc nào cũng chỉ việc gắn đuôi. Có vài quy tắc chính tả cần nhớ."),
+      table(
+        ["Quy tắc", "Ví dụ"],
+        ["Thường: thêm -ing", "read → reading, play → playing"],
+        ["Tận cùng bằng e câm: bỏ e, thêm -ing", "write → writing, make → making"],
+        ["Một nguyên âm + một phụ âm ở cuối (từ một âm tiết): gấp đôi phụ âm", "run → running, sit → sitting, swim → swimming"],
+        ["Tận cùng -ie: đổi thành -ying", "lie → lying, tie → tying"],
+      ),
+      tip("Mẹo gấp đôi: với từ một âm tiết, nhìn ba chữ cuối, nếu thấy **phụ âm, nguyên âm, phụ âm** (r-u-n, s-i-t) thì gấp đôi chữ cuối. Nhưng không bao giờ gấp đôi **w, x, y**: snow → snowing, fix → fixing, play → playing."),
+      p("So sánh với **hiện tại đơn** đã học: hiện tại đơn nói về **thói quen, việc lặp lại** (every day, usually); hiện tại tiếp diễn nói về việc **đang xảy ra lúc này** (now, at the moment, Look!)."),
+      table(
+        ["Hiện tại đơn", "Hiện tại tiếp diễn"],
+        ["I drink tea every morning.", "I'm drinking coffee now."],
+        ["She usually walks to work.", "Look! She's running."],
+        ["It often rains in June.", "It's raining at the moment."],
+      ),
+      ex("I usually go to work by motorbike, but today I'm taking the bus.", "Tôi thường đi làm bằng xe máy, nhưng hôm nay tôi đi xe buýt.", "Usually báo hiệu thói quen (hiện tại đơn), today báo hiệu việc khác thường đang diễn ra (tiếp diễn)."),
+      mistake("Every day I am going to work at seven.", "Every day I go to work at seven.", "Tiếng Việt dùng chữ “đang” khá thoải mái, nên có bạn dùng -ing cho cả thói quen. Có every day, usually, always là thói quen: dùng hiện tại đơn."),
+      teacher("Sau năm mươi năm dạy, tôi có một bài tập mà học trò nào cũng tiến bộ: ngồi ở quán cà phê hay trên xe buýt, nhìn quanh và nói thầm **She's talking on the phone. He's reading a newspaper. They're waiting for the bus.** Mỗi câu tự hỏi hai điều: đã có **am/is/are** chưa, động từ đã có **-ing** chưa. Thiếu một trong hai là phải nói lại. Làm vậy mười phút mỗi ngày, chỉ một tuần là hết quên."),
+    ],
+  },
+  words: [
+    word("sleep", "/sliːp/", "ngủ", "The children are sleeping.", "sleep", 0, "Kéo dài âm /iː/ và bật âm /p/ ở cuối."),
+    word("wait", "/weɪt/", "đợi, chờ", "I'm waiting for my friend.", "wait", 0, "Đi với for khi có người hoặc vật được đợi: wait for the bus."),
+    word("write", "/raɪt/", "viết", "She's writing an email.", "write", 0, "Chữ w câm, đọc giống hệt right; writing chỉ có một chữ t."),
+    word("run", "/rʌn/", "chạy", "Look! The dog is running.", "run", 0, "Running gấp đôi chữ n."),
+    word("listen", "/ˈlɪs.ən/", "nghe, lắng nghe", "I'm listening to music.", "lis|ten", 0, "Chữ t câm: đọc /ˈlɪs.ən/. Luôn đi với to khi có tân ngữ: listen to music."),
+    word("rain", "/reɪn/", "mưa", "Take an umbrella. It's raining.", "rain", 0),
+    word("now", "/naʊ/", "bây giờ", "What are you doing now?", "now", 0),
+    word("moment", "/ˈməʊ.mənt/", "lúc, thời điểm", "She's busy at the moment.", "mo|ment", 0, "At the moment nghĩa là ngay lúc này, giống now."),
+  ],
+  exercises: [
+    mc("a1-n15-1", "Look! It ___.", ["rains", "is raining", "raining"], 1, "Look! báo hiệu việc đang diễn ra trước mắt: dùng is + V-ing."),
+    mc("a1-n15-2", "Chọn cách viết đúng của sit + -ing:", ["siting", "sitteing", "sitting"], 2, "Sit kết thúc bằng phụ âm, nguyên âm, phụ âm nên gấp đôi t: sitting."),
+    fill("a1-n15-3", "She ___ her homework at the moment. (do)", ["is doing", "'s doing"], "At the moment là ngay lúc này; she đi với is: is doing."),
+    fill("a1-n15-4", "I ___ to work by bus every day. (go)", ["go"], "Every day là thói quen nên dùng hiện tại đơn, không dùng -ing."),
+    reorder("a1-n15-5", "What are your children doing?", "What + are + chủ ngữ + V-ing? Your children là số nhiều nên dùng are."),
+    reorder("a1-n15-6", "Who is sitting next to Lan?", "Who làm chủ ngữ nên đi thẳng với is sitting, không cần đảo."),
+    listen("a1-n15-7", "I'm waiting for the bus.", ["Tôi đang đợi xe buýt.", "Tôi thường đi xe buýt.", "Tôi đang ngồi trên xe buýt."], 0, "Waiting for là đang đợi."),
+    listen("a1-n15-8", "She isn't sleeping. She's reading.", ["Cô ấy đang ngủ chứ không đọc sách.", "Cô ấy không ngủ. Cô ấy đang đọc sách.", "Cô ấy không đọc sách. Cô ấy đang ngủ."], 1, "Isn't sleeping là không ngủ; she's reading là đang đọc."),
+  ],
+  speaking: [
+    say("I'm studying English at the moment.", "Lúc này tôi đang học tiếng Anh."),
+    say("What are you doing now?", "Bây giờ bạn đang làm gì?"),
+    say("It's raining, so we're staying at home.", "Trời đang mưa nên chúng tôi ở nhà."),
+  ],
+});

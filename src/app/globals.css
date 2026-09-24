@@ -28,6 +28,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* safety net for rotated decorative cards; clip (unlike hidden) keeps position: sticky working */
+  overflow-x: clip;
 }
 
 section[id] {

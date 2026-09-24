@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Course } from "@/content/types";
-import { flattenLessons } from "@/lib/course-utils";
+import { flattenLessons, lessonCounts } from "@/lib/course-utils";
 import { courseProgress } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { ProgressBar } from "@/components/ui/progress-bar";
@@ -12,6 +12,7 @@ export function EnrollPanel({ course }: { course: Course }) {
   const { state, ready } = useProgress();
   const [notified, setNotified] = useState(false);
   const lessons = flattenLessons(course);
+  const counts = lessonCounts(course);
   const p = courseProgress(course, state);
   const started = p.done > 0;
 
@@ -19,7 +20,8 @@ export function EnrollPanel({ course }: { course: Course }) {
     <>
       <p className="font-display text-3xl font-extrabold">Miễn phí</p>
       <p className="mt-1 text-ink-soft">
-        {lessons.length} bài học, khoảng {course.durationWeeks} tuần. Không cần đăng ký tài khoản.
+        {counts.lessons} bài học{counts.reviews > 0 ? `, ${counts.reviews} bài ôn tập` : ""}, khoảng {course.durationWeeks} tuần. Không cần
+        đăng ký tài khoản.
       </p>
     </>
   );

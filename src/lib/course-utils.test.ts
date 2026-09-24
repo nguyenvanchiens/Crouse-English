@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { COURSES } from "@/content";
-import { filterCourses, flattenLessons, isGoal, isLevel, suggestCourseSlug } from "./course-utils";
+import { filterCourses, flattenLessons, isGoal, isLevel, lessonCounts, suggestCourseSlug } from "./course-utils";
 
 describe("filterCourses", () => {
   it("filters by goal and level, and returns all without a filter", () => {
@@ -34,5 +34,15 @@ describe("suggestCourseSlug", () => {
     expect(suggestCourseSlug("A1")).toBe("tieng-anh-a1");
     expect(suggestCourseSlug("B2")).toBe("tieng-anh-b2");
     expect(suggestCourseSlug("C1")).toBe("tieng-anh-c1");
+  });
+});
+
+describe("lessonCounts", () => {
+  it("separates regular lessons from chapter reviews", () => {
+    const c = COURSES[0];
+    const all = c.modules.flatMap((m) => m.lessons);
+    const { lessons, reviews } = lessonCounts(c);
+    expect(lessons + reviews).toBe(all.length);
+    expect(reviews).toBe(all.filter((l) => l.review).length);
   });
 });

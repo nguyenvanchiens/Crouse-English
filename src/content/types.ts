@@ -57,7 +57,9 @@ export type LectureBlock =
   | { kind: "table"; headers: string[]; rows: string[][] }
   | { kind: "example"; en: string; vi: string; note?: string }
   | { kind: "tip"; body: string }
-  | { kind: "mistake"; wrong: string; right: string; why: string };
+  | { kind: "mistake"; wrong: string; right: string; why: string }
+  /** a veteran teacher's advice from years in the classroom; may contain **bold** */
+  | { kind: "teacher"; body: string };
 
 export interface LectureStep { type: "lecture"; title: string; blocks: LectureBlock[] }
 export interface VideoStep { type: "video"; youtubeId: string; title: string }
@@ -73,6 +75,8 @@ export interface Lesson {
   slug: string;
   title: string;
   minutes: number;
+  /** generated chapter review: a single exercise step drawn from the chapter's lessons */
+  review?: boolean;
   steps: Step[];
 }
 export interface Module { id: string; title: string; lessons: Lesson[] }

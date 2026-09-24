@@ -1,0 +1,62 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "dong-tu-khuyet-thieu-qua-khu",
+  title: "Lẽ ra đã nên…",
+  minutes: 22,
+  lecture: {
+    title: "Should have, could have, needn't have và didn't need to",
+    blocks: [
+      p("Dự án trễ hạn, sếp nhìn bạn và nói: **You should have told me earlier.** Nhiều bạn chỉ hiểu lờ mờ là mình bị trách. Người Việt diễn đạt ý này bằng chữ **“lẽ ra”**: lẽ ra nên, lẽ ra không nên, lẽ ra đã có thể. Tiếng Anh không có chữ “lẽ ra”, mà dùng **động từ khuyết thiếu + have + V3** để nói về một việc trong quá khứ **trái với điều đã thật sự xảy ra**. Ở bài Họp và thảo luận, ta đã dùng must have, might have để đoán; bài này dùng để **trách, tiếc và rút kinh nghiệm**."),
+      table(
+        ["Cấu trúc", "Ý nghĩa", "Ví dụ"],
+        ["should have + V3", "lẽ ra nên làm (nhưng đã không làm)", "We should have checked the figures."],
+        ["shouldn't have + V3", "lẽ ra không nên làm (nhưng đã làm)", "I shouldn't have sent that email."],
+        ["could have + V3", "lẽ ra đã có thể (có khả năng nhưng không làm)", "You could have asked me for help."],
+        ["needn't have + V3", "đã làm, nhưng hóa ra không cần", "I needn't have printed the slides."],
+        ["didn't need to + V", "không cần làm, và thường là đã không làm", "I didn't need to print the slides."],
+      ),
+      ex("We should have booked the tickets earlier. Now they're sold out.", "Lẽ ra chúng ta nên đặt vé sớm hơn. Giờ thì hết vé rồi.", "Sự thật là đã không đặt sớm. Should have + V3 luôn nói ngược với sự thật."),
+      ex("You shouldn't have shouted at the waiter. It wasn't his fault.", "Lẽ ra anh không nên quát người phục vụ. Đâu phải lỗi của anh ấy."),
+      mistake("You should told me earlier.", "You should have told me earlier.", "Tiếng Việt chỉ cần thêm chữ “lẽ ra” hay “đã” là thành quá khứ, nên học trò đổi động từ sang quá khứ ngay sau should. Nhưng sau động từ khuyết thiếu không bao giờ có V2; muốn lùi về quá khứ phải dùng have + V3."),
+      mistake("I must have studied harder for the exam.", "I should have studied harder for the exam.", "Chữ “lẽ ra phải” khiến nhiều bạn dịch thành must have. Nhưng must have + V3 nghĩa là “chắc hẳn đã”, dùng để suy đoán. Muốn tiếc hoặc tự trách, dùng should have."),
+      p("**Could have + V3** có hai cách dùng hay gặp. Thứ nhất là **lời trách nhẹ**: người kia có khả năng làm mà không làm. Thứ hai là nói về **một khả năng đã không thành hiện thực**, cả chuyện tốt lẫn chuyện xấu. Ngữ cảnh sẽ cho bạn biết đó là trách hay là tiếc."),
+      ex("You could have told me the meeting was cancelled!", "Lẽ ra anh có thể báo tôi là cuộc họp bị hủy chứ!", "Lời trách: anh hoàn toàn có thể báo, nhưng anh đã không báo."),
+      ex("She could have become a doctor, but she chose to be a teacher.", "Cô ấy đã có thể trở thành bác sĩ, nhưng cô ấy chọn làm giáo viên."),
+      p("Cặp dễ nhầm nhất là **needn't have + V3** và **didn't need to + V**. Cả hai đều nói việc đó không cần thiết. Nhưng **needn't have** cho biết bạn **đã làm rồi** và giờ mới thấy là thừa; còn **didn't need to** thường cho biết bạn **biết trước là không cần nên không làm**."),
+      table(
+        ["Câu", "Có đi taxi không?", "Ý nghĩa"],
+        ["I needn't have taken a taxi. The office was only five minutes away.", "Có", "Đã đi taxi, hóa ra phí tiền."],
+        ["I didn't need to take a taxi because Nam gave me a lift.", "Không", "Không cần nên đã không đi."],
+      ),
+      mistake("I needn't to have bought so much food.", "I needn't have bought so much food.", "Need khi làm động từ khuyết thiếu (needn't) đi thẳng với have, không có to. Học trò lẫn với động từ thường need to nên chen to vào giữa."),
+      tip("Khi nói, **should have** rút gọn thành **should've** /ˈʃʊd.əv/, **could have** thành **could've** /ˈkʊd.əv/. Vì nghe giống “should of” nên có người viết sai thành **should of**. Đừng bao giờ viết như vậy. Thêm một điều thú vị: khi được tặng quà, người Anh hay nói **Oh, you shouldn't have!** Đây là lời cảm ơn khách sáo, không phải lời trách."),
+      teacher("Tôi hay giao cho học trò một bài tập rất đơn giản: tối nào trước khi ngủ cũng viết **ba câu rút kinh nghiệm** về ngày hôm đó, một câu với should have, một câu với shouldn't have, một câu với needn't have. Ví dụ: **I should have left home earlier. I shouldn't have drunk so much coffee. I needn't have brought my umbrella.** Chỉ mất hai phút, nhưng sau một tháng các em dùng cấu trúc này tự nhiên như nói tiếng mẹ đẻ. Điều quan trọng hơn: **luôn tự hỏi sự thật là gì**, vì cấu trúc này bao giờ cũng nói ngược với điều đã xảy ra."),
+    ],
+  },
+  words: [
+    word("careless", "/ˈkeə.ləs/", "cẩu thả, bất cẩn", "It was careless of me to leave the door unlocked.", "care|less", 0),
+    word("oversight", "/ˈəʊ.və.saɪt/", "sự sơ suất, thiếu sót do không để ý", "It was a simple oversight. We should have checked the invoice twice.", "o|ver|sight", 0, "Trọng âm ở âm tiết đầu: O-ver-sight. Âm đầu là nguyên âm đôi /əʊ/, đọc gần “âu”."),
+    word("avoidable", "/əˈvɔɪ.də.bəl/", "có thể tránh được", "The delay was avoidable. We could have ordered the parts earlier.", "a|void|a|ble", 1, "Trọng âm ở âm tiết thứ hai: a-VOID-a-ble."),
+    word("unnecessary", "/ʌnˈnes.ə.sər.i/", "không cần thiết", "We needn't have hired a car. It was completely unnecessary.", "un|nec|es|sa|ry", 1, "Trọng âm ở âm tiết thứ hai: un-NEC-es-sa-ry. Không nhấn vào âm cuối."),
+    word("blame", "/bleɪm/", "đổ lỗi, trách", "Don't blame yourself. You couldn't have known.", "blame", 0),
+    word("hindsight", "/ˈhaɪnd.saɪt/", "sự nhìn lại (sau khi việc đã xảy ra)", "With hindsight, we should have chosen a different supplier.", "hind|sight", 0),
+    word("precaution", "/prɪˈkɔː.ʃən/", "biện pháp phòng ngừa", "We should have taken more precautions before the storm.", "pre|cau|tion", 1),
+    word("criticise", "/ˈkrɪt.ɪ.saɪz/", "chỉ trích, phê bình", "The manager criticised the team for missing the deadline.", "crit|i|cise", 0),
+  ],
+  exercises: [
+    mc("b2-n07-1", "I failed the test. I ___ harder.", ["must have studied", "should have studied", "needn't have studied", "should study"], 1, "Tiếc nuối về việc đã không làm trong quá khứ: should have + V3. Must have studied nghĩa là “chắc hẳn đã học”, không hợp ngữ cảnh."),
+    mc("b2-n07-2", "Nam gave me a lift, so I ___ a taxi.", ["needn't have taken", "shouldn't have taken", "must have taken", "didn't need to take"], 3, "Được bạn chở nên không đi taxi. Didn't need to + V: không cần và đã không làm. Needn't have taken lại cho biết là đã đi taxi rồi."),
+    fill("b2-n07-3", "You ___ have told me about the change. I waited for an hour! (lẽ ra nên)", ["should", "ought to"], "Should have + V3 (hoặc ought to have + V3): lẽ ra nên làm nhưng đã không làm."),
+    fill("b2-n07-4", "I needn't have ___ so early. The shop didn't open until ten. (get up)", ["got up", "gotten up"], "Needn't have + V3: đã dậy sớm, nhưng hóa ra không cần."),
+    reorder("b2-n07-5", "I should have listened to your advice.", "Should have + V3 để tự trách: lẽ ra tôi nên nghe lời khuyên của bạn."),
+    reorder("b2-n07-6", "You could have told me the truth.", "Could have + V3 dùng làm lời trách nhẹ: anh hoàn toàn có thể nói thật với tôi."),
+    listen("b2-n07-7", "We should have left home earlier.", ["Ngày mai chúng ta nên ra khỏi nhà sớm hơn.", "Lẽ ra chúng ta nên ra khỏi nhà sớm hơn.", "Chúng ta đã ra khỏi nhà rất sớm."], 1, "Should have left: lẽ ra nên đi sớm hơn, sự thật là đã đi muộn."),
+    listen("b2-n07-8", "I needn't have cooked so much food.", ["Tôi biết không cần nấu nhiều nên đã không nấu.", "Tôi phải nấu thêm thức ăn.", "Tôi nấu ít quá nên mọi người vẫn đói.", "Tôi đã nấu rất nhiều nhưng hóa ra không cần thiết."], 3, "Needn't have cooked: đã nấu rồi, sau đó mới thấy là thừa."),
+  ],
+  speaking: [
+    say("I should have checked the email more carefully.", "Lẽ ra tôi nên kiểm tra email cẩn thận hơn."),
+    say("You could have asked me for help.", "Lẽ ra bạn có thể nhờ tôi giúp mà."),
+    say("We needn't have hurried because the meeting started late.", "Hóa ra chúng ta vội vàng chẳng để làm gì, vì cuộc họp bắt đầu muộn."),
+  ],
+});

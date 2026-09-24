@@ -1,0 +1,66 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "cuoi-tuan-vua-roi",
+  title: "Cuối tuần vừa rồi",
+  minutes: 20,
+  lecture: {
+    title: "Was, were và there was, there were",
+    blocks: [
+      p("Sáng thứ Hai, đồng nghiệp nước ngoài hỏi bạn: **How was your weekend?** (Cuối tuần của bạn thế nào?). Để trả lời, bạn cần quá khứ của động từ to be: **am** và **is** thành **was**, **are** thành **were**. Đây là bước đầu tiên để kể chuyện đã qua."),
+      table(
+        ["Chủ ngữ", "Khẳng định", "Phủ định", "Câu hỏi", "Trả lời ngắn"],
+        ["I / he / she / it", "I was tired.", "I wasn't tired.", "Was she tired?", "Yes, she was. / No, she wasn't."],
+        ["you / we / they", "We were at home.", "We weren't at home.", "Were you at home?", "Yes, I was. / No, I wasn't."],
+      ),
+      ex("How was your weekend? It was great, thanks.", "Cuối tuần của bạn thế nào? Tuyệt lắm, cảm ơn bạn."),
+      ex("Where were you last night? I was at my sister's house.", "Tối qua bạn ở đâu? Tôi ở nhà chị gái tôi.", "My sister's house là nhà của chị gái tôi; 's chỉ sở hữu."),
+      mistake("Yesterday I am very tired.", "Yesterday I was very tired.", "Tiếng Việt không chia động từ theo thời gian: “hôm qua tôi mệt” và “hôm nay tôi mệt” dùng cùng một chữ. Tiếng Anh thì có yesterday rồi vẫn phải đổi am thành was."),
+      mistake("They was at the beach.", "They were at the beach.", "Was chỉ đi với I, he, she, it. You, we, they luôn đi với were."),
+      p("Muốn nói thời điểm trong quá khứ, dùng **yesterday** (hôm qua) hoặc **last** (vừa rồi, trước) cộng với tuần, tháng, năm, thứ trong tuần. Không đặt the hay in trước last."),
+      table(
+        ["Yesterday…", "Last…"],
+        ["yesterday (hôm qua)", "last night (tối qua, đêm qua)"],
+        ["yesterday morning (sáng hôm qua)", "last weekend (cuối tuần vừa rồi)"],
+        ["yesterday afternoon (chiều hôm qua)", "last Sunday (chủ nhật vừa rồi)"],
+        ["yesterday evening (tối hôm qua)", "last year (năm ngoái)"],
+      ),
+      mistake("I was at a party yesterday night.", "I was at a party last night.", "Tiếng Việt nói “tối hôm qua”, nên người Việt dịch thành yesterday night. Người bản xứ nói last night. Yesterday evening thì vẫn dùng được."),
+      p("Tương tự **there is/there are** đã học, quá khứ là **there was** (số ít, không đếm được) và **there were** (số nhiều)."),
+      table(
+        ["", "Số ít / không đếm được", "Số nhiều"],
+        ["Khẳng định", "There was a concert.", "There were a lot of people."],
+        ["Phủ định", "There wasn't any rain.", "There weren't any taxis."],
+        ["Câu hỏi", "Was there a party?", "Were there many tourists?"],
+      ),
+      ex("There were a lot of people at the market last Sunday.", "Chủ nhật vừa rồi chợ rất đông người.", "Tiếng Việt nói “chợ đông người”, tiếng Anh nói có nhiều người ở chợ: there were a lot of people."),
+      tip("Trong câu khẳng định, **was** và **were** đọc nhẹ: /wəz/, /wər/. Trong câu trả lời ngắn thì đọc mạnh: **Yes, I was** /wɒz/. Wasn't đọc là /ˈwɒz.ənt/, nhớ bật âm /t/ cuối để không lẫn với was."),
+      teacher("Sáng thứ Hai nào đi dạy tôi cũng hỏi học trò một câu: **How was your weekend?** Và lần nào cũng có người trả lời “It is good”. Các em hãy tập cho mình phản xạ: nghe **How was…?** thì miệng trả lời bằng **It was…**. Tối chủ nhật, trước khi ngủ, viết ba câu về cuối tuần của mình: một câu với **was**, một câu với **were**, một câu với **there was/were**. Nhỏ thôi nhưng đều đặn, đó là cách người lớn tuổi như tôi đã học ngoại ngữ."),
+    ],
+  },
+  words: [
+    word("weekend", "/ˌwiːkˈend/", "cuối tuần", "How was your weekend?", "week|end", 1, "Người Anh nhấn âm sau: week-END; người Mỹ hay nhấn âm đầu."),
+    word("last", "/lɑːst/", "vừa rồi, trước; cuối cùng", "I was in Da Lat last week.", "last", 0, "Nhớ đọc cả /s/ lẫn /t/ ở cuối, đừng đọc thành “lát”."),
+    word("beach", "/biːtʃ/", "bãi biển", "We were at the beach all day.", "beach", 0, "Kéo dài âm /iː/ như trong see và kết thúc bằng /tʃ/ nhẹ, đừng đọc thành “bích”."),
+    word("party", "/ˈpɑː.ti/", "bữa tiệc", "There was a birthday party at my house.", "par|ty", 0),
+    word("tired", "/taɪəd/", "mệt", "I was very tired after work.", "tired", 0, "Chỉ có một âm tiết: /taɪəd/, không đọc thành “tai-ơ-rét”."),
+    word("crowded", "/ˈkraʊ.dɪd/", "đông đúc", "The market was very crowded.", "crowd|ed", 0),
+    word("weather", "/ˈweð.ər/", "thời tiết", "The weather was lovely last weekend.", "weath|er", 0, "Âm /ð/ đặt đầu lưỡi giữa hai hàm răng, đừng đọc thành /d/."),
+    word("concert", "/ˈkɒn.sət/", "buổi hòa nhạc", "Were you at the concert last night?", "con|cert", 0),
+  ],
+  exercises: [
+    mc("a1-n16-1", "We ___ at the beach last Sunday.", ["are", "was", "were"], 2, "We đi với were; last Sunday là quá khứ nên không dùng are."),
+    mc("a1-n16-2", "Chọn cách nói đúng cho “tối qua”:", ["last night", "yesterday night", "the last night"], 0, "Người bản xứ nói last night, không nói yesterday night, không thêm the."),
+    fill("a1-n16-3", "I ___ at home last night. I was at a party. (không ở)", ["wasn't", "was not"], "I đi với was; phủ định là wasn't."),
+    fill("a1-n16-4", "There ___ a lot of people at the concert. (be)", ["were"], "A lot of people là số nhiều nên dùng there were."),
+    reorder("a1-n16-5", "Where were you last Saturday?", "Where + were + you + thời gian? Last Saturday đứng cuối câu."),
+    reorder("a1-n16-6", "How many people were there at the party?", "How many + danh từ số nhiều + were there + nơi chốn?"),
+    listen("a1-n16-7", "Were you tired after the trip?", ["Bạn đang mệt à?", "Chuyến đi có vui không?", "Sau chuyến đi bạn có mệt không?"], 2, "Were you…? là câu hỏi về quá khứ; tired là mệt."),
+    listen("a1-n16-8", "There wasn't a hotel near the beach.", ["Gần bãi biển có một khách sạn.", "Gần bãi biển không có khách sạn nào.", "Khách sạn ở ngay trên bãi biển."], 1, "There wasn't là đã không có."),
+  ],
+  speaking: [
+    say("I was at home last weekend.", "Cuối tuần vừa rồi tôi ở nhà."),
+    say("How was your weekend?", "Cuối tuần của bạn thế nào?"),
+    say("There were a lot of people at the market.", "Ở chợ có rất nhiều người."),
+  ],
+});

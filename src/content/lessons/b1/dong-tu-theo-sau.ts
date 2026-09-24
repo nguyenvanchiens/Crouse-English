@@ -1,0 +1,62 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "dong-tu-theo-sau",
+  title: "Động từ theo sau là gì?",
+  minutes: 22,
+  lecture: {
+    title: "Động từ + to V và động từ + V-ing",
+    blocks: [
+      p("Tiếng Việt ghép hai động từ rất tự do: “tôi **thích nấu** ăn”, “tôi **quyết định nghỉ** việc”, không cần thêm gì. Tiếng Anh thì khác: động từ đứng sau phải có hình thức do **động từ đứng trước quyết định**, hoặc **to + V**, hoặc **V-ing**. Không có quy tắc tuyệt đối, nên ta học theo nhóm."),
+      table(
+        ["Theo sau là", "Động từ thường gặp", "Ví dụ"],
+        ["to + V", "want, decide, hope, plan, promise, refuse, agree, learn, need, would like", "I've decided to change my job."],
+        ["V-ing", "enjoy, avoid, finish, mind, suggest, consider, keep, practise, give up", "I enjoy cooking for my family."],
+        ["Cả hai, nghĩa gần như không đổi", "like, love, hate, start, begin", "It started raining. / It started to rain."],
+      ),
+      ex("She hopes to study abroad next year.", "Cô ấy hy vọng sẽ đi du học vào năm sau."),
+      ex("We finished eating and asked for the bill.", "Chúng tôi ăn xong và gọi thanh toán."),
+      ex("Would you mind closing the door?", "Bạn có phiền đóng cửa giúp tôi không?", "Would you mind + V-ing là cách nhờ rất lịch sự. Nếu đồng ý giúp, trả lời No, not at all (không phiền gì cả)."),
+      p("Quy tắc chắc chắn nhất: **sau giới từ luôn là V-ing**. Các giới từ hay gặp: in, at, of, about, for, without, instead of, before, after."),
+      table(
+        ["Cụm", "Ví dụ"],
+        ["be interested in + V-ing", "I'm interested in learning Japanese."],
+        ["be good at + V-ing", "He's good at fixing computers."],
+        ["thank you for + V-ing", "Thank you for helping me."],
+        ["look forward to + V-ing", "I look forward to hearing from you."],
+        ["before / after / without + V-ing", "Wash your hands before eating."],
+      ),
+      ex("He left without saying goodbye.", "Anh ấy bỏ đi mà không chào một tiếng."),
+      tip("Mẹo nhớ: các động từ đi với **to V** thường hướng về **tương lai**, chuyện chưa làm (want, hope, plan, decide, promise). Các động từ đi với **V-ing** thường nói về **việc đang có, đang trải qua** (enjoy, finish, avoid, mind). Mẹo này đúng với phần lớn trường hợp, không phải tất cả, nên vẫn cần học thuộc danh sách."),
+      mistake("I enjoy to cook Vietnamese food.", "I enjoy cooking Vietnamese food.", "Tiếng Việt không đổi hình thức động từ nên người Việt hay chọn đại to V. Enjoy luôn đi với V-ing."),
+      mistake("I look forward to hear from you.", "I look forward to hearing from you.", "Chữ to ở đây là giới từ, không phải to của động từ nguyên mẫu, nên theo sau phải là V-ing. Đây là lỗi rất hay gặp trong email công việc."),
+      mistake("She decided going home early.", "She decided to go home early.", "Decide luôn đi với to V."),
+      teacher("Thầy dạy nửa thế kỷ và chưa thấy ai nhớ được danh sách này bằng cách chép một trăm lần. Cách hiệu quả là **học động từ kèm luôn cái đuôi**: đừng học enjoy, hãy học **enjoy doing**; đừng học decide, hãy học **decide to do**. Viết vào sổ tay đúng như vậy. Mỗi khi viết email, trước khi gửi hãy dò lại những chữ look forward to, thank you for, interested in, xem sau chúng đã là V-ing chưa. Thói quen nhỏ này giúp bạn tránh một lỗi mà sếp nước ngoài nhìn thấy ngay."),
+    ],
+  },
+  words: [
+    word("avoid", "/əˈvɔɪd/", "tránh", "I try to avoid driving in the rush hour.", "a|void", 1, "Luôn đi với V-ing: avoid doing something."),
+    word("enjoy", "/ɪnˈdʒɔɪ/", "thích, tận hưởng", "My father enjoys reading the newspaper.", "en|joy", 1),
+    word("refuse", "/rɪˈfjuːz/", "từ chối", "He refused to answer my question.", "re|fuse", 1, "Âm cuối là /z/, không phải /s/."),
+    word("promise", "/ˈprɒm.ɪs/", "hứa", "I promise to call you tonight.", "prom|ise", 0, "Trọng âm ở âm đầu; âm cuối là /ɪs/, không đọc thành “pro-mai”."),
+    word("suggest", "/səˈdʒest/", "đề nghị, gợi ý", "She suggested going to the beach.", "sug|gest", 1, "Chữ gg ở đây đọc là /dʒ/."),
+    word("mind", "/maɪnd/", "phiền, bận tâm", "Do you mind waiting a few minutes?", "mind", 0),
+    word("consider", "/kənˈsɪd.ər/", "cân nhắc, xem xét", "We're considering moving to Da Nang.", "con|sid|er", 1),
+    word("hesitate", "/ˈhez.ɪ.teɪt/", "do dự, ngần ngại", "Please don't hesitate to contact me.", "hes|i|tate", 0, "Chữ s ở đây đọc là /z/."),
+  ],
+  exercises: [
+    mc("b1-n07-1", "I've decided ___ a new job.", ["looking for", "to look for", "look for", "to looking for"], 1, "Decide đi với to + V: decided to look for."),
+    mc("b1-n07-2", "Would you mind ___ the window?", ["to open", "open", "opening"], 2, "Mind luôn đi với V-ing: Would you mind opening…?"),
+    fill("b1-n07-3", "She finished ___ the report at midnight. (write)", ["writing"], "Finish đi với V-ing: finished writing."),
+    fill("b1-n07-4", "I'm looking forward to ___ you next week. (see)", ["seeing"], "To trong look forward to là giới từ, nên theo sau là V-ing."),
+    reorder("b1-n07-5", "She refused to answer my question.", "Refuse đi với to + V: refused to answer."),
+    reorder("b1-n07-6", "He is very good at fixing computers.", "Sau giới từ at dùng V-ing: good at fixing."),
+    listen("b1-n07-7", "I avoid driving in the rush hour.", ["Tôi thích lái xe vào giờ cao điểm.", "Tôi tránh lái xe vào giờ cao điểm.", "Tôi chưa bao giờ học lái xe."], 1, "Avoid + V-ing: tránh làm việc gì."),
+    listen("b1-n07-8", "Thank you for coming to my birthday party.", ["Cảm ơn bạn đã đến dự tiệc sinh nhật của tôi.", "Bạn có đến dự tiệc sinh nhật của tôi không?", "Tôi xin lỗi vì không đến dự tiệc sinh nhật của bạn."], 0, "Thank you for + V-ing: cảm ơn vì đã làm gì."),
+  ],
+  speaking: [
+    say("I enjoy walking in the park after dinner.", "Tôi thích đi dạo trong công viên sau bữa tối."),
+    say("I've decided to study English every day.", "Tôi đã quyết định học tiếng Anh mỗi ngày."),
+    say("Thank you for helping me with my homework.", "Cảm ơn bạn đã giúp tôi làm bài tập."),
+  ],
+});

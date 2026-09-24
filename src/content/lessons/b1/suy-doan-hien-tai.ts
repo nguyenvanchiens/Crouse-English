@@ -1,0 +1,55 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "suy-doan-hien-tai",
+  title: "Chắc là, có lẽ, không thể nào",
+  minutes: 20,
+  lecture: {
+    title: "Động từ khuyết thiếu chỉ sự suy đoán ở hiện tại",
+    blocks: [
+      p("Đồng nghiệp nhìn đồng hồ, ngáp liên tục, mắt thâm quầng. Bạn nghĩ: “Chắc là anh ấy mệt lắm.” Khi **không biết chắc** mà phải **đoán dựa trên dấu hiệu**, tiếng Anh dùng các động từ khuyết thiếu: **must**, **might**, **could**, **can't**. Mỗi từ cho biết bạn chắc chắn đến mức nào."),
+      table(
+        ["Mức độ chắc chắn", "Cấu trúc", "Nghĩa", "Ví dụ"],
+        ["Gần như chắc chắn đúng", "must + V", "chắc hẳn là", "He must be tired."],
+        ["Có thể đúng", "might / may / could + V", "có lẽ, có thể là", "She might be at the gym."],
+        ["Gần như chắc chắn sai", "can't + V", "không thể nào", "That can't be true."],
+      ),
+      ex("He's been working for twelve hours. He must be exhausted.", "Anh ấy làm việc mười hai tiếng rồi. Chắc hẳn anh ấy kiệt sức."),
+      ex("I'm not sure where Mai is. She might be in a meeting.", "Tôi không chắc Mai ở đâu. Có lẽ cô ấy đang họp."),
+      ex("That can't be Minh. He's in Japan this week.", "Người đó không thể là Minh được. Tuần này anh ấy đang ở Nhật.", "Có bằng chứng ngược lại (Minh đang ở Nhật) nên ta loại bỏ khả năng này."),
+      p("Muốn đoán về việc **đang diễn ra ngay lúc này**, dùng **must / might / can't + be + V-ing**."),
+      ex("The lights are off. They must be sleeping.", "Đèn tắt rồi. Chắc họ đang ngủ."),
+      p("Khi đoán, người bản xứ hay nêu **bằng chứng** đi kèm: **He's wearing a uniform, so he must be a guard.** (Anh ấy mặc đồng phục, nên chắc là bảo vệ.) Hoặc dùng **judging by** (căn cứ vào): Judging by her accent, she might be from the north."),
+      tip("Mẹo nhớ: **must** và **can't** là hai đầu đối nghịch của cùng một cái cân. Must = 90% đúng, can't = 90% sai. Might, may, could nằm ở giữa, khoảng 50%. Khi nói, **can't** trong tiếng Anh-Anh đọc là /kɑːnt/, âm dài và rõ /t/ cuối để người nghe không nhầm với can."),
+      mistake("He mustn't be at home. His car isn't here.", "He can't be at home. His car isn't here.", "Người Việt nghĩ ngược của must là mustn't. Nhưng mustn't nghĩa là “cấm, không được phép”. Đoán phủ định phải dùng can't."),
+      mistake("She maybe is at the office.", "She may be at the office. / Maybe she is at the office.", "Maybe (một từ) là trạng từ, thường đứng đầu câu. May be (hai từ) là động từ khuyết thiếu + be, đứng sau chủ ngữ. Tiếng Việt chỉ có một chữ “có lẽ” nên người Việt hay trộn hai cách."),
+      mistake("You must to be tired.", "You must be tired.", "Sau must, might, could, can't là động từ nguyên mẫu không có to."),
+      teacher("Nhiều năm đứng lớp, thầy thấy học trò Việt chỉ biết must với nghĩa “phải”, nên nghe câu **You must be Lan's mother** thì tưởng người ta đang ra lệnh. Thật ra đó là câu đoán rất lịch sự: “Chắc chị là mẹ của Lan.” Bài tập mỗi ngày của thầy: ngồi quán cà phê, nhìn người qua đường và thầm đoán bằng ba mức. **She must be a teacher. He might be a tourist. They can't be students.** Luyện năm phút mỗi ngày, phản xạ sẽ tự đến."),
+    ],
+  },
+  words: [
+    word("evidence", "/ˈev.ɪ.dəns/", "bằng chứng", "There's no evidence, so it might not be true.", "ev|i|dence", 0, "Không đếm được: không nói an evidence hay evidences."),
+    word("certain", "/ˈsɜː.tən/", "chắc chắn", "I'm not certain, but he might be the new manager.", "cer|tain", 0),
+    word("probably", "/ˈprɒb.ə.bli/", "có lẽ, nhiều khả năng", "She's probably at home now.", "prob|a|bly", 0, "Người bản xứ nói nhanh thường chỉ còn hai âm tiết: /ˈprɒb.li/."),
+    word("obvious", "/ˈɒb.vi.əs/", "hiển nhiên, rõ ràng", "She keeps looking at her watch. It's obvious that she's in a hurry.", "ob|vi|ous", 0),
+    word("guess", "/ɡes/", "đoán", "Guess who I met today!", "guess", 0, "Chữ u không đọc: /ɡes/, giống get đổi âm cuối thành /s/."),
+    word("clue", "/kluː/", "manh mối, gợi ý", "I have no clue where my keys are.", "clue", 0),
+    word("impossible", "/ɪmˈpɒs.ə.bəl/", "không thể", "It's impossible. He can't be here already.", "im|pos|si|ble", 1),
+    word("uniform", "/ˈjuː.nɪ.fɔːm/", "đồng phục", "He's wearing a uniform, so he must work here.", "u|ni|form", 0, "Âm đầu là /juː/ như chữ you, nên nói a uniform, không nói an uniform."),
+  ],
+  exercises: [
+    mc("b1-n06-1", "Nam has worked all night. He ___ be very tired.", ["can't", "must", "mustn't"], 1, "Có bằng chứng rõ ràng (làm cả đêm), nên đoán gần như chắc chắn: must."),
+    mc("b1-n06-2", "That ___ be Minh. He's in Japan this week.", ["must", "might", "can't", "could"], 2, "Minh đang ở Nhật, nên người kia gần như chắc chắn không phải Minh: can't."),
+    fill("b1-n06-3", "I'm not sure where Lan is. She ___ be at the gym. (có lẽ)", ["might", "may", "could"], "Không chắc chắn, chỉ là một khả năng: might, may hoặc could."),
+    fill("b1-n06-4", "All the lights are off. They ___ be at home. (chắc chắn không)", ["can't", "cannot", "couldn't"], "Đoán phủ định dựa trên bằng chứng dùng can't, không dùng mustn't."),
+    reorder("b1-n06-5", "You must be very proud of her.", "Must be + tính từ: lời đoán lịch sự về cảm xúc của người khác."),
+    reorder("b1-n06-6", "You can't be serious about this.", "Can't be + tính từ: đoán gần như chắc chắn là không đúng. Câu này nghĩa là “Chắc bạn đùa thôi, không thể nào bạn nói thật được”."),
+    listen("b1-n06-7", "Someone's knocking. It might be the postman.", ["Có người gõ cửa. Có lẽ là người đưa thư.", "Có người gõ cửa. Chắc chắn là người đưa thư.", "Người đưa thư không bao giờ gõ cửa."], 0, "Might: chỉ là một khả năng, không chắc chắn."),
+    listen("b1-n06-8", "She can't be hungry. She's just had lunch.", ["Cô ấy chắc là đói lắm vì chưa ăn trưa.", "Cô ấy không được phép ăn trưa.", "Cô ấy không thể đói được. Cô ấy vừa ăn trưa xong."], 2, "Can't be: không thể nào, dựa trên bằng chứng vừa ăn trưa."),
+  ],
+  speaking: [
+    say("You must be tired after that long flight.", "Chắc hẳn bạn mệt lắm sau chuyến bay dài như vậy."),
+    say("He might be stuck in traffic.", "Có lẽ anh ấy đang bị kẹt xe."),
+    say("That can't be true.", "Chuyện đó không thể nào là thật."),
+  ],
+});

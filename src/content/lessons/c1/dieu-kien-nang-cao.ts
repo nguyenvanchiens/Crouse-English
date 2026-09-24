@@ -1,0 +1,58 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "dieu-kien-nang-cao",
+  title: "Câu điều kiện nâng cao",
+  minutes: 24,
+  lecture: {
+    title: "Were to, should, đảo ngữ, but for và supposing",
+    blocks: [
+      p("Các em đã thuộc lòng ba loại câu điều kiện từ B1, B2. Nhưng mở một email từ ngân hàng hay một hợp đồng tiếng Anh, các em sẽ thấy: **Should you have any questions, please contact us.** Không có chữ if nào cả. Ở trình độ C1, câu điều kiện có thêm những biến thể **trang trọng** và **tinh tế** hơn, giúp các em viết như người trong nghề và đọc hiểu văn bản chính thức."),
+      table(
+        ["Cấu trúc", "Dùng khi", "Câu thường", "Câu nâng cao"],
+        ["If + were to + V", "giả định rất xa, khó xảy ra", "If the company moved abroad...", "If the company were to move abroad..."],
+        ["If + should + V", "khả năng nhỏ, lịch sự", "If you need help...", "If you should need help..."],
+        ["Should + S + V", "đảo ngữ của should, rất trang trọng", "If you need help...", "Should you need help..."],
+        ["Were + S + to V / Were + S", "đảo ngữ của loại hai", "If I were you...", "Were I you... / Were I to accept..."],
+        ["Had + S + V3", "đảo ngữ của loại ba", "If I had known...", "Had I known..."],
+      ),
+      p("**Đảo ngữ trong câu điều kiện** chỉ xảy ra với ba từ: **should**, **were**, **had**. Bỏ if, đưa từ đó lên trước chủ ngữ. Lưu ý: đây là đảo ngữ điều kiện, khác với đảo ngữ phủ định (Never have I...) các em đã học."),
+      ex("Should you require any further information, please do not hesitate to contact me.", "Nếu quý vị cần thêm thông tin, xin đừng ngần ngại liên hệ với tôi.", "Câu kết kinh điển của email trang trọng. Nhớ: sau should là động từ nguyên mẫu (require), không phải requires."),
+      ex("Were the government to raise taxes, many small businesses would struggle.", "Nếu chính phủ tăng thuế, nhiều doanh nghiệp nhỏ sẽ gặp khó khăn.", "Were to nhấn mạnh đây chỉ là giả định, người nói không cho rằng việc này sắp xảy ra."),
+      ex("Had I known about the traffic, I would have left earlier.", "Nếu tôi biết trước chuyện kẹt xe thì tôi đã đi sớm hơn."),
+      mistake("Hadn't I known the truth, I would have signed the contract.", "Had I not known the truth, I would have signed the contract.", "Trong đảo ngữ điều kiện, không dùng dạng rút gọn phủ định. Not phải tách ra, đứng sau chủ ngữ: Had I not, Should you not, Were it not."),
+      mistake("If I would have known, I would have come.", "Had I known, I would have come. / If I had known, I would have come.", "Tiếng Việt dùng “đã” và “sẽ” ở cả hai vế, nên học trò đưa would vào cả mệnh đề if. Trong câu điều kiện giả định, mệnh đề if không dùng would (would have); would chỉ đứng ở mệnh đề chính. Câu lịch sự như If you would follow me, please... là ngoại lệ: would ở đây mang nghĩa “vui lòng”, không phải giả định."),
+      p("**But for** và **if it weren't for / if it hadn't been for** đều nghĩa là “nếu không có, nếu không nhờ”. **But for** chỉ đi với **danh từ**; hai cấu trúc với if đi với danh từ nhưng chia theo thời gian: weren't cho hiện tại, hadn't been cho quá khứ."),
+      ex("If it weren't for my parents, I wouldn't be where I am today.", "Nếu không có bố mẹ, tôi đã không có được ngày hôm nay.", "Có thể viết đảo ngữ: Were it not for my parents... Trong văn nói thân mật, người ta còn nói If it wasn't for..."),
+      mistake("But for you helped me, I would have failed.", "But for your help, I would have failed.", "But for là giới từ, chỉ đi với danh từ hoặc cụm danh từ, không đi với mệnh đề. Tiếng Việt “nếu không nhờ anh giúp” có động từ, nên học trò hay ghép nguyên cả mệnh đề vào."),
+      p("**Supposing** và **suppose** (giả sử) mở đầu một tình huống giả định, rất hay dùng khi bàn kế hoạch, cân nhắc rủi ro. Có thể dùng thì hiện tại cho khả năng thật, thì quá khứ cho giả định xa."),
+      ex("Supposing the client rejects our offer, what's our plan B?", "Giả sử khách hàng từ chối đề nghị của mình, phương án dự phòng là gì?"),
+      tip("Mẹo nhớ ba từ đảo ngữ điều kiện: **S-W-H**, tức là **Should, Were, Had**. Chỉ ba từ này được đứng đầu thay cho if. Không bao giờ đảo với will, would hay do."),
+      teacher("Năm mươi năm dạy tiếng Anh thương mại, tôi thấy học trò Việt viết email rất lễ phép bằng tiếng Việt, nhưng sang tiếng Anh lại cụt lủn: If you need, call me. Thầy dặn: hãy học thuộc **một câu mẫu** cho mỗi cấu trúc, như Should you need anything, please let me know, rồi dùng nó ngay trong email tuần này. Ngữ pháp nâng cao chỉ trở thành của mình khi mình **dùng nó cho việc thật**, không phải khi làm đúng bài tập."),
+    ],
+  },
+  words: [
+    word("hypothetical", "/ˌhaɪ.pəˈθet.ɪ.kəl/", "giả định, mang tính giả thuyết", "Let's consider a hypothetical situation.", "hy|po|thet|i|cal", 2, "Âm /θ/: đặt đầu lưỡi giữa hai hàm răng, đừng đọc thành /t/ hay /s/."),
+    word("contingency", "/kənˈtɪn.dʒən.si/", "tình huống bất ngờ, phương án dự phòng", "We need a contingency plan in case the supplier fails.", "con|tin|gen|cy", 1),
+    word("scenario", "/sɪˈnɑː.ri.əʊ/", "kịch bản, tình huống", "In the worst-case scenario, we would lose the contract.", "sce|na|ri|o", 1, "Âm thứ hai là /nɑː/ kéo dài, không đọc là “xê-na-ri-ô” như tiếng Việt."),
+    word("unforeseen", "/ˌʌn.fɔːˈsiːn/", "không lường trước được", "The event was cancelled due to unforeseen circumstances.", "un|fore|seen", 2),
+    word("hindsight", "/ˈhaɪnd.saɪt/", "sự nhìn lại (sau khi việc đã xảy ra)", "With hindsight, I would have chosen a different career.", "hind|sight", 0),
+    word("speculate", "/ˈspek.jə.leɪt/", "suy đoán, phỏng đoán", "It's too early to speculate about the cause of the accident.", "spec|u|late", 0),
+    word("feasible", "/ˈfiː.zə.bəl/", "khả thi", "Is it feasible to finish the project by June?", "fea|si|ble", 0),
+  ],
+  exercises: [
+    mc("c1-n07-1", "___ you require any further assistance, please contact our support team.", ["Should", "Would", "Had", "Were"], 0, "Should + S + V nguyên mẫu là đảo ngữ trang trọng của If you require."),
+    mc("c1-n07-2", "___ known about the traffic jam, we would have taken the train.", ["If we", "Had we", "Should we", "Were we"], 1, "Đảo ngữ loại ba: Had + chủ ngữ + V3, thay cho If we had known."),
+    fill("c1-n07-3", "But ___ your advice, I would never have found this job.", ["for"], "But for + danh từ: nếu không nhờ."),
+    fill("c1-n07-4", "If it ___ for the rain, we would be at the beach now. (không có)", ["weren't", "were not", "wasn't", "was not"], "Now cho biết đây là hiện tại, nên dùng if it weren't for. Wasn't cũng được chấp nhận trong văn nói."),
+    reorder("c1-n07-5", "What if the client were to cancel the order?", "Were to + V: giả định một khả năng khó xảy ra."),
+    reorder("c1-n07-6", "Supposing the bank were to refuse the loan?", "Supposing mở đầu một câu hỏi giả định, thường dùng khi bàn phương án dự phòng."),
+    listen("c1-n07-7", "Were the company to relocate, most of the staff would resign.", ["Công ty đã chuyển địa điểm và phần lớn nhân viên đã nghỉ việc.", "Nhân viên muốn công ty chuyển địa điểm.", "Nếu công ty chuyển địa điểm, phần lớn nhân viên sẽ nghỉ việc."], 2, "Were + S + to V là đảo ngữ của if the company were to relocate. Việc này chưa xảy ra."),
+    listen("c1-n07-8", "Had it not been for the map, we would have got lost.", ["Nếu không nhờ tấm bản đồ, chúng tôi đã bị lạc rồi.", "Vì không có bản đồ nên chúng tôi bị lạc.", "Chúng tôi bị lạc dù có bản đồ.", "Chúng tôi làm mất tấm bản đồ."], 0, "Had it not been for = if it hadn't been for: nếu không nhờ. Thực tế là họ có bản đồ và không bị lạc."),
+  ],
+  speaking: [
+    say("Should you need anything, just let me know.", "Nếu bạn cần gì, cứ báo cho tôi biết."),
+    say("Had I known, I would have called you.", "Nếu tôi biết thì tôi đã gọi cho bạn rồi."),
+    say("But for your help, I would have given up long ago.", "Nếu không nhờ bạn giúp, tôi đã bỏ cuộc từ lâu rồi."),
+  ],
+});

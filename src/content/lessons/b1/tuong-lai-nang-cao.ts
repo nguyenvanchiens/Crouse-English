@@ -1,0 +1,61 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "tuong-lai-nang-cao",
+  title: "Tương lai tiếp diễn và hoàn thành",
+  minutes: 22,
+  lecture: {
+    title: "Will be doing, will have done, by + thời gian, this time next week",
+    blocks: [
+      p("Sếp hỏi: “Tám giờ sáng thứ Sáu em rảnh không?” Bạn muốn trả lời: “Giờ đó em **đang** bay sang Singapore rồi ạ.” Rồi sếp hỏi tiếp: “Bao giờ xong báo cáo?” Bạn đáp: “Đến thứ Năm là em **làm xong** rồi.” Hai câu này cần hai thì tương lai mà người Việt ít khi dùng: **tương lai tiếp diễn** và **tương lai hoàn thành**."),
+      table(
+        ["Thì", "Cấu trúc", "Dùng khi", "Ví dụ"],
+        ["Tương lai tiếp diễn", "will be + V-ing", "việc sẽ đang diễn ra tại một thời điểm trong tương lai", "At nine tomorrow, I'll be flying to Singapore."],
+        ["Tương lai hoàn thành", "will have + V3", "việc sẽ xong trước một mốc trong tương lai", "I'll have finished the report by Thursday."],
+      ),
+      table(
+        ["Dạng", "Tương lai tiếp diễn", "Tương lai hoàn thành"],
+        ["Khẳng định", "She'll be working.", "She'll have left."],
+        ["Phủ định", "She won't be working.", "She won't have left."],
+        ["Nghi vấn", "Will she be working?", "Will she have left?"],
+      ),
+      p("Dấu hiệu nhận biết: **this time next week / this time tomorrow / at eight tomorrow** thường đi với will be + V-ing. **By + mốc thời gian** (by Friday, by the end of the year) và **by the time + mệnh đề** thường đi với will have + V3. By ở đây nghĩa là “trước hoặc muộn nhất là vào lúc đó”."),
+      ex("This time next week, I'll be lying on a beach in Phu Quoc.", "Giờ này tuần sau, tôi đang nằm trên bãi biển ở Phú Quốc."),
+      ex("Don't call me at eight. I'll be having dinner with my clients.", "Đừng gọi tôi lúc tám giờ. Lúc đó tôi đang ăn tối với khách hàng."),
+      ex("By the end of this year, I'll have saved enough money for a new laptop.", "Đến cuối năm nay, tôi sẽ tiết kiệm được đủ tiền mua máy tính xách tay mới.", "Việc tiết kiệm sẽ hoàn tất trước mốc cuối năm."),
+      ex("By the time you arrive, the film will have started.", "Đến lúc bạn tới nơi thì phim đã bắt đầu rồi.", "Sau by the time dùng hiện tại đơn (arrive), không dùng will."),
+      p("Will be + V-ing còn là cách **hỏi lịch sự về kế hoạch** của người khác, nghe nhẹ nhàng hơn will thường, vì bạn chỉ hỏi dự định chứ không phải đang nhờ vả."),
+      ex("Will you be using the car tonight?", "Tối nay anh có định dùng xe không?", "Người hỏi có thể đang muốn mượn xe, nhưng hỏi về kế hoạch trước cho khéo."),
+      mistake("This time tomorrow, I will lie on the beach.", "This time tomorrow, I will be lying on the beach.", "Tiếng Việt chỉ cần chữ “đang” mà không đổi động từ. Tiếng Anh cần will be + V-ing để diễn tả việc đang diễn ra tại thời điểm đó."),
+      mistake("By the time you will arrive, I will have left.", "By the time you arrive, I will have left.", "Giống when và if, sau by the time dùng hiện tại đơn dù đang nói về tương lai."),
+      mistake("By Friday, I will have finish the project.", "By Friday, I will have finished the project.", "Sau will have phải là V3. Người Việt nói nhanh hay nuốt đuôi -ed nên viết cũng quên luôn."),
+      tip("Mẹo phân biệt: nghĩ tới **một bức ảnh chụp** tại thời điểm tương lai. Trong ảnh việc **đang làm dở** thì dùng will be + V-ing. Trong ảnh việc **đã xong xuôi** thì dùng will have + V3. Khi nói, will have rút gọn thành **I'll have**, đọc lướt như /aɪl əv/."),
+      teacher("Sau 50 năm dạy, tôi thấy học trò hiểu hai thì này rất nhanh nhưng lại ít khi dám dùng, cứ quay về will cho an toàn. Tôi giao bài thế này: **mỗi sáng viết hai câu về ngày hôm đó**, một câu “At three this afternoon, I'll be…” và một câu “By tonight, I'll have…”. Tối về đối chiếu xem mình nói có đúng không. Vừa luyện ngữ pháp, vừa luyện sắp xếp công việc."),
+    ],
+  },
+  words: [
+    word("deadline", "/ˈded.laɪn/", "hạn chót", "I'll have finished everything before the deadline.", "dead|line", 0, "Chữ ea đọc là /e/ như trong bread, không đọc là /iː/."),
+    word("graduate", "/ˈɡrædʒ.u.eɪt/", "tốt nghiệp", "By next June, she will have graduated from university.", "grad|u|ate", 0, "Động từ đọc đuôi /eɪt/. Khi là danh từ (người tốt nghiệp), đuôi đọc nhẹ thành /ət/."),
+    word("retire", "/rɪˈtaɪər/", "nghỉ hưu", "My father will have retired by the time I'm thirty.", "re|tire", 1),
+    word("schedule", "/ˈʃedʒ.uːl/", "lịch trình, thời gian biểu", "According to the schedule, we'll be landing at ten.", "sched|ule", 0, "Anh-Anh đọc âm đầu là /ʃ/, Anh-Mỹ đọc là /sk/. Cả hai đều đúng."),
+    word("fluent", "/ˈfluː.ənt/", "trôi chảy, lưu loát", "By the end of the course, you'll be much more fluent.", "flu|ent", 0),
+    word("anniversary", "/ˌæn.ɪˈvɜː.sər.i/", "ngày kỷ niệm", "My parents will be celebrating their wedding anniversary next month.", "an|ni|ver|sa|ry", 2),
+    word("achieve", "/əˈtʃiːv/", "đạt được", "I hope I'll have achieved my goals by forty.", "a|chieve", 1),
+    word("conference", "/ˈkɒn.fər.əns/", "hội nghị, hội thảo", "This time next month, I'll be attending a conference in Singapore.", "con|fer|ence", 0, "Trọng âm ở âm đầu: CON-fer-ence, không nhấn vào âm giữa."),
+  ],
+  exercises: [
+    mc("b1-n15-1", "This time next week, I ___ on a beach in Phu Quoc.", ["will be lying", "will lie", "lie", "will have lying"], 0, "This time next week: việc đang diễn ra tại thời điểm đó trong tương lai, dùng will be + V-ing."),
+    mc("b1-n15-2", "By the end of this year, we ___ this project.", ["will be finishing", "finish", "will have finished", "are finished"], 2, "By + mốc thời gian: việc sẽ xong trước mốc đó, dùng will have + V3."),
+    fill("b1-n15-3", "By the time you get home, I will ___ cooked dinner.", ["have"], "Tương lai hoàn thành: will have + V3."),
+    fill("b1-n15-4", "Don't call me at nine tonight. I'll be ___ my daughter to her piano lesson. (take)", ["taking"], "Lúc chín giờ việc đưa con đi học đang diễn ra: will be + V-ing."),
+    reorder("b1-n15-5", "Will you be using the car tonight?", "Will + chủ ngữ + be + V-ing: hỏi lịch sự về kế hoạch của người khác."),
+    reorder("b1-n15-6", "My parents will have been married for thirty years.", "Will have + V3 (been): tính đến một mốc trong tương lai (chẳng hạn ngày kỷ niệm sắp tới), bố mẹ sẽ cưới nhau được tròn ba mươi năm."),
+    listen("b1-n15-7", "This time tomorrow, I'll be flying to Seoul.", ["Hôm qua giờ này tôi đang bay đi Seoul.", "Giờ này ngày mai tôi đang bay đi Seoul.", "Tôi đã bay đến Seoul từ sáng nay.", "Ngày mai tôi sẽ đặt vé đi Seoul."], 1, "This time tomorrow + will be + V-ing: việc đang diễn ra vào giờ này ngày mai."),
+    listen("b1-n15-8", "By the time we arrive, the film will have started.", ["Chúng ta sẽ đến trước khi phim bắt đầu.", "Phim sẽ bắt đầu khi chúng ta đến.", "Đến lúc chúng ta tới nơi thì phim đã bắt đầu rồi."], 2, "Will have started: phim sẽ bắt đầu trước lúc chúng ta đến."),
+  ],
+  speaking: [
+    say("This time next week, I'll be lying on the beach.", "Giờ này tuần sau, tôi đang nằm trên bãi biển."),
+    say("By the end of the year, I'll have saved enough money for a new laptop.", "Đến cuối năm, tôi sẽ tiết kiệm được đủ tiền mua máy tính xách tay mới."),
+    say("Will you be using the car tonight?", "Tối nay bạn có định dùng xe không?"),
+  ],
+});

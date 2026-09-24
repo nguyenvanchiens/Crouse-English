@@ -1,4 +1,15 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, tip, word } from "../builders";
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../builders";
+import nNgheNghiepVaQuocTich from "../lessons/a1/nghe-nghiep-va-quoc-tich";
+import nThoiGianVaLichHen from "../lessons/a1/thoi-gian-va-lich-hen";
+import nSoThich from "../lessons/a1/so-thich";
+import nHoiDapHangNgay from "../lessons/a1/hoi-dap-hang-ngay";
+import nMuaSamVaMauSac from "../lessons/a1/mua-sam-va-mau-sac";
+import nToiCoThe from "../lessons/a1/toi-co-the";
+import nMoTaNguoi from "../lessons/a1/mo-ta-nguoi";
+import nThanhPhoCuaToi from "../lessons/a1/thanh-pho-cua-toi";
+import nDangLamGi from "../lessons/a1/dang-lam-gi";
+import nCuoiTuanVuaRoi from "../lessons/a1/cuoi-tuan-vua-roi";
+import { chapter } from "../review";
 import type { Course } from "../types";
 
 const chaoHoi = lesson({
@@ -8,7 +19,8 @@ const chaoHoi = lesson({
   lecture: {
     title: "Động từ to be: am, is, are",
     blocks: [
-      p("Trong tiếng Anh, câu giới thiệu bản thân gần như luôn dùng động từ **to be**. Nó giống chữ “là” trong tiếng Việt, nhưng đổi hình thức theo chủ ngữ: **am**, **is** hoặc **are**."),
+      p("Hãy hình dung bạn bước vào phòng họp có đối tác nước ngoài, hoặc một vị khách du lịch ở phố cổ bắt chuyện với bạn. Những câu đầu tiên bạn nói gần như chắc chắn là tên, nghề và quê: I'm Lan. I'm a nurse. I'm from Hanoi. Cả ba câu đều dựa vào một động từ duy nhất: **to be**."),
+      p("**To be** giống chữ “là” trong tiếng Việt, nhưng có hai điểm khác. Thứ nhất, nó đổi hình thức theo chủ ngữ: **am**, **is** hoặc **are**. Thứ hai, tiếng Việt hay bỏ chữ “là” (“Tôi sinh viên”, “Tôi người Huế”), còn tiếng Anh thì **không bao giờ được bỏ**."),
       table(
         ["Chủ ngữ", "to be", "Viết tắt", "Ví dụ"],
         ["I (tôi)", "am", "I'm", "I'm Lan."],
@@ -16,19 +28,29 @@ const chaoHoi = lesson({
         ["he / she / it", "is", "he's / she's / it's", "She's my teacher."],
         ["we / they", "are", "we're / they're", "We're from Vietnam."],
       ),
-      p("Muốn hỏi, đảo **to be** lên trước chủ ngữ. Muốn phủ định, thêm **not** sau **to be**."),
+      p("Muốn hỏi, đảo **to be** lên trước chủ ngữ. Muốn phủ định, thêm **not** sau **to be**. Câu trả lời ngắn chỉ cần Yes hoặc No, chủ ngữ và to be."),
+      table(
+        ["Loại câu", "I", "he / she / it", "you / we / they"],
+        ["Khẳng định", "I'm a student.", "She's a doctor.", "They're from Hue."],
+        ["Phủ định", "I'm not late.", "He isn't here.", "We aren't busy."],
+        ["Câu hỏi", "Am I late?", "Is she your sister?", "Are you ready?"],
+        ["Trả lời ngắn", "Yes, you are. / No, you aren't.", "Yes, she is. / No, she isn't.", "Yes, we are. / No, we aren't."],
+      ),
       ex("Are you a teacher?", "Bạn có phải là giáo viên không?"),
-      ex("No, I'm not. I'm a nurse.", "Không, tôi không phải. Tôi là y tá."),
+      ex("No, I'm not. I'm a nurse.", "Không, tôi không phải. Tôi là y tá.", "Sau câu trả lời No, người bản xứ thường nói luôn thông tin đúng để câu chuyện tiếp tục."),
+      ex("This is Hoa. She's my colleague.", "Đây là Hoa. Cô ấy là đồng nghiệp của tôi.", "Khi giới thiệu một người với người khác, câu đầu tiên dùng This is..., sau đó mới dùng He's hoặc She's."),
       ex("Nice to meet you, Minh.", "Rất vui được gặp bạn, Minh.", "Câu quen thuộc khi gặp ai đó lần đầu."),
-      tip("Khi nói, người bản xứ gần như luôn dùng dạng viết tắt: I'm, you're, she's. Dùng dạng đầy đủ nghe khá cứng."),
-      mistake("I from Vietnam.", "I'm from Vietnam.", "Tiếng Việt nói “Tôi từ Việt Nam”, nhưng tiếng Anh không được bỏ động từ to be."),
-      mistake("She are my friend.", "She is my friend.", "He, she, it luôn đi với is."),
+      tip("Khi nói, người bản xứ gần như luôn dùng dạng viết tắt: **I'm**, **you're**, **she's**. Dùng dạng đầy đủ nghe khá cứng. Đọc I'm thành một âm tiết /aɪm/ và nhớ ngậm môi ở cuối; she's đọc /ʃiːz/, âm cuối rung nhẹ như tiếng ong."),
+      mistake("I from Vietnam.", "I'm from Vietnam.", "Tiếng Việt nói “Tôi từ Việt Nam” hay “Tôi người Việt Nam” mà không cần chữ “là”. Tiếng Anh thì câu nào cũng phải có động từ, nên không được bỏ to be."),
+      mistake("She are my friend.", "She is my friend.", "Chữ “là” trong tiếng Việt không bao giờ đổi theo người nói, nên người Việt quen dùng một dạng cho tất cả. Trong tiếng Anh, he, she, it luôn đi với is."),
+      mistake("Yes, I'm.", "Yes, I am.", "Dạng viết tắt không đứng ở cuối câu. Trả lời ngắn phải dùng dạng đầy đủ: Yes, I am. Yes, she is. Riêng câu phủ định thì viết tắt được: No, I'm not."),
+      teacher("Sau 50 năm đứng lớp, tôi thấy bỏ to be là lỗi “lì” nhất của người Việt, kể cả người đã học lên đại học. Cách chữa của tôi rất đơn giản: **mỗi sáng đứng trước gương nói ba câu về mình**, một câu về tên, một câu về nghề, một câu về quê, và gõ nhẹ ngón tay lên bàn mỗi khi nói am, is, are. Tay gõ mà miệng chưa nói ra to be là biết ngay mình vừa bỏ sót. Làm liền hai tuần, to be sẽ tự bật ra."),
     ],
   },
   words: [
-    word("hello", "/həˈləʊ/", "xin chào", "Hello, I'm Lan.", "hel|lo", 1),
+    word("hello", "/heˈləʊ/", "xin chào", "Hello, I'm Lan.", "hel|lo", 1),
     word("name", "/neɪm/", "tên", "My name is Minh.", "name", 0),
-    word("student", "/ˈstjuː.dənt/", "sinh viên, học sinh", "I'm a student.", "stu|dent", 0, "Nhớ bật âm /t/ ở cuối, đừng nuốt mất."),
+    word("student", "/ˈstʃuː.dənt/", "sinh viên, học sinh", "I'm a student.", "stu|dent", 0, "Nhớ bật âm /t/ ở cuối, đừng nuốt mất."),
     word("teacher", "/ˈtiː.tʃər/", "giáo viên", "She's my teacher.", "tea|cher", 0),
     word("country", "/ˈkʌn.tri/", "đất nước", "What country are you from?", "coun|try", 0),
     word("nice", "/naɪs/", "vui, dễ chịu", "Nice to meet you.", "nice", 0, "Kết thúc bằng âm /s/, không đọc thành “nai”."),
@@ -39,10 +61,10 @@ const chaoHoi = lesson({
     mc("a1-1-2", "They ___ students.", ["are", "is", "am"], 0, "They đi với are."),
     fill("a1-1-3", "She ___ my teacher.", ["is", "'s"], "He, she, it đi với is."),
     fill("a1-1-4", "Nice to ___ you.", ["meet", "see"], "Lần đầu gặp: Nice to meet you. Gặp lại người quen: Nice to see you."),
-    reorder("a1-1-5", "Where are you from?"),
+    reorder("a1-1-5", "Where are you from?", "Hỏi quê quán: Where + are + you + from? Giới từ from đứng ở cuối câu, không đứng liền với where như tiếng Việt “từ đâu”."),
     reorder("a1-1-6", "What is your name?", "Câu hỏi với từ để hỏi: What + is + your name?"),
-    listen("a1-1-7", "Are you a student?", ["Bạn có phải là sinh viên không?", "Bạn là giáo viên à?", "Bạn đến từ đâu?"], 0),
-    listen("a1-1-8", "He's from Japan.", ["Anh ấy đến từ Nhật Bản.", "Cô ấy đến từ Nhật Bản.", "Anh ấy đang ở Nhật Bản."], 0),
+    listen("a1-1-7", "Are you a student?", ["Bạn có phải là sinh viên không?", "Bạn là giáo viên à?", "Bạn đến từ đâu?"], 0, "Are you...? là câu hỏi có hay không với to be; student là sinh viên."),
+    listen("a1-1-8", "He's from Japan.", ["Anh ấy đến từ Nhật Bản.", "Cô ấy đến từ Nhật Bản.", "Anh ấy đang ở Nhật Bản."], 0, "He's là he is (anh ấy); from là đến từ, không phải đang ở."),
   ],
   speaking: [
     say("Hello, my name is Lan.", "Xin chào, tên tôi là Lan."),
@@ -58,9 +80,16 @@ const giaDinh = lesson({
   lecture: {
     title: "a/an, số nhiều, this/that và my/your",
     blocks: [
+      p("Khi cho đồng nghiệp nước ngoài xem ảnh gia đình trên điện thoại, hay dẫn bạn về nhà chơi, bạn sẽ cần những câu như: This is my mother. These are my two brothers. Bài này gom bốn thứ nhỏ nhưng dùng hằng ngày: **a/an**, **số nhiều**, **this/that** và **my/your**."),
       p("Trước danh từ số ít đếm được, tiếng Anh luôn cần **a** hoặc **an** (một). Dùng **a** trước **âm** phụ âm và **an** trước **âm** nguyên âm. Hãy nghe âm đầu, đừng nhìn chữ cái."),
+      table(
+        ["Dùng", "Khi âm đầu là", "Ví dụ"],
+        ["a", "phụ âm", "a bag, a phone, a university"],
+        ["an", "nguyên âm", "an umbrella, an egg, an hour"],
+      ),
       ex("I have a bag and an umbrella.", "Tôi có một cái túi và một cái ô."),
       tip("Nhìn âm chứ không nhìn chữ: **a university** (âm đầu /j/ là phụ âm) nhưng **an hour** (chữ h câm, âm đầu là nguyên âm /aʊ/)."),
+      mistake("My mother is teacher.", "My mother is a teacher.", "Tiếng Việt không có mạo từ, nói “Mẹ tôi là giáo viên” là đủ. Tiếng Anh bắt buộc có a/an trước danh từ số ít đếm được, kể cả khi nói về nghề nghiệp."),
       p("Khi có từ hai vật trở lên, danh từ phải đổi sang **số nhiều**. Phần lớn chỉ cần thêm **-s**, nhưng có vài quy tắc và vài từ bất quy tắc cần học thuộc."),
       table(
         ["Quy tắc", "Số ít", "Số nhiều"],
@@ -70,11 +99,13 @@ const giaDinh = lesson({
         ["Bất quy tắc", "child, man, woman, person", "children, men, women, people"],
       ),
       mistake("I have two book.", "I have two books.", "Tiếng Việt nói “hai quyển sách” mà danh từ không đổi, nhưng tiếng Anh bắt buộc thêm -s khi có từ hai vật trở lên."),
+      p("Khi chỉ vào người hay vật, dùng **this, that, these, those**. Gần tay mình là this và these, xa hơn là that và those. Nhớ rằng these và those là số nhiều nên đi với **are**."),
       table(
         ["", "Ở gần", "Ở xa"],
         ["Số ít", "this (cái này)", "that (cái kia, cái đó)"],
         ["Số nhiều", "these (những cái này)", "those (những cái kia)"],
       ),
+      ex("Are those your keys? Yes, they are.", "Kia có phải chìa khóa của bạn không? Đúng vậy.", "Trả lời câu hỏi có these hoặc those, ta dùng they: Yes, they are."),
       table(
         ["Chủ ngữ", "Tính từ sở hữu", "Ví dụ"],
         ["I", "my", "This is my phone."],
@@ -85,7 +116,8 @@ const giaDinh = lesson({
         ["they", "their", "Those are their books."],
       ),
       ex("This is my brother. His name is Nam.", "Đây là anh trai tôi. Tên anh ấy là Nam.", "Tính từ sở hữu luôn đứng trước danh từ: my brother, không nói brother my."),
-      mistake("She is my sister. His name is Hoa.", "She is my sister. Her name is Hoa.", "Tiếng Việt nói chung “tên của bạn ấy”, nên người Việt hay lẫn his và her. His dùng cho nam, her dùng cho nữ."),
+      mistake("She is my sister. His name is Hoa.", "She is my sister. Her name is Hoa.", "Tiếng Việt nói “tên bạn ấy” cho cả nam lẫn nữ, nên người Việt hay lẫn his và her. His dùng cho nam, her dùng cho nữ."),
+      teacher("Học trò người Việt của tôi hay sai số nhiều không phải vì không biết quy tắc, mà vì tai không nghe thấy âm -s. Tiếng Việt không có âm cuối /s/ hay /z/, nên miệng cũng lười đọc. Suốt bao năm, tôi luôn bắt học trò **đọc âm -s thật rõ, thậm chí hơi quá lên**: books, bags, phones. Miệng quen đọc thì tay hết quên viết. Bài tập nhỏ mỗi ngày: nhìn quanh phòng và đếm to mọi thứ bạn thấy, two chairs, three windows, four pens."),
     ],
   },
   words: [
@@ -122,7 +154,17 @@ const soTuoi = lesson({
   lecture: {
     title: "Số đếm từ 1 đến 100",
     blocks: [
+      p("Người Việt hỏi tuổi từ rất sớm để biết xưng anh, chị hay em. Còn khi đi làm, bạn phải đọc số điện thoại cho khách, nói giá tiền, số phòng, số tầng. Chỉ cần nói 15 thành 50 là có thể hỏng cả một cuộc hẹn. Bài này giúp bạn **đọc số chắc chắn** và **hỏi tuổi đúng cách**."),
       p("Các số từ 1 đến 12 cần học thuộc. Từ 13 đến 19 thêm đuôi **-teen**, còn các số tròn chục từ 20 đến 90 thêm đuôi **-ty**. Các số như 21, 35, 99 ghép chục với đơn vị bằng dấu gạch nối: twenty-one, thirty-five, ninety-nine."),
+      table(
+        ["Nhóm số", "Quy tắc", "Ví dụ"],
+        ["1 đến 12", "học thuộc", "one, two, three, eleven, twelve"],
+        ["13 đến 19", "thêm -teen", "thirteen, fourteen, fifteen, sixteen"],
+        ["20 đến 90 (tròn chục)", "thêm -ty", "twenty, thirty, forty, fifty"],
+        ["21 đến 99", "chục + gạch nối + đơn vị", "twenty-one, forty-five, ninety-nine"],
+        ["100", "one hundred hoặc a hundred", "one hundred"],
+      ),
+      mistake("fourty, fiveteen", "forty, fifteen", "Người Việt quen viết theo mặt chữ của số gốc nên giữ chữ u của four trong forty và giữ nguyên five trong fifteen. Thật ra forty bỏ chữ u (dù fourteen vẫn giữ), còn five đổi thành fif- trong fifteen và fifty."),
       table(
         ["Số", "Cách viết", "Trọng âm"],
         ["13", "thirteen", "thir-TEEN (nhấn âm sau)"],
@@ -133,13 +175,15 @@ const soTuoi = lesson({
         ["50", "fifty", "FIF-ty (nhấn âm trước)"],
       ),
       tip("Cặp 13 và 30 rất dễ nghe nhầm. Với **-teen**, nhấn mạnh và kéo dài âm cuối /tiːn/, nhớ đọc rõ âm /n/. Với **-ty**, nhấn âm đầu và đọc âm cuối thật ngắn."),
-      p("Để hỏi tuổi, dùng **How old are you?** Trả lời bằng động từ to be cộng số tuổi, có thể thêm years old hoặc không."),
+      p("Để hỏi tuổi, dùng **How old are you?** Trả lời bằng động từ to be cộng số tuổi, có thể thêm years old hoặc không. Hỏi tuổi người khác thì đổi to be theo chủ ngữ: **How old is** your mother? **How old are** your children?"),
       ex("How old are you? I'm twenty-five.", "Bạn bao nhiêu tuổi? Tôi hai mươi lăm tuổi."),
       ex("My son is eight years old.", "Con trai tôi tám tuổi.", "Đã nói years thì phải có old: không nói “He is eight years.”"),
+      ex("How old is your mother? She's sixty.", "Mẹ bạn bao nhiêu tuổi? Mẹ tôi sáu mươi tuổi.", "Your mother là she nên dùng is. Câu trả lời ngắn gọn chỉ cần She's sixty."),
       mistake("I have 25 years old.", "I'm 25 years old.", "Tiếng Việt nói “tôi có 25 tuổi”, nhưng tiếng Anh dùng to be (am, is, are), không dùng have."),
       mistake("How many years old are you?", "How old are you?", "Đừng dịch từng chữ “bao nhiêu tuổi”. Hỏi tuổi chỉ cần How old."),
       p("Số điện thoại được đọc **từng chữ số một**, ngắt nghỉ theo nhóm. Số 0 thường đọc là **oh** (kiểu Anh) hoặc zero. Hai chữ số giống nhau đứng liền nhau có thể đọc là **double**: 55 là double five."),
-      ex("What's your phone number? It's oh nine oh four, double five six, seven eight one.", "Số điện thoại của bạn là gì? Là 0904 556 781."),
+      ex("What's your phone number? It's oh nine oh four, double five six, seven eight one.", "Số điện thoại của bạn là gì? Là 0904 556 781.", "Ngắt nghỉ sau mỗi nhóm số giúp người nghe kịp ghi lại."),
+      teacher("Mấy chục năm dạy, tôi chưa gặp lớp nào không nhầm 13 với 30. Cách luyện của tôi: viết hai số lên hai tờ giấy, nhờ người nhà đọc ngẫu nhiên, bạn giơ đúng tờ. Khi nghe điện thoại mà không chắc, **đừng ngại hỏi lại**: Sorry, is that thirteen or thirty? Người bản xứ cũng hỏi lại như vậy, chẳng có gì xấu hổ. Trong công việc, đọc lại con số cho người kia xác nhận là thói quen của người chuyên nghiệp."),
     ],
   },
   words: [
@@ -153,13 +197,13 @@ const soTuoi = lesson({
     word("age", "/eɪdʒ/", "tuổi, độ tuổi", "Lan and I are the same age.", "age", 0, "Khi hỏi tuổi, người bản xứ thường nói How old are you? hơn là What's your age?"),
   ],
   exercises: [
-    listen("a1-3-1", "fifteen", ["50", "15", "5"], 1, "Trọng âm rơi vào âm sau (fif-TEEN) nên đây là 15."),
+    reorder("a1-3-1", "How old are your children?", "Children là số nhiều nên dùng are: How old + are + your children?"),
     listen("a1-3-2", "She's forty years old.", ["Cô ấy 14 tuổi.", "Cô ấy 4 tuổi.", "Cô ấy 40 tuổi."], 2, "Forty nhấn âm đầu (FOR-ty) nên là 40."),
     listen("a1-3-3", "My number is oh nine one two, double three four, five six seven.", ["0912 334 567", "0912 344 567", "0921 334 567"], 0, "Double three nghĩa là hai số 3 liền nhau."),
     mc("a1-3-4", "___ old are you?", ["What", "How", "How many"], 1, "Hỏi tuổi dùng How old."),
     mc("a1-3-5", "Trong số điện thoại, “77” thường được đọc là:", ["double seven", "seventy-seven", "two seven"], 0, "Hai chữ số giống nhau liền nhau đọc là double."),
     fill("a1-3-6", "I ___ twenty-two years old.", ["am", "'m"], "Nói tuổi dùng to be; với I là am."),
-    fill("a1-3-7", "What's your phone ___?", ["number"]),
+    fill("a1-3-7", "What's your phone ___?", ["number"], "Số điện thoại là phone number. Câu hỏi quen thuộc: What's your phone number?"),
     reorder("a1-3-8", "How old is your brother?", "Hỏi tuổi: How old + to be + chủ ngữ?"),
   ],
   speaking: [
@@ -176,7 +220,8 @@ const motNgay = lesson({
   lecture: {
     title: "Thì hiện tại đơn và trạng từ tần suất",
     blocks: [
-      p("Thì **hiện tại đơn** dùng để nói về thói quen và những việc lặp lại hằng ngày. Với I, you, we, they, động từ giữ nguyên. Với **he, she, it**, động từ phải thêm **-s** hoặc **-es**."),
+      p("Khi làm quen với đồng nghiệp nước ngoài, câu chuyện hay xoay quanh cuộc sống hằng ngày: bạn dậy lúc mấy giờ, đi làm bằng gì, cuối tuần có tập thể dục không. Để kể những thói quen ấy, ta dùng **thì hiện tại đơn**."),
+      p("Thì **hiện tại đơn** dùng để nói về thói quen và những việc lặp lại hằng ngày. Với I, you, we, they, động từ giữ nguyên. Với **he, she, it**, động từ phải thêm **-s** hoặc **-es**. Câu phủ định và câu hỏi cần trợ động từ **do** hoặc **does**."),
       table(
         ["Chủ ngữ", "Khẳng định", "Phủ định", "Câu hỏi"],
         ["I / you / we / they", "I work.", "I don't work.", "Do you work?"],
@@ -189,14 +234,18 @@ const motNgay = lesson({
         ["Phụ âm + y: đổi y thành -ies", "study → studies"],
         ["Bất quy tắc", "have → has"],
       ),
+      tip("Đuôi -s có ba cách đọc: /s/ như works, /z/ như goes, /ɪz/ như watches. Ở trình độ này bạn chỉ cần nhớ một điều: **đừng bao giờ nuốt mất đuôi -s**. Đọc chưa chuẩn một chút vẫn hơn là không đọc."),
+      ex("My brother lives in Da Nang. He doesn't live with our parents.", "Anh trai tôi sống ở Đà Nẵng. Anh ấy không sống cùng bố mẹ.", "Câu khẳng định có lives (thêm -s); câu phủ định đã có doesn't nên live trở về nguyên mẫu."),
+      ex("Does your son like school? Yes, he does.", "Con trai bạn có thích đi học không? Có.", "Trả lời ngắn dùng does hoặc doesn't, không lặp lại động từ chính: không nói “Yes, he likes.”"),
       mistake("She work in a bank.", "She works in a bank.", "Động từ tiếng Việt không bao giờ đổi, nên người Việt rất hay quên -s sau he, she, it."),
       mistake("She doesn't works.", "She doesn't work.", "Khi đã có does hoặc doesn't, động từ chính quay về nguyên mẫu, không thêm -s nữa."),
+      mistake("I am work in a bank.", "I work in a bank.", "Sợ quên to be, nhiều bạn thêm am vào mọi câu, giống như nói “tôi là làm”. Câu đã có động từ thường work thì không cần am nữa."),
       p("**Trạng từ tần suất** cho biết bạn làm việc gì thường xuyên đến mức nào: **always** (luôn luôn), **usually** (thường thường), **often** (hay), **sometimes** (thỉnh thoảng), **never** (không bao giờ). Chúng đứng **trước động từ thường** nhưng **sau to be**."),
       ex("I usually get up at six o'clock.", "Tôi thường dậy lúc sáu giờ."),
       ex("He is never late.", "Anh ấy không bao giờ đến muộn.", "Với to be, trạng từ đứng sau is, am, are."),
-      p("Để hỏi giờ, dùng **What time is it?** Để nói làm việc gì lúc mấy giờ, dùng **at** trước giờ. Giờ chẵn thêm o'clock, giờ rưỡi là half past."),
+      p("Để hỏi giờ, dùng **What time is it?** Để nói làm việc gì lúc mấy giờ, dùng **at** trước giờ. Giờ chẵn thêm o'clock, giờ rưỡi là half past. Cách nói giờ dễ nhất là đọc giờ rồi đọc phút: 7:15 là **seven fifteen**, 9:40 là **nine forty**."),
       ex("What time do you have lunch? At half past twelve.", "Bạn ăn trưa lúc mấy giờ? Lúc mười hai giờ rưỡi."),
-      tip("Cách nói giờ dễ nhất là đọc giờ rồi đọc phút: 7:15 là **seven fifteen**, 9:40 là **nine forty**."),
+      teacher("Học trò cũ của tôi gọi mẹo này là “con rắn -s”: he, she, it giống con rắn, đi đâu cũng kêu “sss”. Nhưng con rắn chỉ có **một cái đuôi**: câu đã có does hay doesn't thì đuôi -s nằm ở đó rồi, động từ chính không thêm nữa. Mỗi tối, hãy kể ba việc bạn làm trong ngày, rồi kể lại y như vậy về một người trong nhà: I cook dinner, rồi My mother cooks dinner. Đổi chủ ngữ mà tự nghe thấy tiếng -s bật ra là bạn đã nắm bài."),
     ],
   },
   words: [
@@ -210,7 +259,7 @@ const motNgay = lesson({
     word("o'clock", "/əˈklɒk/", "giờ (đúng)", "It's nine o'clock.", "o'|clock", 1, "Chỉ dùng cho giờ chẵn: eight o'clock, không nói eight thirty o'clock."),
   ],
   exercises: [
-    mc("a1-4-1", "My father ___ coffee every morning.", ["drink", "drinks", "drinking"], 1, "My father là he nên động từ thêm -s."),
+    reorder("a1-4-1", "My sister always gets up early.", "Always đứng trước động từ thường; my sister là she nên get thêm -s thành gets."),
     mc("a1-4-2", "___ your sister work in Hanoi?", ["Do", "Is", "Does"], 2, "Your sister là she nên câu hỏi dùng Does."),
     mc("a1-4-3", "Chọn câu đúng:", ["I am always late.", "I always am late.", "Always I am late."], 0, "Với to be, trạng từ tần suất đứng sau am, is, are."),
     fill("a1-4-4", "She ___ like tea. (không thích)", ["doesn't", "does not"], "Phủ định với she dùng doesn't, động từ like giữ nguyên."),
@@ -233,6 +282,7 @@ const doAn = lesson({
   lecture: {
     title: "Danh từ đếm được, không đếm được và cách gọi món",
     blocks: [
+      p("Vào một quán cà phê ở Singapore, hay mời khách nước ngoài đi ăn phở ở Hà Nội, bạn cần gọi món, hỏi giá và xin thêm nước. Muốn nói đúng, trước hết phải biết danh từ nào **đếm được** và danh từ nào **không đếm được**, vì mỗi loại đi với những từ khác nhau."),
       p("Danh từ **đếm được** là những thứ đếm từng cái: an apple, two eggs. Danh từ **không đếm được** là những thứ không đếm từng cái như nước, gạo, sữa, bánh mì. Danh từ không đếm được **không đi với a/an** và **không thêm -s**."),
       table(
         ["Đếm được", "Không đếm được"],
@@ -240,9 +290,17 @@ const doAn = lesson({
         ["an egg, three eggs", "rice, bread"],
         ["a banana, four bananas", "tea, sugar"],
       ),
-      mistake("I eat two rices.", "I eat two bowls of rice.", "Tiếng Việt nói “hai bát cơm” nên người Việt hay thêm -s vào rice. Rice không đếm được, ta đếm bằng cái bát."),
-      p("Muốn đếm thứ không đếm được, dùng từ chỉ đồ đựng: **a glass of** water (một cốc nước), **a cup of** tea (một tách trà), **a bowl of** rice (một bát cơm), **a bottle of** water (một chai nước)."),
-      ex("A bowl of pho, please.", "Cho tôi một bát phở."),
+      mistake("I eat two rices.", "I eat two bowls of rice.", "Người Việt nghĩ “hai bát cơm” nhưng khi nói tiếng Anh lại bỏ mất chữ “bát”, rồi thêm -s vào rice. Rice không đếm được nên không có số nhiều; ta đếm bằng cái bát: two bowls of rice."),
+      p("Muốn đếm thứ không đếm được, dùng từ chỉ **đồ đựng** hoặc **đơn vị**. Khi có từ hai trở lên, thêm -s vào đồ đựng chứ không thêm vào món: two cups of tea, three bottles of water."),
+      table(
+        ["Đồ đựng", "Thường đi với", "Ví dụ"],
+        ["a glass of", "nước, nước ép, sữa", "a glass of water (một cốc nước)"],
+        ["a cup of", "trà, cà phê", "a cup of tea (một tách trà)"],
+        ["a bowl of", "cơm, phở, súp", "a bowl of rice (một bát cơm)"],
+        ["a bottle of", "nước, nước mắm", "a bottle of water (một chai nước)"],
+        ["a piece of", "bánh ngọt, thịt", "a piece of cake (một miếng bánh)"],
+      ),
+      ex("A bowl of pho, please.", "Cho tôi một bát phở.", "Phở cũng như cơm, ta đếm bằng bát: two bowls of pho."),
       p("Dùng **some** trong câu khẳng định và khi mời, xin. Dùng **any** trong câu phủ định và câu hỏi. Cả hai đi được với danh từ số nhiều và danh từ không đếm được."),
       table(
         ["Loại câu", "Dùng", "Ví dụ"],
@@ -251,11 +309,13 @@ const doAn = lesson({
         ["Câu hỏi", "any", "Do you have any bread?"],
         ["Lời mời, xin", "some", "Would you like some tea?"],
       ),
+      ex("Would you like some tea? Yes, please.", "Bạn uống chút trà nhé? Vâng, cảm ơn.", "Đây là câu hỏi nhưng vẫn dùng some, vì là lời mời: người mời mong bạn nhận lời."),
       p("Khi gọi món, dùng **Can I have...?** hoặc **I'd like...** Muốn hỏi giá, nói **How much is it?** (một món) hoặc **How much are they?** (nhiều món)."),
       ex("Can I have a cup of coffee, please?", "Cho tôi một cốc cà phê nhé?"),
       ex("How much is it? It's thirty thousand dong.", "Bao nhiêu tiền vậy? Ba mươi nghìn đồng.", "Khi nói giá tiền, thousand không thêm -s: thirty thousand."),
       tip("Thêm **please** vào cuối câu để lịch sự hơn. Câu “Give me a coffee” nghe khá cộc lốc với người bản xứ. Lưu ý: khi gọi đồ uống ở quán, người ta vẫn nói **a coffee**, **two teas** với nghĩa một cốc, hai tách."),
       mistake("I'd like a bread.", "I'd like some bread.", "Bread không đếm được nên không dùng a. Muốn nói một ổ, dùng a loaf of bread hoặc a sandwich."),
+      teacher("Hồi mới đi dạy, tôi tưởng học trò chỉ cần thuộc quy tắc đếm được và không đếm được. Về sau tôi hiểu: người Việt vốn nghĩ theo cái bát, cái cốc, chỉ cần dịch thẳng ra là đúng. Vì vậy lời khuyên của tôi là **gặp danh từ mới, học luôn cả cái đựng nó**. Đừng học water, hãy học a glass of water; đừng học rice, hãy học a bowl of rice. Lần tới đi ăn, bạn nhẩm bằng tiếng Anh món mình gọi, cho đến khi câu tự bật ra mà không cần nghĩ."),
     ],
   },
   words: [
@@ -269,8 +329,8 @@ const doAn = lesson({
     word("bottle", "/ˈbɒt.əl/", "cái chai", "A bottle of water is ten thousand dong.", "bot|tle", 0),
   ],
   exercises: [
-    mc("a1-5-1", "I'd like ___ water, please.", ["a", "an", "some"], 2, "Water không đếm được nên không dùng a/an; dùng some."),
-    mc("a1-5-2", "Do you have ___ eggs?", ["any", "a", "an"], 0, "Câu hỏi với danh từ số nhiều dùng any."),
+    mc("a1-5-1", "I'd like ___ rice, please.", ["a", "an", "some"], 2, "Rice không đếm được nên không dùng a/an; dùng some."),
+    reorder("a1-5-2", "Do you have any eggs?", "Câu hỏi dùng any; eggs là danh từ đếm được số nhiều. Câu hỏi hiện tại đơn: Do + you + have + any + danh từ?"),
     mc("a1-5-3", "Chọn cách gọi món lịch sự nhất:", ["Give me a coffee.", "Can I have a coffee, please?", "I want coffee now."], 1, "Can I have... please? là cách gọi món lịch sự và tự nhiên."),
     fill("a1-5-4", "We don't have ___ milk. (không có chút nào)", ["any"], "Câu phủ định dùng any."),
     fill("a1-5-5", "A ___ of rice, please. (bát)", ["bowl"], "Một bát cơm là a bowl of rice."),
@@ -292,6 +352,7 @@ const nhaNoiChon = lesson({
   lecture: {
     title: "There is, there are và giới từ chỉ vị trí",
     blocks: [
+      p("Bạn đi thuê nhà, tả căn hộ của mình cho bạn bè nước ngoài, khách ở homestay hỏi phòng tắm ở đâu, hay đồng nghiệp hỏi gần công ty có ngân hàng không. Tất cả đều cần hai công cụ: **there is, there are** để nói có cái gì, và **giới từ** để nói nó ở đâu."),
       p("Để nói ở đâu đó **có** cái gì, tiếng Anh dùng **there is** (với danh từ số ít hoặc không đếm được) và **there are** (với danh từ số nhiều). Đây là chữ “có” chỉ sự tồn tại, không phải “có” chỉ sở hữu."),
       table(
         ["", "Số ít / không đếm được", "Số nhiều"],
@@ -301,6 +362,7 @@ const nhaNoiChon = lesson({
       ),
       ex("How many bedrooms are there? There are two.", "Có bao nhiêu phòng ngủ? Có hai phòng.", "Hỏi số lượng: How many + danh từ số nhiều + are there?"),
       mistake("In my room have a bed.", "There is a bed in my room.", "Tiếng Việt nói “Trong phòng tôi có một cái giường”, nên người Việt hay dịch “có” thành have. Khi nói về sự tồn tại, dùng there is/are."),
+      mistake("There is two chairs.", "There are two chairs.", "Nhiều bạn học thuộc there is như một cụm cố định rồi dùng cho mọi trường hợp. Hãy nhìn danh từ đứng ngay sau: số nhiều thì phải là are."),
       ex("Is there a bank near here? Yes, there is.", "Gần đây có ngân hàng không? Có."),
       tip("Câu trả lời ngắn là **Yes, there is.** hoặc **No, there isn't.** Không viết tắt ở câu trả lời có: không nói “Yes, there's.”"),
       p("**Giới từ chỉ vị trí** cho biết đồ vật ở đâu. Cấu trúc thường gặp: đồ vật + to be + giới từ + nơi chốn."),
@@ -314,9 +376,10 @@ const nhaNoiChon = lesson({
         ["behind", "phía sau", "The garden is behind the house."],
         ["in front of", "phía trước", "The car is in front of the house."],
       ),
-      ex("My bag is on the chair, not under it.", "Túi của tôi ở trên ghế, không phải ở dưới ghế."),
-      mistake("The bank is in front the school.", "The bank is in front of the school.", "In front of và next to là cụm cố định; đừng bỏ of hay to."),
+      ex("My bag is on the chair, not under it.", "Túi của tôi ở trên ghế, không phải ở dưới ghế.", "It thay cho the chair để khỏi lặp lại danh từ."),
+      mistake("The bank is in front the school.", "The bank is in front of the school.", "Tiếng Việt nói “trước trường”, “cạnh ghế” mà không cần từ nối, nên người Việt hay bỏ of hoặc to. In front of và next to là cụm cố định, phải đủ cả cụm."),
       tip("**In front of** nghĩa là ngay phía trước, không phải “đối diện” bên kia đường. Đối diện là **opposite**: The bank is opposite the school."),
+      teacher("Bài tập tôi giao cho học trò suốt mấy chục năm mà vẫn hiệu quả nhất là **tả căn phòng bạn đang ngồi**, ngay bây giờ, bằng năm câu: There is a desk next to the window. There are two books on the desk. Mỗi đồ vật một câu, có there is hoặc there are, có giới từ. Tối nay tả phòng ngủ, mai tả bếp, ngày kia tả phòng khách. Chỉ một tuần, bạn sẽ không còn buột miệng “In my room have...” nữa."),
     ],
   },
   words: [
@@ -332,10 +395,10 @@ const nhaNoiChon = lesson({
   exercises: [
     mc("a1-6-1", "There ___ two bedrooms in my flat.", ["is", "are", "be"], 1, "Two bedrooms là số nhiều nên dùng there are."),
     mc("a1-6-2", "___ there a TV in the living room?", ["Are", "Do", "Is"], 2, "A TV là số ít nên câu hỏi dùng Is there."),
-    mc("a1-6-3", "The cat is ___ the bed. (ở dưới gầm giường)", ["under", "on", "in"], 0, "Under nghĩa là ở dưới."),
+    reorder("a1-6-3", "Is the cat under the bed?", "Hỏi vị trí với to be: Is + chủ ngữ + giới từ + nơi chốn? Under nghĩa là ở dưới."),
     fill("a1-6-4", "The lamp is next ___ the sofa.", ["to"], "Next to là cụm cố định, nghĩa là bên cạnh."),
     fill("a1-6-5", "There ___ a big window in the kitchen.", ["is", "'s"], "A big window là số ít nên dùng there is."),
-    reorder("a1-6-6", "How many chairs are there in the kitchen?", "How many + danh từ số nhiều + are there + nơi chốn?"),
+    reorder("a1-6-6", "How many chairs are there?", "Hỏi số lượng: How many + danh từ số nhiều + are there? Chairs là số nhiều nên dùng are."),
     listen("a1-6-7", "The keys are on the table.", ["Chìa khóa ở dưới bàn.", "Chìa khóa ở trên bàn.", "Chìa khóa ở trong túi."], 1, "On là ở trên bề mặt."),
     listen("a1-6-8", "Is there a bank near here?", ["Ngân hàng ở đâu?", "Gần đây có chợ không?", "Gần đây có ngân hàng không?"], 2, "Is there...? dùng để hỏi ở đâu đó có cái gì không."),
   ],
@@ -367,7 +430,7 @@ export const tiengAnhA1: Course = {
     initials: "HM",
     bio: "8 năm dạy tiếng Anh cho người mới bắt đầu, chứng chỉ CELTA. Chuyên sửa phát âm cho người Việt.",
   },
-  durationWeeks: 6,
+  durationWeeks: 12,
   rating: 4.9,
   reviews: [
     { name: "Minh Anh", role: "Nhân viên kế toán, Hà Nội", quote: "Mình mất gốc từ cấp 3. Phần bài giảng giải thích bằng tiếng Việt rất dễ hiểu, mình không còn sợ ngữ pháp nữa." },
@@ -379,7 +442,9 @@ export const tiengAnhA1: Course = {
   ],
   status: "open",
   modules: [
-    { id: "m1", title: "Làm quen", lessons: [chaoHoi, giaDinh, soTuoi] },
-    { id: "m2", title: "Cuộc sống hằng ngày", lessons: [motNgay, doAn, nhaNoiChon] },
+    chapter(1, "Làm quen", [chaoHoi, giaDinh, soTuoi, nNgheNghiepVaQuocTich]),
+    chapter(2, "Cuộc sống hằng ngày", [motNgay, nThoiGianVaLichHen, nSoThich, nHoiDapHangNgay]),
+    chapter(3, "Đồ ăn, mua sắm và con người", [doAn, nMuaSamVaMauSac, nToiCoThe, nMoTaNguoi]),
+    chapter(4, "Nơi chốn và hoạt động", [nhaNoiChon, nThanhPhoCuaToi, nDangLamGi, nCuoiTuanVuaRoi]),
   ],
 };

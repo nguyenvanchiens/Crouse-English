@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CheckCircle2, Circle, Lock } from "lucide-react";
+import { CheckCircle2, Circle, ClipboardCheck, Lock } from "lucide-react";
 import type { Course } from "@/content/types";
 import { lessonKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
@@ -25,7 +25,7 @@ export function Syllabus({ course }: { course: Course }) {
             {m.lessons.map((l) => {
               const done = state.lessons[lessonKey(course.slug, l.slug)]?.done;
               const accessible = open;
-              const Icon = done ? CheckCircle2 : accessible ? Circle : Lock;
+              const Icon = done ? CheckCircle2 : !accessible ? Lock : l.review ? ClipboardCheck : Circle;
               const row = (
                 <>
                   <Icon className={`size-5 shrink-0 ${done ? "text-leaf" : "text-ink-soft"}`} aria-hidden />

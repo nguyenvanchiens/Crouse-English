@@ -1,0 +1,60 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "toi-co-the",
+  title: "Tôi có thể…",
+  minutes: 20,
+  lecture: {
+    title: "Can và can't: khả năng và xin phép",
+    blocks: [
+      p("Đi phỏng vấn xin việc, câu đầu tiên người ta hỏi thường là **Can you speak English?** Vào văn phòng mới, bạn cần hỏi **Can I use this computer?** Chỉ với một chữ **can**, bạn nói được hai việc: mình **biết làm gì** (khả năng) và mình **có được phép làm gì không** (xin phép)."),
+      p("Quy tắc rất dễ: **can + động từ nguyên mẫu**. Can giữ nguyên với mọi chủ ngữ, không thêm -s, không có to phía sau. Phủ định là **can't** (viết đầy đủ là cannot, viết liền). Câu hỏi thì đảo **can** lên trước chủ ngữ."),
+      table(
+        ["Chủ ngữ", "Khẳng định", "Phủ định", "Câu hỏi", "Trả lời ngắn"],
+        ["I / you / we / they", "I can swim.", "I can't swim.", "Can you swim?", "Yes, I can. / No, I can't."],
+        ["he / she / it", "She can swim.", "She can't swim.", "Can she swim?", "Yes, she can. / No, she can't."],
+      ),
+      ex("My daughter can play the guitar.", "Con gái tôi biết chơi đàn ghi-ta."),
+      ex("I can't drive a car, but I can ride a motorbike.", "Tôi không biết lái ô tô, nhưng tôi biết đi xe máy.", "Tiếng Việt nói “biết” cho kỹ năng học được, tiếng Anh vẫn dùng can."),
+      mistake("She cans speak English.", "She can speak English.", "Học hiện tại đơn xong, nhiều bạn quen tay thêm -s sau she. Nhưng can là động từ khuyết thiếu, không bao giờ thêm -s, và động từ theo sau cũng giữ nguyên: không nói “she can speaks”."),
+      mistake("I can to cook.", "I can cook.", "Người Việt hay thêm to vì nhớ mẫu want to, like to. Sau can là động từ nguyên mẫu trần, không có to."),
+      p("Dùng **Can I…?** để xin phép. Dùng **You can…** để cho phép và **You can't…** để nói điều không được làm. Muốn nhờ người khác, dùng **Can you…?**"),
+      ex("Can I sit here? Yes, of course.", "Tôi ngồi đây được không? Được chứ, bạn cứ ngồi."),
+      ex("You can't park here.", "Bạn không được đỗ xe ở đây.", "Ở đây can't không nói về khả năng mà là lệnh cấm: xe vẫn đỗ được, nhưng không được phép."),
+      mistake("You can speak English?", "Can you speak English?", "Tiếng Việt hỏi bằng cách thêm “không” ở cuối câu, trật tự từ giữ nguyên. Tiếng Anh phải đảo can lên đầu câu."),
+      table(
+        ["Câu", "Can đọc là", "Cách nghe"],
+        ["I can swim.", "/kən/", "nhẹ, ngắn, lướt qua, nhấn vào swim"],
+        ["I can't swim.", "/kɑːnt/", "mạnh, dài, miệng mở rộng; âm /t/ thường bị nuốt"],
+        ["Yes, I can.", "/kæn/", "đọc mạnh vì đứng cuối câu"],
+      ),
+      tip("Người bản xứ hay nuốt âm /t/ ở cuối can't, nên đừng chờ nghe chữ t. Hãy nghe **nguyên âm**: câu khẳng định đọc lướt **/kən/** như “cần” rất nhẹ, còn câu phủ định kéo dài và nhấn mạnh **/kɑːnt/** như “caaan”."),
+      teacher("Sau 50 năm đứng lớp, tôi thấy học trò người Việt nhầm can và can't nhiều hơn bất cứ cặp từ nào, vì các em cố nghe âm /t/ mà người ta không đọc. Mỗi tối, các em nói to ba câu về mình: **I can…**, **I can't…**, **Can I…?** Câu khẳng định đọc nhẹ can và nhấn vào động từ; câu phủ định thì nhấn chính chữ can't. Nói đúng nhịp thì tự khắc sẽ nghe ra."),
+    ],
+  },
+  words: [
+    word("ride", "/raɪd/", "đi (xe đạp, xe máy), cưỡi", "I can ride a motorbike.", "ride", 0, "Nhớ đọc âm /d/ ở cuối, để không lẫn với write /raɪt/ (viết)."),
+    word("drive", "/draɪv/", "lái xe (ô tô)", "My wife can drive a car.", "drive", 0, "Nhớ đọc âm /v/ ở cuối, cắn nhẹ môi dưới."),
+    word("cook", "/kʊk/", "nấu ăn", "My husband can cook very well.", "cook", 0, "Âm /ʊ/ ngắn, khác với /uː/ dài trong food."),
+    word("language", "/ˈlæŋ.ɡwɪdʒ/", "ngôn ngữ, tiếng", "How many languages can you speak?", "lan|guage", 0, "Chỉ có hai âm tiết, nhấn âm đầu: LANG-gwidge; âm cuối là /dʒ/."),
+    word("sing", "/sɪŋ/", "hát", "She can sing English songs.", "sing", 0, "Âm cuối /ŋ/ giống “ng” tiếng Việt, không bật thêm âm /ɡ/."),
+    word("guitar", "/ɡɪˈtɑːr/", "đàn ghi-ta", "He can play the guitar.", "gui|tar", 1, "Nhấn âm sau: gi-TAR."),
+    word("speak", "/spiːk/", "nói (một ngôn ngữ)", "Can you speak Japanese?", "speak", 0, "Âm /sp/ đọc liền, không chèn âm “xờ” vào trước."),
+    word("borrow", "/ˈbɒr.əʊ/", "mượn", "Can I borrow your pen?", "bor|row", 0),
+  ],
+  exercises: [
+    mc("a1-n11-1", "My brother ___ speak three languages.", ["cans", "can", "can to"], 1, "Can giữ nguyên với mọi chủ ngữ và không có to phía sau."),
+    mc("a1-n11-2", "Bạn muốn xin phép mở cửa sổ. Câu nào đúng?", ["I can open the window?", "Do I can open the window?", "Can I to open the window?", "Can I open the window?"], 3, "Xin phép: Can I + động từ nguyên mẫu? Không dùng do với can, không thêm to."),
+    fill("a1-n11-3", "She ___ drive, so she goes to work by bus. (không biết)", ["can't", "cannot"], "Phủ định của can là can't hoặc cannot (viết liền)."),
+    fill("a1-n11-4", "___ you swim? Yes, I can.", ["Can", "can"], "Câu trả lời ngắn Yes, I can cho biết câu hỏi bắt đầu bằng Can."),
+    reorder("a1-n11-5", "What languages can you speak?", "Câu hỏi với từ để hỏi: What languages + can + chủ ngữ + động từ nguyên mẫu?"),
+    reorder("a1-n11-6", "Where can I park my car?", "Where đứng đầu, sau đó đảo can lên trước I."),
+    listen("a1-n11-7", "She can't cook, but she can sing.", ["Cô ấy biết nấu ăn nhưng không biết hát.", "Cô ấy không biết nấu ăn và không biết hát.", "Cô ấy không biết nấu ăn nhưng biết hát."], 2, "Can't đọc mạnh và dài; can sau but đọc nhẹ, nhấn vào sing."),
+    listen("a1-n11-8", "Can I use your phone?", ["Tôi dùng điện thoại của bạn được không?", "Bạn có biết dùng điện thoại không?", "Bạn dùng điện thoại của tôi đi."], 0, "Can I…? là câu xin phép cho chính mình."),
+  ],
+  speaking: [
+    say("I can speak a little English.", "Tôi nói được một chút tiếng Anh."),
+    say("Excuse me, can I sit here?", "Xin lỗi, tôi ngồi đây được không?"),
+    say("My son can swim, but he can't ride a bike.", "Con trai tôi biết bơi, nhưng chưa biết đi xe đạp."),
+  ],
+});

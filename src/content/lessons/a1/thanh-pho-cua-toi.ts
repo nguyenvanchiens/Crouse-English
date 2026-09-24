@@ -1,0 +1,62 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "thanh-pho-cua-toi",
+  title: "Thành phố của tôi",
+  minutes: 22,
+  lecture: {
+    title: "Nơi chốn trong thành phố, giới từ và chỉ đường đơn giản",
+    blocks: [
+      p("Một du khách dừng bạn ở bờ hồ Hoàn Kiếm và hỏi: **Excuse me, where is the post office?** Hay bạn phải dặn một người giao hàng nước ngoài nhà mình ở đâu. Chỉ cần vài giới từ và ba bốn câu chỉ đường, bạn đã giúp được người ta và tự đi lại được khi ra nước ngoài."),
+      p("Câu hỏi cơ bản là **Where is the…?** (…ở đâu?). Câu trả lời bắt đầu bằng **It's…** rồi đến giới từ. Với tên đường, dùng **on**; với số nhà cụ thể, dùng **at**; với thành phố hay quận, dùng **in**."),
+      table(
+        ["Giới từ", "Dùng với", "Ví dụ"],
+        ["in", "thành phố, quận, khu vực", "The museum is in Hoan Kiem District."],
+        ["on", "tên đường (không có số nhà)", "The bank is on Le Loi Street."],
+        ["at", "địa chỉ có số nhà", "My office is at twenty-five Hai Ba Trung Street."],
+      ),
+      ex("Where is the post office? It's on Dinh Tien Hoang Street.", "Bưu điện ở đâu? Nó ở đường Đinh Tiên Hoàng.", "Người Anh cũng hay nói in … Street; người Mỹ luôn nói on. Bạn dùng on là an toàn nhất."),
+      mistake("Where the bank is?", "Where is the bank?", "Tiếng Việt nói “Ngân hàng ở đâu?”, chủ ngữ đứng trước. Câu hỏi tiếng Anh phải đảo is lên trước chủ ngữ: Where is the bank?"),
+      p("Để nói một tòa nhà nằm ở đâu so với tòa nhà khác, dùng bốn giới từ quen thuộc nhất trên phố: **near** (gần), **next to** (ngay bên cạnh, sát vách), **opposite** (đối diện, bên kia đường) và **between… and…** (ở giữa hai nơi)."),
+      table(
+        ["Giới từ", "Nghĩa", "Ví dụ"],
+        ["near", "gần (có thể cách vài nhà)", "The school is near the park."],
+        ["next to", "ngay bên cạnh", "The café is next to the bank."],
+        ["opposite", "đối diện, bên kia đường", "The pharmacy is opposite the hospital."],
+        ["between… and…", "ở giữa hai nơi", "The bank is between the supermarket and the museum."],
+      ),
+      ex("Is there a supermarket near here? Yes, there's one next to the library.", "Gần đây có siêu thị không? Có, có một cái ngay cạnh thư viện.", "One thay cho a supermarket để khỏi lặp lại."),
+      mistake("The pharmacy is opposite of the school.", "The pharmacy is opposite the school.", "Tiếng Việt nói “đối diện với”, nên người Việt hay thêm of hoặc to. Opposite đứng thẳng trước danh từ, không cần từ nào chen vào."),
+      mistake("The bank is between the school with the park.", "The bank is between the school and the park.", "Tiếng Việt nói “giữa trường với công viên”. Tiếng Anh luôn là between… and…, không dùng with."),
+      p("Chỉ đường đơn giản chỉ cần vài câu mệnh lệnh: **Go along this street** (đi dọc con đường này), **Turn left** (rẽ trái), **Turn right** (rẽ phải), **Take the first street on the left** (rẽ vào đường đầu tiên bên trái). Kết thúc bằng **It's on your left** hoặc **It's on your right**."),
+      ex("Go along this street and turn right. The museum is on your left.", "Đi dọc đường này rồi rẽ phải. Bảo tàng ở bên tay trái bạn."),
+      tip("Left và right đều kết thúc bằng âm /t/, nhưng người Việt hay nuốt mất. Đọc **left** /left/ bật nhẹ /f/ rồi /t/; đọc **right** /raɪt/ tròn môi ở /r/, đừng đọc thành “rai”. Không rõ âm cuối thì người nghe dễ đi nhầm hướng."),
+      teacher("Học trò của tôi thuộc bảng giới từ rất nhanh nhưng đứng trước người nước ngoài thì cứng họng. Cách tôi luyện cho các em: mỗi sáng đi làm, tự nói về con đường mình đi qua, kiểu **The pharmacy is next to the bank. The school is opposite the park.** Còn khi chỉ đường mà không chắc, cứ nói chậm, chỉ tay, và kết thúc bằng **It's on your left**. Người hỏi đường cần câu rõ ràng, không cần câu dài."),
+    ],
+  },
+  words: [
+    word("street", "/striːt/", "đường phố", "I live on Tran Phu Street.", "street", 0, "Âm /str/ đọc liền một hơi, đừng chèn âm “xờ” thành “xờ-trít”; nhớ âm /t/ cuối."),
+    word("pharmacy", "/ˈfɑː.mə.si/", "hiệu thuốc", "Is there a pharmacy near here?", "phar|ma|cy", 0),
+    word("library", "/ˈlaɪ.brər.i/", "thư viện", "The library is next to the school.", "li|brar|y", 0, "Library là thư viện để mượn sách; hiệu sách để mua là bookshop."),
+    word("supermarket", "/ˈsuː.pəˌmɑː.kɪt/", "siêu thị", "There's a supermarket on my street.", "su|per|mar|ket", 0, "Nhấn âm đầu: SU-per-mar-ket."),
+    word("museum", "/mjuːˈziː.əm/", "bảo tàng", "The museum is opposite the park.", "mu|se|um", 1, "Nhấn âm thứ hai: mju-ZI-ơm, không nhấn âm đầu."),
+    word("park", "/pɑːk/", "công viên", "We often walk in the park.", "park", 0, "Kết thúc bằng âm /k/ ngắn và gọn, đừng đọc thành “pa”."),
+    word("near", "/nɪər/", "gần", "My house is near the market.", "near", 0),
+    word("left", "/left/", "bên trái", "Turn left at the bank.", "left", 0),
+  ],
+  exercises: [
+    mc("a1-n14-1", "The café is ___ the bank and the bookshop.", ["opposite", "between", "next"], 1, "Có hai nơi được nối bằng and nên dùng cấu trúc between… and."),
+    mc("a1-n14-2", "Chọn câu hỏi đúng:", ["Where is the museum?", "Where the museum is?", "The museum is where?"], 0, "Câu hỏi với where phải đảo is lên trước chủ ngữ."),
+    fill("a1-n14-3", "The pharmacy is ___ the hospital. (đối diện)", ["opposite"], "Đối diện là opposite, không thêm of hay to."),
+    fill("a1-n14-4", "My office is ___ Nguyen Trai Street. (nằm trên)", ["on", "in"], "Tên đường không có số nhà thường đi với on; người Anh cũng hay dùng in."),
+    reorder("a1-n14-5", "How do I get to the museum?", "Câu hỏi đường lịch sự: How do I get to + nơi chốn?"),
+    reorder("a1-n14-6", "Take the second street on the left.", "Câu mệnh lệnh chỉ đường: Take + the second street + on the left."),
+    listen("a1-n14-7", "The bank is opposite the park.", ["Ngân hàng ở cạnh công viên.", "Ngân hàng ở trong công viên.", "Ngân hàng ở đối diện công viên."], 2, "Opposite là đối diện, bên kia đường."),
+    listen("a1-n14-8", "Turn right. It's on your left.", ["Rẽ trái. Nó ở bên tay phải bạn.", "Rẽ phải. Nó ở bên tay trái bạn.", "Rẽ phải. Nó ở bên tay phải bạn."], 1, "Turn right là rẽ phải; on your left là ở bên tay trái bạn."),
+  ],
+  speaking: [
+    say("Excuse me, where is the pharmacy?", "Xin lỗi, hiệu thuốc ở đâu ạ?"),
+    say("It's on Le Loi Street, next to the bank.", "Nó ở đường Lê Lợi, ngay cạnh ngân hàng."),
+    say("Go along this street and turn left.", "Đi dọc đường này rồi rẽ trái."),
+  ],
+});

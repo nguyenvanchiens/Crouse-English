@@ -1,0 +1,62 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "bi-dong-nang-cao",
+  title: "Người ta nói rằng…",
+  minutes: 22,
+  lecture: {
+    title: "Bị động với động từ tường thuật và bị động với get",
+    blocks: [
+      p("Mở một tờ báo tiếng Anh, bạn sẽ gặp ngay những câu như **The suspect is believed to have fled the country.** Người Việt quen nói “người ta nói rằng…”, “nghe đồn là…”, rồi dịch thẳng thành **People say that…**. Câu đó không sai, nhưng nghe đời thường. Báo chí và văn viết trang trọng dùng **bị động với động từ tường thuật** để đưa tin một cách khách quan, không cần nói ai là người nói. Bài văn phong học thuật đã giới thiệu It is estimated that…; bài này đi sâu vào cả hai dạng và cách chọn thì."),
+      table(
+        ["Dạng", "Cấu trúc", "Ví dụ"],
+        ["Bị động khách quan", "It + is/was + V3 + that + mệnh đề", "It is said that the castle is haunted."],
+        ["Bị động cá nhân, cùng thời điểm", "Chủ ngữ + is/was + V3 + to V", "The castle is said to be haunted."],
+        ["Bị động cá nhân, xảy ra trước", "Chủ ngữ + is/was + V3 + to have V3", "He is said to have left the country last week."],
+        ["Bị động cá nhân, đang diễn ra", "Chủ ngữ + is/was + V3 + to be V-ing", "The company is thought to be planning job cuts."],
+      ),
+      p("Động từ hay dùng: **say, believe, think, report, expect, know, consider, allege, estimate, fear, understand**. Cách chọn dạng sau chữ to rất đơn giản: so sánh **thời điểm của sự việc** với **thời điểm người ta nói**. Cùng lúc thì dùng **to V**; sự việc đã xảy ra trước thì dùng **to have V3**; sự việc đang diễn ra thì dùng **to be V-ing**."),
+      ex("The painting is believed to be worth ten million dollars.", "Người ta tin rằng bức tranh trị giá mười triệu đô la.", "Bây giờ người ta tin, bây giờ bức tranh trị giá như vậy: cùng thời điểm nên dùng to be."),
+      ex("The fire is thought to have started in the kitchen.", "Người ta cho rằng đám cháy đã bắt đầu từ trong bếp.", "Đám cháy bắt đầu trước lúc người ta nhận định, nên dùng to have started."),
+      ex("Police are understood to be questioning two men.", "Theo những gì được biết, cảnh sát đang thẩm vấn hai người đàn ông.", "To be questioning: hành động đang diễn ra ngay lúc đưa tin."),
+      mistake("He is said to be stolen the car.", "He is said to have stolen the car.", "Tiếng Việt chỉ cần thêm chữ “đã”: “được cho là đã lấy xe”. Tiếng Anh phải chuyển chữ “đã” thành to have + V3. Còn to be stolen lại có nghĩa là bị lấy cắp, sai hẳn nghĩa."),
+      mistake("It is said him to be very rich.", "It is said that he is very rich.", "Đây là lỗi trộn hai cấu trúc. Bắt đầu bằng It thì phải theo sau là that + mệnh đề; muốn dùng to V thì chủ ngữ phải là người: He is said to be very rich."),
+      table(
+        ["Câu chủ động", "Cách viết trên bản tin"],
+        ["People report that three people died.", "Three people are reported to have died."],
+        ["Officials expect that prices will rise.", "Prices are expected to rise."],
+        ["Witnesses allege that the driver was drunk.", "The driver is alleged to have been drunk."],
+      ),
+      p("**Get + V3** là dạng bị động của văn nói. Người bản xứ dùng get khi sự việc **bất ngờ**, thường **không mong muốn**, hoặc khi chủ ngữ có phần **tự chuốc lấy**: get fired, get hurt, get stuck, get caught, get stolen. Cũng có những cụm tích cực quen thuộc như get promoted, get married, get paid. Tuyệt đối không dùng get cho trạng thái kéo dài hay trong văn bản trang trọng."),
+      ex("He got fired for being late every day.", "Anh ta bị đuổi việc vì ngày nào cũng đi muộn.", "Nghe tự nhiên hơn was fired khi kể chuyện, và gợi ý rằng chính anh ta gây ra chuyện này."),
+      mistake("The samples got analysed in the laboratory.", "The samples were analysed in the laboratory.", "Get-passive là văn nói. Trong báo cáo khoa học, email trang trọng hay bài luận, luôn dùng be + V3."),
+      tip("Chữ **said** trong **is said to** đọc là /sed/, vần với red, không đọc /seɪd/ như nhiều bạn vẫn đọc theo mặt chữ. Còn chữ **to have** trong câu nhanh thường nhẹ hẳn đi, nghe như /tə həv/ hoặc /təv/."),
+      teacher("Sau năm mươi năm dạy, tôi thấy người Việt đọc hiểu cấu trúc này rất nhanh, nhưng khi viết thì cứ quay về **People say that**. Mỗi sáng, các em hãy đọc một tiêu đề tin tức tiếng Anh và tìm xem có is said to, is believed to, is reported to hay không, rồi tự hỏi: sự việc xảy ra **cùng lúc** hay **trước** lúc đưa tin? Chỉ cần trả lời đúng câu hỏi đó là các em chọn đúng **to V** hay **to have V3**. Thói quen năm phút mỗi sáng hiệu quả hơn một buổi học ngữ pháp dài."),
+    ],
+  },
+  words: [
+    word("allegedly", "/əˈledʒ.ɪd.li/", "bị cho là, theo lời cáo buộc", "The director allegedly accepted bribes from suppliers.", "al|leg|ed|ly", 1, "Đọc đủ bốn âm tiết, đuôi ed đọc là /ɪd/: a-LEDGE-id-ly."),
+    word("reportedly", "/rɪˈpɔː.tɪd.li/", "theo như tin tức đưa", "The singer has reportedly cancelled her world tour.", "re|port|ed|ly", 1),
+    word("suspect", "/ˈsʌs.pekt/", "nghi phạm", "The suspect is believed to have left the city.", "sus|pect", 0, "Danh từ nhấn âm đầu SUS-pect; động từ nhấn âm sau: /səˈspekt/."),
+    word("fraud", "/frɔːd/", "sự gian lận, lừa đảo", "The manager is alleged to have committed fraud.", "fraud", 0, "Nguyên âm /ɔː/ dài, cuối từ là /d/ rõ ràng, không đọc “phờ-rau”."),
+    word("casualty", "/ˈkæʒ.ju.əl.ti/", "thương vong, người bị thương hoặc thiệt mạng", "No casualties have been reported so far.", "cas|u|al|ty", 0),
+    word("evacuate", "/ɪˈvæk.ju.eɪt/", "sơ tán", "Thousands of residents were evacuated before the storm.", "e|vac|u|ate", 1),
+    word("authority", "/ɔːˈθɒr.ə.ti/", "chính quyền, cơ quan chức năng", "The local authorities are expected to issue a warning.", "au|thor|i|ty", 1, "Âm /θ/ đặt lưỡi giữa hai hàm răng, không đọc thành /t/ hay /s/."),
+    word("detain", "/dɪˈteɪn/", "tạm giữ, giam giữ", "Two men are being detained in connection with the robbery.", "de|tain", 1, "Trọng âm ở âm sau: de-TAIN; nguyên âm đôi /eɪ/, không đọc thành “đi-ten”."),
+  ],
+  exercises: [
+    mc("c1-n11-1", "The minister is believed ___ the country last night.", ["to leave", "to have left", "leaving", "that he left"], 1, "Việc rời đi xảy ra tối qua, trước thời điểm người ta tin, nên dùng to have + V3."),
+    fill("c1-n11-2", "It is ___ that the talks have broken down. (report)", ["reported"], "It + is + V3 + that: bị động khách quan. Report chuyển thành reported."),
+    mc("c1-n11-3", "Câu nào là cách viết bị động đúng của: People think that the company is planning job cuts?", ["The company is thought to be planning job cuts.", "The company thinks to be planning job cuts.", "It is thought the company to be planning job cuts.", "The company is thought that it is planning job cuts."], 0, "Việc lên kế hoạch đang diễn ra, nên dùng is thought to be + V-ing."),
+    fill("c1-n11-4", "The two climbers are feared to have ___ in the storm. (die)", ["died"], "Sự việc xảy ra trước lúc người ta lo sợ, nên dùng to have + V3: to have died."),
+    reorder("c1-n11-5", "The house is said to be haunted.", "Bị động cá nhân: chủ ngữ + is said + to V. Ngôi nhà bị ám bây giờ, cùng lúc với lời đồn."),
+    reorder("c1-n11-6", "Be careful or you will get hurt.", "Get hurt: bị đau, bị thương. Get-passive thường dùng cho chuyện bất ngờ, không mong muốn."),
+    listen("c1-n11-7", "The suspect is reported to have been arrested at the airport.", ["Nghi phạm đã trốn thoát qua sân bay.", "Cảnh sát sẽ bắt nghi phạm tại sân bay.", "Có tin nghi phạm đã bị bắt tại sân bay."], 2, "To have been arrested: đã bị bắt, xảy ra trước lúc đưa tin."),
+    listen("c1-n11-8", "Thousands of residents are expected to be evacuated tonight.", ["Hàng nghìn cư dân đã được sơ tán tối qua.", "Hàng nghìn cư dân từ chối sơ tán.", "Chính quyền không có kế hoạch sơ tán cư dân.", "Dự kiến hàng nghìn cư dân sẽ được sơ tán tối nay."], 3, "Are expected to be evacuated: dự kiến sẽ được sơ tán, việc chưa xảy ra."),
+  ],
+  speaking: [
+    say("It is said that the old bridge is over two hundred years old.", "Người ta nói rằng cây cầu cũ đã hơn hai trăm năm tuổi."),
+    say("The singer is believed to have left the country.", "Người ta tin rằng nữ ca sĩ đã rời khỏi đất nước."),
+    say("I got stuck in traffic for two hours.", "Tôi bị kẹt xe suốt hai tiếng."),
+  ],
+});
