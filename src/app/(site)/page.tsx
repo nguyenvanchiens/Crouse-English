@@ -1,13 +1,8 @@
-import {
-  BookOpenCheck,
-  Briefcase,
-  Check,
-  GraduationCap,
-  Mic,
-  Smile,
-  Star,
-  Users,
-} from "lucide-react";
+import Link from "next/link";
+import { BookOpenCheck, Check, Mic, Star, Users } from "lucide-react";
+import { GOAL_META } from "@/components/course/goal-meta";
+import { getCourses } from "@/lib/content";
+import { formatVnd } from "@/lib/format";
 import { WordCard } from "@/components/word-card";
 
 const LEVELS = [
@@ -16,49 +11,6 @@ const LEVELS = [
   { code: "B1", name: "Trung cấp", can: "Trò chuyện với người nước ngoài khi đi du lịch" },
   { code: "B2", name: "Trung cao", can: "Họp, thuyết trình, viết email công việc" },
   { code: "C1", name: "Thành thạo", can: "Tranh luận, học và làm việc hoàn toàn bằng tiếng Anh" },
-];
-
-const COURSES = [
-  {
-    icon: Smile,
-    title: "Tiếng Anh giao tiếp",
-    who: "Cho người mất gốc và người đi làm muốn nói trôi chảy",
-    detail: "3 tháng, A1 đến B1, lớp 6 người",
-    price: "1.290.000đ/tháng",
-    tone: "bg-sun",
-    featured: true,
-    includes: [
-      "Bài học 15 phút mỗi ngày trên điện thoại",
-      "Chấm phát âm từng câu bạn nói",
-      "1 buổi lớp nhóm với giáo viên mỗi tuần",
-      "Báo cáo tiến độ sau mỗi cấp",
-    ],
-  },
-  {
-    icon: GraduationCap,
-    title: "Luyện thi IELTS 6.5+",
-    who: "Đủ 4 kỹ năng, chấm Writing và Speaking theo tiêu chí thật",
-    detail: "4 tháng, đầu vào B1",
-    price: "2.490.000đ/tháng",
-    tone: "bg-grape-soft",
-  },
-  {
-    icon: Briefcase,
-    title: "TOEIC 750+",
-    who: "Cho sinh viên sắp ra trường và người cần chứng chỉ để thăng tiến",
-    detail: "10 tuần, đầu vào 350+",
-    price: "1.590.000đ/tháng",
-    tone: "bg-leaf-soft",
-  },
-  {
-    icon: BookOpenCheck,
-    title: "Tiếng Anh cho trẻ 6–12 tuổi",
-    who: "Học qua trò chơi, bài hát và truyện tranh, có báo cáo cho phụ huynh",
-    detail: "Theo năm học, 2 buổi/tuần",
-    price: "990.000đ/tháng",
-    tone: "bg-sky-deep",
-    wide: true,
-  },
 ];
 
 const STEPS = [
@@ -122,38 +74,10 @@ const FAQS = [
   },
 ];
 
-function Logo() {
-  return (
-    <a href="#" className="flex items-center gap-2 rounded-xl" aria-label="Crouse English, về trang chủ">
-      <span className="grid size-10 place-items-center rounded-2xl border-[2.5px] border-ink bg-tangerine font-display text-xl font-extrabold shadow-[0_3px_0_0_var(--color-ink)]">
-        Cr
-      </span>
-      <span className="font-display text-xl font-bold leading-none">
-        Crouse <span className="text-ink-soft">English</span>
-      </span>
-    </a>
-  );
-}
-
-export default function Home() {
+export default async function Home() {
+  const courses = await getCourses();
   return (
     <>
-      <header className="sticky top-0 z-30 border-b-[2.5px] border-ink bg-sky/90 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <Logo />
-          <ul className="hidden items-center gap-7 font-semibold md:flex">
-            <li><a className="hover:text-tangerine-deep" href="#khoa-hoc">Khóa học</a></li>
-            <li><a className="hover:text-tangerine-deep" href="#lo-trinh">Lộ trình</a></li>
-            <li><a className="hover:text-tangerine-deep" href="#cam-nhan">Cảm nhận</a></li>
-            <li><a className="hover:text-tangerine-deep" href="#hoi-dap">Hỏi đáp</a></li>
-          </ul>
-          <a href="#kiem-tra" className="btn btn-primary min-h-11 px-4 text-base">
-            Học thử miễn phí
-          </a>
-        </nav>
-      </header>
-
-      <main id="top">
         {/* Hero */}
         <section className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:pt-20">
           <div>
@@ -169,12 +93,12 @@ export default function Home() {
               với giáo viên. Học đúng trình độ của bạn, từ mất gốc đến IELTS.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#kiem-tra" className="btn btn-primary text-lg">
+              <Link href="/kiem-tra-trinh-do" className="btn btn-primary text-lg">
                 Kiểm tra trình độ trong 10 phút
-              </a>
-              <a href="#khoa-hoc" className="btn btn-ghost text-lg">
+              </Link>
+              <Link href="/khoa-hoc" className="btn btn-ghost text-lg">
                 Xem các khóa học
-              </a>
+              </Link>
             </div>
             <div className="mt-10 flex items-center gap-4">
               <div className="flex -space-x-3" aria-hidden>
@@ -245,33 +169,32 @@ export default function Home() {
             Chọn khóa học theo mục tiêu của bạn
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {COURSES.map((c) => {
-              const Icon = c.icon;
+            {courses.map((c) => {
+              const meta = GOAL_META[c.goal];
+              const Icon = meta.icon;
+              const featured = c.goal === "giao-tiep";
+              const wide = c.goal === "tre-em";
               return (
                 <article
-                  key={c.title}
-                  className={`clay flex flex-col p-7 ${c.featured ? "md:col-span-2 md:row-span-2 md:p-10" : ""} ${c.wide ? "md:col-span-3 md:flex-row md:items-center md:gap-8" : ""} ${c.tone}`}
+                  key={c.slug}
+                  className={`clay flex flex-col p-7 ${featured ? "md:col-span-2 md:row-span-2 md:p-10" : ""} ${wide ? "md:col-span-3 md:flex-row md:items-center md:gap-8" : ""} ${meta.tone}`}
                 >
                   <span className="grid size-12 shrink-0 place-items-center rounded-2xl border-[2.5px] border-ink bg-card">
                     <Icon className="size-6" aria-hidden />
                   </span>
-                  {c.featured && (
-                    <p className="mt-6 w-fit rounded-full bg-ink px-3 py-1 text-sm font-semibold text-card">
-                      Được chọn nhiều nhất
-                    </p>
+                  {featured && (
+                    <p className="mt-6 w-fit rounded-full bg-ink px-3 py-1 text-sm font-semibold text-card">Được chọn nhiều nhất</p>
                   )}
-                  <div className={c.wide ? "md:flex-1" : ""}>
-                    <h3
-                      className={`mt-4 font-display font-extrabold leading-tight ${c.featured ? "text-4xl sm:text-5xl" : "text-2xl"} ${c.wide ? "md:mt-0" : ""}`}
-                    >
+                  <div className={wide ? "md:flex-1" : ""}>
+                    <h3 className={`mt-4 font-display font-extrabold leading-tight ${featured ? "text-4xl sm:text-5xl" : "text-2xl"} ${wide ? "md:mt-0" : ""}`}>
                       {c.title}
                     </h3>
-                    <p className={`mt-3 text-ink ${c.featured ? "max-w-md text-lg" : ""}`}>{c.who}</p>
-                    <p className="mt-2 text-sm font-semibold text-ink-soft">{c.detail}</p>
+                    <p className={`mt-3 text-ink ${featured ? "max-w-md text-lg" : ""}`}>{c.summary}</p>
+                    <p className="mt-2 text-sm font-semibold text-ink-soft">{c.durationWeeks} tuần, trình độ {c.level}</p>
                   </div>
-                  {c.includes && (
+                  {featured && (
                     <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                      {c.includes.map((item) => (
+                      {c.outcomes.slice(0, 4).map((item) => (
                         <li key={item} className="flex items-start gap-3 rounded-2xl border-[2.5px] border-ink bg-card px-4 py-3 font-medium">
                           <Check className="mt-0.5 size-5 shrink-0 text-leaf" aria-hidden />
                           {item}
@@ -279,11 +202,9 @@ export default function Home() {
                       ))}
                     </ul>
                   )}
-                  <div className={`mt-auto flex flex-wrap items-center justify-between gap-3 pt-6 ${c.wide ? "md:mt-0 md:gap-6 md:pt-0" : ""}`}>
-                    <p className="font-display text-xl font-bold">{c.price}</p>
-                    <a href="#kiem-tra" className="btn btn-ghost min-h-11 px-4 text-base">
-                      Xem chi tiết
-                    </a>
+                  <div className={`mt-auto flex flex-wrap items-center justify-between gap-3 pt-6 ${wide ? "md:mt-0 md:gap-6 md:pt-0" : ""}`}>
+                    <p className="font-display text-xl font-bold">{formatVnd(c.priceVnd)}/tháng</p>
+                    <Link href={`/khoa-hoc/${c.slug}`} className="btn btn-ghost min-h-11 px-4 text-base">Xem chi tiết</Link>
                   </div>
                 </article>
               );
@@ -361,9 +282,9 @@ export default function Home() {
               Làm bài kiểm tra 10 phút, nhận kết quả ngay kèm lộ trình học phù hợp.
               Miễn phí, không cần thẻ thanh toán.
             </p>
-            <a href="#" className="btn btn-ghost mt-8 text-lg">
+            <Link href="/kiem-tra-trinh-do" className="btn btn-ghost mt-8 text-lg">
               Bắt đầu bài kiểm tra
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -389,15 +310,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-      </main>
-
-      <footer className="border-t-[2.5px] border-ink bg-card">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <Logo />
-          <p className="text-ink-soft">Khóa học tiếng Anh giao tiếp, IELTS, TOEIC và tiếng Anh trẻ em.</p>
-          <p className="text-sm text-ink-soft">© 2026 Crouse English</p>
-        </div>
-      </footer>
     </>
   );
 }
