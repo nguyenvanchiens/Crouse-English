@@ -12,6 +12,7 @@ import { PersistNotice } from "@/components/ui/persist-notice";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { LessonSidebar } from "./lesson-sidebar";
 import { StepExercise } from "./step-exercise";
+import { StepSpeaking } from "./step-speaking";
 import { StepVideo } from "./step-video";
 import { StepVocab } from "./step-vocab";
 
@@ -79,8 +80,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
       case "exercise":
         return <StepExercise step={step} onComplete={(r) => markComplete(i, r)} />;
       case "speaking":
-        // Replaced by <StepSpeaking> in Task 11
-        return <button type="button" className="btn btn-ghost" onClick={done}>Bỏ qua (tạm)</button>;
+        return <StepSpeaking step={step} onComplete={done} />;
     }
   }
 
