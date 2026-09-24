@@ -11,6 +11,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { LessonSidebar } from "./lesson-sidebar";
+import { StepExercise } from "./step-exercise";
 import { StepVideo } from "./step-video";
 import { StepVocab } from "./step-vocab";
 
@@ -76,8 +77,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
       case "vocab":
         return <StepVocab step={step} onComplete={done} />;
       case "exercise":
-        // Replaced by <StepExercise> in Task 10
-        return <button type="button" className="btn btn-ghost" onClick={done}>Bỏ qua (tạm)</button>;
+        return <StepExercise step={step} onComplete={(r) => markComplete(i, r)} />;
       case "speaking":
         // Replaced by <StepSpeaking> in Task 11
         return <button type="button" className="btn btn-ghost" onClick={done}>Bỏ qua (tạm)</button>;
