@@ -18,20 +18,23 @@ describe("scorePlacement", () => {
   it("falls back to A1 when nothing is right", () => {
     const r = scorePlacement(questions, {});
     expect(r.level).toBe("A1");
+    expect(r.startLevel).toBe("A1");
     expect(r.score).toBe(0);
   });
   it("picks the highest level passed with every lower level passed (>= 60%)", () => {
     const r = scorePlacement(questions, answer(["a1", "a2", "b1", "b2", "c1", "c2", "d1"]));
     expect(r.level).toBe("B1"); // B2 is 1/2 = 50%
+    expect(r.startLevel).toBe("B2");
     expect(r.perLevel.B2).toEqual({ correct: 1, total: 2 });
   });
   it("does not skip a failed lower level", () => {
     const r = scorePlacement(questions, answer(["a1", "a2", "c1", "c2", "d1", "d2"]));
     expect(r.level).toBe("A1");
+    expect(r.startLevel).toBe("A2");
   });
   it("reports B2 when everything is right", () => {
     const r = scorePlacement(questions, answer(questions.map((x) => x.id)));
-    expect(r).toMatchObject({ level: "B2", score: 100 });
+    expect(r).toMatchObject({ level: "B2", startLevel: "C1", score: 100 });
   });
 });
 

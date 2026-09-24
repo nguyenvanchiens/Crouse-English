@@ -154,9 +154,12 @@ body {
     visibility: visible;
   }
   #certificate {
-    position: absolute;
+    position: fixed;
     inset: 0;
     margin: 0;
     box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

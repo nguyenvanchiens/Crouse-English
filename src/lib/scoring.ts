@@ -25,8 +25,14 @@ export function checkFillBlank(answers: string[], input: string): boolean {
   return answers.some((a) => normalize(a) === value);
 }
 
+/** How a word is shown on a reorder chip: no punctuation or capitals that hint at its position. */
+export function chipText(word: string): string {
+  const bare = word.replace(/[‘’]/g, "'").replace(/[^\p{L}\p{N}']/gu, "");
+  return /^I('|$)/.test(bare) ? bare : bare.toLowerCase();
+}
+
 export function checkReorder(words: string[], attempt: string[]): boolean {
-  return attempt.length === words.length && attempt.every((w, i) => w === words[i]);
+  return attempt.length === words.length && attempt.every((w, i) => chipText(w) === chipText(words[i]));
 }
 
 export function correctAnswerText(ex: Exercise): string {

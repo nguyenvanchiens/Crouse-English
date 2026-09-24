@@ -22,12 +22,29 @@ function ExerciseItem({ item, locked, onAnswer }: { item: Exercise; locked: bool
   }
 }
 
-export function StepExercise({ step, onComplete }: { step: ExerciseStep; onComplete: (r: { score: number }) => void }) {
-  const [i, setI] = useState(0);
+/** Where the learner is in an exercise step; kept by the lesson so leaving the step does not reset it. */
+export interface ExerciseProgress {
+  i: number;
+  correct: number;
+  score: number | null;
+}
+
+export function StepExercise({
+  step,
+  saved,
+  onProgress,
+  onComplete,
+}: {
+  step: ExerciseStep;
+  saved?: ExerciseProgress;
+  onProgress?: (p: ExerciseProgress) => void;
+  onComplete: (r: { score: number }) => void;
+}) {
+  const [i, setI] = useState(saved?.i ?? 0);
   const [result, setResult] = useState<boolean | null>(null);
-  const [correct, setCorrect] = useState(0);
+  const [correct, setCorrect] = useState(saved?.correct ?? 0);
   const [attempt, setAttempt] = useState(0);
-  const [score, setScore] = useState<number | null>(null);
+  const [score, setScore] = useState<number | null>(saved?.score ?? null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
   const scoreRef = useRef<HTMLDivElement>(null);
@@ -55,10 +72,12 @@ export function StepExercise({ step, onComplete }: { step: ExerciseStep; onCompl
     if (last) {
       const s = percentScore(correct, total) ?? 0;
       setScore(s);
+      onProgress?.({ i, correct, score: s });
       onComplete({ score: s });
     } else {
       setI(i + 1);
       setResult(null);
+      onProgress?.({ i: i + 1, correct, score: null });
     }
   }
 
@@ -68,6 +87,7 @@ export function StepExercise({ step, onComplete }: { step: ExerciseStep; onCompl
     setCorrect(0);
     setScore(null);
     setAttempt((a) => a + 1);
+    onProgress?.({ i: 0, correct: 0, score: null });
   }
 
   if (score !== null) {

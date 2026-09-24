@@ -11,18 +11,21 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { LessonSidebar } from "./lesson-sidebar";
-import { StepExercise } from "./step-exercise";
+import { StepExercise, type ExerciseProgress } from "./step-exercise";
+import { StepLecture } from "./step-lecture";
 import { StepSpeaking } from "./step-speaking";
 import { StepVideo } from "./step-video";
 import { StepVocab } from "./step-vocab";
 
 const STEP_LABEL: Record<Step["type"], string> = {
+  lecture: "Bài giảng",
   video: "Video",
   vocab: "Từ vựng",
   exercise: "Bài tập",
   speaking: "Luyện nói",
 };
 const STEP_HINT: Record<Step["type"], string> = {
+  lecture: "Đọc bài giảng rồi bấm “Đã đọc xong” để tiếp tục.",
   video: "Xem video rồi bấm “Đã xem xong” để tiếp tục.",
   vocab: "Xem hết các từ rồi bấm “Đã học xong các từ”.",
   exercise: "Làm hết các câu để tiếp tục.",
@@ -35,6 +38,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [completed, setCompleted] = useState<boolean[]>(() => lesson.steps.map(() => false));
   const [exerciseScore, setExerciseScore] = useState<number | null>(null);
+  const [exerciseProgress, setExerciseProgress] = useState<Record<number, ExerciseProgress>>({});
   const [finished, setFinished] = useState<{ score: number | null; courseDone: boolean } | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
@@ -74,6 +78,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     setStepIndex(0);
     setCompleted(lesson.steps.map(() => false));
     setExerciseScore(null);
+    setExerciseProgress({});
   }
 
   const sidebar = (onNavigate?: () => void) => (
@@ -83,12 +88,21 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   function renderStep(step: Step, i: number) {
     const done = () => markComplete(i);
     switch (step.type) {
+      case "lecture":
+        return <StepLecture step={step} done={completed[i]} onComplete={done} />;
       case "video":
         return <StepVideo step={step} done={completed[i]} onComplete={done} />;
       case "vocab":
         return <StepVocab step={step} onComplete={done} />;
       case "exercise":
-        return <StepExercise step={step} onComplete={(r) => markComplete(i, r)} />;
+        return (
+          <StepExercise
+            step={step}
+            saved={exerciseProgress[i]}
+            onProgress={(p) => setExerciseProgress((s) => ({ ...s, [i]: p }))}
+            onComplete={(r) => markComplete(i, r)}
+          />
+        );
       case "speaking":
         return <StepSpeaking step={step} onComplete={done} />;
     }

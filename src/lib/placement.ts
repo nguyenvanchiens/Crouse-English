@@ -1,10 +1,15 @@
-import type { PlacementLevel, PlacementQuestion } from "@/content/types";
+import type { Level, PlacementLevel, PlacementQuestion } from "@/content/types";
 import { percentScore } from "./scoring";
 
 export const PLACEMENT_LEVELS: PlacementLevel[] = ["A1", "A2", "B1", "B2"];
 
+const START_LEVELS: Level[] = ["A1", "A2", "B1", "B2", "C1"];
+
 export interface PlacementResult {
+  /** highest level passed (A1 also when nothing is passed) */
   level: PlacementLevel;
+  /** the course level to start with: the one after the highest level passed */
+  startLevel: Level;
   score: number;
   perLevel: Record<PlacementLevel, { correct: number; total: number }>;
 }
@@ -21,11 +26,13 @@ export function scorePlacement(questions: PlacementQuestion[], answers: Record<s
       correct++;
     }
   }
-  let level: PlacementLevel = "A1";
+  let passed = 0;
   for (const l of PLACEMENT_LEVELS) {
     const { correct: c, total } = perLevel[l];
-    if (total > 0 && c / total >= 0.6) level = l;
+    if (total > 0 && c / total >= 0.6) passed++;
     else break;
   }
-  return { level, score: percentScore(correct, questions.length) ?? 0, perLevel };
+  const level = PLACEMENT_LEVELS[Math.max(0, passed - 1)];
+  const startLevel = START_LEVELS[passed];
+  return { level, startLevel, score: percentScore(correct, questions.length) ?? 0, perLevel };
 }

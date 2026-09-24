@@ -42,7 +42,8 @@ function write(next: ProgressState) {
 function subscribe(listener: () => void) {
   listeners.add(listener);
   const onStorage = (e: StorageEvent) => {
-    if (e.key === STORAGE_KEY) {
+    // key === null means another tab called localStorage.clear()
+    if (e.key === STORAGE_KEY || e.key === null) {
       cache = null;
       listener();
     }
@@ -55,6 +56,8 @@ function subscribe(listener: () => void) {
 }
 
 const noopSubscribe = () => () => {};
+
+export const __test = { read, subscribe };
 
 export function useProgress() {
   const state = useSyncExternalStore(subscribe, read, () => SERVER_STATE);
@@ -74,7 +77,7 @@ export const progress = {
   setLearnerName(name: string) {
     write(applyLearnerName(read(), name));
   },
-  savePlacement(level: Level, score: number) {
-    write(applyPlacement(read(), level, score, new Date()));
+  savePlacement(level: Level, startLevel: Level, score: number) {
+    write(applyPlacement(read(), level, startLevel, score, new Date()));
   },
 };

@@ -6,7 +6,7 @@ import type { Course } from "@/content/types";
 import { suggestCourseSlug } from "@/lib/course-utils";
 import { courseProgress, displayStreak, todayKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
-import { GOAL_META, LEVEL_LABEL } from "@/components/course/goal-meta";
+import { GOAL_META } from "@/components/course/goal-meta";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
 import { ProgressBar } from "@/components/ui/progress-bar";
@@ -19,7 +19,7 @@ export function MyCourses({ courses }: { courses: Course[] }) {
   const streak = displayStreak(state.streak, todayKey());
   const lessonsDone = Object.values(state.lessons).filter((l) => l.done).length;
   const placement = state.placement;
-  const suggested = placement ? courses.find((c) => c.slug === suggestCourseSlug(placement.level)) : null;
+  const suggested = placement ? courses.find((c) => c.slug === suggestCourseSlug(placement.startLevel)) : null;
 
   return (
     <div className="mt-10 space-y-10">
@@ -43,8 +43,8 @@ export function MyCourses({ courses }: { courses: Course[] }) {
           <Gauge className="size-9 text-leaf" aria-hidden />
           {state.placement ? (
             <div>
-              <p className="font-display text-3xl font-extrabold">{state.placement.level}</p>
-              <p className="text-ink-soft">{LEVEL_LABEL[state.placement.level]}, theo bài kiểm tra</p>
+              <p className="font-display text-3xl font-extrabold">{state.placement.startLevel}</p>
+              <p className="text-ink-soft">cấp nên bắt đầu, theo bài kiểm tra</p>
             </div>
           ) : (
             <Link href="/kiem-tra-trinh-do" className="font-semibold underline underline-offset-4">

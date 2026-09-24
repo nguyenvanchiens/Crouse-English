@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  chipText,
   checkChoice,
   checkFillBlank,
   checkReorder,
@@ -50,6 +51,28 @@ describe("checkReorder", () => {
   it("accepts either copy of a duplicated word", () => {
     const words = ["the", "cat", "and", "the", "dog"];
     expect(checkReorder(words, ["the", "cat", "and", "the", "dog"])).toBe(true);
+  });
+});
+
+describe("chipText", () => {
+  it("drops punctuation and capitals that would give the answer away", () => {
+    expect(chipText("Can")).toBe("can");
+    expect(chipText("menu,")).toBe("menu");
+    expect(chipText("please?")).toBe("please");
+    expect(chipText("Excuse")).toBe("excuse");
+  });
+  it("keeps the pronoun I and its contractions", () => {
+    expect(chipText("I")).toBe("I");
+    expect(chipText("I'm")).toBe("I'm");
+    expect(chipText("I’ve")).toBe("I've");
+  });
+});
+
+describe("checkReorder with display chips", () => {
+  it("accepts the normalized chips in the right order", () => {
+    const words = ["Can", "I", "see", "the", "menu,", "please?"];
+    expect(checkReorder(words, words.map(chipText))).toBe(true);
+    expect(checkReorder(words, ["I", "can", "see", "the", "menu", "please"])).toBe(false);
   });
 });
 

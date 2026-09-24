@@ -42,7 +42,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
       return;
     }
     const r = scorePlacement(questions, answers);
-    progress.savePlacement(r.level, r.score);
+    progress.savePlacement(r.level, r.startLevel, r.score);
     setResult(r);
     setStage("result");
   }
@@ -56,7 +56,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
         </p>
         {ready && state.placement && (
           <p className="mt-4 rounded-2xl bg-sky px-4 py-3">
-            Lần trước bạn đạt trình độ <strong>{state.placement.level}</strong> ({LEVEL_LABEL[state.placement.level].toLowerCase()}).
+            Lần trước hệ thống gợi ý bạn bắt đầu từ cấp <strong>{state.placement.startLevel}</strong> ({LEVEL_LABEL[state.placement.startLevel].toLowerCase()}).
           </p>
         )}
         <button type="button" className="btn btn-primary mt-8 text-lg" onClick={start}>Bắt đầu</button>
@@ -65,14 +65,18 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
   }
 
   if (stage === "result" && result) {
-    const suggested = courses.find((c) => c.slug === suggestCourseSlug(result.level));
+    const suggested = courses.find((c) => c.slug === suggestCourseSlug(result.startLevel));
+    const passedAny = result.startLevel !== "A1";
     return (
       <div className="space-y-8">
         <div className="clay card-in p-8 text-center sm:p-10">
-          <p className="font-semibold text-ink-soft">Trình độ của bạn</p>
-          <p className="mt-2 font-display text-7xl font-extrabold">{result.level}</p>
-          <p className="font-display text-2xl font-bold">{LEVEL_LABEL[result.level]}</p>
-          <p className="mt-3 text-ink-soft">Đúng {result.score}% tổng số câu.</p>
+          <p className="font-semibold text-ink-soft">Bạn nên bắt đầu từ cấp</p>
+          <p className="mt-2 font-display text-7xl font-extrabold">{result.startLevel}</p>
+          <p className="font-display text-2xl font-bold">{LEVEL_LABEL[result.startLevel]}</p>
+          <p className="mt-3 text-ink-soft">
+            {passedAny ? `Bạn đã vững đến cấp ${result.level}. ` : "Bạn chưa vượt qua cấp nào, hãy bắt đầu từ nền tảng. "}
+            Đúng {result.score}% tổng số câu.
+          </p>
           <dl className="mx-auto mt-8 grid max-w-md gap-3 text-left">
             {PLACEMENT_LEVELS.map((l) => {
               const { correct, total } = result.perLevel[l];

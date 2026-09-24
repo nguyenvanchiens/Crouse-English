@@ -1,6 +1,6 @@
 export type Level = "A1" | "A2" | "B1" | "B2" | "C1";
 export type PlacementLevel = Exclude<Level, "C1">;
-export type Goal = "giao-tiep" | "ielts" | "toeic" | "tre-em";
+export type Goal = "lo-trinh" | "ielts" | "toeic" | "tre-em";
 
 export interface VocabWord {
   word: string;
@@ -51,6 +51,15 @@ export type Exercise =
   | ReorderExercise
   | ListenChooseExercise;
 
+export type LectureBlock =
+  /** `body` may contain **bold** markers */
+  | { kind: "text"; body: string }
+  | { kind: "table"; headers: string[]; rows: string[][] }
+  | { kind: "example"; en: string; vi: string; note?: string }
+  | { kind: "tip"; body: string }
+  | { kind: "mistake"; wrong: string; right: string; why: string };
+
+export interface LectureStep { type: "lecture"; title: string; blocks: LectureBlock[] }
 export interface VideoStep { type: "video"; youtubeId: string; title: string }
 export interface VocabStep { type: "vocab"; words: VocabWord[] }
 export interface ExerciseStep { type: "exercise"; items: Exercise[] }
@@ -58,7 +67,7 @@ export interface SpeakingStep {
   type: "speaking";
   sentences: { text: string; meaningVi: string }[];
 }
-export type Step = VideoStep | VocabStep | ExerciseStep | SpeakingStep;
+export type Step = LectureStep | VideoStep | VocabStep | ExerciseStep | SpeakingStep;
 
 export interface Lesson {
   slug: string;

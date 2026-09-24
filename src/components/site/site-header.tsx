@@ -21,7 +21,7 @@ export function SiteHeader() {
         </ul>
         <div className="flex items-center gap-3">
           <Link href="/cua-toi" className="whitespace-nowrap font-semibold hover:text-tangerine-deep md:hidden">Của tôi</Link>
-          <Link href="/hoc/giao-tiep-a1/chao-hoi" className="btn btn-primary min-h-11 whitespace-nowrap px-4 text-base">
+          <Link href="/hoc/tieng-anh-a1/chao-hoi-va-gioi-thieu" className="btn btn-primary min-h-11 whitespace-nowrap px-4 text-base">
             <span className="sm:hidden">Học thử</span>
             <span className="hidden sm:inline">Học thử miễn phí</span>
           </Link>

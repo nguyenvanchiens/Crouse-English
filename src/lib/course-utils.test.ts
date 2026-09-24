@@ -24,16 +24,15 @@ describe("guards", () => {
 describe("flattenLessons", () => {
   it("keeps module order", () => {
     const flat = flattenLessons(COURSES[0]);
-    expect(flat[0].lesson.slug).toBe("chao-hoi");
+    expect(flat[0].lesson.slug).toBe("chao-hoi-va-gioi-thieu");
     expect(flat[0].module.id).toBe("m1");
   });
 });
 
 describe("suggestCourseSlug", () => {
   it("maps levels to a course", () => {
-    expect(suggestCourseSlug("A1")).toBe("giao-tiep-a1");
-    expect(suggestCourseSlug("A2")).toBe("giao-tiep-a1");
-    expect(suggestCourseSlug("B1")).toBe("toeic");
-    expect(suggestCourseSlug("B2")).toBe("ielts");
+    expect(suggestCourseSlug("A1")).toBe("tieng-anh-a1");
+    expect(suggestCourseSlug("B2")).toBe("tieng-anh-b2");
+    expect(suggestCourseSlug("C1")).toBe("tieng-anh-c1");
   });
 });

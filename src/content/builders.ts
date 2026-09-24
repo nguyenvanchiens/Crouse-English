@@ -1,10 +1,45 @@
 import type {
+  Exercise,
   FillBlankExercise,
+  LectureBlock,
+  Lesson,
   ListenChooseExercise,
   MultipleChoiceExercise,
   ReorderExercise,
   VocabWord,
 } from "./types";
+
+// ---- lecture blocks ----
+export const p = (body: string): LectureBlock => ({ kind: "text", body });
+export const table = (headers: string[], ...rows: string[][]): LectureBlock => ({ kind: "table", headers, rows });
+export const ex = (en: string, vi: string, note?: string): LectureBlock => ({ kind: "example", en, vi, ...(note ? { note } : {}) });
+export const tip = (body: string): LectureBlock => ({ kind: "tip", body });
+export const mistake = (wrong: string, right: string, why: string): LectureBlock => ({ kind: "mistake", wrong, right, why });
+
+/** A standard lesson: lecture → vocab → exercise → speaking. */
+export function lesson(o: {
+  slug: string;
+  title: string;
+  minutes: number;
+  free?: boolean;
+  lecture: { title: string; blocks: LectureBlock[] };
+  words: VocabWord[];
+  exercises: Exercise[];
+  speaking: { text: string; meaningVi: string }[];
+}): Lesson {
+  return {
+    slug: o.slug,
+    title: o.title,
+    minutes: o.minutes,
+    free: o.free ?? false,
+    steps: [
+      { type: "lecture", title: o.lecture.title, blocks: o.lecture.blocks },
+      { type: "vocab", words: o.words },
+      { type: "exercise", items: o.exercises },
+      { type: "speaking", sentences: o.speaking },
+    ],
+  };
+}
 
 /** `syllables` written as "comf|ta|ble" */
 export function word(

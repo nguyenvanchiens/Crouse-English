@@ -11,7 +11,8 @@ export interface ProgressState {
   enrolled: string[];
   lessons: Record<string, LessonRecord>;
   streak: Streak;
-  placement: { level: Level; score: number; takenAt: string } | null;
+  /** level = highest level passed; startLevel = the course level suggested to start with */
+  placement: { level: Level; startLevel: Level; score: number; takenAt: string } | null;
 }
 export interface CourseProgress { done: number; total: number; percent: number; nextLesson: Lesson | null }
 
@@ -58,7 +59,14 @@ export function parseState(raw: string | null): ProgressState {
       isLevel(typeof placement.level === "string" ? placement.level : null) &&
       typeof placement.score === "number" &&
       isIsoDate(placement.takenAt)
-        ? (placement as ProgressState["placement"])
+        ? {
+            level: placement.level as Level,
+            startLevel: isLevel(typeof placement.startLevel === "string" ? placement.startLevel : null)
+              ? (placement.startLevel as Level)
+              : (placement.level as Level),
+            score: placement.score,
+            takenAt: placement.takenAt,
+          }
         : null,
   };
 }
@@ -90,7 +98,8 @@ function dayNumber(key: string): number {
 export function nextStreak(streak: Streak, today: string): Streak {
   if (streak.lastDay === null) return { current: 1, lastDay: today };
   const diff = dayNumber(today) - dayNumber(streak.lastDay);
-  if (diff <= 0) return streak;
+  // one day back is a time-zone change; further back means the stored day is bogus
+  if (diff === 0 || diff === -1) return streak;
   if (diff === 1) return { current: streak.current + 1, lastDay: today };
   return { current: 1, lastDay: today };
 }
@@ -98,7 +107,7 @@ export function nextStreak(streak: Streak, today: string): Streak {
 export function displayStreak(streak: Streak, today: string): number {
   if (streak.lastDay === null) return 0;
   const diff = dayNumber(today) - dayNumber(streak.lastDay);
-  return diff <= 1 ? streak.current : 0;
+  return diff >= -1 && diff <= 1 ? streak.current : 0;
 }
 
 export function lessonKey(courseSlug: string, lessonSlug: string): string {
@@ -160,6 +169,12 @@ export function applyLearnerName(state: ProgressState, name: string): ProgressSt
   return { ...state, learnerName: trimmed === "" ? null : trimmed };
 }
 
-export function applyPlacement(state: ProgressState, level: Level, score: number, now: Date): ProgressState {
-  return { ...state, placement: { level, score, takenAt: now.toISOString() } };
+export function applyPlacement(
+  state: ProgressState,
+  level: Level,
+  startLevel: Level,
+  score: number,
+  now: Date,
+): ProgressState {
+  return { ...state, placement: { level, startLevel, score, takenAt: now.toISOString() } };
 }
