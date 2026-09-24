@@ -144,3 +144,19 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #certificate,
+  #certificate * {
+    visibility: visible;
+  }
+  #certificate {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+}
