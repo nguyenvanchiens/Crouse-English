@@ -15,9 +15,9 @@ const beVietnam = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Crouse English — Học tiếng Anh giao tiếp, IELTS, TOEIC",
+  title: "Crouse English — Học tiếng Anh miễn phí từ A1 đến C1",
   description:
-    "Bài học 15 phút mỗi ngày, luyện phát âm có phản hồi và lớp nhóm nhỏ với giáo viên. Học đúng trình độ của bạn, từ mất gốc đến IELTS.",
+    "Lộ trình tiếng Anh miễn phí từ A1 đến C1 cho người Việt: bài giảng tiếng Việt, bài tập chấm ngay, luyện phát âm và chứng chỉ từng cấp.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

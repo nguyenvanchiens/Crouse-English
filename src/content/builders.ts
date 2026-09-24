@@ -21,7 +21,6 @@ export function lesson(o: {
   slug: string;
   title: string;
   minutes: number;
-  free?: boolean;
   lecture: { title: string; blocks: LectureBlock[] };
   words: VocabWord[];
   exercises: Exercise[];
@@ -31,7 +30,6 @@ export function lesson(o: {
     slug: o.slug,
     title: o.title,
     minutes: o.minutes,
-    free: o.free ?? false,
     steps: [
       { type: "lecture", title: o.lecture.title, blocks: o.lecture.blocks },
       { type: "vocab", words: o.words },

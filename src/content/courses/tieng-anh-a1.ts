@@ -5,7 +5,6 @@ const chaoHoi = lesson({
   slug: "chao-hoi-va-gioi-thieu",
   title: "Chào hỏi và giới thiệu",
   minutes: 18,
-  free: true,
   lecture: {
     title: "Động từ to be: am, is, are",
     blocks: [
@@ -368,7 +367,6 @@ export const tiengAnhA1: Course = {
     initials: "HM",
     bio: "8 năm dạy tiếng Anh cho người mới bắt đầu, chứng chỉ CELTA. Chuyên sửa phát âm cho người Việt.",
   },
-  priceVnd: 690_000,
   durationWeeks: 6,
   rating: 4.9,
   reviews: [

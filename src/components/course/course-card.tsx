@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Course } from "@/content/types";
-import { formatVnd } from "@/lib/format";
 import { GOAL_META, LEVEL_LABEL } from "./goal-meta";
 
 export function CourseCard({ course }: { course: Course }) {
@@ -24,7 +23,9 @@ export function CourseCard({ course }: { course: Course }) {
       <p className="mt-3 text-sm font-semibold text-ink-soft">
         Trình độ {course.level} ({LEVEL_LABEL[course.level].toLowerCase()}), {course.durationWeeks} tuần
       </p>
-      <p className="mt-auto pt-6 font-display text-xl font-bold">{formatVnd(course.priceVnd)}/tháng</p>
+      <p className="mt-auto pt-6 font-display text-xl font-bold">
+        {course.status === "open" ? `Miễn phí, ${course.modules.reduce((n, m) => n + m.lessons.length, 0)} bài học` : "Sắp ra mắt"}
+      </p>
     </Link>
   );
 }

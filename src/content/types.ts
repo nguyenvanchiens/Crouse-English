@@ -73,7 +73,6 @@ export interface Lesson {
   slug: string;
   title: string;
   minutes: number;
-  free: boolean;
   steps: Step[];
 }
 export interface Module { id: string; title: string; lessons: Lesson[] }
@@ -87,8 +86,6 @@ export interface Course {
   outcomes: string[];
   audience: string[];
   teacher: { name: string; bio: string; initials: string };
-  /** học phí mỗi tháng */
-  priceVnd: number;
   durationWeeks: number;
   rating: number;
   reviews: { name: string; role: string; quote: string }[];

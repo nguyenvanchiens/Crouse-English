@@ -5,7 +5,6 @@ const noiTuNhien = lesson({
   slug: "noi-tu-nhien",
   title: "Nói tự nhiên như người bản xứ",
   minutes: 20,
-  free: true,
   lecture: {
     title: "Cụm động từ và kết hợp từ tự nhiên",
     blocks: [
@@ -342,7 +341,6 @@ export const tiengAnhC1: Course = {
     initials: "DL",
     bio: "Thạc sĩ Ngôn ngữ học ứng dụng, chứng chỉ DELTA. 12 năm dạy tiếng Anh học thuật và kỹ năng thuyết trình cho người đi làm.",
   },
-  priceVnd: 1_190_000,
   durationWeeks: 10,
   rating: 4.9,
   reviews: [

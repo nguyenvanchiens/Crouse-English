@@ -1,6 +1,6 @@
 import type { Course } from "../types";
 
-const soon = (slug: string, title: string, minutes: number) => ({ slug, title, minutes, free: false, steps: [] });
+const soon = (slug: string, title: string, minutes: number) => ({ slug, title, minutes, steps: [] });
 
 export const ielts: Course = {
   slug: "ielts",
@@ -16,7 +16,6 @@ export const ielts: Course = {
   ],
   audience: ["Người có trình độ B1 trở lên", "Sinh viên cần IELTS để du học hoặc xét tốt nghiệp"],
   teacher: { name: "Thầy Daniel Brooks", initials: "DB", bio: "Cựu giám khảo IELTS, 10 năm luyện thi tại Việt Nam." },
-  priceVnd: 2_490_000,
   durationWeeks: 16,
   rating: 4.8,
   reviews: [{ name: "Ngọc Hân", role: "Sinh viên năm 3, Hà Nội", quote: "Được chấm Writing chi tiết từng tiêu chí nên mình biết chính xác phải sửa gì." }],

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpenCheck, Gauge, Mic, Star, Users } from "lucide-react";
+import { BookOpenCheck, Gauge, Mic, PencilLine, Star } from "lucide-react";
 import { CourseCard } from "@/components/course/course-card";
 import { getCourses } from "@/lib/content";
 import { WordCard } from "@/components/word-card";
@@ -15,18 +15,18 @@ const LEVELS = [
 const STEPS = [
   {
     icon: BookOpenCheck,
-    title: "Học 15 phút mỗi ngày",
-    body: "Bài học ngắn trên điện thoại: từ vựng, mẫu câu và nghe hiểu theo đúng trình độ của bạn.",
+    title: "Đọc bài giảng ngắn",
+    body: "Ngữ pháp và cách dùng giải thích bằng tiếng Việt, có bảng tóm tắt, ví dụ bấm vào để nghe và những lỗi người Việt hay mắc.",
+  },
+  {
+    icon: PencilLine,
+    title: "Học từ và làm bài tập",
+    body: "Từ vựng có phát âm và trọng âm, rồi 8 câu bài tập đủ dạng: trắc nghiệm, điền từ, sắp xếp câu, nghe chọn. Chấm ngay từng câu.",
   },
   {
     icon: Mic,
     title: "Luyện nói, được chấm phát âm",
-    body: "Đọc to từng câu và thấy ngay âm nào bạn đọc chưa chuẩn, trọng âm đặt sai ở đâu.",
-  },
-  {
-    icon: Users,
-    title: "Nói thật với giáo viên",
-    body: "Mỗi tuần một buổi lớp nhóm 6 người qua video, dùng lại đúng những gì bạn đã học.",
+    body: "Đọc to từng câu và thấy ngay từ nào bạn nói chưa rõ. Xong bài, tiến độ và chuỗi ngày học được lưu lại.",
   },
 ];
 
@@ -57,19 +57,19 @@ const REVIEWS = [
 const FAQS = [
   {
     q: "Mình mất gốc hoàn toàn thì học được không?",
-    a: "Được. Lộ trình bắt đầu từ cấp A1 với bảng chữ cái, phát âm cơ bản và mẫu câu chào hỏi. Bài kiểm tra đầu vào sẽ xếp bạn vào đúng cấp.",
+    a: "Được. Cấp A1 bắt đầu từ động từ to be và những câu chào hỏi đầu tiên. Bài kiểm tra trình độ sẽ gợi ý cấp phù hợp để bắt đầu.",
   },
   {
     q: "Bài kiểm tra trình độ mất bao lâu, có mất phí không?",
-    a: "Khoảng 10 phút, miễn phí. Bạn làm phần nghe, đọc và nói vài câu ngắn, kết quả có ngay kèm lộ trình gợi ý.",
+    a: "Khoảng 10 phút, miễn phí. Gồm 20 câu từ vựng, ngữ pháp và nghe; kết quả có ngay kèm cấp nên bắt đầu.",
   },
   {
-    q: "Lớp với giáo viên học vào giờ nào?",
-    a: "Có lớp buổi tối các ngày trong tuần và lớp cuối tuần. Bạn chọn khung giờ khi đăng ký và có thể đổi lớp khi bận.",
+    q: "Khóa học có mất phí không?",
+    a: "Không. Cả 5 cấp từ A1 đến C1 đều miễn phí, học được toàn bộ bài và nhận chứng chỉ từng cấp.",
   },
   {
-    q: "Nếu học không hợp thì sao?",
-    a: "Bạn được hoàn tiền 100% trong 7 ngày đầu nếu thấy khóa học không phù hợp, không cần nêu lý do.",
+    q: "Có cần tạo tài khoản không?",
+    a: "Chưa cần. Tiến độ được lưu ngay trên trình duyệt bạn đang dùng, vì vậy hãy học trên cùng một máy và một trình duyệt.",
   },
 ];
 
@@ -84,14 +84,14 @@ export default async function Home() {
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border-[2.5px] border-ink bg-card px-4 py-1.5 font-semibold">
               <span className="size-2.5 rounded-full bg-leaf" aria-hidden />
-              Khóa học tiếng Anh cho người Việt
+              Khóa học tiếng Anh miễn phí cho người Việt
             </p>
             <h1 className="mt-6 font-display text-[2.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-[4.25rem]">
               Nói tiếng Anh tự tin, bắt đầu từ cách đọc đúng từng từ.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              Bài học 15 phút mỗi ngày, luyện phát âm có chấm điểm và lớp nhóm nhỏ
-              với giáo viên. Học đúng trình độ của bạn, từ mất gốc đến IELTS.
+              Lộ trình 30 bài từ A1 đến C1: bài giảng bằng tiếng Việt, bài tập chấm ngay
+              và luyện phát âm có chấm điểm. Hoàn toàn miễn phí.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/kiem-tra-trinh-do" className="btn btn-primary text-lg">
@@ -210,7 +210,7 @@ export default async function Home() {
         <section className="bg-ink py-24 text-card">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <h2 className="max-w-2xl font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-              Một tuần học diễn ra thế nào
+              Một bài học diễn ra thế nào
             </h2>
             <ol className="mt-12 grid gap-6 md:grid-cols-3">
               {STEPS.map((s, i) => {

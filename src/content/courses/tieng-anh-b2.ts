@@ -5,7 +5,6 @@ const vietEmail = lesson({
   slug: "viet-email-chuyen-nghiep",
   title: "Viết email chuyên nghiệp",
   minutes: 20,
-  free: true,
   lecture: {
     title: "Văn phong trang trọng và lời đề nghị lịch sự",
     blocks: [
@@ -342,7 +341,6 @@ export const tiengAnhB2: Course = {
     initials: "MG",
     bio: "12 năm giảng dạy tiếng Anh thương mại, thạc sĩ TESOL. Từng đào tạo nhân viên cho nhiều doanh nghiệp đa quốc gia tại TP.HCM.",
   },
-  priceVnd: 990_000,
   durationWeeks: 10,
   rating: 4.9,
   reviews: [

@@ -40,14 +40,11 @@ describe("content integrity", () => {
       for (const s of slugs) expect(s).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
     }
   });
-  it("has at least one lesson in every course and a free lesson in open courses", () => {
+  it("has at least one lesson in every course and full content in open courses", () => {
     for (const c of COURSES) {
       const lessons = c.modules.flatMap((m) => m.lessons);
       expect(lessons.length).toBeGreaterThan(0);
-      if (c.status === "open") {
-        expect(lessons.some((l) => l.free)).toBe(true);
-        expect(lessons.every((l) => l.steps.length > 0)).toBe(true);
-      }
+      if (c.status === "open") expect(lessons.every((l) => l.steps.length > 0)).toBe(true);
     }
   });
   it("has valid vocab, exercises and speaking data", () => {
@@ -103,9 +100,8 @@ describe("A1 to C1 path", () => {
     describe(c.slug, () => {
       const lessons: Lesson[] = c.modules.flatMap((m) => m.lessons);
 
-      it("has 2 chapters of 3 lessons and only the first lesson is free", () => {
+      it("has 2 chapters of 3 lessons", () => {
         expect(c.modules.map((m) => m.lessons.length)).toEqual([3, 3]);
-        expect(lessons.map((l) => l.free)).toEqual([true, false, false, false, false, false]);
       });
 
       for (const l of lessons) {

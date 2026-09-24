@@ -45,6 +45,11 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const menuCloseRef = useRef<HTMLButtonElement>(null);
   const menuWasOpen = useRef(false);
 
+  // Opening a lesson of an open course puts that course in "Khóa học của tôi".
+  useEffect(() => {
+    if (course.status === "open" && lesson.steps.length > 0) progress.enroll(course.slug);
+  }, [course.slug, course.status, lesson.steps.length]);
+
   // Move focus into the drawer on open and back to its trigger on close.
   useEffect(() => {
     if (menuOpen) menuCloseRef.current?.focus();
@@ -59,7 +64,6 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  const enrolled = state.enrolled.includes(course.slug);
   const cp = courseProgress(course, state);
   const streak = displayStreak(state.streak, todayKey());
 
@@ -82,7 +86,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   }
 
   const sidebar = (onNavigate?: () => void) => (
-    <LessonSidebar course={course} currentSlug={lesson.slug} state={state} enrolled={enrolled} onNavigate={onNavigate} />
+    <LessonSidebar course={course} currentSlug={lesson.slug} state={state} onNavigate={onNavigate} />
   );
 
   function renderStep(step: Step, i: number) {
@@ -115,20 +119,6 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
       return (
         <EmptyState title="Bài học này sắp ra mắt" body={`Khóa ${course.title} đang được hoàn thiện nội dung.`}>
           <Link href={`/khoa-hoc/${course.slug}`} className="btn btn-ghost">Về trang khóa học</Link>
-        </EmptyState>
-      );
-    }
-
-    if (!lesson.free && !enrolled) {
-      return (
-        <EmptyState
-          title="Đăng ký để học bài này"
-          body={`Bài “${lesson.title}” thuộc khóa ${course.title}. Bạn có thể học thử các bài miễn phí trước.`}
-        >
-          <button type="button" className="btn btn-primary" onClick={() => progress.enroll(course.slug)}>
-            Đăng ký khóa học
-          </button>
-          <Link href={`/khoa-hoc/${course.slug}`} className="btn btn-ghost">Xem giáo trình</Link>
         </EmptyState>
       );
     }

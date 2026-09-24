@@ -5,7 +5,6 @@ const keLaiMotChuyen = lesson({
   slug: "ke-lai-mot-chuyen",
   title: "Kể lại một chuyện đã xảy ra",
   minutes: 20,
-  free: true,
   lecture: {
     title: "Quá khứ tiếp diễn và quá khứ đơn",
     blocks: [
@@ -320,7 +319,6 @@ export const tiengAnhB1: Course = {
     initials: "QH",
     bio: "10 năm dạy tiếng Anh giao tiếp cho người đi làm, thạc sĩ TESOL, chuyên luyện phản xạ nói cho người Việt.",
   },
-  priceVnd: 890_000,
   durationWeeks: 8,
   rating: 4.8,
   reviews: [

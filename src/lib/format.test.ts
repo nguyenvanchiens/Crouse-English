@@ -1,12 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { certificateCode, formatDateVi, formatVnd } from "./format";
-
-describe("formatVnd", () => {
-  it("uses Vietnamese grouping and the đ sign", () => {
-    expect(formatVnd(1290000)).toBe("1.290.000đ");
-    expect(formatVnd(0)).toBe("0đ");
-  });
-});
+import { certificateCode, formatDateVi } from "./format";
 
 describe("formatDateVi", () => {
   it("formats as dd/mm/yyyy", () => {
