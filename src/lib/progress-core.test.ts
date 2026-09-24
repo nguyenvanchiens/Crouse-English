@@ -39,6 +39,27 @@ describe("parseState", () => {
     expect(s.learnerName).toBe("Lan");
     expect(s.streak).toEqual({ current: 0, lastDay: null });
   });
+  it("drops malformed lesson records instead of crashing later", () => {
+    const s = parseState(JSON.stringify({
+      version: 1,
+      lessons: {
+        "a/b": null,
+        "a/c": { done: true },
+        "a/d": { done: true, score: 80, completedAt: "not a date" },
+        "a/e": { done: true, score: 80, completedAt: "2026-09-24T03:00:00.000Z" },
+      },
+    }));
+    expect(Object.keys(s.lessons)).toEqual(["a/e"]);
+  });
+  it("rejects unknown placement levels and invalid streak counts", () => {
+    const s = parseState(JSON.stringify({
+      version: 1,
+      placement: { level: "Z", score: 1, takenAt: "2026-09-24T03:00:00.000Z" },
+      streak: { current: -3, lastDay: "2026-09-24" },
+    }));
+    expect(s.placement).toBeNull();
+    expect(s.streak).toEqual({ current: 0, lastDay: null });
+  });
   it("round-trips a valid state", () => {
     const s = applyEnroll(emptyState(), "c");
     expect(parseState(JSON.stringify(s))).toEqual(s);

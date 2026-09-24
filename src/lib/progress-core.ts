@@ -1,4 +1,5 @@
 import type { Course, Lesson, Level } from "@/content/types";
+import { isLevel } from "./course-utils";
 
 export const STORAGE_KEY = "ce:progress:v1";
 
@@ -45,16 +46,34 @@ export function parseState(raw: string | null): ProgressState {
     version: 1,
     learnerName: typeof data.learnerName === "string" ? data.learnerName : null,
     enrolled: Array.isArray(data.enrolled) ? data.enrolled.filter((s): s is string => typeof s === "string") : [],
-    lessons: isRecord(data.lessons) ? (data.lessons as Record<string, LessonRecord>) : {},
+    lessons: isRecord(data.lessons)
+      ? Object.fromEntries(Object.entries(data.lessons).filter((e): e is [string, LessonRecord] => isLessonRecord(e[1])))
+      : {},
     streak:
-      isRecord(streak) && typeof streak.current === "number"
-        ? { current: streak.current, lastDay: typeof streak.lastDay === "string" ? streak.lastDay : null }
+      isRecord(streak) && Number.isInteger(streak.current) && (streak.current as number) >= 0
+        ? { current: streak.current as number, lastDay: typeof streak.lastDay === "string" ? streak.lastDay : null }
         : base.streak,
     placement:
-      isRecord(placement) && typeof placement.level === "string" && typeof placement.score === "number"
+      isRecord(placement) &&
+      isLevel(typeof placement.level === "string" ? placement.level : null) &&
+      typeof placement.score === "number" &&
+      isIsoDate(placement.takenAt)
         ? (placement as ProgressState["placement"])
         : null,
   };
+}
+
+function isIsoDate(v: unknown): v is string {
+  return typeof v === "string" && !Number.isNaN(Date.parse(v));
+}
+
+function isLessonRecord(v: unknown): v is LessonRecord {
+  return (
+    isRecord(v) &&
+    typeof v.done === "boolean" &&
+    (v.score === null || typeof v.score === "number") &&
+    isIsoDate(v.completedAt)
+  );
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");

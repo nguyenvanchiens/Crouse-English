@@ -66,7 +66,10 @@ export function listenOnce({
   rec.interimResults = false;
   rec.maxAlternatives = 1;
   rec.onresult = (e) => onResult(e.results[0]?.[0]?.transcript ?? "");
-  rec.onerror = (e) => onError(e.error);
+  // "aborted" is what we cause ourselves when stop() is called; not a learner-facing error
+  rec.onerror = (e) => {
+    if (e.error !== "aborted") onError(e.error);
+  };
   rec.onend = () => onEnd?.();
   try {
     rec.start();

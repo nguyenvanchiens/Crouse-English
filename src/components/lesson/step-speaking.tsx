@@ -15,6 +15,9 @@ const ERRORS: Record<string, string> = {
   default: "Không nhận được giọng nói. Thử lại hoặc bỏ qua câu này.",
 };
 
+/** Errors that no retry will fix: offer to skip the whole step. */
+const BLOCKING = new Set(["not-allowed", "service-not-allowed", "audio-capture"]);
+
 function feedback(percent: number) {
   if (percent >= 80) return "Rất tốt!";
   if (percent >= 50) return "Gần đúng rồi. Nghe mẫu rồi thử lại nhé.";
@@ -28,6 +31,7 @@ export function StepSpeaking({ step, onComplete }: { step: SpeakingStep; onCompl
   const [heard, setHeard] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [allDone, setAllDone] = useState(false);
+  const [blocked, setBlocked] = useState(false);
   const stopRef = useRef<(() => void) | null>(null);
 
   useEffect(() => () => stopRef.current?.(), []);
@@ -63,7 +67,10 @@ export function StepSpeaking({ step, onComplete }: { step: SpeakingStep; onCompl
     setListening(true);
     stopRef.current = listenOnce({
       onResult: (t) => setHeard(t),
-      onError: (code) => setError(ERRORS[code] ?? ERRORS.default),
+      onError: (code) => {
+        setError(ERRORS[code] ?? ERRORS.default);
+        if (BLOCKING.has(code)) setBlocked(true);
+      },
       onEnd: () => setListening(false),
     });
   }
@@ -100,6 +107,18 @@ export function StepSpeaking({ step, onComplete }: { step: SpeakingStep; onCompl
 
       <div role="status" aria-live="polite">
         {error && <p className="mt-5 rounded-2xl border-2 border-ink bg-sun-soft px-4 py-3">{error}</p>}
+        {blocked && (
+          <button
+            type="button"
+            className="btn btn-ghost mt-3"
+            onClick={() => {
+              setAllDone(true);
+              onComplete();
+            }}
+          >
+            Bỏ qua bước này
+          </button>
+        )}
         {match && (
           <div className="mt-6 rounded-2xl border-[2.5px] border-ink bg-sky p-4">
             <p className="font-display text-xl font-bold">Khớp {match.percent}%. {feedback(match.percent)}</p>

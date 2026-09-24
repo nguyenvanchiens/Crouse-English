@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
 import type { Exercise, ExerciseStep } from "@/content/types";
 import { correctAnswerText, percentScore } from "@/lib/scoring";
@@ -28,9 +28,23 @@ export function StepExercise({ step, onComplete }: { step: ExerciseStep; onCompl
   const [correct, setCorrect] = useState(0);
   const [attempt, setAttempt] = useState(0);
   const [score, setScore] = useState<number | null>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const itemRef = useRef<HTMLDivElement>(null);
+  const scoreRef = useRef<HTMLDivElement>(null);
   const total = step.items.length;
   const item = step.items[i];
   const last = i === total - 1;
+
+  // Keep keyboard focus on the next action as the checked/next buttons unmount.
+  useEffect(() => {
+    if (result !== null) nextRef.current?.focus();
+  }, [result]);
+  useEffect(() => {
+    if (i > 0) itemRef.current?.focus();
+  }, [i]);
+  useEffect(() => {
+    if (score !== null) scoreRef.current?.focus();
+  }, [score]);
 
   function onAnswer(ok: boolean) {
     setResult(ok);
@@ -58,7 +72,7 @@ export function StepExercise({ step, onComplete }: { step: ExerciseStep; onCompl
 
   if (score !== null) {
     return (
-      <div className="clay card-in p-8 text-center">
+      <div ref={scoreRef} tabIndex={-1} className="clay card-in p-8 text-center">
         <p className="font-display text-5xl font-extrabold">{score}%</p>
         <p className="mt-2 text-lg">Bạn làm đúng {correct}/{total} câu.</p>
         <button type="button" className="btn btn-ghost mt-6" onClick={retry}>Làm lại</button>
@@ -69,7 +83,9 @@ export function StepExercise({ step, onComplete }: { step: ExerciseStep; onCompl
   return (
     <div className="clay p-6 sm:p-8">
       <p className="mb-4 text-sm font-semibold text-ink-soft">Câu {i + 1}/{total}</p>
-      <ExerciseItem key={`${attempt}-${item.id}`} item={item} locked={result !== null} onAnswer={onAnswer} />
+      <div ref={itemRef} tabIndex={-1} aria-label={`Câu ${i + 1}`}>
+        <ExerciseItem key={`${attempt}-${item.id}`} item={item} locked={result !== null} onAnswer={onAnswer} />
+      </div>
       <div role="status" aria-live="polite">
         {result !== null && (
           <div className={`mt-6 rounded-2xl border-[2.5px] border-ink p-4 ${result ? "bg-leaf-soft" : "bg-tangerine/25"}`}>
@@ -82,7 +98,7 @@ export function StepExercise({ step, onComplete }: { step: ExerciseStep; onCompl
         )}
       </div>
       {result !== null && (
-        <button type="button" className="btn btn-primary mt-6" onClick={nextItem}>
+        <button ref={nextRef} type="button" className="btn btn-primary mt-6" onClick={nextItem}>
           {last ? "Xem kết quả" : "Câu tiếp"}
         </button>
       )}

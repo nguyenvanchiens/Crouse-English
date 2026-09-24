@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Flame, List, PartyPopper, X } from "lucide-react";
 import type { Step } from "@/content/types";
 import type { LessonContext } from "@/lib/content";
@@ -37,6 +37,16 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const [exerciseScore, setExerciseScore] = useState<number | null>(null);
   const [finished, setFinished] = useState<{ score: number | null; courseDone: boolean } | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
+  const menuCloseRef = useRef<HTMLButtonElement>(null);
+  const menuWasOpen = useRef(false);
+
+  // Move focus into the drawer on open and back to its trigger on close.
+  useEffect(() => {
+    if (menuOpen) menuCloseRef.current?.focus();
+    else if (menuWasOpen.current) menuTriggerRef.current?.focus();
+    menuWasOpen.current = menuOpen;
+  }, [menuOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -181,13 +191,14 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b-[2.5px] border-ink bg-card">
+      <header inert={menuOpen} className="sticky top-0 z-30 border-b-[2.5px] border-ink bg-card">
         <div className="flex items-center gap-3 px-4 py-3 sm:px-6">
           <Link href={`/khoa-hoc/${course.slug}`} className="btn btn-ghost min-h-11 px-3 text-base" aria-label="Thoát bài học">
             <X className="size-5" aria-hidden />
             <span className="hidden sm:inline">Thoát</span>
           </Link>
           <button
+            ref={menuTriggerRef}
             type="button"
             className="btn btn-ghost min-h-11 px-3 text-base lg:hidden"
             onClick={() => setMenuOpen(true)}
@@ -213,7 +224,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
         <div className="fixed inset-0 z-40 lg:hidden" role="dialog" aria-modal="true" aria-label="Mục lục khóa học">
           <button type="button" className="absolute inset-0 bg-ink/40" aria-label="Đóng mục lục" onClick={() => setMenuOpen(false)} />
           <div id="lesson-menu" className="absolute inset-y-0 left-0 w-[min(20rem,85vw)] overflow-y-auto border-r-[2.5px] border-ink bg-card p-5">
-            <button type="button" className="btn btn-ghost mb-5 min-h-11 px-3 text-base" onClick={() => setMenuOpen(false)}>
+            <button ref={menuCloseRef} type="button" className="btn btn-ghost mb-5 min-h-11 px-3 text-base" onClick={() => setMenuOpen(false)}>
               <X className="size-5" aria-hidden />
               Đóng
             </button>
@@ -222,7 +233,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
         </div>
       )}
 
-      <div className="mx-auto grid w-full max-w-7xl flex-1 gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[17rem_minmax(0,1fr)]">
+      <div inert={menuOpen} className="mx-auto grid w-full max-w-7xl flex-1 gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[17rem_minmax(0,1fr)]">
         <aside className="hidden lg:block">{sidebar()}</aside>
         <main className="min-w-0">
           <PersistNotice />

@@ -97,6 +97,13 @@ describe("matchSpeech", () => {
     const r = matchSpeech("I usually get up at six o'clock.", "I usually get up at 6 o'clock");
     expect(r.percent).toBe(100);
   });
+  it("expands spoken numbers the recognizer writes as digits", () => {
+    expect(matchSpeech("My phone number is zero nine one two.", "my phone number is 0912").percent).toBe(100);
+    expect(matchSpeech("Thirteen, thirty.", "13 30").percent).toBe(100);
+    expect(matchSpeech("I usually get up at six o'clock.", "I usually get up at 6:00").percent).toBe(100);
+    expect(matchSpeech("It starts at six thirty.", "it starts at 6:30").percent).toBe(100);
+    expect(matchSpeech("It is twenty-five.", "it is 25").percent).toBe(100);
+  });
   it("returns 0 for empty input", () => {
     expect(matchSpeech("Hello", "").percent).toBe(0);
     expect(matchSpeech("", "hello")).toEqual({ words: [], percent: 0 });

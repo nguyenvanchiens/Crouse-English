@@ -55,22 +55,43 @@ export function shuffleAvoidingAnswer<T>(items: T[], rng: () => number = Math.ra
   return order;
 }
 
-function speechToken(token: string): string {
-  if (/^\d+$/.test(token)) {
-    const n = Number(token);
-    if (n <= 20) return NUMBER_WORDS[n];
+const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+function numberWords(n: number): string[] {
+  if (n <= 20) return [NUMBER_WORDS[n]];
+  const tens = TENS[Math.floor(n / 10)];
+  return n % 10 === 0 ? [tens] : [tens, NUMBER_WORDS[n % 10]];
+}
+
+/** Speech recognizers often write numbers as digits ("0912", "13", "6:00"); spell them out. */
+function speechTokens(token: string): string[] {
+  const time = /^(\d{1,2}):(\d{2})$/.exec(token);
+  if (time) {
+    const [h, m] = [Number(time[1]), Number(time[2])];
+    if (h <= 99) return [...numberWords(h), ...(m === 0 ? ["o'clock"] : numberWords(m))];
   }
-  return token;
+  if (/^\d+$/.test(token)) {
+    if (token.length >= 3 || (token.length > 1 && token.startsWith("0"))) {
+      return [...token].map((d) => NUMBER_WORDS[Number(d)]);
+    }
+    return numberWords(Number(token));
+  }
+  return [token];
 }
 
 export function matchSpeech(
   target: string,
   heard: string,
 ): { words: { word: string; matched: boolean }[]; percent: number } {
-  const display = target.split(/\s+/).filter((w) => normalize(w) !== "");
+  const display = target.split(/[\s-]+/).filter((w) => normalize(w) !== "");
   if (display.length === 0) return { words: [], percent: 0 };
-  const t = display.map((w) => speechToken(normalize(w)));
-  const h = normalize(heard).split(" ").filter(Boolean).map(speechToken);
+  const t = display.map((w) => normalize(w));
+  const h = heard.toLowerCase().split(/[\s-]+/).flatMap((raw) => {
+    const bare = raw.replace(/[.,!?]+$/, "");
+    // keep "6:00" intact: normalize() would split it on the colon
+    if (/^\d{1,2}:\d{2}$/.test(bare)) return speechTokens(bare);
+    return normalize(raw).split(" ").filter(Boolean).flatMap(speechTokens);
+  });
 
   // LCS table
   const dp: number[][] = Array.from({ length: t.length + 1 }, () => new Array(h.length + 1).fill(0));
