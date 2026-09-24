@@ -55,23 +55,32 @@ describe("checkReorder", () => {
 });
 
 describe("chipText", () => {
-  it("drops punctuation and capitals that would give the answer away", () => {
-    expect(chipText("Can")).toBe("can");
+  it("drops punctuation and the capital that marks the first word", () => {
+    expect(chipText("Can", true)).toBe("can");
+    expect(chipText("Excuse", true)).toBe("excuse");
     expect(chipText("menu,")).toBe("menu");
     expect(chipText("please?")).toBe("please");
-    expect(chipText("Excuse")).toBe("excuse");
   });
-  it("keeps the pronoun I and its contractions", () => {
-    expect(chipText("I")).toBe("I");
-    expect(chipText("I'm")).toBe("I'm");
-    expect(chipText("I’ve")).toBe("I've");
+  it("keeps capitals of proper nouns inside the sentence", () => {
+    expect(chipText("Lan?")).toBe("Lan");
+    expect(chipText("Japanese")).toBe("Japanese");
+  });
+  it("only strips punctuation at the edges of a word", () => {
+    expect(chipText("well-known")).toBe("well-known");
+    expect(chipText("10:30.")).toBe("10:30");
+    expect(chipText("“Hello,”")).toBe("Hello");
+  });
+  it("keeps the pronoun I and its contractions, even as the first word", () => {
+    expect(chipText("I", true)).toBe("I");
+    expect(chipText("I'm", true)).toBe("I'm");
+    expect(chipText("I’ve", true)).toBe("I've");
   });
 });
 
 describe("checkReorder with display chips", () => {
   it("accepts the normalized chips in the right order", () => {
     const words = ["Can", "I", "see", "the", "menu,", "please?"];
-    expect(checkReorder(words, words.map(chipText))).toBe(true);
+    expect(checkReorder(words, words.map((w, i) => chipText(w, i === 0)))).toBe(true);
     expect(checkReorder(words, ["I", "can", "see", "the", "menu", "please"])).toBe(false);
   });
 });

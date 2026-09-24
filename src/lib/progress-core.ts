@@ -63,12 +63,20 @@ export function parseState(raw: string | null): ProgressState {
             level: placement.level as Level,
             startLevel: isLevel(typeof placement.startLevel === "string" ? placement.startLevel : null)
               ? (placement.startLevel as Level)
-              : (placement.level as Level),
+              : legacyStartLevel(placement.level as Level),
             score: placement.score,
             takenAt: placement.takenAt,
           }
         : null,
   };
+}
+
+const LEVEL_ORDER: Level[] = ["A1", "A2", "B1", "B2", "C1"];
+
+/** Before startLevel existed, `level` meant "highest level passed" (A1 also for "none"). */
+function legacyStartLevel(level: Level): Level {
+  if (level === "A1") return "A1";
+  return LEVEL_ORDER[Math.min(LEVEL_ORDER.indexOf(level) + 1, LEVEL_ORDER.length - 1)];
 }
 
 function isIsoDate(v: unknown): v is string {

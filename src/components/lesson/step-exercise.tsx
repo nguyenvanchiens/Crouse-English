@@ -27,6 +27,8 @@ export interface ExerciseProgress {
   i: number;
   correct: number;
   score: number | null;
+  /** result of item `i` if it was already checked; keeps a wrong answer from being retried by leaving */
+  answered?: boolean | null;
 }
 
 export function StepExercise({
@@ -41,7 +43,7 @@ export function StepExercise({
   onComplete: (r: { score: number }) => void;
 }) {
   const [i, setI] = useState(saved?.i ?? 0);
-  const [result, setResult] = useState<boolean | null>(null);
+  const [result, setResult] = useState<boolean | null>(saved?.answered ?? null);
   const [correct, setCorrect] = useState(saved?.correct ?? 0);
   const [attempt, setAttempt] = useState(0);
   const [score, setScore] = useState<number | null>(saved?.score ?? null);
@@ -66,6 +68,7 @@ export function StepExercise({
   function onAnswer(ok: boolean) {
     setResult(ok);
     if (ok) setCorrect((c) => c + 1);
+    onProgress?.({ i, correct: correct + (ok ? 1 : 0), score: null, answered: ok });
   }
 
   function nextItem() {

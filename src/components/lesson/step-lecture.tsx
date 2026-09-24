@@ -35,8 +35,8 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
           <table className="w-full min-w-[28rem] border-collapse text-left">
             <thead className="bg-sun-soft">
               <tr>
-                {block.headers.map((h) => (
-                  <th key={h} scope="col" className="border-b-2 border-ink px-4 py-2.5 font-display font-bold">
+                {block.headers.map((h, i) => (
+                  <th key={i} scope="col" className="border-b-2 border-ink px-4 py-2.5 font-display font-bold">
                     {h}
                   </th>
                 ))}

@@ -146,20 +146,32 @@ body {
 }
 
 @media print {
-  body * {
-    visibility: hidden;
+  /* Everything around the certificate is print:hidden (display: none), so the
+     certificate is the only thing in the flow and fits on one page. */
+  @page {
+    margin: 1cm;
   }
-  #certificate,
-  #certificate * {
-    visibility: visible;
+  html,
+  body {
+    background: var(--color-card);
+  }
+  /* h-full / min-h-full would make the page exactly one screen tall, which
+     overflows the printable area (page minus margins) onto a second page */
+  html,
+  body,
+  body > div,
+  main {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  main {
+    padding: 0 !important;
   }
   #certificate {
-    position: fixed;
-    inset: 0;
     margin: 0;
     box-shadow: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* absolute units: vh is unreliable in print; A4 landscape leaves ~19cm of height */
+    margin-top: 2.5cm;
+    break-inside: avoid;
   }
 }

@@ -164,8 +164,10 @@ describe("applyLearnerName / applyPlacement", () => {
     const now = new Date("2026-09-24T10:00:00Z");
     expect(applyPlacement(emptyState(), "B1", "B2", 65, now).placement).toEqual({ level: "B1", startLevel: "B2", score: 65, takenAt: now.toISOString() });
   });
-  it("falls back to the placement level as start level for data saved before startLevel existed", () => {
-    const s = parseState(JSON.stringify({ version: 1, placement: { level: "B1", score: 65, takenAt: "2026-09-24T03:00:00.000Z" } }));
-    expect(s.placement).toEqual({ level: "B1", startLevel: "B1", score: 65, takenAt: "2026-09-24T03:00:00.000Z" });
+  it("derives the start level for data saved before startLevel existed", () => {
+    const old = (level: string) => parseState(JSON.stringify({ version: 1, placement: { level, score: 65, takenAt: "2026-09-24T03:00:00.000Z" } })).placement?.startLevel;
+    expect(old("B1")).toBe("B2"); // old `level` meant "highest level passed"
+    expect(old("B2")).toBe("C1");
+    expect(old("A1")).toBe("A1"); // ambiguous (passed none or A1): start from the beginning
   });
 });

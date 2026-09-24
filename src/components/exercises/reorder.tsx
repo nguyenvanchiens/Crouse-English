@@ -15,7 +15,7 @@ export function Reorder({
 }) {
   const [order] = useState(() => shuffleAvoidingAnswer(item.words));
   const [picked, setPicked] = useState<number[]>([]); // positions in `order`
-  const wordAt = (pos: number) => chipText(item.words[order[pos]]);
+  const wordAt = (pos: number) => chipText(item.words[order[pos]], order[pos] === 0);
   // chips hide punctuation, so show how the sentence ends: tells a question from a statement
   const endMark = /[?!.]$/.exec(item.words[item.words.length - 1])?.[0] ?? null;
 
@@ -49,8 +49,9 @@ export function Reorder({
           </button>
         ))}
         {endMark && (
-          <span className="ml-auto px-2 font-display text-2xl font-bold text-ink-soft" aria-label={endMark === "?" ? "Đây là câu hỏi" : "Kết thúc câu"}>
-            {endMark}
+          <span className="ml-auto px-2 font-display text-2xl font-bold text-ink-soft">
+            <span aria-hidden>{endMark}</span>
+            <span className="sr-only">{endMark === "?" ? "Đây là câu hỏi" : "Kết thúc câu"}</span>
           </span>
         )}
       </div>
