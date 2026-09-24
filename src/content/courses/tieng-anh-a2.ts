@@ -5,7 +5,6 @@ const homQua = lesson({
   slug: "hom-qua-ban-lam-gi",
   title: "Hôm qua bạn làm gì",
   minutes: 20,
-  free: true,
   lecture: {
     title: "Thì quá khứ đơn: kể chuyện đã xảy ra",
     blocks: [
@@ -335,7 +334,6 @@ export const tiengAnhA2: Course = {
     initials: "NA",
     bio: "10 năm dạy tiếng Anh giao tiếp cho người đi làm, chứng chỉ TESOL, nổi tiếng với cách giải thích ngữ pháp bằng tình huống đời thường.",
   },
-  priceVnd: 790_000,
   durationWeeks: 8,
   rating: 4.8,
   reviews: [

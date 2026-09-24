@@ -57,7 +57,7 @@ export function MyCourses({ courses }: { courses: Course[] }) {
       {mine.length === 0 ? (
         <EmptyState
           title="Bạn chưa đăng ký khóa học nào"
-          body="Làm bài kiểm tra 10 phút để biết nên bắt đầu từ đâu, hoặc học thử một bài miễn phí."
+          body="Làm bài kiểm tra 10 phút để biết nên bắt đầu từ đâu, hoặc bắt đầu ngay một bài miễn phí."
         >
           {suggested ? (
             <Link href={`/khoa-hoc/${suggested.slug}`} className="btn btn-primary">Xem khóa gợi ý: {suggested.title}</Link>

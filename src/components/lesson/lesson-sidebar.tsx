@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle2, Circle, Lock, PlayCircle } from "lucide-react";
+import { CheckCircle2, Circle, PlayCircle } from "lucide-react";
 import type { Course } from "@/content/types";
 import { lessonKey, type ProgressState } from "@/lib/progress-core";
 
@@ -7,13 +7,11 @@ export function LessonSidebar({
   course,
   currentSlug,
   state,
-  enrolled,
   onNavigate,
 }: {
   course: Course;
   currentSlug: string;
   state: ProgressState;
-  enrolled: boolean;
   onNavigate?: () => void;
 }) {
   return (
@@ -26,8 +24,7 @@ export function LessonSidebar({
             {m.lessons.map((l) => {
               const current = l.slug === currentSlug;
               const done = state.lessons[lessonKey(course.slug, l.slug)]?.done;
-              const locked = !l.free && !enrolled;
-              const Icon = current ? PlayCircle : done ? CheckCircle2 : locked ? Lock : Circle;
+              const Icon = current ? PlayCircle : done ? CheckCircle2 : Circle;
               return (
                 <li key={l.slug}>
                   <Link
@@ -36,12 +33,11 @@ export function LessonSidebar({
                     aria-current={current ? "page" : undefined}
                     className={`flex min-h-11 items-center gap-2.5 rounded-xl px-2.5 text-[0.95rem] ${
                       current ? "border-2 border-ink bg-sun font-semibold" : "hover:bg-sun-soft"
-                    } ${locked && !current ? "text-ink-soft" : ""}`}
+                    }`}
                   >
                     <Icon className={`size-5 shrink-0 ${done && !current ? "text-leaf" : ""}`} aria-hidden />
                     <span className="flex-1">{l.title}</span>
                     {done && <span className="sr-only">(đã học)</span>}
-                    {locked && <span className="sr-only">(cần đăng ký)</span>}
                   </Link>
                 </li>
               );

@@ -15,10 +15,10 @@ import {
   todayKey,
 } from "./progress-core";
 
-const lesson = (slug: string) => ({ slug, title: slug, minutes: 5, free: false, steps: [] });
+const lesson = (slug: string) => ({ slug, title: slug, minutes: 5, steps: [] });
 const course: Course = {
   slug: "c", title: "C", level: "A1", goal: "lo-trinh", summary: "", outcomes: [], audience: [],
-  teacher: { name: "", bio: "", initials: "" }, priceVnd: 0, durationWeeks: 1, rating: 5,
+  teacher: { name: "", bio: "", initials: "" }, durationWeeks: 1, rating: 5,
   reviews: [], faqs: [], status: "open",
   modules: [
     { id: "m1", title: "M1", lessons: [lesson("a"), lesson("b")] },
@@ -123,6 +123,11 @@ describe("applyCompleteLesson", () => {
     s = applyCompleteLesson(s, "c", "a", 30, later);
     expect(s.lessons["c/a"]).toEqual({ done: true, score: 50, completedAt: now.toISOString() });
     expect(s.streak.current).toBe(2);
+  });
+  it("adds the course to my courses the first time a lesson is completed", () => {
+    const s = applyCompleteLesson(emptyState(), "c", "a", 70, now);
+    expect(s.enrolled).toEqual(["c"]);
+    expect(applyCompleteLesson(s, "c", "b", 70, now).enrolled).toEqual(["c"]);
   });
   it("keeps a previous score when the new one is null", () => {
     let s = applyCompleteLesson(emptyState(), "c", "a", 80, now);

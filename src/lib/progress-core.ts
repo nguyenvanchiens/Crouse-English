@@ -163,7 +163,7 @@ export function applyCompleteLesson(
   const best =
     score === null ? (prev?.score ?? null) : prev?.score != null ? Math.max(prev.score, score) : score;
   return {
-    ...state,
+    ...applyEnroll(state, courseSlug),
     lessons: {
       ...state.lessons,
       [key]: { done: true, score: best, completedAt: prev?.done ? prev.completedAt : now.toISOString() },

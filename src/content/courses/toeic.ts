@@ -1,6 +1,6 @@
 import type { Course } from "../types";
 
-const soon = (slug: string, title: string, minutes: number) => ({ slug, title, minutes, free: false, steps: [] });
+const soon = (slug: string, title: string, minutes: number) => ({ slug, title, minutes, steps: [] });
 
 export const toeic: Course = {
   slug: "toeic",
@@ -15,7 +15,6 @@ export const toeic: Course = {
   ],
   audience: ["Người có điểm TOEIC thử từ 350 trở lên", "Sinh viên cần chuẩn đầu ra tiếng Anh"],
   teacher: { name: "Cô Thanh Tâm", initials: "TT", bio: "TOEIC 990, 6 năm luyện thi cho sinh viên và người đi làm." },
-  priceVnd: 1_590_000,
   durationWeeks: 10,
   rating: 4.8,
   reviews: [{ name: "Quốc Huy", role: "Sinh viên năm 4, TP.HCM", quote: "Thi thử tăng từ 480 lên 785 sau một khóa." }],

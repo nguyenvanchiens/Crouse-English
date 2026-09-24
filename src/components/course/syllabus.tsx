@@ -8,7 +8,6 @@ import { useProgress } from "@/lib/progress";
 
 export function Syllabus({ course }: { course: Course }) {
   const { state } = useProgress();
-  const enrolled = state.enrolled.includes(course.slug);
   const open = course.status === "open";
 
   return (
@@ -25,18 +24,15 @@ export function Syllabus({ course }: { course: Course }) {
           <ul className="border-t-2 border-ink/15 px-3 py-3">
             {m.lessons.map((l) => {
               const done = state.lessons[lessonKey(course.slug, l.slug)]?.done;
-              const accessible = open && (l.free || enrolled);
+              const accessible = open;
               const Icon = done ? CheckCircle2 : accessible ? Circle : Lock;
               const row = (
                 <>
                   <Icon className={`size-5 shrink-0 ${done ? "text-leaf" : "text-ink-soft"}`} aria-hidden />
                   <span className="flex-1 font-medium">{l.title}</span>
-                  {open && l.free && !enrolled && (
-                    <span className="rounded-full bg-leaf-soft px-2.5 py-0.5 text-sm font-semibold">Học thử</span>
-                  )}
                   <span className="text-sm text-ink-soft">{l.minutes} phút</span>
                   {done && <span className="sr-only">(đã học)</span>}
-                  {!accessible && <span className="sr-only">(cần đăng ký)</span>}
+                  {!accessible && <span className="sr-only">(sắp ra mắt)</span>}
                 </>
               );
               return (
