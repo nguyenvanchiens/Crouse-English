@@ -24,6 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="vi"
+      data-scroll-behavior="smooth"
       className={`${baloo.variable} ${beVietnam.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

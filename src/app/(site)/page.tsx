@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { BookOpenCheck, Check, Mic, Star, Users } from "lucide-react";
-import { GOAL_META } from "@/components/course/goal-meta";
+import { BookOpenCheck, Gauge, Mic, Star, Users } from "lucide-react";
+import { CourseCard } from "@/components/course/course-card";
 import { getCourses } from "@/lib/content";
-import { formatVnd } from "@/lib/format";
 import { WordCard } from "@/components/word-card";
 
 const LEVELS = [
@@ -76,6 +75,8 @@ const FAQS = [
 
 export default async function Home() {
   const courses = await getCourses();
+  const pathCourses = courses.filter((c) => c.goal === "lo-trinh");
+  const otherCourses = courses.filter((c) => c.goal !== "lo-trinh");
   return (
     <>
         {/* Hero */}
@@ -145,7 +146,11 @@ export default async function Home() {
                 className="absolute bottom-7 left-7 top-7 w-[3px] bg-[repeating-linear-gradient(180deg,var(--color-ink)_0_12px,transparent_12px_22px)] md:hidden"
               />
               {LEVELS.map((l, i) => (
-                <li key={l.code} className="relative flex gap-4 md:flex-col">
+                <li key={l.code} className="relative">
+                  <Link
+                    href={`/khoa-hoc/tieng-anh-${l.code.toLowerCase()}`}
+                    className="group flex gap-4 rounded-2xl md:flex-col"
+                  >
                   <span
                     className={`z-10 grid size-14 shrink-0 place-items-center rounded-full border-[2.5px] border-ink font-display text-xl font-extrabold shadow-[0_4px_0_0_var(--color-ink)] ${
                       ["bg-sun", "bg-tangerine", "bg-leaf-soft", "bg-grape-soft", "bg-sky-deep"][i]
@@ -154,9 +159,10 @@ export default async function Home() {
                     {l.code}
                   </span>
                   <div>
-                    <h3 className="font-display text-xl font-bold">{l.name}</h3>
+                    <h3 className="font-display text-xl font-bold group-hover:text-tangerine-deep">{l.name}</h3>
                     <p className="mt-1 text-ink-soft">{l.can}</p>
                   </div>
+                  </Link>
                 </li>
               ))}
             </ol>
@@ -166,50 +172,38 @@ export default async function Home() {
         {/* Courses */}
         <section id="khoa-hoc" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
           <h2 className="max-w-2xl font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-            Chọn khóa học theo mục tiêu của bạn
+            Bắt đầu đúng cấp của bạn
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {courses.map((c) => {
-              const meta = GOAL_META[c.goal];
-              const Icon = meta.icon;
-              const featured = c.goal === "giao-tiep";
-              const wide = c.goal === "tre-em";
-              return (
-                <article
-                  key={c.slug}
-                  className={`clay flex flex-col p-7 ${featured ? "md:col-span-2 md:row-span-2 md:p-10" : ""} ${wide ? "md:col-span-3 md:flex-row md:items-center md:gap-8" : ""} ${meta.tone}`}
-                >
-                  <span className="grid size-12 shrink-0 place-items-center rounded-2xl border-[2.5px] border-ink bg-card">
-                    <Icon className="size-6" aria-hidden />
-                  </span>
-                  {featured && (
-                    <p className="mt-6 w-fit rounded-full bg-ink px-3 py-1 text-sm font-semibold text-card">Được chọn nhiều nhất</p>
-                  )}
-                  <div className={wide ? "md:flex-1" : ""}>
-                    <h3 className={`mt-4 font-display font-extrabold leading-tight ${featured ? "text-4xl sm:text-5xl" : "text-2xl"} ${wide ? "md:mt-0" : ""}`}>
-                      {c.title}
-                    </h3>
-                    <p className={`mt-3 text-ink ${featured ? "max-w-md text-lg" : ""}`}>{c.summary}</p>
-                    <p className="mt-2 text-sm font-semibold text-ink-soft">{c.durationWeeks} tuần, trình độ {c.level}</p>
-                  </div>
-                  {featured && (
-                    <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                      {c.outcomes.slice(0, 4).map((item) => (
-                        <li key={item} className="flex items-start gap-3 rounded-2xl border-[2.5px] border-ink bg-card px-4 py-3 font-medium">
-                          <Check className="mt-0.5 size-5 shrink-0 text-leaf" aria-hidden />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <div className={`mt-auto flex flex-wrap items-center justify-between gap-3 pt-6 ${wide ? "md:mt-0 md:gap-6 md:pt-0" : ""}`}>
-                    <p className="font-display text-xl font-bold">{formatVnd(c.priceVnd)}/tháng</p>
-                    <Link href={`/khoa-hoc/${c.slug}`} className="btn btn-ghost min-h-11 px-4 text-base">Xem chi tiết</Link>
-                  </div>
-                </article>
-              );
-            })}
+          <p className="mt-4 max-w-2xl text-lg text-ink-soft">
+            Mỗi cấp là một khóa 6 bài: bài giảng bằng tiếng Việt, từ vựng có phát âm, bài tập chấm ngay và luyện nói.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {pathCourses.map((c) => (
+              <CourseCard key={c.slug} course={c} />
+            ))}
+            <Link
+              href="/kiem-tra-trinh-do"
+              className="clay flex flex-col justify-between bg-tangerine p-6 transition-transform duration-200 hover:-translate-y-1"
+            >
+              <span className="grid size-12 place-items-center rounded-2xl border-[2.5px] border-ink bg-card">
+                <Gauge className="size-6" aria-hidden />
+              </span>
+              <span>
+                <span className="mt-5 block font-display text-2xl font-extrabold leading-tight">Chưa biết bắt đầu từ đâu?</span>
+                <span className="mt-2 block">Làm bài kiểm tra 10 phút, hệ thống gợi ý cấp phù hợp.</span>
+              </span>
+            </Link>
           </div>
+          {otherCourses.length > 0 && (
+            <>
+              <h3 className="mt-16 font-display text-2xl font-extrabold">Khóa luyện thi và tiếng Anh trẻ em</h3>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {otherCourses.map((c) => (
+                  <CourseCard key={c.slug} course={c} />
+                ))}
+              </div>
+            </>
+          )}
         </section>
 
         {/* How it works — a real sequence, so numbered */}

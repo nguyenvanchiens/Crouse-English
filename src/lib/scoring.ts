@@ -25,8 +25,20 @@ export function checkFillBlank(answers: string[], input: string): boolean {
   return answers.some((a) => normalize(a) === value);
 }
 
+/**
+ * How a word is shown on a reorder chip: no edge punctuation, and the first word loses the
+ * capital that would mark its position. Proper nouns and "I" keep theirs.
+ */
+export function chipText(word: string, first = false): string {
+  const bare = word.replace(/[‘’]/g, "'").replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
+  if (!first || /^I('|$)/.test(bare)) return bare;
+  return bare.charAt(0).toLowerCase() + bare.slice(1);
+}
+
+const reorderKey = (w: string) => chipText(w).toLowerCase();
+
 export function checkReorder(words: string[], attempt: string[]): boolean {
-  return attempt.length === words.length && attempt.every((w, i) => w === words[i]);
+  return attempt.length === words.length && attempt.every((w, i) => reorderKey(w) === reorderKey(words[i]));
 }
 
 export function correctAnswerText(ex: Exercise): string {

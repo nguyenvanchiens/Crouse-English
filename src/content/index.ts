@@ -1,7 +1,11 @@
-import { giaoTiepA1 } from "./courses/giao-tiep-a1";
 import { ielts } from "./courses/ielts";
+import { tiengAnhA1 } from "./courses/tieng-anh-a1";
+import { tiengAnhA2 } from "./courses/tieng-anh-a2";
+import { tiengAnhB1 } from "./courses/tieng-anh-b1";
+import { tiengAnhB2 } from "./courses/tieng-anh-b2";
+import { tiengAnhC1 } from "./courses/tieng-anh-c1";
 import { toeic } from "./courses/toeic";
 import { treEm } from "./courses/tre-em";
 import type { Course } from "./types";
 
-export const COURSES: Course[] = [giaoTiepA1, ielts, toeic, treEm];
+export const COURSES: Course[] = [tiengAnhA1, tiengAnhA2, tiengAnhB1, tiengAnhB2, tiengAnhC1, ielts, toeic, treEm];

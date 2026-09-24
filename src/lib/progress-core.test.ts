@@ -17,7 +17,7 @@ import {
 
 const lesson = (slug: string) => ({ slug, title: slug, minutes: 5, free: false, steps: [] });
 const course: Course = {
-  slug: "c", title: "C", level: "A1", goal: "giao-tiep", summary: "", outcomes: [], audience: [],
+  slug: "c", title: "C", level: "A1", goal: "lo-trinh", summary: "", outcomes: [], audience: [],
   teacher: { name: "", bio: "", initials: "" }, priceVnd: 0, durationWeeks: 1, rating: 5,
   reviews: [], faqs: [], status: "open",
   modules: [
@@ -86,9 +86,12 @@ describe("nextStreak", () => {
   it("resets after a gap", () => {
     expect(nextStreak({ current: 9, lastDay: "2026-09-20" }, "2026-09-24")).toEqual({ current: 1, lastDay: "2026-09-24" });
   });
-  it("keeps the streak if the clock goes backwards", () => {
+  it("keeps the streak if the clock goes back by one day (time zones)", () => {
     const s = { current: 4, lastDay: "2026-09-24" };
-    expect(nextStreak(s, "2026-09-22")).toEqual(s);
+    expect(nextStreak(s, "2026-09-23")).toEqual(s);
+  });
+  it("resets a streak whose last day is two or more days in the future", () => {
+    expect(nextStreak({ current: 4, lastDay: "2026-09-24" }, "2026-09-22")).toEqual({ current: 1, lastDay: "2026-09-22" });
   });
 });
 
@@ -98,6 +101,8 @@ describe("displayStreak", () => {
     expect(displayStreak({ current: 4, lastDay: "2026-09-23" }, "2026-09-24")).toBe(4);
     expect(displayStreak({ current: 4, lastDay: "2026-09-21" }, "2026-09-24")).toBe(0);
     expect(displayStreak({ current: 0, lastDay: null }, "2026-09-24")).toBe(0);
+    expect(displayStreak({ current: 4, lastDay: "2026-09-27" }, "2026-09-24")).toBe(0);
+    expect(displayStreak({ current: 4, lastDay: "2026-09-25" }, "2026-09-24")).toBe(4);
   });
 });
 
@@ -157,6 +162,12 @@ describe("applyLearnerName / applyPlacement", () => {
   });
   it("stores the placement result", () => {
     const now = new Date("2026-09-24T10:00:00Z");
-    expect(applyPlacement(emptyState(), "B1", 65, now).placement).toEqual({ level: "B1", score: 65, takenAt: now.toISOString() });
+    expect(applyPlacement(emptyState(), "B1", "B2", 65, now).placement).toEqual({ level: "B1", startLevel: "B2", score: 65, takenAt: now.toISOString() });
+  });
+  it("derives the start level for data saved before startLevel existed", () => {
+    const old = (level: string) => parseState(JSON.stringify({ version: 1, placement: { level, score: 65, takenAt: "2026-09-24T03:00:00.000Z" } })).placement?.startLevel;
+    expect(old("B1")).toBe("B2"); // old `level` meant "highest level passed"
+    expect(old("B2")).toBe("C1");
+    expect(old("A1")).toBe("A1"); // ambiguous (passed none or A1): start from the beginning
   });
 });

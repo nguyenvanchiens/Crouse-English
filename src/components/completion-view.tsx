@@ -61,6 +61,11 @@ export function CompletionView({ course }: { course: Course }) {
               />
             </label>
             <button type="submit" className="btn btn-primary" disabled={!name.trim()}>Lưu tên</button>
+            {editing && state.learnerName && (
+              <button type="button" className="btn btn-ghost" onClick={() => setEditing(false)}>
+                Hủy
+              </button>
+            )}
           </form>
         )}
       </div>

@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { CourseGrid } from "@/components/course/course-card";
 import { CourseCatalog } from "@/components/course/course-catalog";
 import { getCourses } from "@/lib/content";
 
@@ -8,6 +7,21 @@ export const metadata: Metadata = {
   title: "Khóa học tiếng Anh | Crouse English",
   description: "Khóa học tiếng Anh giao tiếp, IELTS, TOEIC và tiếng Anh cho trẻ em.",
 };
+
+/** Neutral placeholder: the unfiltered grid would flash before the URL filter applies. */
+function CatalogSkeleton({ count }: { count: number }) {
+  return (
+    <div className="mt-10 space-y-4" aria-hidden>
+      <div className="h-11 w-full max-w-xl animate-pulse rounded-full bg-sky-deep" />
+      <div className="h-11 w-full max-w-md animate-pulse rounded-full bg-sky-deep" />
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: count }).map((_, i) => (
+          <div key={i} className="clay h-64 animate-pulse bg-card" />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default async function CoursesPage() {
   const courses = await getCourses();
@@ -17,7 +31,7 @@ export default async function CoursesPage() {
       <p className="mt-4 max-w-2xl text-lg text-ink-soft">
         Chọn khóa theo mục tiêu và trình độ. Chưa biết mình ở đâu? Làm bài kiểm tra trình độ 10 phút.
       </p>
-      <Suspense fallback={<div className="mt-10"><CourseGrid courses={courses} /></div>}>
+      <Suspense fallback={<CatalogSkeleton count={courses.length} />}>
         <CourseCatalog courses={courses} />
       </Suspense>
     </div>

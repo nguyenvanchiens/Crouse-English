@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { ReorderExercise } from "@/content/types";
-import { checkReorder, shuffleAvoidingAnswer } from "@/lib/scoring";
+import { checkReorder, chipText, shuffleAvoidingAnswer } from "@/lib/scoring";
 
 export function Reorder({
   item,
@@ -15,7 +15,9 @@ export function Reorder({
 }) {
   const [order] = useState(() => shuffleAvoidingAnswer(item.words));
   const [picked, setPicked] = useState<number[]>([]); // positions in `order`
-  const wordAt = (pos: number) => item.words[order[pos]];
+  const wordAt = (pos: number) => chipText(item.words[order[pos]], order[pos] === 0);
+  // chips hide punctuation, so show how the sentence ends: tells a question from a statement
+  const endMark = /[?!.]$/.exec(item.words[item.words.length - 1])?.[0] ?? null;
 
   const chip =
     "min-h-11 rounded-xl border-[2.5px] border-ink px-4 font-display text-lg font-semibold shadow-[0_3px_0_0_var(--color-ink)] active:translate-y-0.5 active:shadow-none disabled:shadow-none";
@@ -29,6 +31,7 @@ export function Reorder({
     >
       <h3 className="mb-5 font-display text-2xl font-bold">{item.prompt}</h3>
       <div
+        role="group"
         className="flex min-h-20 flex-wrap items-center gap-2 rounded-2xl border-[2.5px] border-dashed border-ink bg-card p-3"
         aria-label="Câu trả lời của bạn"
       >
@@ -45,8 +48,14 @@ export function Reorder({
             {wordAt(pos)}
           </button>
         ))}
+        {endMark && (
+          <span className="ml-auto px-2 font-display text-2xl font-bold text-ink-soft">
+            <span aria-hidden>{endMark}</span>
+            <span className="sr-only">{endMark === "?" ? "Đây là câu hỏi" : "Kết thúc câu"}</span>
+          </span>
+        )}
       </div>
-      <div className="mt-4 flex flex-wrap gap-2" aria-label="Các từ để chọn">
+      <div role="group" className="mt-4 flex flex-wrap gap-2" aria-label="Các từ để chọn">
         {order.map((_, pos) =>
           picked.includes(pos) ? null : (
             <button key={pos} type="button" disabled={locked} className={`${chip} bg-card`} onClick={() => setPicked([...picked, pos])}>

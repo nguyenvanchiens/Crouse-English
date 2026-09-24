@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  chipText,
   checkChoice,
   checkFillBlank,
   checkReorder,
@@ -50,6 +51,37 @@ describe("checkReorder", () => {
   it("accepts either copy of a duplicated word", () => {
     const words = ["the", "cat", "and", "the", "dog"];
     expect(checkReorder(words, ["the", "cat", "and", "the", "dog"])).toBe(true);
+  });
+});
+
+describe("chipText", () => {
+  it("drops punctuation and the capital that marks the first word", () => {
+    expect(chipText("Can", true)).toBe("can");
+    expect(chipText("Excuse", true)).toBe("excuse");
+    expect(chipText("menu,")).toBe("menu");
+    expect(chipText("please?")).toBe("please");
+  });
+  it("keeps capitals of proper nouns inside the sentence", () => {
+    expect(chipText("Lan?")).toBe("Lan");
+    expect(chipText("Japanese")).toBe("Japanese");
+  });
+  it("only strips punctuation at the edges of a word", () => {
+    expect(chipText("well-known")).toBe("well-known");
+    expect(chipText("10:30.")).toBe("10:30");
+    expect(chipText("“Hello,”")).toBe("Hello");
+  });
+  it("keeps the pronoun I and its contractions, even as the first word", () => {
+    expect(chipText("I", true)).toBe("I");
+    expect(chipText("I'm", true)).toBe("I'm");
+    expect(chipText("I’ve", true)).toBe("I've");
+  });
+});
+
+describe("checkReorder with display chips", () => {
+  it("accepts the normalized chips in the right order", () => {
+    const words = ["Can", "I", "see", "the", "menu,", "please?"];
+    expect(checkReorder(words, words.map((w, i) => chipText(w, i === 0)))).toBe(true);
+    expect(checkReorder(words, ["I", "can", "see", "the", "menu", "please"])).toBe(false);
   });
 });
 
