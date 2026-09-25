@@ -5,6 +5,7 @@ import {
   applyEnroll,
   applyLearnerName,
   applyPlacement,
+  certificateStatus,
   courseProgress,
   displayStreak,
   emptyState,
@@ -174,5 +175,31 @@ describe("applyLearnerName / applyPlacement", () => {
     expect(old("B1")).toBe("B2"); // old `level` meant "highest level passed"
     expect(old("B2")).toBe("C1");
     expect(old("A1")).toBe("A1"); // ambiguous (passed none or A1): start from the beginning
+  });
+});
+
+describe("certificateStatus", () => {
+  const withFinal: Course = {
+    ...course,
+    modules: [...course.modules, { id: "m-final", title: "F", lessons: [{ slug: "f", title: "F", minutes: 5, final: true, steps: [] }] }],
+  };
+  const doAll = (score: number | null) => {
+    let s = emptyState();
+    for (const l of ["a", "b", "c"]) s = applyCompleteLesson(s, "c", l, null, new Date());
+    return score === null ? s : applyCompleteLesson(s, "c", "f", score, new Date());
+  };
+  it("is incomplete until every lesson is done", () => {
+    let s = applyCompleteLesson(emptyState(), "c", "a", null, new Date());
+    expect(certificateStatus(withFinal, s)).toMatchObject({ status: "incomplete" });
+    s = doAll(null);
+    expect(certificateStatus(course, s).status).toBe("earned"); // no final test in this course
+  });
+  it("requires 70% on the final test", () => {
+    expect(certificateStatus(withFinal, doAll(65))).toEqual({ status: "final-failed", finalScore: 65 });
+    expect(certificateStatus(withFinal, doAll(70))).toEqual({ status: "earned", finalScore: 70 });
+  });
+  it("counts the best attempt", () => {
+    const s = applyCompleteLesson(doAll(50), "c", "f", 90, new Date());
+    expect(certificateStatus(withFinal, s)).toEqual({ status: "earned", finalScore: 90 });
   });
 });

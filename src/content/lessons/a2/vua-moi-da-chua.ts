@@ -39,7 +39,7 @@ export default lesson({
       mistake("I didn't finish my report yet.", "I haven't finished my report yet.", "Tiếng Việt không chia thì, “chưa làm xong” nghe như quá khứ nên người Việt dùng didn't. Trong tiếng Anh-Anh, đi với yet là hiện tại hoàn thành: haven't + V3."),
       mistake("I have finished my homework yet.", "I have already finished my homework.", "Yet chỉ dùng trong câu phủ định và câu hỏi. Câu khẳng định “đã... rồi” dùng already."),
       mistake("I've just seen him yesterday.", "I saw him yesterday.", "Có thời điểm cụ thể (yesterday) thì không dùng hiện tại hoàn thành, dù trong đầu bạn nghĩ “vừa mới”. Chuyển sang quá khứ đơn."),
-      teacher("Học trò Việt Nam may mắn hơn người nước khác ở bài này, vì chúng ta đã có sẵn thói quen hỏi “**...chưa?**” mỗi ngày. Tôi dặn các em: **mỗi lần định hỏi “chưa” bằng tiếng Việt, hãy nói thầm câu tiếng Anh với yet**. Have you eaten yet? Have you finished yet? Have they arrived yet? Và mỗi tối, trước khi ngủ, liệt kê ba việc hôm nay đã làm rồi với already, ba việc chưa làm với haven't... yet. Một tháng thôi, cấu trúc này sẽ là của các em."),
+      teacher("Học viên Việt Nam may mắn hơn người nước khác ở bài này, vì chúng ta đã có sẵn thói quen hỏi “**...chưa?**” mỗi ngày. Tôi dặn các bạn: **mỗi lần định hỏi “chưa” bằng tiếng Việt, hãy nói thầm câu tiếng Anh với yet**. Have you eaten yet? Have you finished yet? Have they arrived yet? Và mỗi tối, trước khi ngủ, liệt kê ba việc hôm nay đã làm rồi với already, ba việc chưa làm với haven't... yet. Một tháng thôi, cấu trúc này sẽ là của các bạn."),
     ],
   },
   words: [

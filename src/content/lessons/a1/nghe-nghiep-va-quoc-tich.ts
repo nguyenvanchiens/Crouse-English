@@ -42,7 +42,7 @@ export default lesson({
       ex("Where are your colleagues from? They're from Japan. They're Japanese.", "Đồng nghiệp của bạn đến từ đâu? Họ đến từ Nhật Bản. Họ là người Nhật.", "Nhiều người nên dùng are và they're; quốc tịch Japanese không thêm -s."),
       ex("Who is the woman in the photo? She's my aunt. She's a nurse.", "Người phụ nữ trong ảnh là ai? Đó là cô tôi. Cô ấy là y tá."),
       ex("How are your children? They're fine, thanks.", "Các con bạn thế nào? Các cháu khỏe, cảm ơn bạn.", "How hỏi về sức khỏe, tình trạng, không hỏi về nghề nghiệp."),
-      teacher("Sau 50 năm đứng lớp, tôi thấy học trò Việt mình mắc lỗi **I am doctor** nhiều đến mức tôi phải đặt ra một luật: **cứ nói nghề là phải nghe thấy chữ a hoặc an**. Mỗi sáng các em thử nói to ba câu về ba người trong nhà: My father is a..., My mother is a..., I'm a... Nói đủ một tuần, cái miệng sẽ tự nhớ chữ a thay cho cái đầu."),
+      teacher("Sau nhiều năm đứng lớp, tôi thấy học viên Việt mình mắc lỗi **I am doctor** nhiều đến mức tôi phải đặt ra một luật: **cứ nói nghề là phải nghe thấy chữ a hoặc an**. Mỗi sáng các bạn thử nói to ba câu về ba người trong nhà: My father is a..., My mother is a..., I'm a... Nói đủ một tuần, cái miệng sẽ tự nhớ chữ a thay cho cái đầu."),
     ],
   },
   words: [

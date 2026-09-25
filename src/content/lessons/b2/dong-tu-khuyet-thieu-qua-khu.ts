@@ -31,7 +31,7 @@ export default lesson({
       ),
       mistake("I needn't to have bought so much food.", "I needn't have bought so much food.", "Need khi làm động từ khuyết thiếu (needn't) đi thẳng với have, không có to. Học trò lẫn với động từ thường need to nên chen to vào giữa."),
       tip("Khi nói, **should have** rút gọn thành **should've** /ˈʃʊd.əv/, **could have** thành **could've** /ˈkʊd.əv/. Vì nghe giống “should of” nên có người viết sai thành **should of**. Đừng bao giờ viết như vậy. Thêm một điều thú vị: khi được tặng quà, người Anh hay nói **Oh, you shouldn't have!** Đây là lời cảm ơn khách sáo, không phải lời trách."),
-      teacher("Tôi hay giao cho học trò một bài tập rất đơn giản: tối nào trước khi ngủ cũng viết **ba câu rút kinh nghiệm** về ngày hôm đó, một câu với should have, một câu với shouldn't have, một câu với needn't have. Ví dụ: **I should have left home earlier. I shouldn't have drunk so much coffee. I needn't have brought my umbrella.** Chỉ mất hai phút, nhưng sau một tháng các em dùng cấu trúc này tự nhiên như nói tiếng mẹ đẻ. Điều quan trọng hơn: **luôn tự hỏi sự thật là gì**, vì cấu trúc này bao giờ cũng nói ngược với điều đã xảy ra."),
+      teacher("Tôi hay giao cho học trò một bài tập rất đơn giản: tối nào trước khi ngủ cũng viết **ba câu rút kinh nghiệm** về ngày hôm đó, một câu với should have, một câu với shouldn't have, một câu với needn't have. Ví dụ: **I should have left home earlier. I shouldn't have drunk so much coffee. I needn't have brought my umbrella.** Chỉ mất hai phút, nhưng sau một tháng các bạn sẽ dùng cấu trúc này tự nhiên như nói tiếng mẹ đẻ. Điều quan trọng hơn: **luôn tự hỏi sự thật là gì**, vì cấu trúc này bao giờ cũng nói ngược với điều đã xảy ra."),
     ],
   },
   words: [

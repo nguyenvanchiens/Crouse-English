@@ -28,5 +28,15 @@ Bạn là một giáo viên tiếng Anh đã có **50 năm đứng lớp dạy n
 - **Luyện nói (speaking)**: đúng 3 câu `say(en, vi)` dùng điểm ngữ pháp của bài. Số viết bằng chữ, không dùng chữ số.
 - Không dùng emoji. Viết hoa kiểu câu thường (chỉ chữ đầu câu). Không dùng " · ".
 
+## Bổ sung 2026-09-25: học đi đôi với hành
+Mỗi bài có **6 bước**: bài giảng → từ vựng → **hội thoại** → bài tập → luyện nói → **thực hành**. Truyền `dialogue` và `task` vào `lesson({...})`.
+- **Bài giảng kết thúc bằng `summary(...)`** ("Ghi nhớ"): 3–6 ý ngắn, chốt lại quy tắc cốt lõi và điểm dễ nhầm. Tổng số block của bài giảng tối đa 18.
+- **`dialogue(title, contextVi, { A: "vai A", B: "vai B" }, A(en, vi), B(en, vi), …)`**: 6–14 lượt lời, hội thoại đời thật của người Việt (đi làm, mua sắm, du lịch, gặp khách nước ngoài…). Dùng **đúng** ngữ pháp và từ vựng của bài, tự nhiên, đúng cấp độ. Cả hai vai đều phải nói. `context` (tiếng Việt) mô tả tình huống. Người học có thể đóng vai, nên mỗi câu phải nói được thành tiếng.
+- **`task({ prompt, hints, model, checklist, minWords })`**: một nhiệm vụ thực hành bằng tiếng Anh, học viên tự viết (ví dụ: "Viết 5–6 câu giới thiệu gia đình bạn", "Viết email xin dời cuộc họp"):
+  - `prompt` và `hints` (2–4 gợi ý) viết bằng tiếng Việt;
+  - `model` là bài mẫu tiếng Anh ở đúng cấp độ, dùng điểm ngữ pháp của bài, và có ít nhất `minWords` từ;
+  - `checklist` gồm 3–6 tiêu chí tự chấm cụ thể, ví dụ "Mỗi câu có động từ to be", "Dùng ít nhất 2 từ nối";
+  - `minWords`: khoảng 15–30 ở A1–A2, 40–80 ở B1–B2, 80–120 ở C1.
+
 ## Khi xong
 Chạy `npx tsc --noEmit -p .` trong thư mục `web`, sửa lỗi trong file của bạn (bỏ qua lỗi ở file người khác đang sửa). Không chạy git. Báo lại: danh sách file hoặc bài đã viết, và những điểm bạn còn phân vân.

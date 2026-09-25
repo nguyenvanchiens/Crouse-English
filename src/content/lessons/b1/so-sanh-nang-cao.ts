@@ -32,7 +32,7 @@ export default lesson({
       mistake("The more I practise, the more I am confident.", "The more I practise, the more confident I am.", "Tính từ phải đi liền với the more: the more confident. Tiếng Việt nói “càng tự tin” nên ta dễ để tính từ lạc ra cuối câu."),
       mistake("My salary is twice more than his.", "My salary is twice as high as his.", "Với twice, three times, dùng cấu trúc as… as. Đừng dịch từng chữ “gấp đôi hơn”."),
       tip("Hai câu rút gọn rất hay dùng, học thuộc như thành ngữ: **The sooner, the better** (càng sớm càng tốt) và **The more, the merrier** (càng đông càng vui). Khi nói, nhấn giọng vào hai từ so sánh: the SOONer, the BETter."),
-      teacher("Sau 50 năm dạy, tôi thấy chữ “very” là cái bẫy lớn nhất của người Việt khi so sánh. Tôi dặn học trò: **hễ thấy đuôi -er hoặc chữ more, xóa very đi và thay bằng much**. Mỗi tối, các em thử so sánh hai thứ quen thuộc, hai quán cà phê, hai chiếc xe máy, hai thành phố, bằng ba mức: a bit, much, twice as… as. Nói to thành tiếng, chỉ năm phút thôi, nhưng làm đều đặn."),
+      teacher("Sau nhiều năm dạy, tôi thấy chữ “very” là cái bẫy lớn nhất của người Việt khi so sánh. Tôi dặn các bạn: **hễ thấy đuôi -er hoặc chữ more, xóa very đi và thay bằng much**. Mỗi tối, các bạn thử so sánh hai thứ quen thuộc, hai quán cà phê, hai chiếc xe máy, hai thành phố, bằng ba mức: a bit, much, twice as… as. Nói to thành tiếng, chỉ năm phút thôi, nhưng làm đều đặn."),
     ],
   },
   words: [

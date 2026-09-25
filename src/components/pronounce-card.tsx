@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import { Eye, Snail, Volume2 } from "lucide-react";
 import type { VocabWord } from "@/content/types";
@@ -75,6 +76,9 @@ export function PronounceCard({
 
       <p className="mt-3 font-display text-xl text-ink-soft">
         <span className="font-semibold text-ink">{word.word}</span> {word.ipa}
+        <Link href="/bang-ipa" className="ml-3 align-middle font-sans text-sm font-semibold text-ink underline underline-offset-4 hover:text-tangerine-deep">
+          Tra bảng IPA
+        </Link>
       </p>
 
       {showMeaning && word.example && <p className="mt-3 text-lg italic">“{word.example}”</p>}

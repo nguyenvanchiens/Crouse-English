@@ -1,6 +1,6 @@
 export type Level = "A1" | "A2" | "B1" | "B2" | "C1";
 export type PlacementLevel = Exclude<Level, "C1">;
-export type Goal = "lo-trinh" | "ielts" | "toeic" | "tre-em";
+export type Goal = "phat-am" | "lo-trinh" | "ielts" | "toeic" | "tre-em";
 
 export interface VocabWord {
   word: string;
@@ -59,9 +59,34 @@ export type LectureBlock =
   | { kind: "tip"; body: string }
   | { kind: "mistake"; wrong: string; right: string; why: string }
   /** a veteran teacher's advice from years in the classroom; may contain **bold** */
-  | { kind: "teacher"; body: string };
+  | { kind: "teacher"; body: string }
+  /** "Ghi nhớ": the lesson's key points, closing the lecture; items may contain **bold** */
+  | { kind: "summary"; points: string[] };
 
 export interface LectureStep { type: "lecture"; title: string; blocks: LectureBlock[] }
+export interface DialogueLine { speaker: "A" | "B"; en: string; vi: string }
+/** A real-life conversation that uses the lesson's language; can be role-played. */
+export interface DialogueStep {
+  type: "dialogue";
+  title: string;
+  /** the situation, in Vietnamese */
+  context: string;
+  roles: { A: string; B: string };
+  lines: DialogueLine[];
+}
+/** A real-world production task: the learner writes, then compares with a model and self-checks. */
+export interface TaskStep {
+  type: "task";
+  /** what to do, in Vietnamese */
+  prompt: string;
+  hints: string[];
+  /** model answer in English */
+  model: string;
+  /** self-assessment criteria, in Vietnamese */
+  checklist: string[];
+  /** minimum words before the model answer can be revealed */
+  minWords: number;
+}
 export interface VideoStep { type: "video"; youtubeId: string; title: string }
 export interface VocabStep { type: "vocab"; words: VocabWord[] }
 export interface ExerciseStep { type: "exercise"; items: Exercise[] }
@@ -69,7 +94,7 @@ export interface SpeakingStep {
   type: "speaking";
   sentences: { text: string; meaningVi: string }[];
 }
-export type Step = LectureStep | VideoStep | VocabStep | ExerciseStep | SpeakingStep;
+export type Step = LectureStep | VideoStep | VocabStep | DialogueStep | ExerciseStep | SpeakingStep | TaskStep;
 
 export interface Lesson {
   slug: string;
@@ -77,6 +102,8 @@ export interface Lesson {
   minutes: number;
   /** generated chapter review: a single exercise step drawn from the chapter's lessons */
   review?: boolean;
+  /** generated end-of-course test; the certificate needs FINAL_PASS on it */
+  final?: boolean;
   steps: Step[];
 }
 export interface Module { id: string; title: string; lessons: Lesson[] }

@@ -1,4 +1,4 @@
-import type { Exercise, Lesson, Module } from "./types";
+import type { Course, Exercise, Lesson, Module } from "./types";
 
 const KINDS: Exercise["kind"][] = ["multiple-choice", "fill-blank", "reorder", "listen-choose"];
 const PER_LESSON = 3;
@@ -36,4 +36,50 @@ export function buildReviewLesson(chapterNumber: number, lessons: Lesson[]): Les
 /** A chapter (module) of lessons followed by its generated review. */
 export function chapter(n: number, title: string, lessons: Lesson[]): Module {
   return { id: `m${n}`, title, lessons: [...lessons, buildReviewLesson(n, lessons)] };
+}
+
+/** Minimum final-test score (%) for the certificate. */
+export const FINAL_PASS = 70;
+const FINAL_PER_CHAPTER = 5;
+
+/**
+ * End-of-course test: 5 items per chapter, preferring items the chapter review did not
+ * use, rotating lessons and exercise kinds so the whole test covers every kind.
+ */
+export function buildFinalTest(chapters: Module[]): Lesson {
+  const items: Exercise[] = [];
+  chapters.forEach((m, ci) => {
+    const used = new Set(
+      m.lessons.filter((l) => l.review).flatMap((l) => exercisesOf(l).map((e) => e.id.replace(/-r$/, ""))),
+    );
+    const lessons = m.lessons.filter((l) => !l.review && !l.final);
+    const fresh = lessons.map((l) => exercisesOf(l).filter((e) => !used.has(e.id)));
+    const all = lessons.map((l) => exercisesOf(l));
+    const picked: Exercise[] = [];
+    for (const pools of [fresh, all]) {
+      for (let round = 0; picked.length < FINAL_PER_CHAPTER && round < 8; round++) {
+        for (let li = 0; li < pools.length && picked.length < FINAL_PER_CHAPTER; li++) {
+          const kind = KINDS[(ci + li + round) % KINDS.length];
+          const e = pools[li].find((x) => x.kind === kind && !picked.includes(x)) ?? pools[li].find((x) => !picked.includes(x));
+          if (e) picked.push(e);
+        }
+      }
+    }
+    items.push(...picked.map((e) => ({ ...e, id: `${e.id}-f` })));
+  });
+  return {
+    slug: "kiem-tra-cuoi-khoa",
+    title: "Kiểm tra cuối khóa",
+    minutes: 25,
+    final: true,
+    steps: [{ type: "exercise", items }],
+  };
+}
+
+/** Returns a copy of the course with a closing "Kiểm tra cuối khóa" module. */
+export function withFinalTest(course: Course): Course {
+  return {
+    ...course,
+    modules: [...course.modules, { id: "m-final", title: "Kiểm tra cuối khóa", lessons: [buildFinalTest(course.modules)] }],
+  };
 }

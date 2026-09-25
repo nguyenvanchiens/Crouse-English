@@ -34,7 +34,7 @@ export default lesson({
       mistake("It's too loud. Please turn off it.", "It's too loud. Please turn it off.", "Với cụm tách được, đại từ it phải đứng giữa động từ và tiểu từ. Tiếng Việt nói “tắt nó đi” theo thứ tự động từ trước, nên ta hay đặt it ra cuối."),
       mistake("My father gave up to smoke.", "My father gave up smoking.", "Sau give up, động từ phải ở dạng V-ing."),
       tip("Khi nói, **nhấn giọng vào tiểu từ** chứ không nhấn vào động từ: turn it OFF, pick me UP, give UP. Nếu tân ngữ là danh từ đứng sau thì nhấn vào danh từ: turn off the LIGHT."),
-      teacher("Sau 50 năm dạy, tôi khuyên các em đừng học cụm động từ theo danh sách dài hàng trăm cụm, học xong là quên. Hãy **học theo một ngày của chính mình**: sáng get up, turn off the alarm, tối turn on the TV, look for the remote. Mỗi hành động trong ngày, các em tự nói thầm cụm động từ tương ứng. Một tháng sau, những cụm này sẽ bật ra tự nhiên như tiếng mẹ đẻ."),
+      teacher("Sau nhiều năm dạy, tôi khuyên các bạn đừng học cụm động từ theo danh sách dài hàng trăm cụm, học xong là quên. Hãy **học theo một ngày của chính mình**: sáng get up, turn off the alarm, tối turn on the TV, look for the remote. Mỗi hành động trong ngày, các bạn tự nói thầm cụm động từ tương ứng. Một tháng sau, những cụm này sẽ bật ra tự nhiên như tiếng mẹ đẻ."),
     ],
   },
   words: [
@@ -55,7 +55,7 @@ export default lesson({
     reorder("b1-n16-5", "Could you pick me up from the airport?", "Đại từ me đứng giữa pick và up. Không nói pick up me."),
     reorder("b1-n16-6", "She is looking after her little brother.", "Look after là cụm không tách được: tân ngữ her little brother đứng sau cả cụm."),
     listen("b1-n16-7", "I found out that the shop was closed on Sundays.", ["Tôi tìm thấy cửa hàng vào chủ nhật.", "Cửa hàng mở cửa cả ngày chủ nhật.", "Tôi định đi cửa hàng vào chủ nhật.", "Tôi biết được rằng cửa hàng đóng cửa vào chủ nhật."], 3, "Find out: biết được, phát hiện ra một thông tin."),
-    listen("b1-n16-8", "Can you turn the music down? I'm trying to sleep.", ["Bạn vặn nhỏ nhạc được không? Tôi đang cố ngủ.", "Bạn bật nhạc lên được không? Tôi không ngủ được.", "Bạn tắt đèn được không? Tôi buồn ngủ rồi."], 0, "Turn down: vặn nhỏ (âm lượng). Ngược lại là turn up: vặn to."),
+    listen("b1-n16-8", "My grandfather gave up smoking when he was sixty.", ["Ông tôi bỏ thuốc lá khi ông sáu mươi tuổi.", "Ông tôi bắt đầu hút thuốc từ năm sáu mươi tuổi.", "Ông tôi vẫn hút thuốc dù đã sáu mươi tuổi."], 0, "Give up + V-ing: bỏ một thói quen. Gave up smoking là đã bỏ hút thuốc."),
   ],
   speaking: [
     say("I usually get up at six and turn off my alarm straight away.", "Tôi thường dậy lúc sáu giờ và tắt chuông báo thức ngay."),

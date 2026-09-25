@@ -35,7 +35,7 @@ export default lesson({
       mistake("He has a short black hair.", "He has short black hair.", "Hair (mái tóc) là danh từ không đếm được, không dùng a. Chỉ nói a hair khi nói một sợi tóc."),
       ex("What does your boss look like? He's short and he's got glasses.", "Sếp bạn trông thế nào? Ông ấy thấp và đeo kính.", "Tiếng Việt nói “đeo kính”, tiếng Anh nói có kính: he's got glasses."),
       ex("Has your son got blue eyes? No, he hasn't. He's got brown eyes.", "Con trai bạn có mắt xanh không? Không. Cháu có mắt nâu."),
-      teacher("Tôi dạy người Việt đã nửa thế kỷ, và câu các em hỏi sai nhiều nhất là “What does she look?” Hãy nhớ chữ **like** như một cái đuôi không bao giờ rời: **What does she look like?** Bài tập mỗi ngày của tôi: nhìn một người trên xe buýt hay trong văn phòng, rồi tả thầm trong đầu ba câu, một câu với **is**, hai câu với **has got**. Làm một tuần là miệng sẽ tự nói đúng thứ tự tính từ."),
+      teacher("Tôi dạy người Việt đã nửa thế kỷ, và câu các bạn hỏi sai nhiều nhất là “What does she look?” Hãy nhớ chữ **like** như một cái đuôi không bao giờ rời: **What does she look like?** Bài tập mỗi ngày tôi giao cho các bạn: nhìn một người trên xe buýt hay trong văn phòng, rồi tả thầm trong đầu ba câu, một câu với **is**, hai câu với **has got**. Làm một tuần là miệng sẽ tự nói đúng thứ tự tính từ."),
     ],
   },
   words: [

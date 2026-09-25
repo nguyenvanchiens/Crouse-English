@@ -33,7 +33,7 @@ export default lesson({
       p("**Which** còn có thể thay cho **cả mệnh đề** phía trước, không chỉ một danh từ. Loại này luôn có dấu phẩy phía trước và không dùng that hay what thay được."),
       ex("The train was cancelled, which meant we had to take a taxi.", "Chuyến tàu bị hủy, điều đó có nghĩa là chúng tôi phải đi taxi.", "Which ở đây là “việc tàu bị hủy”. Người Việt hay viết nhầm what meant, vì dịch “điều mà”."),
       tip("Mẹo chọn giới từ: tách mệnh đề ra thành một câu riêng. “I spoke **to** the man” thì viết **to whom**; “I work **for** the company” thì viết **for which**. Còn với lượng từ, hãy thử thay bằng **of them**: nếu “most of them” đúng thì “most of whom/which” cũng đúng."),
-      teacher("Sau năm mươi năm dạy, tôi thấy học trò thường mắc một trong hai tật: hoặc sợ không dám dùng, hoặc dùng quá tay đến mức câu nào cũng có **to whom**. Mỗi đoạn văn trang trọng chỉ cần **một hai câu** như vậy là đủ tạo ấn tượng. Cách luyện của tôi: mỗi ngày lấy hai câu ngắn trong bài báo, ví dụ “We interviewed ten people. None of them agreed.”, rồi gộp lại bằng **none of whom**. Làm đều một tháng, các em sẽ viết được mà không cần nghĩ."),
+      teacher("Sau nhiều năm dạy, tôi thấy học viên thường mắc một trong hai tật: hoặc sợ không dám dùng, hoặc dùng quá tay đến mức câu nào cũng có **to whom**. Mỗi đoạn văn trang trọng chỉ cần **một hai câu** như vậy là đủ tạo ấn tượng. Cách luyện của tôi: mỗi ngày lấy hai câu ngắn trong bài báo, ví dụ “We interviewed ten people. None of them agreed.”, rồi gộp lại bằng **none of whom**. Làm đều một tháng, các bạn sẽ viết được mà không cần nghĩ."),
     ],
   },
   words: [

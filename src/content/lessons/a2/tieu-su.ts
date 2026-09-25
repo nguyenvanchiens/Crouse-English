@@ -34,7 +34,7 @@ export default lesson({
       mistake("I born in 1995.", "I was born in 1995.", "Tiếng Việt “tôi sinh năm…” không có chữ nào tương ứng với was, nên học trò hay bỏ. Tiếng Anh bắt buộc phải có was / were trước born."),
       mistake("She got married on 2010.", "She got married in 2010.", "Chỉ có năm thì dùng in. Có ngày cụ thể mới dùng on: on 12 June 2010."),
       mistake("After finish university, I moved to Hanoi.", "After I finished university, I moved to Hanoi.", "Tiếng Việt “sau khi tốt nghiệp” không cần chủ ngữ. Tiếng Anh cần một mệnh đề đầy đủ sau after: chủ ngữ + động từ đã chia ở quá khứ."),
-      teacher("Bài tập tôi giao cho mọi lớp A2 suốt mấy chục năm nay là: **viết một tiểu sử năm câu về ông bà hoặc bố mẹ mình**, có năm sinh, năm cưới, công việc, và ít nhất một câu với before, after hay when. Rồi đọc to lên. Tôi nghe rất nhiều em đọc năm như đọc số điện thoại, “one nine nine eight”. Người bản xứ nghe sẽ khựng lại ngay. Hãy tập đọc năm sinh của từng người trong nhà cho trơn miệng trước đã."),
+      teacher("Bài tập tôi giao cho mọi lớp A2 suốt mấy chục năm nay là: **viết một tiểu sử năm câu về ông bà hoặc bố mẹ mình**, có năm sinh, năm cưới, công việc, và ít nhất một câu với before, after hay when. Rồi đọc to lên. Tôi nghe rất nhiều bạn đọc năm như đọc số điện thoại, “one nine nine eight”. Người bản xứ nghe sẽ khựng lại ngay. Các bạn hãy tập đọc năm sinh của từng người trong nhà cho trơn miệng trước đã."),
     ],
   },
   words: [

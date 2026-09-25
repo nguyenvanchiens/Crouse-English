@@ -21,7 +21,7 @@ export default lesson({
       ex("Where did you go last summer?", "Hè năm ngoái bạn đi đâu?"),
       ex("How long did you stay in Sa Pa?", "Bạn ở Sa Pa bao lâu?", "How long hỏi khoảng thời gian. Trả lời gọn: For three days. hoặc chỉ Three days."),
       ex("Who did you go with?", "Bạn đi với ai?", "Giới từ with nằm ở cuối câu. Người Việt quen nói “đi với ai” nên hay đưa with lên đầu thành “With who did you go?”, nghe rất cứng."),
-      p("Riêng câu hỏi với **to be** thì không dùng did, mà dùng **was / were** như bạn đã học: **How was your holiday?** – **It was great!**, **How was the weather?** – **It was sunny every day.**"),
+      p("Riêng câu hỏi với **to be** thì không dùng did, mà dùng **was / were** như bạn đã học ở bài Cuối tuần vừa rồi (A1) và bài Hôm qua bạn làm gì: **How was your holiday?** – **It was great!**, **How was the weather?** – **It was sunny every day.**"),
       table(
         ["Nguyên mẫu", "Quá khứ", "Nghĩa"],
         ["fly", "flew", "bay, đi máy bay"],
@@ -39,7 +39,7 @@ export default lesson({
       mistake("Where you went last summer?", "Where did you go last summer?", "Tiếng Việt hỏi “Bạn đã đi đâu?” mà không cần trợ động từ, nên học trò hay bỏ did. Câu hỏi quá khứ trong tiếng Anh bắt buộc có did đứng trước chủ ngữ."),
       mistake("How long did you stayed there?", "How long did you stay there?", "Đã có did báo quá khứ rồi thì động từ chính phải về nguyên mẫu. Quá khứ chỉ đánh dấu một lần."),
       mistake("I went to Nha Trang in holiday.", "I went to Nha Trang on holiday.", "Dịch từng chữ “trong kỳ nghỉ” sẽ ra in. Tiếng Anh nói đi nghỉ là on holiday."),
-      teacher("Sau 50 năm dạy, tôi thấy học trò thuộc làu bảng động từ bất quy tắc, nhưng cứ đặt câu hỏi là quên did. Vì thế tôi dặn các em một câu: **“Có did thì động từ nghỉ”**. Mỗi tối trước khi ngủ, hãy tự hỏi mình năm câu về ngày hôm đó: Where did I go? What did I eat? Who did I talk to?... rồi tự trả lời bằng động từ quá khứ. Làm đều một tuần là miệng tự quen."),
+      teacher("Sau nhiều năm dạy, tôi thấy học viên thuộc làu bảng động từ bất quy tắc, nhưng cứ đặt câu hỏi là quên did. Vì thế tôi dặn các bạn một câu: **“Có did thì động từ nghỉ”**. Mỗi tối trước khi ngủ, các bạn hãy tự hỏi mình năm câu về ngày hôm đó: Where did I go? What did I eat? Who did I talk to?... rồi tự trả lời bằng động từ quá khứ. Làm đều một tuần là miệng tự quen."),
     ],
   },
   words: [

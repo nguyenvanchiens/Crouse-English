@@ -31,7 +31,7 @@ export default lesson({
       mistake("I use to play football when I was a child.", "I used to play football when I was a child.", "Vì chữ d không nghe rõ khi nói, học trò hay viết thiếu. Nói về quá khứ ở câu khẳng định thì phải là used to."),
       mistake("Did you used to live here?", "Did you use to live here?", "Giống như didn't went là sai: did đã báo quá khứ rồi, nên used to bỏ d thành use to."),
       mistake("Now I used to get up at six.", "Now I usually get up at six.", "Tiếng Việt “tôi thường” dùng được cho cả xưa lẫn nay, nên nhiều người lẫn used to với usually. Used to chỉ nói về quá khứ; thói quen hiện tại dùng usually."),
-      teacher("Học trò của tôi hay dịch chữ “từng” thành used to trong mọi câu, kể cả “Tôi từng đi Nhật một lần”. Câu đó phải là quá khứ đơn hoặc hiện tại hoàn thành như bài Bạn đã từng…? Cách tự kiểm tra: thử thêm vào câu tiếng Việt cụm **“ngày xưa hay…, còn bây giờ thì không”**. Nghe hợp nghĩa thì dùng used to. Về nhà, các em lấy một tấm ảnh cũ, nói năm câu I used to... và hai câu I didn't use to... về chính mình hồi đó."),
+      teacher("Học viên của tôi hay dịch chữ “từng” thành used to trong mọi câu, kể cả “Tôi từng đi Nhật năm ngoái”. Câu đó chỉ là một chuyến đi, nên dùng quá khứ đơn như bài Hôm qua bạn làm gì: I went to Japan last year. (Về sau, ở bài Bạn đã từng…?, các bạn sẽ học thêm một cách nói “đã từng” nữa.) Cách tự kiểm tra: thử thêm vào câu tiếng Việt cụm **“ngày xưa hay…, còn bây giờ thì không”**. Nghe hợp nghĩa thì dùng used to. Về nhà, các bạn lấy một tấm ảnh cũ, nói năm câu I used to... và hai câu I didn't use to... về chính mình hồi đó."),
     ],
   },
   words: [
@@ -41,7 +41,7 @@ export default lesson({
     word("neighbour", "/ˈneɪ.bər/", "hàng xóm", "Our neighbours used to give us fruit from their garden.", "neigh|bour", 0, "Chữ gh không đọc: /ˈneɪ.bər/."),
     word("shy", "/ʃaɪ/", "nhút nhát, ngại ngùng", "I used to be very shy at school.", "shy", 0),
     word("remember", "/rɪˈmem.bər/", "nhớ", "I remember my first teacher very well.", "re|mem|ber", 1),
-    word("change", "/tʃeɪndʒ/", "thay đổi", "My city has changed a lot.", "change", 0, "Kết thúc bằng âm /dʒ/, nhớ khép răng đọc rõ, đừng nuốt thành “chên”."),
+    word("change", "/tʃeɪndʒ/", "thay đổi", "My village changed a lot after they built the new road.", "change", 0, "Kết thúc bằng âm /dʒ/, nhớ khép răng đọc rõ, đừng nuốt thành “chên”."),
   ],
   exercises: [
     mc("a2-n03-1", "When I was a child, I ___ climb trees in my village.", ["use to", "was use to", "used to", "uses to"], 2, "Câu khẳng định nói về thói quen ngày xưa: used to + động từ nguyên mẫu."),

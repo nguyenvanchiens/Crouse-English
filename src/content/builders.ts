@@ -1,4 +1,6 @@
 import type {
+  DialogueLine,
+  DialogueStep,
   Exercise,
   FillBlankExercise,
   LectureBlock,
@@ -6,6 +8,7 @@ import type {
   ListenChooseExercise,
   MultipleChoiceExercise,
   ReorderExercise,
+  TaskStep,
   VocabWord,
 } from "./types";
 
@@ -17,6 +20,18 @@ export const tip = (body: string): LectureBlock => ({ kind: "tip", body });
 export const mistake = (wrong: string, right: string, why: string): LectureBlock => ({ kind: "mistake", wrong, right, why });
 /** "Kinh nghiệm của thầy cô": classroom-proven advice in a veteran teacher's voice */
 export const teacher = (body: string): LectureBlock => ({ kind: "teacher", body });
+/** "Ghi nhớ": 3–5 key points that close the lecture */
+export const summary = (...points: string[]): LectureBlock => ({ kind: "summary", points });
+
+// ---- dialogue and task ----
+export const A = (en: string, vi: string): DialogueLine => ({ speaker: "A", en, vi });
+export const B = (en: string, vi: string): DialogueLine => ({ speaker: "B", en, vi });
+export function dialogue(title: string, context: string, roles: { A: string; B: string }, ...lines: DialogueLine[]): DialogueStep {
+  return { type: "dialogue", title, context, roles, lines };
+}
+export function task(o: { prompt: string; hints: string[]; model: string; checklist: string[]; minWords?: number }): TaskStep {
+  return { type: "task", prompt: o.prompt, hints: o.hints, model: o.model, checklist: o.checklist, minWords: o.minWords ?? 20 };
+}
 
 /** A standard lesson: lecture → vocab → exercise → speaking. */
 export function lesson(o: {
@@ -27,6 +42,8 @@ export function lesson(o: {
   words: VocabWord[];
   exercises: Exercise[];
   speaking: { text: string; meaningVi: string }[];
+  dialogue?: DialogueStep;
+  task?: TaskStep;
 }): Lesson {
   return {
     slug: o.slug,
@@ -35,8 +52,10 @@ export function lesson(o: {
     steps: [
       { type: "lecture", title: o.lecture.title, blocks: o.lecture.blocks },
       { type: "vocab", words: o.words },
+      ...(o.dialogue ? [o.dialogue] : []),
       { type: "exercise", items: o.exercises },
       { type: "speaking", sentences: o.speaking },
+      ...(o.task ? [o.task] : []),
     ],
   };
 }

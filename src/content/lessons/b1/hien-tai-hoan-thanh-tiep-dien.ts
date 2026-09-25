@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Hiện tại hoàn thành tiếp diễn: have been + V-ing",
     blocks: [
-      p("Bạn hẹn bạn bè ở quán cà phê, đợi mãi không thấy ai đến, rồi gọi điện: “Tớ **đợi** cậu **bốn mươi phút rồi** đấy!” Việc đợi bắt đầu từ trước, **kéo dài liên tục** và **bây giờ vẫn đang đợi**. Để nhấn mạnh quá trình kéo dài này, tiếng Anh dùng **hiện tại hoàn thành tiếp diễn**: have / has been + V-ing."),
+      p("Bạn hẹn bạn bè ở quán cà phê, đợi mãi không thấy ai đến, rồi gọi điện: “Tớ **đợi** cậu **bốn mươi phút rồi** đấy!” Việc đợi bắt đầu từ trước, **kéo dài liên tục** và **bây giờ vẫn đang đợi**. Để nhấn mạnh quá trình kéo dài này, tiếng Anh dùng **hiện tại hoàn thành tiếp diễn**: have / has been + V-ing. Bài “Đã… được bao lâu rồi” đã dạy have / has + V3 với for và since; hôm nay ta thêm **been + V-ing** để nhấn mạnh quá trình."),
       table(
         ["Dạng", "Cấu trúc", "Ví dụ"],
         ["Khẳng định", "S + have / has been + V-ing", "I've been waiting for forty minutes."],
@@ -30,7 +30,7 @@ export default lesson({
       mistake("I'm learning English for three years.", "I've been learning English for three years.", "Tiếng Việt chỉ nói “tôi học tiếng Anh ba năm rồi”, không đổi động từ, nên người Việt hay dùng hiện tại tiếp diễn. Việc bắt đầu từ quá khứ và kéo dài đến giờ cần have been + V-ing."),
       mistake("I've been knowing her since high school.", "I've known her since high school.", "Know, like, want, believe, own là động từ chỉ trạng thái, không dùng dạng tiếp diễn. Với chúng, dùng hiện tại hoàn thành đơn."),
       mistake("I've been drinking three cups of coffee today.", "I've drunk three cups of coffee today.", "Có con số cụ thể (three cups) là nói kết quả, nên dùng hiện tại hoàn thành đơn."),
-      teacher("Học trò hay hỏi thầy: “Vậy I've lived here for five years và I've been living here for five years khác gì nhau?” Với những động từ như live, work, study, hai câu gần như **cùng nghĩa**, đừng lo chọn sai. Cái bẫy thật sự nằm ở hai chỗ: quên **been**, và dùng thì này với động từ trạng thái như know. Cách luyện của thầy: mỗi sáng tự hỏi mình một câu **How long have I been…?** rồi trả lời thành tiếng. I've been working at this company for two years. I've been reading this book since Sunday."),
+      teacher("Các bạn hay hỏi tôi: “Vậy I've lived here for five years và I've been living here for five years khác gì nhau?” Với những động từ như live, work, study, hai câu gần như **cùng nghĩa**, đừng lo chọn sai. Cái bẫy thật sự nằm ở hai chỗ: quên **been**, và dùng thì này với động từ trạng thái như know. Cách luyện của tôi: các bạn mỗi sáng tự hỏi mình một câu **How long have I been…?** rồi trả lời thành tiếng. I've been working at this company for two years. I've been reading this book since Sunday."),
     ],
   },
   words: [

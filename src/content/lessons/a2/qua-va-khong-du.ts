@@ -25,11 +25,12 @@ export default lesson({
       p("Muốn nói rõ **quá... nên không làm được gì**, hoặc **đủ... để làm gì**, thêm **to + động từ nguyên mẫu** vào sau."),
       ex("The tea is too hot to drink.", "Trà nóng quá, không uống được.", "Không nói “too hot to drink it”, vì chủ ngữ the tea đã là thứ được uống rồi."),
       ex("My son is old enough to go to school by bus.", "Con trai tôi đã đủ lớn để tự đi học bằng xe buýt."),
+      p("Khi cần **phàn nàn lịch sự** ở nhà hàng hay cửa hàng, ghép ba mảnh: mở đầu bằng **Excuse me**, nêu vấn đề bằng **too** hoặc **not... enough**, rồi nhờ bằng **Could I...? / Could you...?** như ở bài Gọi điện thoại: **Excuse me, this soup is too salty. Could I have another one, please?** Ăn xong, gọi tính tiền: **Could we have the bill, please?**"),
       tip("Mẹo nhớ vị trí của **enough**: “**sau tính, trước danh**”: big **enough**, **enough** money. Còn phát âm: enough đọc là /ɪˈnʌf/, chữ **gh** đọc thành /f/ và trọng âm rơi vào âm sau: i-NÁP."),
       mistake("The view here is too beautiful!", "The view here is really beautiful!", "Tiếng Việt khen “Đẹp quá!”, nên người Việt dịch thành too beautiful. Nhưng too nghĩa là đẹp tới mức có vấn đề. Khen thì dùng really, very hoặc so."),
       mistake("He isn't enough old to drive.", "He isn't old enough to drive.", "Tiếng Việt nói “đủ lớn” (đủ đứng trước), nên người học đặt enough trước tính từ. Tiếng Anh ngược lại: tính từ + enough."),
       mistake("There is too much people here.", "There are too many people here.", "People là danh từ đếm được số nhiều, nên dùng too many và are."),
-      teacher("Tôi đã chứng kiến không ít lần học trò khen chủ nhà người nước ngoài “Your house is too big!” và chủ nhà ngẩn người, tưởng mình bị chê. Nên các em nhớ kỹ: **too là lời phàn nàn, very là lời khen**. Cách luyện của tôi: mỗi ngày nhìn quanh và nói ba câu than phiền nhỏ bằng too, ba câu bằng not enough. Ví dụ: My coffee is too sweet. My desk isn't big enough. Nói thành tiếng, nhanh và vui, như đang càu nhàu thật."),
+      teacher("Tôi đã chứng kiến không ít lần học viên khen chủ nhà người nước ngoài “Your house is too big!” và chủ nhà ngẩn người, tưởng mình bị chê. Nên các bạn nhớ kỹ: **too là lời phàn nàn, very là lời khen**. Cách luyện của tôi: mỗi ngày nhìn quanh và nói ba câu than phiền nhỏ bằng too, ba câu bằng not enough. Ví dụ: My coffee is too sweet. My desk isn't big enough. Nói thành tiếng, nhanh và vui, như đang càu nhàu thật."),
     ],
   },
   words: [
@@ -50,7 +51,7 @@ export default lesson({
     reorder("a2-n11-5", "My suitcase is too heavy to carry.", "Too + tính từ + to + động từ nguyên mẫu: nặng quá, không mang được."),
     reorder("a2-n11-6", "She isn't old enough to drive.", "Not + tính từ + enough + to + động từ nguyên mẫu."),
     listen("a2-n11-7", "The soup is too spicy for me.", ["Món canh này cay vừa đủ với tôi.", "Món canh này không cay lắm.", "Món canh này cay quá đối với tôi."], 2, "Too spicy là cay quá mức, người nói thấy khó ăn."),
-    listen("a2-n11-8", "We don't have enough time.", ["Chúng ta có quá nhiều thời gian.", "Chúng ta không có đủ thời gian.", "Chúng ta có đủ thời gian."], 1, "Don't have enough là không có đủ."),
+    listen("a2-n11-8", "Excuse me, this coffee is too sweet. Could I have another one, please?", ["Xin lỗi, cà phê này ngọt quá. Cho tôi cốc khác được không?", "Xin lỗi, cà phê này chưa đủ ngọt. Cho tôi thêm đường nhé?", "Cà phê này ngọt thật. Cho tôi thêm một cốc nữa nhé."], 0, "Too sweet là ngọt quá mức, đây là lời phàn nàn lịch sự: Excuse me + vấn đề + Could I have another one?"),
   ],
   speaking: [
     say("This shirt is too big for me.", "Cái áo này rộng quá so với tôi."),

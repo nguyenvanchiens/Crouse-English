@@ -17,7 +17,7 @@ export default lesson({
         ["regret", "lấy làm tiếc phải báo (trang trọng): We regret to inform you…", "hối tiếc vì đã làm: I regret leaving my job."],
         ["mean", "định làm, cố ý làm: I didn't mean to upset you.", "đồng nghĩa với việc, kéo theo: The new job means moving to Hanoi."],
       ),
-      p("Có một quy luật giúp bạn đoán được phần lớn: **to V thường hướng về phía trước** (việc chưa xảy ra, mục đích), còn **V-ing thường nhìn lại** việc đã hoặc đang xảy ra. Nhớ to V là nhớ để làm việc sắp tới; nhớ V-ing là nhớ lại việc đã làm."),
+      p("Ở B1, bài **Động từ theo sau là gì?**, các bạn đã học động từ chỉ đi với một dạng: want to V, enjoy V-ing. Nhóm hôm nay khó hơn vì đi được với **cả hai**, và mỗi dạng một nghĩa. Có một quy luật giúp bạn đoán được phần lớn: **to V thường hướng về phía trước** (việc chưa xảy ra, mục đích), còn **V-ing thường nhìn lại** việc đã hoặc đang xảy ra. Nhớ to V là nhớ để làm việc sắp tới; nhớ V-ing là nhớ lại việc đã làm."),
       ex("Did you remember to bring your passport?", "Anh có nhớ mang theo hộ chiếu không?", "Việc mang hộ chiếu xảy ra sau việc nhớ, nên dùng to V."),
       ex("I clearly remember putting my keys on the table.", "Tôi nhớ rõ là mình đã để chìa khóa trên bàn.", "Việc để chìa khóa xảy ra trước, bây giờ nhớ lại, nên dùng V-ing."),
       ex("On the way to Da Lat, we stopped to take some photos.", "Trên đường lên Đà Lạt, chúng tôi dừng xe để chụp vài tấm ảnh.", "Stop to V: dừng việc đang làm (lái xe) để làm việc khác (chụp ảnh)."),

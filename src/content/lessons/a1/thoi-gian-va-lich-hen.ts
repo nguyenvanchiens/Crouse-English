@@ -20,7 +20,17 @@ export default lesson({
       ),
       mistake("6:45 = quarter to six", "6:45 = quarter to seven", "Nhiều người Việt thấy số 6 là nói ngay six. Nhưng to nghĩa là “kém”, giống hệt “bảy giờ kém mười lăm” của tiếng Việt, tức là 6:45."),
       tip("Mẹo nhớ: **past** là đã **qua** giờ đó, **to** là còn **tới** giờ đó. Và nhớ rằng chữ **l** trong **half** câm: đọc là /hɑːf/, không đọc âm /l/."),
-      p("Tên **thứ** và **tháng** trong tiếng Anh luôn **viết hoa chữ cái đầu**: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday; January, February, March, April, May, June, July, August, September, October, November, December."),
+      p("Tên **thứ** và **tháng** trong tiếng Anh luôn **viết hoa chữ cái đầu**: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday; January, February, March, April, May, June, July, August, September, October, November, December. Nói **ngày** thì dùng **số thứ tự**, không dùng số đếm: phần lớn chỉ cần thêm **-th** (fourth, sixth, tenth), trừ ba số đầu **first, second, third** và vài số đổi chính tả như **fifth, twelfth, twentieth**. Hỏi sinh nhật: **When is your birthday?** Trả lời: **It's on the fifth of May.**"),
+      table(
+        ["Số", "Số thứ tự", "Cách nói ngày"],
+        ["1", "first (1st)", "the first of June"],
+        ["2", "second (2nd)", "the second of June"],
+        ["3", "third (3rd)", "the third of June"],
+        ["5", "fifth (5th)", "the fifth of May"],
+        ["12", "twelfth (12th)", "the twelfth of May"],
+        ["20", "twentieth (20th)", "the twentieth of October"],
+        ["21", "twenty-first (21st)", "the twenty-first of March"],
+      ),
       mistake("See you on monday.", "See you on Monday.", "Tiếng Việt viết thường “thứ hai”, nên người Việt hay quên viết hoa. Trong tiếng Anh, thứ và tháng là danh từ riêng, luôn viết hoa."),
       p("Ba giới từ chỉ thời gian đi theo quy tắc **từ lớn đến nhỏ**: khoảng thời gian dài dùng **in**, một ngày cụ thể dùng **on**, một thời điểm chính xác dùng **at**."),
       table(
@@ -34,7 +44,7 @@ export default lesson({
       ex("I drink tea in the morning, but at night I only drink water.", "Tôi uống trà vào buổi sáng, nhưng ban đêm tôi chỉ uống nước.", "Nói in the morning, in the afternoon, in the evening, nhưng lại là at night."),
       ex("The class starts on Monday morning.", "Lớp học bắt đầu vào sáng thứ Hai.", "Có tên thứ đi kèm thì dùng on, dù có chữ morning."),
       mistake("in Monday / at May", "on Monday / in May", "Tiếng Việt chỉ dùng một chữ “vào” cho mọi trường hợp: vào thứ Hai, vào tháng Năm, vào lúc sáu giờ. Tiếng Anh tách thành ba giới từ, nên phải học theo nhóm."),
-      teacher("Tôi dạy học trò nhớ in, on, at bằng hình **cái phễu**: miệng phễu rộng là **in** (tháng, năm), giữa phễu là **on** (ngày), đáy phễu nhọn là **at** (giờ). Mỗi tối trước khi ngủ, các em thử nói lịch của ngày mai bằng tiếng Anh, một câu thôi: I have a meeting on Tuesday at nine. Ba tháng sau các em sẽ không cần nghĩ nữa."),
+      teacher("Tôi dạy các bạn học viên nhớ in, on, at bằng hình **cái phễu**: miệng phễu rộng là **in** (tháng, năm), giữa phễu là **on** (ngày), đáy phễu nhọn là **at** (giờ). Mỗi tối trước khi ngủ, các bạn thử nói lịch của ngày mai bằng tiếng Anh, một câu thôi: I have a meeting on Tuesday at nine. Ba tháng sau các bạn sẽ không cần nghĩ nữa."),
     ],
   },
   words: [
@@ -48,7 +58,7 @@ export default lesson({
     word("appointment", "/əˈpɔɪnt.mənt/", "cuộc hẹn, lịch hẹn", "I have an appointment at ten o'clock.", "ap|point|ment", 1),
   ],
   exercises: [
-    mc("a1-n06-1", "I have an appointment ___ Monday.", ["in", "on", "at"], 1, "Ngày trong tuần luôn đi với on."),
+    mc("a1-n06-1", "My birthday is ___ the twelfth of May.", ["in", "at", "on"], 2, "Có ngày cụ thể (the twelfth of May) thì dùng on; chỉ có tháng (in May) mới dùng in. Ngày nói bằng số thứ tự: twelfth, không nói twelve."),
     mc("a1-n06-2", "8:45 được nói là:", ["quarter to nine", "quarter past eight", "quarter to eight"], 0, "Còn mười lăm phút nữa tới chín giờ nên là quarter to nine (chín giờ kém mười lăm)."),
     fill("a1-n06-3", "My birthday is ___ May.", ["in"], "Tháng dùng in."),
     fill("a1-n06-4", "The meeting is ___ three o'clock. (lúc)", ["at"], "Giờ chính xác dùng at."),

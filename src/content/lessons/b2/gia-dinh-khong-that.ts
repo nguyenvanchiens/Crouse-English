@@ -27,7 +27,7 @@ export default lesson({
       ex("It looks as if the meeting is going to run late.", "Có vẻ như cuộc họp sẽ kéo dài quá giờ.", "Điều này rất có thể xảy ra nên dùng thì bình thường, không lùi thì."),
       mistake("I wish I can speak Japanese.", "I wish I could speak Japanese.", "Ước về hiện tại thì lùi một thì: can thành could, am thành were, have thành had. Nhớ phân biệt với bài Tiếc nuối: ước về quá khứ thì dùng had + V3."),
       tip("Mẹo nhớ: **lùi thì là lùi xa khỏi sự thật**. Hễ thấy **wish, would rather + người khác, it's time + chủ ngữ, as if (không thật)**, hãy lùi động từ một bậc: hiện tại thành quá khứ. Viết bốn cụm này lên một tấm thẻ và gọi chúng là **bốn chiếc chìa khóa lùi thì**."),
-      teacher("Nhiều năm chấm bài, tôi thấy học trò không sai vì không biết quy tắc, mà vì **tai chưa quen**. Câu **It's time we went** nghe lạ tai nên các em sửa thành **go**. Cách chữa duy nhất là nghe và nói thật nhiều. Tôi khuyên các em mỗi ngày tự nói về bản thân một câu **I wish…**, một câu **I'd rather…** và một câu **It's time I…** Ví dụ: **It's time I started exercising.** Nói to, nói thật lòng về đời mình, cấu trúc sẽ bám vào trí nhớ lâu hơn bất kỳ bảng công thức nào."),
+      teacher("Nhiều năm chấm bài, tôi thấy học trò không sai vì không biết quy tắc, mà vì **tai chưa quen**. Câu **It's time we went** nghe lạ tai nên nhiều bạn sửa thành **go**. Cách chữa duy nhất là nghe và nói thật nhiều. Tôi khuyên các bạn mỗi ngày tự nói về bản thân một câu **I wish…**, một câu **I'd rather…** và một câu **It's time I…** Ví dụ: **It's time I started exercising.** Nói to, nói thật lòng về đời mình, cấu trúc sẽ bám vào trí nhớ lâu hơn bất kỳ bảng công thức nào."),
     ],
   },
   words: [

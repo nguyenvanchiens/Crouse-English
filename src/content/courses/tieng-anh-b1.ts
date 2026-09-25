@@ -42,7 +42,7 @@ const keLaiMotChuyen = lesson({
       mistake("I was see an accident yesterday.", "I saw an accident yesterday.", "Tiếng Việt chỉ đặt “đã” hoặc “đang” trước động từ, nên người học tưởng was cũng là một chữ đặt trước động từ như vậy. Was phải đi với V-ing; còn hành động ngắn, đã kết thúc thì chỉ cần quá khứ đơn: saw."),
       mistake("While I walked home, I was seeing an old friend.", "While I was walking home, I saw an old friend.", "Việc kéo dài làm nền dùng was walking, việc ngắn chen vào dùng saw. Tiếng Việt không phân biệt hai loại việc này bằng hình thức động từ nên hay bị đảo ngược. Động từ see cũng hầu như không dùng ở dạng tiếp diễn."),
       mistake("Yesterday I go to the market and meet my old teacher.", "Yesterday I went to the market and met my old teacher.", "Tiếng Việt không chia động từ, chữ “hôm qua” đã đủ báo thời gian. Tiếng Anh thì mọi động từ trong câu chuyện quá khứ đều phải chia: went, met."),
-      teacher("Sau năm mươi năm dạy, tôi thấy học trò kể chuyện hay nhất không phải người thuộc nhiều từ, mà là người biết **dựng cảnh trước rồi mới tung sự việc**. Mỗi tối trước khi ngủ, các em hãy kể lại một chuyện trong ngày bằng ba câu: một câu was/were + V-ing làm nền, một câu có when chen vào, một câu in the end để kết. Làm đều một tháng, các em sẽ thấy miệng tự bật ra đúng thì mà không cần nghĩ."),
+      teacher("Sau nhiều năm dạy, tôi thấy người học kể chuyện hay nhất không phải người thuộc nhiều từ, mà là người biết **dựng cảnh trước rồi mới tung sự việc**. Mỗi tối trước khi ngủ, các bạn hãy kể lại một chuyện trong ngày bằng ba câu: một câu was/were + V-ing làm nền, một câu có when chen vào, một câu in the end để kết. Làm đều một tháng, các bạn sẽ thấy miệng tự bật ra đúng thì mà không cần nghĩ."),
     ],
   },
   words: [
@@ -50,7 +50,7 @@ const keLaiMotChuyen = lesson({
     word("accident", "/ˈæk.sɪ.dənt/", "tai nạn", "I saw an accident on my way to work.", "ac|ci|dent", 0, "Chữ cc đọc là /ks/, không đọc là /k/."),
     word("happen", "/ˈhæp.ən/", "xảy ra", "What happened after that?", "hap|pen", 0),
     word("journey", "/ˈdʒɜː.ni/", "chuyến đi, hành trình", "The journey took six hours.", "jour|ney", 0),
-    word("realise", "/ˈrɪə.laɪz/", "nhận ra", "I suddenly realised that I had left my bag on the bus.", "rea|lise", 0),
+    word("realise", "/ˈrɪə.laɪz/", "nhận ra", "I suddenly realised that my bag was still on the bus.", "rea|lise", 0),
     word("eventually", "/ɪˈven.tʃu.ə.li/", "rốt cuộc, sau cùng", "We eventually found the hotel.", "e|ven|tu|al|ly", 1, "Không có nghĩa là “có thể”. Eventually là “sau cùng, sau một thời gian dài”."),
     word("unexpected", "/ˌʌn.ɪkˈspek.tɪd/", "bất ngờ, không lường trước", "We had an unexpected visitor last night.", "un|ex|pec|ted", 2),
     word("memory", "/ˈmem.ər.i/", "kỷ niệm, ký ức", "That trip is my favourite memory.", "mem|o|ry", 0),
@@ -80,7 +80,7 @@ const daDuocBaoLau = lesson({
     title: "Hiện tại hoàn thành với for và since",
     blocks: [
       p("Bạn ngồi cà phê với một vị khách nước ngoài, và câu hỏi đầu tiên gần như chắc chắn là: **How long have you lived here?** hoặc **How long have you worked there?** Đây là những câu hỏi làm quen quen thuộc nhất, nên trả lời trôi chảy là bạn đã ghi điểm ngay từ phút đầu."),
-      p("Người Việt nói “Tôi sống ở Hà Nội được năm năm rồi” và rất dễ dịch thành “I live in Hanoi for five years”. Khi một việc bắt đầu trong quá khứ và **vẫn còn đến bây giờ**, tiếng Anh dùng **hiện tại hoàn thành**: have / has + V3."),
+      p("Người Việt nói “Tôi sống ở Hà Nội được năm năm rồi” và rất dễ dịch thành “I live in Hanoi for five years”. Khi một việc bắt đầu trong quá khứ và **vẫn còn đến bây giờ**, tiếng Anh dùng **hiện tại hoàn thành**: have / has + V3. Ở A2, bạn đã dùng thì này với ever, never, just, already, yet để nói về trải nghiệm và việc vừa xong; hôm nay ta dùng nó cho việc **kéo dài đến bây giờ**."),
       table(
         ["Dạng", "I / you / we / they", "he / she / it"],
         ["Khẳng định", "I've worked here for two years.", "She's worked here for two years."],
@@ -101,7 +101,7 @@ const daDuocBaoLau = lesson({
       mistake("I am working here since 2021.", "I have worked here since 2021.", "Tiếng Việt chỉ cần thêm “từ năm 2021 đến giờ”, động từ không đổi hình thức, nên người học giữ nguyên thì hiện tại. Tiếng Anh thì khác: việc bắt đầu từ một mốc trong quá khứ và kéo dài đến bây giờ phải dùng hiện tại hoàn thành."),
       mistake("I have seen that film last week.", "I saw that film last week.", "Người Việt thấy chữ “đã” là nghĩ ngay đến have + V3. Nhưng có mốc thời gian đã kết thúc (last week) thì phải dùng quá khứ đơn."),
       mistake("I have lived here since five years.", "I have lived here for five years.", "Tiếng Việt nói “từ năm năm nay”, chữ “từ” khiến người học chọn since. Five years là một khoảng thời gian, nên dùng for."),
-      teacher("Tôi hay bảo học trò: trước khi chọn for hay since, hãy tự hỏi **“Cái này có ghi được lên lịch không?”** Nếu khoanh được trên tờ lịch như thứ Hai, năm 2020, hôm sinh nhật, thì dùng since. Nếu phải đếm như ba ngày, năm năm, rất lâu, thì dùng for. Và mỗi lần gặp người mới, các em hãy tập hỏi một câu How long have you…? Hỏi được thì mới nghe được câu trả lời."),
+      teacher("Tôi hay bảo các bạn: trước khi chọn for hay since, hãy tự hỏi **“Cái này có ghi được lên lịch không?”** Nếu khoanh được trên tờ lịch như thứ Hai, năm 2020, hôm sinh nhật, thì dùng since. Nếu phải đếm như ba ngày, năm năm, rất lâu, thì dùng for. Và mỗi lần gặp người mới, các bạn hãy tập hỏi một câu How long have you…? Hỏi được thì mới nghe được câu trả lời."),
     ],
   },
   words: [
@@ -155,11 +155,11 @@ const neuThi = lesson({
       ),
       p("**Unless** nghĩa là “trừ khi”, tương đương if… not. Sau unless dùng câu khẳng định."),
       ex("You won't pass the exam unless you study harder.", "Bạn sẽ không đỗ kỳ thi trừ khi bạn học chăm hơn."),
-      tip("Muốn khuyên ai đó, hãy dùng **If I were you, I would…** (Nếu tôi là bạn, tôi sẽ…). Trong câu điều kiện loại 2, văn viết chuẩn thường dùng **were** cho mọi chủ ngữ, kể cả I, he, she (văn nói hằng ngày có thể dùng was). Riêng cụm If I were you, các em nên luôn dùng were."),
+      tip("Muốn khuyên ai đó, hãy dùng **If I were you, I would…** (Nếu tôi là bạn, tôi sẽ…). Trong câu điều kiện loại 2, văn viết chuẩn thường dùng **were** cho mọi chủ ngữ, kể cả I, he, she (văn nói hằng ngày có thể dùng was). Riêng cụm If I were you, các bạn nên luôn dùng were."),
       mistake("If it will rain, we will stay at home.", "If it rains, we will stay at home.", "Vì cả câu nói về ngày mai, người học nghĩ vế nào cũng phải có will. Nhưng trong câu điều kiện loại 1, mệnh đề if dùng hiện tại đơn để nói về tương lai; will chỉ nằm ở mệnh đề chính."),
       mistake("If I have a lot of money, I would buy a house.", "If I had a lot of money, I would buy a house.", "Tiếng Việt không có cách “lùi thì” để báo chuyện không có thật. Trong tiếng Anh, mệnh đề chính có would thì mệnh đề if phải lùi về quá khứ đơn."),
       mistake("Unless you don't hurry, you'll miss the train.", "Unless you hurry, you'll miss the train.", "Người Việt dịch “trừ khi bạn không nhanh lên” theo từng chữ. Unless đã mang nghĩa phủ định, không thêm don't."),
-      teacher("Nhiều năm chấm bài, tôi thấy học trò sai câu điều kiện không phải vì không thuộc công thức, mà vì **không hỏi mình đang nghĩ gì**. Trước khi nói, hãy tự hỏi: “Chuyện này có thể xảy ra thật không?” Có thì dùng loại một, không thì lùi thì dùng loại hai. Mỗi tối, các em viết ba câu If I were you… để khuyên một người bạn. Lời khuyên có thật thì câu văn cũng nhớ lâu."),
+      teacher("Nhiều năm chấm bài, tôi thấy người học sai câu điều kiện không phải vì không thuộc công thức, mà vì **không hỏi mình đang nghĩ gì**. Trước khi nói, hãy tự hỏi: “Chuyện này có thể xảy ra thật không?” Có thì dùng loại một, không thì lùi thì dùng loại hai. Mỗi tối, các bạn viết ba câu If I were you… để khuyên một người bạn. Lời khuyên có thật thì câu văn cũng nhớ lâu."),
     ],
   },
   words: [
@@ -221,7 +221,7 @@ const congViecVaPhongVan = lesson({
       mistake("I'm very interesting in this job.", "I'm very interested in this job.", "Tiếng Việt chỉ có một chữ “thú vị” hay “quan tâm” cho cả người lẫn việc, nên người học không để ý đuôi. Nói về cảm xúc của bản thân thì dùng -ed. Interesting mô tả công việc, không mô tả bạn."),
       mistake("I have experience about sales.", "I have experience in sales.", "Người Việt dịch “kinh nghiệm về bán hàng” nên chọn about. Nói về kinh nghiệm trong một lĩnh vực, dùng experience in."),
       mistake("I graduated university in 2019.", "I graduated from university in 2019.", "Tiếng Việt nói “tốt nghiệp đại học” không cần giới từ, nên người học quên from. Trong tiếng Anh phải nói graduate from + trường."),
-      teacher("Tôi đã ngồi hội đồng tuyển dụng nhiều lần, và điều tôi nhớ nhất là **người được chọn thường không nói hay nhất, mà nói cụ thể nhất**. Các em hãy chuẩn bị sẵn ba câu chuyện ngắn về công việc cũ, mỗi chuyện gồm tình huống, việc mình làm và kết quả. Tập nói to trước gương, bấm giờ không quá một phút. Và trước khi bước vào phòng, nhắc mình một câu: tôi thấy thì -ed, nó gây ra thì -ing."),
+      teacher("Tôi đã ngồi hội đồng tuyển dụng nhiều lần, và điều tôi nhớ nhất là **người được chọn thường không nói hay nhất, mà nói cụ thể nhất**. Các bạn hãy chuẩn bị sẵn ba câu chuyện ngắn về công việc cũ, mỗi chuyện gồm tình huống, việc mình làm và kết quả. Tập nói to trước gương, bấm giờ không quá một phút. Và trước khi bước vào phòng, nhắc mình một câu: tôi thấy thì -ed, nó gây ra thì -ing."),
     ],
   },
   words: [
@@ -236,7 +236,7 @@ const congViecVaPhongVan = lesson({
   ],
   exercises: [
     mc("b1-4-1", "The meeting was so long. I was really ___.", ["bored", "boring", "bore"], 0, "Nói về cảm giác của người thì dùng -ed: bored."),
-    mc("b1-4-2", "Why do you want to ___ for this job?", ["join", "apply", "send", "work"], 1, "Ứng tuyển vào một công việc là apply for a job."),
+    mc("b1-4-2", "I ___ as a waiter from 2015 to 2017. Then I became a teacher.", ["have worked", "worked", "work", "am working"], 1, "Công việc cũ đã kết thúc, có mốc thời gian rõ ràng (from 2015 to 2017), nên dùng quá khứ đơn: worked. Have worked chỉ dùng cho kinh nghiệm kéo dài đến bây giờ."),
     fill("b1-4-3", "I'm ___ in working with international customers. (interest)", ["interested"], "Cảm xúc của bản thân: interested in + V-ing."),
     fill("b1-4-4", "The news was very ___. We didn't get the contract. (disappoint)", ["disappointing"], "Tin tức là sự việc gây ra cảm xúc nên dùng -ing."),
     reorder("b1-4-5", "I have never worked in a bank.", "Hiện tại hoàn thành với never: nói về kinh nghiệm (chưa từng làm) tính đến bây giờ. Never đứng giữa have và V3."),
@@ -282,7 +282,7 @@ const bayToYKien = lesson({
       mistake("Although it was raining, but we went out.", "Although it was raining, we went out.", "Tiếng Việt nói “mặc dù… nhưng…”, còn tiếng Anh chỉ dùng một trong hai: although hoặc but."),
       mistake("I am agree with you.", "I agree with you.", "Người Việt quen khuôn “Tôi là…” = I am…, và dịch “tôi đồng ý” như một trạng thái. Nhưng agree là động từ, không cần thêm am."),
       mistake("You're wrong.", "I'm not sure that's right.", "Câu đúng ngữ pháp nhưng quá thẳng, trong công việc nghe như đang gây gổ. Giữa bạn bè thân nói thẳng thì không sao, nhưng nơi công sở, người nói tiếng Anh gần như luôn làm mềm lời phản đối."),
-      teacher("Học trò hay hỏi tôi: “Thầy ơi, phản đối sếp có sao không?” Tôi luôn trả lời: **phản đối không sao, cách phản đối mới quan trọng**. Công thức tôi dạy suốt mấy chục năm chỉ có ba bước: công nhận ý người kia, nói ý mình, đưa một lý do. Các em hãy thuộc lòng ba câu I see your point, but…, I'm not so sure… và In my opinion…, rồi mỗi ngày dùng thử một lần, kể cả khi bàn chuyện ăn trưa."),
+      teacher("Nhiều bạn hay hỏi tôi: “Phản đối sếp có sao không?” Tôi luôn trả lời: **phản đối không sao, cách phản đối mới quan trọng**. Công thức tôi dạy suốt mấy chục năm chỉ có ba bước: công nhận ý người kia, nói ý mình, đưa một lý do. Các bạn hãy thuộc lòng ba câu I see your point, but…, I'm not so sure… và In my opinion…, rồi mỗi ngày dùng thử một lần, kể cả khi bàn chuyện ăn trưa."),
     ],
   },
   words: [
@@ -338,10 +338,11 @@ const tinTucVaSuViec = lesson({
       ex("When was this temple built?", "Ngôi chùa này được xây khi nào?", "Câu hỏi bị động: từ để hỏi + was / were + chủ ngữ + V3."),
       tip("Nhiều người Việt nghĩ câu bị động chỉ dùng cho chuyện xấu vì chữ “bị”. Thực ra câu bị động **trung tính**: “được khen” và “bị phạt” đều là bị động trong tiếng Anh."),
       tip("Câu bị động cần V3, nên hãy ôn kỹ những động từ bất quy tắc hay gặp trong tin tức: **build, built, built**; **write, wrote, written**; **sell, sold, sold**; **take, took, taken**. Khi đọc to, nhớ bật âm cuối của V3 như built, sold, damaged."),
+      p("Mẹo đọc tin nhanh: **tiêu đề báo** thường bỏ be và mạo từ cho gọn. “Bridge opened in Da Nang” nghĩa là The bridge was opened in Da Nang; “Three injured in crash” nghĩa là Three people were injured in a crash. Khi đọc hoặc nghe một bản tin, hãy tìm năm ý chính: **what** (chuyện gì), **who** (ai), **where** (ở đâu), **when** (khi nào), **why** (vì sao). Nắm được năm ý này là bạn đã hiểu phần chính của bản tin, dù còn vài từ chưa biết."),
       mistake("The thief was arrest yesterday.", "The thief was arrested yesterday.", "Tiếng Việt động từ không đổi dạng, “bị bắt” vẫn là “bắt”, nên người học quên thêm -ed. Sau was / were phải là V3 (arrested), không dùng động từ nguyên mẫu."),
       mistake("The accident was happened at night.", "The accident happened at night.", "Người học thấy tai nạn là chuyện “không ai muốn”, giống như bị làm gì đó, nên thêm was. Nhưng happen là nội động từ, không có tân ngữ, nên không bao giờ dùng ở dạng bị động."),
       mistake("This house built in 1990.", "This house was built in 1990.", "Tiếng Việt nói “Ngôi nhà này xây năm 1990” mà không cần chữ “được”, nên người học bỏ luôn be. Tiếng Anh bắt buộc phải có was / were trước V3."),
-      teacher("Có một bài tập tôi giao cho học trò suốt mấy chục năm và chưa bao giờ thấy thừa: **mỗi sáng đọc một mẩu tin tiếng Anh ngắn, gạch chân mọi cụm be + V3**, rồi tự hỏi “Ai làm việc này, và vì sao bài báo không nói ra?” Làm vậy một tuần, các em sẽ thấy câu bị động không còn là công thức trong sách, mà là cách người bản xứ kể chuyện hằng ngày."),
+      teacher("Có một bài tập tôi giao cho học viên suốt mấy chục năm và chưa bao giờ thấy thừa: **mỗi sáng đọc một mẩu tin tiếng Anh ngắn, gạch chân mọi cụm be + V3**, rồi tự hỏi “Ai làm việc này, và vì sao bài báo không nói ra?” Làm vậy một tuần, các bạn sẽ thấy câu bị động không còn là công thức trong sách, mà là cách người bản xứ kể chuyện hằng ngày."),
     ],
   },
   words: [

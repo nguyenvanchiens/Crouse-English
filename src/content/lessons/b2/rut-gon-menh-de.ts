@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Mệnh đề phân từ và mệnh đề quan hệ rút gọn",
     blocks: [
-      p("Mở một tờ giới thiệu công ty bằng tiếng Anh, bạn sẽ gặp ngay những câu như **Founded in 1995, our company…** hay **Having worked in Japan for ten years, Mr Hoa…**. Đó là **mệnh đề phân từ**: người ta bỏ chủ ngữ và liên từ, chỉ giữ lại động từ ở dạng **V-ing**, **V3** hoặc **having + V3**. Câu gọn hơn, trang trọng hơn, rất hợp với báo cáo, email và bài thuyết trình."),
+      p("Mở một tờ giới thiệu công ty bằng tiếng Anh, bạn sẽ gặp ngay những câu như **Founded in 1995, our company…** hay **Having worked in Japan for ten years, Mr Hoa…**. Đó là **mệnh đề phân từ**: người ta bỏ chủ ngữ và liên từ, chỉ giữ lại động từ ở dạng **V-ing**, **V3** hoặc **having + V3**. Câu gọn hơn, trang trọng hơn, rất hợp với báo cáo, email và bài thuyết trình. Bài này dựa trên hai thứ các bạn đã có: **mệnh đề quan hệ** (bài Thuyết trình) và **câu bị động** (B1)."),
       table(
         ["Câu đầy đủ", "Câu rút gọn", "Dạng dùng khi nào"],
         ["Because I felt tired, I went to bed early.", "Feeling tired, I went to bed early.", "V-ing: chủ động, cùng lúc hoặc nêu lý do"],
@@ -51,7 +51,7 @@ export default lesson({
   ],
   speaking: [
     say("Having finished my work, I went home early.", "Làm xong việc, tôi về nhà sớm."),
-    say("Founded in nineteen ninety-five, our company now has five hundred staff.", "Được thành lập năm 1995, công ty chúng tôi hiện có năm trăm nhân viên."),
+    say("Founded in nineteen ninety-five, our company now has five hundred staff.", "Được thành lập năm một nghìn chín trăm chín mươi lăm, công ty chúng tôi hiện có năm trăm nhân viên."),
     say("The woman standing by the door is our new director.", "Người phụ nữ đứng cạnh cửa là giám đốc mới của chúng ta."),
   ],
 });

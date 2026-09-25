@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Nói ra thái độ chỉ bằng một trạng từ",
     blocks: [
-      p("Người Việt khi nói tiếng Anh hay mở đầu câu nào cũng bằng **I think** hoặc **Maybe**. Người bản xứ thì gói thái độ của mình vào **một trạng từ** đứng đầu câu: **Frankly**, **Admittedly**, **Presumably**. Những trạng từ này không bổ nghĩa cho động từ, mà **bình luận cả câu**: người nói chắc chắn đến đâu, đang thừa nhận, đang đoán, hay đang nói thẳng."),
+      p("Ở bài Lập luận và phản biện, các bạn đã dùng admittedly để nhượng bộ. Nó thuộc một nhóm lớn hơn. Người Việt khi nói tiếng Anh hay mở đầu câu nào cũng bằng **I think** hoặc **Maybe**. Người bản xứ thì gói thái độ của mình vào **một trạng từ** đứng đầu câu: **Frankly**, **Admittedly**, **Presumably**. Những trạng từ này không bổ nghĩa cho động từ, mà **bình luận cả câu**: người nói chắc chắn đến đâu, đang thừa nhận, đang đoán, hay đang nói thẳng."),
       table(
         ["Trạng từ", "Thái độ người nói", "Ví dụ"],
         ["undoubtedly, clearly, certainly", "rất chắc chắn", "Undoubtedly, this is her best novel."],
@@ -23,7 +23,7 @@ export default lesson({
       ex("Presumably, you've already heard the news.", "Chắc là anh chị đã nghe tin rồi.", "Presumably: tôi đoán vậy vì có lý do hợp lý, gần với I assume."),
       ex("The seemingly endless meeting finally ended at seven.", "Cuộc họp tưởng như dài vô tận rốt cuộc cũng kết thúc lúc bảy giờ.", "Seemingly đứng trước tính từ endless. Nó ngầm nói rằng bề ngoài là vậy, thực tế có thể khác."),
       mistake("Undoubtedly that he is the best candidate.", "Undoubtedly, he is the best candidate.", "Tiếng Việt nói “Chắc chắn rằng…”, nên người Việt hay thêm that sau trạng từ. Trạng từ bình luận không đi với that. Nếu muốn dùng that thì đổi cấu trúc: There is no doubt that he is the best candidate."),
-      p("Trạng từ bình luận chia làm hai nhóm đối lập. Nhóm **rào đón** (hedging) làm lời nói mềm và thận trọng: **seemingly, apparently, presumably, arguably**. Nhóm **nhấn mạnh** (boosting) làm lời nói mạnh và dứt khoát: **undoubtedly, clearly, certainly, definitely**. Trong bài luận học thuật, chọn đúng nhóm cho thấy bạn biết **mức độ chắc chắn** của bằng chứng."),
+      p("Trạng từ bình luận chia làm hai nhóm đối lập. Nhóm **rào đón** (hedging, các bạn đã gặp ở bài Ngôn ngữ tinh tế) làm lời nói mềm và thận trọng: **seemingly, apparently, presumably, arguably**. Nhóm **nhấn mạnh** (boosting) làm lời nói mạnh và dứt khoát: **undoubtedly, clearly, certainly, definitely**. Trong bài luận học thuật, chọn đúng nhóm cho thấy bạn biết **mức độ chắc chắn** của bằng chứng."),
       table(
         ["Mức độ chắc chắn", "Trạng từ", "Ví dụ"],
         ["Rất chắc", "undoubtedly, clearly", "The policy has clearly failed."],
@@ -35,7 +35,7 @@ export default lesson({
       ex("Admittedly, the new system is expensive, but it will undoubtedly save us time.", "Phải thừa nhận là hệ thống mới đắt, nhưng chắc chắn nó sẽ giúp chúng ta tiết kiệm thời gian.", "Admittedly nhượng bộ trước, undoubtedly nhấn mạnh lập trường sau. Đây là cặp rất hữu ích khi thuyết phục."),
       p("Chú ý **giọng điệu**: **frankly** và **honestly** báo hiệu sắp có một lời nói thẳng, thường là lời chê. Nói với khách hàng hay cấp trên, câu mở đầu bằng Frankly có thể nghe gay gắt. Muốn nhẹ hơn, dùng **To be honest** hoặc thêm từ làm mềm: **Frankly, I'm not sure it's the best option.**"),
       tip("Phát âm: **undoubtedly** có chữ b câm, đọc /ʌnˈdaʊ.tɪd.li/. **Presumably** đọc /prɪˈzjuː.mə.bli/, chữ s đọc là /z/. Khi trạng từ đứng đầu câu, hãy **ngắt nhẹ** sau nó, đúng chỗ dấu phẩy, để người nghe nhận ra đó là lời bình luận."),
-      teacher("Sau năm mươi năm dạy, tôi nhận ra một điều: trò nào bỏ được thói quen **I think** ở đầu mỗi câu thì tiếng Anh nghe lên hẳn một bậc. Các em hãy tự đặt luật: mỗi ngày viết năm câu nhận xét về tin tức hoặc công việc, mỗi câu mở đầu bằng **một trạng từ khác nhau** trong bài này. Rồi tự hỏi: “Mình đang chắc chắn, đang đoán hay đang thừa nhận?”. Trả lời được câu đó thì chọn trạng từ sẽ không bao giờ sai."),
+      teacher("Sau nhiều năm dạy, tôi nhận ra một điều: bạn nào bỏ được thói quen **I think** ở đầu mỗi câu thì tiếng Anh nghe lên hẳn một bậc. Các bạn hãy tự đặt luật: mỗi ngày viết năm câu nhận xét về tin tức hoặc công việc, mỗi câu mở đầu bằng **một trạng từ khác nhau** trong bài này. Rồi tự hỏi: “Mình đang chắc chắn, đang đoán hay đang thừa nhận?”. Trả lời được câu đó thì chọn trạng từ sẽ không bao giờ sai."),
     ],
   },
   words: [

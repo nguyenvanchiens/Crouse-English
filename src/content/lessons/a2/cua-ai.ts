@@ -31,7 +31,7 @@ export default lesson({
       mistake("This book is my.", "This book is mine.", "My luôn cần danh từ theo sau (my book). Đứng một mình ở cuối câu thì dùng mine."),
       mistake("the car of my father", "my father's car", "Người Việt dịch từng chữ “xe của bố tôi”. Với người, tiếng Anh dùng 's và đặt người sở hữu lên trước: my father's car."),
       mistake("Is this bag her's?", "Is this bag hers?", "Đại từ sở hữu không có dấu ': hers, yours, ours, theirs. Chỉ tên người và danh từ mới dùng 's."),
-      teacher("Có một bài tập tôi cho học trò làm suốt mấy chục năm và chưa lần nào thất bại: cầm một đồ vật trong nhà lên, hỏi to **Whose is this?**, rồi tự trả lời **It's mine.**, **It's my mum's.**, **It's theirs.** Làm với mười đồ vật mỗi tối. Miệng quen rồi thì các em sẽ không bao giờ nói “This is my” hay “help I” nữa. Ngữ pháp này phải thuộc bằng miệng, không phải bằng mắt."),
+      teacher("Có một bài tập tôi cho học viên làm suốt mấy chục năm và chưa lần nào thất bại: cầm một đồ vật trong nhà lên, hỏi to **Whose is this?**, rồi tự trả lời **It's mine.**, **It's my mum's.**, **It's theirs.** Làm với mười đồ vật mỗi tối. Miệng quen rồi thì các bạn sẽ không bao giờ nói “This is my” hay “help I” nữa. Ngữ pháp này phải thuộc bằng miệng, không phải bằng mắt."),
     ],
   },
   words: [

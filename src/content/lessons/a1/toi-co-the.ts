@@ -21,6 +21,7 @@ export default lesson({
       p("Dùng **Can I…?** để xin phép. Dùng **You can…** để cho phép và **You can't…** để nói điều không được làm. Muốn nhờ người khác, dùng **Can you…?**"),
       ex("Can I sit here? Yes, of course.", "Tôi ngồi đây được không? Được chứ, bạn cứ ngồi."),
       ex("You can't park here.", "Bạn không được đỗ xe ở đây.", "Ở đây can't không nói về khả năng mà là lệnh cấm: xe vẫn đỗ được, nhưng không được phép."),
+      ex("Sorry, can you say that again, please?", "Xin lỗi, bạn nói lại được không?", "Câu cứu cánh khi nghe không kịp. Muốn người ta nói chậm lại thì hỏi: Can you speak slowly, please?"),
       mistake("You can speak English?", "Can you speak English?", "Tiếng Việt hỏi bằng cách thêm “không” ở cuối câu, trật tự từ giữ nguyên. Tiếng Anh phải đảo can lên đầu câu."),
       table(
         ["Câu", "Can đọc là", "Cách nghe"],
@@ -29,7 +30,7 @@ export default lesson({
         ["Yes, I can.", "/kæn/", "đọc mạnh vì đứng cuối câu"],
       ),
       tip("Người bản xứ hay nuốt âm /t/ ở cuối can't, nên đừng chờ nghe chữ t. Hãy nghe **nguyên âm**: câu khẳng định đọc lướt **/kən/** như “cần” rất nhẹ, còn câu phủ định kéo dài và nhấn mạnh **/kɑːnt/** như “caaan”."),
-      teacher("Sau 50 năm đứng lớp, tôi thấy học trò người Việt nhầm can và can't nhiều hơn bất cứ cặp từ nào, vì các em cố nghe âm /t/ mà người ta không đọc. Mỗi tối, các em nói to ba câu về mình: **I can…**, **I can't…**, **Can I…?** Câu khẳng định đọc nhẹ can và nhấn vào động từ; câu phủ định thì nhấn chính chữ can't. Nói đúng nhịp thì tự khắc sẽ nghe ra."),
+      teacher("Sau nhiều năm đứng lớp, tôi thấy học viên người Việt nhầm can và can't nhiều hơn bất cứ cặp từ nào, vì các bạn cố nghe âm /t/ mà người ta không đọc. Mỗi tối, các bạn nói to ba câu về mình: **I can…**, **I can't…**, **Can I…?** Câu khẳng định đọc nhẹ can và nhấn vào động từ; câu phủ định thì nhấn chính chữ can't. Nói đúng nhịp thì tự khắc sẽ nghe ra."),
     ],
   },
   words: [

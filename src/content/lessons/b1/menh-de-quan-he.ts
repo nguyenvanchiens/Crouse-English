@@ -30,7 +30,7 @@ export default lesson({
       mistake("The man who he lives next door is a doctor.", "The man who lives next door is a doctor.", "Người Việt quen nghĩ vế nào cũng phải có chủ ngữ riêng, nên thêm he vào sau who. Nhưng who đã làm chủ ngữ của lives rồi, không lặp lại he nữa."),
       mistake("I lost the bag which my mother gave it to me.", "I lost the bag which my mother gave me.", "Which đã thay cho the bag, nên không thêm it nữa."),
       mistake("That's the restaurant which we had dinner.", "That's the restaurant where we had dinner.", "Nói về nơi xảy ra sự việc thì dùng where (hoặc which … at, nhưng where tự nhiên hơn)."),
-      teacher("Thầy vẫn nhớ một học trò làm hướng dẫn viên du lịch, mỗi lần giới thiệu đều nói một chuỗi câu ngắn: “This is a temple. It is old. People built it in 1070.” Thầy chỉ dạy em ấy ghép lại: **This is a temple which people built in 1070.** Khách nghe thấy chuyên nghiệp hơn hẳn. Lời khuyên của thầy: mỗi ngày lấy hai câu ngắn có chung một danh từ và **ghép thành một câu** bằng who, which, where hay whose. Làm đều tay một tháng, câu nói của bạn sẽ dài và mượt hơn rất nhiều."),
+      teacher("Tôi vẫn nhớ một học viên làm hướng dẫn viên du lịch, mỗi lần giới thiệu đều nói một chuỗi câu ngắn: “This is a temple. It is old. People built it in 1070.” Tôi chỉ dạy anh ấy ghép lại: **This is a temple which people built in 1070.** Khách nghe thấy chuyên nghiệp hơn hẳn. Lời khuyên của tôi: mỗi ngày các bạn lấy hai câu ngắn có chung một danh từ và **ghép thành một câu** bằng who, which, where hay whose. Làm đều tay một tháng, câu nói của các bạn sẽ dài và mượt hơn rất nhiều."),
     ],
   },
   words: [

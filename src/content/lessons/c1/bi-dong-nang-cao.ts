@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Bị động với động từ tường thuật và bị động với get",
     blocks: [
-      p("Mở một tờ báo tiếng Anh, bạn sẽ gặp ngay những câu như **The suspect is believed to have fled the country.** Người Việt quen nói “người ta nói rằng…”, “nghe đồn là…”, rồi dịch thẳng thành **People say that…**. Câu đó không sai, nhưng nghe đời thường. Báo chí và văn viết trang trọng dùng **bị động với động từ tường thuật** để đưa tin một cách khách quan, không cần nói ai là người nói. Bài văn phong học thuật đã giới thiệu It is estimated that…; bài này đi sâu vào cả hai dạng và cách chọn thì."),
+      p("Mở một tờ báo tiếng Anh, bạn sẽ gặp ngay những câu như **The suspect is believed to have fled the country.** Người Việt quen nói “người ta nói rằng…”, “nghe đồn là…”, rồi dịch thẳng thành **People say that…**. Câu đó không sai, nhưng nghe đời thường. Báo chí và văn viết trang trọng dùng **bị động với động từ tường thuật** để đưa tin một cách khách quan, không cần nói ai là người nói. Ở B2 các bạn đã dùng bị động để nói khéo khi xử lý khiếu nại; bài này đi sâu vào hai dạng bị động với động từ tường thuật và cách chọn thì. Chúng sẽ là nền cho bài Văn phong học thuật ở chương sau."),
       table(
         ["Dạng", "Cấu trúc", "Ví dụ"],
         ["Bị động khách quan", "It + is/was + V3 + that + mệnh đề", "It is said that the castle is haunted."],
@@ -31,7 +31,7 @@ export default lesson({
       ex("He got fired for being late every day.", "Anh ta bị đuổi việc vì ngày nào cũng đi muộn.", "Nghe tự nhiên hơn was fired khi kể chuyện, và gợi ý rằng chính anh ta gây ra chuyện này."),
       mistake("The samples got analysed in the laboratory.", "The samples were analysed in the laboratory.", "Get-passive là văn nói. Trong báo cáo khoa học, email trang trọng hay bài luận, luôn dùng be + V3."),
       tip("Chữ **said** trong **is said to** đọc là /sed/, vần với red, không đọc /seɪd/ như nhiều bạn vẫn đọc theo mặt chữ. Còn chữ **to have** trong câu nhanh thường nhẹ hẳn đi, nghe như /tə həv/ hoặc /təv/."),
-      teacher("Sau năm mươi năm dạy, tôi thấy người Việt đọc hiểu cấu trúc này rất nhanh, nhưng khi viết thì cứ quay về **People say that**. Mỗi sáng, các em hãy đọc một tiêu đề tin tức tiếng Anh và tìm xem có is said to, is believed to, is reported to hay không, rồi tự hỏi: sự việc xảy ra **cùng lúc** hay **trước** lúc đưa tin? Chỉ cần trả lời đúng câu hỏi đó là các em chọn đúng **to V** hay **to have V3**. Thói quen năm phút mỗi sáng hiệu quả hơn một buổi học ngữ pháp dài."),
+      teacher("Sau nhiều năm dạy, tôi thấy người Việt đọc hiểu cấu trúc này rất nhanh, nhưng khi viết thì cứ quay về **People say that**. Mỗi sáng, các bạn hãy đọc một tiêu đề tin tức tiếng Anh và tìm xem có is said to, is believed to, is reported to hay không, rồi tự hỏi: sự việc xảy ra **cùng lúc** hay **trước** lúc đưa tin? Chỉ cần trả lời đúng câu hỏi đó là các bạn chọn đúng **to V** hay **to have V3**. Thói quen năm phút mỗi sáng hiệu quả hơn một buổi học ngữ pháp dài."),
     ],
   },
   words: [

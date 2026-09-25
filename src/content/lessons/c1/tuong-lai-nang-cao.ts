@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Các cách nói tương lai nâng cao",
     blocks: [
-      p("Người Việt nói về tương lai chủ yếu bằng hai chữ: “sẽ” và “sắp”. Lên đến B2, các em đã dùng thạo will, be going to và thì tiếp diễn. Nhưng khi đọc báo tiếng Anh, nghe bản tin sân bay hay viết email cho đối tác, các em sẽ gặp một nhóm cấu trúc khác: **be about to**, **be due to**, **be bound to**, **be on the verge of**, **be set to**, **be to**. Mỗi cấu trúc là một sắc thái riêng của chữ “sắp” và chữ “sẽ”."),
+      p("Người Việt nói về tương lai chủ yếu bằng hai chữ: “sẽ” và “sắp”. Lên đến B2, các bạn đã dùng thạo will, be going to và thì tiếp diễn. Nhưng khi đọc báo tiếng Anh, nghe bản tin sân bay hay viết email cho đối tác, các bạn sẽ gặp một nhóm cấu trúc khác: **be about to**, **be due to**, **be bound to**, **be on the verge of**, **be set to**, **be to**. Mỗi cấu trúc là một sắc thái riêng của chữ “sắp” và chữ “sẽ”."),
       table(
         ["Cấu trúc", "Nghĩa", "Theo sau là", "Ví dụ"],
         ["be about to", "sắp sửa, ngay bây giờ", "V nguyên mẫu", "The film is about to start."],
@@ -23,12 +23,12 @@ export default lesson({
       mistake("The conference is about to start next Monday.", "The conference is due to start next Monday.", "Tiếng Việt dùng “sắp” cho cả việc ngay trước mắt lẫn việc tuần sau. Tiếng Anh thì about to chỉ dành cho việc ngay tức khắc; việc theo lịch dùng due to."),
       ex("The two companies are on the verge of signing a major deal.", "Hai công ty sắp ký một thương vụ lớn.", "On the verge of (hoặc on the brink of) nhấn mạnh rằng một bước ngoặt sắp đến. Brink thường đi với điều xấu: on the brink of war."),
       mistake("The factory is on the verge to close.", "The factory is on the verge of closing.", "Of là giới từ, nên sau nó phải là danh từ hoặc V-ing. Người Việt quen “sắp + động từ” nên hay ghép với to."),
-      ex("You've worked so hard. You're bound to pass the exam.", "Em đã học chăm như vậy. Chắc chắn em sẽ đỗ.", "Bound to thể hiện niềm tin rất mạnh của người nói, mạnh hơn will và likely to."),
+      ex("You've worked so hard. You're bound to pass the exam.", "Bạn đã học chăm như vậy. Chắc chắn bạn sẽ đỗ.", "Bound to thể hiện niềm tin rất mạnh của người nói, mạnh hơn will và likely to."),
       p("**Be set to** và **be to** là hai cấu trúc của báo chí và văn bản chính thức. **Be set to** là dự đoán gần như chắc chắn dựa trên thông tin hiện có. **Be to** là kế hoạch đã được cơ quan, tổ chức quyết định; ngoài ra còn dùng để ra chỉ thị: You are to report to reception at eight."),
       ex("Petrol prices are set to rise again next month.", "Giá xăng dự kiến sẽ lại tăng vào tháng tới."),
       mistake("The flight due to arrive at nine.", "The flight is due to arrive at nine.", "Tiếng Việt nói “chuyến bay dự kiến đến lúc chín giờ” mà không cần “là” hay “thì”. Tiếng Anh bắt buộc có động từ be trong tất cả các cấu trúc của bài này. Riêng tiêu đề báo được phép bỏ be: Bank set to cut rates."),
       tip("Mẹo nhớ theo mức độ gần: **about to** (vài giây, vài phút) → **on the verge of** (sắp đến bước ngoặt) → **due to** (theo lịch) → **set to / be to** (tin tức, kế hoạch chính thức). Còn **bound to** không nói về thời gian mà nói về **độ chắc chắn**."),
-      teacher("Tôi dạy người Việt năm mươi năm, và cấu trúc bị bỏ quên nhiều nhất là **be to**. Học trò đọc câu The President is to visit Vietnam rồi dịch là “Tổng thống là để thăm Việt Nam”, nghe rất ngô nghê. Thầy khuyên: mỗi sáng đọc năm tiêu đề trên một trang báo tiếng Anh, gạch chân mọi chữ **set to**, **due to**, **to + động từ** ngay sau danh từ, rồi tự dịch sang tiếng Việt kiểu bản tin thời sự. Một tháng thôi, các em sẽ đọc báo nhanh hơn hẳn."),
+      teacher("Tôi dạy người Việt nhiều năm, và cấu trúc bị bỏ quên nhiều nhất là **be to**. Học trò đọc câu The President is to visit Vietnam rồi dịch là “Tổng thống là để thăm Việt Nam”, nghe rất ngô nghê. Tôi khuyên: mỗi sáng đọc năm tiêu đề trên một trang báo tiếng Anh, gạch chân mọi chữ **set to**, **due to**, **to + động từ** ngay sau danh từ, rồi tự dịch sang tiếng Việt kiểu bản tin thời sự. Một tháng thôi, các bạn sẽ đọc báo nhanh hơn hẳn."),
     ],
   },
   words: [

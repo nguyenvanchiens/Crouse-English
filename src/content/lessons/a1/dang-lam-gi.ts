@@ -37,7 +37,7 @@ export default lesson({
       ),
       ex("I usually go to work by motorbike, but today I'm taking the bus.", "Tôi thường đi làm bằng xe máy, nhưng hôm nay tôi đi xe buýt.", "Usually báo hiệu thói quen (hiện tại đơn), today báo hiệu việc khác thường đang diễn ra (tiếp diễn)."),
       mistake("Every day I am going to work at seven.", "Every day I go to work at seven.", "Tiếng Việt dùng chữ “đang” khá thoải mái, nên có bạn dùng -ing cho cả thói quen. Có every day, usually, always là thói quen: dùng hiện tại đơn."),
-      teacher("Sau năm mươi năm dạy, tôi có một bài tập mà học trò nào cũng tiến bộ: ngồi ở quán cà phê hay trên xe buýt, nhìn quanh và nói thầm **She's talking on the phone. He's reading a newspaper. They're waiting for the bus.** Mỗi câu tự hỏi hai điều: đã có **am/is/are** chưa, động từ đã có **-ing** chưa. Thiếu một trong hai là phải nói lại. Làm vậy mười phút mỗi ngày, chỉ một tuần là hết quên."),
+      teacher("Sau nhiều năm dạy, tôi có một bài tập mà bạn học viên nào làm cũng tiến bộ: các bạn ngồi ở quán cà phê hay trên xe buýt, nhìn quanh và nói thầm **She's talking on the phone. He's reading a newspaper. They're waiting for the bus.** Mỗi câu tự hỏi hai điều: đã có **am/is/are** chưa, động từ đã có **-ing** chưa. Thiếu một trong hai là phải nói lại. Làm vậy mười phút mỗi ngày, chỉ một tuần là hết quên."),
     ],
   },
   words: [
@@ -56,7 +56,7 @@ export default lesson({
     fill("a1-n15-3", "She ___ her homework at the moment. (do)", ["is doing", "'s doing"], "At the moment là ngay lúc này; she đi với is: is doing."),
     fill("a1-n15-4", "I ___ to work by bus every day. (go)", ["go"], "Every day là thói quen nên dùng hiện tại đơn, không dùng -ing."),
     reorder("a1-n15-5", "What are your children doing?", "What + are + chủ ngữ + V-ing? Your children là số nhiều nên dùng are."),
-    reorder("a1-n15-6", "Who is sitting next to Lan?", "Who làm chủ ngữ nên đi thẳng với is sitting, không cần đảo."),
+    reorder("a1-n15-6", "Who is sitting next to you?", "Who làm chủ ngữ nên đi thẳng với is sitting, không cần đảo."),
     listen("a1-n15-7", "I'm waiting for the bus.", ["Tôi đang đợi xe buýt.", "Tôi thường đi xe buýt.", "Tôi đang ngồi trên xe buýt."], 0, "Waiting for là đang đợi."),
     listen("a1-n15-8", "She isn't sleeping. She's reading.", ["Cô ấy đang ngủ chứ không đọc sách.", "Cô ấy không ngủ. Cô ấy đang đọc sách.", "Cô ấy không đọc sách. Cô ấy đang ngủ."], 1, "Isn't sleeping là không ngủ; she's reading là đang đọc."),
   ],

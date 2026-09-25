@@ -17,7 +17,7 @@ describe("content accessors", () => {
     const crossing = await getLesson("tieng-anh-a1", "mot-ngay-cua-toi");
     expect(crossing?.prev?.slug, "chapter 1 ends with its review").toBe("on-tap-chuong-1");
     expect(crossing?.module.id).toBe("m2");
-    const last = await getLesson("tieng-anh-a1", "on-tap-chuong-4");
+    const last = await getLesson("tieng-anh-a1", "kiem-tra-cuoi-khoa");
     expect(last?.next).toBeNull();
     expect(last?.index).toBe((last?.total ?? 0) - 1);
     expect(await getLesson("tieng-anh-a1", "nope")).toBeNull();
@@ -82,6 +82,7 @@ describe("content integrity", () => {
 
 describe("A1 to C1 path", () => {
   const path = COURSES.filter((c) => c.goal === "lo-trinh");
+  const structured = COURSES.filter((c) => c.goal === "lo-trinh" || c.goal === "phat-am");
   const kinds: Exercise["kind"][] = ["multiple-choice", "fill-blank", "reorder", "listen-choose"];
 
   it("has one open course per level, in order", () => {
@@ -96,14 +97,23 @@ describe("A1 to C1 path", () => {
     expect(new Set(path.map((c) => c.teacher.name)).size, "each level has its own teacher").toBe(5);
   });
 
-  for (const c of path) {
+  it("puts the pronunciation course first as step 0", () => {
+    expect(COURSES[0]).toMatchObject({ slug: "phat-am-ipa", goal: "phat-am", status: "open" });
+  });
+
+  for (const c of structured) {
+    const chapters = c.goal === "phat-am" ? 2 : 4;
     describe(c.slug, () => {
       const all: Lesson[] = c.modules.flatMap((m) => m.lessons);
-      const regular = all.filter((l) => !l.review);
+      const regular = all.filter((l) => !l.review && !l.final);
 
-      it("has 4 chapters of 4 lessons, each closed by a chapter review", () => {
-        expect(c.modules).toHaveLength(4);
-        c.modules.forEach((m, i) => {
+      it(`has ${chapters} chapters of 4 lessons, each closed by a chapter review, then the final test`, () => {
+        expect(c.modules).toHaveLength(chapters + 1);
+        const final = c.modules[chapters];
+        expect(final.lessons.map((l) => [l.slug, l.final])).toEqual([["kiem-tra-cuoi-khoa", true]]);
+        const finalItems = final.lessons[0].steps[0].type === "exercise" ? final.lessons[0].steps[0].items : [];
+        expect(finalItems).toHaveLength(5 * chapters);
+        c.modules.slice(0, chapters).forEach((m, i) => {
           expect(m.lessons).toHaveLength(5);
           expect(m.lessons.slice(0, 4).every((l) => !l.review)).toBe(true);
           expect(m.lessons[4]).toMatchObject({ review: true, slug: `on-tap-chuong-${i + 1}` });
@@ -129,12 +139,18 @@ describe("A1 to C1 path", () => {
         it(`${l.slug} follows the lesson format`, () => {
           expect(l.minutes).toBeGreaterThanOrEqual(15);
           expect(l.minutes).toBeLessThanOrEqual(25);
-          expect(l.steps.map((s) => s.type)).toEqual(["lecture", "vocab", "exercise", "speaking"]);
-          const [lecture, vocab, exercise, speaking] = l.steps;
+          expect(l.steps.map((s) => s.type)).toEqual(["lecture", "vocab", "dialogue", "exercise", "speaking", "task"]);
+          const [lecture, vocab, dialogue, exercise, speaking, task] = l.steps;
 
           const lec = lecture as LectureStep;
           expect(lec.blocks.length).toBeGreaterThanOrEqual(10);
-          expect(lec.blocks.length).toBeLessThanOrEqual(16);
+          expect(lec.blocks.length).toBeLessThanOrEqual(18);
+          const last = lec.blocks[lec.blocks.length - 1];
+          expect(last.kind, "lecture ends with a Ghi nhớ summary").toBe("summary");
+          if (last.kind === "summary") {
+            expect(last.points.length).toBeGreaterThanOrEqual(3);
+            expect(last.points.length).toBeLessThanOrEqual(6);
+          }
           expect(lec.blocks.filter((b) => b.kind === "example").length).toBeGreaterThanOrEqual(3);
           expect(lec.blocks.some((b) => b.kind === "table")).toBe(true);
           expect(lec.blocks.filter((b) => b.kind === "mistake").length).toBeGreaterThanOrEqual(2);
@@ -142,7 +158,7 @@ describe("A1 to C1 path", () => {
           expect(lec.blocks.some((b) => b.kind === "teacher"), "teacher block").toBe(true);
           for (const b of lec.blocks) {
             if (b.kind === "table") for (const row of b.rows) expect(row.length).toBe(b.headers.length);
-            if (b.kind !== "text" && b.kind !== "tip" && b.kind !== "teacher") expect(JSON.stringify(b)).not.toContain("**");
+            if (b.kind !== "text" && b.kind !== "tip" && b.kind !== "teacher" && b.kind !== "summary") expect(JSON.stringify(b)).not.toContain("**");
           }
 
           if (vocab.type !== "vocab") throw new Error("vocab step");
@@ -164,6 +180,19 @@ describe("A1 to C1 path", () => {
               expect(e.words.length, e.id).toBeLessThanOrEqual(12);
             }
           }
+
+          if (dialogue.type !== "dialogue") throw new Error("dialogue step");
+          expect(dialogue.lines.length, "dialogue length").toBeGreaterThanOrEqual(6);
+          expect(dialogue.lines.length, "dialogue length").toBeLessThanOrEqual(14);
+          expect(new Set(dialogue.lines.map((x) => x.speaker)), "both roles speak").toEqual(new Set(["A", "B"]));
+          expect(dialogue.context.length).toBeGreaterThan(10);
+
+          if (task.type !== "task") throw new Error("task step");
+          expect(task.hints.length).toBeGreaterThanOrEqual(2);
+          expect(task.checklist.length).toBeGreaterThanOrEqual(3);
+          expect(task.checklist.length).toBeLessThanOrEqual(6);
+          expect(task.minWords).toBeGreaterThanOrEqual(10);
+          expect(task.model.trim().split(/\s+/).length, "model answer meets its own word minimum").toBeGreaterThanOrEqual(task.minWords);
 
           if (speaking.type !== "speaking") throw new Error("speaking step");
           expect(speaking.sentences).toHaveLength(3);

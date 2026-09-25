@@ -3,7 +3,7 @@ import type { Course, Goal, Lesson, Level, Module } from "@/content/types";
 export interface CourseFilter { goal?: Goal; level?: Level }
 export interface LessonRef { module: Module; lesson: Lesson }
 
-const GOALS: Goal[] = ["lo-trinh", "ielts", "toeic", "tre-em"];
+const GOALS: Goal[] = ["phat-am", "lo-trinh", "ielts", "toeic", "tre-em"];
 const LEVELS: Level[] = ["A1", "A2", "B1", "B2", "C1"];
 
 export const isGoal = (v: string | null): v is Goal => v !== null && (GOALS as string[]).includes(v);

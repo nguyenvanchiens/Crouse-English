@@ -30,11 +30,12 @@ export default lesson({
       ex("Don't worry. You'll definitely find a good job.", "Đừng lo. Chắc chắn bạn sẽ tìm được việc tốt."),
       ex("I might be late tonight. The traffic is terrible.", "Tối nay tôi có thể về muộn. Đường tắc kinh khủng.", "Might đi thẳng với động từ nguyên mẫu, không có to và không thêm s: she might be, không phải she mights be."),
       ex("Will people live on Mars one day?", "Liệu một ngày nào đó con người có sống trên sao Hỏa không?"),
+      p("Muốn **hỏi ý kiến** người khác về tương lai, dùng **Do you think + chủ ngữ + will + V?**: Do you think it'll rain? Để **đồng ý hay không đồng ý** với một dự đoán, chỉ cần những câu trả lời ngắn: **I think so.** (tôi nghĩ vậy), **I don't think so.** (tôi không nghĩ vậy), **I hope so.** (mong là vậy), **I hope not.** (mong là không), **Maybe.** (có thể)."),
       tip("**Won't** đọc là /wəʊnt/, nghe như “uơn-t”, miệng tròn và kéo dài. **Want** đọc là /wɒnt/, âm ngắn. Đọc lẫn hai từ này thì người nghe tưởng bạn nói want (muốn) chứ không phải won't (sẽ không), nghĩa ngược hẳn. Nhớ bật âm /t/ ở cuối won't."),
       mistake("He won't probably come.", "He probably won't come.", "Probably đứng sau will (he'll probably come) nhưng đứng trước won't. Học trò hay đặt theo kiểu tiếng Việt “sẽ không có lẽ”, nghe rất lạ."),
       mistake("It will maybe rain tomorrow.", "It might rain tomorrow.", "Dịch từng chữ “trời sẽ có lẽ mưa” sẽ ra câu sai. Maybe thường đứng đầu câu (Maybe it'll rain), còn gọn nhất là dùng might."),
       mistake("It might to rain tonight.", "It might rain tonight.", "Quen nói want to, need to, học trò hay thêm to sau might. Might cũng như will, should: theo sau luôn là động từ nguyên mẫu không có to."),
-      teacher("Sau nhiều năm đứng lớp, tôi để ý người Việt dùng will cho mọi thứ thuộc về tương lai, còn người bản xứ lại chọn rất kỹ: đoán thì will, dự định thì going to, không chắc thì might. Mỗi sáng đọc tin thời tiết, các em hãy tự nói ba câu: một câu với **will**, một câu với **probably won't**, một câu với **might**. Chỉ cần hai tuần là các “nấc” chắc chắn này sẽ bật ra tự nhiên."),
+      teacher("Sau nhiều năm đứng lớp, tôi để ý người Việt dùng will cho mọi thứ thuộc về tương lai, còn người bản xứ lại chọn rất kỹ: đoán thì will, dự định thì going to, không chắc thì might. Mỗi sáng đọc tin thời tiết, các bạn hãy tự nói ba câu: một câu với **will**, một câu với **probably won't**, một câu với **might**. Chỉ cần hai tuần là các “nấc” chắc chắn này sẽ bật ra tự nhiên."),
     ],
   },
   words: [

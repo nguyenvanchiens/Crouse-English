@@ -17,7 +17,7 @@ export default lesson({
       ),
       ex("Where is the post office? It's on Dinh Tien Hoang Street.", "Bưu điện ở đâu? Nó ở đường Đinh Tiên Hoàng.", "Người Anh cũng hay nói in … Street; người Mỹ luôn nói on. Bạn dùng on là an toàn nhất."),
       mistake("Where the bank is?", "Where is the bank?", "Tiếng Việt nói “Ngân hàng ở đâu?”, chủ ngữ đứng trước. Câu hỏi tiếng Anh phải đảo is lên trước chủ ngữ: Where is the bank?"),
-      p("Để nói một tòa nhà nằm ở đâu so với tòa nhà khác, dùng bốn giới từ quen thuộc nhất trên phố: **near** (gần), **next to** (ngay bên cạnh, sát vách), **opposite** (đối diện, bên kia đường) và **between… and…** (ở giữa hai nơi)."),
+      p("Để nói một tòa nhà nằm ở đâu so với tòa nhà khác, dùng bốn giới từ quen thuộc nhất trên phố: **near** (gần), **next to** (ngay bên cạnh, sát vách, bạn đã gặp ở bài Nhà và nơi chốn), **opposite** (đối diện, bên kia đường) và **between… and…** (ở giữa hai nơi)."),
       table(
         ["Giới từ", "Nghĩa", "Ví dụ"],
         ["near", "gần (có thể cách vài nhà)", "The school is near the park."],
@@ -28,10 +28,12 @@ export default lesson({
       ex("Is there a supermarket near here? Yes, there's one next to the library.", "Gần đây có siêu thị không? Có, có một cái ngay cạnh thư viện.", "One thay cho a supermarket để khỏi lặp lại."),
       mistake("The pharmacy is opposite of the school.", "The pharmacy is opposite the school.", "Tiếng Việt nói “đối diện với”, nên người Việt hay thêm of hoặc to. Opposite đứng thẳng trước danh từ, không cần từ nào chen vào."),
       mistake("The bank is between the school with the park.", "The bank is between the school and the park.", "Tiếng Việt nói “giữa trường với công viên”. Tiếng Anh luôn là between… and…, không dùng with."),
-      p("Chỉ đường đơn giản chỉ cần vài câu mệnh lệnh: **Go along this street** (đi dọc con đường này), **Turn left** (rẽ trái), **Turn right** (rẽ phải), **Take the first street on the left** (rẽ vào đường đầu tiên bên trái). Kết thúc bằng **It's on your left** hoặc **It's on your right**."),
+      p("Muốn hỏi đường một cách lịch sự, nói **Excuse me, how do I get to the museum?** (Xin lỗi, đi đến bảo tàng thế nào ạ?). Chỉ đường đơn giản chỉ cần vài câu mệnh lệnh, tức là bắt đầu thẳng bằng động từ, không có chủ ngữ: **Go along this street** (đi dọc con đường này), **Turn left** (rẽ trái), **Turn right** (rẽ phải), **Take the first street on the left** (rẽ vào đường đầu tiên bên trái), dùng số thứ tự first, second, third như đã học ở bài Thời gian và lịch hẹn. Kết thúc bằng **It's on your left** hoặc **It's on your right**."),
       ex("Go along this street and turn right. The museum is on your left.", "Đi dọc đường này rồi rẽ phải. Bảo tàng ở bên tay trái bạn."),
+      p("Để **tả thành phố** của mình, các bạn dùng to be cùng tính từ như ở bài Mô tả một người, và nhớ tính từ đứng **trước** danh từ như ở bài Mua sắm và màu sắc: **Hanoi is a big city. It's busy and noisy.** Thêm there is/there are để nói có gì ở đó: There are a lot of lakes."),
+      ex("Hoi An is a small town. It's old and very beautiful.", "Hội An là một thị trấn nhỏ. Nó cổ kính và rất đẹp.", "Small đứng trước town; old và beautiful đứng sau it's."),
       tip("Left và right đều kết thúc bằng âm /t/, nhưng người Việt hay nuốt mất. Đọc **left** /left/ bật nhẹ /f/ rồi /t/; đọc **right** /raɪt/ tròn môi ở /r/, đừng đọc thành “rai”. Không rõ âm cuối thì người nghe dễ đi nhầm hướng."),
-      teacher("Học trò của tôi thuộc bảng giới từ rất nhanh nhưng đứng trước người nước ngoài thì cứng họng. Cách tôi luyện cho các em: mỗi sáng đi làm, tự nói về con đường mình đi qua, kiểu **The pharmacy is next to the bank. The school is opposite the park.** Còn khi chỉ đường mà không chắc, cứ nói chậm, chỉ tay, và kết thúc bằng **It's on your left**. Người hỏi đường cần câu rõ ràng, không cần câu dài."),
+      teacher("Học viên của tôi thuộc bảng giới từ rất nhanh nhưng đứng trước người nước ngoài thì cứng họng. Cách tôi luyện cho các bạn: mỗi sáng đi làm, tự nói về con đường mình đi qua, kiểu **The pharmacy is next to the bank. The school is opposite the park.** Còn khi chỉ đường mà không chắc, cứ nói chậm, chỉ tay, và kết thúc bằng **It's on your left**. Người hỏi đường cần câu rõ ràng, không cần câu dài."),
     ],
   },
   words: [
@@ -51,7 +53,7 @@ export default lesson({
     fill("a1-n14-4", "My office is ___ Nguyen Trai Street. (nằm trên)", ["on", "in"], "Tên đường không có số nhà thường đi với on; người Anh cũng hay dùng in."),
     reorder("a1-n14-5", "How do I get to the museum?", "Câu hỏi đường lịch sự: How do I get to + nơi chốn?"),
     reorder("a1-n14-6", "Take the second street on the left.", "Câu mệnh lệnh chỉ đường: Take + the second street + on the left."),
-    listen("a1-n14-7", "The bank is opposite the park.", ["Ngân hàng ở cạnh công viên.", "Ngân hàng ở trong công viên.", "Ngân hàng ở đối diện công viên."], 2, "Opposite là đối diện, bên kia đường."),
+    listen("a1-n14-7", "My city is big and very busy.", ["Thành phố của tôi nhỏ và yên tĩnh.", "Thành phố của tôi lớn và rất nhộn nhịp.", "Thị trấn của tôi lớn và rất đẹp."], 1, "Big là lớn; busy khi tả nơi chốn là đông đúc, nhộn nhịp; city là thành phố, town là thị trấn."),
     listen("a1-n14-8", "Turn right. It's on your left.", ["Rẽ trái. Nó ở bên tay phải bạn.", "Rẽ phải. Nó ở bên tay trái bạn.", "Rẽ phải. Nó ở bên tay phải bạn."], 1, "Turn right là rẽ phải; on your left là ở bên tay trái bạn."),
   ],
   speaking: [

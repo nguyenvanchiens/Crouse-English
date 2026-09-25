@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Was, were và there was, there were",
     blocks: [
-      p("Sáng thứ Hai, đồng nghiệp nước ngoài hỏi bạn: **How was your weekend?** (Cuối tuần của bạn thế nào?). Để trả lời, bạn cần quá khứ của động từ to be: **am** và **is** thành **was**, **are** thành **were**. Đây là bước đầu tiên để kể chuyện đã qua."),
+      p("Sáng thứ Hai, đồng nghiệp nước ngoài hỏi bạn: **How was your weekend?** (Cuối tuần của bạn thế nào?). Để trả lời, bạn cần quá khứ của động từ to be: **am** và **is** thành **was**, **are** thành **were**. Đây là bước đầu tiên để kể chuyện đã qua. Quá khứ của các động từ khác (went, had, visited…) bạn sẽ học ở khóa A2; chỉ với was và were, bạn đã kể được mình ở đâu, thấy thế nào, có gì và có ai."),
       table(
         ["Chủ ngữ", "Khẳng định", "Phủ định", "Câu hỏi", "Trả lời ngắn"],
         ["I / he / she / it", "I was tired.", "I wasn't tired.", "Was she tired?", "Yes, she was. / No, she wasn't."],
@@ -34,8 +34,9 @@ export default lesson({
         ["Câu hỏi", "Was there a party?", "Were there many tourists?"],
       ),
       ex("There were a lot of people at the market last Sunday.", "Chủ nhật vừa rồi chợ rất đông người.", "Tiếng Việt nói “chợ đông người”, tiếng Anh nói có nhiều người ở chợ: there were a lot of people."),
+      ex("What was the weather like? It was sunny and hot.", "Thời tiết hôm đó thế nào? Trời nắng và nóng.", "What ... like? giống câu What does he look like? ở bài Mô tả một người, dùng để hỏi một thứ như thế nào."),
       tip("Trong câu khẳng định, **was** và **were** đọc nhẹ: /wəz/, /wər/. Trong câu trả lời ngắn thì đọc mạnh: **Yes, I was** /wɒz/. Wasn't đọc là /ˈwɒz.ənt/, nhớ bật âm /t/ cuối để không lẫn với was."),
-      teacher("Sáng thứ Hai nào đi dạy tôi cũng hỏi học trò một câu: **How was your weekend?** Và lần nào cũng có người trả lời “It is good”. Các em hãy tập cho mình phản xạ: nghe **How was…?** thì miệng trả lời bằng **It was…**. Tối chủ nhật, trước khi ngủ, viết ba câu về cuối tuần của mình: một câu với **was**, một câu với **were**, một câu với **there was/were**. Nhỏ thôi nhưng đều đặn, đó là cách người lớn tuổi như tôi đã học ngoại ngữ."),
+      teacher("Sáng thứ Hai nào đi dạy tôi cũng hỏi các bạn học viên một câu: **How was your weekend?** Và lần nào cũng có người trả lời “It is good”. Các bạn hãy tập cho mình phản xạ: nghe **How was…?** thì miệng trả lời bằng **It was…**. Tối chủ nhật, trước khi ngủ, viết ba câu về cuối tuần của mình: một câu với **was**, một câu với **were**, một câu với **there was/were**. Nhỏ thôi nhưng đều đặn, đó là cách người lớn tuổi như tôi đã học ngoại ngữ."),
     ],
   },
   words: [
@@ -53,7 +54,7 @@ export default lesson({
     mc("a1-n16-2", "Chọn cách nói đúng cho “tối qua”:", ["last night", "yesterday night", "the last night"], 0, "Người bản xứ nói last night, không nói yesterday night, không thêm the."),
     fill("a1-n16-3", "I ___ at home last night. I was at a party. (không ở)", ["wasn't", "was not"], "I đi với was; phủ định là wasn't."),
     fill("a1-n16-4", "There ___ a lot of people at the concert. (be)", ["were"], "A lot of people là số nhiều nên dùng there were."),
-    reorder("a1-n16-5", "Where were you last Saturday?", "Where + were + you + thời gian? Last Saturday đứng cuối câu."),
+    reorder("a1-n16-5", "How was your trip to Da Nang?", "Hỏi cảm nhận về việc đã qua: How + was + danh từ số ít? Trip là số ít nên dùng was."),
     reorder("a1-n16-6", "How many people were there at the party?", "How many + danh từ số nhiều + were there + nơi chốn?"),
     listen("a1-n16-7", "Were you tired after the trip?", ["Bạn đang mệt à?", "Chuyến đi có vui không?", "Sau chuyến đi bạn có mệt không?"], 2, "Were you…? là câu hỏi về quá khứ; tired là mệt."),
     listen("a1-n16-8", "There wasn't a hotel near the beach.", ["Gần bãi biển có một khách sạn.", "Gần bãi biển không có khách sạn nào.", "Khách sạn ở ngay trên bãi biển."], 1, "There wasn't là đã không có."),

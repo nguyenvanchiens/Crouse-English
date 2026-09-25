@@ -29,7 +29,7 @@ export default lesson({
         ["-ise (Mỹ: -ize)", "động từ", "priority → prioritise, modern → modernise"],
       ),
       ex("Her decision was quick and decisive.", "Quyết định của cô ấy nhanh chóng và dứt khoát.", "Decision là danh từ (chủ ngữ), decisive là tính từ (sau was). Cùng một họ từ, khác vị trí."),
-      mistake("She is a very creativity person.", "She is a very creative person.", "Trước danh từ person cần tính từ. Vì tiếng Việt không đổi hình dạng từ, học trò hay lấy nhầm từ trong cùng họ. Hãy tự hỏi: chỗ trống cần danh từ, động từ, tính từ hay trạng từ?"),
+      mistake("She is a very creativity person.", "She is a very creative person.", "Trước danh từ person cần tính từ. Vì tiếng Việt không đổi hình dạng từ, học viên hay lấy nhầm từ trong cùng họ. Hãy tự hỏi: chỗ trống cần danh từ, động từ, tính từ hay trạng từ?"),
       p("Điểm khó nhất với người Việt là **trọng âm dịch chuyển**. Khi thêm hậu tố, trọng âm có thể chạy sang âm tiết khác. Quy tắc hữu ích: với **-tion**, **-ic**, **-ity**, **-ical**, trọng âm rơi vào âm tiết **ngay trước** hậu tố."),
       table(
         ["Từ gốc", "Cùng họ", "Cùng họ"],
@@ -41,7 +41,7 @@ export default lesson({
       ex("Her photographs are stunning; she has been a professional photographer for years, and her photographic style is instantly recognisable.", "Ảnh của cô ấy tuyệt đẹp; cô ấy đã là nhiếp ảnh gia chuyên nghiệp nhiều năm, và phong cách nhiếp ảnh của cô ấy nhìn là nhận ra ngay.", "Ba từ cùng họ, ba vị trí trọng âm: PHOtographs, phoTOgrapher, photoGRAPHic. Đọc to cả câu để nghe trọng âm chạy từ âm tiết đầu sang âm tiết thứ hai rồi thứ ba."),
       mistake("I love PHOtography.", "I love phoTOgraphy.", "Người Việt đọc mỗi âm tiết mạnh như nhau, nên khi đã thuộc PHOtograph thì cứ giữ trọng âm đó cho cả họ từ. Người bản xứ nghe sai trọng âm còn khó hiểu hơn nghe sai một nguyên âm."),
       tip("Khi học một từ mới, hãy ghi **cả họ từ** thành một hàng, đánh dấu trọng âm bằng chữ in hoa: deCIDE, deCIsion, deCIsive. Đọc to cả hàng ba lần. Tai và miệng sẽ nhớ **sự dịch chuyển** trọng âm như nhớ một giai điệu."),
-      teacher("Sau năm mươi năm dạy, tôi dám nói: học trò Việt mất điểm Writing và Speaking vì **sai từ loại** nhiều hơn vì thiếu từ. Thầy có một bài tập mỗi ngày: chọn một gốc từ trong bài báo vừa đọc, viết ra họ từ của nó, rồi đặt bốn câu, mỗi câu dùng một từ loại khác nhau. Chỉ mười phút, nhưng làm đều đặn một học kỳ thì vốn từ tăng gấp ba mà không cần học thêm gốc mới nào."),
+      teacher("Sau nhiều năm dạy, tôi dám nói: học viên Việt mất điểm Writing và Speaking vì **sai từ loại** nhiều hơn vì thiếu từ. Tôi giao cho các bạn một bài tập mỗi ngày: chọn một gốc từ trong bài báo vừa đọc, viết ra họ từ của nó, rồi đặt bốn câu, mỗi câu dùng một từ loại khác nhau. Chỉ mười phút, nhưng làm đều đặn một học kỳ thì vốn từ tăng gấp ba mà không cần học thêm gốc mới nào."),
     ],
   },
   words: [

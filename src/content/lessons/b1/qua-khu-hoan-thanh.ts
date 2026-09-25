@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Quá khứ hoàn thành: had + V3",
     blocks: [
-      p("Bạn kể: “Hôm qua tôi ra đến ga thì tàu **đã chạy mất rồi**.” Trong câu này có hai việc trong quá khứ: tôi đến ga, và tàu chạy. Việc tàu chạy xảy ra **trước**. Tiếng Việt chỉ cần chữ “đã… rồi”, còn tiếng Anh dùng **quá khứ hoàn thành** (had + V3) để đánh dấu việc xảy ra trước một mốc khác trong quá khứ."),
+      p("Bạn kể: “Hôm qua tôi ra đến ga thì tàu **đã chạy mất rồi**.” Trong câu này có hai việc trong quá khứ: tôi đến ga, và tàu chạy. Việc tàu chạy xảy ra **trước**. Ở bài đầu tiên, bạn đã kể chuyện bằng quá khứ đơn và quá khứ tiếp diễn; khi cần lùi thêm một bậc thời gian, tiếng Việt chỉ cần chữ “đã… rồi”, còn tiếng Anh dùng **quá khứ hoàn thành** (had + V3) để đánh dấu việc xảy ra trước một mốc khác trong quá khứ."),
       table(
         ["Dạng", "Cấu trúc", "Ví dụ"],
         ["Khẳng định", "S + had + V3", "The train had left."],
@@ -28,7 +28,7 @@ export default lesson({
       tip("Hãy vẽ một đường thời gian trong đầu: chuyện kể đang ở quá khứ, việc nào xảy ra **sớm hơn nữa** thì lùi thêm một bậc thành **had + V3**. Mẹo nghe: sau **'d** mà có V3 (I'd gone, she'd left) thì 'd là had; sau 'd là động từ nguyên mẫu (I'd go) thì 'd là would."),
       mistake("When I arrived, the train already left.", "When I arrived, the train had already left.", "Tiếng Việt nói “tàu đã chạy rồi” mà không đổi hình thức động từ, nên người Việt quen dùng quá khứ đơn. Việc xảy ra trước một mốc quá khứ khác cần had + V3."),
       mistake("I had gone to Da Lat last year.", "I went to Da Lat last year.", "Chỉ kể một việc đơn lẻ trong quá khứ thì dùng quá khứ đơn. Quá khứ hoàn thành chỉ cần khi có một mốc quá khứ khác để so sánh trước sau."),
-      teacher("Sau 50 năm dạy, tôi thấy học trò Việt mắc hai bệnh ngược nhau: hoặc **không bao giờ dùng** had, hoặc **dùng had cho mọi chuyện cũ** vì nghĩ “đã lâu rồi thì là quá khứ hoàn thành”. Nhớ giúp thầy: had + V3 không phải là “quá khứ xa”, mà là “quá khứ **trước** một quá khứ khác”. Mỗi tối, hãy kể lại một chuyện trong ngày bằng ba câu, trong đó có đúng một câu với had. Ví dụ: I got to work late. The meeting had already started. My boss wasn't happy."),
+      teacher("Sau nhiều năm dạy, tôi thấy người Việt học tiếng Anh mắc hai bệnh ngược nhau: hoặc **không bao giờ dùng** had, hoặc **dùng had cho mọi chuyện cũ** vì nghĩ “đã lâu rồi thì là quá khứ hoàn thành”. Các bạn nhớ giúp tôi: had + V3 không phải là “quá khứ xa”, mà là “quá khứ **trước** một quá khứ khác”. Mỗi tối, các bạn hãy kể lại một chuyện trong ngày bằng ba câu, trong đó có đúng một câu với had. Ví dụ: I got to work late. The meeting had already started. My boss wasn't happy."),
     ],
   },
   words: [

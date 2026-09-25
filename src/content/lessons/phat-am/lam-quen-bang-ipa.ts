@@ -1,0 +1,68 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "lam-quen-bang-ipa",
+  title: "Làm quen với bảng IPA",
+  minutes: 20,
+  lecture: {
+    title: "IPA là gì và cách đọc phiên âm trong từ điển",
+    blocks: [
+      p("Buổi đầu tiên của lớp phát âm, tôi thường viết lên bảng ba từ: **though**, **through**, **tough**. Chữ viết gần như giống hệt nhau, nhưng cách đọc thì khác hẳn. Nếu chỉ nhìn mặt chữ để đoán cách đọc, các bạn sẽ đoán sai rất nhiều lần. Đó là lý do chúng ta cần **IPA**."),
+      p("**IPA** (International Phonetic Alphabet) là bảng ký hiệu phiên âm quốc tế: mỗi ký hiệu chỉ ghi **một âm**, và mỗi âm chỉ có **một ký hiệu**. Tiếng Việt viết sao đọc vậy, nên người Việt quen đọc theo chữ. Tiếng Anh thì không: cùng một chữ “ough” có thể đọc bốn, năm kiểu. Biết IPA, các bạn mở từ điển ra là tự đọc đúng một từ mới, không cần chờ ai đọc mẫu."),
+      table(
+        ["Từ", "IPA", "Âm chính cần để ý"],
+        ["though (tuy nhiên)", "/ðəʊ/", "/ð/ ở đầu, nguyên âm đôi /əʊ/"],
+        ["through (xuyên qua)", "/θruː/", "/θ/ ở đầu, /uː/ kéo dài"],
+        ["tough (khó, dai)", "/tʌf/", "/ʌ/ ngắn, chữ “gh” đọc là /f/"],
+        ["cough (ho)", "/kɒf/", "/ɒ/ ngắn, chữ “gh” đọc là /f/"],
+      ),
+      ex("The exam was tough, but I passed.", "Bài thi khó, nhưng tôi đã đỗ.", "Tough đọc là /tʌf/: chữ “gh” ở cuối đọc thành /f/."),
+      ex("We walked through the park.", "Chúng tôi đi bộ xuyên qua công viên."),
+      p("Mở một cuốn từ điển như Cambridge, sau mỗi từ các bạn sẽ thấy phần phiên âm nằm giữa hai dấu gạch chéo. Ngoài các ký hiệu âm, có bốn dấu phụ các bạn phải đọc được ngay: **ˈ** (trọng âm chính), **ˌ** (trọng âm phụ), **ː** (âm kéo dài) và **dấu chấm** (ranh giới âm tiết)."),
+      table(
+        ["Dấu", "Ý nghĩa", "Ví dụ"],
+        ["ˈ (dấu phẩy trên)", "Âm tiết ngay sau dấu được nhấn mạnh nhất", "photograph /ˈfəʊ.tə.ɡrɑːf/: nhấn PHO"],
+        ["ˌ (dấu phẩy dưới)", "Âm tiết ngay sau dấu được nhấn nhẹ hơn", "pronunciation /prəˌnʌn.siˈeɪ.ʃən/"],
+        ["ː (hai chấm)", "Nguyên âm đứng trước được kéo dài", "sheep /ʃiːp/ dài, ship /ʃɪp/ ngắn"],
+        [". (dấu chấm)", "Chỗ tách giữa hai âm tiết", "dictionary /ˈdɪk.ʃən.ər.i/: bốn âm tiết"],
+      ),
+      ex("Can you check the pronunciation in the dictionary?", "Bạn tra giúp cách phát âm trong từ điển được không?", "Pronunciation có năm âm tiết, trọng âm chính rơi vào âm thứ tư: pro-nun-ci-A-tion."),
+      p("Tiếng Anh-Anh chuẩn (RP) có **44 âm**, chia thành ba nhóm: **12 nguyên âm đơn**, **8 nguyên âm đôi** và **24 phụ âm**. Nhiều ký hiệu trông giống chữ cái bình thường (p, b, t, s), nhưng một số là ký hiệu riêng (θ, ð, ʃ, ʒ, ŋ, ə) mà các bạn cần học thuộc."),
+      table(
+        ["Nhóm", "Số âm", "Các ký hiệu"],
+        ["Nguyên âm đơn", "12", "iː ɪ e æ ʌ ɑː ɒ ɔː ʊ uː ə ɜː"],
+        ["Nguyên âm đôi", "8", "eɪ aɪ ɔɪ aʊ əʊ ɪə eə ʊə"],
+        ["Phụ âm", "24", "p b t d k ɡ f v θ ð s z ʃ ʒ h tʃ dʒ m n ŋ l r j w"],
+      ),
+      mistake("Wednesday đọc thành “oét-nét-đây” /ˈwed.nes.deɪ/", "Wednesday /ˈwenz.deɪ/: hai âm tiết, chữ “d” đầu tiên không đọc", "Người Việt quen đánh vần theo mặt chữ vì tiếng Việt viết sao đọc vậy. Tiếng Anh có nhiều chữ câm; chỉ phiên âm mới cho biết âm nào thực sự được đọc."),
+      mistake("photographer đọc nhấn âm đầu: PHO-to-gra-pher", "photographer /fəˈtɒɡ.rə.fə/: nhấn âm thứ hai, to-GRA", "Tiếng Việt không có trọng âm từ nên người Việt hay đọc mọi âm tiết đều nhau, hoặc nhấn theo từ gốc photograph. Dấu ˈ trong phiên âm cho biết chính xác âm tiết nào phải nhấn."),
+      tip("Trang **Bảng IPA** (/bang-ipa) của Crouse English có đủ 44 âm. Mỗi âm có ba từ ví dụ: **bấm vào từ để nghe**, rồi nhại lại ngay. Hãy để ý phần mẹo phát âm và **cặp từ dễ nhầm** ở mỗi âm. Mỗi ngày chỉ cần học ba đến bốn âm, đừng cố nuốt cả bảng trong một buổi."),
+      teacher("Sau nhiều năm dạy người Việt, tôi thấy học trò nào **chịu tra phiên âm** thì nói tiếng Anh rõ hơn hẳn người chỉ nghe rồi bắt chước. Các bạn hãy tập thói quen: gặp từ mới, trước khi đọc thành tiếng thì **nhìn phiên âm, tìm dấu ˈ, xem có dấu ː không**, rồi mới mở miệng. Lúc đầu chậm, nhưng một tháng sau các bạn sẽ tự đọc được bất kỳ từ nào trong từ điển."),
+    ],
+  },
+  words: [
+    word("though", "/ðəʊ/", "tuy nhiên, mặc dù", "It was cold. We went out, though.", "though", 0, "Đầu lưỡi đặt giữa hai hàm răng cho /ð/, rồi trượt “ơ-u” cho /əʊ/; đừng đọc thành “đô”."),
+    word("through", "/θruː/", "xuyên qua, thông qua", "The train goes through a long tunnel.", "through", 0, "Thổi hơi qua đầu lưỡi đặt giữa hai răng cho /θ/, không đọc thành “thru” bật mạnh như chữ “th” tiếng Việt."),
+    word("tough", "/tʌf/", "khó khăn; dai", "This steak is very tough.", "tough", 0, "Chữ “gh” ở cuối đọc là /f/; nhớ bật hơi /f/ ra, đừng nuốt mất."),
+    word("dictionary", "/ˈdɪk.ʃən.ər.i/", "từ điển", "I always keep a dictionary on my desk.", "dic|tion|ar|y", 0, "Nhấn mạnh âm đầu DIC, ba âm sau đọc nhẹ và nhanh."),
+    word("pronunciation", "/prəˌnʌn.siˈeɪ.ʃən/", "cách phát âm", "Her pronunciation is very clear.", "pro|nun|ci|a|tion", 3, "Viết và đọc là pro-NUN, không phải pro-NOUN như động từ pronounce."),
+    word("vowel", "/ˈvaʊ.əl/", "nguyên âm", "The word 'cat' has one vowel sound.", "vow|el", 0, "Hai âm tiết: VAO-ơl. Đừng đọc thành một tiếng “vao”."),
+    word("consonant", "/ˈkɒn.sə.nənt/", "phụ âm", "The word 'strong' starts with three consonants.", "con|so|nant", 0, "Nhấn âm đầu: CON-sơ-nơnt, hai âm sau đọc nhẹ."),
+    word("symbol", "/ˈsɪm.bəl/", "ký hiệu", "Each symbol in the chart shows one sound.", "sym|bol", 0),
+  ],
+  exercises: [
+    mc("pa-n01-1", "Trong phiên âm, dấu ː (hai chấm) cho biết điều gì?", ["Âm tiết đó được nhấn mạnh", "Nguyên âm đứng trước được kéo dài", "Chỗ tách giữa hai âm tiết", "Âm đó không được đọc"], 1, "Dấu ː nghĩa là kéo dài nguyên âm: /iː/ trong sheep dài hơn /ɪ/ trong ship."),
+    mc("pa-n01-2", "Photographer /fəˈtɒɡ.rə.fə/ được nhấn trọng âm chính ở âm tiết nào?", ["pho", "ra", "pher", "tog"], 3, "Dấu ˈ đứng ngay trước /tɒɡ/, nên âm tiết thứ hai được nhấn: pho-TOG-ra-pher."),
+    fill("pa-n01-3", "Check the ___ of the word in your dictionary. (cách phát âm)", ["pronunciation"], "Danh từ là pronunciation (pro-NUN-ci-a-tion), không viết pronounciation dù động từ là pronounce."),
+    fill("pa-n01-4", "The words tough and cough both end in the letters ___, but they sound like /f/. (hai chữ cái cuối)", ["gh"], "Trong tough /tʌf/ và cough /kɒf/, hai chữ gh cuối đọc là /f/. Chữ viết và âm không trùng nhau, nên phải xem phiên âm."),
+    reorder("pa-n01-5", "How do you pronounce this word?", "How do you + động từ + tân ngữ? Đây là câu các bạn dùng để hỏi thầy cô hoặc người bản xứ cách đọc một từ."),
+    reorder("pa-n01-6", "This word has three syllables.", "Chủ ngữ this word + has + số lượng + danh từ số nhiều syllables."),
+    listen("pa-n01-7", "through", ["though", "tough", "through"], 2, "Through /θruː/ có /r/ và /uː/ kéo dài; though /ðəʊ/ kết thúc bằng “ơ-u”; tough /tʌf/ kết thúc bằng /f/."),
+    listen("pa-n01-8", "Look it up in the dictionary.", ["Hãy tra từ đó trong từ điển.", "Hãy đọc to từ đó lên.", "Hãy viết từ đó vào vở."], 0, "Look it up là tra cứu; dictionary là từ điển, nhấn âm đầu DIC."),
+  ],
+  speaking: [
+    say("How do you pronounce this word?", "Từ này đọc thế nào?"),
+    say("The exam was tough, though.", "Tuy vậy, bài thi khó thật."),
+    say("I check the pronunciation in my dictionary.", "Tôi tra cách phát âm trong từ điển."),
+  ],
+});

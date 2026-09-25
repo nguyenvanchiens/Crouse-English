@@ -32,7 +32,7 @@ export default lesson({
       mistake("Let's to go home.", "Let's go home.", "Nhiều người quen want to, need to nên thêm to sau Let's. Sau Let's, Shall we, Why don't we đều là động từ nguyên mẫu không có to."),
       mistake("I help you carry it.", "I'll help you carry it.", "Tiếng Việt “để tôi giúp” không cần chia thì. Tiếng Anh muốn đề nghị giúp ngay lúc nói thì phải có will: I'll help you."),
       mistake("A: Would you like some tea? B: Yes, I like.", "A: Would you like some tea? B: Yes, please.", "Yes, I like nghĩa là tôi thích (nói chung), không phải nhận lời mời. Nhận đồ ăn, đồ uống thì nói Yes, please."),
-      teacher("Có một cái bẫy văn hóa mà tôi thấy học trò mắc suốt bao nhiêu năm: người Việt được mời thường **từ chối lần đầu cho khách sáo**, đợi mời lần hai mới nhận. Với người nói tiếng Anh, **No, thanks nghĩa là không thật**, và họ sẽ không mời lại đâu. Thế là các em ngồi nhìn người ta uống cà phê một mình. Muốn thì nói Yes, please ngay từ đầu, thế là lịch sự rồi."),
+      teacher("Có một cái bẫy văn hóa mà tôi thấy học viên mắc suốt bao nhiêu năm: người Việt được mời thường **từ chối lần đầu cho khách sáo**, đợi mời lần hai mới nhận. Với người nói tiếng Anh, **No, thanks nghĩa là không thật**, và họ sẽ không mời lại đâu. Thế là các bạn ngồi nhìn người ta uống cà phê một mình. Muốn thì nói Yes, please ngay từ đầu, thế là lịch sự rồi."),
     ],
   },
   words: [

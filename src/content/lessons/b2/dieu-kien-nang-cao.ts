@@ -32,7 +32,7 @@ export default lesson({
       ex("Supposing you lost your job tomorrow, what would you do?", "Giả sử ngày mai bạn mất việc, bạn sẽ làm gì?", "Lost là quá khứ giả định, đi với would ở vế sau, giống câu điều kiện loại 2."),
       mistake("Suppose if the client says no, what will we do?", "Suppose the client says no, what will we do?", "Dịch từng chữ “giả sử nếu” nên học trò đặt cả suppose lẫn if. Suppose đã làm nhiệm vụ của if, chỉ dùng một trong hai."),
       tip("Mẹo nhớ nhanh: **unless = if not**; **in case = chuẩn bị trước cho chắc**; **as long as = miễn là**; **otherwise = không thì…**. Khi làm bài, hãy thử thay unless bằng if… not. Nếu câu vẫn đúng nghĩa thì bạn đã chọn đúng."),
-      teacher("Có một bẫy mà năm nào tôi cũng thấy học trò rơi vào: nhầm **in case** với **if**. Tôi hay bảo các em tự hỏi một câu: **việc này làm bây giờ, hay chỉ làm khi chuyện kia xảy ra?** Làm ngay bây giờ để phòng hờ thì dùng in case, chờ chuyện xảy ra mới làm thì dùng if. Mỗi sáng trước khi ra khỏi nhà, hãy tự nói một câu với in case: **I'm taking a raincoat in case it rains.** Nói mãi thành quen, lúc cần sẽ tự bật ra đúng."),
+      teacher("Có một bẫy mà năm nào tôi cũng thấy học trò rơi vào: nhầm **in case** với **if**. Tôi hay bảo các bạn tự hỏi một câu: **việc này làm bây giờ, hay chỉ làm khi chuyện kia xảy ra?** Làm ngay bây giờ để phòng hờ thì dùng in case, chờ chuyện xảy ra mới làm thì dùng if. Mỗi sáng trước khi ra khỏi nhà, hãy tự nói một câu với in case: **I'm taking a raincoat in case it rains.** Nói mãi thành quen, lúc cần sẽ tự bật ra đúng."),
     ],
   },
   words: [

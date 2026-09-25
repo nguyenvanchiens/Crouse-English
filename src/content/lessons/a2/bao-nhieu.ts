@@ -28,7 +28,7 @@ export default lesson({
       mistake("How many money do you have?", "How much money do you have?", "Tiếng Việt đếm được “một đồng, hai đồng” nên người Việt tưởng money đếm được. Trong tiếng Anh, money không đếm được, ta đếm bằng dollars, dong."),
       mistake("I have many homeworks today.", "I have a lot of homework today.", "Homework không đếm được nên không thêm -s. Câu khẳng định lại dùng a lot of tự nhiên hơn many."),
       mistake("There are a lot people here.", "There are a lot of people here.", "Người Việt hay nuốt mất of vì nói nhanh. A lot of là một cụm, không bỏ of được."),
-      teacher("Học trò của tôi hay hỏi: “Thầy ơi, sao câu khẳng định dùng much lại nghe sai?”. Không hẳn sai, nhưng nghe cứng và trang trọng như văn viết, người ta hầu như không nói vậy. Tôi dặn các em một quy tắc sống: **khẳng định thì a lot of, hỏi và phủ định thì much/many**. Mỗi lần đi chợ, hãy tự hỏi thầm bằng tiếng Anh từng món: How many tomatoes? How much rice? Chỉ cần một tháng như vậy, phản xạ đếm được hay không đếm được sẽ thành tự nhiên."),
+      teacher("Học viên của tôi hay hỏi: “Sao câu khẳng định dùng much lại nghe sai?”. Không hẳn sai, nhưng nghe cứng và trang trọng như văn viết, người ta hầu như không nói vậy. Tôi dặn các bạn một quy tắc sống: **khẳng định thì a lot of, hỏi và phủ định thì much/many**. Mỗi lần đi chợ, các bạn hãy tự hỏi thầm bằng tiếng Anh từng món: How many tomatoes? How much rice? Chỉ cần một tháng như vậy, phản xạ đếm được hay không đếm được sẽ thành tự nhiên."),
     ],
   },
   words: [

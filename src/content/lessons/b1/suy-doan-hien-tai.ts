@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Động từ khuyết thiếu chỉ sự suy đoán ở hiện tại",
     blocks: [
-      p("Đồng nghiệp nhìn đồng hồ, ngáp liên tục, mắt thâm quầng. Bạn nghĩ: “Chắc là anh ấy mệt lắm.” Khi **không biết chắc** mà phải **đoán dựa trên dấu hiệu**, tiếng Anh dùng các động từ khuyết thiếu: **must**, **might**, **could**, **can't**. Mỗi từ cho biết bạn chắc chắn đến mức nào."),
+      p("Đồng nghiệp nhìn đồng hồ, ngáp liên tục, mắt thâm quầng. Bạn nghĩ: “Chắc là anh ấy mệt lắm.” Khi **không biết chắc** mà phải **đoán dựa trên dấu hiệu**, tiếng Anh dùng các động từ khuyết thiếu: **must**, **might**, **could**, **can't**. Mỗi từ cho biết bạn chắc chắn đến mức nào. Ở A2, bạn đã gặp must với nghĩa “phải” và might để dự đoán tương lai; hôm nay chúng mang một nghĩa mới: **đoán về hiện tại**."),
       table(
         ["Mức độ chắc chắn", "Cấu trúc", "Nghĩa", "Ví dụ"],
         ["Gần như chắc chắn đúng", "must + V", "chắc hẳn là", "He must be tired."],
@@ -24,7 +24,7 @@ export default lesson({
       mistake("He mustn't be at home. His car isn't here.", "He can't be at home. His car isn't here.", "Người Việt nghĩ ngược của must là mustn't. Nhưng mustn't nghĩa là “cấm, không được phép”. Đoán phủ định phải dùng can't."),
       mistake("She maybe is at the office.", "She may be at the office. / Maybe she is at the office.", "Maybe (một từ) là trạng từ, thường đứng đầu câu. May be (hai từ) là động từ khuyết thiếu + be, đứng sau chủ ngữ. Tiếng Việt chỉ có một chữ “có lẽ” nên người Việt hay trộn hai cách."),
       mistake("You must to be tired.", "You must be tired.", "Sau must, might, could, can't là động từ nguyên mẫu không có to."),
-      teacher("Nhiều năm đứng lớp, thầy thấy học trò Việt chỉ biết must với nghĩa “phải”, nên nghe câu **You must be Lan's mother** thì tưởng người ta đang ra lệnh. Thật ra đó là câu đoán rất lịch sự: “Chắc chị là mẹ của Lan.” Bài tập mỗi ngày của thầy: ngồi quán cà phê, nhìn người qua đường và thầm đoán bằng ba mức. **She must be a teacher. He might be a tourist. They can't be students.** Luyện năm phút mỗi ngày, phản xạ sẽ tự đến."),
+      teacher("Nhiều năm đứng lớp, tôi thấy người học Việt Nam chỉ biết must với nghĩa “phải”, nên nghe câu **You must be Lan's mother** thì tưởng người ta đang ra lệnh. Thật ra đó là câu đoán rất lịch sự: “Chắc chị là mẹ của Lan.” Bài tập mỗi ngày tôi giao cho các bạn: ngồi quán cà phê, nhìn người qua đường và thầm đoán bằng ba mức. **She must be a teacher. He might be a tourist. They can't be students.** Luyện năm phút mỗi ngày, phản xạ sẽ tự đến."),
     ],
   },
   words: [

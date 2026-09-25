@@ -33,7 +33,7 @@ export default lesson({
       mistake("I every day drink coffee.", "I drink coffee every day.", "Tiếng Việt nói “tôi ngày nào cũng uống cà phê”, nên người Việt hay nhét every day vào giữa. Cụm tần suất đứng ở cuối câu, khác với always, usually đứng trước động từ."),
       ex("How often does your son play badminton? Every Saturday.", "Con trai bạn chơi cầu lông bao lâu một lần? Thứ Bảy nào cũng chơi."),
       tip("Trong câu hỏi, **do** và **does** được đọc rất nhẹ và nhanh, gần như dính vào từ sau: What do you do? nghe như /wɒt də jə duː/. Bạn không cần đọc to do, nhưng đừng bỏ nó đi."),
-      teacher("Có một bài tập tôi giao cho mọi lớp A1 suốt mấy chục năm: mỗi em hỏi **năm câu** về thói quen của một người thân rồi ghi lại câu trả lời. Where does my mother go every morning? What time does my father have dinner? Hỏi về người thật thì các em phải dùng **does** thật, và chỉ sau một tuần, lỗi quên does giảm hẳn."),
+      teacher("Có một bài tập tôi giao cho mọi lớp A1 suốt mấy chục năm: mỗi bạn hỏi **năm câu** về thói quen của một người thân rồi ghi lại câu trả lời. Where does my mother go every morning? What time does my father have dinner? Hỏi về người thật thì các bạn phải dùng **does** thật, và chỉ sau một tuần, lỗi quên does giảm hẳn."),
     ],
   },
   words: [

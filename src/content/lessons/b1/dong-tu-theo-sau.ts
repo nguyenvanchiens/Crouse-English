@@ -28,10 +28,12 @@ export default lesson({
       ),
       ex("He left without saying goodbye.", "Anh ấy bỏ đi mà không chào một tiếng."),
       tip("Mẹo nhớ: các động từ đi với **to V** thường hướng về **tương lai**, chuyện chưa làm (want, hope, plan, decide, promise). Các động từ đi với **V-ing** thường nói về **việc đang có, đang trải qua** (enjoy, finish, avoid, mind). Mẹo này đúng với phần lớn trường hợp, không phải tất cả, nên vẫn cần học thuộc danh sách."),
+      p("Nhờ nhóm động từ đi với to V, bạn nói được về **ước mơ, hy vọng và dự định** của mình: **My dream is to…** (ước mơ của tôi là…), **I hope to…**, **I'd love to…**, **I'm planning to…**. Nếu kế hoạch còn đang cân nhắc, dùng **I'm thinking of + V-ing** hoặc **I'm considering + V-ing**. Of là giới từ, nên theo sau là V-ing."),
+      ex("My dream is to open a small café by the sea. I'm thinking of taking a business course first.", "Ước mơ của tôi là mở một quán cà phê nhỏ bên bờ biển. Tôi đang tính học một khóa kinh doanh trước.", "My dream is + to V để nói ước mơ; think of + V-ing để nói dự định còn đang cân nhắc."),
       mistake("I enjoy to cook Vietnamese food.", "I enjoy cooking Vietnamese food.", "Tiếng Việt không đổi hình thức động từ nên người Việt hay chọn đại to V. Enjoy luôn đi với V-ing."),
       mistake("I look forward to hear from you.", "I look forward to hearing from you.", "Chữ to ở đây là giới từ, không phải to của động từ nguyên mẫu, nên theo sau phải là V-ing. Đây là lỗi rất hay gặp trong email công việc."),
       mistake("She decided going home early.", "She decided to go home early.", "Decide luôn đi với to V."),
-      teacher("Thầy dạy nửa thế kỷ và chưa thấy ai nhớ được danh sách này bằng cách chép một trăm lần. Cách hiệu quả là **học động từ kèm luôn cái đuôi**: đừng học enjoy, hãy học **enjoy doing**; đừng học decide, hãy học **decide to do**. Viết vào sổ tay đúng như vậy. Mỗi khi viết email, trước khi gửi hãy dò lại những chữ look forward to, thank you for, interested in, xem sau chúng đã là V-ing chưa. Thói quen nhỏ này giúp bạn tránh một lỗi mà sếp nước ngoài nhìn thấy ngay."),
+      teacher("Tôi dạy nửa thế kỷ và chưa thấy ai nhớ được danh sách này bằng cách chép một trăm lần. Cách hiệu quả là **học động từ kèm luôn cái đuôi**: đừng học enjoy, hãy học **enjoy doing**; đừng học decide, hãy học **decide to do**. Các bạn viết vào sổ tay đúng như vậy. Mỗi khi viết email, trước khi gửi hãy dò lại những chữ look forward to, thank you for, interested in, xem sau chúng đã là V-ing chưa. Thói quen nhỏ này giúp các bạn tránh một lỗi mà sếp nước ngoài nhìn thấy ngay."),
     ],
   },
   words: [
@@ -56,7 +58,7 @@ export default lesson({
   ],
   speaking: [
     say("I enjoy walking in the park after dinner.", "Tôi thích đi dạo trong công viên sau bữa tối."),
-    say("I've decided to study English every day.", "Tôi đã quyết định học tiếng Anh mỗi ngày."),
+    say("My dream is to open a small café by the sea.", "Ước mơ của tôi là mở một quán cà phê nhỏ bên bờ biển."),
     say("Thank you for helping me with my homework.", "Cảm ơn bạn đã giúp tôi làm bài tập."),
   ],
 });

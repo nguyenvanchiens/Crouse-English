@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Bị động với hiện tại hoàn thành, tương lai, động từ khuyết thiếu và have something done",
     blocks: [
-      p("Sáng thứ Hai, bạn mở email công ty: “The meeting **has been cancelled**.” Trên cửa thang máy dán tờ giấy: “This lift **will be repaired** tomorrow.” Ở quầy lễ tân: “Bags **must be left** here.” Bài trước bạn đã học bị động ở hiện tại đơn và quá khứ đơn. Hôm nay ta mở rộng ra các thì khác, vì thông báo, tin tức và biển báo dùng chúng hằng ngày."),
+      p("Sáng thứ Hai, bạn mở email công ty: “The meeting **has been cancelled**.” Trên cửa thang máy dán tờ giấy: “This lift **will be repaired** tomorrow.” Ở quầy lễ tân: “Bags **must be left** here.” Ở bài trước (Tin tức và sự việc), bạn đã học bị động ở hiện tại đơn và quá khứ đơn. Hôm nay ta mở rộng ra các thì khác, vì thông báo, tin tức và biển báo dùng chúng hằng ngày."),
       p("Nguyên tắc chỉ có một: **be** luôn đứng trước **V3**, và chính chữ be này được chia theo thì. Phần V3 không bao giờ thay đổi."),
       table(
         ["Thì hoặc dạng", "Cấu trúc bị động", "Ví dụ"],
@@ -33,7 +33,7 @@ export default lesson({
       mistake("This form must be fill in before Friday.", "This form must be filled in before Friday.", "Sau be luôn là V3. Nhiều bạn nhớ quy tắc “sau must là động từ nguyên mẫu” nên dùng fill, nhưng động từ nguyên mẫu ở đây chính là be."),
       mistake("I cut my hair yesterday. (ý là đi tiệm)", "I had my hair cut yesterday.", "Tiếng Việt nói “hôm qua tôi cắt tóc” dù thợ cắt cho mình. Tiếng Anh I cut my hair nghĩa là tự tay cắt. Muốn nói thuê người làm, dùng have something done."),
       tip("Sau **can, must, should, will**, chữ be **luôn giữ nguyên là be**: must be done, will be done. Không bao giờ viết must is done hay will been done. Khi nói nhanh, been đọc nhẹ thành /bɪn/, đừng kéo dài thành “biiin”."),
-      teacher("Sau 50 năm dạy, tôi có một mẹo cho học trò kiểm tra câu bị động: **đếm xem có đủ hai mảnh chưa**, một mảnh be đã chia (is, has been, will be, must be) và một mảnh V3. Thiếu một mảnh là sai. Các em hãy chụp ảnh ba tấm biển thông báo bằng tiếng Anh ở sân bay, khách sạn hay siêu thị, rồi gạch chân hai mảnh đó. Nhìn thật nhiều là tự khắc viết đúng."),
+      teacher("Sau nhiều năm dạy, tôi có một mẹo để các bạn kiểm tra câu bị động: **đếm xem có đủ hai mảnh chưa**, một mảnh be đã chia (is, has been, will be, must be) và một mảnh V3. Thiếu một mảnh là sai. Các bạn hãy chụp ảnh ba tấm biển thông báo bằng tiếng Anh ở sân bay, khách sạn hay siêu thị, rồi gạch chân hai mảnh đó. Nhìn thật nhiều là tự khắc viết đúng."),
     ],
   },
   words: [

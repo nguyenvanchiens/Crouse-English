@@ -37,7 +37,7 @@ export default lesson({
       ),
       mistake("Do you like cooking? Yes, I like.", "Do you like cooking? Yes, I do.", "Tiếng Việt trả lời “Có, tôi thích”, nên người Việt hay đáp Yes, I like. Tiếng Anh không để like đứng trơ trọi ở cuối; câu trả lời ngắn chỉ cần Yes, I do."),
       tip("Đuôi **-ing** đọc là /ɪŋ/: kết thúc bằng âm mũi ở cuống lưỡi, gần giống vần “inh” của tiếng Việt, nhưng **không bật thành /k/**: swimming là /ˈswɪm.ɪŋ/, không phải “xuy-mink”."),
-      teacher("Học trò hay hỏi tôi: thầy ơi, sao em nói mãi vẫn quên -ing? Tôi luôn trả lời: vì các em học quy tắc mà không học **cả cụm**. Hãy viết ra năm sở thích thật của chính mình dưới dạng cụm hoàn chỉnh: **I love cooking. I enjoy walking. I hate waiting.** Dán lên tủ lạnh, mỗi lần mở tủ đọc to một câu. Câu nói về chính mình thì nhớ lâu gấp mười câu trong sách."),
+      teacher("Nhiều bạn học viên hỏi tôi: sao nói mãi vẫn quên -ing? Tôi luôn trả lời: vì các bạn học quy tắc mà không học **cả cụm**. Các bạn hãy viết ra năm sở thích thật của chính mình dưới dạng cụm hoàn chỉnh: **I love cooking. I enjoy walking. I hate waiting.** Dán lên tủ lạnh, mỗi lần mở tủ đọc to một câu. Câu nói về chính mình thì nhớ lâu gấp mười câu trong sách."),
     ],
   },
   words: [
