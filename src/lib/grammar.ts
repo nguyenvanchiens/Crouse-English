@@ -1,4 +1,4 @@
-import type { Course, Level } from "@/content/types";
+import type { Course, LectureStep, Level } from "@/content/types";
 
 export interface GrammarEntry {
   courseSlug: string;
@@ -16,19 +16,22 @@ export function grammarIndex(courses: Course[]): GrammarEntry[] {
     .filter((c) => c.status === "open")
     .flatMap((c) =>
       c.modules.flatMap((m) =>
-        m.lessons.flatMap((l) =>
-          l.steps
-            .filter((s) => s.type === "lecture")
-            .map((s) => ({
+        m.lessons.flatMap((l) => {
+          // one entry per lesson: the handbook page shows the lesson's first lecture
+          const lecture = l.steps.find((s): s is LectureStep => s.type === "lecture");
+          if (!lecture) return [];
+          return [
+            {
               courseSlug: c.slug,
               courseTitle: c.title,
               level: c.level,
               chapterTitle: m.title,
               lessonSlug: l.slug,
               lessonTitle: l.title,
-              lectureTitle: s.type === "lecture" ? s.title : "",
-            })),
-        ),
+              lectureTitle: lecture.title,
+            },
+          ];
+        }),
       ),
     );
 }

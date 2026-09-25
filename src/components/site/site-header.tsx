@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { UserRound } from "lucide-react";
+import { BookText, UserRound } from "lucide-react";
 import { Logo } from "./logo";
 
 const NAV = [
@@ -22,6 +22,13 @@ export function SiteHeader() {
           ))}
         </ul>
         <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            href="/ngu-phap"
+            aria-label="Sổ tay ngữ pháp"
+            className="grid size-11 place-items-center rounded-full border-2 border-ink bg-card hover:bg-sun-soft md:hidden"
+          >
+            <BookText className="size-5" aria-hidden />
+          </Link>
           <Link
             href="/cua-toi"
             aria-label="Khóa học của tôi"

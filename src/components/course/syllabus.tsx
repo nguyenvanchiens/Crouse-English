@@ -19,7 +19,10 @@ export function Syllabus({ course }: { course: Course }) {
               <span className="block text-sm font-semibold text-ink-soft">Chương {mi + 1}</span>
               <span className="block font-display text-xl font-bold">{m.title}</span>
             </span>
-            <span className="text-sm font-semibold text-ink-soft">{m.lessons.length} bài</span>
+            <span className="text-sm font-semibold text-ink-soft">
+              {m.lessons.filter((l) => !l.review).length} bài học
+              {m.lessons.some((l) => l.review) ? ", 1 bài ôn tập" : ""}
+            </span>
           </summary>
           <ul className="border-t-2 border-ink/15 px-3 py-3">
             {m.lessons.map((l) => {
