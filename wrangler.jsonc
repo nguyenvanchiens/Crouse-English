@@ -1,0 +1,11 @@
+{
+  // Static site: `npm run build` writes the whole site to ./out (next.config.ts: output "export").
+  // Cloudflare serves it as static assets — no Worker code, no server.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "crouse-english",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
