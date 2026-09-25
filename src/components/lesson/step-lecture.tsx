@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Lightbulb, TriangleAlert, Volume2 } from "lucide-react";
+import { Check, GraduationCap, Lightbulb, TriangleAlert, Volume2 } from "lucide-react";
 import type { LectureBlock, LectureStep } from "@/content/types";
 import { parseBold } from "@/lib/rich-text";
 import { speak, useSpeechSupport } from "@/lib/speech";
@@ -87,6 +87,18 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
           </p>
         </div>
       );
+    case "teacher":
+      return (
+        <aside className="rounded-2xl border-[2.5px] border-ink bg-grape-soft px-5 py-4">
+          <p className="flex items-center gap-2 font-display font-bold">
+            <GraduationCap className="size-5" aria-hidden />
+            Kinh nghiệm của thầy cô
+          </p>
+          <p className="mt-2 leading-relaxed">
+            <Rich text={block.body} />
+          </p>
+        </aside>
+      );
     case "mistake":
       return (
         <div className="rounded-2xl border-2 border-ink bg-card px-4 py-3">
@@ -108,16 +120,26 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
   }
 }
 
-export function StepLecture({ step, done, onComplete }: { step: LectureStep; done: boolean; onComplete: () => void }) {
+/** A lecture's title and blocks; shared by the lesson player and the grammar handbook. */
+export function LectureContent({ step, headingLevel = 2 }: { step: LectureStep; headingLevel?: 1 | 2 }) {
   const { tts } = useSpeechSupport();
+  const Heading = headingLevel === 1 ? "h1" : "h2";
   return (
-    <article className="clay p-6 sm:p-8">
-      <h2 className="font-display text-3xl font-extrabold leading-tight">{step.title}</h2>
+    <>
+      <Heading className="font-display text-3xl font-extrabold leading-tight">{step.title}</Heading>
       <div className="mt-6 space-y-5">
         {step.blocks.map((b, i) => (
           <Block key={i} block={b} tts={tts} />
         ))}
       </div>
+    </>
+  );
+}
+
+export function StepLecture({ step, done, onComplete }: { step: LectureStep; done: boolean; onComplete: () => void }) {
+  return (
+    <article className="clay p-6 sm:p-8">
+      <LectureContent step={step} />
       <button type="button" className="btn btn-ghost mt-8" onClick={onComplete} disabled={done}>
         {done && <Check className="size-5 text-leaf" aria-hidden />}
         Đã đọc xong

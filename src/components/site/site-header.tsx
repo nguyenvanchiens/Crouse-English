@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { BookText, UserRound } from "lucide-react";
 import { Logo } from "./logo";
 
 const NAV = [
   { href: "/khoa-hoc", label: "Khóa học" },
+  { href: "/ngu-phap", label: "Ngữ pháp" },
   { href: "/kiem-tra-trinh-do", label: "Kiểm tra trình độ" },
   { href: "/cua-toi", label: "Khóa học của tôi" },
 ];
@@ -19,10 +21,24 @@ export function SiteHeader() {
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-3">
-          <Link href="/cua-toi" className="whitespace-nowrap font-semibold hover:text-tangerine-deep md:hidden">Của tôi</Link>
-          <Link href="/hoc/tieng-anh-a1/chao-hoi-va-gioi-thieu" className="btn btn-primary min-h-11 whitespace-nowrap px-4 text-base">
-            Bắt đầu học
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            href="/ngu-phap"
+            aria-label="Sổ tay ngữ pháp"
+            className="grid size-11 place-items-center rounded-full border-2 border-ink bg-card hover:bg-sun-soft md:hidden"
+          >
+            <BookText className="size-5" aria-hidden />
+          </Link>
+          <Link
+            href="/cua-toi"
+            aria-label="Khóa học của tôi"
+            className="grid size-11 place-items-center rounded-full border-2 border-ink bg-card hover:bg-sun-soft md:hidden"
+          >
+            <UserRound className="size-5" aria-hidden />
+          </Link>
+          <Link href="/hoc/tieng-anh-a1/chao-hoi-va-gioi-thieu" className="btn btn-primary min-h-11 whitespace-nowrap px-3 text-base sm:px-4">
+            <span className="sm:hidden">Học ngay</span>
+            <span className="hidden sm:inline">Bắt đầu từ A1</span>
           </Link>
         </div>
       </nav>

@@ -1,0 +1,61 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "hien-tai-hoan-thanh-tiep-dien",
+  title: "Đã và đang làm gì đó",
+  minutes: 22,
+  lecture: {
+    title: "Hiện tại hoàn thành tiếp diễn: have been + V-ing",
+    blocks: [
+      p("Bạn hẹn bạn bè ở quán cà phê, đợi mãi không thấy ai đến, rồi gọi điện: “Tớ **đợi** cậu **bốn mươi phút rồi** đấy!” Việc đợi bắt đầu từ trước, **kéo dài liên tục** và **bây giờ vẫn đang đợi**. Để nhấn mạnh quá trình kéo dài này, tiếng Anh dùng **hiện tại hoàn thành tiếp diễn**: have / has been + V-ing."),
+      table(
+        ["Dạng", "Cấu trúc", "Ví dụ"],
+        ["Khẳng định", "S + have / has been + V-ing", "I've been waiting for forty minutes."],
+        ["Phủ định", "S + haven't / hasn't been + V-ing", "She hasn't been sleeping well."],
+        ["Nghi vấn", "Have / Has + S + been + V-ing?", "How long have you been waiting?"],
+      ),
+      ex("I've been learning English for three years.", "Tôi học tiếng Anh được ba năm rồi.", "Bắt đầu từ ba năm trước và vẫn đang học."),
+      ex("It has been raining since this morning.", "Trời mưa từ sáng đến giờ."),
+      ex("How long have you been living in Saigon?", "Bạn sống ở Sài Gòn được bao lâu rồi?"),
+      p("Thì này còn dùng khi ta **nhìn thấy dấu vết** của một việc vừa làm liên tục, dù việc đó có thể vừa dừng lại."),
+      ex("Your eyes are red. Have you been crying?", "Mắt bạn đỏ quá. Bạn vừa khóc à?", "Người nói thấy dấu vết (mắt đỏ) nên đoán về hoạt động vừa diễn ra."),
+      table(
+        ["Hiện tại hoàn thành tiếp diễn", "Hiện tại hoàn thành đơn"],
+        ["Nhấn mạnh hoạt động, quá trình kéo dài", "Nhấn mạnh kết quả, việc đã xong"],
+        ["I've been painting the kitchen. (người dính sơn, có thể chưa xong)", "I've painted the kitchen. (bếp đã sơn xong)"],
+        ["Trả lời How long…? (bao lâu)", "Trả lời How many / How much…? (bao nhiêu)"],
+        ["I've been writing emails all morning.", "I've written ten emails this morning."],
+      ),
+      tip("Có **con số đếm được** (ten emails, three cups, two books) thì dùng hiện tại hoàn thành đơn. Có **khoảng thời gian** (all morning, for two hours) thì nghĩ đến have been + V-ing. Mẹo phát âm: khi nói nhanh, **been** đọc yếu thành /bɪn/, và I've been nghe như “ai-vbin”."),
+      mistake("I'm learning English for three years.", "I've been learning English for three years.", "Tiếng Việt chỉ nói “tôi học tiếng Anh ba năm rồi”, không đổi động từ, nên người Việt hay dùng hiện tại tiếp diễn. Việc bắt đầu từ quá khứ và kéo dài đến giờ cần have been + V-ing."),
+      mistake("I've been knowing her since high school.", "I've known her since high school.", "Know, like, want, believe, own là động từ chỉ trạng thái, không dùng dạng tiếp diễn. Với chúng, dùng hiện tại hoàn thành đơn."),
+      mistake("I've been drinking three cups of coffee today.", "I've drunk three cups of coffee today.", "Có con số cụ thể (three cups) là nói kết quả, nên dùng hiện tại hoàn thành đơn."),
+      teacher("Học trò hay hỏi thầy: “Vậy I've lived here for five years và I've been living here for five years khác gì nhau?” Với những động từ như live, work, study, hai câu gần như **cùng nghĩa**, đừng lo chọn sai. Cái bẫy thật sự nằm ở hai chỗ: quên **been**, và dùng thì này với động từ trạng thái như know. Cách luyện của thầy: mỗi sáng tự hỏi mình một câu **How long have I been…?** rồi trả lời thành tiếng. I've been working at this company for two years. I've been reading this book since Sunday."),
+    ],
+  },
+  words: [
+    word("exhausted", "/ɪɡˈzɔː.stɪd/", "kiệt sức", "I'm exhausted. I've been working since six o'clock.", "ex|haus|ted", 1, "Chữ h không đọc, x đọc là /ɡz/: ig-ZOR-stid."),
+    word("queue", "/kjuː/", "hàng người xếp hàng; xếp hàng", "We've been standing in this queue for half an hour.", "queue", 0, "Đọc giống hệt chữ cái Q. Bốn chữ ueue phía sau không đọc riêng."),
+    word("practise", "/ˈpræk.tɪs/", "luyện tập", "She has been practising the piano every evening.", "prac|tise", 0, "Tiếng Anh-Anh viết practise cho động từ, practice cho danh từ."),
+    word("traffic", "/ˈtræf.ɪk/", "giao thông, xe cộ", "Sorry I'm late. I've been sitting in traffic for an hour.", "traf|fic", 0),
+    word("project", "/ˈprɒdʒ.ekt/", "dự án", "We've been working on this project since March.", "proj|ect", 0, "Danh từ nhấn âm đầu: PRO-ject."),
+    word("research", "/rɪˈsɜːtʃ/", "nghiên cứu", "He has been doing research on rice farming.", "re|search", 1),
+    word("stressed", "/strest/", "căng thẳng", "She's been feeling stressed lately.", "stressed", 0, "Đuôi -ed đọc là /t/, cả từ chỉ một âm tiết: /strest/."),
+    word("revise", "/rɪˈvaɪz/", "ôn bài, ôn tập", "I've been revising for my exam all week.", "re|vise", 1),
+  ],
+  exercises: [
+    mc("b1-n04-1", "I ___ for you for forty minutes! Where are you?", ["wait", "am waiting", "have been waiting", "had waited"], 2, "Việc đợi bắt đầu từ trước, kéo dài đến giờ và vẫn đang đợi: have been waiting."),
+    mc("b1-n04-2", "I ___ three emails this morning.", ["have been writing", "have written", "am writing"], 1, "Có con số cụ thể (three emails) là nói kết quả đã xong, nên dùng hiện tại hoàn thành đơn: have written."),
+    fill("b1-n04-3", "She has been ___ English since she was ten. (learn)", ["learning"], "Has been + V-ing: learning."),
+    fill("b1-n04-4", "How long ___ you been living here?", ["have"], "Câu hỏi: How long + have + you + been + V-ing."),
+    reorder("b1-n04-5", "How long have you been waiting for the bus?", "How long đứng đầu, sau đó là have + you + been + waiting, cụm for the bus ở cuối."),
+    reorder("b1-n04-6", "What have you been doing all day?", "Hỏi về hoạt động kéo dài suốt cả ngày: What + have + you + been + doing."),
+    listen("b1-n04-7", "I've been cleaning the house all morning.", ["Tôi dọn nhà cả buổi sáng nay.", "Sáng mai tôi sẽ dọn nhà.", "Tôi dọn nhà vào mỗi buổi sáng."], 0, "I've been cleaning + all morning: hoạt động kéo dài suốt buổi sáng đến giờ."),
+    listen("b1-n04-8", "We've been waiting for an hour, but the doctor hasn't come yet.", ["Bác sĩ đến muộn một tiếng nên chúng tôi đã về.", "Chúng tôi sẽ gặp bác sĩ sau một tiếng nữa.", "Chúng tôi đợi một tiếng rồi mà bác sĩ vẫn chưa đến."], 2, "Have been waiting: vẫn đang đợi; hasn't come yet: vẫn chưa đến."),
+  ],
+  speaking: [
+    say("I've been learning English for two years.", "Tôi học tiếng Anh được hai năm rồi."),
+    say("How long have you been waiting?", "Bạn đợi được bao lâu rồi?"),
+    say("We've been working on this project since Monday.", "Chúng tôi làm dự án này từ thứ Hai đến giờ."),
+  ],
+});

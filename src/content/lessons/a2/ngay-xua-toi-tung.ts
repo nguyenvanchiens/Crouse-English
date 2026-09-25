@@ -1,0 +1,61 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "ngay-xua-toi-tung",
+  title: "Ngày xưa tôi từng…",
+  minutes: 20,
+  lecture: {
+    title: "Used to: thói quen và trạng thái trong quá khứ",
+    blocks: [
+      p("Gặp lại bạn cũ, lật album ảnh gia đình, hay kể cho khách nước ngoài nghe Hà Nội ba mươi năm trước, ta hay nói “Ngày xưa tôi hay…”, “Hồi đó ở đây từng có…”. Tiếng Anh có một cấu trúc chuyên cho việc này: **used to + động từ nguyên mẫu**. Nó cho người nghe biết: **chuyện đó kéo dài một thời gian trong quá khứ, còn bây giờ thì không còn nữa**."),
+      table(
+        ["Thể", "Cấu trúc", "Ví dụ"],
+        ["Khẳng định", "chủ ngữ + used to + V", "I used to live in Hue."],
+        ["Phủ định", "chủ ngữ + didn't use to + V", "I didn't use to like vegetables."],
+        ["Nghi vấn", "Did + chủ ngữ + use to + V?", "Did you use to walk to school?"],
+        ["Trả lời ngắn", "Yes, I did. / No, I didn't.", "Yes, I did. It was very far."],
+      ),
+      p("Used to dùng cho hai loại chuyện: **thói quen lặp đi lặp lại** (ngày xưa hay làm) và **trạng thái kéo dài** (ngày xưa từng là, từng có, từng thích). Chủ ngữ nào cũng dùng used to, không đổi theo ngôi."),
+      ex("I used to ride my bike to school.", "Ngày xưa tôi hay đạp xe đi học."),
+      ex("There used to be a big market here.", "Ở đây ngày xưa từng có một cái chợ lớn.", "There used to be... là câu rất hay dùng khi kể một nơi đã thay đổi so với trước."),
+      ex("Did you use to have long hair?", "Ngày xưa bạn có để tóc dài không?", "Trong câu hỏi và câu phủ định đã có did, nên used to bỏ chữ d thành use to."),
+      ex("My father didn't use to cook, but now he cooks every weekend.", "Ngày xưa bố tôi không nấu ăn, nhưng giờ cuối tuần nào ông cũng nấu."),
+      p("Vậy khi nào dùng **quá khứ đơn**? Khi kể một việc xảy ra **một lần**, hoặc khi nêu rõ **mấy lần, bao lâu, lúc nào**. Used to không đi với số lần cụ thể."),
+      table(
+        ["Quá khứ đơn", "Used to"],
+        ["I went to Da Lat last year. (một chuyến cụ thể)", "I used to go to Da Lat every summer. (thói quen, giờ không còn)"],
+        ["I visited my aunt three times in May. (có số lần)", "I used to visit my aunt on Sundays. (hay làm)"],
+        ["I lived in Hue for ten years. (nêu rõ bao lâu)", "I used to live in Hue. (trước kia, giờ không ở đó nữa)"],
+      ),
+      tip("Used to đọc là **/ˈjuːs.tə/**, nghe như “diu-xtơ”: chữ s đọc là /s/ chứ không phải /z/, chữ d gần như không nghe thấy. Nó khác với động từ use /juːz/ nghĩa là sử dụng."),
+      mistake("I use to play football when I was a child.", "I used to play football when I was a child.", "Vì chữ d không nghe rõ khi nói, học trò hay viết thiếu. Nói về quá khứ ở câu khẳng định thì phải là used to."),
+      mistake("Did you used to live here?", "Did you use to live here?", "Giống như didn't went là sai: did đã báo quá khứ rồi, nên used to bỏ d thành use to."),
+      mistake("Now I used to get up at six.", "Now I usually get up at six.", "Tiếng Việt “tôi thường” dùng được cho cả xưa lẫn nay, nên nhiều người lẫn used to với usually. Used to chỉ nói về quá khứ; thói quen hiện tại dùng usually."),
+      teacher("Học trò của tôi hay dịch chữ “từng” thành used to trong mọi câu, kể cả “Tôi từng đi Nhật một lần”. Câu đó phải là quá khứ đơn hoặc hiện tại hoàn thành như bài Bạn đã từng…? Cách tự kiểm tra: thử thêm vào câu tiếng Việt cụm **“ngày xưa hay…, còn bây giờ thì không”**. Nghe hợp nghĩa thì dùng used to. Về nhà, các em lấy một tấm ảnh cũ, nói năm câu I used to... và hai câu I didn't use to... về chính mình hồi đó."),
+    ],
+  },
+  words: [
+    word("childhood", "/ˈtʃaɪld.hʊd/", "thời thơ ấu", "I had a happy childhood in the countryside.", "child|hood", 0),
+    word("village", "/ˈvɪl.ɪdʒ/", "làng", "My grandparents used to live in a small village.", "vil|lage", 0, "Âm cuối là /ɪdʒ/ ngắn, đọc gần như “vi-lịch”. Đừng đọc theo chữ age thành “vi-lây-giơ”."),
+    word("countryside", "/ˈkʌn.tri.saɪd/", "vùng nông thôn", "We used to spend our summers in the countryside.", "coun|try|side", 0),
+    word("neighbour", "/ˈneɪ.bər/", "hàng xóm", "Our neighbours used to give us fruit from their garden.", "neigh|bour", 0, "Chữ gh không đọc: /ˈneɪ.bər/."),
+    word("shy", "/ʃaɪ/", "nhút nhát, ngại ngùng", "I used to be very shy at school.", "shy", 0),
+    word("remember", "/rɪˈmem.bər/", "nhớ", "I remember my first teacher very well.", "re|mem|ber", 1),
+    word("change", "/tʃeɪndʒ/", "thay đổi", "My city has changed a lot.", "change", 0, "Kết thúc bằng âm /dʒ/, nhớ khép răng đọc rõ, đừng nuốt thành “chên”."),
+  ],
+  exercises: [
+    mc("a2-n03-1", "When I was a child, I ___ climb trees in my village.", ["use to", "was use to", "used to", "uses to"], 2, "Câu khẳng định nói về thói quen ngày xưa: used to + động từ nguyên mẫu."),
+    mc("a2-n03-2", "Chọn câu đúng.", ["I used to go to Da Lat three times last year.", "I went to Da Lat three times last year.", "I didn't went to Da Lat last year."], 1, "Có số lần cụ thể (three times) và thời điểm (last year) thì dùng quá khứ đơn, không dùng used to."),
+    fill("a2-n03-3", "My grandfather ___ smoke, but he stopped ten years ago. (từng hay)", ["used to"], "Ông từng có thói quen hút thuốc, giờ đã bỏ: used to smoke."),
+    fill("a2-n03-4", "Did you ___ to walk to school?", ["use"], "Trong câu hỏi đã có did, nên dùng use to, không có d."),
+    reorder("a2-n03-5", "I didn't use to like vegetables.", "Phủ định: didn't use to + động từ nguyên mẫu."),
+    reorder("a2-n03-6", "Did you use to live in the countryside?", "Nghi vấn: Did + chủ ngữ + use to + động từ nguyên mẫu."),
+    listen("a2-n03-7", "There used to be a big tree in front of my house.", ["Trước nhà tôi ngày xưa từng có một cái cây to.", "Trước nhà tôi sẽ có một cái cây to.", "Trước nhà tôi bây giờ có một cái cây to."], 0, "There used to be nghĩa là ngày xưa từng có, bây giờ không còn."),
+    listen("a2-n03-8", "She didn't use to be shy.", ["Ngày xưa cô ấy rất nhút nhát.", "Bây giờ cô ấy không còn nhút nhát.", "Ngày xưa cô ấy đâu có nhút nhát."], 2, "Didn't use to be: ngày xưa không phải như vậy. Hàm ý là bây giờ cô ấy lại nhút nhát."),
+  ],
+  speaking: [
+    say("I used to live in a small village.", "Ngày xưa tôi sống ở một ngôi làng nhỏ."),
+    say("I didn't use to like coffee, but now I love it.", "Ngày xưa tôi không thích cà phê, nhưng giờ tôi mê nó."),
+    say("Did you use to play football when you were a child?", "Hồi nhỏ bạn có hay đá bóng không?"),
+  ],
+});

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Course } from "@/content/types";
+import { lessonCounts } from "@/lib/course-utils";
 import { GOAL_META, LEVEL_LABEL } from "./goal-meta";
 
 export function CourseCard({ course }: { course: Course }) {
@@ -24,7 +25,7 @@ export function CourseCard({ course }: { course: Course }) {
         Trình độ {course.level} ({LEVEL_LABEL[course.level].toLowerCase()}), {course.durationWeeks} tuần
       </p>
       <p className="mt-auto pt-6 font-display text-xl font-bold">
-        {course.status === "open" ? `Miễn phí, ${course.modules.reduce((n, m) => n + m.lessons.length, 0)} bài học` : "Sắp ra mắt"}
+        {course.status === "open" ? `Miễn phí, ${lessonCounts(course).lessons} bài học` : "Sắp ra mắt"}
       </p>
     </Link>
   );

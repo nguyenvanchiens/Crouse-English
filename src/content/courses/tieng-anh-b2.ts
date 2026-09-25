@@ -1,4 +1,15 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, tip, word } from "../builders";
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../builders";
+import nGoiDienVaHopTrucTuyen from "../lessons/b2/goi-dien-va-hop-truc-tuyen";
+import nDieuKienNangCao from "../lessons/b2/dieu-kien-nang-cao";
+import nDongTuKhuyetThieuQuaKhu from "../lessons/b2/dong-tu-khuyet-thieu-qua-khu";
+import nGiaDinhKhongThat from "../lessons/b2/gia-dinh-khong-that";
+import nMoTaSoLieu from "../lessons/b2/mo-ta-so-lieu";
+import nTuNoiNangCao from "../lessons/b2/tu-noi-nang-cao";
+import nRutGonMenhDe from "../lessons/b2/rut-gon-menh-de";
+import nMaoTu from "../lessons/b2/mao-tu";
+import nToVHayVIng from "../lessons/b2/to-v-hay-v-ing";
+import nThanPhienVaXuLy from "../lessons/b2/than-phien-va-xu-ly";
+import { chapter } from "../review";
 import type { Course } from "../types";
 
 const vietEmail = lesson({
@@ -8,6 +19,7 @@ const vietEmail = lesson({
   lecture: {
     title: "Văn phong trang trọng và lời đề nghị lịch sự",
     blocks: [
+      p("Chị Thu, nhân viên xuất nhập khẩu ở Hải Phòng, gửi cho đối tác Đức một email chỉ có một dòng: **Send me the price list.** Ba ngày không thấy trả lời. Không phải đối tác bận, mà vì câu ấy đọc lên nghe như **ra lệnh**. Trong tiếng Việt, ta làm mềm bằng “anh ơi”, “giúp em với”; tiếng Anh làm mềm bằng **cấu trúc câu**. Bài này dạy bạn viết một email vừa rõ ràng vừa lịch sự."),
       p("Email công việc bằng tiếng Anh có hai mức văn phong chính: **trang trọng** (gửi đối tác, khách hàng, cấp trên chưa quen) và **trung tính** (gửi đồng nghiệp đã quen). Người Việt hay viết email quá thân mật hoặc dịch từng chữ từ tiếng Việt, khiến câu nghe cộc lốc hoặc ra lệnh."),
       table(
         ["Phần email", "Trang trọng", "Trung tính"],
@@ -17,14 +29,24 @@ const vietEmail = lesson({
         ["Nhắc lại", "I am following up on my email of 3 May.", "Just following up on this."],
         ["Kết thư", "I look forward to hearing from you. Kind regards,", "Speak soon. Best,"],
       ),
-      p("Khi nhờ ai làm gì, đừng dùng câu mệnh lệnh trần như **Send me the file.** Hãy dùng các mẫu lịch sự: **Could you…?**, **Would you mind + V-ing…?**, **I would appreciate it if you could…**"),
+      p("Khi nhờ ai làm gì, đừng dùng câu mệnh lệnh trần như **Send me the file.** Hãy dùng các mẫu lịch sự. Càng xuống dưới bảng, câu càng dài và càng lịch sự; với khách hàng mới hoặc cấp trên, hãy chọn hai dòng cuối."),
+      table(
+        ["Mức độ", "Mẫu câu", "Ví dụ"],
+        ["Ra lệnh (tránh dùng)", "V + tân ngữ", "Send me the file."],
+        ["Lịch sự", "Could you + V…?", "Could you send me the file?"],
+        ["Rất lịch sự", "Would you mind + V-ing…?", "Would you mind sending me the file?"],
+        ["Trang trọng nhất", "I would appreciate it if you could + V…", "I would appreciate it if you could send me the file."],
+      ),
       ex("Could you send me the updated figures by Friday?", "Anh/chị có thể gửi tôi số liệu cập nhật trước thứ Sáu được không?"),
-      ex("I would appreciate it if you could confirm the meeting time.", "Tôi rất cảm kích nếu anh/chị xác nhận giúp thời gian cuộc họp.", "Sau “I would appreciate it if you could” là động từ nguyên mẫu."),
-      ex("Please find attached the signed contract.", "Xin gửi kèm theo đây bản hợp đồng đã ký."),
+      ex("I would appreciate it if you could confirm the meeting time.", "Tôi rất cảm kích nếu anh/chị xác nhận giúp thời gian cuộc họp.", "Sau “I would appreciate it if you could” là động từ nguyên mẫu. Chữ “it” không được bỏ."),
+      ex("Please find attached the signed contract.", "Xin gửi kèm theo đây bản hợp đồng đã ký.", "Đây là cụm cố định có trật tự đặc biệt: attached đứng trước tân ngữ. Cũng có thể viết The signed contract is attached."),
+      ex("Would you mind checking the figures before I send them to the client?", "Anh/chị có phiền kiểm tra giúp các số liệu trước khi tôi gửi cho khách không?", "Would you mind + V-ing. Nghĩa đen là “anh/chị có phiền không”, nên muốn đồng ý thì trả lời “No, not at all.”"),
+      mistake("I look forward to hear from you.", "I look forward to hearing from you.", "Trong cụm look forward to, “to” là giới từ nên động từ phía sau phải thêm -ing. Người Việt quen “to + V” nên hay viết sai câu kết thư quen thuộc nhất này."),
+      mistake("Please send me the file as soon as possible!!!", "Could you send me the file when you have a moment?", "Câu mệnh lệnh kèm “as soon as possible” và nhiều dấu chấm than nghe gấp gáp, thiếu tôn trọng người nhận. Tiếng Việt thêm “ạ”, “giúp em” là đủ mềm, nhưng chữ please trong tiếng Anh không đủ để làm mềm một câu mệnh lệnh."),
+      mistake("Dear Mr John,", "Dear Mr Smith,", "Người Việt quen gọi “anh Minh”, “chị Lan” bằng tên riêng. Trong tiếng Anh, Mr/Ms đi với họ (surname). Nếu muốn gọi tên riêng thì bỏ Mr: Dear John,"),
       tip("Khi nhờ người khác làm gì, **Would you mind** đi với **V-ing**: Would you mind checking this? Nếu đồng ý giúp, người ta trả lời “Not at all”, nghĩa là “Không phiền gì cả”."),
-      mistake("I look forward to hear from you.", "I look forward to hearing from you.", "Trong cụm look forward to, “to” là giới từ nên động từ phía sau phải thêm -ing."),
-      mistake("Please send me the file as soon as possible!!!", "Could you send me the file when you have a moment?", "Câu mệnh lệnh kèm nhiều dấu chấm than nghe như ra lệnh và thiếu tôn trọng người nhận."),
       tip("Khi không biết tên người nhận, dùng **Dear Sir or Madam** hoặc tốt hơn là **Dear Hiring Manager / Dear Customer Service Team**. Không viết “Dear Sir/Madam Lan”."),
+      teacher("Sau năm mươi năm chữa email cho học trò, tôi thấy lỗi lớn nhất không phải ngữ pháp mà là **giọng điệu**. Trước khi bấm gửi, hãy đọc to email lên và tự hỏi: **nếu sếp nói với mình câu này, mình có thấy khó chịu không?** Nếu có, hãy đổi câu mệnh lệnh thành Could you… hoặc I would appreciate it if you could… Mỗi ngày viết lại một email cũ theo cách lịch sự hơn, chỉ một tháng là tay bạn tự viết đúng."),
     ],
   },
   words: [
@@ -41,8 +63,8 @@ const vietEmail = lesson({
     mc("b2-1-1", "Which opening is most suitable for an email to a new client?", ["Hey guys,", "Dear Ms Nguyen,", "Hi mate,"], 1, "Với khách hàng mới, dùng Dear + danh xưng + họ."),
     mc("b2-1-2", "Would you mind ___ the report before the meeting?", ["to check", "check", "checked", "checking"], 3, "Khi nhờ ai làm gì, Would you mind đi với V-ing."),
     fill("b2-1-3", "I look forward to ___ from you.", ["hearing"], "Look forward to + V-ing, vì “to” ở đây là giới từ."),
-    fill("b2-1-4", "Please find ___ the invoice for March.", ["attached"], "Please find attached là cụm cố định khi gửi kèm tài liệu."),
-    reorder("b2-1-5", "I would appreciate it if you could reply soon.", "Mẫu câu đề nghị rất lịch sự: I would appreciate it if you could + V."),
+    fill("b2-1-4", "Please find ___ the invoice for March.", ["attached", "enclosed"], "Please find attached (hoặc enclosed) là cụm cố định khi gửi kèm tài liệu."),
+    reorder("b2-1-5", "Would you mind checking the figures again?", "Would you mind + V-ing: nhờ ai làm gì một cách rất lịch sự. Again đứng cuối câu, sau tân ngữ."),
     reorder("b2-1-6", "I am following up on my previous email.", "Follow up on: nhắc lại, hỏi tiếp về một việc đã gửi trước đó."),
     listen("b2-1-7", "Could you confirm the delivery date by Thursday?", ["Anh/chị đã giao hàng vào thứ Năm chưa?", "Anh/chị có thể xác nhận ngày giao hàng trước thứ Năm không?", "Chúng tôi sẽ giao hàng vào thứ Năm."], 1),
     listen("b2-1-8", "I'm writing to enquire about your training courses.", ["Tôi viết thư để hỏi về các khóa đào tạo của quý công ty.", "Tôi viết thư để đăng ký một khóa đào tạo.", "Tôi viết thư để phàn nàn về khóa đào tạo."], 0, "Enquire about nghĩa là hỏi thông tin về điều gì."),
@@ -61,17 +83,21 @@ const hopThaoLuan = lesson({
   lecture: {
     title: "Suy đoán về quá khứ và xen ngang lịch sự",
     blocks: [
-      p("Trong cuộc họp, ta thường đoán lý do của một sự việc đã xảy ra. Tiếng Anh dùng **modal + have + V3** để suy đoán về quá khứ. Mức độ chắc chắn thể hiện qua việc chọn **must**, **might/may/could** hay **can't**."),
+      p("Chín giờ sáng, cuộc họp online với khách hàng Úc đã bắt đầu mà anh Tuấn chưa vào. Sếp hỏi: **Where's Tuan?** Nhiều bạn sẽ trả lời “Maybe he forget” hoặc chỉ nói “I don't know”. Người đi làm chuyên nghiệp sẽ nói: **He might have forgotten. He must have had a problem with his internet connection.** Đó chính là cách **suy đoán về quá khứ**, một kỹ năng dùng hằng ngày trong họp hành."),
+      p("Tiếng Anh dùng **modal + have + V3** để suy đoán về quá khứ. Mức độ chắc chắn thể hiện qua việc chọn **must**, **might/may/could** hay **can't**."),
       table(
         ["Cấu trúc", "Mức độ chắc chắn", "Ví dụ"],
         ["must have + V3", "Gần như chắc chắn là có", "He must have missed the train."],
         ["might / may / could have + V3", "Có thể đã xảy ra", "She might have forgotten the meeting."],
         ["can't / couldn't have + V3", "Gần như chắc chắn là không", "They can't have received the email."],
       ),
-      ex("The client hasn't replied. They must have been busy.", "Khách hàng chưa trả lời. Chắc hẳn họ đã rất bận."),
-      ex("Tom can't have finished the report already. He only started an hour ago.", "Tom không thể nào đã làm xong báo cáo rồi. Anh ấy mới bắt đầu một tiếng trước."),
-      mistake("He must missed the train.", "He must have missed the train.", "Khi suy đoán về quá khứ phải có “have + V3”. Không có have thì câu sai ngữ pháp."),
+      ex("The client hasn't replied. They must have been busy.", "Khách hàng chưa trả lời. Chắc hẳn họ đã rất bận.", "Been là V3 của be, nên must have been = chắc hẳn đã (ở trạng thái)."),
+      ex("Tom can't have finished the report already. He only started an hour ago.", "Tom không thể nào đã làm xong báo cáo rồi. Anh ấy mới bắt đầu một tiếng trước.", "Câu thứ hai là bằng chứng. Người bản xứ gần như luôn đưa lý do sau lời suy đoán."),
+      ex("She might have sent it to the wrong address.", "Có thể cô ấy đã gửi nhầm địa chỉ.", "Might have, may have và could have gần như cùng nghĩa: có thể đã, nhưng chưa chắc."),
+      mistake("He must missed the train.", "He must have missed the train.", "Tiếng Việt chỉ cần thêm chữ “đã” là thành quá khứ, nên học trò hay quên “have”. Khi suy đoán về quá khứ phải có đủ “have + V3”."),
       mistake("She mustn't have seen the message.", "She can't have seen the message.", "Phủ định của “must have” khi suy đoán là “can't have”. Mustn't nghĩa là “cấm”, không dùng để đoán."),
+      mistake("He must have went home.", "He must have gone home.", "Sau have luôn là V3 (quá khứ phân từ), không phải V2. Tiếng Việt không chia động từ nên người Việt hay lẫn went và gone; hãy học động từ bất quy tắc theo bộ ba: go, went, gone."),
+      tip("Khi nói nhanh, **have** trong cấu trúc này đọc nhẹ thành /əv/: **must have** nghe như “must-tợv” /ˈmʌs.təv/, **might have** nghe như /ˈmaɪ.təv/. Đừng nhấn mạnh chữ have, hãy nhấn vào động từ chính: He must've **missed** it."),
       p("Muốn xen ngang hoặc hỏi lại trong cuộc họp, người Việt hay im lặng hoặc nói thẳng “No, wrong”. Hãy dùng các cụm mềm mỏng sau."),
       table(
         ["Mục đích", "Cụm từ"],
@@ -81,6 +107,7 @@ const hopThaoLuan = lesson({
         ["Kéo về chủ đề", "Let's get back to the main point. / Shall we move on to the next item?"],
       ),
       tip("Khi không nghe rõ, đừng nói **What?**. Hãy nói **Sorry, could you say that again?** hoặc **Sorry, I didn't quite catch that.**"),
+      teacher("Tôi dạy người đi làm đã nhiều thế hệ, và cái bẫy lớn nhất trong họp không phải là thiếu từ, mà là **sợ nói sai nên im lặng**. Người nước ngoài không đánh giá bạn vì một lỗi ngữ pháp, nhưng họ sẽ nghĩ bạn không có ý kiến nếu bạn ngồi im cả buổi. Hãy thuộc lòng ba câu: **Sorry to interrupt, but…**, **Could you clarify that?** và **I'd like to suggest that…** Trước mỗi cuộc họp, tự đặt mục tiêu nói ít nhất một câu. Nói được một câu hôm nay, tuần sau bạn sẽ nói được năm câu."),
     ],
   },
   words: [
@@ -96,9 +123,9 @@ const hopThaoLuan = lesson({
   exercises: [
     mc("b2-2-1", "The lights are off in his office. He ___ gone home.", ["must have", "can't have", "mustn't have"], 0, "Có bằng chứng rõ ràng nên dùng must have: chắc hẳn đã."),
     mc("b2-2-2", "She ___ sent the file. My inbox is empty.", ["must have", "can't have", "should"], 1, "Hộp thư trống nên gần như chắc chắn cô ấy chưa gửi: can't have."),
-    mc("b2-2-3", "Which phrase is the most polite way to interrupt?", ["Stop, listen to me.", "You are wrong.", "Wait, that's not true.", "Sorry to interrupt, but…"], 3),
-    fill("b2-2-4", "I'm not sure why he's late. He might have ___ the bus.", ["missed"], "Sau might have là động từ ở dạng V3 (quá khứ phân từ)."),
-    fill("b2-2-5", "Could you ___ what you mean by “flexible hours”?", ["clarify", "explain"], "Clarify hoặc explain đều dùng để nhờ người khác giải thích rõ hơn."),
+    reorder("b2-2-3", "Could you say that again?", "Cách hỏi lại lịch sự khi chưa nghe rõ, thay cho câu cộc lốc What? Có thể thêm Sorry ở đầu cho mềm hơn."),
+    fill("b2-2-4", "I'm not sure why he's late. He might have ___ the bus. (miss)", ["missed"], "Sau might have là động từ ở dạng V3 (quá khứ phân từ): miss thành missed."),
+    fill("b2-2-5", "Could you ___ what you mean by “flexible hours”? (làm rõ)", ["clarify", "explain"], "Clarify hoặc explain đều dùng để nhờ người khác giải thích rõ hơn."),
     reorder("b2-2-6", "Shall we move on to the next item?", "Câu chuyển sang mục tiếp theo trong chương trình họp."),
     listen("b2-2-7", "Sorry, I didn't quite catch that.", ["Xin lỗi, tôi không đồng ý.", "Xin lỗi, tôi đến muộn.", "Xin lỗi, tôi chưa nghe rõ lắm."], 2, "Catch ở đây nghĩa là nghe kịp, nghe rõ."),
     listen("b2-2-8", "They can't have read the proposal yet.", ["Chắc chắn họ đã đọc bản đề xuất.", "Họ không thể nào đã đọc bản đề xuất rồi.", "Họ không được phép đọc bản đề xuất."], 1),
@@ -117,7 +144,8 @@ const tuongThuat = lesson({
   lecture: {
     title: "Câu tường thuật và lùi thì",
     blocks: [
-      p("Khi kể lại lời người khác trong công việc (báo cáo cho sếp, tóm tắt cuộc họp), ta dùng **câu tường thuật**. Tiếng Việt chỉ cần thêm “anh ấy nói là…”, nhưng tiếng Anh thường phải **lùi thì** một bậc khi động từ tường thuật ở quá khứ."),
+      p("Vừa gặp khách hàng Nhật xong, sếp gọi điện hỏi: **So what did they say?** Bạn phải kể lại: khách nói gì, hỏi gì, yêu cầu gì. Nếu bạn nói “He say he want discount”, sếp vẫn hiểu, nhưng bạn sẽ mất điểm chuyên nghiệp. Kể lại lời người khác cho chính xác là việc người đi làm làm mỗi ngày: báo cáo cho sếp, viết biên bản họp, chuyển lời cho đồng nghiệp."),
+      p("Khi kể lại lời người khác, ta dùng **câu tường thuật**. Tiếng Việt chỉ cần thêm “anh ấy nói là…”, nhưng tiếng Anh thường phải **lùi thì** một bậc khi động từ tường thuật ở quá khứ."),
       table(
         ["Lời nói trực tiếp", "Câu tường thuật"],
         ["“I work in sales.”", "She said (that) she worked in sales."],
@@ -126,14 +154,26 @@ const tuongThuat = lesson({
         ["“I will call you tomorrow.”", "He said he would call me the next day."],
         ["“We can meet on Monday.”", "They said they could meet on Monday."],
       ),
+      p("Khi kể lại vào một thời điểm khác, các từ chỉ **thời gian và nơi chốn** cũng phải đổi theo, vì “hôm nay” của người nói đã không còn là hôm nay nữa."),
+      table(
+        ["Lời nói trực tiếp", "Câu tường thuật"],
+        ["today", "that day"],
+        ["tomorrow", "the next day / the following day"],
+        ["yesterday", "the day before / the previous day"],
+        ["next week", "the following week"],
+        ["here / this", "there / that"],
+      ),
       p("Với câu hỏi, dùng **asked** và đưa câu về **trật tự câu kể** (chủ ngữ đứng trước động từ). Câu hỏi Yes/No dùng **if** hoặc **whether**. Với lời yêu cầu, dùng **asked/told + tân ngữ + to V**."),
-      ex("She asked me where the meeting room was.", "Cô ấy hỏi tôi phòng họp ở đâu.", "Không viết “where was the meeting room”."),
-      ex("The manager asked if we had finished the report.", "Quản lý hỏi chúng tôi đã làm xong báo cáo chưa."),
+      ex("She asked me where the meeting room was.", "Cô ấy hỏi tôi phòng họp ở đâu.", "Câu gốc là “Where is the meeting room?”. Khi tường thuật, không viết “where was the meeting room” mà đưa chủ ngữ lên trước động từ."),
+      ex("The manager asked if we had finished the report.", "Quản lý hỏi chúng tôi đã làm xong báo cáo chưa.", "Câu gốc là “Have you finished the report?”. Câu hỏi Yes/No nên dùng if, và have finished lùi thành had finished."),
       ex("He told me to send the file before noon.", "Anh ấy bảo tôi gửi tệp trước buổi trưa."),
       p("Động từ tường thuật khác **said** giúp câu chính xác hơn: **explain that**, **promise to V**, **suggest + V-ing** hoặc **suggest that + S + V**, **remind + sb + to V**."),
-      mistake("He suggested me to call the client.", "He suggested calling the client.", "Suggest không đi với “sb + to V”. Dùng suggest + V-ing hoặc suggest that I (should) call the client."),
-      mistake("She said me that the price was too high.", "She told me that the price was too high.", "Said không có tân ngữ chỉ người đứng ngay sau. Muốn nói với ai thì dùng told + người."),
+      ex("She reminded me to book the meeting room.", "Cô ấy nhắc tôi đặt phòng họp.", "Remind + người + to V. Một chữ reminded thay được cả câu dài “She said: Don't forget to book the room.”"),
+      mistake("He suggested me to call the client.", "He suggested calling the client.", "Suggest không đi với “sb + to V”. Dùng suggest + V-ing hoặc suggest that I (should) call the client. Người Việt dịch từng chữ “anh ấy gợi ý tôi gọi” nên hay đặt tân ngữ ngay sau suggest."),
+      mistake("She said me that the price was too high.", "She told me that the price was too high.", "Said không có tân ngữ chỉ người đứng ngay sau. Muốn nói với ai thì dùng told + người. Tiếng Việt “nói với tôi” và “bảo tôi” gần giống nhau nên người học hay dùng lẫn."),
+      mistake("He asked me did I finish the report.", "He asked me if I had finished the report.", "Người Việt giữ nguyên câu hỏi vì tiếng Việt chỉ cần thêm “hỏi”. Tiếng Anh phải bỏ trợ động từ did, thêm if và lùi thì."),
       tip("Nếu thông tin **vẫn còn đúng** ở hiện tại, có thể không lùi thì: **She said the office opens at eight.** Nhưng trong văn viết trang trọng, lùi thì vẫn an toàn hơn."),
+      teacher("Học trò của tôi hay cố nhớ cả bảng lùi thì rồi rối tung lên. Tôi dặn thế này: **cứ lùi một bậc về quá khứ**, hiện tại thành quá khứ, quá khứ thành quá khứ hoàn thành, will thành would, can thành could. Mỗi tối, hãy kể lại bằng tiếng Anh ba câu mà ai đó nói với bạn trong ngày, bắt đầu bằng **He said…**, **She asked…**, **My boss told me to…** Làm đều hai tuần, lùi thì sẽ thành phản xạ."),
     ],
   },
   words: [
@@ -150,8 +190,8 @@ const tuongThuat = lesson({
     mc("b2-3-1", "“I am working on the budget.” She said she ___ on the budget.", ["is working", "was working", "has worked"], 1, "Hiện tại tiếp diễn lùi thành quá khứ tiếp diễn."),
     mc("b2-3-2", "Which sentence is correct?", ["He asked me where was the file.", "He asked me where is the file.", "He asked me where the file was.", "He asked me where the file is it."], 2, "Câu hỏi tường thuật dùng trật tự câu kể: chủ ngữ trước động từ."),
     fill("b2-3-3", "“I will finish it tomorrow.” He promised he ___ finish it the next day.", ["would"], "Will lùi thì thành would."),
-    fill("b2-3-4", "She suggested ___ the meeting to Friday.", ["moving", "postponing", "rescheduling", "changing", "shifting", "pushing"], "Suggest + V-ing."),
-    mc("b2-3-5", "The manager ___ us to submit the report by five.", ["said", "suggested", "told"], 2, "Told + người + to V dùng để tường thuật lời yêu cầu."),
+    fill("b2-3-4", "She suggested ___ the meeting to Friday. (dời lịch)", ["moving", "postponing", "rescheduling", "changing", "shifting", "pushing"], "Suggest + V-ing: moving, postponing hay rescheduling đều đúng."),
+    reorder("b2-3-5", "The manager told us to finish the report.", "Told + người + to V dùng để tường thuật lời yêu cầu. Không dùng said us hay suggested us."),
     reorder("b2-3-6", "She asked if I had read the contract.", "Câu hỏi Yes/No trong tường thuật dùng if, và thì hiện tại hoàn thành lùi thành quá khứ hoàn thành."),
     listen("b2-3-7", "He explained that the shipment had been delayed.", ["Anh ấy hỏi vì sao lô hàng bị chậm.", "Anh ấy hứa sẽ giao hàng đúng hạn.", "Anh ấy phàn nàn về lô hàng.", "Anh ấy giải thích rằng lô hàng đã bị chậm."], 3),
     listen("b2-3-8", "She told me not to worry about the deadline.", ["Cô ấy bảo tôi đừng lo về hạn chót.", "Cô ấy lo lắng về hạn chót.", "Cô ấy hỏi tôi về hạn chót."], 0, "Told + người + not to V: bảo ai đừng làm gì."),
@@ -170,7 +210,8 @@ const tiecNuoi = lesson({
   lecture: {
     title: "Câu điều kiện loại 3, câu hỗn hợp và wish",
     blocks: [
-      p("Khi rút kinh nghiệm sau một dự án, ta hay nói “Giá mà…” hoặc “Nếu hồi đó… thì đã…”. Tiếng Anh dùng **câu điều kiện loại 3** để nói về điều **không có thật trong quá khứ** và kết quả tưởng tượng của nó."),
+      p("Dự án ra mắt ứng dụng trễ hạn hai tuần, khách hàng phàn nàn. Trong buổi họp rút kinh nghiệm, trưởng nhóm nói: “Nếu mình kiểm thử sớm hơn thì đã không trễ” và “Giá mà mình đọc kỹ hợp đồng”. Người Việt nói những câu này rất tự nhiên, nhưng sang tiếng Anh lại hay chọn sai thì. Bài này giúp bạn nói về **những điều đã không xảy ra** một cách chính xác."),
+      p("Khi rút kinh nghiệm, ta hay nói “Giá mà…” hoặc “Nếu hồi đó… thì đã…”. Tiếng Anh dùng **câu điều kiện loại 3** để nói về điều **không có thật trong quá khứ** và kết quả tưởng tượng của nó."),
       table(
         ["Loại câu", "Mệnh đề if", "Mệnh đề chính", "Ví dụ"],
         ["Loại 3", "If + had + V3", "would have + V3", "If we had started earlier, we would have met the deadline."],
@@ -180,10 +221,20 @@ const tiecNuoi = lesson({
       ex("If they had tested the software, the launch wouldn't have failed.", "Nếu họ đã kiểm thử phần mềm thì buổi ra mắt đã không thất bại.", "Thực tế: họ không kiểm thử và buổi ra mắt thất bại."),
       ex("If only we had listened to the customers!", "Giá mà chúng ta đã lắng nghe khách hàng!"),
       p("**Câu hỗn hợp** nối một nguyên nhân trong quá khứ với một kết quả ở **hiện tại**: vế if dùng had + V3, vế chính dùng **would + V** (không có have)."),
-      ex("If I had studied finance, I would understand these reports now.", "Nếu hồi đó tôi học tài chính thì bây giờ tôi đã hiểu những báo cáo này."),
-      mistake("If I would have known, I would have told you.", "If I had known, I would have told you.", "Trong câu điều kiện loại 3, không dùng would have ở mệnh đề if. Vế if phải là had + V3."),
-      mistake("I wish I didn't send that email yesterday.", "I wish I hadn't sent that email yesterday.", "Tiếc nuối về quá khứ phải dùng wish + had + V3. Wish + quá khứ đơn chỉ dùng cho hiện tại."),
+      ex("If I had studied finance, I would understand these reports now.", "Nếu hồi đó tôi học tài chính thì bây giờ tôi đã hiểu những báo cáo này.", "Vế if nói về quá khứ (hồi đi học), vế chính nói về hiện tại (now), nên vế chính dùng would + V, không có have."),
+      p("Với **wish**, hãy nhìn xem bạn đang tiếc điều gì ở **hiện tại** hay ở **quá khứ**, rồi lùi thì một bậc so với thực tế."),
+      table(
+        ["Tiếc về", "Thực tế", "Câu với wish"],
+        ["Hiện tại", "I don't speak Japanese.", "I wish I spoke Japanese."],
+        ["Hiện tại", "I can't come to the meeting.", "I wish I could come to the meeting."],
+        ["Quá khứ", "I didn't read the contract carefully.", "I wish I had read the contract carefully."],
+        ["Quá khứ", "We cut the budget.", "I wish we hadn't cut the budget."],
+      ),
+      mistake("If I would have known, I would have told you.", "If I had known, I would have told you.", "Tiếng Việt dùng “thì đã” ở cả hai vế nên học trò hay đặt would have vào cả hai. Trong câu điều kiện loại 3, vế if phải là had + V3, would have chỉ nằm ở vế chính."),
+      mistake("I wish I didn't send that email yesterday.", "I wish I hadn't sent that email yesterday.", "Tiếc nuối về quá khứ phải dùng wish + had + V3. Wish + quá khứ đơn chỉ dùng cho hiện tại. Tiếng Việt không đổi thì nên người học chỉ nhìn chữ yesterday mà quên lùi thì."),
+      mistake("If we had knew the price, we would have ordered more.", "If we had known the price, we would have ordered more.", "Sau had phải là V3. Know, knew, known là bộ ba bất quy tắc người Việt hay lẫn nhất."),
       tip("Khi nói nhanh, **would have** được đọc gần như **would've** /ˈwʊd.əv/, và **had** rút gọn thành **'d**: **If I'd known, I would've called.** Trong vế if, 'd là had chứ không phải would."),
+      teacher("Sau nhiều năm đứng lớp, tôi có một mẹo cho học trò hay rối: trước khi nói, hãy **nói ra thực tế** trước đã. “Thực tế: mình không kiểm thử, dự án trễ.” Rồi **đảo ngược cả hai vế và lùi thì**: If we had tested it, we wouldn't have been late. Làm như vậy vài chục lần, bạn sẽ không bao giờ nhầm nữa. Và nhớ: câu tiếc nuối dùng để **rút kinh nghiệm**, đừng dùng để đổ lỗi cho đồng nghiệp trong cuộc họp."),
     ],
   },
   words: [
@@ -199,11 +250,11 @@ const tiecNuoi = lesson({
   exercises: [
     mc("b2-4-1", "If we ___ the risks, we would have avoided the problem.", ["had considered", "considered", "would consider"], 0, "Vế if của câu loại 3 dùng had + V3."),
     mc("b2-4-2", "If she had taken the job in Singapore, she ___ there now.", ["would have lived", "would live", "had lived"], 1, "Câu hỗn hợp: nguyên nhân ở quá khứ, kết quả ở hiện tại (now), nên dùng would + V."),
-    fill("b2-4-3", "I wish I ___ asked more questions in the interview.", ["had"], "Wish + had + V3 để tiếc nuối về quá khứ."),
-    fill("b2-4-4", "If the supplier had delivered on time, we would have ___ the order.", ["completed", "finished", "fulfilled", "delivered", "shipped"], "Would have + V3."),
-    mc("b2-4-5", "Which sentence expresses regret about the past?", ["I wish I have more time.", "I wish I will have more time.", "I wish I had more time.", "I wish I had had more time for the project."], 3, "Had had + V3: tiếc là hồi đó đã không có đủ thời gian."),
+    fill("b2-4-3", "I wish I ___ asked more questions in the interview.", ["had", "'d"], "Wish + had + V3 để tiếc nuối về quá khứ."),
+    fill("b2-4-4", "If the supplier had delivered on time, we would have ___ the order. (complete)", ["completed", "finished", "fulfilled", "delivered", "shipped"], "Would have + V3: complete thành completed."),
+    reorder("b2-4-5", "I wish I hadn't sent that email.", "Wish + hadn't + V3: tiếc là hồi đó đã làm một việc không nên làm."),
     reorder("b2-4-6", "If only we had signed the deal earlier.", "If only + had + V3 diễn tả sự tiếc nuối mạnh."),
-    listen("b2-4-7", "If I'd known about the problem, I would've called you.", ["Tôi biết có vấn đề nên đã gọi cho bạn.", "Nếu tôi biết có vấn đề thì tôi đã gọi cho bạn rồi.", "Nếu có vấn đề, tôi sẽ gọi cho bạn."], 1, "I'd known = I had known; would've = would have."),
+    listen("b2-4-7", "If I'd known about the problem, I would've called you.", ["Tôi biết có vấn đề nên đã gọi cho bạn.", "Nếu tôi mà biết có vấn đề thì tôi đã gọi cho bạn rồi.", "Nếu có vấn đề, tôi sẽ gọi cho bạn."], 1, "I'd known = I had known; would've = would have."),
     listen("b2-4-8", "I wish we hadn't cut the marketing budget.", ["Giá mà chúng ta đã không cắt giảm ngân sách tiếp thị.", "Chúng ta nên cắt giảm ngân sách tiếp thị.", "Tôi mong chúng ta sẽ tăng ngân sách tiếp thị."], 0),
   ],
   speaking: [
@@ -220,6 +271,7 @@ const thuyetTrinh = lesson({
   lecture: {
     title: "Mệnh đề quan hệ và cụm dẫn dắt khi thuyết trình",
     blocks: [
+      p("Chị Hà lên thuyết trình trước ban giám đốc: “We have a new product. The product is cheap. The product sold well in Da Nang.” Ba câu ngắn, lặp chữ product ba lần, nghe như đọc danh sách. Người bản xứ sẽ nói: **Our new product, which is very affordable, sold well in Da Nang.** Một câu, gọn, trôi chảy. Bí quyết nằm ở **mệnh đề quan hệ**."),
       p("Bài thuyết trình tốt cần câu gọn và rõ. **Mệnh đề quan hệ** giúp bạn thêm thông tin về người hoặc vật mà không phải tách thành nhiều câu ngắn. Có hai loại: **xác định** (không có dấu phẩy) và **không xác định** (có dấu phẩy)."),
       table(
         ["Đại từ", "Dùng cho", "Ví dụ"],
@@ -230,8 +282,10 @@ const thuyetTrinh = lesson({
       ),
       ex("The customers who took part in the survey were very positive.", "Những khách hàng đã tham gia khảo sát đều rất tích cực.", "Mệnh đề xác định: cho biết là khách hàng nào."),
       ex("Our Hanoi office, which opened in 2020, now has fifty staff.", "Văn phòng Hà Nội của chúng tôi, mở cửa năm 2020, hiện có năm mươi nhân viên.", "Mệnh đề không xác định: chỉ thêm thông tin, bỏ đi câu vẫn đủ nghĩa."),
+      ex("The product that we launched in March is selling well.", "Sản phẩm mà chúng tôi ra mắt hồi tháng Ba đang bán rất chạy.", "Ở đây that làm tân ngữ (we launched the product), nên trong mệnh đề xác định có thể bỏ hẳn: The product we launched in March…"),
       mistake("Our CEO, that joined in 2019, will speak first.", "Our CEO, who joined in 2019, will speak first.", "Không dùng that sau dấu phẩy. Mệnh đề không xác định dùng who, which (hoặc whose, where…), không dùng that."),
-      mistake("This is the chart which I showed it earlier.", "This is the chart which I showed earlier.", "Which đã thay cho “the chart”, không lặp lại đại từ it."),
+      mistake("This is the chart which I showed it earlier.", "This is the chart which I showed earlier.", "Tiếng Việt nói “cái biểu đồ mà tôi đã cho xem nó” nghe vẫn được, nên người học hay giữ lại it. Trong tiếng Anh, which đã thay cho “the chart”, không lặp lại đại từ it."),
+      mistake("The customers who buys our app are mostly students.", "The customers who buy our app are mostly students.", "Động từ trong mệnh đề quan hệ chia theo danh từ đứng trước who. Customers là số nhiều nên dùng buy. Tiếng Việt không có số nhiều nên người Việt hay bỏ sót chỗ này."),
       p("Cụm **dẫn dắt** (signposting) giúp người nghe biết bạn đang ở phần nào của bài nói."),
       table(
         ["Mục đích", "Cụm từ"],
@@ -241,6 +295,8 @@ const thuyetTrinh = lesson({
         ["Kết thúc", "To sum up… / Thank you for listening. Are there any questions?"],
       ),
       tip("Khi chỉ vào slide, nói **As you can see on this slide…** thay vì **You see this slide**. Nghe tự nhiên và chuyên nghiệp hơn nhiều."),
+      tip("Khi nói, mệnh đề không xác định được đọc như một **lời chen vào**: ngừng nhẹ ở dấu phẩy thứ nhất, hạ giọng khi đọc phần thông tin thêm, rồi ngừng nhẹ trước khi quay lại câu chính. **Our team, (ngừng) which has twelve members, (ngừng) works in three countries.**"),
+      teacher("Tôi đã ngồi nghe hàng nghìn bài thuyết trình của học trò. Bài nào cũng có đủ ý, nhưng bài hay là bài **người nghe biết mình đang ở đâu**. Vì vậy, hãy viết sẵn bốn câu dẫn dắt: mở đầu, chuyển ý, nhấn mạnh, kết thúc, và tập nói to chúng trước gương. Nội dung bạn có thể quên, nhưng bốn câu ấy sẽ giữ bạn không lạc. Và đừng đọc slide: slide để người nghe nhìn, còn bạn nói câu dài hơn, có mệnh đề quan hệ để giải thích."),
     ],
   },
   words: [
@@ -254,10 +310,10 @@ const thuyetTrinh = lesson({
   ],
   exercises: [
     mc("b2-5-1", "The engineer ___ designed the system will answer your questions.", ["which", "who", "whose"], 1, "Chỉ người dùng who."),
-    mc("b2-5-2", "We chose a partner ___ experience in Asia is excellent.", ["who", "which", "that", "whose"], 3, "Whose chỉ sở hữu: kinh nghiệm của đối tác."),
+    reorder("b2-5-2", "We chose a partner whose experience is excellent.", "Whose chỉ sở hữu: kinh nghiệm của đối tác. Sau whose là danh từ, rồi mới đến động từ."),
     mc("b2-5-3", "Which sentence is punctuated correctly?", ["My boss, who lives in Da Nang, is visiting us.", "My boss who lives in Da Nang, is visiting us.", "My boss, that lives in Da Nang, is visiting us."], 0, "Mệnh đề không xác định đặt giữa hai dấu phẩy và dùng who, không dùng that."),
     fill("b2-5-4", "The new app, ___ was launched last month, has ten thousand users.", ["which"], "Sau dấu phẩy, chỉ vật dùng which."),
-    fill("b2-5-5", "Now let's ___ to the second part of my presentation.", ["turn", "move", "go", "come", "proceed"], "Let's turn to / Let's move on to (hoặc go to, come to): chuyển sang phần tiếp theo."),
+    fill("b2-5-5", "Now let's ___ to the second part of my presentation. (chuyển sang)", ["turn", "move", "go", "come", "proceed"], "Let's turn to / Let's move on to (hoặc go to, come to): chuyển sang phần tiếp theo."),
     reorder("b2-5-6", "I've divided my talk into three parts.", "Câu mở đầu giới thiệu bố cục bài thuyết trình."),
     listen("b2-5-7", "To sum up, our revenue has grown steadily.", ["Tóm lại, doanh thu của chúng ta đã tăng đều đặn.", "Trước hết, doanh thu của chúng ta giảm mạnh.", "Doanh thu của chúng ta cần tăng nhanh hơn."], 0, "To sum up dùng để tóm tắt ở phần kết."),
     listen("b2-5-8", "This is the client whose order we delayed.", ["Đây là khách hàng đã hủy đơn hàng.", "Đây là khách hàng có đơn hàng bị chúng ta giao chậm.", "Đây là khách hàng đã giao hàng chậm."], 1),
@@ -276,6 +332,7 @@ const damPhan = lesson({
   lecture: {
     title: "Ngôn ngữ mềm, đề xuất và nhượng bộ",
     blocks: [
+      p("Anh Nam, trưởng nhóm kinh doanh ở TP.HCM, ngồi đàm phán với một nhà cung cấp Singapore. Anh mở lời: **Your price is too high. We want ten per cent discount.** Không khí lập tức căng thẳng, và đối phương không nhượng bộ đồng nào. Cùng yêu cầu ấy, nếu anh nói **We were wondering if you could be a little more flexible on price**, cuộc nói chuyện đã khác hẳn. Trong đàm phán, **cách nói** quyết định không kém **điều bạn nói**."),
       p("Người Việt khi đàm phán bằng tiếng Anh hay dùng câu quá thẳng như **We want a lower price.** Người nghe có thể thấy bạn thiếu thiện chí. Hãy **nói giảm, nói mềm** bằng cách dùng thì quá khứ tiếp diễn, động từ khuyết thiếu và từ giảm nhẹ."),
       table(
         ["Câu thẳng", "Câu mềm hơn"],
@@ -284,13 +341,23 @@ const damPhan = lesson({
         ["Deliver it next week.", "Would you be willing to deliver it next week?"],
         ["That's impossible.", "I'm afraid that might be difficult for us."],
       ),
-      ex("I was wondering if we could extend the deadline.", "Tôi đang nghĩ không biết liệu chúng ta có thể gia hạn hạn chót được không.", "Quá khứ tiếp diễn “was wondering” làm lời đề nghị nhẹ nhàng hơn, không mang nghĩa quá khứ."),
+      table(
+        ["Kỹ thuật làm mềm", "Cách dùng", "Ví dụ"],
+        ["Quá khứ tiếp diễn", "I was wondering if…", "I was wondering if you could help."],
+        ["Động từ khuyết thiếu", "could, might, would", "That might be a problem."],
+        ["Từ giảm nhẹ", "a little, slightly, quite", "The price is slightly higher than we expected."],
+        ["Lời rào đón", "I'm afraid…, To be honest…", "I'm afraid we can't accept that."],
+      ),
+      ex("I was wondering if we could extend the deadline.", "Tôi đang băn khoăn không biết chúng ta có thể lùi hạn chót được không.", "Quá khứ tiếp diễn “was wondering” làm lời đề nghị nhẹ nhàng hơn, không mang nghĩa quá khứ."),
       ex("Would you be willing to consider a two-year contract?", "Anh/chị có sẵn lòng cân nhắc một hợp đồng hai năm không?"),
       p("Khi đưa ra **đề xuất có điều kiện**, dùng **If you…, we could/would…** hoặc **provided that / as long as**. Khi **nhượng bộ**, dùng **We're prepared to… if…** để luôn đổi lại một điều có lợi."),
-      ex("If you order five hundred units, we could offer a ten per cent discount.", "Nếu quý công ty đặt năm trăm sản phẩm, chúng tôi có thể giảm giá mười phần trăm."),
-      mistake("I was wondering if could you lower the price.", "I was wondering if you could lower the price.", "Sau “I was wondering if” là trật tự câu kể: chủ ngữ đứng trước động từ, không đảo như câu hỏi."),
-      mistake("We will agree provided that you will pay in advance.", "We will agree provided that you pay in advance.", "Sau provided that / as long as dùng thì hiện tại đơn khi nói về tương lai, giống mệnh đề if."),
+      ex("If you order five hundred units, we could offer a ten per cent discount.", "Nếu quý công ty đặt năm trăm sản phẩm, chúng tôi có thể giảm giá mười phần trăm.", "Vế if dùng hiện tại đơn, vế chính dùng could để lời đề xuất nghe như một khả năng, chưa phải lời hứa chắc chắn."),
+      ex("We're prepared to lower the price, provided that you pay within thirty days.", "Chúng tôi sẵn sàng giảm giá, với điều kiện quý công ty thanh toán trong vòng ba mươi ngày.", "Nhượng bộ nhưng luôn kèm điều kiện. Provided that trang trọng hơn if một chút."),
+      mistake("I was wondering if could you lower the price.", "I was wondering if you could lower the price.", "Sau “I was wondering if” là trật tự câu kể: chủ ngữ đứng trước động từ, không đảo như câu hỏi. Người Việt nghĩ đây là câu hỏi nên đảo could lên trước."),
+      mistake("We will agree provided that you will pay in advance.", "We will agree provided that you pay in advance.", "Sau provided that / as long as dùng thì hiện tại đơn khi nói về tương lai, giống mệnh đề if. Tiếng Việt thêm “sẽ” ở cả hai vế nên người học hay thêm will vào cả hai."),
+      mistake("We very want to cooperate with you.", "We would very much like to work with you.", "Dịch từng chữ “chúng tôi rất muốn”. Very không đứng trước động từ; hãy dùng would very much like to hoặc are very keen to."),
       tip("Đừng từ chối bằng **No.** trơn. Hãy mở đầu bằng **I see your point, but…** hoặc **I'm afraid we can't…, but we could…** để giữ không khí hợp tác."),
+      teacher("Học trò đi làm hay hỏi tôi: nói mềm như vậy có bị coi là yếu thế không? Không đâu. Kinh nghiệm của tôi là **mềm ở lời, chắc ở điều kiện**. Bạn có thể nói rất lịch sự, nhưng mỗi lần nhượng bộ phải đổi lấy một điều: **We could…, if you…** Trước mỗi buổi đàm phán, hãy viết ra ba câu đề xuất có điều kiện và một câu từ chối lịch sự, rồi tập nói đến khi trôi chảy. Chuẩn bị kỹ thì lúc căng thẳng bạn mới không quay về câu cộc lốc."),
     ],
   },
   words: [
@@ -306,9 +373,9 @@ const damPhan = lesson({
   exercises: [
     mc("b2-6-1", "Which request is the most polite?", ["Give us a better price.", "We want a better price now.", "We were wondering if you could improve your price.", "Your price is bad."], 2, "Was wondering if + S + could là cách đề nghị rất mềm mỏng."),
     mc("b2-6-2", "We can deliver next week as long as you ___ the order today.", ["will confirm", "confirm", "would confirm"], 1, "Sau as long as dùng hiện tại đơn khi nói về tương lai."),
-    fill("b2-6-3", "Would you be ___ to share the costs?", ["willing", "prepared", "happy", "able"], "Would you be willing / prepared / happy to + V: anh/chị có sẵn lòng…? (Would you be able to: anh/chị có thể…?)"),
+    fill("b2-6-3", "Would you be ___ to share the costs? (sẵn lòng)", ["willing", "prepared", "happy", "able"], "Would you be willing / prepared / happy to + V: anh/chị có sẵn lòng…? (Would you be able to: anh/chị có thể…?)"),
     fill("b2-6-4", "I'm ___ that we can't accept those terms.", ["afraid", "sorry"], "I'm afraid… (hoặc I'm sorry…) giúp lời từ chối bớt gay gắt."),
-    mc("b2-6-5", "“If you sign a three-year contract, we ___ offer free maintenance.”", ["could", "had", "have"], 0, "Đề xuất có điều kiện: If you + hiện tại, we could + V."),
+    reorder("b2-6-5", "I was wondering if you could lower the price.", "Sau I was wondering if là trật tự câu kể: you đứng trước could, không đảo như câu hỏi."),
     reorder("b2-6-6", "We are prepared to offer a small discount.", "Be prepared to + V: sẵn sàng làm gì, thường dùng khi nhượng bộ."),
     listen("b2-6-7", "I see your point, but we need a longer contract.", ["Tôi hoàn toàn đồng ý với anh/chị.", "Chúng tôi không cần hợp đồng dài hạn.", "Tôi muốn xem lại bản hợp đồng.", "Tôi hiểu ý anh/chị, nhưng chúng tôi cần một hợp đồng dài hơn."], 3, "I see your point, but… vừa ghi nhận ý kiến đối phương vừa đưa ra quan điểm của mình."),
     listen("b2-6-8", "Would you be willing to pay half in advance?", ["Anh/chị có sẵn lòng trả trước một nửa không?", "Anh/chị đã trả trước một nửa chưa?", "Chúng tôi sẽ trả trước một nửa."], 0),
@@ -341,7 +408,7 @@ export const tiengAnhB2: Course = {
     initials: "MG",
     bio: "12 năm giảng dạy tiếng Anh thương mại, thạc sĩ TESOL. Từng đào tạo nhân viên cho nhiều doanh nghiệp đa quốc gia tại TP.HCM.",
   },
-  durationWeeks: 10,
+  durationWeeks: 16,
   rating: 4.9,
   reviews: [
     { name: "Thu Trang", role: "Chuyên viên xuất nhập khẩu, Hải Phòng", quote: "Trước đây email của mình toàn câu mệnh lệnh mà không biết. Sau bài đầu tiên, đối tác phản hồi nhanh và thân thiện hơn hẳn." },
@@ -353,7 +420,9 @@ export const tiengAnhB2: Course = {
   ],
   status: "open",
   modules: [
-    { id: "m1", title: "Giao tiếp nơi công sở", lessons: [vietEmail, hopThaoLuan, tuongThuat] },
-    { id: "m2", title: "Lập luận và thuyết phục", lessons: [tiecNuoi, thuyetTrinh, damPhan] },
+    chapter(1, "Giao tiếp nơi công sở", [vietEmail, hopThaoLuan, tuongThuat, nGoiDienVaHopTrucTuyen]),
+    chapter(2, "Giả định và tiếc nuối", [tiecNuoi, nDieuKienNangCao, nDongTuKhuyetThieuQuaKhu, nGiaDinhKhongThat]),
+    chapter(3, "Trình bày và viết", [thuyetTrinh, nMoTaSoLieu, nTuNoiNangCao, nRutGonMenhDe]),
+    chapter(4, "Thuyết phục và xử lý tình huống", [damPhan, nMaoTu, nToVHayVIng, nThanPhienVaXuLy]),
   ],
 };

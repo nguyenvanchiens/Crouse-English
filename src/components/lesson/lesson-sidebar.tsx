@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle2, Circle, PlayCircle } from "lucide-react";
+import { CheckCircle2, Circle, ClipboardCheck, PlayCircle } from "lucide-react";
 import type { Course } from "@/content/types";
 import { lessonKey, type ProgressState } from "@/lib/progress-core";
 
@@ -24,7 +24,7 @@ export function LessonSidebar({
             {m.lessons.map((l) => {
               const current = l.slug === currentSlug;
               const done = state.lessons[lessonKey(course.slug, l.slug)]?.done;
-              const Icon = current ? PlayCircle : done ? CheckCircle2 : Circle;
+              const Icon = current ? PlayCircle : done ? CheckCircle2 : l.review ? ClipboardCheck : Circle;
               return (
                 <li key={l.slug}>
                   <Link

@@ -28,6 +28,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* safety net against stray horizontal overflow (e.g. rotated decorative cards); on the
+     root this applies to the viewport, which is already the scroll container for sticky */
+  overflow-x: clip;
 }
 
 section[id] {

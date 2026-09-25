@@ -1,0 +1,57 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "rut-gon-menh-de",
+  title: "Rút gọn mệnh đề",
+  minutes: 23,
+  lecture: {
+    title: "Mệnh đề phân từ và mệnh đề quan hệ rút gọn",
+    blocks: [
+      p("Mở một tờ giới thiệu công ty bằng tiếng Anh, bạn sẽ gặp ngay những câu như **Founded in 1995, our company…** hay **Having worked in Japan for ten years, Mr Hoa…**. Đó là **mệnh đề phân từ**: người ta bỏ chủ ngữ và liên từ, chỉ giữ lại động từ ở dạng **V-ing**, **V3** hoặc **having + V3**. Câu gọn hơn, trang trọng hơn, rất hợp với báo cáo, email và bài thuyết trình."),
+      table(
+        ["Câu đầy đủ", "Câu rút gọn", "Dạng dùng khi nào"],
+        ["Because I felt tired, I went to bed early.", "Feeling tired, I went to bed early.", "V-ing: chủ động, cùng lúc hoặc nêu lý do"],
+        ["After she had finished the report, she went home.", "Having finished the report, she went home.", "Having + V3: việc xong trước rồi mới đến việc sau"],
+        ["The hotel, which was built in 1990, is very popular.", "Built in 1990, the hotel is very popular.", "V3: nghĩa bị động"],
+        ["The man who is sitting next to me is a doctor.", "The man sitting next to me is a doctor.", "Mệnh đề quan hệ chủ động → V-ing"],
+        ["Products which are made in Vietnam are cheap here.", "Products made in Vietnam are cheap here.", "Mệnh đề quan hệ bị động → V3"],
+      ),
+      p("Quy tắc sống còn: mệnh đề phân từ **mượn chủ ngữ của mệnh đề chính**. Vì vậy, người làm hành động trong phần rút gọn **phải chính là chủ ngữ** đứng ngay sau dấu phẩy. Nếu hai chủ ngữ khác nhau, đừng rút gọn."),
+      ex("Feeling nervous, she read her notes one more time.", "Vì thấy hồi hộp, cô ấy đọc lại ghi chú thêm một lần nữa.", "Người thấy hồi hộp là “she”, cũng là chủ ngữ của mệnh đề chính."),
+      ex("Having checked all the figures, the accountant signed the report.", "Sau khi kiểm tra hết các số liệu, kế toán ký vào báo cáo.", "Having + V3 cho thấy việc kiểm tra xong hẳn rồi mới ký."),
+      ex("Built in the nineteenth century, the church attracts many visitors.", "Được xây dựng từ thế kỷ mười chín, nhà thờ thu hút rất nhiều du khách.", "Nhà thờ không tự xây, nên dùng V3 mang nghĩa bị động."),
+      ex("Anyone wanting to join the trip should sign up by Friday.", "Ai muốn tham gia chuyến đi thì đăng ký trước thứ Sáu.", "Anyone wanting = anyone who wants."),
+      ex("Most of the vegetables sold at this market are grown locally.", "Phần lớn rau bán ở chợ này được trồng tại địa phương.", "Sold = which are sold: rút gọn mệnh đề quan hệ bị động."),
+      mistake("Walking into the office, the phone started ringing.", "Walking into the office, I heard the phone ringing.", "Đây là lỗi “phân từ treo”: câu sai nghĩa là cái điện thoại tự đi vào văn phòng. Tiếng Việt cho phép bỏ chủ ngữ tùy ý (“Vừa bước vào phòng, điện thoại reo”), còn tiếng Anh thì phần rút gọn luôn dính vào chủ ngữ ngay sau nó."),
+      mistake("The car repairing yesterday is ready now.", "The car repaired yesterday is ready now.", "Tiếng Việt không đánh dấu bị động rõ ràng (“xe sửa hôm qua”), nên học trò hay dùng V-ing. Xe là thứ được sửa, vậy phải dùng V3: repaired."),
+      mistake("Having finish the meeting, we went for lunch.", "Having finished the meeting, we went for lunch.", "Sau having luôn là V3. Người Việt hay nuốt âm cuối nên viết cũng quên luôn đuôi -ed."),
+      tip("Tự hỏi một câu: **“Chủ ngữ tự làm hay bị làm?”** Tự làm thì **V-ing**, bị làm thì **V3**, làm xong trước rồi mới đến việc sau thì **Having + V3**. Rồi kiểm tra thêm: đọc cụm rút gọn ghép với chủ ngữ sau dấu phẩy, nếu nghe buồn cười thì câu đó đang bị “treo”."),
+      teacher("Tôi có một bài tập nhỏ đã dùng suốt mấy chục năm: mỗi tối lấy **ba câu có because, after, which** trong email của chính mình rồi thử rút gọn. Có câu rút gọn được, có câu không, và **chính lúc thấy câu nào không rút gọn được bạn mới thật sự hiểu quy tắc**. Nhớ kỹ: rút gọn là để câu gọn và sang, không phải để khoe. Trong lúc nói chuyện, thỉnh thoảng dùng một câu là đủ, còn trong văn viết thì dùng thoải mái hơn."),
+    ],
+  },
+  words: [
+    word("clause", "/klɔːz/", "mệnh đề", "This sentence has two clauses.", "clause", 0, "Kết thúc bằng âm /z/, đọc gần “clo-z”, đừng nuốt mất âm cuối."),
+    word("participle", "/pɑːˈtɪs.ɪ.pəl/", "phân từ", "“Broken” is the past participle of “break”.", "par|tic|i|ple", 1, "Trọng âm ở âm tiết thứ hai: par-TIC-i-ple."),
+    word("found", "/faʊnd/", "thành lập", "The school was founded in 1998.", "found", 0, "Found (thành lập) là động từ có quy tắc: found, founded, founded. Đừng nhầm với found là quá khứ của find."),
+    word("establish", "/ɪˈstæb.lɪʃ/", "thành lập, thiết lập", "Established in 2005, the firm now has three offices.", "es|tab|lish", 1),
+    word("manufacture", "/ˌmæn.jəˈfæk.tʃər/", "sản xuất (quy mô lớn)", "Most of the parts are manufactured in Thailand.", "man|u|fac|ture", 2, "Trọng âm chính ở âm tiết thứ ba: man-u-FAC-ture."),
+    word("renovate", "/ˈren.ə.veɪt/", "cải tạo, tu sửa", "Renovated last year, the hotel looks brand new.", "ren|o|vate", 0),
+    word("exhausted", "/ɪɡˈzɔː.stɪd/", "kiệt sức", "Feeling exhausted, he left the party early.", "ex|haust|ed", 1, "Chữ h câm: đọc /ɪɡˈzɔː.stɪd/, không đọc “ếch-hau-stịt”."),
+    word("brochure", "/ˈbrəʊ.ʃər/", "tờ giới thiệu, sách mỏng quảng cáo", "Could you send me a copy of the brochure?", "bro|chure", 0, "Chữ ch đọc là /ʃ/: BRÔU-shơ."),
+  ],
+  exercises: [
+    mc("b2-n12-1", "Which sentence is correct?", ["Walking into the office, the phone started ringing.", "Walking into the office, I heard the phone ringing.", "Walked into the office, I heard the phone ringing."], 1, "Người bước vào văn phòng phải là chủ ngữ ngay sau dấu phẩy, và hành động chủ động nên dùng V-ing."),
+    mc("b2-n12-2", "The bridge ___ in 1990 needs urgent repairs.", ["building", "was built", "built"], 2, "Cây cầu được xây, nghĩa bị động, nên rút gọn thành V3: built. “Was built” không đứng được ở đây vì câu đã có động từ chính needs."),
+    fill("b2-n12-3", "___ tired, I went to bed early. (feel)", ["Feeling"], "Chủ ngữ “I” tự cảm thấy mệt, nghĩa chủ động, nên dùng V-ing."),
+    fill("b2-n12-4", "Having ___ the contract, the client paid the deposit. (sign)", ["signed"], "Having + V3: ký hợp đồng xong rồi mới trả tiền đặt cọc."),
+    reorder("b2-n12-5", "The man sitting next to me was a doctor.", "Sitting next to me = who was sitting next to me: mệnh đề quan hệ chủ động rút gọn thành V-ing."),
+    reorder("b2-n12-6", "Most of the goods made here are exported.", "Made here = which are made here: mệnh đề quan hệ bị động rút gọn thành V3."),
+    listen("b2-n12-7", "Built in 1990, the hotel was renovated last year.", ["Khách sạn được xây năm 1990 và đã được cải tạo vào năm ngoái.", "Khách sạn được xây dựng vào năm ngoái.", "Khách sạn sẽ được cải tạo sau năm 1990."], 0, "Built in 1990 là phần rút gọn bị động, bổ sung thông tin cho “the hotel”."),
+    listen("b2-n12-8", "Having lost his keys, he couldn't get into the flat.", ["Anh ấy tìm thấy chìa khóa và vào được căn hộ.", "Anh ấy để quên chìa khóa trong căn hộ của bạn.", "Vì đã làm mất chìa khóa nên anh ấy không vào được căn hộ."], 2, "Having lost: việc mất chìa khóa xảy ra trước và là lý do của việc không vào được nhà."),
+  ],
+  speaking: [
+    say("Having finished my work, I went home early.", "Làm xong việc, tôi về nhà sớm."),
+    say("Founded in nineteen ninety-five, our company now has five hundred staff.", "Được thành lập năm 1995, công ty chúng tôi hiện có năm trăm nhân viên."),
+    say("The woman standing by the door is our new director.", "Người phụ nữ đứng cạnh cửa là giám đốc mới của chúng ta."),
+  ],
+});

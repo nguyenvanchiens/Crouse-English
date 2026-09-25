@@ -1,0 +1,63 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "so-sanh-nang-cao",
+  title: "So sánh tinh tế hơn",
+  minutes: 22,
+  lecture: {
+    title: "Much/far/a bit + so sánh hơn, the… the…, not as… as, twice as… as",
+    blocks: [
+      p("Bạn đi xem hai căn hộ ở Hà Nội. Căn thứ nhất rộng hơn **một chút**, căn thứ hai rẻ hơn **nhiều**, và giá thuê căn thứ hai chỉ bằng **một nửa** căn thứ nhất. Chỉ biết “cheaper than” thì chưa đủ để nói những sắc thái này. Bài hôm nay giúp bạn so sánh có mức độ, như người bản xứ vẫn nói hằng ngày."),
+      p("Ở cấp A2, bạn đã học so sánh hơn: cheaper, bigger, more expensive. Muốn nói hơn **nhiều** hay hơn **một chút**, ta đặt một từ chỉ mức độ **ngay trước** tính từ so sánh hơn."),
+      table(
+        ["Mức độ", "Từ dùng", "Ví dụ"],
+        ["hơn một chút", "a bit / a little / slightly", "This flat is a bit bigger than that one."],
+        ["hơn nhiều", "much / far / a lot", "The second flat is much cheaper."],
+        ["kém hơn", "less + tính từ dài", "The bus is far less comfortable than the train."],
+      ),
+      ex("Living in the countryside is much quieter than living in the city.", "Sống ở nông thôn yên tĩnh hơn nhiều so với sống ở thành phố."),
+      ex("The new phone is slightly more expensive, but the quality is far better.", "Điện thoại mới đắt hơn một chút, nhưng chất lượng tốt hơn hẳn.", "Far better là cách nói mạnh, nghĩa là “tốt hơn rất nhiều”."),
+      p("Cấu trúc **the + so sánh hơn…, the + so sánh hơn…** diễn tả hai việc thay đổi cùng nhau, giống “càng… càng…” trong tiếng Việt."),
+      ex("The more you practise, the better you speak.", "Càng luyện tập nhiều, bạn càng nói giỏi."),
+      ex("The bigger the flat, the higher the rent.", "Căn hộ càng rộng thì tiền thuê càng cao.", "Trong văn nói, có thể bỏ động từ to be: the bigger the flat (is), the higher the rent (is)."),
+      p("Muốn nói “không bằng”, dùng **not as + tính từ + as**. Muốn nói “gấp đôi, gấp ba”, dùng **twice / three times as + tính từ + as**. Còn **half as… as** là “chỉ bằng một nửa”."),
+      table(
+        ["Cấu trúc", "Nghĩa", "Ví dụ"],
+        ["not as + adj + as", "không… bằng", "The bus isn't as fast as the train."],
+        ["twice as + adj + as", "gấp đôi", "This flat is twice as big as my old one."],
+        ["three times as + adj + as", "gấp ba", "Rent in Hanoi is three times as high as in my hometown."],
+        ["half as + adj + as", "chỉ bằng một nửa", "The small car is half as expensive as the big one."],
+      ),
+      mistake("This flat is very cheaper than that one.", "This flat is much cheaper than that one.", "Tiếng Việt nói “rẻ hơn rất nhiều” nên người Việt hay dịch “rất” thành very. Very không đi với so sánh hơn. Hãy dùng much, far hoặc a lot."),
+      mistake("The more I practise, the more I am confident.", "The more I practise, the more confident I am.", "Tính từ phải đi liền với the more: the more confident. Tiếng Việt nói “càng tự tin” nên ta dễ để tính từ lạc ra cuối câu."),
+      mistake("My salary is twice more than his.", "My salary is twice as high as his.", "Với twice, three times, dùng cấu trúc as… as. Đừng dịch từng chữ “gấp đôi hơn”."),
+      tip("Hai câu rút gọn rất hay dùng, học thuộc như thành ngữ: **The sooner, the better** (càng sớm càng tốt) và **The more, the merrier** (càng đông càng vui). Khi nói, nhấn giọng vào hai từ so sánh: the SOONer, the BETter."),
+      teacher("Sau 50 năm dạy, tôi thấy chữ “very” là cái bẫy lớn nhất của người Việt khi so sánh. Tôi dặn học trò: **hễ thấy đuôi -er hoặc chữ more, xóa very đi và thay bằng much**. Mỗi tối, các em thử so sánh hai thứ quen thuộc, hai quán cà phê, hai chiếc xe máy, hai thành phố, bằng ba mức: a bit, much, twice as… as. Nói to thành tiếng, chỉ năm phút thôi, nhưng làm đều đặn."),
+    ],
+  },
+  words: [
+    word("slightly", "/ˈslaɪt.li/", "hơi, một chút", "The blue shirt is slightly cheaper.", "slight|ly", 0, "Chữ gh không đọc. Đọc như “slai-li” nhưng giữ âm /t/ nhẹ ở giữa."),
+    word("rent", "/rent/", "tiền thuê nhà; thuê", "The rent here is much higher than in my hometown.", "rent", 0, "Nhớ bật âm /t/ ở cuối."),
+    word("convenient", "/kənˈviː.ni.ənt/", "tiện lợi, thuận tiện", "Living near the office is far more convenient.", "con|ve|ni|ent", 1, "Trọng âm ở âm tiết thứ hai: con-VEE-ni-ent."),
+    word("crowded", "/ˈkraʊ.dɪd/", "đông đúc", "The market is more crowded at the weekend.", "crow|ded", 0, "Đuôi -ed sau âm /d/ đọc thành /ɪd/, thêm một âm tiết."),
+    word("spacious", "/ˈspeɪ.ʃəs/", "rộng rãi", "The new flat is much more spacious.", "spa|cious", 0),
+    word("reliable", "/rɪˈlaɪ.ə.bəl/", "đáng tin cậy, bền", "This car is far more reliable than my old one.", "re|li|a|ble", 1),
+    word("quality", "/ˈkwɒl.ə.ti/", "chất lượng", "The quality isn't as good as I expected.", "qual|i|ty", 0),
+    word("twice", "/twaɪs/", "gấp đôi; hai lần", "This bag is twice as expensive as that one.", "twice", 0, "Kết thúc bằng âm /s/, đừng đọc thành “thoai”."),
+  ],
+  exercises: [
+    mc("b1-n12-1", "This flat is ___ bigger than the old one.", ["very", "much", "more", "most"], 1, "Trước so sánh hơn, dùng much, far, a lot hoặc a bit. Không dùng very."),
+    mc("b1-n12-2", "The more you practise, ___.", ["you speak better", "better you speak", "the better speak you", "the better you speak"], 3, "Cấu trúc càng… càng…: the + so sánh hơn + chủ ngữ + động từ."),
+    fill("b1-n12-3", "My new phone is ___ as expensive as my old one. (gấp đôi)", ["twice"], "Gấp đôi: twice as + tính từ + as."),
+    fill("b1-n12-4", "The bus is not ___ fast as the train.", ["as", "so"], "Không bằng: not as… as. Sau not, dùng so cũng được, nhưng as phổ biến hơn."),
+    reorder("b1-n12-5", "The rent was far higher than we expected.", "Far đứng ngay trước so sánh hơn higher để nhấn mạnh “cao hơn nhiều”. Sau than có thể là cả một mệnh đề: than we expected (so với chúng tôi dự tính)."),
+    reorder("b1-n12-6", "My brother is a bit taller than me.", "A bit đứng trước taller: cao hơn một chút."),
+    listen("b1-n12-7", "The more I read, the more words I learn.", ["Tôi đọc nhiều nhưng không nhớ được từ nào.", "Tôi cần đọc nhiều hơn để học từ mới.", "Càng đọc nhiều, tôi càng học được nhiều từ."], 2, "The more…, the more…: càng… càng…"),
+    listen("b1-n12-8", "This hotel isn't as comfortable as the one we stayed in last year.", ["Khách sạn này không thoải mái bằng khách sạn năm ngoái chúng tôi ở.", "Khách sạn này thoải mái hơn khách sạn năm ngoái.", "Năm ngoái chúng tôi cũng ở khách sạn này.", "Khách sạn này thoải mái gấp đôi khách sạn năm ngoái."], 0, "Not as… as: không… bằng."),
+  ],
+  speaking: [
+    say("Ho Chi Minh City is much bigger than Da Nang.", "Thành phố Hồ Chí Minh lớn hơn Đà Nẵng nhiều."),
+    say("The more you practise, the more confident you become.", "Càng luyện tập nhiều, bạn càng trở nên tự tin."),
+    say("My new flat is twice as big as my old one.", "Căn hộ mới của tôi rộng gấp đôi căn cũ."),
+  ],
+});

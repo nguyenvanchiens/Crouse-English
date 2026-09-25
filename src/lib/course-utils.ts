@@ -19,6 +19,13 @@ export function flattenLessons(course: Course): LessonRef[] {
   return course.modules.flatMap((m) => m.lessons.map((lesson) => ({ module: m, lesson })));
 }
 
+/** "16 bài học, 4 bài ôn tập" style counts for a course. */
+export function lessonCounts(course: Course): { lessons: number; reviews: number } {
+  const all = course.modules.flatMap((m) => m.lessons);
+  const reviews = all.filter((l) => l.review).length;
+  return { lessons: all.length - reviews, reviews };
+}
+
 export function suggestCourseSlug(level: Level): string {
   return `tieng-anh-${level.toLowerCase()}`;
 }

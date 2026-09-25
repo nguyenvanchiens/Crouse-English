@@ -1,0 +1,56 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "than-phien-va-xu-ly",
+  title: "Khiếu nại và xử lý khiếu nại",
+  minutes: 24,
+  lecture: {
+    title: "Khiếu nại trang trọng, xin lỗi, đề xuất giải pháp và bị động khéo léo",
+    blocks: [
+      p("Bạn đặt một lô hàng từ đối tác nước ngoài và nhận về hàng lỗi. Hoặc bạn làm lễ tân khách sạn và gặp một vị khách người Đức đang rất bực. Cả hai tình huống đều cần **tiếng Anh vừa cứng rắn vừa lịch sự**. Người Việt thường rơi vào hai thái cực: hoặc quá nhún nhường nên không nói được điều mình muốn, hoặc dịch thẳng cơn giận thành câu buộc tội như **You sent me a broken phone!**"),
+      table(
+        ["Bước", "Người khiếu nại", "Người xử lý khiếu nại"],
+        ["Mở đầu", "I am writing to complain about… / to express my dissatisfaction with…", "Thank you for bringing this to our attention."],
+        ["Nêu vấn đề hoặc xin lỗi", "The item I received was damaged.", "We apologise for the inconvenience. / We are sorry for the delay."],
+        ["Tin không vui", "I was told it would be fixed. However, nothing has been done.", "I'm afraid we are unable to… / We regret that…"],
+        ["Yêu cầu hoặc giải pháp", "I would like a full refund. / I expect a replacement by…", "We would be happy to send a replacement. / As a gesture of goodwill, we would like to offer…"],
+      ),
+      p("Bí quyết của văn phong khiếu nại là **câu bị động**. Khi dùng bị động, bạn **nói về sự việc mà không chỉ tay vào người**. Khách hàng viết **The wrong item was delivered** thay vì **You delivered the wrong item**; công ty viết **Mistakes were made** thay vì **Our staff made mistakes**. Câu vẫn rõ ràng nhưng bớt căng thẳng, và cuộc trao đổi dễ đi đến giải pháp hơn."),
+      ex("I am writing to complain about the air conditioner I bought from your shop last week.", "Tôi viết thư này để khiếu nại về chiếc điều hòa tôi mua ở cửa hàng quý vị tuần trước."),
+      ex("The package was left outside in the rain, and the contents were damaged.", "Kiện hàng bị để ngoài trời mưa và đồ bên trong đã bị hỏng.", "Hai động từ bị động giúp nêu sự việc mà không buộc tội trực tiếp người giao hàng."),
+      ex("We apologise for sending you the wrong size.", "Chúng tôi xin lỗi vì đã gửi nhầm kích cỡ cho quý khách.", "Apologise for + V-ing hoặc + danh từ."),
+      ex("I'm afraid the room you booked is not available, but we can offer you a suite at the same price.", "Tôi e là phòng quý khách đặt hiện không còn, nhưng chúng tôi có thể dành cho quý khách một phòng hạng sang với giá như cũ.", "I'm afraid + mệnh đề: báo tin không vui một cách mềm mỏng. Luôn kèm theo một giải pháp."),
+      ex("We regret that your order was delayed due to a technical problem.", "Chúng tôi lấy làm tiếc vì đơn hàng của quý khách bị chậm do sự cố kỹ thuật."),
+      mistake("I want you to give me my money back now.", "I would like a full refund, please.", "Dịch thẳng “Tôi muốn anh trả lại tiền” nghe như ra lệnh. Trong khiếu nại trang trọng, dùng I would like hoặc I would be grateful if you could…"),
+      mistake("I'm afraid of we can't accept returns after thirty days.", "I'm afraid we can't accept returns after thirty days.", "I'm afraid of + danh từ nghĩa là “sợ cái gì”. Khi báo tin không vui, sau I'm afraid là cả một mệnh đề, không có of."),
+      mistake("We apologise for send you the wrong invoice.", "We apologise for sending you the wrong invoice.", "For là giới từ nên động từ sau nó phải ở dạng V-ing. Tiếng Việt không chia động từ nên học trò hay để nguyên mẫu."),
+      tip("Khi viết thư phản hồi khiếu nại, nhớ công thức **“Cảm ơn, xin lỗi, giải thích ngắn, giải pháp”**: Thank you for… / We apologise for… / This was due to… / We will… Đừng bao giờ chỉ xin lỗi mà không nói bạn sẽ **làm gì** tiếp theo."),
+      teacher("Tôi đã dạy nhiều lớp cho nhân viên khách sạn và hãng hàng không, và bài học tôi dặn đi dặn lại là: **người đang giận không cần nghe bạn giỏi ngữ pháp, họ cần thấy bạn hiểu họ**. Vì vậy câu đầu tiên luôn là ghi nhận: “I completely understand how frustrating this must be.” Luyện thế này: mỗi tuần tự viết **một thư khiếu nại** về một chuyện có thật (đồ ăn giao chậm, máy giặt hỏng), rồi đổi vai, tự viết **thư trả lời** của công ty. Viết được cả hai chiều thì bạn xử lý tình huống nào cũng vững."),
+    ],
+  },
+  words: [
+    word("refund", "/ˈriː.fʌnd/", "khoản hoàn tiền", "I would like a full refund for the damaged item.", "re|fund", 0, "Danh từ nhấn âm đầu: RE-fund. Động từ “to refund” thường nhấn âm sau."),
+    word("faulty", "/ˈfɔːl.ti/", "bị lỗi, hỏng", "The charger I received was faulty.", "fault|y", 0),
+    word("inconvenience", "/ˌɪn.kənˈviː.ni.əns/", "sự bất tiện, phiền toái", "We apologise for any inconvenience caused.", "in|con|ve|ni|ence", 2, "Năm âm tiết, trọng âm ở âm thứ ba: in-con-VE-ni-ence."),
+    word("replacement", "/rɪˈpleɪs.mənt/", "hàng thay thế", "We will send you a replacement free of charge.", "re|place|ment", 1),
+    word("apologise", "/əˈpɒl.ə.dʒaɪz/", "xin lỗi", "The manager apologised for the long wait.", "a|pol|o|gise", 1, "Trọng âm ở âm tiết thứ hai: a-POL-o-gise."),
+    word("compensation", "/ˌkɒm.penˈseɪ.ʃən/", "sự bồi thường", "The passengers received compensation for the delay.", "com|pen|sa|tion", 2),
+    word("dissatisfied", "/dɪsˈsæt.ɪs.faɪd/", "không hài lòng", "Several guests were dissatisfied with the service.", "dis|sat|is|fied", 1),
+    word("receipt", "/rɪˈsiːt/", "hóa đơn, biên lai", "Please keep your receipt in case you need to return the item.", "re|ceipt", 1, "Chữ p câm: đọc re-SEET /rɪˈsiːt/, không đọc “ri-xíp”."),
+  ],
+  exercises: [
+    mc("b2-n16-1", "A customer typed the wrong delivery address. Which reply is the most tactful?", ["You typed the wrong address, so it's your fault.", "It seems that the wrong address was entered.", "Your address was wrong. Check it next time."], 1, "Câu bị động “the wrong address was entered” nêu sự việc mà không buộc tội khách hàng."),
+    mc("b2-n16-2", "We apologise for ___ the wrong item.", ["send", "to send", "sending", "sent"], 2, "Apologise for + V-ing, vì for là giới từ."),
+    fill("b2-n16-3", "I'm ___ we are unable to offer a refund on sale items.", ["afraid", "sorry"], "I'm afraid (hoặc I'm sorry) + mệnh đề: cách báo tin không vui lịch sự."),
+    fill("b2-n16-4", "I am writing to ___ about the service I received at your hotel. (phàn nàn)", ["complain"], "I am writing to complain about… là câu mở đầu chuẩn của thư khiếu nại."),
+    reorder("b2-n16-5", "We apologise for any inconvenience caused.", "Câu xin lỗi cố định trong thư trả lời khiếu nại. Caused = which has been caused."),
+    reorder("b2-n16-6", "Your order was sent to the wrong address.", "Câu bị động giúp công ty nhận lỗi mà không đổ cho một nhân viên cụ thể."),
+    listen("b2-n16-7", "I'm afraid the item you ordered is out of stock.", ["Tôi e là mặt hàng quý khách đặt đã hết hàng.", "Tôi sợ mặt hàng quý khách đặt bị hỏng.", "Mặt hàng quý khách đặt sẽ về vào tuần sau."], 0, "I'm afraid ở đây không phải “tôi sợ” mà là “tôi e rằng”, báo tin không vui."),
+    listen("b2-n16-8", "As a gesture of goodwill, we would like to offer you a free night.", ["Chúng tôi muốn quý khách trả thêm một đêm.", "Quý khách được giảm giá một nửa.", "Chúng tôi không thể hoàn tiền cho quý khách.", "Để thể hiện thiện chí, chúng tôi xin tặng quý khách một đêm nghỉ miễn phí."], 3, "As a gesture of goodwill: để thể hiện thiện chí, thường đi kèm một món đền bù."),
+  ],
+  speaking: [
+    say("I am writing to complain about the late delivery of my order.", "Tôi viết thư để khiếu nại về việc đơn hàng của tôi bị giao chậm."),
+    say("We apologise for the delay and will send a replacement today.", "Chúng tôi xin lỗi vì sự chậm trễ và sẽ gửi hàng thay thế ngay hôm nay."),
+    say("I'm afraid we are unable to offer a full refund.", "Tôi e là chúng tôi không thể hoàn lại toàn bộ tiền."),
+  ],
+});

@@ -1,0 +1,63 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "loi-moi-va-de-nghi",
+  title: "Lời mời và đề nghị",
+  minutes: 20,
+  lecture: {
+    title: "Would you like, Shall we, Let's, Why don't we và will để đề nghị giúp",
+    blocks: [
+      p("Có khách nước ngoài đến văn phòng: bạn mời họ uống nước, rủ cả nhóm đi ăn trưa, thấy họ xách đồ nặng thì muốn đỡ giúp. Ở bài Kế hoạch cuối tuần bạn đã biết **Would you like to...?** để mời đi chơi. Hôm nay ta học trọn bộ: **mời**, **rủ**, **đề nghị giúp**, và **nhận lời hay từ chối cho khéo**. Nhiều người Việt chỉ quen nói “Do you want...?”, nghe hơi thẳng khi nói với khách hay người lớn tuổi."),
+      table(
+        ["Mục đích", "Mẫu câu", "Ví dụ"],
+        ["Mời đồ ăn, đồ uống", "Would you like + danh từ?", "Would you like some tea?"],
+        ["Mời làm gì", "Would you like to + V?", "Would you like to join us?"],
+        ["Rủ cùng làm", "Let's + V / Shall we + V? / Why don't we + V?", "Shall we take a taxi?"],
+        ["Đề nghị giúp", "Shall I + V? / I'll + V", "Shall I open the window?"],
+      ),
+      p("Ba cách rủ có sắc thái hơi khác nhau: **Let's** là rủ thẳng, **Shall we...?** là hỏi ý người kia, **Why don't we...?** là gợi ý mềm mỏng. Cả ba đều theo sau bằng **động từ nguyên mẫu không có to**."),
+      ex("Let's have lunch together.", "Mình cùng đi ăn trưa đi."),
+      ex("Shall we meet at seven?", "Mình gặp nhau lúc bảy giờ nhé?"),
+      ex("Why don't we try the new restaurant?", "Sao mình không thử nhà hàng mới nhỉ?", "Câu này có don't nhưng không phải hỏi “tại sao không”, mà là một lời gợi ý. Người nghe trả lời That's a good idea!, không trả lời Because..."),
+      p("Khi thấy ai cần giúp và **quyết định ngay lúc đó** là giúp, tiếng Anh dùng **I'll + động từ nguyên mẫu**. Đây là cách dùng will rất tự nhiên, không phải dự đoán, cũng không phải kế hoạch có sẵn."),
+      ex("Your bag looks heavy. I'll carry it for you.", "Túi của bạn trông nặng quá. Để tôi xách giúp."),
+      ex("The phone's ringing. I'll get it.", "Điện thoại reo kìa. Để tôi nghe.", "I'll get it là câu cửa miệng khi nhận nghe điện thoại hoặc ra mở cửa giúp mọi người."),
+      table(
+        ["Lời mời, đề nghị", "Nhận lời", "Từ chối lịch sự"],
+        ["Would you like some coffee?", "Yes, please.", "No, thanks. I'm fine."],
+        ["Shall I help you?", "Yes, please. That's very kind of you.", "No, it's OK, thanks. I can do it."],
+        ["Why don't we go out tonight?", "That's a good idea!", "I'd love to, but I'm really tired. Maybe another time."],
+      ),
+      tip("Nhớ theo cặp: có lời mời thì luôn có **please** khi nhận và **thanks** khi từ chối. **Yes, please** và **No, thanks** là hai câu ngắn nhất mà vẫn lịch sự, dùng được với bất kỳ ai."),
+      mistake("Let's to go home.", "Let's go home.", "Nhiều người quen want to, need to nên thêm to sau Let's. Sau Let's, Shall we, Why don't we đều là động từ nguyên mẫu không có to."),
+      mistake("I help you carry it.", "I'll help you carry it.", "Tiếng Việt “để tôi giúp” không cần chia thì. Tiếng Anh muốn đề nghị giúp ngay lúc nói thì phải có will: I'll help you."),
+      mistake("A: Would you like some tea? B: Yes, I like.", "A: Would you like some tea? B: Yes, please.", "Yes, I like nghĩa là tôi thích (nói chung), không phải nhận lời mời. Nhận đồ ăn, đồ uống thì nói Yes, please."),
+      teacher("Có một cái bẫy văn hóa mà tôi thấy học trò mắc suốt bao nhiêu năm: người Việt được mời thường **từ chối lần đầu cho khách sáo**, đợi mời lần hai mới nhận. Với người nói tiếng Anh, **No, thanks nghĩa là không thật**, và họ sẽ không mời lại đâu. Thế là các em ngồi nhìn người ta uống cà phê một mình. Muốn thì nói Yes, please ngay từ đầu, thế là lịch sự rồi."),
+    ],
+  },
+  words: [
+    word("suggest", "/səˈdʒest/", "gợi ý, đề xuất", "She suggested a new restaurant.", "sug|gest", 1),
+    word("offer", "/ˈɒf.ər/", "đề nghị, mời", "He offered to help me.", "of|fer", 0),
+    word("accept", "/əkˈsept/", "nhận, chấp nhận", "I'm happy to accept your invitation.", "ac|cept", 1, "Đọc rõ âm /k/ ở âm đầu: ơk-SEPT. Đừng nhầm với except /ɪkˈsept/ (ngoại trừ)."),
+    word("refuse", "/rɪˈfjuːz/", "từ chối", "It's not polite to refuse too quickly.", "re|fuse", 1, "Âm cuối là /z/, không phải /s/."),
+    word("join", "/dʒɔɪn/", "tham gia, đi cùng", "Would you like to join us for dinner?", "join", 0),
+    word("carry", "/ˈkær.i/", "mang, xách", "I'll carry your bag for you.", "car|ry", 0),
+    word("heavy", "/ˈhev.i/", "nặng", "This box is really heavy.", "heav|y", 0, "Chữ ea ở đây đọc là /e/ ngắn, không đọc là “hi-vi”."),
+    word("kind", "/kaɪnd/", "tốt bụng, tử tế", "That's very kind of you.", "kind", 0, "Nhớ bật âm /nd/ ở cuối, đừng đọc thành “kai”."),
+  ],
+  exercises: [
+    mc("a2-n07-1", "It's hot in here. ___ I open the window?", ["Shall", "Let's", "Why", "Would"], 0, "Đề nghị làm giúp người khác: Shall I + động từ nguyên mẫu?"),
+    mc("a2-n07-2", "A: Would you like some coffee? B: ___", ["Yes, I like.", "Yes, I'd like.", "Yes, please."], 2, "Nhận đồ uống người khác mời: Yes, please. Hai câu còn lại đều sai ngữ pháp hoặc sai nghĩa."),
+    fill("a2-n07-3", "Let's ___ a taxi. It's raining. (take)", ["take"], "Sau Let's là động từ nguyên mẫu không có to."),
+    fill("a2-n07-4", "Your bags look heavy. I ___ help you. (sẽ, quyết định ngay lúc nói)", ["will", "'ll"], "Quyết định giúp ngay lúc nói thì dùng will: I will help you, nói tự nhiên là I'll help you."),
+    reorder("a2-n07-5", "Why don't we have dinner together?", "Why don't we + động từ nguyên mẫu là một lời gợi ý mềm mỏng."),
+    reorder("a2-n07-6", "Shall we go for a walk?", "Shall we + động từ nguyên mẫu: rủ và hỏi ý người kia. Go for a walk là đi dạo."),
+    listen("a2-n07-7", "That's very kind of you, but I can do it myself.", ["Bạn làm giúp tôi nhé.", "Bạn tốt quá, nhưng tôi tự làm được.", "Tôi sẽ làm giúp bạn."], 1, "That's very kind of you là cảm ơn lời đề nghị, but I can do it myself là từ chối khéo."),
+    listen("a2-n07-8", "I'd love to, but I'm really tired tonight. Maybe another time.", ["Tối nay mình rất muốn đi chơi.", "Mình không thích đi đâu cả.", "Mình rất muốn đi, nhưng tối nay mệt quá. Để lần khác nhé."], 2, "I'd love to, but... là cách từ chối lịch sự: tỏ ý muốn đi, rồi nêu lý do."),
+  ],
+  speaking: [
+    say("Shall we have lunch together?", "Mình cùng đi ăn trưa nhé?"),
+    say("Your bag looks heavy. I'll carry it for you.", "Túi của bạn trông nặng quá. Để tôi xách giúp."),
+    say("Why don't we go for a walk after dinner?", "Sao mình không đi dạo sau bữa tối nhỉ?"),
+  ],
+});

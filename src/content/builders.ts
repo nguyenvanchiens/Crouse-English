@@ -15,6 +15,8 @@ export const table = (headers: string[], ...rows: string[][]): LectureBlock => (
 export const ex = (en: string, vi: string, note?: string): LectureBlock => ({ kind: "example", en, vi, ...(note ? { note } : {}) });
 export const tip = (body: string): LectureBlock => ({ kind: "tip", body });
 export const mistake = (wrong: string, right: string, why: string): LectureBlock => ({ kind: "mistake", wrong, right, why });
+/** "Kinh nghiệm của thầy cô": classroom-proven advice in a veteran teacher's voice */
+export const teacher = (body: string): LectureBlock => ({ kind: "teacher", body });
 
 /** A standard lesson: lecture → vocab → exercise → speaking. */
 export function lesson(o: {

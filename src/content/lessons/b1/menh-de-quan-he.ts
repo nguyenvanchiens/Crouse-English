@@ -1,0 +1,61 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "menh-de-quan-he",
+  title: "Người mà, cái mà",
+  minutes: 22,
+  lecture: {
+    title: "Mệnh đề quan hệ xác định: who, which, that, where, whose",
+    blocks: [
+      p("Bạn muốn nói với khách nước ngoài: “Đây là **người mà** đã giúp tôi tìm khách sạn” hay “Đó là **quán mà** tôi hay ăn phở.” Để thêm thông tin xác định **người nào, cái nào, nơi nào**, tiếng Anh dùng **mệnh đề quan hệ**, đặt ngay sau danh từ. Tiếng Việt dùng một chữ “mà” cho mọi trường hợp, còn tiếng Anh chọn từ theo loại danh từ."),
+      table(
+        ["Từ", "Dùng cho", "Ví dụ"],
+        ["who", "người", "The man who lives next door is a doctor."],
+        ["which", "vật, con vật", "I lost the bag which my mother gave me."],
+        ["that", "người hoặc vật (văn nói rất hay dùng)", "This is the phone that I bought last week."],
+        ["where", "nơi chốn", "That's the café where we first met."],
+        ["whose", "của người đó, của vật đó (sở hữu)", "I have a friend whose father is a pilot."],
+      ),
+      ex("A nurse is a person who looks after patients.", "Y tá là người chăm sóc bệnh nhân."),
+      ex("Hanoi is the city where I was born.", "Hà Nội là thành phố nơi tôi sinh ra."),
+      ex("She's the woman whose son won the competition.", "Bà ấy là người phụ nữ có cậu con trai đã thắng cuộc thi.", "Whose + danh từ: thay cho her son, his car, their house."),
+      p("**Lược bỏ đại từ quan hệ**: khi who, which, that đóng vai **tân ngữ**, tức là theo sau nó đã có một chủ ngữ khác, ta có thể bỏ đi. Người bản xứ bỏ rất thường xuyên khi nói."),
+      table(
+        ["Đầy đủ", "Lược bỏ", "Có bỏ được không?"],
+        ["The book that I'm reading is great.", "The book I'm reading is great.", "Được, vì sau that có chủ ngữ I."],
+        ["The man who called you is my boss.", "(không bỏ được)", "Không, vì who chính là chủ ngữ của called."],
+      ),
+      ex("Is this the book you were talking about?", "Đây có phải cuốn sách mà bạn đã nhắc đến không?", "Đã lược bỏ that. Giới từ about được đẩy xuống cuối câu."),
+      tip("Mẹo kiểm tra: che từ who / which / that đi rồi nhìn phía sau. Nếu ngay sau đó là **một chủ ngữ + động từ** (I bought, you met) thì bỏ được. Nếu ngay sau đó là **động từ** (lives, called) thì phải giữ lại. Mẹo phát âm: whose đọc là /huːz/, giống hệt who's; nghe theo ngữ cảnh để phân biệt."),
+      mistake("The man who he lives next door is a doctor.", "The man who lives next door is a doctor.", "Người Việt quen nghĩ vế nào cũng phải có chủ ngữ riêng, nên thêm he vào sau who. Nhưng who đã làm chủ ngữ của lives rồi, không lặp lại he nữa."),
+      mistake("I lost the bag which my mother gave it to me.", "I lost the bag which my mother gave me.", "Which đã thay cho the bag, nên không thêm it nữa."),
+      mistake("That's the restaurant which we had dinner.", "That's the restaurant where we had dinner.", "Nói về nơi xảy ra sự việc thì dùng where (hoặc which … at, nhưng where tự nhiên hơn)."),
+      teacher("Thầy vẫn nhớ một học trò làm hướng dẫn viên du lịch, mỗi lần giới thiệu đều nói một chuỗi câu ngắn: “This is a temple. It is old. People built it in 1070.” Thầy chỉ dạy em ấy ghép lại: **This is a temple which people built in 1070.** Khách nghe thấy chuyên nghiệp hơn hẳn. Lời khuyên của thầy: mỗi ngày lấy hai câu ngắn có chung một danh từ và **ghép thành một câu** bằng who, which, where hay whose. Làm đều tay một tháng, câu nói của bạn sẽ dài và mượt hơn rất nhiều."),
+    ],
+  },
+  words: [
+    word("landlord", "/ˈlænd.lɔːd/", "chủ nhà (cho thuê)", "The landlord who owns this building lives in Da Nang.", "land|lord", 0),
+    word("recipe", "/ˈres.ɪ.pi/", "công thức nấu ăn", "This is the recipe my grandmother gave me.", "rec|i|pe", 0, "Có ba âm tiết, chữ e cuối được đọc: RES-i-pi, không đọc thành “ri-xíp”."),
+    word("author", "/ˈɔː.θər/", "tác giả", "He's the author whose books are sold everywhere.", "au|thor", 0, "Âm th là /θ/: đặt đầu lưỡi giữa hai hàm răng và thổi hơi, đừng đọc thành /t/."),
+    word("owner", "/ˈəʊ.nər/", "người chủ, chủ sở hữu", "I met the owner of the shop where I bought this.", "own|er", 0),
+    word("device", "/dɪˈvaɪs/", "thiết bị", "A charger is a device that gives power to your phone.", "de|vice", 1, "Âm cuối là /s/. Đừng nhầm với động từ devise, âm cuối /z/."),
+    word("village", "/ˈvɪl.ɪdʒ/", "làng", "This is the village where my parents grew up.", "vil|lage", 0, "Âm cuối là /ɪdʒ/, không đọc thành “vi-lết”."),
+    word("describe", "/dɪˈskraɪb/", "miêu tả", "Can you describe the man who took your bag?", "de|scribe", 1),
+    word("tool", "/tuːl/", "công cụ, dụng cụ", "A hammer is a tool which you use for hitting nails.", "tool", 0, "Âm /l/ cuối cần nâng lưỡi chạm lợi trên, đừng bỏ mất."),
+  ],
+  exercises: [
+    mc("b1-n08-1", "A nurse is a person ___ looks after patients.", ["which", "who", "where", "whose"], 1, "Danh từ chỉ người (a person) và đại từ làm chủ ngữ của looks: who."),
+    mc("b1-n08-2", "That's the hotel ___ we stayed last summer.", ["which", "who", "where"], 2, "Nơi xảy ra việc (chúng tôi ở đó) nên dùng where."),
+    fill("b1-n08-3", "I have a friend ___ father is a pilot.", ["whose"], "Bố của người bạn đó: whose + danh từ."),
+    fill("b1-n08-4", "The phone ___ I bought last week has stopped working. (đại từ quan hệ chỉ vật)", ["that", "which"], "Danh từ chỉ vật: that hoặc which. Ở câu này cũng có thể bỏ hẳn đại từ đi vì sau nó có chủ ngữ I."),
+    reorder("b1-n08-5", "Is this the book you were talking about?", "Đã lược bỏ that sau the book. Giới từ about đứng cuối câu."),
+    reorder("b1-n08-6", "Do you know anyone who speaks Japanese?", "Anyone chỉ người nên dùng who; who là chủ ngữ của speaks nên không bỏ được."),
+    listen("b1-n08-7", "The girl who is sitting next to Lan is my cousin.", ["Cô gái ngồi cạnh Lan là em họ tôi.", "Lan đang ngồi cạnh em họ tôi.", "Em họ tôi tên là Lan."], 0, "Mệnh đề who is sitting next to Lan xác định cô gái nào."),
+    listen("b1-n08-8", "That's the restaurant where we had our first date.", ["Chúng tôi định hẹn hò lần đầu ở nhà hàng đó.", "Nhà hàng đó đã đóng cửa sau buổi hẹn đầu tiên.", "Đó là nhà hàng nơi chúng tôi có buổi hẹn hò đầu tiên."], 2, "Where + mệnh đề: nơi xảy ra sự việc."),
+  ],
+  speaking: [
+    say("My sister is a teacher who works in a village school.", "Chị gái tôi là giáo viên dạy ở một trường làng."),
+    say("This is the phone I bought last week.", "Đây là chiếc điện thoại tôi mua tuần trước."),
+    say("Hanoi is the city where I was born.", "Hà Nội là thành phố nơi tôi sinh ra."),
+  ],
+});

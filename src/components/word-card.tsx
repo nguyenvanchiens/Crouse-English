@@ -22,7 +22,7 @@ export function WordCard() {
   const current = WORDS[index];
 
   return (
-    <div className="relative">
+    <div className="relative mb-3 mr-3">
       <div aria-hidden className="absolute inset-0 translate-x-3 translate-y-3 rotate-3 rounded-[1.5rem] border-[2.5px] border-ink bg-sun" />
       <div aria-hidden className="absolute inset-0 translate-x-1.5 translate-y-1.5 rotate-[1.5deg] rounded-[1.5rem] border-[2.5px] border-ink bg-grape-soft" />
       <PronounceCard key={current.word} word={current} label={`Từ hay đọc sai (${index + 1}/${WORDS.length})`} revealMeaning>

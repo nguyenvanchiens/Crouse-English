@@ -1,0 +1,63 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "viet-luan-va-tom-tat",
+  title: "Viết luận và tóm tắt",
+  minutes: 24,
+  lecture: {
+    title: "Diễn đạt lại, tóm tắt và bố cục bài luận",
+    blocks: [
+      p("Trong IELTS Writing, giám khảo trừ điểm khi bạn chép lại nguyên câu đề bài. Ở trường đại học nước ngoài, chép nguyên câu của người khác mà không ghi nguồn bị coi là **đạo văn** (plagiarism), có thể bị đánh trượt cả môn. Còn ở công ty, sếp cần bạn **tóm tắt** một báo cáo hai mươi trang thành vài dòng. Cả ba tình huống đều đòi hỏi một kỹ năng: nói lại ý của người khác **bằng lời của mình**."),
+      p("Có ba kỹ thuật **diễn đạt lại** (paraphrase): **đổi từ đồng nghĩa**, **đổi từ loại** (động từ thành danh từ, tính từ thành trạng từ…) và **đổi cấu trúc câu** (chủ động sang bị động, mệnh đề sang cụm danh từ). Một câu diễn đạt lại tốt thường kết hợp **ít nhất hai** kỹ thuật, và phải giữ **nguyên ý** của câu gốc."),
+      table(
+        ["Kỹ thuật", "Câu gốc", "Câu diễn đạt lại"],
+        ["Từ đồng nghĩa", "Many people are worried about rising house prices.", "A large number of people are concerned about increasing property prices."],
+        ["Đổi từ loại", "The population grew rapidly.", "There was rapid growth in the population."],
+        ["Chủ động sang bị động", "The government should fund public transport.", "Public transport should be funded by the government."],
+        ["Mệnh đề sang cụm danh từ", "Because it rained heavily, the match was cancelled.", "Heavy rain led to the cancellation of the match."],
+      ),
+      ex("Daily reading is associated with better academic performance among children.", "Việc đọc sách hằng ngày gắn liền với kết quả học tập tốt hơn ở trẻ em.", "Câu gốc: Children who read every day tend to do better at school. Đã đổi từ loại (read thành reading), đổi từ (do better at school thành academic performance) và đổi cấu trúc câu."),
+      mistake("The government should grab powerful measures.", "The government should take firm action.", "Tra từ điển Anh-Việt rồi thay từ đồng nghĩa một cách máy móc sẽ phá vỡ kết hợp từ. Tiếng Anh nói take action, take measures; không ai nói grab measures."),
+      mistake("Scientists have proved that coffee is harmful.", "Some researchers believe that coffee may have negative effects on health.", "Câu gốc là Some scientists believe coffee may be harmful. Khi diễn đạt lại, người Việt hay “chốt” ý cho mạnh, biến có thể thành đã chứng minh. Paraphrase phải giữ đúng mức độ chắc chắn và phạm vi (some, may) của câu gốc."),
+      p("**Tóm tắt** (summarise) khác diễn đạt lại ở chỗ bạn phải **rút ngắn**. Các bước: đọc hết đoạn gốc, gạch chân **ý chính**, bỏ ví dụ, số liệu phụ và chi tiết lặp lại, rồi viết lại bằng lời của mình, dài khoảng **một phần ba** bản gốc. Bản tóm tắt **không thêm ý kiến cá nhân**. Cụm mở đầu hay dùng: **The article argues that…**, **According to the author,…**, **The report concludes that…**"),
+      ex("The author argues that remote work improves productivity but may weaken team relationships.", "Tác giả lập luận rằng làm việc từ xa giúp tăng năng suất nhưng có thể làm suy giảm quan hệ trong nhóm.", "Một bài báo dài được tóm trong một câu: động từ tường thuật, ý chính, và ý phụ quan trọng nhất."),
+      p("Một bài luận chuẩn có ba phần. **Mở bài**: giới thiệu bối cảnh và nêu **thesis statement** (câu luận điểm, lập trường của cả bài). **Thân bài**: mỗi đoạn một ý, mở đầu bằng **topic sentence** (câu chủ đề), sau đó giải thích và đưa ví dụ. **Kết bài**: nhắc lại luận điểm **bằng từ khác** và tóm lại các ý chính."),
+      table(
+        ["Thành phần", "Chức năng", "Câu mẫu"],
+        ["Thesis statement", "Nêu lập trường của cả bài", "This essay argues that cities should invest more in public transport."],
+        ["Topic sentence", "Nêu ý chính của một đoạn thân bài", "The main advantage of public transport is that it reduces congestion."],
+        ["Conclusion", "Khẳng định lại lập trường, tóm các ý", "In conclusion, public transport deserves greater investment because it benefits both people and the environment."],
+      ),
+      ex("One major drawback of fast fashion is the damage it causes to the environment.", "Một nhược điểm lớn của thời trang nhanh là tác hại nó gây ra cho môi trường.", "Topic sentence tốt nêu rõ ý chính và đủ cụ thể để người đọc đoán được cả đoạn sẽ nói về điều gì."),
+      mistake("In conclusion, public transport is good. Another benefit is that it creates jobs.", "In conclusion, public transport reduces congestion and pollution, so it deserves greater investment.", "Văn nghị luận tiếng Việt quen “mở rộng vấn đề” ở kết bài, nên nhiều bạn đưa thêm ý mới vào đoạn cuối. Bài luận tiếng Anh không làm vậy: kết bài chỉ khẳng định lại và tóm tắt, không thêm lập luận mới."),
+      p("Để **tránh đạo văn**: khi giữ nguyên câu chữ của tác giả, đặt trong **ngoặc kép** và ghi nguồn; khi diễn đạt lại, vẫn phải **ghi nguồn** (According to Smith…). Chỉ đổi vài từ mà giữ nguyên khung câu gốc (người ta gọi là **patchwriting**) vẫn bị coi là đạo văn."),
+      tip("Mẹo **gập sách**: đọc đoạn gốc hai lần, rồi gập sách hoặc tắt màn hình, viết lại theo trí nhớ. Sau đó mở ra so sánh. Nếu thấy một chuỗi **ba bốn từ liền nhau** giống hệt bản gốc (trừ thuật ngữ chuyên môn), hãy viết lại chỗ đó."),
+      teacher("Sau năm mươi năm dạy, tôi thấy người Việt không thiếu ý, mà thiếu **thói quen viết lại**. Mỗi tuần, các em chọn một bài báo tiếng Anh ngắn, tóm nó trong **đúng ba câu**: một câu nêu ý chính, hai câu nêu hai ý phụ. Rồi viết lại câu tiêu đề theo **hai cách khác nhau**. Tự kiểm tra bằng câu hỏi: “Nếu tác giả đọc bản của mình, họ có thấy ý mình bị bóp méo không?”. Viết đủ mười tuần, các em sẽ thấy bài luận của mình gọn và chắc hơn rất nhiều."),
+    ],
+  },
+  words: [
+    word("paraphrase", "/ˈpær.ə.freɪz/", "diễn đạt lại (bằng lời của mình)", "Try to paraphrase the question in your introduction.", "par|a|phrase", 0, "Trọng âm ở âm đầu: PAR-a-phrase; ph đọc là /f/."),
+    word("summarise", "/ˈsʌm.ər.aɪz/", "tóm tắt", "Can you summarise the report in one paragraph?", "sum|ma|rise", 0, "Tiếng Anh-Mỹ viết summarize."),
+    word("plagiarise", "/ˈpleɪ.dʒər.aɪz/", "đạo văn", "Students who plagiarise may fail the course.", "pla|gia|rise", 0, "Chữ g đọc là /dʒ/: PLAY-jer-ize. Danh từ là plagiarism."),
+    word("thesis", "/ˈθiː.sɪs/", "luận điểm; luận văn", "Your thesis should be clear from the first paragraph.", "the|sis", 0, "Âm /θ/ đặt lưỡi giữa hai hàm răng, không đọc “thi-sít”. Số nhiều là theses."),
+    word("coherent", "/kəʊˈhɪə.rənt/", "mạch lạc, chặt chẽ", "Each paragraph should present a coherent argument.", "co|her|ent", 1),
+    word("outline", "/ˈaʊt.laɪn/", "dàn ý; phác thảo", "Write a brief outline before you start your essay.", "out|line", 0, "Danh từ và động từ đều nhấn âm đầu: OUT-line."),
+    word("synonym", "/ˈsɪn.ə.nɪm/", "từ đồng nghĩa", "Increase is a useful synonym for rise.", "syn|o|nym", 0),
+    word("cite", "/saɪt/", "trích dẫn, dẫn nguồn", "Always cite your sources in academic writing.", "cite", 0, "Đọc giống hệt site và sight: /saɪt/."),
+  ],
+  exercises: [
+    mc("c1-n16-1", "Câu nào diễn đạt lại tốt nhất: Many young people cannot afford to buy a house.", ["Many young people cannot afford to buy a home.", "A large number of young adults are unable to purchase property.", "Young people do not want to buy houses.", "All young people are too poor to buy a house."], 1, "Đổi từ và cấu trúc nhưng giữ nguyên ý. Phương án A chỉ đổi một từ; C đổi nghĩa; D phóng đại thành all."),
+    fill("c1-n16-2", "The economy grew slowly. → There was slow economic ___.", ["growth"], "Đổi từ loại: động từ grow thành danh từ growth, trạng từ slowly thành tính từ slow."),
+    mc("c1-n16-3", "Câu nào phù hợp nhất để làm thesis statement?", ["Technology is a very interesting topic.", "In this essay, I will talk about some things.", "Some people like social media and some do not.", "This essay argues that social media does more harm than good to teenagers."], 3, "Thesis statement phải nêu rõ lập trường có thể tranh luận được. Các câu còn lại quá chung chung."),
+    fill("c1-n16-4", "If you use someone else's exact words, you must ___ the source. (trích dẫn, ghi nguồn)", ["cite", "acknowledge", "credit", "reference"], "Cite the source: ghi nguồn. Đồng thời phải đặt câu trích trong ngoặc kép."),
+    reorder("c1-n16-5", "The article argues that tourism harms local communities.", "Cụm mở đầu bản tóm tắt: The article argues that + mệnh đề."),
+    reorder("c1-n16-6", "Each paragraph should begin with a topic sentence.", "Mỗi đoạn thân bài mở đầu bằng một câu chủ đề nêu ý chính."),
+    listen("c1-n16-7", "In summary, the report finds that online learning works best when combined with classroom teaching.", ["Báo cáo kết luận rằng học trực tuyến nên thay thế hoàn toàn học trên lớp.", "Báo cáo cho thấy học trên lớp không còn hiệu quả.", "Tóm lại, báo cáo cho thấy học trực tuyến hiệu quả nhất khi kết hợp với dạy trên lớp."], 2, "In summary: tóm lại. Combined with: kết hợp với."),
+    listen("c1-n16-8", "Simply changing a few words is not enough to avoid plagiarism.", ["Chỉ đổi vài từ thì chưa đủ để tránh đạo văn.", "Đổi vài từ là đủ để tránh đạo văn.", "Đạo văn là việc thay đổi quá nhiều từ.", "Không cần đổi từ nào nếu đã ghi nguồn."], 0, "Simply changing a few words: chỉ đổi vài từ. Is not enough: chưa đủ."),
+  ],
+  speaking: [
+    say("This essay argues that cities should invest more in public transport.", "Bài luận này lập luận rằng các thành phố nên đầu tư nhiều hơn vào giao thông công cộng."),
+    say("In other words, the problem is not money but time.", "Nói cách khác, vấn đề không phải là tiền mà là thời gian."),
+    say("According to the author, reading every day improves concentration.", "Theo tác giả, đọc sách mỗi ngày giúp cải thiện khả năng tập trung."),
+  ],
+});

@@ -15,9 +15,9 @@ describe("content accessors", () => {
     expect(first).toMatchObject({ index: 0, prev: null });
     expect(first?.next?.slug).toBe("gia-dinh-va-do-vat");
     const crossing = await getLesson("tieng-anh-a1", "mot-ngay-cua-toi");
-    expect(crossing?.prev?.slug).toBe("so-tuoi-va-so-dien-thoai");
+    expect(crossing?.prev?.slug, "chapter 1 ends with its review").toBe("on-tap-chuong-1");
     expect(crossing?.module.id).toBe("m2");
-    const last = await getLesson("tieng-anh-a1", "nha-va-noi-chon");
+    const last = await getLesson("tieng-anh-a1", "on-tap-chuong-4");
     expect(last?.next).toBeNull();
     expect(last?.index).toBe((last?.total ?? 0) - 1);
     expect(await getLesson("tieng-anh-a1", "nope")).toBeNull();
@@ -98,13 +98,34 @@ describe("A1 to C1 path", () => {
 
   for (const c of path) {
     describe(c.slug, () => {
-      const lessons: Lesson[] = c.modules.flatMap((m) => m.lessons);
+      const all: Lesson[] = c.modules.flatMap((m) => m.lessons);
+      const regular = all.filter((l) => !l.review);
 
-      it("has 2 chapters of 3 lessons", () => {
-        expect(c.modules.map((m) => m.lessons.length)).toEqual([3, 3]);
+      it("has 4 chapters of 4 lessons, each closed by a chapter review", () => {
+        expect(c.modules).toHaveLength(4);
+        c.modules.forEach((m, i) => {
+          expect(m.lessons).toHaveLength(5);
+          expect(m.lessons.slice(0, 4).every((l) => !l.review)).toBe(true);
+          expect(m.lessons[4]).toMatchObject({ review: true, slug: `on-tap-chuong-${i + 1}` });
+        });
       });
 
-      for (const l of lessons) {
+      it("has no vocabulary word taught twice in the same course", () => {
+        const words = regular.flatMap((l) => l.steps.flatMap((s) => (s.type === "vocab" ? s.words.map((w) => w.word.toLowerCase()) : [])));
+        const dupes = words.filter((w, i) => words.indexOf(w) !== i);
+        expect(dupes, `repeated vocab: ${dupes.join(", ")}`).toEqual([]);
+      });
+
+      for (const r of all.filter((l) => l.review)) {
+        it(`${r.slug} reviews 12 items covering every exercise kind`, () => {
+          expect(r.steps.map((s) => s.type)).toEqual(["exercise"]);
+          const items = r.steps[0].type === "exercise" ? r.steps[0].items : [];
+          expect(items).toHaveLength(12);
+          for (const k of kinds) expect(items.some((e) => e.kind === k)).toBe(true);
+        });
+      }
+
+      for (const l of regular) {
         it(`${l.slug} follows the lesson format`, () => {
           expect(l.minutes).toBeGreaterThanOrEqual(15);
           expect(l.minutes).toBeLessThanOrEqual(25);
@@ -112,30 +133,36 @@ describe("A1 to C1 path", () => {
           const [lecture, vocab, exercise, speaking] = l.steps;
 
           const lec = lecture as LectureStep;
-          expect(lec.blocks.length).toBeGreaterThanOrEqual(6);
-          expect(lec.blocks.filter((b) => b.kind === "example").length).toBeGreaterThanOrEqual(2);
+          expect(lec.blocks.length).toBeGreaterThanOrEqual(10);
+          expect(lec.blocks.length).toBeLessThanOrEqual(16);
+          expect(lec.blocks.filter((b) => b.kind === "example").length).toBeGreaterThanOrEqual(3);
           expect(lec.blocks.some((b) => b.kind === "table")).toBe(true);
-          expect(lec.blocks.some((b) => b.kind === "mistake")).toBe(true);
+          expect(lec.blocks.filter((b) => b.kind === "mistake").length).toBeGreaterThanOrEqual(2);
+          expect(lec.blocks.some((b) => b.kind === "tip")).toBe(true);
+          expect(lec.blocks.some((b) => b.kind === "teacher"), "teacher block").toBe(true);
           for (const b of lec.blocks) {
             if (b.kind === "table") for (const row of b.rows) expect(row.length).toBe(b.headers.length);
-            if (b.kind !== "text" && b.kind !== "tip") expect(JSON.stringify(b)).not.toContain("**");
+            if (b.kind !== "text" && b.kind !== "tip" && b.kind !== "teacher") expect(JSON.stringify(b)).not.toContain("**");
           }
 
           if (vocab.type !== "vocab") throw new Error("vocab step");
           expect(vocab.words.length).toBeGreaterThanOrEqual(6);
           expect(vocab.words.length).toBeLessThanOrEqual(8);
+          for (const w of vocab.words) expect(w.word, "single-word vocab").not.toMatch(/\s/);
 
           if (exercise.type !== "exercise") throw new Error("exercise step");
-          expect(exercise.items.length).toBeGreaterThanOrEqual(6);
-          expect(exercise.items.length).toBeLessThanOrEqual(8);
-          for (const k of kinds) expect(exercise.items.some((e) => e.kind === k), `${l.slug} lacks ${k}`).toBe(true);
+          expect(exercise.items).toHaveLength(8);
+          for (const k of kinds) expect(exercise.items.filter((e) => e.kind === k).length, `${l.slug} needs 2 x ${k}`).toBeGreaterThanOrEqual(2);
           for (const e of exercise.items) {
             if (e.kind === "multiple-choice" || e.kind === "listen-choose") {
               expect(e.options.length).toBeGreaterThanOrEqual(3);
               expect(e.options.length).toBeLessThanOrEqual(4);
               expect(new Set(e.options).size, `${e.id} has duplicate options`).toBe(e.options.length);
             }
-            if (e.kind === "reorder") expect(e.words.length).toBeGreaterThanOrEqual(3);
+            if (e.kind === "reorder") {
+              expect(e.words.length, e.id).toBeGreaterThanOrEqual(3);
+              expect(e.words.length, e.id).toBeLessThanOrEqual(12);
+            }
           }
 
           if (speaking.type !== "speaking") throw new Error("speaking step");

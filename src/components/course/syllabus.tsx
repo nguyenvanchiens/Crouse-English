@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CheckCircle2, Circle, Lock } from "lucide-react";
+import { CheckCircle2, Circle, ClipboardCheck, Lock } from "lucide-react";
 import type { Course } from "@/content/types";
 import { lessonKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
@@ -19,13 +19,16 @@ export function Syllabus({ course }: { course: Course }) {
               <span className="block text-sm font-semibold text-ink-soft">Chương {mi + 1}</span>
               <span className="block font-display text-xl font-bold">{m.title}</span>
             </span>
-            <span className="text-sm font-semibold text-ink-soft">{m.lessons.length} bài</span>
+            <span className="text-sm font-semibold text-ink-soft">
+              {m.lessons.filter((l) => !l.review).length} bài học
+              {m.lessons.some((l) => l.review) ? ", 1 bài ôn tập" : ""}
+            </span>
           </summary>
           <ul className="border-t-2 border-ink/15 px-3 py-3">
             {m.lessons.map((l) => {
               const done = state.lessons[lessonKey(course.slug, l.slug)]?.done;
               const accessible = open;
-              const Icon = done ? CheckCircle2 : accessible ? Circle : Lock;
+              const Icon = done ? CheckCircle2 : !accessible ? Lock : l.review ? ClipboardCheck : Circle;
               const row = (
                 <>
                   <Icon className={`size-5 shrink-0 ${done ? "text-leaf" : "text-ink-soft"}`} aria-hidden />

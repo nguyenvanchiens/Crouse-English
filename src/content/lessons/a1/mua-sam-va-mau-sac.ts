@@ -1,0 +1,63 @@
+import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "mua-sam-va-mau-sac",
+  title: "Mua sắm và màu sắc",
+  minutes: 20,
+  lecture: {
+    title: "Quần áo, màu sắc, How much is/are và tính từ đứng trước danh từ",
+    blocks: [
+      p("Đi mua quần áo ở chợ Bến Thành, ở trung tâm thương mại hay khi đi du lịch nước ngoài, bạn cần làm được ba việc: **gọi tên món đồ**, **tả màu sắc** và **hỏi giá**. Bài này dạy bạn làm cả ba việc bằng những câu ngắn, tự nhiên."),
+      p("Trong tiếng Việt, tính từ đứng **sau** danh từ: “áo đỏ”, “giày đen”. Tiếng Anh thì ngược lại: tính từ (kể cả màu sắc) đứng **trước** danh từ. Và tính từ **không bao giờ thêm -s**, dù danh từ là số nhiều."),
+      table(
+        ["Tiếng Việt", "Tiếng Anh", "Ghi chú"],
+        ["một cái áo sơ mi đỏ", "a red shirt", "a + màu + danh từ"],
+        ["một cái áo khoác đen", "a black jacket", ""],
+        ["hai chiếc váy vàng", "two yellow dresses", "yellow không thêm -s"],
+        ["cái quần xanh da trời này", "these blue trousers", "trousers luôn là số nhiều"],
+      ),
+      mistake("I'd like a shirt white.", "I'd like a white shirt.", "Người Việt nói “áo trắng” nên hay đặt màu sau danh từ. Trong tiếng Anh, màu sắc đứng trước danh từ."),
+      mistake("two reds dresses", "two red dresses", "Tính từ tiếng Anh không có dạng số nhiều. Chỉ danh từ mới thêm -s."),
+      p("Để hỏi giá, dùng **How much is + danh từ số ít?** và **How much are + danh từ số nhiều?** Đi kèm là **this** (cái này) với số ít và **these** (những cái này) với số nhiều. Trả lời bằng **It's...** hoặc **They're...**"),
+      table(
+        ["", "Câu hỏi", "Câu trả lời"],
+        ["Số ít", "How much is this jacket?", "It's five hundred thousand dong."],
+        ["Số nhiều", "How much are these shoes?", "They're forty dollars."],
+        ["Luôn số nhiều", "How much are these jeans?", "They're three hundred thousand dong."],
+      ),
+      mistake("How much is these shoes?", "How much are these shoes?", "Tiếng Việt hỏi “đôi giày này bao nhiêu” như một món. Nhưng shoes là số nhiều, nên phải dùng these và are."),
+      tip("Những đồ có **hai ống** hoặc **hai phần** như **trousers** (quần dài), **jeans** (quần bò), **shorts** (quần đùi), **glasses** (kính) luôn là số nhiều trong tiếng Anh: **these jeans, they're**. Muốn nói một cái, dùng **a pair of**: a pair of jeans."),
+      ex("How much is this white T-shirt? It's ninety thousand dong.", "Cái áo phông trắng này bao nhiêu tiền? Chín mươi nghìn đồng."),
+      ex("These black trousers are very expensive.", "Cái quần đen này đắt quá.", "Tiếng Việt nói “cái quần” là số ít, nhưng tiếng Anh dùng these và are."),
+      ex("What colour is your new jacket? It's dark green.", "Áo khoác mới của bạn màu gì? Màu xanh lá đậm.", "Hỏi màu: What colour + is/are + đồ vật? Dark nghĩa là đậm, light nghĩa là nhạt."),
+      ex("Can I try on this yellow dress, please?", "Cho tôi mặc thử chiếc váy vàng này được không?"),
+      tip("Người Việt chỉ có một chữ “xanh” cho cả hai màu. Tiếng Anh tách hẳn: **blue** là xanh da trời, xanh nước biển; **green** là xanh lá cây. Nói nhầm hai từ này, người bán sẽ đưa bạn sai món."),
+      teacher("Tôi hay bảo học trò: đi đường thấy gì thì **tả nhẩm bằng tiếng Anh**, và luôn theo thứ tự màu trước, đồ vật sau. A red car. A black bag. Two white shirts. Đó là cách rẻ nhất để sửa thói quen nói “áo đỏ” theo kiểu tiếng Việt. Và khi hỏi giá, hãy **nhìn món đồ trước**: một cái thì this và is, hai ống hay một đôi thì these và are."),
+    ],
+  },
+  words: [
+    word("shirt", "/ʃɜːt/", "áo sơ mi", "I'd like a white shirt, please.", "shirt", 0, "Âm /ʃ/ chu môi ra, và nhớ bật âm /t/ ở cuối, đừng đọc thành “sơ”."),
+    word("dress", "/dres/", "váy liền, đầm", "How much is this red dress?", "dress", 0),
+    word("trousers", "/ˈtraʊ.zəz/", "quần dài", "These black trousers are too long.", "trou|sers", 0, "Luôn ở dạng số nhiều; chữ s ở giữa đọc là /z/."),
+    word("jacket", "/ˈdʒæk.ɪt/", "áo khoác", "My new jacket is dark blue.", "jack|et", 0),
+    word("colour", "/ˈkʌl.ər/", "màu sắc", "What colour is your bag?", "col|our", 0, "Viết kiểu Anh là colour, kiểu Mỹ là color; đọc giống nhau."),
+    word("black", "/blæk/", "màu đen", "He always wears black shoes.", "black", 0, "Bật âm /k/ ở cuối, đừng đọc thành “blé”."),
+    word("yellow", "/ˈjel.əʊ/", "màu vàng", "She loves her yellow dress.", "yel|low", 0),
+    word("expensive", "/ɪkˈspen.sɪv/", "đắt", "This jacket is very expensive.", "ex|pen|sive", 1, "Nhấn vào âm giữa: ex-PEN-sive."),
+  ],
+  exercises: [
+    mc("a1-n10-1", "How much ___ these shoes?", ["is", "are", "do"], 1, "These shoes là số nhiều nên dùng are."),
+    mc("a1-n10-2", "Chọn cách nói đúng:", ["a shirt white", "a whites shirt", "a white shirt"], 2, "Màu sắc đứng trước danh từ và không thêm -s."),
+    fill("a1-n10-3", "___ jacket is very nice. (cái này)", ["This", "this"], "Jacket là số ít, ở gần nên dùng this."),
+    fill("a1-n10-4", "I'd like the ___ jeans, not the black ones. (xanh da trời)", ["blue"], "Xanh da trời là blue; xanh lá cây mới là green."),
+    reorder("a1-n10-5", "How much are these black trousers?", "Trousers luôn số nhiều nên dùng are và these; màu black đứng trước trousers."),
+    reorder("a1-n10-6", "What colour is your new car?", "Hỏi màu: What colour + is + đồ vật? Tính từ new đứng trước danh từ car."),
+    listen("a1-n10-7", "They're three hundred thousand dong.", ["Chúng giá ba trăm nghìn đồng.", "Nó giá ba trăm nghìn đồng.", "Chúng giá ba mươi nghìn đồng."], 0, "They're dùng cho số nhiều; three hundred thousand là ba trăm nghìn."),
+    listen("a1-n10-8", "How much is this green T-shirt?", ["Những cái áo phông xanh lá này bao nhiêu tiền?", "Cái áo phông xanh lá này bao nhiêu tiền?", "Cái áo phông xanh da trời này bao nhiêu tiền?"], 1, "Is và this cho biết chỉ có một cái; green là xanh lá cây."),
+  ],
+  speaking: [
+    say("How much is this jacket?", "Cái áo khoác này bao nhiêu tiền?"),
+    say("These black shoes are very expensive.", "Đôi giày đen này đắt quá."),
+    say("I'd like a white shirt, please.", "Cho tôi một cái áo sơ mi trắng."),
+  ],
+});
