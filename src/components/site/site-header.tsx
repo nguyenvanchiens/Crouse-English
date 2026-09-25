@@ -5,6 +5,7 @@ import { Logo } from "./logo";
 const NAV = [
   { href: "/khoa-hoc", label: "Khóa học" },
   { href: "/ngu-phap", label: "Ngữ pháp" },
+  { href: "/bang-ipa", label: "Bảng IPA" },
   { href: "/kiem-tra-trinh-do", label: "Kiểm tra trình độ" },
   { href: "/cua-toi", label: "Khóa học của tôi" },
 ];

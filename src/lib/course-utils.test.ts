@@ -23,7 +23,7 @@ describe("guards", () => {
 
 describe("flattenLessons", () => {
   it("keeps module order", () => {
-    const flat = flattenLessons(COURSES[0]);
+    const flat = flattenLessons(COURSES.find((c) => c.slug === "tieng-anh-a1")!);
     expect(flat[0].lesson.slug).toBe("chao-hoi-va-gioi-thieu");
     expect(flat[0].module.id).toBe("m1");
   });

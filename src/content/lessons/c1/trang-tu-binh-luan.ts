@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "trang-tu-binh-luan",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Nói ra thái độ chỉ bằng một trạng từ",
     blocks: [
-      p("Người Việt khi nói tiếng Anh hay mở đầu câu nào cũng bằng **I think** hoặc **Maybe**. Người bản xứ thì gói thái độ của mình vào **một trạng từ** đứng đầu câu: **Frankly**, **Admittedly**, **Presumably**. Những trạng từ này không bổ nghĩa cho động từ, mà **bình luận cả câu**: người nói chắc chắn đến đâu, đang thừa nhận, đang đoán, hay đang nói thẳng."),
+      p("Ở bài Lập luận và phản biện, các bạn đã dùng admittedly để nhượng bộ. Nó thuộc một nhóm lớn hơn. Người Việt khi nói tiếng Anh hay mở đầu câu nào cũng bằng **I think** hoặc **Maybe**. Người bản xứ thì gói thái độ của mình vào **một trạng từ** đứng đầu câu: **Frankly**, **Admittedly**, **Presumably**. Những trạng từ này không bổ nghĩa cho động từ, mà **bình luận cả câu**: người nói chắc chắn đến đâu, đang thừa nhận, đang đoán, hay đang nói thẳng."),
       table(
         ["Trạng từ", "Thái độ người nói", "Ví dụ"],
         ["undoubtedly, clearly, certainly", "rất chắc chắn", "Undoubtedly, this is her best novel."],
@@ -23,7 +23,7 @@ export default lesson({
       ex("Presumably, you've already heard the news.", "Chắc là anh chị đã nghe tin rồi.", "Presumably: tôi đoán vậy vì có lý do hợp lý, gần với I assume."),
       ex("The seemingly endless meeting finally ended at seven.", "Cuộc họp tưởng như dài vô tận rốt cuộc cũng kết thúc lúc bảy giờ.", "Seemingly đứng trước tính từ endless. Nó ngầm nói rằng bề ngoài là vậy, thực tế có thể khác."),
       mistake("Undoubtedly that he is the best candidate.", "Undoubtedly, he is the best candidate.", "Tiếng Việt nói “Chắc chắn rằng…”, nên người Việt hay thêm that sau trạng từ. Trạng từ bình luận không đi với that. Nếu muốn dùng that thì đổi cấu trúc: There is no doubt that he is the best candidate."),
-      p("Trạng từ bình luận chia làm hai nhóm đối lập. Nhóm **rào đón** (hedging) làm lời nói mềm và thận trọng: **seemingly, apparently, presumably, arguably**. Nhóm **nhấn mạnh** (boosting) làm lời nói mạnh và dứt khoát: **undoubtedly, clearly, certainly, definitely**. Trong bài luận học thuật, chọn đúng nhóm cho thấy bạn biết **mức độ chắc chắn** của bằng chứng."),
+      p("Trạng từ bình luận chia làm hai nhóm đối lập. Nhóm **rào đón** (hedging, các bạn đã gặp ở bài Ngôn ngữ tinh tế) làm lời nói mềm và thận trọng: **seemingly, apparently, presumably, arguably**. Nhóm **nhấn mạnh** (boosting) làm lời nói mạnh và dứt khoát: **undoubtedly, clearly, certainly, definitely**. Trong bài luận học thuật, chọn đúng nhóm cho thấy bạn biết **mức độ chắc chắn** của bằng chứng."),
       table(
         ["Mức độ chắc chắn", "Trạng từ", "Ví dụ"],
         ["Rất chắc", "undoubtedly, clearly", "The policy has clearly failed."],
@@ -35,7 +35,14 @@ export default lesson({
       ex("Admittedly, the new system is expensive, but it will undoubtedly save us time.", "Phải thừa nhận là hệ thống mới đắt, nhưng chắc chắn nó sẽ giúp chúng ta tiết kiệm thời gian.", "Admittedly nhượng bộ trước, undoubtedly nhấn mạnh lập trường sau. Đây là cặp rất hữu ích khi thuyết phục."),
       p("Chú ý **giọng điệu**: **frankly** và **honestly** báo hiệu sắp có một lời nói thẳng, thường là lời chê. Nói với khách hàng hay cấp trên, câu mở đầu bằng Frankly có thể nghe gay gắt. Muốn nhẹ hơn, dùng **To be honest** hoặc thêm từ làm mềm: **Frankly, I'm not sure it's the best option.**"),
       tip("Phát âm: **undoubtedly** có chữ b câm, đọc /ʌnˈdaʊ.tɪd.li/. **Presumably** đọc /prɪˈzjuː.mə.bli/, chữ s đọc là /z/. Khi trạng từ đứng đầu câu, hãy **ngắt nhẹ** sau nó, đúng chỗ dấu phẩy, để người nghe nhận ra đó là lời bình luận."),
-      teacher("Sau năm mươi năm dạy, tôi nhận ra một điều: trò nào bỏ được thói quen **I think** ở đầu mỗi câu thì tiếng Anh nghe lên hẳn một bậc. Các em hãy tự đặt luật: mỗi ngày viết năm câu nhận xét về tin tức hoặc công việc, mỗi câu mở đầu bằng **một trạng từ khác nhau** trong bài này. Rồi tự hỏi: “Mình đang chắc chắn, đang đoán hay đang thừa nhận?”. Trả lời được câu đó thì chọn trạng từ sẽ không bao giờ sai."),
+      teacher("Sau nhiều năm dạy, tôi nhận ra một điều: bạn nào bỏ được thói quen **I think** ở đầu mỗi câu thì tiếng Anh nghe lên hẳn một bậc. Các bạn hãy tự đặt luật: mỗi ngày viết năm câu nhận xét về tin tức hoặc công việc, mỗi câu mở đầu bằng **một trạng từ khác nhau** trong bài này. Rồi tự hỏi: “Mình đang chắc chắn, đang đoán hay đang thừa nhận?”. Trả lời được câu đó thì chọn trạng từ sẽ không bao giờ sai."),
+      summary(
+        "Trạng từ bình luận nói **thái độ** của người nói với cả câu: chắc chắn, đoán, thừa nhận hay nói thẳng. Dùng nó thay cho I think, Maybe.",
+        "Vị trí: đầu câu kèm dấu phẩy; giữa câu sau be hoặc trợ động từ (has undoubtedly improved); cuối câu chủ yếu trong văn nói.",
+        "Nhấn mạnh: **undoubtedly, clearly, certainly**. Rào đón: **arguably, presumably, seemingly, apparently**. Không trộn hai nhóm trong một câu.",
+        "**Arguably** là có thể nói là, không phải gây tranh cãi; không thêm that sau trạng từ bình luận.",
+        "**Frankly, honestly** báo trước một lời nói thẳng; với sếp và khách hàng, hãy làm mềm phần phía sau.",
+      ),
     ],
   },
   words: [
@@ -63,4 +70,37 @@ export default lesson({
     say("Presumably, the train will be late again.", "Chắc là tàu lại đến muộn nữa rồi."),
     say("It is arguably the best café in town.", "Có thể nói đó là quán cà phê ngon nhất thị trấn."),
   ],
+  dialogue: dialogue(
+    "Hội đồng tuyển dụng chọn ứng viên",
+    "Sau một ngày phỏng vấn vị trí trưởng nhóm kinh doanh, anh Khoa, giám đốc kinh doanh, và Sarah, chuyên gia tuyển dụng người Anh, cân nhắc giữa hai ứng viên cuối cùng là Linh và Tuấn.",
+    { A: "Anh Khoa, giám đốc kinh doanh", B: "Sarah, chuyên gia tuyển dụng" },
+    A("So, Sarah, which candidate impressed you more?", "Vậy Sarah, ứng viên nào làm chị ấn tượng hơn?"),
+    B("Linh, undoubtedly. She's arguably the strongest applicant we've interviewed this year.", "Chắc chắn là Linh. Có thể nói cô ấy là ứng viên mạnh nhất chúng ta phỏng vấn trong năm nay."),
+    A("Admittedly, she has less experience than Tuấn.", "Phải thừa nhận là cô ấy ít kinh nghiệm hơn Tuấn."),
+    B("True, but she has clearly achieved more in less time. Her last project apparently doubled the client's sales.", "Đúng vậy, nhưng rõ ràng cô ấy đạt được nhiều hơn trong thời gian ngắn hơn. Nghe nói dự án gần nhất của cô ấy đã giúp doanh số của khách hàng tăng gấp đôi."),
+    A("Apparently? Have you checked that?", "Nghe nói thôi sao? Chị đã kiểm tra chưa?"),
+    B("Not yet. Presumably her references can confirm it. I'll call them tomorrow.", "Chưa. Chắc là người giới thiệu của cô ấy có thể xác nhận. Mai tôi sẽ gọi cho họ."),
+    A("And Tuấn? Frankly, I found him a little arrogant.", "Còn Tuấn? Nói thẳng là tôi thấy anh ta hơi kiêu ngạo."),
+    B("To be honest, I felt the same, although he was supposedly very popular at his last company.", "Thật lòng thì tôi cũng thấy vậy, dù nghe nói anh ấy rất được quý ở công ty cũ."),
+    A("He'd certainly be good with clients. I'm just not sure he'd fit our team.", "Chắc chắn anh ta sẽ làm việc tốt với khách hàng. Tôi chỉ không chắc anh ta hợp với đội mình."),
+    B("Then presumably we're agreed on Linh, as long as her references are positive.", "Vậy có lẽ chúng ta thống nhất chọn Linh, miễn là người giới thiệu nhận xét tốt."),
+    A("Definitely. Let's make her an offer by Friday.", "Nhất định rồi. Chúng ta gửi thư mời cho cô ấy trước thứ sáu nhé."),
+  ),
+  task: task({
+    prompt: "Hãy viết một đoạn nhận xét bằng tiếng Anh về một sản phẩm, một dịch vụ hoặc một chính sách mới ở nơi bạn sống. Thể hiện rõ mức độ chắc chắn của mình bằng trạng từ bình luận, thay vì lặp lại I think.",
+    hints: [
+      "Điều bạn đã tận mắt thấy: dùng clearly, undoubtedly, certainly.",
+      "Điều bạn đoán hoặc nghe nói: dùng presumably, apparently, seemingly; nhận định có thể bị phản bác: dùng arguably.",
+      "Nhượng bộ một nhược điểm bằng Admittedly..., rồi khẳng định lập trường bằng However hoặc but.",
+    ],
+    model: "The new metro line in Ho Chi Minh City is undoubtedly the most important transport project the city has seen in decades. Admittedly, it opened years behind schedule, and the ticket system was seemingly designed without much thought for older passengers. Frankly, the first few weeks were chaotic. However, the trains are clean, fast and punctual, and they have clearly reduced traffic along the route. Presumably, the government will extend the network once more funding is available. Arguably, the biggest change is cultural: many young people are apparently choosing the metro over their motorbikes for the first time. If this trend continues, the city will certainly become a more pleasant place to live.",
+    checklist: [
+      "Dùng ít nhất năm trạng từ bình luận khác nhau và không mở câu bằng I think.",
+      "Có cả trạng từ nhấn mạnh (undoubtedly, clearly) lẫn trạng từ rào đón (arguably, presumably, seemingly).",
+      "Trạng từ đầu câu có dấu phẩy phía sau; không thêm that sau trạng từ.",
+      "Mức độ chắc chắn khớp với bằng chứng: điều đã thấy dùng clearly, điều suy đoán dùng presumably.",
+      "Có một câu nhượng bộ bằng Admittedly rồi mới khẳng định lập trường.",
+    ],
+    minWords: 90,
+  }),
 });

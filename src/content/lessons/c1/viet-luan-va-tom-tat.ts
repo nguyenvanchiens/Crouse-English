@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "viet-luan-va-tom-tat",
@@ -30,9 +30,17 @@ export default lesson({
       ),
       ex("One major drawback of fast fashion is the damage it causes to the environment.", "Một nhược điểm lớn của thời trang nhanh là tác hại nó gây ra cho môi trường.", "Topic sentence tốt nêu rõ ý chính và đủ cụ thể để người đọc đoán được cả đoạn sẽ nói về điều gì."),
       mistake("In conclusion, public transport is good. Another benefit is that it creates jobs.", "In conclusion, public transport reduces congestion and pollution, so it deserves greater investment.", "Văn nghị luận tiếng Việt quen “mở rộng vấn đề” ở kết bài, nên nhiều bạn đưa thêm ý mới vào đoạn cuối. Bài luận tiếng Anh không làm vậy: kết bài chỉ khẳng định lại và tóm tắt, không thêm lập luận mới."),
+      p("Bài luận C1 còn phải **liền mạch** giữa các câu (cohesion). Ngoài từ nối đã học ở B2, hãy dùng **this / these + danh từ tóm ý** để gói cả câu trước thành một chủ ngữ mới: House prices rose by thirty per cent last year. **This increase** has pushed many young families out of the city. Kết hợp với phép thay thế (do so, one) của bài Nói gọn mà không mất ý và danh từ hóa của bài Văn phong học thuật, bài viết sẽ vừa chặt vừa không lặp từ."),
       p("Để **tránh đạo văn**: khi giữ nguyên câu chữ của tác giả, đặt trong **ngoặc kép** và ghi nguồn; khi diễn đạt lại, vẫn phải **ghi nguồn** (According to Smith…). Chỉ đổi vài từ mà giữ nguyên khung câu gốc (người ta gọi là **patchwriting**) vẫn bị coi là đạo văn."),
       tip("Mẹo **gập sách**: đọc đoạn gốc hai lần, rồi gập sách hoặc tắt màn hình, viết lại theo trí nhớ. Sau đó mở ra so sánh. Nếu thấy một chuỗi **ba bốn từ liền nhau** giống hệt bản gốc (trừ thuật ngữ chuyên môn), hãy viết lại chỗ đó."),
-      teacher("Sau năm mươi năm dạy, tôi thấy người Việt không thiếu ý, mà thiếu **thói quen viết lại**. Mỗi tuần, các em chọn một bài báo tiếng Anh ngắn, tóm nó trong **đúng ba câu**: một câu nêu ý chính, hai câu nêu hai ý phụ. Rồi viết lại câu tiêu đề theo **hai cách khác nhau**. Tự kiểm tra bằng câu hỏi: “Nếu tác giả đọc bản của mình, họ có thấy ý mình bị bóp méo không?”. Viết đủ mười tuần, các em sẽ thấy bài luận của mình gọn và chắc hơn rất nhiều."),
+      teacher("Sau nhiều năm dạy, tôi thấy người Việt không thiếu ý, mà thiếu **thói quen viết lại**. Mỗi tuần, các bạn chọn một bài báo tiếng Anh ngắn, tóm nó trong **đúng ba câu**: một câu nêu ý chính, hai câu nêu hai ý phụ. Rồi viết lại câu tiêu đề theo **hai cách khác nhau**. Tự kiểm tra bằng câu hỏi: “Nếu tác giả đọc bản của mình, họ có thấy ý mình bị bóp méo không?”. Viết đủ mười tuần, các bạn sẽ thấy bài luận của mình gọn và chắc hơn rất nhiều."),
+      summary(
+        "Diễn đạt lại bằng cách kết hợp **ít nhất hai** kỹ thuật (từ đồng nghĩa, đổi từ loại, đổi cấu trúc câu) và giữ nguyên ý, nguyên mức độ chắc chắn của câu gốc.",
+        "Thay từ đồng nghĩa phải giữ đúng **kết hợp từ**: take action, take measures; không có grab measures.",
+        "Bản tóm tắt dài khoảng **một phần ba** bản gốc, bỏ ví dụ và số liệu phụ, **không thêm ý kiến cá nhân**.",
+        "Bố cục: mở bài có **thesis statement**, mỗi đoạn thân bài có một **topic sentence**, kết bài **không thêm ý mới**.",
+        "Tránh đạo văn: giữ nguyên câu chữ thì dùng ngoặc kép và ghi nguồn; diễn đạt lại vẫn phải ghi nguồn.",
+      ),
     ],
   },
   words: [
@@ -53,11 +61,46 @@ export default lesson({
     reorder("c1-n16-5", "The article argues that tourism harms local communities.", "Cụm mở đầu bản tóm tắt: The article argues that + mệnh đề."),
     reorder("c1-n16-6", "Each paragraph should begin with a topic sentence.", "Mỗi đoạn thân bài mở đầu bằng một câu chủ đề nêu ý chính."),
     listen("c1-n16-7", "In summary, the report finds that online learning works best when combined with classroom teaching.", ["Báo cáo kết luận rằng học trực tuyến nên thay thế hoàn toàn học trên lớp.", "Báo cáo cho thấy học trên lớp không còn hiệu quả.", "Tóm lại, báo cáo cho thấy học trực tuyến hiệu quả nhất khi kết hợp với dạy trên lớp."], 2, "In summary: tóm lại. Combined with: kết hợp với."),
-    listen("c1-n16-8", "Simply changing a few words is not enough to avoid plagiarism.", ["Chỉ đổi vài từ thì chưa đủ để tránh đạo văn.", "Đổi vài từ là đủ để tránh đạo văn.", "Đạo văn là việc thay đổi quá nhiều từ.", "Không cần đổi từ nào nếu đã ghi nguồn."], 0, "Simply changing a few words: chỉ đổi vài từ. Is not enough: chưa đủ."),
+    listen("c1-n16-8", "Rents rose sharply last year. This increase has hit young families hardest.", ["Tiền thuê nhà tăng mạnh năm ngoái, và mức tăng này ảnh hưởng nặng nhất đến các gia đình trẻ.", "Tiền thuê nhà tăng mạnh nên các gia đình trẻ chuyển về quê.", "Các gia đình trẻ đã làm tiền thuê nhà tăng mạnh.", "Tiền thuê nhà năm nay sẽ tăng mạnh hơn năm ngoái."], 0, "This increase là danh từ tóm ý, gói lại cả câu trước (tiền thuê nhà tăng mạnh) để câu sau nối liền mạch mà không lặp lại."),
   ],
   speaking: [
     say("This essay argues that cities should invest more in public transport.", "Bài luận này lập luận rằng các thành phố nên đầu tư nhiều hơn vào giao thông công cộng."),
     say("In other words, the problem is not money but time.", "Nói cách khác, vấn đề không phải là tiền mà là thời gian."),
     say("According to the author, reading every day improves concentration.", "Theo tác giả, đọc sách mỗi ngày giúp cải thiện khả năng tập trung."),
   ],
+  dialogue: dialogue(
+    "Buổi góp ý bài luận với giảng viên",
+    "Nam, học viên cao học người Việt tại một trường đại học ở Anh, gặp giảng viên hướng dẫn là tiến sĩ Evans để nhận góp ý cho bản nháp bài luận đầu tiên.",
+    { A: "Tiến sĩ Evans, giảng viên", B: "Nam, học viên cao học" },
+    A("Nam, I've read your draft. Your ideas are strong, but your introduction copies the question almost word for word.", "Nam, tôi đã đọc bản nháp của em. Ý tưởng rất tốt, nhưng mở bài gần như chép lại nguyên văn đề bài."),
+    B("I see. How should I paraphrase it?", "Em hiểu rồi. Em nên diễn đạt lại thế nào ạ?"),
+    A("Combine techniques: change the words and, ideally, the structure too. The question says: cities are growing rapidly. What could you write?", "Hãy kết hợp các kỹ thuật: đổi từ, và tốt nhất là đổi cả cấu trúc câu. Đề bài viết: các thành phố đang phát triển nhanh. Em có thể viết thế nào?"),
+    B("Perhaps: urban areas are experiencing rapid growth.", "Có lẽ là: các khu vực đô thị đang tăng trưởng nhanh chóng."),
+    A("Much better. You've changed the words, the word class and the structure. Now, where's your thesis statement?", "Tốt hơn nhiều. Em đã đổi từ loại và cấu trúc. Giờ thì câu luận điểm của em nằm ở đâu?"),
+    B("I think it's at the end of the second paragraph.", "Em nghĩ nó ở cuối đoạn thứ hai ạ."),
+    A("Move it to the introduction. The reader should know your position from the very start.", "Hãy chuyển nó lên mở bài. Người đọc cần biết lập trường của em ngay từ đầu."),
+    B("Understood. What about my summary of the Smith article? Is it too long?", "Em hiểu rồi. Còn phần tóm tắt bài báo của Smith thì sao ạ? Có quá dài không?"),
+    A("It's almost as long as the original. Keep the main argument, drop the examples, and aim for about a third of the length.", "Nó dài gần bằng bản gốc. Giữ lập luận chính, bỏ các ví dụ, và cố gắng rút xuống khoảng một phần ba."),
+    B("And I shouldn't add my own opinion there, should I?", "Và em không nên đưa ý kiến riêng vào phần đó, đúng không ạ?"),
+    A("Exactly. Save your views for the body paragraphs. One more thing: your conclusion introduces a new argument.", "Chính xác. Để dành quan điểm của em cho phần thân bài. Còn một điều nữa: kết bài của em lại đưa ra một lập luận mới."),
+    B("So the conclusion should only restate my thesis and summarise the main points. I'll revise it tonight.", "Vậy kết bài chỉ nên khẳng định lại luận điểm và tóm tắt các ý chính. Tối nay em sẽ sửa lại ạ."),
+  ),
+  task: task({
+    prompt: "Viết đoạn mở bài và một đoạn thân bài cho đề: Some people believe that working from home is better for employees than working in an office. To what extent do you agree? Chú ý diễn đạt lại đề bài, không chép nguyên văn.",
+    hints: [
+      "Câu đầu mở bài diễn đạt lại đề bằng ít nhất hai kỹ thuật: đổi từ, đổi từ loại, đổi cấu trúc.",
+      "Câu cuối mở bài là thesis statement nêu rõ lập trường của bạn.",
+      "Đoạn thân bài mở bằng topic sentence, sau đó giải thích và đưa ví dụ; nếu dùng số liệu thì ghi nguồn.",
+      "Dùng this hoặc these + danh từ (this trend, this drawback) để nối các câu.",
+    ],
+    model: "In recent years, a growing number of companies have allowed their staff to work remotely. While some argue that this arrangement benefits employees more than traditional office work, this essay argues that its advantages are real but often exaggerated, and that a hybrid model is the most effective option.\n\nThe main weakness of full-time remote work is the damage it can do to relationships within a team. According to a recent survey of two thousand office workers, more than half of those who worked entirely from home felt isolated from their colleagues. This sense of isolation matters because informal conversations, such as a quick chat after a meeting, are often where problems are solved and trust is built. Video calls can replace formal meetings, but they rarely create these spontaneous moments. This drawback suggests that the office still plays an essential role, and that employees benefit most when they can divide their week between home and the workplace.",
+    checklist: [
+      "Câu mở bài diễn đạt lại đề bài, không có chuỗi ba bốn từ liền nhau chép từ đề.",
+      "Cuối mở bài có thesis statement nêu rõ lập trường.",
+      "Đoạn thân bài mở đầu bằng một topic sentence rõ ràng, chỉ nói một ý chính.",
+      "Có ít nhất một cụm this hoặc these + danh từ tóm ý để nối câu.",
+      "Số liệu hay ý của người khác đều có ghi nguồn (According to...).",
+    ],
+    minWords: 110,
+  }),
 });

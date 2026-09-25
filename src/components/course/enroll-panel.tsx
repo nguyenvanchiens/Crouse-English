@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Course } from "@/content/types";
 import { flattenLessons, lessonCounts } from "@/lib/course-utils";
-import { courseProgress } from "@/lib/progress-core";
+import { certificateStatus, courseProgress } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
@@ -51,7 +51,9 @@ export function EnrollPanel({ course }: { course: Course }) {
             Học tiếp: {p.nextLesson.title}
           </Link>
         ) : (
-          <Link href={`/hoc/${course.slug}/hoan-thanh`} className="btn btn-primary mt-6 w-full">Xem chứng chỉ</Link>
+          <Link href={`/hoc/${course.slug}/hoan-thanh`} className="btn btn-primary mt-6 w-full">
+            {certificateStatus(course, state).status === "final-failed" ? "Làm lại bài kiểm tra" : "Xem chứng chỉ"}
+          </Link>
         )}
       </div>
     );

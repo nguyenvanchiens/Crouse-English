@@ -4,6 +4,7 @@ import { Logo } from "./logo";
 const LINKS = [
   { href: "/khoa-hoc", label: "Khóa học" },
   { href: "/ngu-phap", label: "Sổ tay ngữ pháp" },
+  { href: "/bang-ipa", label: "Bảng IPA" },
   { href: "/kiem-tra-trinh-do", label: "Kiểm tra trình độ" },
   { href: "/cua-toi", label: "Khóa học của tôi" },
 ];

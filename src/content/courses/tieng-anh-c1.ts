@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../builders";
 import nTinhLuocVaThayThe from "../lessons/c1/tinh-luoc-va-thay-the";
 import nTuongLaiNangCao from "../lessons/c1/tuong-lai-nang-cao";
 import nCauTaoTu from "../lessons/c1/cau-tao-tu";
@@ -42,9 +42,22 @@ const noiTuNhien = lesson({
       ex("We need to take the budget into account before we make a final decision.", "Chúng ta cần tính đến ngân sách trước khi đưa ra quyết định cuối cùng."),
       mistake("Our team did a big progress this quarter.", "Our team made significant progress this quarter.", "Progress đi với make và là danh từ không đếm được nên không có a. Big progress nghe không tự nhiên; hãy dùng significant hoặc considerable."),
       mistake("The price of this laptop is very expensive.", "The price of this laptop is very high.", "Tiếng Việt nói “giá đắt” nên người Việt ghép price với expensive. Trong tiếng Anh, expensive dùng cho món đồ (This laptop is expensive), còn price đi với high hoặc low."),
-      tip("Khi học từ mới, hãy ghi cả cụm, ví dụ **make a decision** thay vì chỉ **decision**. Trước khi viết email quan trọng, tra từ điển collocation để kiểm tra từ nào thường đi với từ nào."),
+      table(
+        ["Văn phong (register)", "Khi nào dùng", "Cùng một ý: xin hoãn cuộc gọi"],
+        ["Thân mật", "nhắn tin, nói với đồng nghiệp thân", "Something's come up. Can we put the call off till Friday?"],
+        ["Trung tính", "email công việc hằng ngày", "Something has come up. Could we move the call to Friday?"],
+        ["Trang trọng", "thư gửi khách hàng, cấp trên, đối tác mới", "I'm afraid we will have to postpone the call until Friday due to unforeseen circumstances."],
+      ),
+      tip("Người dùng C1 không chỉ nói tự nhiên, mà còn biết **đổi văn phong** theo người nghe. Phrasal verb và câu ngắn hợp với văn thân mật; từ đơn gốc Latinh như **postpone**, **tolerate**, **investigate** hợp với văn trang trọng. Khi học từ mới, hãy ghi cả cụm, ví dụ **make a decision** thay vì chỉ **decision**. Trước khi viết email quan trọng, tra từ điển collocation để kiểm tra từ nào thường đi với từ nào."),
       tip("Mẹo phát âm: trong phrasal verb, trọng âm thường rơi vào **tiểu từ**, không rơi vào động từ: put it **OFF**, come **ACROSS**, turn it **DOWN**. Nhớ nối âm cuối của động từ với đại từ: turn it down đọc liền thành /tɜː.nɪt/, đừng tách từng chữ như đọc chính tả."),
-      teacher("Sau năm mươi năm đứng lớp, tôi thấy một điều lạ: học trò giỏi ngữ pháp nhất lại thường nói cứng nhất, vì các em quen dịch từng chữ từ tiếng Việt. Cách chữa rất đơn giản. **Mỗi ngày chọn một phrasal verb**, đặt ba câu về chính đời mình: công việc, gia đình, chuyến đi gần nhất. Cuối tuần, lấy một email mình đã viết, gạch dưới các từ trang trọng như postpone, investigate, tolerate, rồi tự hỏi: nếu nói với đồng nghiệp bên ly cà phê, mình sẽ dùng cụm nào? Làm đều ba tháng, các em sẽ nghe chính mình khác hẳn."),
+      teacher("Sau nhiều năm đứng lớp, tôi thấy một điều lạ: học viên giỏi ngữ pháp nhất lại thường nói cứng nhất, vì các bạn quen dịch từng chữ từ tiếng Việt. Cách chữa rất đơn giản. **Mỗi ngày chọn một phrasal verb**, đặt ba câu về chính đời mình: công việc, gia đình, chuyến đi gần nhất. Cuối tuần, lấy một email mình đã viết, gạch dưới các từ trang trọng như postpone, investigate, tolerate, rồi tự hỏi: nếu nói với đồng nghiệp bên ly cà phê, mình sẽ dùng cụm nào? Làm đều ba tháng, các bạn sẽ nghe chính mình khác hẳn."),
+      summary(
+        "Phrasal verb tách được: đại từ **bắt buộc** đứng giữa (turn it down, put it off); danh từ đứng giữa hay sau tiểu từ đều được.",
+        "Phrasal verb không tách được (look after, come across, run into) và cụm ba thành phần (put up with): tân ngữ **luôn đứng sau**.",
+        "Make và do đều là “làm”, nên đừng đoán: học **theo cụm** (make a decision, make progress, do research, take a risk).",
+        "Kết hợp tính từ với danh từ theo thói quen người bản xứ: heavy rain, a high price, significant progress, không dịch từng chữ.",
+        "Đổi **văn phong** theo người nghe: phrasal verb cho câu thân mật, từ gốc Latinh (postpone, tolerate) cho thư trang trọng.",
+      ),
     ],
   },
   words: [
@@ -63,7 +76,7 @@ const noiTuNhien = lesson({
     fill("c1-1-4", "Investing all your savings in one company means ___ a huge risk (chấp nhận).",["taking", "running"], "Tiếng Anh nói take a risk hoặc run a risk, không nói make a risk."),
     reorder("c1-1-5", "She came up with a brilliant solution.", "Come up with nghĩa là nghĩ ra, và không bao giờ tách."),
     reorder("c1-1-6", "Could you look after my plants for me?", "Look after không tách được: tân ngữ my plants đứng sau after."),
-    listen("c1-1-7", "We were caught in heavy rain on the way home.", ["Chúng tôi về nhà trước khi trời mưa.", "Trời mưa nên chúng tôi ở nhà.", "Chúng tôi gặp mưa to trên đường về nhà."], 2, "Heavy rain là mưa to; be caught in the rain là bị mắc mưa."),
+    listen("c1-1-7", "Something's come up. Can we put the call off till Friday?", ["Có việc đột xuất rồi. Mình hoãn cuộc gọi đến thứ Sáu được không?", "Có việc đột xuất nên mình gọi sớm hơn vào thứ Sáu nhé.", "Cuộc gọi hôm thứ Sáu đã bị hủy hẳn."], 0, "Put off là hoãn, cách nói thân mật của postpone. Trong thư trang trọng, cùng ý này sẽ là: I'm afraid we will have to postpone the call."),
     listen("c1-1-8", "I ran into an old colleague at the conference.", ["Tôi chạy đến chỗ một đồng nghiệp cũ ở hội nghị.", "Tôi tình cờ gặp một đồng nghiệp cũ ở hội nghị.", "Tôi va phải một đồng nghiệp cũ ở hội nghị."], 1, "Run into someone nghĩa là tình cờ gặp ai đó."),
   ],
   speaking: [
@@ -71,6 +84,39 @@ const noiTuNhien = lesson({
     say("We need to make a decision before we take any more risks.", "Chúng ta cần đưa ra quyết định trước khi chấp nhận thêm rủi ro."),
     say("I can't put up with this noise any longer.", "Tôi không thể chịu đựng tiếng ồn này thêm nữa."),
   ],
+  dialogue: dialogue(
+    "Hoãn buổi demo với khách hàng",
+    "Cuộc họp trực tuyến giữa Sarah, trưởng dự án người Úc, và Minh, kỹ sư phần mềm người Việt. Khách hàng vừa báo có việc đột xuất, cả nhóm phải dời buổi demo và quyết định cách xử lý một lỗi đăng nhập.",
+    { A: "Sarah (trưởng dự án)", B: "Minh (kỹ sư phần mềm)" },
+    A("Minh, something's come up on the client's side. Can we put the demo off till Thursday?", "Minh này, bên khách hàng có việc đột xuất. Mình hoãn buổi demo đến thứ Năm được không?"),
+    B("Sure, we can put it off. Actually, that gives us time to figure out the login bug.", "Được chứ, mình hoãn được. Thật ra như vậy còn có thời gian tìm ra nguyên nhân lỗi đăng nhập."),
+    A("Good. Have you made any progress on it?", "Tốt. Anh đã có tiến triển gì chưa?"),
+    B("Some. I came across a similar issue on a developer forum, and Lan came up with a workaround.", "Có chút ít. Tôi tình cờ thấy một lỗi tương tự trên diễn đàn lập trình, và Lan đã nghĩ ra một cách xử lý tạm."),
+    A("Great. But before we make a final decision, we need to take the security risks into account.", "Tuyệt. Nhưng trước khi đưa ra quyết định cuối cùng, chúng ta cần tính đến các rủi ro bảo mật."),
+    B("Agreed. I'll look into it this afternoon and get back to you by five.", "Đồng ý. Chiều nay tôi sẽ xem xét việc đó và phản hồi chị trước năm giờ."),
+    A("Perfect. And how's the team coping with all the overtime?", "Tuyệt. Còn cả đội xoay xở thế nào với chừng ấy giờ làm thêm?"),
+    B("Honestly, they've been putting up with a lot. I'd rather not take the risk of burning them out.", "Thật lòng mà nói, mọi người đã chịu đựng khá nhiều. Tôi không muốn liều để họ kiệt sức."),
+    A("Fair enough. I'll turn down the client's request for extra features this sprint.", "Hợp lý. Tôi sẽ từ chối yêu cầu thêm tính năng của khách trong đợt làm việc này."),
+    B("Thanks. I'll write to the client myself, though. With them, I'd say postpone rather than put off.", "Cảm ơn chị. Nhưng để tôi tự viết thư cho khách. Với họ, tôi sẽ dùng postpone chứ không dùng put off."),
+  ),
+  task: task({
+    prompt: "Buổi demo với khách hàng phải dời từ thứ Ba sang thứ Năm. Hãy viết hai đoạn cùng một nội dung nhưng khác văn phong: (1) email trang trọng gửi khách hàng; (2) tin nhắn thân mật gửi đồng nghiệp, nhờ người đó kiểm tra phần bảo mật.",
+    hints: [
+      "Email: dùng từ trang trọng như postpone, due to, convenient; tránh phrasal verb đời thường.",
+      "Tin nhắn: dùng ít nhất ba phrasal verb (put off, look into, get back to, come up with...), đặt đại từ đúng chỗ.",
+      "Chèn ít nhất hai collocation của bài: make progress, take something into account, make a decision.",
+    ],
+    model:
+      "Email to the client: Dear Mr Harris, I am afraid we will have to postpone Tuesday's product demonstration until Thursday at ten o'clock, due to an unforeseen technical issue. Our team has made significant progress in resolving it, and we would like to take your security requirements fully into account before presenting the final version. Please let me know whether the new time is convenient for you. Kind regards, Minh.\n\nMessage to a colleague: Hi Lan, something's come up with the login bug, so we've put the demo off till Thursday. Your workaround was brilliant, by the way. Could you look into the security side this afternoon and get back to me before five? Thanks a lot!",
+    checklist: [
+      "Email không có phrasal verb thân mật, có lời chào và lời kết trang trọng",
+      "Tin nhắn có ít nhất ba phrasal verb, đại từ đứng giữa khi cần (put it off, không viết put off it)",
+      "Dùng đúng ít nhất hai collocation (make progress, take ... into account, make a decision)",
+      "Không có lỗi make/do như do a decision hay make research",
+      "Đọc hai đoạn liền nhau, người nghe nhận ra ngay đâu là thư gửi khách, đâu là tin nhắn cho đồng nghiệp",
+    ],
+    minWords: 90,
+  }),
 });
 
 const daoNgu = lesson({
@@ -80,7 +126,7 @@ const daoNgu = lesson({
   lecture: {
     title: "Đảo ngữ phủ định",
     blocks: [
-      p("Bạn nghe một bài phát biểu tốt nghiệp và diễn giả mở đầu: “Never before have we faced such a challenge.” Hay bạn đọc một bài IELTS Writing điểm cao: “Not only does tourism create jobs, but it also...” Nhiều học trò Việt nhìn thấy trợ động từ đứng trước chủ ngữ thì tưởng là câu hỏi. Thật ra đó là **đảo ngữ**, công cụ để người viết đặt sức nặng vào ý mình muốn nói."),
+      p("Bạn nghe một bài phát biểu tốt nghiệp và diễn giả mở đầu: “Never before have we faced such a challenge.” Hay bạn đọc một bài IELTS Writing điểm cao: “Not only does tourism create jobs, but it also...” Nhiều học viên Việt nhìn thấy trợ động từ đứng trước chủ ngữ thì tưởng là câu hỏi. Thật ra đó là **đảo ngữ**, công cụ để người viết đặt sức nặng vào ý mình muốn nói."),
       p("Khi một trạng từ hoặc cụm từ mang nghĩa phủ định hoặc hạn chế (**never**, **rarely**, **seldom**, **hardly**, **little**, **not only**, **only after**) được đưa lên đầu câu, trợ động từ phải đứng **trước** chủ ngữ, giống cấu trúc câu hỏi. Cách này tạo sức nặng và kịch tính, thường gặp trong văn viết, diễn văn và bài thi IELTS."),
       table(
         ["Cấu trúc", "Câu thường", "Câu đảo ngữ"],
@@ -102,7 +148,14 @@ const daoNgu = lesson({
       mistake("Hardly had I sat down than the phone rang.", "Hardly had I sat down when the phone rang.", "Tiếng Việt chỉ có một cách nói “vừa... thì...”, nên người Việt hay trộn hai cặp. Hãy học thuộc theo cặp: Hardly/Scarcely đi với when, No sooner đi với than."),
       tip("Mẹo nhớ: hãy coi nửa sau của câu đảo ngữ như một **câu hỏi**. Từ câu hỏi Have I ever seen such chaos?, chỉ cần thay ever bằng Never đặt lên đầu: **Never have I seen such chaos.** Khi đọc thành tiếng, nhấn mạnh vào từ phủ định đầu câu rồi ngừng rất nhẹ sau từ đó."),
       tip("Về **register** (văn phong): đảo ngữ nghe trang trọng và mạnh. Trong bài luận hay bài phát biểu, dùng một hai lần là đủ gây ấn tượng. Trong trò chuyện thường ngày, dùng quá nhiều sẽ nghe như đang **đọc diễn văn**."),
-      teacher("Cái bẫy tôi gặp nhiều nhất ở học trò giỏi là thế này: các em đảo được trợ động từ, nhưng quên trả động từ chính về nguyên mẫu, thành ra viết Only then did I realised. Cách tự kiểm tra của tôi: cứ thấy **did** đứng trước chủ ngữ thì đưa mắt tìm ngay động từ phía sau, nó phải ở dạng nguyên mẫu trơn, không đuôi -ed, không đuôi -s. Mỗi tối, lấy ba câu bình thường bạn đã nói trong ngày, viết lại thành ba câu đảo ngữ với Never, Rarely và Not only. Một tháng sau, cấu trúc này sẽ tự bật ra khi bạn cần nhấn mạnh."),
+      teacher("Cái bẫy tôi gặp nhiều nhất ở học viên giỏi là thế này: các bạn đảo được trợ động từ, nhưng quên trả động từ chính về nguyên mẫu, thành ra viết Only then did I realised. Cách tự kiểm tra của tôi: cứ thấy **did** đứng trước chủ ngữ thì đưa mắt tìm ngay động từ phía sau, nó phải ở dạng nguyên mẫu trơn, không đuôi -ed, không đuôi -s. Mỗi tối, các bạn lấy ba câu bình thường mình đã nói trong ngày, viết lại thành ba câu đảo ngữ với Never, Rarely và Not only. Một tháng sau, cấu trúc này sẽ tự bật ra khi các bạn cần nhấn mạnh."),
+      summary(
+        "Từ phủ định hoặc hạn chế đứng đầu câu (Never, Rarely, Seldom, Little, Not only, Under no circumstances) thì **trợ động từ đứng trước chủ ngữ**, như câu hỏi.",
+        "Hiện tại đơn và quá khứ đơn phải **mượn do/does/did**, động từ chính về nguyên mẫu: Only then did I realise, không viết did I realised.",
+        "Với Only after, Only when, Not until: đảo ngữ nằm ở **mệnh đề chính**, không đảo ở mệnh đề ngay sau only.",
+        "Học theo cặp: **Hardly/Scarcely ... when**, **No sooner ... than**; không trộn lẫn.",
+        "Đảo ngữ thuộc văn phong trang trọng: hai ba câu ở chỗ then chốt của bài luận hay bài phát biểu là đủ.",
+      ),
     ],
   },
   words: [
@@ -129,6 +182,42 @@ const daoNgu = lesson({
     say("Not only does this plan save time, but it also cuts costs.", "Kế hoạch này không chỉ tiết kiệm thời gian mà còn cắt giảm chi phí."),
     say("Only after the meeting did I understand the real problem.", "Chỉ sau cuộc họp tôi mới hiểu vấn đề thực sự."),
   ],
+  dialogue: dialogue(
+    "Tập dượt bài phát biểu tổng kết năm",
+    "Chị Hà, giám đốc điều hành một công ty logistics ở TP.HCM, đang cùng Tom, chuyên gia viết diễn văn người Anh, sửa phần mở đầu bài phát biểu trong buổi tiệc tổng kết năm. Chị muốn câu chữ có sức nặng hơn.",
+    { A: "Chị Hà (giám đốc điều hành)", B: "Tom (chuyên gia viết diễn văn)" },
+    A("Tom, my opening feels flat. “We have never faced a year like this” sounds so ordinary.", "Tom, phần mở đầu của tôi nghe nhạt quá. Câu “Chúng ta chưa bao giờ đối mặt với một năm như thế này” nghe bình thường quá."),
+    B("Then let's invert it: “Never have we faced a year like this.” The weight falls on never.", "Vậy mình đảo ngữ nhé: “Chưa bao giờ chúng ta đối mặt với một năm như thế này.” Sức nặng dồn cả vào chữ never."),
+    A("Much better. Next, I want to say the team didn't just survive; it actually grew.", "Hay hơn nhiều. Tiếp theo, tôi muốn nói rằng đội ngũ không chỉ trụ vững mà còn thực sự lớn mạnh."),
+    B("Try this: “Not only did our team survive the crisis, but it also doubled its client base.”", "Thử câu này: “Đội ngũ của chúng ta không chỉ vượt qua khủng hoảng mà còn tăng gấp đôi số khách hàng.”"),
+    A("And the supply chain part? We only understood the risk after the audit.", "Còn đoạn về chuỗi cung ứng? Mãi sau đợt kiểm toán chúng ta mới hiểu được rủi ro."),
+    B("“Only after the audit did we understand how fragile our supply chain was.” Remember: did we understand, not did we understood.", "“Chỉ sau đợt kiểm toán chúng ta mới hiểu chuỗi cung ứng của mình mong manh đến mức nào.” Nhớ nhé: did we understand, không phải did we understood."),
+    A("Got it. Could I also say “Hardly had we recovered than prices rose again”?", "Hiểu rồi. Tôi có thể nói thêm “Hardly had we recovered than prices rose again” được không?"),
+    B("Almost. Hardly goes with when; no sooner goes with than. So: “Hardly had we recovered when prices rose again.”", "Gần đúng. Hardly đi với when; no sooner mới đi với than. Vậy là: “Chúng ta vừa mới hồi phục thì giá lại tăng.”"),
+    A("How many of these should I use? I don't want to sound like a politician.", "Tôi nên dùng bao nhiêu câu kiểu này? Tôi không muốn nghe như một chính trị gia."),
+    B("Two or three at the key moments. Seldom does an audience remember more than that.", "Hai ba câu ở những điểm then chốt thôi. Hiếm khi khán giả nhớ được nhiều hơn thế."),
+    A("Fine. And under no circumstances should I read it word for word, right?", "Được. Và tôi tuyệt đối không nên đọc từng chữ, đúng không?"),
+    B("Exactly. Little do most speakers realise how much eye contact matters.", "Chính xác. Hầu hết diễn giả hoàn toàn không nhận ra giao tiếp bằng mắt quan trọng đến mức nào."),
+  ),
+  task: task({
+    prompt: "Viết đoạn mở đầu (khoảng một trăm từ) cho bài phát biểu tổng kết năm trước toàn công ty, hoặc cho lễ tốt nghiệp của lớp bạn. Dùng ba hoặc bốn câu đảo ngữ, mỗi câu một cấu trúc khác nhau, đặt ở những khoảnh khắc quan trọng nhất.",
+    hints: [
+      "Mở đầu bằng Never have I... hoặc Rarely do we... để gây ấn tượng ngay câu đầu.",
+      "Nêu hai thành tích cùng lúc bằng Not only did... but ... also.",
+      "Kể một bước ngoặt bằng Only after... did... hoặc Little did we know...",
+      "Xen kẽ các câu bình thường để đảo ngữ không bị lạm dụng.",
+    ],
+    model:
+      "Good evening, everyone. Never have I been prouder to stand in front of this team. Twelve months ago, we were close to losing our biggest client, and few of us believed that this setback would become our turning point. Yet it did. Not only did we keep that client, but we also won four new contracts in markets we had never entered before. Each deal we closed seemed to bring the next opportunity, and our partners noticed the difference. Only after the final figures came in did I fully appreciate what you had achieved. Very few companies grow this fast without cutting corners, yet you managed it with integrity. So tonight, let me simply say thank you.",
+    checklist: [
+      "Có ba hoặc bốn câu đảo ngữ, mỗi câu một cấu trúc khác nhau (không lạm dụng)",
+      "Sau do/does/did đảo lên, động từ chính ở dạng nguyên mẫu",
+      "Với Only after, Only when, Not until, đảo ngữ nằm ở mệnh đề chính",
+      "Nếu dùng, Hardly đi với when và No sooner đi với than",
+      "Có các câu thường xen giữa, đoạn văn không đảo ngữ liên tục",
+    ],
+    minWords: 90,
+  }),
 });
 
 const cauChe = lesson({
@@ -160,7 +249,14 @@ const cauChe = lesson({
       mistake("She does works hard.", "She does work hard.", "Sau do/does/did nhấn mạnh, động từ trở về nguyên mẫu."),
       tip("**Fronting**: đưa tân ngữ lên đầu câu để tạo tương phản, ví dụ: Some of his ideas I agree with; others I find unrealistic. Cách này hay gặp trong **văn nói trang trọng** và bài luận."),
       tip("Mẹo phát âm: khi nói, sức nặng của câu nhấn mạnh nằm ở **giọng**. Với do nhấn mạnh, đọc to và dài từ did: I **DID** send the email. Với câu chẻ, nhấn vào phần được làm nổi bật: It was **LINH** who sent it. Nếu đọc đều đều như câu thường, người nghe sẽ không nhận ra bạn đang sửa thông tin."),
-      teacher("Người Việt mình vốn ngại nói thẳng “không phải thế”, nên nhiều em cứ im lặng khi bị hiểu nhầm trong cuộc họp. Tôi dặn học trò: câu chẻ chính là cách **sửa sai mà không gây mất lòng**, vì nó nhắm vào thông tin chứ không nhắm vào người. Hãy thuộc lòng hai khung câu: It wasn't X that..., it was Y, và What I meant was... Tập nói to mỗi khung mười lần cho quen miệng, để đến lúc cần, câu tự ra chứ không phải nghĩ."),
+      teacher("Người Việt mình vốn ngại nói thẳng “không phải thế”, nên nhiều bạn cứ im lặng khi bị hiểu nhầm trong cuộc họp. Tôi dặn các bạn: câu chẻ chính là cách **sửa sai mà không gây mất lòng**, vì nó nhắm vào thông tin chứ không nhắm vào người. Các bạn hãy thuộc lòng hai khung câu: It wasn't X that..., it was Y, và What I meant was... Tập nói to mỗi khung mười lần cho quen miệng, để đến lúc cần, câu tự ra chứ không phải nghĩ."),
+      summary(
+        "**It-cleft**: It + be + phần nhấn mạnh + who/that + phần còn lại. Không bao giờ bỏ who/that.",
+        "**Wh-cleft**: What + mệnh đề + is + phần nhấn mạnh (What we need is more time); không thêm it sau mệnh đề What.",
+        "Muốn sửa thông tin mà không mất lòng: **It wasn't X that..., it was Y**. Câu nhắm vào sự việc, không nhắm vào người.",
+        "**Do/does/did nhấn mạnh** + động từ nguyên mẫu để khẳng định hoặc phản bác: I did send it, không viết I did sent it.",
+        "Khi nói, **nhấn giọng** vào phần được làm nổi bật; đọc đều đều thì câu chẻ mất tác dụng.",
+      ),
     ],
   },
   words: [
@@ -187,6 +283,42 @@ const cauChe = lesson({
     say("It was my mother who taught me to love reading.", "Chính mẹ tôi là người đã dạy tôi yêu việc đọc sách."),
     say("I do understand your concerns, but we need to move forward.", "Tôi thực sự hiểu những lo ngại của bạn, nhưng chúng ta cần tiến lên."),
   ],
+  dialogue: dialogue(
+    "Họp rút kinh nghiệm sau đợt ra mắt sản phẩm",
+    "David, giám đốc khu vực người Anh, họp với Minh, trưởng nhóm marketing ở Hà Nội, sau một đợt ra mắt sản phẩm có doanh số thấp. David hiểu nhầm nguyên nhân, và Minh cần sửa lại thông tin một cách rõ ràng nhưng lịch sự.",
+    { A: "David (giám đốc khu vực)", B: "Minh (trưởng nhóm marketing)" },
+    A("Minh, the launch figures are disappointing. I assume the campaign started late.", "Minh, số liệu ra mắt đáng thất vọng quá. Tôi đoán là chiến dịch bắt đầu muộn."),
+    B("Actually, the campaign did start on time. It was the stock that arrived late.", "Thật ra chiến dịch đã bắt đầu đúng hạn. Chính hàng hóa mới là thứ về muộn."),
+    A("I see. So it was the warehouse team that caused the delay?", "Tôi hiểu. Vậy chính đội kho gây ra sự chậm trễ?"),
+    B("Not exactly. It was customs clearance that held everything up, not our warehouse.", "Không hẳn. Chính khâu thông quan làm mọi thứ bị kẹt lại, chứ không phải kho của mình."),
+    A("Fair enough. What worries me, though, is the customer feedback.", "Cũng được. Tuy vậy, điều khiến tôi lo là phản hồi của khách hàng."),
+    B("I do understand that. What customers complained about most was the waiting time, not the product itself.", "Tôi thực sự hiểu điều đó. Điều khách phàn nàn nhiều nhất là thời gian chờ, chứ không phải bản thân sản phẩm."),
+    A("That's a crucial distinction. So what do we need to change?", "Đó là điểm khác biệt rất quan trọng. Vậy chúng ta cần thay đổi gì?"),
+    B("What we need to do is book customs agents two weeks earlier. It was only in the final week that we saw how slow they were.", "Điều chúng ta cần làm là đặt đại lý hải quan sớm hơn hai tuần. Mãi đến tuần cuối chúng tôi mới thấy họ chậm đến mức nào."),
+    A("And the discount codes? Some people say they confused customers.", "Còn mã giảm giá thì sao? Có người nói chúng làm khách bối rối."),
+    B("Some of the codes did cause confusion, I admit. The rest, customers used without any problem.", "Tôi thừa nhận một số mã đúng là gây nhầm lẫn. Còn số còn lại thì khách dùng không có vấn đề gì."),
+    A("Thanks for clarifying, Minh. What I'd like from you is a one-page summary by Friday.", "Cảm ơn Minh đã làm rõ. Điều tôi muốn ở anh là một bản tóm tắt dài một trang trước thứ Sáu."),
+    B("You'll have it by Thursday, actually. What I've already done is the outline.", "Thật ra thứ Năm anh đã có rồi. Phần tôi làm xong rồi là dàn ý."),
+  ),
+  task: task({
+    prompt: "Cấp trên gửi email cho rằng nhóm bạn gây ra sự chậm trễ của một dự án, nhưng thực ra nguyên nhân nằm ở chỗ khác. Hãy viết email trả lời: sửa lại thông tin cho rõ, vẫn giữ thái độ hợp tác, và đề xuất cách khắc phục.",
+    hints: [
+      "Mở đầu bằng do nhấn mạnh để thể hiện bạn thật sự hiểu mối lo của họ: I do understand...",
+      "Sửa thông tin sai bằng It wasn't X that..., it was Y.",
+      "Nêu đề xuất bằng wh-cleft: What we propose is...",
+      "Nhận phần trách nhiệm của mình (nếu có) để giọng thư công bằng, không đổ lỗi.",
+    ],
+    model:
+      "Dear David, thank you for sharing the launch figures. I do understand your concern, and I would like to clarify one point. It was not the marketing campaign that started late; it was the stock that arrived two weeks behind schedule. What held up the shipment was customs clearance, which was largely outside our control. That said, it was our team that failed to plan for this risk, and I take responsibility for that. What we propose is to book customs agents a fortnight earlier for the next launch. It is at the planning stage, not in the final week, that this kind of delay can be prevented. I will send you a one-page summary on Thursday. Best regards, Minh",
+    checklist: [
+      "Có ít nhất một câu It-cleft đầy đủ who/that",
+      "Có ít nhất một câu wh-cleft, không thừa it sau mệnh đề What",
+      "Có một câu do/does/did nhấn mạnh với động từ nguyên mẫu",
+      "Thông tin sai được sửa rõ ràng nhưng không trách móc người đọc",
+      "Thư kết thúc bằng một đề xuất hoặc hành động cụ thể",
+    ],
+    minWords: 100,
+  }),
 });
 
 const lapLuan = lesson({
@@ -214,9 +346,25 @@ const lapLuan = lesson({
       ex("Some argue that remote work harms collaboration.", "Một số người cho rằng làm việc từ xa làm giảm sự hợp tác.", "Bước một: nêu quan điểm đối lập."),
       ex("Admittedly, spontaneous conversations are less frequent online.", "Phải thừa nhận rằng các cuộc trò chuyện ngẫu hứng ít xảy ra hơn khi làm việc trực tuyến.", "Bước hai: thừa nhận."),
       ex("Even so, well-designed digital tools can more than make up for this.", "Dù vậy, các công cụ số được thiết kế tốt hoàn toàn có thể bù đắp điều này.", "Bước ba và bốn: phản bác và khẳng định lại."),
-      tip("Các cụm như **That said**, **On the other hand**, **Be that as it may** giúp chuyển ý mượt mà. Tránh mở đầu mọi câu bằng **However**; thay đổi từ nối giúp bài viết tự nhiên hơn."),
+      p("Khi tranh luận **bằng lời nói** (họp, thảo luận nhóm, IELTS Speaking phần ba), người dùng C1 còn cần hai loại câu nữa: câu **nối ý mình vào ý người khác**, để cho thấy mình đang nghe; và câu **câu giờ** để có vài giây suy nghĩ mà không im lặng hay ậm ừ. Người Việt hay im lặng khi chưa nghĩ ra, và người nước ngoài hiểu đó là không có ý kiến."),
+      table(
+        ["Chức năng", "Câu mẫu"],
+        ["Nối vào ý người trước", "Building on what Lan just said, I'd add that..."],
+        ["Quay lại một ý đã nêu", "To come back to your point about costs, ..."],
+        ["Xin chen vào lịch sự", "Sorry, could I just come in here?"],
+        ["Nhượng bộ khi nói", "I take your point, but I'd see it slightly differently."],
+        ["Câu giờ để suy nghĩ", "That's a good question. Let me think about that for a second."],
+      ),
+      tip("Các cụm như **That said**, **On the other hand**, **Be that as it may** (thành ngữ giả định các bạn đã gặp ở bài Thể giả định) giúp chuyển ý mượt mà. Tránh mở đầu mọi câu bằng **However**; thay đổi từ nối giúp bài viết tự nhiên hơn."),
       tip("Mẹo nhớ bằng một câu: **although đi với câu, despite đi với cụm**. Muốn kiểm tra, hãy xem phía sau có động từ chia thì hay không: có thì dùng although, không có thì dùng despite. Còn **despite không of, in spite phải có of**."),
-      teacher("Năm mươi năm đứng lớp, chấm không biết bao nhiêu bài luận, tôi thấy bài của người Việt thường mạnh về ý nhưng yếu về giọng: hoặc phủ nhận sạch trơn quan điểm kia, hoặc gật gù đồng ý hết. Giám khảo muốn thấy bạn **công bằng với đối phương rồi mới phản bác**. Trước khi viết, hãy tự hỏi: người phản đối mình sẽ nói gì, và họ đúng ở điểm nào? Viết điểm đúng đó ra bằng Admittedly, rồi mới lật lại bằng Even so. Chỉ một bước nhỏ ấy thôi, bài của bạn đã chín chắn hơn hẳn."),
+      teacher("Năm mươi năm đứng lớp, chấm không biết bao nhiêu bài luận, tôi thấy bài của người Việt thường mạnh về ý nhưng yếu về giọng: hoặc phủ nhận sạch trơn quan điểm kia, hoặc gật gù đồng ý hết. Giám khảo muốn thấy các bạn **công bằng với đối phương rồi mới phản bác**. Trước khi viết, hãy tự hỏi: người phản đối mình sẽ nói gì, và họ đúng ở điểm nào? Viết điểm đúng đó ra bằng Admittedly, rồi mới lật lại bằng Even so. Chỉ một bước nhỏ ấy thôi, bài của các bạn đã chín chắn hơn hẳn."),
+      summary(
+        "**Although / even though** + mệnh đề (S + V); **despite / in spite of** + danh từ hoặc V-ing.",
+        "Despite không có of, in spite luôn có of. Không dùng although cùng but trong một câu.",
+        "Đoạn phản biện bốn bước: nêu ý đối lập, **thừa nhận** (Admittedly), **phản bác** (Even so), khẳng định lại quan điểm.",
+        "Khi tranh luận bằng lời: nối vào ý người khác (Building on what... said), xin chen lịch sự (Could I just come in here?), câu giờ thay vì im lặng.",
+        "Thay đổi từ nối (That said, Nevertheless, On the other hand); đừng mở mọi câu bằng However.",
+      ),
     ],
   },
   words: [
@@ -234,7 +382,7 @@ const lapLuan = lesson({
     mc("c1-4-2", "Câu nào đúng?", ["Although he was tired, but he kept working.", "Despite he was tired, he kept working.", "Even though he was tired, he kept working."], 2, "Không dùng although cùng but; despite không đi trực tiếp với mệnh đề."),
     fill("c1-4-3", "In spite ___ the criticism, the director refused to change the ending.", ["of"], "Luôn là in spite of, còn despite thì không có of."),
     fill("c1-4-4", "The new system is expensive. Even ___, it will save us money in the long run.", ["so"], "Even so nghĩa là dù vậy, đứng đầu câu mới."),
-    reorder("c1-4-5", "Some critics argue that the policy is unfair.", "Mở đầu phản biện bằng cách nêu quan điểm đối lập."),
+    reorder("c1-4-5", "Could I just come in here?", "Câu xin chen vào lịch sự khi đang họp: could I just + come in. Just làm lời xin phép nhẹ nhàng hơn; trong câu nói thật, người ta thường thêm Sorry ở đầu."),
     reorder("c1-4-6", "Their success came despite a lack of funding.", "Despite + cụm danh từ (a lack of funding), không cần of."),
     listen("c1-4-7", "Admittedly, the plan has flaws, but it's the best option we have.", ["Kế hoạch có nhiều lỗi nên chúng ta nên bỏ nó.", "Kế hoạch hoàn hảo và là lựa chọn duy nhất.", "Chúng ta chưa có kế hoạch nào tốt.", "Phải thừa nhận kế hoạch có thiếu sót, nhưng đó là lựa chọn tốt nhất ta có."], 3, "Admittedly dùng để thừa nhận một điểm yếu trước khi phản bác."),
     listen("c1-4-8", "Even though the evidence is limited, the conclusion seems reasonable.", ["Mặc dù bằng chứng còn hạn chế, kết luận có vẻ hợp lý.", "Vì thiếu bằng chứng nên kết luận không hợp lý.", "Bằng chứng rất rõ ràng nên kết luận hợp lý."], 0),
@@ -244,6 +392,41 @@ const lapLuan = lesson({
     say("Admittedly, the cost is high. Even so, it's worth it.", "Phải thừa nhận là chi phí cao. Dù vậy, nó vẫn đáng."),
     say("Despite the risks, I believe we should go ahead.", "Bất chấp rủi ro, tôi tin chúng ta nên tiến hành."),
   ],
+  dialogue: dialogue(
+    "Đàm phán giá với nhà nhập khẩu",
+    "Ông Klein, giám đốc mua hàng của một công ty nội thất Đức, đang đàm phán hợp đồng năm tới với chị Hương, giám đốc kinh doanh một xưởng gỗ ở Bình Dương. Ông cho rằng giá của chị quá cao; chị cần thừa nhận điểm hợp lý rồi phản bác khéo léo.",
+    { A: "Ông Klein (giám đốc mua hàng)", B: "Chị Hương (giám đốc kinh doanh)" },
+    A("Ms Huong, I'll be frank. Your price is twelve per cent higher than your competitors'.", "Chị Hương, tôi nói thẳng nhé. Giá của chị cao hơn các đối thủ mười hai phần trăm."),
+    B("Admittedly, our unit price is higher. Even so, our defect rate is the lowest in the region.", "Phải thừa nhận là đơn giá của chúng tôi cao hơn. Dù vậy, tỷ lệ hàng lỗi của chúng tôi thấp nhất khu vực."),
+    A("I take your point, but my board looks at the invoice, not the defect rate.", "Tôi hiểu ý chị, nhưng hội đồng quản trị của tôi nhìn vào hóa đơn chứ không nhìn vào tỷ lệ lỗi."),
+    B("That's a valid concern. Although the invoice is higher, the total cost is lower once you count returns.", "Đó là mối lo có cơ sở. Mặc dù hóa đơn cao hơn, tổng chi phí lại thấp hơn khi tính cả hàng bị trả về."),
+    A("Perhaps. Despite that, a late delivery last spring cost us a major customer.", "Có thể. Dù vậy, đợt giao hàng trễ mùa xuân năm ngoái đã khiến chúng tôi mất một khách hàng lớn."),
+    B("You're right, and I won't make excuses. Nevertheless, we've since opened a second warehouse in Hai Phong.", "Ông nói đúng, và tôi sẽ không bào chữa. Tuy nhiên, từ đó đến nay chúng tôi đã mở thêm một kho thứ hai ở Hải Phòng."),
+    A("A warehouse is one thing. What guarantee can you actually offer?", "Có kho là một chuyện. Chị thực sự có thể đưa ra bảo đảm gì?"),
+    B("Building on what you said about delays, we could add a penalty clause for late delivery.", "Tiếp nối điều ông vừa nói về giao trễ, chúng tôi có thể thêm điều khoản phạt khi giao hàng chậm."),
+    A("That's compelling. That said, I'd still need a small reduction to convince the board.", "Điều đó khá thuyết phục. Dù vậy, tôi vẫn cần giảm giá chút ít để thuyết phục hội đồng quản trị."),
+    B("That's a fair request. Let me think about that for a second. In spite of our tight margins, we could offer three per cent on orders above ten thousand units.", "Đó là đề nghị hợp lý. Để tôi suy nghĩ một chút. Dù biên lợi nhuận đã mỏng, chúng tôi có thể giảm ba phần trăm cho các đơn hàng trên mười nghìn sản phẩm."),
+    A("Even though it's less than I hoped for, I think I can work with that.", "Dù ít hơn tôi mong đợi, tôi nghĩ tôi có thể chấp nhận mức đó."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn văn nghị luận (kiểu IELTS Writing Task 2) phản biện ý kiến: “Làm việc từ xa làm giảm năng suất của nhân viên.” Đoạn văn phải đi đủ bốn bước: nêu ý đối lập, thừa nhận, phản bác, khẳng định lại.",
+    hints: [
+      "Câu một: nêu quan điểm đối lập bằng Some argue that...",
+      "Câu hai: thừa nhận phần hợp lý bằng Admittedly, kèm một ví dụ cụ thể.",
+      "Phần phản bác: mở bằng Even so hoặc Nevertheless, dùng một câu despite và một câu although.",
+      "Câu cuối: khẳng định lại quan điểm, có thể mở bằng While... để giữ giọng cân bằng.",
+    ],
+    model:
+      "Some argue that working from home inevitably reduces productivity, since employees are surrounded by distractions and receive less supervision. Admittedly, this concern is not without foundation: without a clear routine, some workers do struggle to stay focused, and spontaneous problem-solving with colleagues becomes less frequent. Even so, this view overlooks a considerable body of evidence. Despite having fewer face-to-face interactions, many remote employees report completing more work, largely because they no longer lose two hours a day commuting. Moreover, although supervision is less direct, well-designed digital tools allow managers to track progress transparently. On balance, while remote work may not suit every role, I would maintain that, when it is properly managed, it tends to enhance rather than undermine productivity.",
+    checklist: [
+      "Đoạn văn có đủ bốn bước: nêu ý đối lập, thừa nhận, phản bác, khẳng định lại",
+      "Có ít nhất một despite hoặc in spite of + danh từ/V-ing, và một although hoặc even though + mệnh đề",
+      "Không có although đi cùng but, không có despite of",
+      "Dùng ít nhất ba từ nối khác nhau, không lặp However",
+      "Phần phản bác có lý do hoặc bằng chứng cụ thể, không chỉ nói I disagree",
+    ],
+    minWords: 100,
+  }),
 });
 
 const tinhTe = lesson({
@@ -253,7 +436,7 @@ const tinhTe = lesson({
   lecture: {
     title: "Nói giảm, rào đón và hàm ý",
     blocks: [
-      p("Một học trò của tôi làm ở công ty kiểm toán nhận email của sếp người Anh: “Perhaps you might like to have another look at the figures.” Em ấy tưởng là lời gợi ý, để đến tuần sau mới xem. Hôm sau sếp hỏi sao chưa sửa. Thực ra câu đó là **yêu cầu sửa ngay**, chỉ được nói rất nhẹ nhàng. Bài này giúp bạn đọc được cái ý nằm dưới lớp chữ."),
+      p("Một học viên của tôi làm ở công ty kiểm toán nhận email của sếp người Anh: “Perhaps you might like to have another look at the figures.” Bạn ấy tưởng là lời gợi ý, để đến tuần sau mới xem. Hôm sau sếp hỏi sao chưa sửa. Thực ra câu đó là **yêu cầu sửa ngay**, chỉ được nói rất nhẹ nhàng. Bài này giúp bạn đọc được cái ý nằm dưới lớp chữ."),
       p("Người bản xứ, nhất là người Anh, hiếm khi nói thẳng “Tôi không đồng ý” hay “Ý tưởng này tệ”. Họ dùng **nói giảm** (understatement) và **rào đón** (hedging). Hiểu sai hàm ý là nguyên nhân của rất nhiều hiểu lầm trong môi trường làm việc quốc tế."),
       table(
         ["Câu nói", "Nghĩa đen", "Hàm ý thực sự"],
@@ -272,8 +455,16 @@ const tinhTe = lesson({
       p("**Thành ngữ** cũng mang sắc thái riêng và cần đúng ngữ cảnh: **the elephant in the room** (vấn đề ai cũng biết nhưng né tránh), **a blessing in disguise** (trong cái rủi có cái may), **cut corners** (làm ẩu để tiết kiệm thời gian hoặc tiền)."),
       mistake("Let's address the elephant of the room.", "Let's address the elephant in the room.", "Thành ngữ là cụm cố định: không được đổi giới từ hay thay từ nào."),
       mistake("I think maybe perhaps this could possibly be a little wrong.", "This may not be entirely accurate.", "Vì sợ thất lễ, người Việt hay chồng nhiều lớp rào đón lên một câu, nghe thành rụt rè và khó hiểu. Một từ rào đón đặt đúng chỗ là đủ lịch sự."),
+      p("Lớp nghĩa ngầm cuối cùng là **mỉa mai** (sarcasm): người nói dùng một lời khen quá mức so với tình huống, kèm giọng kéo dài hoặc đều đều, để nói điều ngược lại. Máy in hỏng lần thứ ba trong tuần, đồng nghiệp thở dài: “Oh, **brilliant**. Just what I needed.” Nghĩa thật là: bực quá. Dấu hiệu để nhận ra: lời khen **không khớp** với sự việc, và ngữ điệu **không vui**. Trong email không có giọng nói nên mỉa mai rất dễ bị hiểu lầm; vì vậy đừng viết mỉa mai trong thư công việc."),
       tip("Khi nghe phản hồi, hãy chú ý **ngữ điệu** và các từ rào đón. Trong tiếng Anh-Anh, quite good thường chỉ có nghĩa là **tạm được**, không phải “khá tốt” như người Việt hay hiểu."),
-      teacher("Tôi hay nói với học trò: tiếng Việt mình cũng có nói giảm, như “để em xem lại” thay cho “không”, hay “cũng được” khi thật ra chưa hài lòng. Vậy nên các em **không thiếu sự tinh tế, chỉ thiếu vốn câu**. Mỗi khi nghe một người bản xứ nhận xét, hãy ghi câu họ nói vào sổ, bên cạnh ghi hai cột: nghĩa đen và điều họ thực sự muốn nói. Sau vài tháng, cuốn sổ ấy sẽ quý hơn bất kỳ cuốn sách ngữ pháp nào."),
+      teacher("Tôi hay nói với học viên: tiếng Việt mình cũng có nói giảm, như “để em xem lại” thay cho “không”, hay “cũng được” khi thật ra chưa hài lòng. Vậy nên các bạn **không thiếu sự tinh tế, chỉ thiếu vốn câu**. Mỗi khi nghe một người bản xứ nhận xét, hãy ghi câu họ nói vào sổ, bên cạnh ghi hai cột: nghĩa đen và điều họ thực sự muốn nói. Sau vài tháng, cuốn sổ ấy sẽ quý hơn bất kỳ cuốn sách ngữ pháp nào."),
+      summary(
+        "Người Anh hay **nói giảm**: It's not ideal nghĩa là có vấn đề đáng kể; I'm not entirely convinced nghĩa là tôi không đồng ý.",
+        "Lời gợi ý của cấp trên (Perhaps you might like to...) thường là **yêu cầu**: hãy làm ngay, đừng để sau.",
+        "**Rào đón** bằng might, could, tend to, seem, arguably, to some extent; một từ đặt đúng chỗ là đủ, đừng chồng nhiều lớp.",
+        "Phê bình nhắm vào **vấn đề**, không nhắm vào người: I'm not sure the plan fully addresses..., không nói Your plan is wrong.",
+        "Thành ngữ là cụm cố định (the elephant in the room, a blessing in disguise, cut corners). Mỉa mai là lời khen không khớp sự việc; đừng viết mỉa mai trong email công việc.",
+      ),
     ],
   },
   words: [
@@ -294,13 +485,49 @@ const tinhTe = lesson({
     reorder("c1-5-5", "I'm not entirely convinced by this proposal.", "Cách lịch sự để nói rằng bạn không đồng ý."),
     reorder("c1-5-6", "Losing that job was a blessing in disguise.", "A blessing in disguise: trong cái rủi có cái may."),
     listen("c1-5-7", "With all due respect, I think we may be missing the bigger picture.", ["Với tất cả sự tôn trọng, tôi nghĩ có lẽ chúng ta đang bỏ qua bức tranh toàn cảnh.", "Tôi hoàn toàn đồng ý với bạn.", "Tôi rất tôn trọng bạn nên không có ý kiến gì thêm."], 0, "With all due respect thường báo hiệu một lời phản bác."),
-    listen("c1-5-8", "The presentation was quite good, but it could be better.", ["Bài thuyết trình xuất sắc.", "Bài thuyết trình tạm được, còn nhiều điểm cần cải thiện.", "Bài thuyết trình rất tệ, không cứu vãn được."], 1, "Quite good kèm it could be better nghĩa là tạm được, chưa tốt."),
+    listen("c1-5-8", "The printer's broken again? Oh, brilliant. Just what I needed.", ["Người nói vui vì máy in đã được sửa xong.", "Người nói đang bực mình vì máy in lại hỏng.", "Người nói khen chiếc máy in mới rất tốt."], 1, "Brilliant ở đây là mỉa mai: lời khen không khớp với sự việc máy in hỏng, nên nghĩa thật là bực bội."),
   ],
   speaking: [
     say("I'm not entirely convinced this is the best approach.", "Tôi chưa hoàn toàn bị thuyết phục rằng đây là cách tốt nhất."),
     say("It's not ideal, but we can make it work.", "Nó chưa lý tưởng, nhưng chúng ta có thể xoay xở được."),
     say("Let's address the elephant in the room.", "Hãy nói thẳng vào vấn đề mà ai cũng đang né tránh."),
   ],
+  dialogue: dialogue(
+    "Nhận phản hồi về bản báo cáo",
+    "James, quản lý người Anh ở một công ty tư vấn, góp ý bản nháp báo cáo khảo sát khách hàng của Linh, chuyên viên phân tích người Việt. Linh vừa phải đọc được hàm ý trong lời nhận xét của sếp, vừa phải tế nhị khi nói lên ý kiến của mình.",
+    { A: "James (quản lý)", B: "Linh (chuyên viên phân tích)" },
+    A("Thanks for the draft, Linh. It's an interesting approach.", "Cảm ơn em về bản nháp nhé Linh. Cách tiếp cận thú vị đấy."),
+    B("Thank you. Should I take that to mean you have some doubts about it?", "Em cảm ơn anh. Em có nên hiểu là anh đang có chút nghi ngờ về nó không ạ?"),
+    A("Well, I'm not entirely convinced the survey sample is large enough.", "Ờ, anh chưa hoàn toàn bị thuyết phục rằng mẫu khảo sát đủ lớn."),
+    B("That's fair. To some extent, the sample size was limited by the budget.", "Hợp lý ạ. Ở một mức độ nào đó, cỡ mẫu bị giới hạn bởi ngân sách."),
+    A("Understood. Perhaps you might like to have another look at the conclusions, too.", "Anh hiểu. Có lẽ em cũng nên xem lại phần kết luận."),
+    B("I'll revise them today. Are they too strong?", "Em sẽ sửa ngay trong hôm nay. Chúng có khẳng định mạnh quá không ạ?"),
+    A("A little. “The campaign failed” is rather blunt. “The results seem to suggest a limited effect” would be more diplomatic.", "Hơi mạnh. Câu “Chiến dịch đã thất bại” khá thẳng thừng. Câu “Kết quả dường như cho thấy tác động hạn chế” sẽ khéo hơn."),
+    B("Got it. And with all due respect, I think the deadline might be a little tight for a second survey.", "Em hiểu rồi. Và với tất cả sự tôn trọng, em nghĩ hạn chót có lẽ hơi gấp để làm thêm một đợt khảo sát nữa."),
+    A("You're right. Let's not cut corners, then. I'll ask the client for another week.", "Em nói đúng. Vậy thì đừng làm ẩu. Anh sẽ xin khách thêm một tuần."),
+    B("Thank you. Missing the first deadline might turn out to be a blessing in disguise.", "Em cảm ơn anh. Lỡ hạn chót đầu tiên biết đâu lại là trong cái rủi có cái may."),
+    A("Quite possibly. Oh, and the old client logo on page two? Brilliant. Just what the report needed.", "Có khi thế thật. À, còn cái logo cũ của khách ở trang hai? Tuyệt thật. Đúng là thứ bản báo cáo đang cần."),
+    B("I'll take that as sarcasm and replace it with the new one straight away.", "Em sẽ hiểu đó là câu mỉa mai và thay ngay bằng logo mới ạ."),
+  ),
+  task: task({
+    prompt: "Một đồng nghiệp gửi bạn bản đề xuất chương trình khách hàng thân thiết. Bạn thấy ngân sách đào tạo nhân viên chưa thực tế. Hãy viết email phản hồi: ghi nhận điểm tốt, nêu điểm chưa đồng ý một cách tế nhị, và gợi ý hướng sửa.",
+    hints: [
+      "Mở đầu bằng một lời ghi nhận thật lòng và cụ thể về phần làm tốt.",
+      "Nêu điểm chưa đồng ý bằng I'm not entirely convinced... hoặc It might not be...",
+      "Dùng ít nhất ba cách rào đón khác nhau (not entirely, seem to, might, perhaps), mỗi câu tối đa hai lớp.",
+      "Kết bằng một đề xuất cụ thể theo dạng gợi ý: Perhaps we could...",
+    ],
+    model:
+      "Dear Sophie, thank you for sending over the proposal for the new customer loyalty scheme. It is clearly the result of a great deal of work, and the section on digital rewards is particularly strong. That said, I'm not entirely convinced that the budget fully reflects the cost of staff training. The figures seem to suggest that we would need at least two additional trainers, which might not be realistic this year. Perhaps we could revisit the timeline and run a smaller pilot in two branches first, so that we can base the full budget on real data. I would be happy to discuss this further whenever it suits you. Best wishes, Nam",
+    checklist: [
+      "Không có câu phủ định thẳng thừng như Your plan is wrong hay This is bad",
+      "Có ít nhất ba cách rào đón khác nhau, không câu nào chồng quá hai từ rào đón",
+      "Lời phê bình nhắm vào con số hoặc vấn đề, không nhắm vào người viết",
+      "Có ít nhất một đề xuất cụ thể thay cho lời chê chung chung",
+      "Không có câu mỉa mai, không có thành ngữ sai giới từ",
+    ],
+    minWords: 100,
+  }),
 });
 
 const hocThuat = lesson({
@@ -324,7 +551,7 @@ const hocThuat = lesson({
         ["a lot of", "a significant number of / considerable", "A significant number of students agreed."],
         ["show", "demonstrate / indicate", "The data indicate a clear trend."],
       ),
-      p("**Cấu trúc khách quan** giúp tránh I think và tạo khoảng cách với người viết: **It is widely believed that...**, **It has been argued that...**, **It is estimated that...**, hoặc dạng **X is thought to...**"),
+      p("**Cấu trúc khách quan** giúp tránh I think và tạo khoảng cách với người viết: **It is widely believed that...**, **It has been argued that...**, **It is estimated that...**, hoặc dạng **X is thought to...** Đây chính là bị động với động từ tường thuật các bạn đã học kỹ ở bài “Người ta nói rằng…”; trong bài học thuật, hãy kết hợp chúng với từ rào đón (may, tend to) của bài Ngôn ngữ tinh tế."),
       ex("It is widely believed that early education shapes lifelong success.", "Nhiều người tin rằng giáo dục sớm định hình thành công suốt đời."),
       ex("Chronic stress is thought to weaken the immune system.", "Căng thẳng kéo dài được cho là làm suy yếu hệ miễn dịch.", "Dạng X is thought to + động từ nguyên mẫu ngắn gọn hơn It is thought that chronic stress weakens..., và đưa chủ đề chính (chronic stress) lên đầu câu."),
       mistake("I think that social media is very bad for teenagers.", "It has been argued that social media may have a negative impact on teenagers.", "Trong bài học thuật, tránh I think và tính từ cảm tính như very bad. Dùng cấu trúc khách quan và rào đón bằng may."),
@@ -332,7 +559,14 @@ const hocThuat = lesson({
       mistake("There was a sharp increase of oil prices.", "There was a sharp increase in oil prices.", "Tiếng Việt nói “sự tăng của giá dầu” nên người Việt dịch “của” thành of. Các danh từ chỉ thay đổi như increase, decrease, rise, fall, drop đi với in khi nói cái gì tăng giảm; còn of dùng cho mức tăng giảm: an increase of ten per cent."),
       tip("Đừng danh từ hóa mọi thứ. Quá nhiều danh từ nối tiếp sẽ làm câu nặng nề, khó đọc. Mục tiêu là **rõ ràng và chính xác**, không phải phức tạp."),
       tip("Mẹo phát âm: khi danh từ hóa, trọng âm thường **dịch chuyển**. Với đuôi -tion, trọng âm luôn rơi vào âm tiết ngay trước nó: inˈvestigate thành investiˈgation, ˈdemonstrate thành demonˈstration. Với -sis cũng đổi: ˈanalyse thành aˈnalysis. Đọc sai trọng âm khi thuyết trình là lỗi người Việt rất hay mắc."),
-      teacher("Tôi dặn nghiên cứu sinh một cách tự sửa rất hiệu quả: viết bản nháp đầu tiên thoải mái như đang nói, rồi **sửa ba lượt, mỗi lượt chỉ tìm một thứ**. Lượt một, tìm và thay I think. Lượt hai, tìm get, a lot of và các phrasal verb đời thường. Lượt ba, tìm những câu có hai ba động từ nối nhau bằng so, and, because, rồi thử danh từ hóa một vế. Sửa một lúc mọi thứ thì rối; sửa từng lượt thì bài sạch mà mình còn nhớ lâu."),
+      teacher("Tôi vẫn dặn các bạn nghiên cứu sinh một cách tự sửa rất hiệu quả: viết bản nháp đầu tiên thoải mái như đang nói, rồi **sửa ba lượt, mỗi lượt chỉ tìm một thứ**. Lượt một, tìm và thay I think. Lượt hai, tìm get, a lot of và các phrasal verb đời thường. Lượt ba, tìm những câu có hai ba động từ nối nhau bằng so, and, because, rồi thử danh từ hóa một vế. Sửa một lúc mọi thứ thì rối; sửa từng lượt thì bài sạch mà các bạn còn nhớ lâu."),
+      summary(
+        "**Danh từ hóa** để câu súc tích: reduce thành reduction, spend thành spending; nhưng đừng nhồi quá nhiều danh từ liền nhau.",
+        "Thay từ thân mật bằng từ trang trọng: get thành obtain, find out thành determine, look into thành examine, a lot of thành a significant number of.",
+        "Tránh I think: dùng **It is widely believed that...**, **X is thought to...**, kết hợp rào đón may, tend to.",
+        "Increase, decrease, rise, fall + **in** + thứ thay đổi; + **of** + mức thay đổi (an increase of ten per cent).",
+        "Danh từ hóa làm **dịch trọng âm**: inˈvestigate thành investiˈgation, ˈanalyse thành aˈnalysis.",
+      ),
     ],
   },
   words: [
@@ -359,6 +593,42 @@ const hocThuat = lesson({
     say("The findings indicate a significant increase in demand.", "Kết quả cho thấy nhu cầu tăng đáng kể."),
     say("Further research is needed to confirm this hypothesis.", "Cần thêm nghiên cứu để xác nhận giả thuyết này."),
   ],
+  dialogue: dialogue(
+    "Buổi gặp giáo sư hướng dẫn",
+    "Hà, nghiên cứu sinh người Việt tại một trường đại học ở Úc, gặp giáo sư Clarke để sửa chương kết quả của luận án. Nội dung tốt nhưng văn phong còn giống văn nói; hai thầy trò cùng viết lại từng câu.",
+    { A: "Giáo sư Clarke", B: "Hà (nghiên cứu sinh)" },
+    A("Ha, your findings are solid, but the writing is still too conversational.", "Hà, kết quả của em rất chắc, nhưng cách viết vẫn còn quá giống văn nói."),
+    B("I was afraid of that. Which sentences sound too informal?", "Em cũng lo như vậy. Những câu nào nghe quá thân mật ạ?"),
+    A("Take this one: “We found out that a lot of students got lower scores.”", "Lấy câu này làm ví dụ: “Chúng tôi phát hiện ra rằng nhiều sinh viên bị điểm thấp hơn.”"),
+    B("Would “The study determined that a significant number of students obtained lower scores” work better?", "Viết là “Nghiên cứu xác định rằng một số lượng đáng kể sinh viên đạt điểm thấp hơn” thì có tốt hơn không ạ?"),
+    A("Much better. The next paragraph opens with “I think social media is bad for sleep.”", "Tốt hơn nhiều. Đoạn tiếp theo lại mở đầu bằng câu “Tôi nghĩ mạng xã hội có hại cho giấc ngủ.”"),
+    B("Perhaps: “It has been argued that social media use may have a negative impact on sleep quality.”", "Có lẽ là: “Có ý kiến cho rằng việc sử dụng mạng xã hội có thể tác động tiêu cực đến chất lượng giấc ngủ.”"),
+    A("Good, and you've hedged with may. Now nominalise this: “Screen time went up, so students slept less.”", "Tốt, em đã rào đón bằng may. Giờ hãy danh từ hóa câu này: “Thời gian dùng màn hình tăng lên nên sinh viên ngủ ít đi.”"),
+    B("“The increase in screen time led to a reduction in sleep duration.”", "“Sự gia tăng thời gian sử dụng màn hình đã dẫn đến sự suy giảm thời lượng ngủ.”"),
+    A("Exactly. And notice it's an increase in screen time, not an increase of screen time.", "Chính xác. Và để ý là an increase in screen time, không phải an increase of screen time."),
+    B("So of is for the amount, as in an increase of twenty per cent?", "Vậy of là dùng cho mức tăng, như an increase of twenty per cent phải không ạ?"),
+    A("Right. One last thing: in your presentation, say investigation with the stress on ga, not on ves.", "Đúng vậy. Điều cuối cùng: khi thuyết trình, đọc investigation nhấn vào âm ga, không nhấn vào âm ves."),
+    B("Investigation. Thank you, Professor. I'll revise the whole chapter in three passes.", "Investigation. Em cảm ơn giáo sư. Em sẽ sửa cả chương theo ba lượt ạ."),
+  ),
+  task: task({
+    prompt: "Viết lại đoạn văn nói sau thành một đoạn văn học thuật khoảng một trăm từ: “I think a lot of young people in Vietnam use their phones too much. We found out that screen time went up a lot during the pandemic, so kids slept less and got worse marks. Schools should look into this.”",
+    hints: [
+      "Thay I think bằng cấu trúc khách quan như It is widely believed that...",
+      "Danh từ hóa ít nhất hai động từ: went up thành an increase in, slept less thành a reduction in.",
+      "Thay các từ thân mật: a lot of, found out, got, look into, kids.",
+      "Rào đón kết luận bằng appears to, may, hoặc further research is needed.",
+    ],
+    model:
+      "It is widely believed that excessive smartphone use among young people in Vietnam has become a significant concern. A recent survey of secondary school students determined that there was a substantial increase in daily screen time during the pandemic. This increase appears to have been accompanied by a reduction in sleep duration and a decline in academic performance. Although further research is needed to substantiate a causal relationship, these findings indicate that the issue deserves closer attention. It is therefore recommended that schools examine the impact of mobile devices on learning and consider introducing clear guidelines on their use.",
+    checklist: [
+      "Không còn I think, a lot of, got, found out, look into hay kids",
+      "Có ít nhất hai cụm danh từ hóa, ví dụ an increase in..., a reduction in...",
+      "Có ít nhất một cấu trúc khách quan (It is ... that..., hoặc X is thought to...)",
+      "Giới từ đúng: increase/reduction in + thứ thay đổi",
+      "Kết luận có rào đón, không khẳng định tuyệt đối rằng điện thoại gây ra điểm kém",
+    ],
+    minWords: 90,
+  }),
 });
 
 export const tiengAnhC1: Course = {

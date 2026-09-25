@@ -12,9 +12,10 @@ describe("grammarIndex", () => {
     expect(entries.every((e) => !e.lessonSlug.startsWith("on-tap-chuong"))).toBe(true);
   });
   it("carries what the handbook needs to show and link", () => {
-    expect(entries[0]).toMatchObject({ courseSlug: "tieng-anh-a1", level: "A1", lessonSlug: "chao-hoi-va-gioi-thieu" });
-    expect(entries[0].lectureTitle).toBeTruthy();
-    expect(entries[0].chapterTitle).toBeTruthy();
+    const first = entries.find((e) => e.courseSlug === "tieng-anh-a1")!;
+    expect(first).toMatchObject({ level: "A1", lessonSlug: "chao-hoi-va-gioi-thieu" });
+    expect(first.lectureTitle).toBeTruthy();
+    expect(first.chapterTitle).toBeTruthy();
   });
 });
 

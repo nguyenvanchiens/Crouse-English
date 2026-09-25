@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, GraduationCap, Lightbulb, TriangleAlert, Volume2 } from "lucide-react";
+import { Check, GraduationCap, Lightbulb, ListChecks, TriangleAlert, Volume2 } from "lucide-react";
 import type { LectureBlock, LectureStep } from "@/content/types";
 import { parseBold } from "@/lib/rich-text";
 import { speak, useSpeechSupport } from "@/lib/speech";
@@ -86,6 +86,22 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
             <Rich text={block.body} />
           </p>
         </div>
+      );
+    case "summary":
+      return (
+        <section className="rounded-2xl border-[2.5px] border-ink bg-sun-soft px-5 py-4" aria-label="Ghi nhớ">
+          <p className="flex items-center gap-2 font-display text-lg font-bold">
+            <ListChecks className="size-5" aria-hidden />
+            Ghi nhớ
+          </p>
+          <ul className="mt-2 list-disc space-y-1.5 pl-6 leading-relaxed">
+            {block.points.map((pt, i) => (
+              <li key={i}>
+                <Rich text={pt} />
+              </li>
+            ))}
+          </ul>
+        </section>
       );
     case "teacher":
       return (

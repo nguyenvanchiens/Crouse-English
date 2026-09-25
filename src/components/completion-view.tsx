@@ -5,7 +5,8 @@ import { useState } from "react";
 import { Award, Printer } from "lucide-react";
 import type { Course } from "@/content/types";
 import { certificateCode, formatDateVi } from "@/lib/format";
-import { courseProgress, lastCompletedAt } from "@/lib/progress-core";
+import { FINAL_PASS } from "@/content/review";
+import { certificateStatus, courseProgress, lastCompletedAt } from "@/lib/progress-core";
 import { progress, useProgress } from "@/lib/progress";
 import { EmptyState } from "@/components/ui/empty-state";
 import { ProgressBar } from "@/components/ui/progress-bar";
@@ -26,6 +27,24 @@ export function CompletionView({ course }: { course: Course }) {
           {p.nextLesson && (
             <Link href={`/hoc/${course.slug}/${p.nextLesson.slug}`} className="btn btn-primary">Học tiếp: {p.nextLesson.title}</Link>
           )}
+        </EmptyState>
+      </main>
+    );
+  }
+
+  const cert = certificateStatus(course, state);
+  if (cert.status === "final-failed") {
+    const finalLesson = course.modules.flatMap((m) => m.lessons).find((l) => l.final);
+    return (
+      <main className="flex flex-1 items-center px-4 py-16 sm:px-6">
+        <EmptyState
+          title={`Còn một bước: đạt ${FINAL_PASS}% bài kiểm tra cuối khóa`}
+          body={`Điểm tốt nhất của bạn hiện là ${cert.finalScore}%. Ôn lại các chương rồi làm lại bài kiểm tra để nhận chứng chỉ.`}
+        >
+          {finalLesson && (
+            <Link href={`/hoc/${course.slug}/${finalLesson.slug}`} className="btn btn-primary">Làm lại bài kiểm tra</Link>
+          )}
+          <Link href={`/khoa-hoc/${course.slug}`} className="btn btn-ghost">Xem giáo trình</Link>
         </EmptyState>
       </main>
     );
@@ -85,6 +104,9 @@ export function CompletionView({ course }: { course: Course }) {
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-x-12 gap-y-3 text-ink-soft">
               <p>Ngày cấp: <strong className="text-ink">{formatDateVi(completedAt)}</strong></p>
+              {cert.status === "earned" && cert.finalScore !== undefined && (
+                <p>Điểm kiểm tra cuối khóa: <strong className="text-ink">{cert.finalScore}%</strong></p>
+              )}
               <p>Mã chứng chỉ: <strong className="text-ink">{certificateCode(course.slug, state.learnerName, completedAt)}</strong></p>
             </div>
           </section>

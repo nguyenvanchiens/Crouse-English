@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "tuong-lai-nang-cao",
@@ -19,7 +19,7 @@ export default lesson({
         ["Phủ định", "She won't be working.", "She won't have left."],
         ["Nghi vấn", "Will she be working?", "Will she have left?"],
       ),
-      p("Dấu hiệu nhận biết: **this time next week / this time tomorrow / at eight tomorrow** thường đi với will be + V-ing. **By + mốc thời gian** (by Friday, by the end of the year) và **by the time + mệnh đề** thường đi với will have + V3. By ở đây nghĩa là “trước hoặc muộn nhất là vào lúc đó”."),
+      p("Dấu hiệu nhận biết: **this time next week / this time tomorrow / at eight tomorrow** thường đi với will be + V-ing. **By + mốc thời gian** (by Friday, by the end of the year) và **by the time + mệnh đề** thường đi với will have + V3. By ở đây nghĩa là “trước hoặc muộn nhất là vào lúc đó”. Bạn đã gặp by the time ở bài quá khứ hoàn thành; cách nghĩ giống hệt, chỉ là mốc nằm ở tương lai."),
       ex("This time next week, I'll be lying on a beach in Phu Quoc.", "Giờ này tuần sau, tôi đang nằm trên bãi biển ở Phú Quốc."),
       ex("Don't call me at eight. I'll be having dinner with my clients.", "Đừng gọi tôi lúc tám giờ. Lúc đó tôi đang ăn tối với khách hàng."),
       ex("By the end of this year, I'll have saved enough money for a new laptop.", "Đến cuối năm nay, tôi sẽ tiết kiệm được đủ tiền mua máy tính xách tay mới.", "Việc tiết kiệm sẽ hoàn tất trước mốc cuối năm."),
@@ -27,10 +27,17 @@ export default lesson({
       p("Will be + V-ing còn là cách **hỏi lịch sự về kế hoạch** của người khác, nghe nhẹ nhàng hơn will thường, vì bạn chỉ hỏi dự định chứ không phải đang nhờ vả."),
       ex("Will you be using the car tonight?", "Tối nay anh có định dùng xe không?", "Người hỏi có thể đang muốn mượn xe, nhưng hỏi về kế hoạch trước cho khéo."),
       mistake("This time tomorrow, I will lie on the beach.", "This time tomorrow, I will be lying on the beach.", "Tiếng Việt chỉ cần chữ “đang” mà không đổi động từ. Tiếng Anh cần will be + V-ing để diễn tả việc đang diễn ra tại thời điểm đó."),
-      mistake("By the time you will arrive, I will have left.", "By the time you arrive, I will have left.", "Giống when và if, sau by the time dùng hiện tại đơn dù đang nói về tương lai."),
+      mistake("By the time you will arrive, I will have left.", "By the time you arrive, I will have left.", "Giống mệnh đề if trong câu điều kiện loại 1 (bài Nếu… thì…), sau by the time dùng hiện tại đơn dù đang nói về tương lai. Người Việt nghĩ “tương lai thì phải có will” nên thêm will ở cả hai vế."),
       mistake("By Friday, I will have finish the project.", "By Friday, I will have finished the project.", "Sau will have phải là V3. Người Việt nói nhanh hay nuốt đuôi -ed nên viết cũng quên luôn."),
       tip("Mẹo phân biệt: nghĩ tới **một bức ảnh chụp** tại thời điểm tương lai. Trong ảnh việc **đang làm dở** thì dùng will be + V-ing. Trong ảnh việc **đã xong xuôi** thì dùng will have + V3. Khi nói, will have rút gọn thành **I'll have**, đọc lướt như /aɪl əv/."),
-      teacher("Sau 50 năm dạy, tôi thấy học trò hiểu hai thì này rất nhanh nhưng lại ít khi dám dùng, cứ quay về will cho an toàn. Tôi giao bài thế này: **mỗi sáng viết hai câu về ngày hôm đó**, một câu “At three this afternoon, I'll be…” và một câu “By tonight, I'll have…”. Tối về đối chiếu xem mình nói có đúng không. Vừa luyện ngữ pháp, vừa luyện sắp xếp công việc."),
+      teacher("Sau nhiều năm dạy, tôi thấy người học hiểu hai thì này rất nhanh nhưng lại ít khi dám dùng, cứ quay về will cho an toàn. Tôi giao cho các bạn bài này: **mỗi sáng viết hai câu về ngày hôm đó**, một câu “At three this afternoon, I'll be…” và một câu “By tonight, I'll have…”. Tối về đối chiếu xem mình nói có đúng không. Vừa luyện ngữ pháp, vừa luyện sắp xếp công việc."),
+      summary(
+        "Will be + V-ing: việc sẽ đang diễn ra tại một thời điểm trong tương lai (this time tomorrow, at eight tomorrow).",
+        "Will have + V3: việc sẽ xong trước một mốc trong tương lai (by Friday, by the end of the year).",
+        "Sau by the time dùng hiện tại đơn, không dùng will: by the time you arrive.",
+        "Will you be + V-ing…? là cách hỏi kế hoạch của người khác một cách lịch sự.",
+        "Mẹo bức ảnh: việc đang làm dở thì will be + V-ing, việc đã xong xuôi thì will have + V3.",
+      ),
     ],
   },
   words: [
@@ -58,4 +65,37 @@ export default lesson({
     say("By the end of the year, I'll have saved enough money for a new laptop.", "Đến cuối năm, tôi sẽ tiết kiệm được đủ tiền mua máy tính xách tay mới."),
     say("Will you be using the car tonight?", "Tối nay bạn có định dùng xe không?"),
   ],
+  dialogue: dialogue(
+    "Hẹn lịch với sếp",
+    "Anh Robert, giám đốc người Anh, muốn hẹn gặp Linh để bàn về dự án. Linh sắp đi công tác nên hai người phải tìm thời gian phù hợp.",
+    { A: "Anh Robert", B: "Linh" },
+    A("Linh, can we meet on Friday morning to talk about the project?", "Linh này, sáng thứ Sáu mình gặp nhau bàn về dự án được không?"),
+    B("I'm sorry, I can't. At nine on Friday, I'll be flying to Singapore.", "Xin lỗi anh, em không được. Chín giờ sáng thứ Sáu em đang bay sang Singapore."),
+    A("Oh, right. Will you be working while you're there?", "À đúng rồi. Ở bên đó em có làm việc không?"),
+    B("Yes, I'll be meeting our partners all day on Saturday.", "Có ạ, cả ngày thứ Bảy em sẽ gặp đối tác."),
+    A("Then when can I see the report? I need it for the board meeting.", "Vậy khi nào anh xem được báo cáo? Anh cần nó cho cuộc họp ban giám đốc."),
+    B("Don't worry. I'll have finished it by Thursday afternoon.", "Anh đừng lo. Đến chiều thứ Năm em sẽ làm xong."),
+    A("Great. By the time you get back, I'll have read it.", "Tốt quá. Đến lúc em về thì anh đã đọc xong rồi."),
+    B("Will you be working in the office on Monday? We could discuss it then.", "Thứ Hai anh có làm ở văn phòng không? Mình có thể bàn lúc đó."),
+    A("Yes, I will. Let's meet at ten. I'll have spoken to the board by then.", "Có. Mình gặp lúc mười giờ nhé. Đến lúc đó anh đã nói chuyện với ban giám đốc rồi."),
+    B("Perfect. See you on Monday at ten.", "Tuyệt ạ. Hẹn gặp anh mười giờ thứ Hai."),
+  ),
+  task: task({
+    prompt: "Một người bạn nước ngoài muốn gọi điện cho bạn vào tuần tới. Viết tin nhắn 6–8 câu kể về lịch của bạn: lúc nào bạn đang bận làm gì, đến khi nào bạn làm xong việc gì, rồi đề nghị một thời gian phù hợp.",
+    hints: [
+      "Dùng on Monday / at + giờ + will be + V-ing cho việc đang diễn ra.",
+      "Dùng by + mốc thời gian + will have + V3 cho việc đã xong.",
+      "Có một câu by the time + hiện tại đơn.",
+      "Kết thúc bằng một câu hỏi lịch sự: Will you be…?",
+    ],
+    model: "Hi Tom, thanks for your message. Next week will be really busy for me. On Monday and Tuesday, I'll be attending a training course in Hanoi, so I won't be able to answer the phone. At ten on Wednesday morning, I'll be giving a presentation to our new clients. But by Thursday afternoon, I'll have finished all my important work. By the time you call, I'll have read the documents you sent me. How about Thursday at five? Will you be working late that day?",
+    checklist: [
+      "Có ít nhất hai câu will be + V-ing gắn với thời điểm cụ thể.",
+      "Có ít nhất hai câu will have + V3.",
+      "Sau will have là V3 (finished, read), không phải động từ nguyên mẫu.",
+      "Sau by the time dùng hiện tại đơn, không dùng will.",
+      "Có một câu hỏi lịch sự Will you be + V-ing?",
+    ],
+    minWords: 60,
+  }),
 });

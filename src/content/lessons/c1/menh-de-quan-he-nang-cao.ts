@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "menh-de-quan-he-nang-cao",
@@ -33,7 +33,14 @@ export default lesson({
       p("**Which** còn có thể thay cho **cả mệnh đề** phía trước, không chỉ một danh từ. Loại này luôn có dấu phẩy phía trước và không dùng that hay what thay được."),
       ex("The train was cancelled, which meant we had to take a taxi.", "Chuyến tàu bị hủy, điều đó có nghĩa là chúng tôi phải đi taxi.", "Which ở đây là “việc tàu bị hủy”. Người Việt hay viết nhầm what meant, vì dịch “điều mà”."),
       tip("Mẹo chọn giới từ: tách mệnh đề ra thành một câu riêng. “I spoke **to** the man” thì viết **to whom**; “I work **for** the company” thì viết **for which**. Còn với lượng từ, hãy thử thay bằng **of them**: nếu “most of them” đúng thì “most of whom/which” cũng đúng."),
-      teacher("Sau năm mươi năm dạy, tôi thấy học trò thường mắc một trong hai tật: hoặc sợ không dám dùng, hoặc dùng quá tay đến mức câu nào cũng có **to whom**. Mỗi đoạn văn trang trọng chỉ cần **một hai câu** như vậy là đủ tạo ấn tượng. Cách luyện của tôi: mỗi ngày lấy hai câu ngắn trong bài báo, ví dụ “We interviewed ten people. None of them agreed.”, rồi gộp lại bằng **none of whom**. Làm đều một tháng, các em sẽ viết được mà không cần nghĩ."),
+      teacher("Sau nhiều năm dạy, tôi thấy học viên thường mắc một trong hai tật: hoặc sợ không dám dùng, hoặc dùng quá tay đến mức câu nào cũng có **to whom**. Mỗi đoạn văn trang trọng chỉ cần **một hai câu** như vậy là đủ tạo ấn tượng. Cách luyện của tôi: mỗi ngày lấy hai câu ngắn trong bài báo, ví dụ “We interviewed ten people. None of them agreed.”, rồi gộp lại bằng **none of whom**. Làm đều một tháng, các bạn sẽ viết được mà không cần nghĩ."),
+      summary(
+        "Giới từ đứng trước thì chỉ dùng **which** (vật) hoặc **whom** (người), không bao giờ dùng that hay who.",
+        "Đã đưa giới từ lên trước thì **bỏ giới từ ở cuối**: the hotel in which we stayed.",
+        "**Whereby** nghĩa là mà theo đó, đi sau system, scheme, agreement, arrangement, process.",
+        "**Lượng từ + of whom / of which** luôn đứng sau dấu phẩy: most of whom, none of which. Không nối hai câu bằng dấu phẩy + of them.",
+        "**Dấu phẩy + which** có thể thay cho cả mệnh đề phía trước: The train was cancelled, which meant we took a taxi.",
+      ),
     ],
   },
   words: [
@@ -61,4 +68,38 @@ export default lesson({
     say("I bought three books, none of which I have read yet.", "Tôi đã mua ba cuốn sách, chưa đọc cuốn nào cả."),
     say("The meeting ran late, which meant I missed my bus.", "Cuộc họp kéo dài, vì thế tôi lỡ chuyến xe buýt."),
   ],
+  dialogue: dialogue(
+    "Trình bày kết quả khảo sát nhân viên",
+    "Chị Phương, trưởng phòng nhân sự của một nhà máy may ở Đồng Nai, trình bày kết quả khảo sát nhân viên với bà Kim, giám đốc điều hành người Hàn Quốc.",
+    { A: "Bà Kim, giám đốc điều hành", B: "Chị Phương, trưởng phòng nhân sự" },
+    A("Phương, could you summarise the staff survey for me?", "Chị Phương, chị tóm tắt giúp tôi kết quả khảo sát nhân viên nhé?"),
+    B("Of course. We received three hundred responses, most of which were very detailed.", "Vâng ạ. Chúng tôi nhận được ba trăm phiếu trả lời, phần lớn trong số đó rất chi tiết."),
+    A("Impressive. What was the main complaint?", "Ấn tượng đấy. Phàn nàn chính là gì?"),
+    B("The conditions under which the night shift works. Many respondents, half of whom work at night, mentioned poor lighting and a lack of hot meals.", "Điều kiện làm việc của ca đêm. Nhiều người trả lời, một nửa trong số đó làm ca đêm, nhắc đến ánh sáng kém và thiếu bữa ăn nóng."),
+    A("That's serious. Is there a manager to whom they can report these problems?", "Chuyện này nghiêm trọng. Có người quản lý nào để họ báo cáo những vấn đề này không?"),
+    B("There is, but only one, and she's responsible for two hundred people, which makes it almost impossible for her to respond quickly.", "Có, nhưng chỉ một người, và chị ấy phụ trách hai trăm người, điều đó khiến chị ấy gần như không thể phản hồi kịp."),
+    A("Then let's appoint two more supervisors. What else did they suggest?", "Vậy ta bổ nhiệm thêm hai giám sát viên. Họ còn đề xuất gì nữa?"),
+    B("A scheme whereby staff can swap shifts through an app. Three colleagues, none of whom works in IT, have even designed a prototype.", "Một chương trình mà theo đó nhân viên có thể đổi ca qua ứng dụng. Ba đồng nghiệp, không ai trong số họ làm công nghệ thông tin, thậm chí đã thiết kế thử một bản mẫu."),
+    A("I love that. Who would be in charge of the project?", "Tôi rất thích ý này. Ai sẽ phụ trách dự án?"),
+    B("Mr Hải, the operations manager. He approved the idea yesterday, which means we could launch it next month.", "Anh Hải, quản lý vận hành. Hôm qua anh ấy đã duyệt ý tưởng, nghĩa là tháng sau chúng ta có thể triển khai."),
+    A("Excellent. Please send me the full report, including every recommendation.", "Tuyệt. Chị gửi tôi báo cáo đầy đủ nhé, kèm tất cả các đề xuất."),
+    B("I'll send it to you this afternoon.", "Chiều nay tôi sẽ gửi cho bà."),
+  ),
+  task: task({
+    prompt: "Hãy viết một đoạn báo cáo trang trọng tóm tắt kết quả một cuộc khảo sát (khách hàng hoặc nhân viên) và đề xuất giải pháp. Dùng các dạng mệnh đề quan hệ nâng cao của bài để câu văn gọn và chặt.",
+    hints: [
+      "Nêu số người trả lời rồi gộp câu bằng most of whom, half of whom, none of which.",
+      "Nêu vấn đề bằng giới từ + which/whom: the area in which, no one to whom, the process by which.",
+      "Đề xuất giải pháp bằng a system / scheme whereby..., và dùng dấu phẩy + which để bình luận cả một ý.",
+    ],
+    model: "Last month we surveyed five hundred customers, most of whom had used our delivery service for more than a year. Overall, the results were positive, which suggests that our recent changes are working. However, the area in which we performed worst was customer support. Many respondents, a third of whom were small business owners, complained that there was no one to whom they could speak outside office hours. Several also criticised the process by which refunds are handled, describing it as slow and confusing. To address these issues, we propose a system whereby customers can track their refunds online. We have also received three proposals for a night support team, two of which are already within our budget.",
+    checklist: [
+      "Có ít nhất hai cấu trúc giới từ + which hoặc whom.",
+      "Có ít nhất hai cấu trúc lượng từ + of whom / of which, đứng sau dấu phẩy.",
+      "Có một câu dùng whereby sau system, scheme hoặc agreement.",
+      "Có một câu dùng dấu phẩy + which thay cho cả mệnh đề trước.",
+      "Không có giới từ thừa ở cuối mệnh đề và không dùng that hay who ngay sau giới từ.",
+    ],
+    minWords: 100,
+  }),
 });

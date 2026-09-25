@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "bi-dong-nang-cao",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Bị động với hiện tại hoàn thành, tương lai, động từ khuyết thiếu và have something done",
     blocks: [
-      p("Sáng thứ Hai, bạn mở email công ty: “The meeting **has been cancelled**.” Trên cửa thang máy dán tờ giấy: “This lift **will be repaired** tomorrow.” Ở quầy lễ tân: “Bags **must be left** here.” Bài trước bạn đã học bị động ở hiện tại đơn và quá khứ đơn. Hôm nay ta mở rộng ra các thì khác, vì thông báo, tin tức và biển báo dùng chúng hằng ngày."),
+      p("Sáng thứ Hai, bạn mở email công ty: “The meeting **has been cancelled**.” Trên cửa thang máy dán tờ giấy: “This lift **will be repaired** tomorrow.” Ở quầy lễ tân: “Bags **must be left** here.” Ở bài trước (Tin tức và sự việc), bạn đã học bị động ở hiện tại đơn và quá khứ đơn. Hôm nay ta mở rộng ra các thì khác, vì thông báo, tin tức và biển báo dùng chúng hằng ngày."),
       p("Nguyên tắc chỉ có một: **be** luôn đứng trước **V3**, và chính chữ be này được chia theo thì. Phần V3 không bao giờ thay đổi."),
       table(
         ["Thì hoặc dạng", "Cấu trúc bị động", "Ví dụ"],
@@ -33,7 +33,14 @@ export default lesson({
       mistake("This form must be fill in before Friday.", "This form must be filled in before Friday.", "Sau be luôn là V3. Nhiều bạn nhớ quy tắc “sau must là động từ nguyên mẫu” nên dùng fill, nhưng động từ nguyên mẫu ở đây chính là be."),
       mistake("I cut my hair yesterday. (ý là đi tiệm)", "I had my hair cut yesterday.", "Tiếng Việt nói “hôm qua tôi cắt tóc” dù thợ cắt cho mình. Tiếng Anh I cut my hair nghĩa là tự tay cắt. Muốn nói thuê người làm, dùng have something done."),
       tip("Sau **can, must, should, will**, chữ be **luôn giữ nguyên là be**: must be done, will be done. Không bao giờ viết must is done hay will been done. Khi nói nhanh, been đọc nhẹ thành /bɪn/, đừng kéo dài thành “biiin”."),
-      teacher("Sau 50 năm dạy, tôi có một mẹo cho học trò kiểm tra câu bị động: **đếm xem có đủ hai mảnh chưa**, một mảnh be đã chia (is, has been, will be, must be) và một mảnh V3. Thiếu một mảnh là sai. Các em hãy chụp ảnh ba tấm biển thông báo bằng tiếng Anh ở sân bay, khách sạn hay siêu thị, rồi gạch chân hai mảnh đó. Nhìn thật nhiều là tự khắc viết đúng."),
+      teacher("Sau nhiều năm dạy, tôi có một mẹo để các bạn kiểm tra câu bị động: **đếm xem có đủ hai mảnh chưa**, một mảnh be đã chia (is, has been, will be, must be) và một mảnh V3. Thiếu một mảnh là sai. Các bạn hãy chụp ảnh ba tấm biển thông báo bằng tiếng Anh ở sân bay, khách sạn hay siêu thị, rồi gạch chân hai mảnh đó. Nhìn thật nhiều là tự khắc viết đúng."),
+      summary(
+        "Bị động = be (chia theo thì) + V3. Phần V3 không bao giờ đổi.",
+        "Hiện tại hoàn thành: has / have been + V3. Tương lai: will be + V3.",
+        "Sau can / must / should / will, be giữ nguyên: must be filled in, không viết must is filled.",
+        "Thuê hoặc nhờ người khác làm: have / get + đồ vật + V3 (I had my hair cut).",
+        "Tự kiểm tra câu bị động: đủ hai mảnh, be đã chia và V3.",
+      ),
     ],
   },
   words: [
@@ -61,4 +68,38 @@ export default lesson({
     say("The new bridge will be finished next year.", "Cây cầu mới sẽ được hoàn thành vào năm sau."),
     say("I'm going to have my hair cut this weekend.", "Cuối tuần này tôi sẽ đi cắt tóc."),
   ],
+  dialogue: dialogue(
+    "Chuẩn bị đón đoàn khách",
+    "Sáng thứ Hai, chị Mai (trưởng phòng) hỏi Đức (nhân viên) xem mọi việc chuẩn bị đón đoàn khách Nhật Bản đến thăm công ty đã xong chưa.",
+    { A: "Chị Mai", B: "Đức" },
+    A("Duc, have the meeting rooms been cleaned yet?", "Đức ơi, phòng họp đã được dọn chưa em?"),
+    B("Yes, they have. They were cleaned early this morning.", "Dạ rồi ạ. Phòng được dọn từ sáng sớm."),
+    A("Good. Has the projector been repaired?", "Tốt. Máy chiếu đã được sửa chưa?"),
+    B("Not yet, I'm afraid. It will be fixed by lunchtime. The technician is on his way.", "Dạ chưa ạ. Máy sẽ được sửa xong trước giờ trưa. Thợ kỹ thuật đang đến."),
+    A("It must be checked before the clients arrive at two.", "Máy phải được kiểm tra trước khi khách đến lúc hai giờ nhé."),
+    B("Don't worry. I'll test it myself. What about the reports?", "Chị đừng lo. Em sẽ tự kiểm tra. Còn báo cáo thì sao ạ?"),
+    A("They've already been printed. They should be put on the table in the big room.", "Báo cáo đã được in rồi. Nên đặt chúng lên bàn ở phòng lớn."),
+    B("Sure. And the flowers? Have they been ordered?", "Vâng. Còn hoa thì sao chị? Đã đặt chưa ạ?"),
+    A("Yes. I had them delivered from the shop next door. They'll be brought up at one.", "Rồi. Chị đã nhờ cửa hàng bên cạnh giao tới. Hoa sẽ được mang lên lúc một giờ."),
+    B("Great. I think everything will be done on time.", "Tuyệt. Em nghĩ mọi việc sẽ được làm xong kịp giờ."),
+    A("Thanks, Duc. And please get your suit ironed. We want to look professional!", "Cảm ơn em. Nhớ mang bộ vest đi là cho phẳng nhé. Mình cần trông thật chuyên nghiệp!"),
+  ),
+  task: task({
+    prompt: "Bạn là ban quản lý một tòa chung cư. Viết một thông báo ngắn (6–8 câu) gửi cư dân về các việc sửa chữa, bảo trì trong tuần này.",
+    hints: [
+      "Dùng has / have been + V3 cho việc đã xong.",
+      "Dùng will be + V3 cho việc sắp làm.",
+      "Dùng must / should be + V3 cho quy định cư dân cần làm theo.",
+      "Có thể thêm một câu have something done.",
+    ],
+    model: "Dear residents, here is an update on this week's repairs. The broken lift in Block A has been repaired, and the car park has been cleaned. However, the water pipes on the fifth floor haven't been replaced yet. They will be replaced on Thursday morning, so the water will be turned off from eight to eleven. All motorbikes must be moved out of the car park by Wednesday evening. Rubbish should be taken to the ground floor before nine at night. If you would like to have your air conditioner checked, please contact reception. Thank you for your patience.",
+    checklist: [
+      "Có ít nhất hai câu has / have been + V3.",
+      "Có ít nhất một câu will be + V3.",
+      "Có ít nhất một câu must / should / can be + V3.",
+      "Mỗi câu bị động đủ hai mảnh: be đã chia và V3.",
+      "Sau must / will / should, be giữ nguyên (không viết must is hay will been).",
+    ],
+    minWords: 60,
+  }),
 });

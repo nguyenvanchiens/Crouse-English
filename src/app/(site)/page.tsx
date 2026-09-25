@@ -15,18 +15,18 @@ const LEVELS = [
 const STEPS = [
   {
     icon: BookOpenCheck,
-    title: "Đọc bài giảng ngắn",
-    body: "Ngữ pháp và cách dùng giải thích bằng tiếng Việt, có bảng tóm tắt, ví dụ bấm vào để nghe và những lỗi người Việt hay mắc.",
+    title: "Học: bài giảng dễ hiểu",
+    body: "Ngữ pháp giải thích bằng tiếng Việt, bảng tóm tắt, ví dụ bấm để nghe, lỗi người Việt hay mắc, và phần Ghi nhớ để không bị nhầm.",
   },
   {
     icon: PencilLine,
-    title: "Học từ và làm bài tập",
-    body: "Từ vựng có phát âm và trọng âm, rồi 8 câu bài tập đủ dạng: trắc nghiệm, điền từ, sắp xếp câu, nghe chọn. Chấm ngay từng câu.",
+    title: "Luyện: từ vựng, hội thoại, bài tập",
+    body: "Từ vựng có IPA và trọng âm, hội thoại tình huống nghe được và đóng vai được, 8 câu bài tập đủ dạng, chấm ngay từng câu.",
   },
   {
     icon: Mic,
-    title: "Luyện nói, được chấm phát âm",
-    body: "Đọc to từng câu và thấy ngay từ nào bạn nói chưa rõ. Xong bài, tiến độ và chuỗi ngày học được lưu lại.",
+    title: "Dùng: nói và viết thật",
+    body: "Nói to từng câu và được chấm từng từ, rồi làm nhiệm vụ thực hành: tự viết, so với bài mẫu và tự chấm theo tiêu chí.",
   },
 ];
 
@@ -75,8 +75,8 @@ const FAQS = [
 
 export default async function Home() {
   const courses = await getCourses();
-  const pathCourses = courses.filter((c) => c.goal === "lo-trinh");
-  const otherCourses = courses.filter((c) => c.goal !== "lo-trinh");
+  const pathCourses = courses.filter((c) => c.goal === "phat-am" || c.goal === "lo-trinh");
+  const otherCourses = courses.filter((c) => c.goal !== "phat-am" && c.goal !== "lo-trinh");
   return (
     <>
         {/* Hero */}
@@ -175,7 +175,8 @@ export default async function Home() {
             Bắt đầu đúng cấp của bạn
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-            Mỗi cấp là một khóa 6 bài: bài giảng bằng tiếng Việt, từ vựng có phát âm, bài tập chấm ngay và luyện nói.
+            Bắt đầu bằng Bước 0 để phát âm chuẩn với bảng IPA, rồi đi lần lượt từ A1 đến C1. Mỗi cấp 16 bài, 4 bài ôn tập
+            và một bài kiểm tra cuối khóa để nhận chứng chỉ.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {pathCourses.map((c) => (

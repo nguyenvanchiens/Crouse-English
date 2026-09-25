@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "rut-gon-menh-de",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Mệnh đề phân từ và mệnh đề quan hệ rút gọn",
     blocks: [
-      p("Mở một tờ giới thiệu công ty bằng tiếng Anh, bạn sẽ gặp ngay những câu như **Founded in 1995, our company…** hay **Having worked in Japan for ten years, Mr Hoa…**. Đó là **mệnh đề phân từ**: người ta bỏ chủ ngữ và liên từ, chỉ giữ lại động từ ở dạng **V-ing**, **V3** hoặc **having + V3**. Câu gọn hơn, trang trọng hơn, rất hợp với báo cáo, email và bài thuyết trình."),
+      p("Mở một tờ giới thiệu công ty bằng tiếng Anh, bạn sẽ gặp ngay những câu như **Founded in 1995, our company…** hay **Having worked in Japan for ten years, Mr Hoa…**. Đó là **mệnh đề phân từ**: người ta bỏ chủ ngữ và liên từ, chỉ giữ lại động từ ở dạng **V-ing**, **V3** hoặc **having + V3**. Câu gọn hơn, trang trọng hơn, rất hợp với báo cáo, email và bài thuyết trình. Bài này dựa trên hai thứ các bạn đã có: **mệnh đề quan hệ** (bài Thuyết trình) và **câu bị động** (B1)."),
       table(
         ["Câu đầy đủ", "Câu rút gọn", "Dạng dùng khi nào"],
         ["Because I felt tired, I went to bed early.", "Feeling tired, I went to bed early.", "V-ing: chủ động, cùng lúc hoặc nêu lý do"],
@@ -27,6 +27,13 @@ export default lesson({
       mistake("Having finish the meeting, we went for lunch.", "Having finished the meeting, we went for lunch.", "Sau having luôn là V3. Người Việt hay nuốt âm cuối nên viết cũng quên luôn đuôi -ed."),
       tip("Tự hỏi một câu: **“Chủ ngữ tự làm hay bị làm?”** Tự làm thì **V-ing**, bị làm thì **V3**, làm xong trước rồi mới đến việc sau thì **Having + V3**. Rồi kiểm tra thêm: đọc cụm rút gọn ghép với chủ ngữ sau dấu phẩy, nếu nghe buồn cười thì câu đó đang bị “treo”."),
       teacher("Tôi có một bài tập nhỏ đã dùng suốt mấy chục năm: mỗi tối lấy **ba câu có because, after, which** trong email của chính mình rồi thử rút gọn. Có câu rút gọn được, có câu không, và **chính lúc thấy câu nào không rút gọn được bạn mới thật sự hiểu quy tắc**. Nhớ kỹ: rút gọn là để câu gọn và sang, không phải để khoe. Trong lúc nói chuyện, thỉnh thoảng dùng một câu là đủ, còn trong văn viết thì dùng thoải mái hơn."),
+      summary(
+        "V-ing: chủ ngữ tự làm (chủ động), xảy ra cùng lúc hoặc nêu lý do: Feeling tired, I went to bed early.",
+        "V3: chủ ngữ bị làm (bị động): Built in 1990, the hotel is very popular.",
+        "Having + V3: việc này xong hẳn rồi mới đến việc sau: Having finished the report, she went home.",
+        "Rút gọn mệnh đề quan hệ: who is sitting thành sitting, which are made thành made.",
+        "Phần rút gọn mượn chủ ngữ của mệnh đề chính; nếu hai chủ ngữ khác nhau thì đừng rút gọn.",
+      ),
     ],
   },
   words: [
@@ -51,7 +58,41 @@ export default lesson({
   ],
   speaking: [
     say("Having finished my work, I went home early.", "Làm xong việc, tôi về nhà sớm."),
-    say("Founded in nineteen ninety-five, our company now has five hundred staff.", "Được thành lập năm 1995, công ty chúng tôi hiện có năm trăm nhân viên."),
+    say("Founded in nineteen ninety-five, our company now has five hundred staff.", "Được thành lập năm một nghìn chín trăm chín mươi lăm, công ty chúng tôi hiện có năm trăm nhân viên."),
     say("The woman standing by the door is our new director.", "Người phụ nữ đứng cạnh cửa là giám đốc mới của chúng ta."),
   ],
+  dialogue: dialogue(
+    "Dẫn khách tham quan công ty",
+    "Ông Lee, khách hàng từ Hàn Quốc, đến thăm trụ sở công ty. Vy, nhân viên phòng kinh doanh, dẫn ông đi tham quan và giới thiệu công ty.",
+    { A: "Vy, nhân viên kinh doanh", B: "Ông Lee, khách hàng" },
+    A("Welcome to our head office, Mr Lee. Founded in two thousand and five, our company now has three factories.", "Chào mừng ông Lee đến trụ sở chính. Được thành lập năm hai nghìn không trăm linh năm, công ty chúng tôi hiện có ba nhà máy."),
+    B("Impressive. Who is the man standing by the window?", "Ấn tượng thật. Người đàn ông đang đứng cạnh cửa sổ là ai vậy?"),
+    A("That's Mr Hai, our director. Having worked in Korea for ten years, he knows your market very well.", "Đó là ông Hải, giám đốc của chúng tôi. Đã làm việc ở Hàn Quốc mười năm, ông ấy rất hiểu thị trường của ông."),
+    B("That's useful. Are the products shown in this room made here?", "Hay quá. Các sản phẩm trưng bày trong phòng này có được sản xuất ở đây không?"),
+    A("Yes. Most of the items displayed here are produced in our Binh Duong factory.", "Có ạ. Phần lớn sản phẩm trưng bày ở đây được sản xuất tại nhà máy Bình Dương."),
+    B("And what about the packaging? It looks very good.", "Còn bao bì thì sao? Trông rất đẹp."),
+    A("Designed by a local team, it is made from recycled paper.", "Do một nhóm trong nước thiết kế, bao bì này được làm từ giấy tái chế."),
+    B("I like that. Customers buying our products in Korea care a lot about the environment.", "Tôi thích điều đó. Khách mua sản phẩm của chúng tôi ở Hàn Quốc rất quan tâm đến môi trường."),
+    A("Then you'll enjoy the next part. Having seen the showroom, we'll now visit the design studio.", "Vậy chắc ông sẽ thích phần tiếp theo. Xem xong phòng trưng bày, giờ chúng ta sẽ đi thăm phòng thiết kế."),
+    B("Great. Feeling a bit tired after my flight, I'd love a coffee first, if possible.", "Tuyệt. Vì hơi mệt sau chuyến bay, tôi muốn uống một tách cà phê trước, nếu được."),
+    A("Of course. The café located on the ground floor makes excellent Vietnamese coffee.", "Tất nhiên rồi. Quán cà phê nằm ở tầng trệt pha cà phê Việt Nam rất ngon."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn khoảng 60–90 từ giới thiệu một khách sạn, cửa hàng, công ty hoặc trường học mà bạn biết, như trong tờ giới thiệu. Dùng ít nhất bốn cụm rút gọn trong bài.",
+    hints: [
+      "Mở đầu bằng một cụm V3 như Founded in… hoặc Located in…",
+      "Dùng một cụm Having + V3 để nói kinh nghiệm hoặc việc đã xong trước.",
+      "Rút gọn ít nhất hai mệnh đề quan hệ: danh từ + V-ing hoặc danh từ + V3.",
+      "Viết xong, ghép từng cụm rút gọn với chủ ngữ sau dấu phẩy và đọc lại xem có hợp lý không.",
+    ],
+    model: "Located in the centre of Da Nang, Green Leaf Hotel is a small family business. Opened in two thousand and twelve, it now has forty rooms. The manager, having worked in Singapore for many years, trains every new member of staff personally. Guests staying at the hotel can borrow bicycles for free. Most of the food served in its restaurant is bought from local farmers. Having tried the breakfast, many guests come back again and again. Anyone looking for a quiet, friendly place will feel at home here.",
+    checklist: [
+      "Có ít nhất một cụm V3 mang nghĩa bị động (Founded, Built, Located…).",
+      "Có ít nhất một cụm Having + V3.",
+      "Có ít nhất hai mệnh đề quan hệ rút gọn (V-ing hoặc V3 đứng ngay sau danh từ).",
+      "Mỗi cụm rút gọn đầu câu có người làm hành động chính là chủ ngữ sau dấu phẩy, không có phân từ treo.",
+      "Sau having là V3 đầy đủ (đuôi -ed hoặc dạng bất quy tắc).",
+    ],
+    minWords: 60,
+  }),
 });

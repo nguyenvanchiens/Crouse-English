@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "bang-thai-cach",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Thể giả định sau động từ, tính từ và trong thành ngữ cố định",
     blocks: [
-      p("Hãy đọc câu này trong một biên bản họp: **The director insisted that he be present.** Nhiều học trò giỏi của tôi đã sửa thành he is present hoặc he was present, vì nghĩ người viết quên chia động từ. Thật ra đây là **thể giả định** (subjunctive): sau một số động từ và tính từ mang nghĩa yêu cầu, đề nghị, tầm quan trọng, động từ trong mệnh đề that giữ nguyên **dạng nguyên mẫu**, bất kể chủ ngữ là ai và thì của câu chính là gì."),
+      p("Hãy đọc câu này trong một biên bản họp: **The director insisted that he be present.** Nhiều học viên giỏi của tôi đã sửa thành he is present hoặc he was present, vì nghĩ người viết quên chia động từ. Thật ra đây là **thể giả định** (subjunctive): sau một số động từ và tính từ mang nghĩa yêu cầu, đề nghị, tầm quan trọng, động từ trong mệnh đề that giữ nguyên **dạng nguyên mẫu**, bất kể chủ ngữ là ai và thì của câu chính là gì."),
       table(
         ["Nhóm", "Từ thường gặp", "Cấu trúc", "Ví dụ"],
         ["Động từ", "insist, recommend, demand, suggest, propose, request, require", "V + that + S + V nguyên mẫu", "The doctor recommended that she rest."],
@@ -19,7 +19,7 @@ export default lesson({
       ex("The committee demanded that the report be rewritten.", "Ủy ban yêu cầu viết lại bản báo cáo.", "Be rewritten là bị động ở thể giả định: be + V3."),
       ex("It is essential that every employee complete the safety training.", "Điều thiết yếu là mọi nhân viên phải hoàn thành khóa huấn luyện an toàn.", "Complete không thêm -s dù chủ ngữ là every employee."),
       mistake("The doctor recommended that he takes more rest.", "The doctor recommended that he take more rest.", "Người Việt đã quen thói “he thì thêm s”, nên thấy he take là sai. Trong thể giả định, động từ luôn ở nguyên mẫu."),
-      mistake("My manager suggested me to take a day off.", "My manager suggested that I take a day off. / My manager suggested taking a day off.", "Tiếng Việt nói “gợi ý tôi làm gì”, nên học trò ghép suggest + tân ngữ + to V như advise. Suggest không đi với cấu trúc này; hãy dùng that + S + V nguyên mẫu, hoặc suggest + V-ing."),
+      mistake("My manager suggested me to take a day off.", "My manager suggested that I take a day off. / My manager suggested taking a day off.", "Tiếng Việt nói “gợi ý tôi làm gì”, nên học viên ghép suggest + tân ngữ + to V như advise. Suggest không đi với cấu trúc này; hãy dùng that + S + V nguyên mẫu, hoặc suggest + V-ing."),
       p("Người Anh thường thay thể giả định bằng **should + V nguyên mẫu**: The doctor recommended that he should take more rest. Cả hai đều đúng. Thể giả định không có should nghe trang trọng hơn và là chuẩn ở Mỹ; bản có should phổ biến trong tiếng Anh-Anh."),
       tip("Coi chừng **insist** và **suggest** có hai nghĩa. Khi nghĩa là **yêu cầu**, dùng thể giả định: She insisted that he stay. Khi nghĩa là **khẳng định một sự thật** hoặc **ngụ ý**, chia động từ bình thường: He insisted that he was innocent (anh ta khăng khăng rằng mình vô tội)."),
       p("Thể giả định còn sống sót trong một số **thành ngữ cố định**. Không cần phân tích ngữ pháp, chỉ cần học thuộc như một khối:"),
@@ -33,7 +33,15 @@ export default lesson({
       ),
       ex("If need be, we can postpone the launch by a week.", "Nếu cần, chúng ta có thể lùi buổi ra mắt một tuần.", "Không nói if need is hay if needed be. Thành ngữ là cụm cố định, không chia động từ."),
       mistake("It is important that she doesn't miss the interview.", "It is important that she not miss the interview. / It is important that she should not miss the interview.", "Trong thể giả định không mượn does để phủ định. Chỉ cần not + V nguyên mẫu, hoặc should not theo lối Anh-Anh."),
-      teacher("Nói thật với các em, sau năm mươi năm đứng lớp, tôi thấy thể giả định là thứ học trò Việt **nhận ra khi đọc** nhưng **không dám dùng khi viết**, vì sợ bị chấm là quên chia động từ. Thầy dặn hai điều. Một: khi viết bài luận hay email trang trọng, cứ mạnh dạn viết It is essential that everyone be... Hai: nếu vẫn thấy chưa yên tâm, dùng lối **should** của người Anh, vừa đúng vừa an toàn. Mỗi ngày đặt ba câu với recommend, insist và It is vital that, đọc to lên cho quen tai."),
+      teacher("Nói thật với các bạn, sau nhiều năm đứng lớp, tôi thấy thể giả định là thứ học viên Việt **nhận ra khi đọc** nhưng **không dám dùng khi viết**, vì sợ bị chấm là quên chia động từ. Tôi dặn hai điều. Một: khi viết bài luận hay email trang trọng, cứ mạnh dạn viết It is essential that everyone be... Hai: nếu vẫn thấy chưa yên tâm, dùng lối **should** của người Anh, vừa đúng vừa an toàn. Mỗi ngày đặt ba câu với recommend, insist và It is vital that, đọc to lên cho quen tai."),
+      summary(
+        "Sau **insist, recommend, demand, suggest, propose, request, require** + that: động từ ở **dạng nguyên mẫu**, không thêm -s, be giữ nguyên là be.",
+        "Sau **It is essential / vital / crucial / important / imperative that** cũng dùng động từ nguyên mẫu.",
+        "Phủ định chỉ cần **not + V nguyên mẫu** (that she not miss), không mượn do, does, did.",
+        "Lối Anh-Anh an toàn: **should + V nguyên mẫu**. Suggest không đi với người + to V.",
+        "Khi insist, suggest nghĩa là khẳng định một sự thật thì chia động từ bình thường: He insisted that he was innocent.",
+        "Học thuộc thành ngữ cố định: **if need be, be that as it may, so be it, come what may, suffice it to say**.",
+      ),
     ],
   },
   words: [
@@ -50,7 +58,7 @@ export default lesson({
     mc("c1-n08-2", "(Văn phong trang trọng) It is vital that every passenger ___ a seat belt.", ["wears", "wore", "wear", "is wearing"], 2, "It is vital that + S + V nguyên mẫu. Nếu dùng lối Anh-Anh thì là should wear."),
     fill("c1-n08-3", "The manager insisted that the report ___ finished by Friday.", ["be", "should be"], "Thể giả định của be luôn là be, không phải is hay was. Should be cũng đúng theo lối Anh-Anh."),
     fill("c1-n08-4", "We can work through the weekend if need ___.", ["be"], "If need be là thành ngữ cố định: nếu cần."),
-    reorder("c1-n08-5", "She demanded that he apologise to the whole team.", "Demand that + S + V nguyên mẫu: apologise không thêm -s."),
+    reorder("c1-n08-5", "The customers demanded that the fee be refunded.", "Demand that + S + V nguyên mẫu. Ở dạng bị động, thể giả định là be + V3: be refunded, không phải is refunded."),
     reorder("c1-n08-6", "It is essential that everyone arrive on time.", "Everyone là số ít nhưng động từ vẫn ở nguyên mẫu: arrive."),
     listen("c1-n08-7", "The committee proposed that the fee not be increased.", ["Ủy ban đề xuất tăng phí.", "Ủy ban đề xuất không tăng phí.", "Ủy ban từ chối đề xuất giảm phí."], 1, "Not be increased là phủ định ở thể giả định: không bị tăng."),
     listen("c1-n08-8", "The report is late. Be that as it may, we still need to send it today.", ["Báo cáo trễ nên hôm nay không cần gửi nữa.", "Báo cáo đã gửi đúng hạn.", "Nếu báo cáo trễ thì mai hãy gửi.", "Báo cáo bị trễ. Dù vậy, hôm nay chúng ta vẫn phải gửi nó."], 3, "Be that as it may: dù thế nào đi nữa, dẫu vậy."),
@@ -60,4 +68,36 @@ export default lesson({
     say("It is essential that everyone be on time tomorrow.", "Điều thiết yếu là ngày mai mọi người phải đúng giờ."),
     say("We can stay late if need be.", "Chúng ta có thể ở lại muộn nếu cần."),
   ],
+  dialogue: dialogue(
+    "Thực hiện khuyến nghị sau đợt kiểm tra an toàn",
+    "Chị Thu, trưởng phòng nhân sự của một nhà máy điện tử ở Bắc Ninh, trao đổi với ông Weber, giám đốc nhà máy người Đức, về báo cáo của đoàn kiểm tra an toàn vừa gửi sáng nay.",
+    { A: "Chị Thu, trưởng phòng nhân sự", B: "Ông Weber, giám đốc nhà máy" },
+    A("The auditors' report arrived this morning. They recommend that every worker attend a refresher course on fire safety.", "Báo cáo của đoàn kiểm tra đến sáng nay. Họ khuyến nghị mọi công nhân phải tham gia khóa bồi dưỡng về an toàn phòng cháy."),
+    B("Every worker? Including the office staff?", "Mọi công nhân sao? Kể cả nhân viên văn phòng?"),
+    A("Yes. It is essential that everyone be trained, not just the people on the factory floor.", "Vâng. Điều thiết yếu là tất cả mọi người đều được huấn luyện, không chỉ những người đứng máy."),
+    B("Fine. But I'd suggest that we run the sessions in small groups, so that production doesn't stop.", "Được. Nhưng tôi đề nghị chúng ta tổ chức theo nhóm nhỏ để sản xuất không bị gián đoạn."),
+    A("Good idea. They also insist that the emergency exits not be blocked at any time. Last month two of them were.", "Ý hay ạ. Họ cũng yêu cầu lối thoát hiểm tuyệt đối không được để bị chắn. Tháng trước có hai lối bị chắn."),
+    B("That's unacceptable. I'll request that the warehouse manager check them every morning.", "Không thể chấp nhận được. Tôi sẽ yêu cầu quản lý kho kiểm tra các lối đó mỗi sáng."),
+    A("And head office requires that the action plan be submitted within a week.", "Và trụ sở chính yêu cầu nộp kế hoạch hành động trong vòng một tuần."),
+    B("A week is tight. We'll work over the weekend if need be.", "Một tuần thì gấp đấy. Nếu cần, chúng ta sẽ làm cả cuối tuần."),
+    A("Some supervisors will complain about the extra paperwork.", "Sẽ có vài tổ trưởng phàn nàn về giấy tờ tăng thêm."),
+    B("Be that as it may, safety isn't optional. It's vital that we get this right.", "Dù vậy, an toàn không phải chuyện tùy chọn. Điều cực kỳ quan trọng là chúng ta phải làm cho đúng."),
+  ),
+  task: task({
+    prompt: "Bạn là trưởng phòng. Sau một đợt kiểm tra nội bộ, hãy viết email gửi cả nhóm thông báo các quy định mới và lý do. Dùng thể giả định sau động từ và tính từ chỉ yêu cầu, tầm quan trọng.",
+    hints: [
+      "Dùng recommend, request, insist, propose + that + S + V nguyên mẫu.",
+      "Dùng It is essential / vital / important that + S + V nguyên mẫu, có ít nhất một câu phủ định với not.",
+      "Chèn một thành ngữ cố định như if need be hoặc be that as it may.",
+    ],
+    model: "Dear team,\n\nFollowing last week's inspection, the auditors have made several recommendations, and I would like to share them with you. First, they recommend that every member of staff complete the online data protection course by the end of the month. Second, it is essential that customer files not be left on desks overnight. Third, head office has requested that each department appoint a compliance officer, and I propose that Minh take on this role for our team. I realise that this means extra work at a very busy time. Be that as it may, it is vital that we follow these rules carefully. If need be, I will reorganise our schedule so that nobody falls behind. Please let me know if you have any questions.\n\nBest wishes,\nHoa",
+    checklist: [
+      "Có ít nhất ba câu dạng động từ hoặc tính từ chỉ yêu cầu + that + S + V nguyên mẫu.",
+      "Động từ sau that không thêm -s dù chủ ngữ là ngôi thứ ba (Minh take, every member complete).",
+      "Có ít nhất một câu phủ định dạng not + V nguyên mẫu (not be, not miss).",
+      "Không dùng suggest hay recommend + người + to V.",
+      "Có ít nhất một thành ngữ cố định (if need be, be that as it may...).",
+    ],
+    minWords: 90,
+  }),
 });

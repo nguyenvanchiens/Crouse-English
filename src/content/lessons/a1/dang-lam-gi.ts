@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "dang-lam-gi",
@@ -37,7 +37,14 @@ export default lesson({
       ),
       ex("I usually go to work by motorbike, but today I'm taking the bus.", "Tôi thường đi làm bằng xe máy, nhưng hôm nay tôi đi xe buýt.", "Usually báo hiệu thói quen (hiện tại đơn), today báo hiệu việc khác thường đang diễn ra (tiếp diễn)."),
       mistake("Every day I am going to work at seven.", "Every day I go to work at seven.", "Tiếng Việt dùng chữ “đang” khá thoải mái, nên có bạn dùng -ing cho cả thói quen. Có every day, usually, always là thói quen: dùng hiện tại đơn."),
-      teacher("Sau năm mươi năm dạy, tôi có một bài tập mà học trò nào cũng tiến bộ: ngồi ở quán cà phê hay trên xe buýt, nhìn quanh và nói thầm **She's talking on the phone. He's reading a newspaper. They're waiting for the bus.** Mỗi câu tự hỏi hai điều: đã có **am/is/are** chưa, động từ đã có **-ing** chưa. Thiếu một trong hai là phải nói lại. Làm vậy mười phút mỗi ngày, chỉ một tuần là hết quên."),
+      teacher("Sau nhiều năm dạy, tôi có một bài tập mà bạn học viên nào làm cũng tiến bộ: các bạn ngồi ở quán cà phê hay trên xe buýt, nhìn quanh và nói thầm **She's talking on the phone. He's reading a newspaper. They're waiting for the bus.** Mỗi câu tự hỏi hai điều: đã có **am/is/are** chưa, động từ đã có **-ing** chưa. Thiếu một trong hai là phải nói lại. Làm vậy mười phút mỗi ngày, chỉ một tuần là hết quên."),
+      summary(
+        "**am / is / are + V-ing** cho việc đang diễn ra lúc nói: I'm cooking dinner.",
+        "Luôn đủ hai phần: không nói I watching TV, cũng không nói she is work.",
+        "Phủ định: I'm not, isn't, aren't. Câu hỏi đảo to be lên trước: **What are you doing?** Is she sleeping?",
+        "Chính tả: write → writing, run → running, lie → lying; không gấp đôi w, x, y.",
+        "Thói quen (every day, usually) dùng **hiện tại đơn**; now, at the moment, Look! dùng **hiện tại tiếp diễn**.",
+      ),
     ],
   },
   words: [
@@ -56,7 +63,7 @@ export default lesson({
     fill("a1-n15-3", "She ___ her homework at the moment. (do)", ["is doing", "'s doing"], "At the moment là ngay lúc này; she đi với is: is doing."),
     fill("a1-n15-4", "I ___ to work by bus every day. (go)", ["go"], "Every day là thói quen nên dùng hiện tại đơn, không dùng -ing."),
     reorder("a1-n15-5", "What are your children doing?", "What + are + chủ ngữ + V-ing? Your children là số nhiều nên dùng are."),
-    reorder("a1-n15-6", "Who is sitting next to Lan?", "Who làm chủ ngữ nên đi thẳng với is sitting, không cần đảo."),
+    reorder("a1-n15-6", "Who is sitting next to you?", "Who làm chủ ngữ nên đi thẳng với is sitting, không cần đảo."),
     listen("a1-n15-7", "I'm waiting for the bus.", ["Tôi đang đợi xe buýt.", "Tôi thường đi xe buýt.", "Tôi đang ngồi trên xe buýt."], 0, "Waiting for là đang đợi."),
     listen("a1-n15-8", "She isn't sleeping. She's reading.", ["Cô ấy đang ngủ chứ không đọc sách.", "Cô ấy không ngủ. Cô ấy đang đọc sách.", "Cô ấy không đọc sách. Cô ấy đang ngủ."], 1, "Isn't sleeping là không ngủ; she's reading là đang đọc."),
   ],
@@ -65,4 +72,38 @@ export default lesson({
     say("What are you doing now?", "Bây giờ bạn đang làm gì?"),
     say("It's raining, so we're staying at home.", "Trời đang mưa nên chúng tôi ở nhà."),
   ],
+  dialogue: dialogue(
+    "Gọi điện cho bạn lúc trời mưa",
+    "Bảy giờ tối, trời đang mưa. Mai đứng chờ xe buýt và gọi điện cho Sarah, người bạn người Anh sống cùng thành phố. Hai người hỏi nhau đang làm gì.",
+    { A: "Mai", B: "Sarah" },
+    A("Hi Sarah, it's Mai. What are you doing?", "Chào Sarah, mình là Mai đây. Bạn đang làm gì thế?"),
+    B("Hi Mai! I'm cooking dinner. Tom is watching TV.", "Chào Mai! Mình đang nấu bữa tối. Tom đang xem ti vi."),
+    A("Is he watching football?", "Anh ấy đang xem bóng đá à?"),
+    B("Yes, he is. He watches football every evening!", "Ừ, đúng rồi. Tối nào anh ấy cũng xem bóng đá!"),
+    A("Ha ha. And the children? Are they sleeping?", "Ha ha. Còn bọn trẻ? Chúng đang ngủ à?"),
+    B("No, they aren't. They're doing their homework. What about you?", "Không. Chúng đang làm bài tập về nhà. Còn bạn?"),
+    A("I'm waiting for the bus. It's raining at the moment.", "Mình đang chờ xe buýt. Lúc này trời đang mưa."),
+    B("Oh no! Are you standing in the rain?", "Ôi không! Bạn đang đứng dưới mưa à?"),
+    A("No, I'm not. I'm sitting in a small café, and I'm drinking hot tea.", "Không. Mình đang ngồi trong một quán cà phê nhỏ và đang uống trà nóng."),
+    B("Good. Come to our house for dinner! I'm making a lot of food.", "Tốt. Đến nhà mình ăn tối đi! Mình đang nấu nhiều đồ ăn lắm."),
+    A("Really? Thank you! Oh, my bus is coming now.", "Thật à? Cảm ơn bạn! À, xe buýt của mình đang đến rồi."),
+    B("Great. See you soon, Mai!", "Tuyệt. Lát gặp nhé, Mai!"),
+  ),
+  task: task({
+    prompt: "Hãy nhìn quanh bạn lúc này (ở nhà, ở quán cà phê hoặc ở văn phòng). Viết 5–7 câu tả bạn và những người xung quanh đang làm gì, rồi thêm một câu so sánh với thói quen hằng ngày của bạn.",
+    hints: [
+      "Mỗi câu cần đủ hai phần: am, is hoặc are + V-ing.",
+      "Có ít nhất một câu phủ định: I'm not working now.",
+      "Câu so sánh: I usually… (hiện tại đơn), but today I'm… (tiếp diễn).",
+    ],
+    model: "It's eight o'clock in the evening. I'm sitting in a café near my house. I'm not working now. I'm writing in English. A young man is reading a book. Two girls are talking and drinking coffee. It's raining at the moment. I usually go home at seven, but today I'm staying here.",
+    checklist: [
+      "Mỗi câu tiếp diễn có đủ am, is hoặc are và động từ thêm -ing",
+      "Dùng is với he, she, it và are với they hoặc danh từ số nhiều",
+      "Có ít nhất một câu phủ định (I'm not, isn't, aren't)",
+      "Viết đúng chính tả -ing (sitting, writing, running)",
+      "Có một câu hiện tại đơn cho thói quen với usually hoặc every day",
+    ],
+    minWords: 30,
+  }),
 });

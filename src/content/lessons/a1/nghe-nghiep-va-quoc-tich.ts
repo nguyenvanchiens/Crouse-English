@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "nghe-nghiep-va-quoc-tich",
@@ -42,7 +42,14 @@ export default lesson({
       ex("Where are your colleagues from? They're from Japan. They're Japanese.", "Đồng nghiệp của bạn đến từ đâu? Họ đến từ Nhật Bản. Họ là người Nhật.", "Nhiều người nên dùng are và they're; quốc tịch Japanese không thêm -s."),
       ex("Who is the woman in the photo? She's my aunt. She's a nurse.", "Người phụ nữ trong ảnh là ai? Đó là cô tôi. Cô ấy là y tá."),
       ex("How are your children? They're fine, thanks.", "Các con bạn thế nào? Các cháu khỏe, cảm ơn bạn.", "How hỏi về sức khỏe, tình trạng, không hỏi về nghề nghiệp."),
-      teacher("Sau 50 năm đứng lớp, tôi thấy học trò Việt mình mắc lỗi **I am doctor** nhiều đến mức tôi phải đặt ra một luật: **cứ nói nghề là phải nghe thấy chữ a hoặc an**. Mỗi sáng các em thử nói to ba câu về ba người trong nhà: My father is a..., My mother is a..., I'm a... Nói đủ một tuần, cái miệng sẽ tự nhớ chữ a thay cho cái đầu."),
+      teacher("Sau nhiều năm đứng lớp, tôi thấy học viên Việt mình mắc lỗi **I am doctor** nhiều đến mức tôi phải đặt ra một luật: **cứ nói nghề là phải nghe thấy chữ a hoặc an**. Mỗi sáng các bạn thử nói to ba câu về ba người trong nhà: My father is a..., My mother is a..., I'm a... Nói đủ một tuần, cái miệng sẽ tự nhớ chữ a thay cho cái đầu."),
+      summary(
+        "Nói nghề của một người phải có **a** hoặc **an**: I'm **a** doctor. He's **an** engineer.",
+        "Nhiều người thì bỏ a, an và thêm -s: They're **nurses**.",
+        "Tên nước đi sau **from**, quốc tịch đứng sau to be và không có a, an: I'm **from Vietnam**. I'm **Vietnamese**.",
+        "Câu hỏi Wh-: **từ để hỏi + am/is/are + chủ ngữ?** What's your job? Where is he from? Who is that man?",
+        "**How** hỏi sức khỏe, tình trạng; muốn hỏi nghề thì dùng **What's your job?**",
+      ),
     ],
   },
   words: [
@@ -70,4 +77,39 @@ export default lesson({
     say("What's his job? He's a taxi driver.", "Anh ấy làm nghề gì? Anh ấy là tài xế taxi."),
     say("Where is your boss from? She's from Japan.", "Sếp của bạn đến từ đâu? Cô ấy đến từ Nhật Bản."),
   ],
+  dialogue: dialogue(
+    "Làm quen ở hội thảo",
+    "Giờ giải lao ở một hội thảo tại TP. Hồ Chí Minh, chị Mai, kế toán người Việt, làm quen với Kenji, kỹ sư người Nhật. Hai người hỏi nhau nghề nghiệp, quốc tịch và về những người đi cùng.",
+    { A: "Kenji, kỹ sư người Nhật", B: "Chị Mai, kế toán" },
+    A("Hello. I'm Kenji. I'm from Japan.", "Xin chào. Tôi là Kenji. Tôi đến từ Nhật Bản."),
+    B("Nice to meet you, Kenji. I'm Mai. I'm Vietnamese.", "Rất vui được gặp anh, Kenji. Tôi là Mai. Tôi là người Việt Nam."),
+    A("What's your job, Mai?", "Chị làm nghề gì, Mai?"),
+    B("I'm an accountant. What about you?", "Tôi là kế toán. Còn anh thì sao?"),
+    A("I'm an engineer. I'm here with my boss, Ms Kim.", "Tôi là kỹ sư. Tôi đến đây cùng sếp tôi, chị Kim."),
+    B("Where is she from? Is she Japanese too?", "Chị ấy đến từ đâu? Chị ấy cũng là người Nhật à?"),
+    A("No, she isn't. She's from Korea. She's Korean.", "Không. Chị ấy đến từ Hàn Quốc. Chị ấy là người Hàn."),
+    B("And who is that man with her?", "Còn người đàn ông đi cùng chị ấy là ai vậy?"),
+    A("He's our driver. He's Vietnamese, from Da Nang.", "Anh ấy là tài xế của chúng tôi. Anh ấy là người Việt, quê Đà Nẵng."),
+    B("How is your hotel?", "Khách sạn của anh thế nào?"),
+    A("It's great, thank you. Nice to meet you, Mai.", "Rất tốt, cảm ơn chị. Rất vui được làm quen với chị, Mai."),
+    B("Nice to meet you too, Kenji.", "Tôi cũng rất vui được làm quen với anh, Kenji."),
+  ),
+  task: task({
+    prompt: "Ở một buổi hội thảo, hãy viết 6–8 câu giới thiệu nghề nghiệp và quốc tịch của bạn và của một đồng nghiệp, rồi viết hai câu hỏi để hỏi lại người mới quen.",
+    hints: [
+      "Nói nghề với a hoặc an: I'm an accountant. She's a nurse.",
+      "Quốc tịch đứng sau to be, không có a, an: I'm Vietnamese.",
+      "Tên nước đứng sau from: He's from Japan.",
+      "Đặt câu hỏi bằng What, Where hoặc Who: What's your job? Where are you from?",
+    ],
+    model: "Hello, I'm Hung. I'm Vietnamese. I'm an engineer. This is my colleague, Anna. She's from England. She's English. She's a teacher. What's your job? Where are you from?",
+    checklist: [
+      "Có a hoặc an trước nghề của một người",
+      "Quốc tịch không có a, an; tên nước đứng sau from",
+      "Tên nước và quốc tịch viết hoa chữ cái đầu",
+      "Có ít nhất hai câu hỏi bắt đầu bằng What, Where, Who hoặc How",
+      "Trong câu hỏi, am, is, are đứng ngay sau từ để hỏi",
+    ],
+    minWords: 25,
+  }),
 });

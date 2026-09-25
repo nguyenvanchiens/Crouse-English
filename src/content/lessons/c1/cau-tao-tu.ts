@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "cau-tao-tu",
@@ -29,7 +29,7 @@ export default lesson({
         ["-ise (Mỹ: -ize)", "động từ", "priority → prioritise, modern → modernise"],
       ),
       ex("Her decision was quick and decisive.", "Quyết định của cô ấy nhanh chóng và dứt khoát.", "Decision là danh từ (chủ ngữ), decisive là tính từ (sau was). Cùng một họ từ, khác vị trí."),
-      mistake("She is a very creativity person.", "She is a very creative person.", "Trước danh từ person cần tính từ. Vì tiếng Việt không đổi hình dạng từ, học trò hay lấy nhầm từ trong cùng họ. Hãy tự hỏi: chỗ trống cần danh từ, động từ, tính từ hay trạng từ?"),
+      mistake("She is a very creativity person.", "She is a very creative person.", "Trước danh từ person cần tính từ. Vì tiếng Việt không đổi hình dạng từ, học viên hay lấy nhầm từ trong cùng họ. Hãy tự hỏi: chỗ trống cần danh từ, động từ, tính từ hay trạng từ?"),
       p("Điểm khó nhất với người Việt là **trọng âm dịch chuyển**. Khi thêm hậu tố, trọng âm có thể chạy sang âm tiết khác. Quy tắc hữu ích: với **-tion**, **-ic**, **-ity**, **-ical**, trọng âm rơi vào âm tiết **ngay trước** hậu tố."),
       table(
         ["Từ gốc", "Cùng họ", "Cùng họ"],
@@ -41,7 +41,14 @@ export default lesson({
       ex("Her photographs are stunning; she has been a professional photographer for years, and her photographic style is instantly recognisable.", "Ảnh của cô ấy tuyệt đẹp; cô ấy đã là nhiếp ảnh gia chuyên nghiệp nhiều năm, và phong cách nhiếp ảnh của cô ấy nhìn là nhận ra ngay.", "Ba từ cùng họ, ba vị trí trọng âm: PHOtographs, phoTOgrapher, photoGRAPHic. Đọc to cả câu để nghe trọng âm chạy từ âm tiết đầu sang âm tiết thứ hai rồi thứ ba."),
       mistake("I love PHOtography.", "I love phoTOgraphy.", "Người Việt đọc mỗi âm tiết mạnh như nhau, nên khi đã thuộc PHOtograph thì cứ giữ trọng âm đó cho cả họ từ. Người bản xứ nghe sai trọng âm còn khó hiểu hơn nghe sai một nguyên âm."),
       tip("Khi học một từ mới, hãy ghi **cả họ từ** thành một hàng, đánh dấu trọng âm bằng chữ in hoa: deCIDE, deCIsion, deCIsive. Đọc to cả hàng ba lần. Tai và miệng sẽ nhớ **sự dịch chuyển** trọng âm như nhớ một giai điệu."),
-      teacher("Sau năm mươi năm dạy, tôi dám nói: học trò Việt mất điểm Writing và Speaking vì **sai từ loại** nhiều hơn vì thiếu từ. Thầy có một bài tập mỗi ngày: chọn một gốc từ trong bài báo vừa đọc, viết ra họ từ của nó, rồi đặt bốn câu, mỗi câu dùng một từ loại khác nhau. Chỉ mười phút, nhưng làm đều đặn một học kỳ thì vốn từ tăng gấp ba mà không cần học thêm gốc mới nào."),
+      teacher("Sau nhiều năm dạy, tôi dám nói: học viên Việt mất điểm Writing và Speaking vì **sai từ loại** nhiều hơn vì thiếu từ. Tôi giao cho các bạn một bài tập mỗi ngày: chọn một gốc từ trong bài báo vừa đọc, viết ra họ từ của nó, rồi đặt bốn câu, mỗi câu dùng một từ loại khác nhau. Chỉ mười phút, nhưng làm đều đặn một học kỳ thì vốn từ tăng gấp ba mà không cần học thêm gốc mới nào."),
+      summary(
+        "**Tiền tố** đổi nghĩa, thường giữ nguyên từ loại: un-, dis-, mis-, over-, under-. Mỗi gốc từ đi với một tiền tố cố định: disagree, không nói unagree.",
+        "**Hậu tố** đổi từ loại: -tion, -ment, -ity tạo danh từ; -ive tạo tính từ; -ise tạo động từ.",
+        "Trước khi chọn từ, tự hỏi: chỗ này cần **danh từ, động từ, tính từ hay trạng từ**? Trước danh từ là tính từ (a creative person), sau her là danh từ (her decision).",
+        "Với -tion, -ic, -ity, -ical, trọng âm rơi vào âm tiết **ngay trước hậu tố**: PHOtograph, phoTOgraphy, photoGRAPHic.",
+        "Học từ theo **cả họ từ**, đánh dấu trọng âm và đọc to: deCIDE, deCIsion, deCIsive.",
+      ),
     ],
   },
   words: [
@@ -69,4 +76,36 @@ export default lesson({
     say("We should never underestimate our competitors.", "Chúng ta không bao giờ nên đánh giá thấp đối thủ."),
     say("Her decision was quick and decisive.", "Quyết định của cô ấy nhanh chóng và dứt khoát."),
   ],
+  dialogue: dialogue(
+    "Rút kinh nghiệm sau một chiến dịch thất bại",
+    "Chị Hà, trưởng nhóm marketing của một công ty mỹ phẩm ở Hà Nội, ngồi với Mark, chuyên gia tư vấn người Anh, để phân tích vì sao chiến dịch ra mắt sản phẩm mới không đạt chỉ tiêu.",
+    { A: "Mark, chuyên gia tư vấn", B: "Chị Hà, trưởng nhóm marketing" },
+    A("I've been through the campaign report, Hà. In your view, what went wrong?", "Tôi đã đọc kỹ báo cáo chiến dịch rồi, chị Hà. Theo chị thì điều gì đã không ổn?"),
+    B("Honestly, we underestimated how long it would take to build an audience. We were overconfident after last year's success.", "Thật lòng mà nói, chúng tôi đã đánh giá thấp thời gian cần để xây dựng lượng khán giả. Chúng tôi quá tự tin sau thành công của năm ngoái."),
+    A("That's a fair assessment. I'd add that your ad spending was disproportionate to the results: you overspent on ads and underinvested in content.", "Đánh giá như vậy là công bằng. Tôi muốn nói thêm là chi phí quảng cáo quá lớn so với kết quả: các chị chi quá tay cho quảng cáo và đầu tư chưa đủ cho nội dung."),
+    B("Agreed. And quite a few customers misinterpreted our slogan. They thought we were raising our prices.", "Đồng ý. Và khá nhiều khách hàng đã hiểu sai khẩu hiệu. Họ tưởng chúng tôi sắp tăng giá."),
+    A("That often happens when a message relies on wordplay. In a slogan, clarity matters more than creativity.", "Chuyện đó hay xảy ra khi thông điệp dựa vào lối chơi chữ. Với khẩu hiệu, sự rõ ràng quan trọng hơn sự sáng tạo."),
+    B("So what should we prioritise in the next campaign?", "Vậy trong chiến dịch tới chúng tôi nên ưu tiên điều gì?"),
+    A("Customer research first. Then a decisive plan: fewer channels and one clear message.", "Trước hết là nghiên cứu khách hàng. Sau đó là một kế hoạch dứt khoát: ít kênh hơn và một thông điệp rõ ràng."),
+    B("I'll draft a proposal by Friday. Should I include a budget for photography as well?", "Tôi sẽ soạn đề xuất trước thứ sáu. Tôi có nên đưa cả ngân sách chụp ảnh vào không?"),
+    A("Yes, but keep it realistic. Last time the photographers were underpaid, and the photos looked rushed.", "Có, nhưng hãy thực tế. Lần trước các nhiếp ảnh gia bị trả thấp, và ảnh trông rất vội vàng."),
+    B("Point taken. This time every decision in the proposal will be backed by data.", "Tôi hiểu rồi. Lần này mọi quyết định trong đề xuất sẽ có số liệu làm cơ sở."),
+  ),
+  task: task({
+    prompt: "Bạn vừa kết thúc một dự án không đạt mục tiêu. Hãy viết email ngắn gửi sếp để rút kinh nghiệm: nêu nguyên nhân và đề xuất cho lần sau. Dùng thật nhiều từ có tiền tố, hậu tố, và dùng các từ cùng họ ở những vị trí khác nhau trong câu.",
+    hints: [
+      "Nêu nguyên nhân bằng từ có tiền tố: underestimate, overestimate, misunderstand, unaware, unclear.",
+      "Dùng ít nhất hai họ từ, mỗi họ hai từ loại: decision và decisive, rely và reliability.",
+      "Kết thúc bằng hai ba việc cần ưu tiên (prioritise) cho dự án sau.",
+    ],
+    model: "Dear Mr Tanaka,\n\nI am writing to reflect on the launch of our new mobile app, which did not meet its targets. Looking back, we clearly underestimated the time needed to test the product, and we overestimated how quickly users would adopt it. Several reviewers also misunderstood the subscription model, which suggests that our explanation was unclear. In addition, we spent a disproportionate share of the budget on advertising. Our biggest weakness, however, was indecision: we delayed several key decisions for weeks. Next time, I propose that we prioritise user testing, simplify our pricing and make faster, more decisive choices. Users need an app they can rely on, so reliability must come before new features. I am confident that these changes will make our next launch far more successful.\n\nBest regards,\nLinh",
+    checklist: [
+      "Có ít nhất bốn từ dùng tiền tố (under-, over-, mis-, un-, dis-, in-).",
+      "Có ít nhất hai họ từ, mỗi họ dùng hai từ loại khác nhau (decision và decisive).",
+      "Mỗi từ đứng đúng vị trí từ loại: sau mạo từ hoặc tính từ sở hữu là danh từ, trước danh từ là tính từ.",
+      "Đọc to email và nhấn đúng trọng âm các từ có đuôi -tion, -ity, -ic.",
+      "Có ít nhất hai đề xuất cụ thể cho lần sau.",
+    ],
+    minWords: 90,
+  }),
 });

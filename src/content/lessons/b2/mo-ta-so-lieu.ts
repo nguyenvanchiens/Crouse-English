@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "mo-ta-so-lieu",
@@ -40,10 +40,17 @@ export default lesson({
       ex("The number of visitors fell by a third, to about two million.", "Lượng khách giảm một phần ba, xuống còn khoảng hai triệu.", "By a third là mức giảm, to about two million là con số còn lại. Một câu dùng được cả hai."),
       mistake("There was an increase by ten per cent.", "There was an increase of ten per cent.", "By đi với động từ (increased by). Khi đã đổi sang danh từ (an increase), phải dùng of."),
       mistake("Sales were risen in May.", "Sales rose in May.", "Tiếng Việt hay nói “doanh số được tăng lên” nên học trò dùng bị động. Rise và fall là nội động từ, không có dạng bị động. Nếu có người làm cho giá tăng, dùng raise: The company raised its prices."),
-      p("Không phải lúc nào cũng cần con số chính xác. Người bản xứ rất hay dùng từ **xấp xỉ**: **about, around, roughly, approximately** (khoảng), **just over** (nhỉnh hơn một chút), **just under** (hụt một chút), **nearly, almost** (gần), **well over** (hơn hẳn)."),
+      p("Không phải lúc nào cũng cần con số chính xác. Người bản xứ rất hay dùng từ **xấp xỉ**: **about, around, roughly, approximately** (khoảng), **just over** (nhỉnh hơn một chút), **just under** (hụt một chút), **nearly, almost** (gần), **well over** (hơn hẳn). Khi nói về **tương lai của số liệu** (dự báo), dùng **be expected to / be likely to / be forecast to + V**: **Sales are expected to rise slightly next year.** Cách nói này cho thấy bạn đang dự đoán, không phải hứa chắc."),
       ex("Just under half of the staff said they preferred working from home.", "Gần một nửa (hụt một chút) số nhân viên nói họ thích làm việc ở nhà hơn.", "Just under half: khoảng bốn mươi tám, bốn mươi chín phần trăm."),
       tip("Chú ý trọng âm: danh từ **increase** nhấn âm đầu /ˈɪn.kriːs/, động từ **increase** nhấn âm sau /ɪnˈkriːs/. Và **per cent** /pə ˈsent/ nhấn vào **cent**, nhớ bật âm /t/ ở cuối."),
-      teacher("Học trò của tôi thi IELTS, ai cũng thuộc mấy chục động từ tăng giảm, nhưng khi viết vẫn sai giới từ. Tôi luôn dặn: **viết xong một câu có con số, hãy hỏi lại con số đó là “mức thay đổi” hay “chỗ dừng lại”**. Mức thay đổi thì by, chỗ dừng lại thì to. Mỗi sáng mở một biểu đồ bất kỳ trên báo, giá xăng, tỷ giá, số ca bệnh, và nói to ba câu mô tả nó. Một tháng sau các em sẽ nói về số liệu trôi chảy như đọc bản tin."),
+      teacher("Học trò của tôi thi IELTS, ai cũng thuộc mấy chục động từ tăng giảm, nhưng khi viết vẫn sai giới từ. Tôi luôn dặn: **viết xong một câu có con số, hãy hỏi lại con số đó là “mức thay đổi” hay “chỗ dừng lại”**. Mức thay đổi thì by, chỗ dừng lại thì to. Mỗi sáng mở một biểu đồ bất kỳ trên báo, giá xăng, tỷ giá, số ca bệnh, và nói to ba câu mô tả nó. Một tháng sau các bạn sẽ nói về số liệu trôi chảy như đọc bản tin."),
+      summary(
+        "Một ý có hai cách nói: động từ + trạng từ (rose sharply) hoặc There was + tính từ + danh từ (a sharp rise).",
+        "Động từ đi với trạng từ đuôi -ly (increased sharply); danh từ đi với tính từ (a sharp increase).",
+        "by là mức thay đổi, to là con số đạt được, from… to là điểm đầu và điểm cuối, of đi sau danh từ, at là mức tại một thời điểm.",
+        "Rise và fall là nội động từ, không có bị động; ai đó làm cho cái gì tăng thì dùng raise.",
+        "Xấp xỉ: about, roughly, just over, just under, nearly; dự báo: be expected to + V.",
+      ),
     ],
   },
   words: [
@@ -71,4 +78,40 @@ export default lesson({
     say("There was a slight fall of two per cent in May.", "Tháng Năm có một đợt giảm nhẹ hai phần trăm."),
     say("The figure peaked at about nine thousand in July.", "Con số đạt đỉnh vào khoảng chín nghìn trong tháng Bảy."),
   ],
+  dialogue: dialogue(
+    "Báo cáo doanh số quý hai",
+    "Trong buổi họp đầu tuần, chị Clark, giám đốc kinh doanh người Anh, hỏi Minh, nhân viên phân tích, về số liệu bán hàng của quý vừa qua.",
+    { A: "Chị Clark, giám đốc kinh doanh", B: "Minh, nhân viên phân tích" },
+    A("So, Minh, how did our online sales do in the second quarter?", "Nào Minh, doanh số bán hàng trực tuyến quý hai của chúng ta thế nào?"),
+    B("They rose steadily from April to June, by about fifteen per cent in total.", "Doanh số tăng đều từ tháng Tư đến tháng Sáu, tổng cộng khoảng mười lăm phần trăm."),
+    A("That's good news. What about the shops?", "Tin tốt đấy. Còn các cửa hàng thì sao?"),
+    B("Not so good, I'm afraid. There was a sharp fall in May, from nine thousand to just under seven thousand units.", "E là không tốt lắm. Tháng Năm có một đợt giảm mạnh, từ chín nghìn xuống còn chưa đến bảy nghìn sản phẩm."),
+    A("Why was that?", "Sao lại thế?"),
+    B("Mainly because of the heavy rain. Sales levelled off in June, though.", "Chủ yếu do mưa lớn. Tuy vậy, doanh số đã chững lại vào tháng Sáu."),
+    A("And did the price increase affect our customers?", "Việc tăng giá có ảnh hưởng đến khách hàng không?"),
+    B("Only slightly. We raised prices by three per cent, and demand dropped by roughly one per cent.", "Chỉ một chút thôi. Chúng ta tăng giá ba phần trăm, và nhu cầu giảm khoảng một phần trăm."),
+    A("What's the forecast for the next quarter?", "Dự báo cho quý tới thế nào?"),
+    B("Online sales are expected to peak at around twelve thousand units in September.", "Doanh số trực tuyến dự kiến sẽ đạt đỉnh vào khoảng mười hai nghìn sản phẩm trong tháng Chín."),
+    A("Great. Please put those figures in a chart for Friday's meeting.", "Tốt lắm. Em đưa các số liệu đó vào biểu đồ cho buổi họp thứ Sáu nhé."),
+    B("Sure. I'll send it to you by Thursday afternoon.", "Vâng. Em sẽ gửi chị trước chiều thứ Năm."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn khoảng 70–90 từ mô tả lượng khách của một quán cà phê trong sáu tháng đầu năm: tháng Một khoảng 2.000 khách, tăng đều đến tháng Tư thì đạt đỉnh 3.000, tháng Năm giảm mạnh còn 2.400 vì sửa đường, tháng Sáu chững lại. Dự báo tháng Bảy tăng nhẹ.",
+    hints: [
+      "Mở bằng một câu giới thiệu: The chart shows…",
+      "Dùng cả hai cách: động từ + trạng từ, và There was + tính từ + danh từ.",
+      "Chú ý by (mức thay đổi) và to (con số đạt được); các tháng đã qua dùng thì quá khứ.",
+      "Kết bằng một câu dự báo với be expected to.",
+    ],
+    model: "The chart shows the number of customers at our café from January to June. In January, we had about two thousand customers. The figure then rose steadily and peaked at three thousand in April. However, there was a sharp fall in May, when numbers dropped by six hundred, to two thousand four hundred, mainly because of roadworks outside the café. In June, the number of customers levelled off at just over two thousand four hundred. Customer numbers are expected to rise slightly in July.",
+    checklist: [
+      "Có ít nhất ba từ chỉ xu hướng khác nhau (rise, fall, peak, level off…).",
+      "Trạng từ đuôi -ly đi với động từ, tính từ đi với danh từ.",
+      "Dùng đúng by và to, mỗi giới từ ít nhất một lần.",
+      "Có ít nhất một từ xấp xỉ như about, just over, roughly.",
+      "Không dùng bị động với rise hoặc fall.",
+      "Có một câu dự báo với be expected to hoặc be likely to.",
+    ],
+    minWords: 70,
+  }),
 });

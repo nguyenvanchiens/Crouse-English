@@ -14,7 +14,8 @@ export default async function GrammarPage() {
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
       <h1 className="font-display text-5xl font-extrabold leading-tight">Sổ tay ngữ pháp</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-        {entries.length} điểm ngữ pháp từ A1 đến C1, giải thích bằng tiếng Việt. Đọc lại bất cứ lúc nào, không cần vào bài học.
+        {entries.length} bài giảng về phát âm và ngữ pháp từ A1 đến C1, giải thích bằng tiếng Việt. Đọc lại bất cứ lúc nào, không cần
+        vào bài học.
       </p>
       <GrammarHandbook entries={entries} />
     </div>

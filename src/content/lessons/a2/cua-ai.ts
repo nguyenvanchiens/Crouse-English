@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "cua-ai",
@@ -31,7 +31,14 @@ export default lesson({
       mistake("This book is my.", "This book is mine.", "My luôn cần danh từ theo sau (my book). Đứng một mình ở cuối câu thì dùng mine."),
       mistake("the car of my father", "my father's car", "Người Việt dịch từng chữ “xe của bố tôi”. Với người, tiếng Anh dùng 's và đặt người sở hữu lên trước: my father's car."),
       mistake("Is this bag her's?", "Is this bag hers?", "Đại từ sở hữu không có dấu ': hers, yours, ours, theirs. Chỉ tên người và danh từ mới dùng 's."),
-      teacher("Có một bài tập tôi cho học trò làm suốt mấy chục năm và chưa lần nào thất bại: cầm một đồ vật trong nhà lên, hỏi to **Whose is this?**, rồi tự trả lời **It's mine.**, **It's my mum's.**, **It's theirs.** Làm với mười đồ vật mỗi tối. Miệng quen rồi thì các em sẽ không bao giờ nói “This is my” hay “help I” nữa. Ngữ pháp này phải thuộc bằng miệng, không phải bằng mắt."),
+      teacher("Có một bài tập tôi cho học viên làm suốt mấy chục năm và chưa lần nào thất bại: cầm một đồ vật trong nhà lên, hỏi to **Whose is this?**, rồi tự trả lời **It's mine.**, **It's my mum's.**, **It's theirs.** Làm với mười đồ vật mỗi tối. Miệng quen rồi thì các bạn sẽ không bao giờ nói “This is my” hay “help I” nữa. Ngữ pháp này phải thuộc bằng miệng, không phải bằng mắt."),
+      summary(
+        "Chủ ngữ dùng I, he, she, we, they; sau động từ và giới từ dùng me, him, her, us, them.",
+        "My, your, her + danh từ; mine, yours, hers đứng một mình, không có danh từ theo sau.",
+        "Hỏi của ai: Whose + danh từ + is this / are these? hoặc Whose is this?",
+        "Người sở hữu thêm 's (Lan's, my father's); danh từ số nhiều đã có -s chỉ thêm ' (my parents').",
+        "Hers, yours, ours, theirs không bao giờ có dấu '; whose (của ai) khác who's (ai là).",
+      ),
     ],
   },
   words: [
@@ -59,4 +66,39 @@ export default lesson({
     say("It isn't mine. I think it's my sister's.", "Không phải của tôi. Tôi nghĩ là của chị tôi."),
     say("Can you help me with this bag, please?", "Bạn giúp tôi mang cái túi này được không?"),
   ],
+  dialogue: dialogue(
+    "Đồ để quên sau buổi họp",
+    "Họp xong, trên bàn phòng họp còn lại ô, chìa khóa, ví và điện thoại. Chị Hạnh và David, đồng nghiệp người Mỹ, xem từng món là của ai.",
+    { A: "Chị Hạnh, trưởng phòng", B: "David, đồng nghiệp người Mỹ" },
+    A("David, there are some things on the table. Whose umbrella is this?", "David ơi, trên bàn còn mấy thứ. Cái ô này của ai vậy?"),
+    B("It isn't mine. Mine is black. I think it's Lan's.", "Không phải của tôi. Ô của tôi màu đen. Tôi nghĩ là của Lan."),
+    A("OK, I'll give it to her later. And whose keys are these?", "Được, lát nữa tôi đưa cho cô ấy. Còn chùm chìa khóa này của ai?"),
+    B("Oh, they're mine! Thank you. I looked for them everywhere.", "Ồ, của tôi đấy! Cảm ơn chị. Tôi tìm khắp nơi."),
+    A("Is this wallet yours too?", "Cái ví này cũng của anh à?"),
+    B("No, it isn't. I think it belongs to Mr Tuan.", "Không phải đâu. Tôi nghĩ là của anh Tuấn."),
+    A("Can you take it to him? His office is next to yours.", "Anh mang cho anh ấy được không? Phòng anh ấy cạnh phòng anh mà."),
+    B("Sure. What about these two phones?", "Được chứ. Còn hai cái điện thoại này thì sao?"),
+    A("The white one is mine, and the black one is Nam's.", "Cái màu trắng là của tôi, còn cái màu đen là của Nam."),
+    B("And this pen? Can I borrow it? I didn't bring my own pen.", "Còn cái bút này? Tôi mượn được không? Tôi không mang bút của mình."),
+    A("Of course. It's ours. It belongs to the office.", "Tất nhiên. Bút của chung phòng mình mà."),
+    B("Thanks. I'll give it back to you tomorrow.", "Cảm ơn chị. Mai tôi trả lại chị."),
+  ),
+  task: task({
+    prompt: "Sau buổi liên hoan ở nhà bạn, khách về và để quên vài món đồ. Viết một tin nhắn 5–6 câu vào nhóm chat: hỏi món nào của ai, và nói những món bạn đã biết chủ.",
+    hints: [
+      "Hỏi bằng Whose + danh từ + is this / are these?",
+      "Trả lời bằng tên + 's, hoặc mine, yours, his, hers, theirs.",
+      "Sau động từ và giới từ dùng me, him, her, us, them.",
+      "Không viết dấu ' trong hers, yours, ours, theirs.",
+    ],
+    model: "Hi everyone, thank you for coming to my party! Some of you left things at my house. Whose black jacket is this? I think the blue umbrella is Mai's, so I'll give it to her on Monday. Nam, are these keys yours? The two phone chargers aren't mine. Please call me or text me today.",
+    checklist: [
+      "Có ít nhất 1 câu hỏi với Whose.",
+      "Dùng 's sau tên người (Mai's), không viết kiểu the umbrella of Mai.",
+      "Có ít nhất 2 đại từ sở hữu (mine, yours, hers...) đứng một mình, không có danh từ theo sau.",
+      "Sau động từ và giới từ dùng tân ngữ (me, her, them), không dùng I, she, they.",
+      "Không có dấu ' trong hers, yours, ours, theirs.",
+    ],
+    minWords: 30,
+  }),
 });

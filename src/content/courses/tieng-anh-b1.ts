@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../builders";
 import nQuaKhuHoanThanh from "../lessons/b1/qua-khu-hoan-thanh";
 import nHienTaiHoanThanhTiepDien from "../lessons/b1/hien-tai-hoan-thanh-tiep-dien";
 import nSuyDoanHienTai from "../lessons/b1/suy-doan-hien-tai";
@@ -42,7 +42,14 @@ const keLaiMotChuyen = lesson({
       mistake("I was see an accident yesterday.", "I saw an accident yesterday.", "Tiếng Việt chỉ đặt “đã” hoặc “đang” trước động từ, nên người học tưởng was cũng là một chữ đặt trước động từ như vậy. Was phải đi với V-ing; còn hành động ngắn, đã kết thúc thì chỉ cần quá khứ đơn: saw."),
       mistake("While I walked home, I was seeing an old friend.", "While I was walking home, I saw an old friend.", "Việc kéo dài làm nền dùng was walking, việc ngắn chen vào dùng saw. Tiếng Việt không phân biệt hai loại việc này bằng hình thức động từ nên hay bị đảo ngược. Động từ see cũng hầu như không dùng ở dạng tiếp diễn."),
       mistake("Yesterday I go to the market and meet my old teacher.", "Yesterday I went to the market and met my old teacher.", "Tiếng Việt không chia động từ, chữ “hôm qua” đã đủ báo thời gian. Tiếng Anh thì mọi động từ trong câu chuyện quá khứ đều phải chia: went, met."),
-      teacher("Sau năm mươi năm dạy, tôi thấy học trò kể chuyện hay nhất không phải người thuộc nhiều từ, mà là người biết **dựng cảnh trước rồi mới tung sự việc**. Mỗi tối trước khi ngủ, các em hãy kể lại một chuyện trong ngày bằng ba câu: một câu was/were + V-ing làm nền, một câu có when chen vào, một câu in the end để kết. Làm đều một tháng, các em sẽ thấy miệng tự bật ra đúng thì mà không cần nghĩ."),
+      teacher("Sau nhiều năm dạy, tôi thấy người học kể chuyện hay nhất không phải người thuộc nhiều từ, mà là người biết **dựng cảnh trước rồi mới tung sự việc**. Mỗi tối trước khi ngủ, các bạn hãy kể lại một chuyện trong ngày bằng ba câu: một câu was/were + V-ing làm nền, một câu có when chen vào, một câu in the end để kết. Làm đều một tháng, các bạn sẽ thấy miệng tự bật ra đúng thì mà không cần nghĩ."),
+      summary(
+        "**was / were + V-ing** dựng cảnh nền (việc đang diễn ra); **quá khứ đơn** cho việc ngắn chen vào hoặc các việc nối tiếp nhau.",
+        "**While** thường đi với quá khứ tiếp diễn; **when** thường đi với hành động ngắn ở quá khứ đơn.",
+        "Was / were luôn đi với V-ing, không đi với động từ nguyên mẫu: không nói I was see.",
+        "Đã có từ chỉ quá khứ như yesterday thì mọi động từ trong câu chuyện vẫn phải chia: went, met, saw.",
+        "Kể mạch lạc bằng từ nối: **first, then, suddenly, in the end**.",
+      ),
     ],
   },
   words: [
@@ -50,7 +57,7 @@ const keLaiMotChuyen = lesson({
     word("accident", "/ˈæk.sɪ.dənt/", "tai nạn", "I saw an accident on my way to work.", "ac|ci|dent", 0, "Chữ cc đọc là /ks/, không đọc là /k/."),
     word("happen", "/ˈhæp.ən/", "xảy ra", "What happened after that?", "hap|pen", 0),
     word("journey", "/ˈdʒɜː.ni/", "chuyến đi, hành trình", "The journey took six hours.", "jour|ney", 0),
-    word("realise", "/ˈrɪə.laɪz/", "nhận ra", "I suddenly realised that I had left my bag on the bus.", "rea|lise", 0),
+    word("realise", "/ˈrɪə.laɪz/", "nhận ra", "I suddenly realised that my bag was still on the bus.", "rea|lise", 0),
     word("eventually", "/ɪˈven.tʃu.ə.li/", "rốt cuộc, sau cùng", "We eventually found the hotel.", "e|ven|tu|al|ly", 1, "Không có nghĩa là “có thể”. Eventually là “sau cùng, sau một thời gian dài”."),
     word("unexpected", "/ˌʌn.ɪkˈspek.tɪd/", "bất ngờ, không lường trước", "We had an unexpected visitor last night.", "un|ex|pec|ted", 2),
     word("memory", "/ˈmem.ər.i/", "kỷ niệm, ký ức", "That trip is my favourite memory.", "mem|o|ry", 0),
@@ -70,6 +77,41 @@ const keLaiMotChuyen = lesson({
     say("While we were having dinner, the lights suddenly went out.", "Trong lúc chúng tôi đang ăn tối thì bỗng nhiên mất điện."),
     say("In the end, we laughed about it.", "Cuối cùng, chúng tôi lại cười về chuyện đó."),
   ],
+  dialogue: dialogue(
+    "Cuối tuần của bạn thế nào?",
+    "Sáng thứ Hai ở văn phòng, Tom, đồng nghiệp người Anh, hỏi Lan về chuyến đi Đà Lạt cuối tuần. Lan kể lại chuyện xe hỏng giữa đèo.",
+    { A: "Tom, đồng nghiệp", B: "Lan" },
+    A("Hi Lan! What happened at the weekend? You look tired.", "Chào Lan! Cuối tuần có chuyện gì thế? Trông bạn mệt quá."),
+    B("It was an unexpected journey. We were driving to Da Lat when it suddenly started to rain.", "Một chuyến đi đầy bất ngờ. Bọn mình đang lái xe lên Đà Lạt thì bỗng nhiên trời đổ mưa."),
+    A("Oh no! Were you driving in the mountains?", "Ôi không! Lúc đó các bạn đang đi trên núi à?"),
+    B("Yes. While we were going up the pass, the car stopped. I realised that the engine was too hot.", "Ừ. Trong lúc bọn mình đang lên đèo thì xe chết máy. Mình nhận ra là động cơ nóng quá."),
+    A("What did you do?", "Thế các bạn làm gì?"),
+    B("First, we called a garage, but nobody answered. Then a farmer saw us and came to help.", "Đầu tiên, bọn mình gọi cho một tiệm sửa xe nhưng không ai nghe máy. Sau đó một bác nông dân nhìn thấy và đến giúp."),
+    A("That was lucky! What was he doing there?", "May thế! Bác ấy đang làm gì ở đó vậy?"),
+    B("He was working in his field near the road. He fixed the car in twenty minutes.", "Bác ấy đang làm ruộng gần đường. Bác sửa xe xong trong hai mươi phút."),
+    A("So did you get to Da Lat eventually?", "Vậy rốt cuộc các bạn có đến được Đà Lạt không?"),
+    B("Yes, eventually. We arrived very late, but in the end it became a great memory.", "Có, sau cùng thì cũng đến. Bọn mình đến rất muộn, nhưng cuối cùng đó lại thành một kỷ niệm tuyệt vời."),
+    A("What a story! I was sleeping at home while you were having an adventure.", "Chuyện hay thật! Mình thì đang ngủ ở nhà trong lúc bạn đang phiêu lưu."),
+    B("Next time, you should come with us!", "Lần sau bạn đi cùng bọn mình nhé!"),
+  ),
+  task: task({
+    prompt: "Viết một đoạn văn kể lại một chuyện bất ngờ đã xảy ra với bạn (trên đường đi làm, khi đi du lịch, ở nhà…). Hãy dựng cảnh nền trước, rồi kể sự việc chen vào và kết thúc câu chuyện.",
+    hints: [
+      "Mở đầu bằng một câu was / were + V-ing để dựng cảnh: lúc đó bạn đang làm gì, trời thế nào.",
+      "Dùng when hoặc while để nối cảnh nền với sự việc chen vào.",
+      "Nối các việc tiếp theo bằng first, then, suddenly, in the end.",
+      "Kết bằng cảm xúc của bạn hoặc điều bạn nhớ nhất.",
+    ],
+    model: "Last month, something unexpected happened on my way to work. It was raining heavily. While I was riding my motorbike along a busy street, a small dog suddenly ran into the road. I stopped just in time, but the man behind me was looking at his phone, and he hit my bike. Luckily, nobody got hurt. First, we checked our bikes. Then he said sorry and paid for the repair. In the end, we laughed about it, and now it is a funny memory.",
+    checklist: [
+      "Có ít nhất 2 câu was / were + V-ing để dựng cảnh nền.",
+      "Có ít nhất 1 câu dùng when hoặc while nối cảnh nền với sự việc chen vào.",
+      "Các sự việc chính đều ở quá khứ đơn (went, saw, stopped), không còn động từ nguyên mẫu.",
+      "Không có câu nào kiểu was + động từ nguyên mẫu (was see, was go).",
+      "Dùng ít nhất 3 từ nối trình tự: first, then, suddenly, in the end.",
+    ],
+    minWords: 50,
+  }),
 });
 
 const daDuocBaoLau = lesson({
@@ -80,7 +122,7 @@ const daDuocBaoLau = lesson({
     title: "Hiện tại hoàn thành với for và since",
     blocks: [
       p("Bạn ngồi cà phê với một vị khách nước ngoài, và câu hỏi đầu tiên gần như chắc chắn là: **How long have you lived here?** hoặc **How long have you worked there?** Đây là những câu hỏi làm quen quen thuộc nhất, nên trả lời trôi chảy là bạn đã ghi điểm ngay từ phút đầu."),
-      p("Người Việt nói “Tôi sống ở Hà Nội được năm năm rồi” và rất dễ dịch thành “I live in Hanoi for five years”. Khi một việc bắt đầu trong quá khứ và **vẫn còn đến bây giờ**, tiếng Anh dùng **hiện tại hoàn thành**: have / has + V3."),
+      p("Người Việt nói “Tôi sống ở Hà Nội được năm năm rồi” và rất dễ dịch thành “I live in Hanoi for five years”. Khi một việc bắt đầu trong quá khứ và **vẫn còn đến bây giờ**, tiếng Anh dùng **hiện tại hoàn thành**: have / has + V3. Ở A2, bạn đã dùng thì này với ever, never, just, already, yet để nói về trải nghiệm và việc vừa xong; hôm nay ta dùng nó cho việc **kéo dài đến bây giờ**."),
       table(
         ["Dạng", "I / you / we / they", "he / she / it"],
         ["Khẳng định", "I've worked here for two years.", "She's worked here for two years."],
@@ -101,7 +143,14 @@ const daDuocBaoLau = lesson({
       mistake("I am working here since 2021.", "I have worked here since 2021.", "Tiếng Việt chỉ cần thêm “từ năm 2021 đến giờ”, động từ không đổi hình thức, nên người học giữ nguyên thì hiện tại. Tiếng Anh thì khác: việc bắt đầu từ một mốc trong quá khứ và kéo dài đến bây giờ phải dùng hiện tại hoàn thành."),
       mistake("I have seen that film last week.", "I saw that film last week.", "Người Việt thấy chữ “đã” là nghĩ ngay đến have + V3. Nhưng có mốc thời gian đã kết thúc (last week) thì phải dùng quá khứ đơn."),
       mistake("I have lived here since five years.", "I have lived here for five years.", "Tiếng Việt nói “từ năm năm nay”, chữ “từ” khiến người học chọn since. Five years là một khoảng thời gian, nên dùng for."),
-      teacher("Tôi hay bảo học trò: trước khi chọn for hay since, hãy tự hỏi **“Cái này có ghi được lên lịch không?”** Nếu khoanh được trên tờ lịch như thứ Hai, năm 2020, hôm sinh nhật, thì dùng since. Nếu phải đếm như ba ngày, năm năm, rất lâu, thì dùng for. Và mỗi lần gặp người mới, các em hãy tập hỏi một câu How long have you…? Hỏi được thì mới nghe được câu trả lời."),
+      teacher("Tôi hay bảo các bạn: trước khi chọn for hay since, hãy tự hỏi **“Cái này có ghi được lên lịch không?”** Nếu khoanh được trên tờ lịch như thứ Hai, năm 2020, hôm sinh nhật, thì dùng since. Nếu phải đếm như ba ngày, năm năm, rất lâu, thì dùng for. Và mỗi lần gặp người mới, các bạn hãy tập hỏi một câu How long have you…? Hỏi được thì mới nghe được câu trả lời."),
+      summary(
+        "Việc bắt đầu trong quá khứ và **vẫn còn đến bây giờ**: have / has + V3, không dùng hiện tại đơn hay hiện tại tiếp diễn.",
+        "**for** + khoảng thời gian (for five years); **since** + mốc thời gian (since 2020, since Monday, since I was a child).",
+        "Hỏi thời gian kéo dài: **How long have you + V3?**",
+        "Có mốc thời gian đã kết thúc (yesterday, last week, in 2019, ago) thì dùng **quá khứ đơn**.",
+        "Mẹo chọn nhanh: khoanh được trên lịch thì dùng since, phải đếm thì dùng for.",
+      ),
     ],
   },
   words: [
@@ -128,6 +177,40 @@ const daDuocBaoLau = lesson({
     say("How long have you worked here?", "Bạn làm việc ở đây được bao lâu rồi?"),
     say("I haven't seen my best friend since last summer.", "Từ mùa hè năm ngoái đến giờ tôi chưa gặp bạn thân."),
   ],
+  dialogue: dialogue(
+    "Làm quen trong giờ nghỉ cà phê",
+    "Trong buổi gặp mặt đối tác, Hoa trò chuyện với Mark, một vị khách người Anh mới sang Việt Nam làm việc. Hai người hỏi nhau đã sống và làm việc ở đây bao lâu.",
+    { A: "Mark, khách người Anh", B: "Hoa" },
+    A("So, Hoa, how long have you worked at this company?", "Vậy Hoa làm ở công ty này được bao lâu rồi?"),
+    B("I've worked here for four years. Before that, I worked in a bank for two years.", "Tôi làm ở đây được bốn năm rồi. Trước đó, tôi làm ở ngân hàng hai năm."),
+    A("And have you always lived in Hanoi?", "Thế bạn sống ở Hà Nội từ trước đến giờ à?"),
+    B("No. I grew up in Nam Dinh, but I've lived in Hanoi since I was eighteen.", "Không. Tôi lớn lên ở Nam Định, nhưng tôi sống ở Hà Nội từ năm mười tám tuổi."),
+    A("How long have you known Minh? You two seem very close.", "Bạn quen Minh bao lâu rồi? Hai người có vẻ thân nhau lắm."),
+    B("We've known each other since university. What about you? How long have you been in Vietnam?", "Chúng tôi quen nhau từ hồi đại học. Còn anh? Anh ở Việt Nam được bao lâu rồi?"),
+    A("I've been here for six months. I moved here in March.", "Tôi ở đây được sáu tháng rồi. Tôi chuyển sang đây hồi tháng Ba."),
+    B("Has your Vietnamese improved?", "Tiếng Việt của anh có tiến bộ không?"),
+    A("A little! I haven't had much time lately, but I can order phở now.", "Một chút! Dạo này tôi không có nhiều thời gian, nhưng giờ tôi gọi được phở rồi."),
+    B("That's the most important thing! Do you like your neighbourhood?", "Thế là quan trọng nhất rồi! Anh có thích khu phố mình ở không?"),
+    A("Yes. I found a flat in Tay Ho last month, and I love it.", "Có. Tháng trước tôi tìm được một căn hộ ở Tây Hồ, và tôi rất thích."),
+    B("I haven't been to Tay Ho for ages. Let's have coffee there sometime.", "Lâu lắm rồi tôi chưa đến Tây Hồ. Hôm nào mình đi cà phê ở đó nhé."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn giới thiệu bản thân với đồng nghiệp mới: bạn sống ở đâu, làm công việc gì, học tiếng Anh, quen người bạn thân được bao lâu rồi.",
+    hints: [
+      "Dùng have / has + V3 cho những việc vẫn còn đến bây giờ.",
+      "For + khoảng thời gian (for six years), since + mốc thời gian (since 2022, since I was a child).",
+      "Thêm ít nhất một câu quá khứ đơn cho việc đã kết thúc, với ago, last year hoặc in + năm.",
+    ],
+    model: "Hi everyone, my name is Linh. I've lived in Da Nang for six years, and I really love this city. I've worked as a sales assistant at a travel company since 2022. Before that, I worked in a hotel for two years. I've studied English since I was a child, but my speaking has improved a lot recently. I've known my best friend, Thu, since secondary school. We met twenty years ago, and we still talk every day.",
+    checklist: [
+      "Có ít nhất 3 câu have / has + V3 cho việc vẫn còn đến bây giờ.",
+      "Dùng đúng cả for (với khoảng thời gian) và since (với mốc thời gian), mỗi từ ít nhất một lần.",
+      "Có ít nhất 1 câu quá khứ đơn với ago, last hoặc in + năm cho việc đã kết thúc.",
+      "Không có câu kiểu I am working here since… hoặc I have seen… last year.",
+      "Không viết since + khoảng thời gian (since five years).",
+    ],
+    minWords: 50,
+  }),
 });
 
 const neuThi = lesson({
@@ -155,11 +238,18 @@ const neuThi = lesson({
       ),
       p("**Unless** nghĩa là “trừ khi”, tương đương if… not. Sau unless dùng câu khẳng định."),
       ex("You won't pass the exam unless you study harder.", "Bạn sẽ không đỗ kỳ thi trừ khi bạn học chăm hơn."),
-      tip("Muốn khuyên ai đó, hãy dùng **If I were you, I would…** (Nếu tôi là bạn, tôi sẽ…). Trong câu điều kiện loại 2, văn viết chuẩn thường dùng **were** cho mọi chủ ngữ, kể cả I, he, she (văn nói hằng ngày có thể dùng was). Riêng cụm If I were you, các em nên luôn dùng were."),
+      tip("Muốn khuyên ai đó, hãy dùng **If I were you, I would…** (Nếu tôi là bạn, tôi sẽ…). Trong câu điều kiện loại 2, văn viết chuẩn thường dùng **were** cho mọi chủ ngữ, kể cả I, he, she (văn nói hằng ngày có thể dùng was). Riêng cụm If I were you, các bạn nên luôn dùng were."),
       mistake("If it will rain, we will stay at home.", "If it rains, we will stay at home.", "Vì cả câu nói về ngày mai, người học nghĩ vế nào cũng phải có will. Nhưng trong câu điều kiện loại 1, mệnh đề if dùng hiện tại đơn để nói về tương lai; will chỉ nằm ở mệnh đề chính."),
       mistake("If I have a lot of money, I would buy a house.", "If I had a lot of money, I would buy a house.", "Tiếng Việt không có cách “lùi thì” để báo chuyện không có thật. Trong tiếng Anh, mệnh đề chính có would thì mệnh đề if phải lùi về quá khứ đơn."),
       mistake("Unless you don't hurry, you'll miss the train.", "Unless you hurry, you'll miss the train.", "Người Việt dịch “trừ khi bạn không nhanh lên” theo từng chữ. Unless đã mang nghĩa phủ định, không thêm don't."),
-      teacher("Nhiều năm chấm bài, tôi thấy học trò sai câu điều kiện không phải vì không thuộc công thức, mà vì **không hỏi mình đang nghĩ gì**. Trước khi nói, hãy tự hỏi: “Chuyện này có thể xảy ra thật không?” Có thì dùng loại một, không thì lùi thì dùng loại hai. Mỗi tối, các em viết ba câu If I were you… để khuyên một người bạn. Lời khuyên có thật thì câu văn cũng nhớ lâu."),
+      teacher("Nhiều năm chấm bài, tôi thấy người học sai câu điều kiện không phải vì không thuộc công thức, mà vì **không hỏi mình đang nghĩ gì**. Trước khi nói, hãy tự hỏi: “Chuyện này có thể xảy ra thật không?” Có thì dùng loại một, không thì lùi thì dùng loại hai. Mỗi tối, các bạn viết ba câu If I were you… để khuyên một người bạn. Lời khuyên có thật thì câu văn cũng nhớ lâu."),
+      summary(
+        "Chuyện **có thể xảy ra thật**: If + hiện tại đơn, will + V. Không đặt will trong mệnh đề if.",
+        "Chuyện **không có thật, tưởng tượng**: If + quá khứ đơn, would + V.",
+        "Khuyên ai đó: **If I were you, I'd…**, luôn dùng were.",
+        "**Unless** = if not; sau unless dùng câu khẳng định, không thêm don't.",
+        "Mệnh đề if đứng đầu câu thì có dấu phẩy, đứng sau thì không.",
+      ),
     ],
   },
   words: [
@@ -186,6 +276,42 @@ const neuThi = lesson({
     say("If I had more time, I would learn to cook.", "Nếu có nhiều thời gian hơn, tôi sẽ học nấu ăn."),
     say("If I were you, I'd ask for help.", "Nếu tôi là bạn, tôi sẽ nhờ người giúp."),
   ],
+  dialogue: dialogue(
+    "Lên kế hoạch đi Vũng Tàu",
+    "Nam và Jack, đồng nghiệp người Úc, bàn chuyến đi Vũng Tàu cuối tuần: nhỡ trời mưa thì sao, đi lúc nào, đi bằng gì. Nói chuyện một lúc, hai người lại mơ mộng chuyện trúng xổ số.",
+    { A: "Jack, đồng nghiệp người Úc", B: "Nam" },
+    A("Are we still going to Vung Tau on Saturday?", "Thứ Bảy mình vẫn đi Vũng Tàu chứ?"),
+    B("Yes, unless it rains. If it rains, we'll go to the cinema instead.", "Có, trừ khi trời mưa. Nếu trời mưa thì mình đi xem phim thay vào đó."),
+    A("Good plan. If we leave at six, we'll miss the traffic.", "Được đấy. Nếu mình đi lúc sáu giờ thì sẽ tránh được tắc đường."),
+    B("Six is too early for me! If I got up at five, I'd be half asleep all day.", "Sáu giờ sớm quá với tôi! Nếu tôi dậy lúc năm giờ thì cả ngày tôi sẽ ngủ gật mất."),
+    A("OK, seven then. Should I take the bus or rent a car?", "Vậy thì bảy giờ. Tôi nên đi xe khách hay thuê ô tô?"),
+    B("If I were you, I'd take the bus. It's cheaper, and you won't need to drive.", "Nếu tôi là anh, tôi sẽ đi xe khách. Rẻ hơn, và anh không cần phải lái."),
+    A("Good advice. I'll book two tickets tonight if you send me the time.", "Lời khuyên hay đấy. Tối nay tôi sẽ đặt hai vé nếu anh gửi tôi giờ xe chạy."),
+    B("Sure. By the way, what would you do if you won the lottery?", "Được. À mà nếu trúng xổ số thì anh sẽ làm gì?"),
+    A("If I won the lottery, I'd buy a house by the sea in Vung Tau!", "Nếu trúng xổ số, tôi sẽ mua một căn nhà sát biển ở Vũng Tàu!"),
+    B("Me too. But right now I can't afford a coffee by the sea!", "Tôi cũng thế. Nhưng bây giờ thì đến cốc cà phê cạnh biển tôi còn chẳng đủ tiền!"),
+    A("Ha! Don't worry. If the weather is nice, I'll buy the coffee.", "Ha! Đừng lo. Nếu trời đẹp, tôi sẽ mời cà phê."),
+    B("Deal. I'll text you the bus time unless I forget!", "Chốt nhé. Tôi sẽ nhắn giờ xe cho anh, trừ khi tôi quên!"),
+  ),
+  task: task({
+    prompt: "Người bạn thân đang phân vân có nên nhận một công việc mới ở thành phố khác. Viết một tin nhắn cho bạn ấy: điều gì sẽ xảy ra nếu bạn ấy nhận hoặc không nhận, và bạn sẽ làm gì nếu bạn là bạn ấy.",
+    hints: [
+      "Dùng câu điều kiện loại 1 (If + hiện tại đơn, will + V) cho điều có thể xảy ra thật.",
+      "Dùng If I were you, I'd… để đưa lời khuyên.",
+      "Thêm một câu loại 2 (If + quá khứ đơn, would + V) về điều bạn tưởng tượng.",
+      "Thêm một câu với unless.",
+    ],
+    model: "Hi Mai, I've thought about your job offer. If you take the job in Saigon, you'll earn a higher salary and you'll learn a lot. Of course, you'll miss your family, but you can fly home every month. If you stay here, nothing will change, and I think you'll feel bored. If I were you, I'd accept the offer. If I had a chance like that, I wouldn't wait! But don't decide unless you feel ready. Call me tonight if you want to talk.",
+    checklist: [
+      "Có ít nhất 2 câu loại 1: If + hiện tại đơn, vế còn lại will / won't + V.",
+      "Không có will trong mệnh đề if.",
+      "Có câu If I were you, I'd… để khuyên.",
+      "Có ít nhất 1 câu loại 2: If + quá khứ đơn, would + V.",
+      "Có 1 câu unless, và sau unless là câu khẳng định.",
+      "Mệnh đề if đứng đầu câu thì có dấu phẩy.",
+    ],
+    minWords: 55,
+  }),
 });
 
 const congViecVaPhongVan = lesson({
@@ -221,7 +347,14 @@ const congViecVaPhongVan = lesson({
       mistake("I'm very interesting in this job.", "I'm very interested in this job.", "Tiếng Việt chỉ có một chữ “thú vị” hay “quan tâm” cho cả người lẫn việc, nên người học không để ý đuôi. Nói về cảm xúc của bản thân thì dùng -ed. Interesting mô tả công việc, không mô tả bạn."),
       mistake("I have experience about sales.", "I have experience in sales.", "Người Việt dịch “kinh nghiệm về bán hàng” nên chọn about. Nói về kinh nghiệm trong một lĩnh vực, dùng experience in."),
       mistake("I graduated university in 2019.", "I graduated from university in 2019.", "Tiếng Việt nói “tốt nghiệp đại học” không cần giới từ, nên người học quên from. Trong tiếng Anh phải nói graduate from + trường."),
-      teacher("Tôi đã ngồi hội đồng tuyển dụng nhiều lần, và điều tôi nhớ nhất là **người được chọn thường không nói hay nhất, mà nói cụ thể nhất**. Các em hãy chuẩn bị sẵn ba câu chuyện ngắn về công việc cũ, mỗi chuyện gồm tình huống, việc mình làm và kết quả. Tập nói to trước gương, bấm giờ không quá một phút. Và trước khi bước vào phòng, nhắc mình một câu: tôi thấy thì -ed, nó gây ra thì -ing."),
+      teacher("Tôi đã ngồi hội đồng tuyển dụng nhiều lần, và điều tôi nhớ nhất là **người được chọn thường không nói hay nhất, mà nói cụ thể nhất**. Các bạn hãy chuẩn bị sẵn ba câu chuyện ngắn về công việc cũ, mỗi chuyện gồm tình huống, việc mình làm và kết quả. Tập nói to trước gương, bấm giờ không quá một phút. Và trước khi bước vào phòng, nhắc mình một câu: tôi thấy thì -ed, nó gây ra thì -ing."),
+      summary(
+        "**-ed** nói cảm xúc của người (I'm bored, I'm interested); **-ing** nói tính chất của việc gây ra cảm xúc (the job is boring).",
+        "Kinh nghiệm tính đến bây giờ: **have / has + V3**; công việc cũ đã kết thúc: **quá khứ đơn** (worked there from 2018 to 2020).",
+        "Nhớ giới từ đi kèm: interested **in**, experience **in**, responsible **for**, apply **for**, graduate **from**, work **as** + nghề.",
+        "Nêu điểm mạnh luôn kèm một ví dụ cụ thể: One of my strengths is that… For example, …",
+        "Đuôi -ed đọc /ɪd/ sau /t/ và /d/ (interested, excited); đừng nuốt âm cuối.",
+      ),
     ],
   },
   words: [
@@ -236,7 +369,7 @@ const congViecVaPhongVan = lesson({
   ],
   exercises: [
     mc("b1-4-1", "The meeting was so long. I was really ___.", ["bored", "boring", "bore"], 0, "Nói về cảm giác của người thì dùng -ed: bored."),
-    mc("b1-4-2", "Why do you want to ___ for this job?", ["join", "apply", "send", "work"], 1, "Ứng tuyển vào một công việc là apply for a job."),
+    mc("b1-4-2", "I ___ as a waiter from 2015 to 2017. Then I became a teacher.", ["have worked", "worked", "work", "am working"], 1, "Công việc cũ đã kết thúc, có mốc thời gian rõ ràng (from 2015 to 2017), nên dùng quá khứ đơn: worked. Have worked chỉ dùng cho kinh nghiệm kéo dài đến bây giờ."),
     fill("b1-4-3", "I'm ___ in working with international customers. (interest)", ["interested"], "Cảm xúc của bản thân: interested in + V-ing."),
     fill("b1-4-4", "The news was very ___. We didn't get the contract. (disappoint)", ["disappointing"], "Tin tức là sự việc gây ra cảm xúc nên dùng -ing."),
     reorder("b1-4-5", "I have never worked in a bank.", "Hiện tại hoàn thành với never: nói về kinh nghiệm (chưa từng làm) tính đến bây giờ. Never đứng giữa have và V3."),
@@ -249,6 +382,43 @@ const congViecVaPhongVan = lesson({
     say("I'm really interested in this position.", "Tôi thực sự quan tâm đến vị trí này."),
     say("One of my strengths is that I stay calm under pressure.", "Một trong những điểm mạnh của tôi là giữ được bình tĩnh khi chịu áp lực."),
   ],
+  dialogue: dialogue(
+    "Buổi phỏng vấn xin việc",
+    "Tuấn phỏng vấn vào vị trí chăm sóc khách hàng ở một công ty nước ngoài. Bà Brown, trưởng phòng nhân sự, hỏi về kinh nghiệm, lý do ứng tuyển và điểm mạnh của anh.",
+    { A: "Bà Brown, người phỏng vấn", B: "Tuấn, ứng viên" },
+    A("Good morning, Tuan. Please tell me about yourself.", "Chào anh Tuấn. Anh hãy giới thiệu về bản thân nhé."),
+    B("Good morning. I graduated from university five years ago, and I've worked in customer service for four years.", "Chào bà. Tôi tốt nghiệp đại học cách đây năm năm, và tôi làm dịch vụ khách hàng được bốn năm rồi."),
+    A("And what did you do before that?", "Thế trước đó anh làm gì?"),
+    B("I worked as a receptionist at a hotel for one year. It was tiring, but I learnt a lot.", "Tôi làm lễ tân ở một khách sạn một năm. Công việc khá mệt, nhưng tôi học được rất nhiều."),
+    A("Why are you interested in this position?", "Vì sao anh quan tâm đến vị trí này?"),
+    B("I'm really interested in working with international customers, and your projects are very exciting.", "Tôi thực sự thích làm việc với khách hàng quốc tế, và các dự án của công ty rất thú vị."),
+    A("What are your main strengths?", "Điểm mạnh chính của anh là gì?"),
+    B("One of my strengths is that I stay calm under pressure. For example, last month a customer was very angry, and I solved his problem in ten minutes.", "Một trong những điểm mạnh của tôi là giữ được bình tĩnh khi chịu áp lực. Ví dụ, tháng trước có một khách hàng rất tức giận, và tôi đã giải quyết vấn đề của anh ấy trong mười phút."),
+    A("That's impressive. Have you ever been responsible for a team?", "Rất ấn tượng. Anh đã bao giờ phụ trách một nhóm chưa?"),
+    B("Yes. I've been responsible for a team of five people since last year.", "Có. Từ năm ngoái đến giờ tôi phụ trách một nhóm năm người."),
+    A("Is there anything that worries you about this job?", "Có điều gì ở công việc này khiến anh lo lắng không?"),
+    B("I'm a little worried about the long hours, but I'm excited about the challenge.", "Tôi hơi lo về giờ làm dài, nhưng tôi rất hào hứng với thử thách này."),
+    A("Thank you, Tuan. It was an interesting interview. We'll call you next week.", "Cảm ơn anh Tuấn. Buổi phỏng vấn rất thú vị. Tuần sau chúng tôi sẽ gọi cho anh."),
+    B("Thank you very much. I'll wait for your call.", "Cảm ơn bà rất nhiều. Tôi sẽ chờ điện thoại của bà."),
+  ),
+  task: task({
+    prompt: "Viết câu trả lời của bạn cho yêu cầu phỏng vấn: “Tell me about yourself and your strengths.” Nói về học vấn, công việc cũ, kinh nghiệm hiện tại, lý do bạn quan tâm đến vị trí và một điểm mạnh.",
+    hints: [
+      "Kinh nghiệm đến bây giờ dùng have / has + V3; công việc cũ đã kết thúc dùng quá khứ đơn.",
+      "Dùng đúng ít nhất hai tính từ -ed / -ing: cảm xúc của bạn là -ed, công việc là -ing.",
+      "Nêu một điểm mạnh kèm một ví dụ cụ thể: One of my strengths is that… For example, …",
+      "Nhớ giới từ: graduated from, interested in, responsible for, work as.",
+    ],
+    model: "I graduated from Hue University in 2018 with a degree in business. I worked as a sales assistant at a supermarket from 2018 to 2020. The job was tiring, but it taught me how to talk to customers. Since 2020, I've worked as a sales executive at an electronics company, and I've been responsible for ten big customers. I'm very interested in this position because I want to work with international clients. One of my strengths is that I stay calm under pressure. For example, last year a delivery was late, and I solved the problem before the customer got angry. I'm really excited about this opportunity.",
+    checklist: [
+      "Có ít nhất 1 câu have / has + V3 cho kinh nghiệm đến bây giờ và 1 câu quá khứ đơn cho công việc cũ.",
+      "Dùng -ed cho cảm xúc của bạn (interested, excited) và -ing cho công việc hoặc sự việc (tiring, interesting).",
+      "Có câu One of my strengths is that… kèm một ví dụ cụ thể.",
+      "Đúng giới từ: graduated from, interested in, responsible for, work as.",
+      "Không có câu I'm interesting hay I'm boring khi muốn nói về cảm xúc của mình.",
+    ],
+    minWords: 60,
+  }),
 });
 
 const bayToYKien = lesson({
@@ -282,7 +452,14 @@ const bayToYKien = lesson({
       mistake("Although it was raining, but we went out.", "Although it was raining, we went out.", "Tiếng Việt nói “mặc dù… nhưng…”, còn tiếng Anh chỉ dùng một trong hai: although hoặc but."),
       mistake("I am agree with you.", "I agree with you.", "Người Việt quen khuôn “Tôi là…” = I am…, và dịch “tôi đồng ý” như một trạng thái. Nhưng agree là động từ, không cần thêm am."),
       mistake("You're wrong.", "I'm not sure that's right.", "Câu đúng ngữ pháp nhưng quá thẳng, trong công việc nghe như đang gây gổ. Giữa bạn bè thân nói thẳng thì không sao, nhưng nơi công sở, người nói tiếng Anh gần như luôn làm mềm lời phản đối."),
-      teacher("Học trò hay hỏi tôi: “Thầy ơi, phản đối sếp có sao không?” Tôi luôn trả lời: **phản đối không sao, cách phản đối mới quan trọng**. Công thức tôi dạy suốt mấy chục năm chỉ có ba bước: công nhận ý người kia, nói ý mình, đưa một lý do. Các em hãy thuộc lòng ba câu I see your point, but…, I'm not so sure… và In my opinion…, rồi mỗi ngày dùng thử một lần, kể cả khi bàn chuyện ăn trưa."),
+      teacher("Nhiều bạn hay hỏi tôi: “Phản đối sếp có sao không?” Tôi luôn trả lời: **phản đối không sao, cách phản đối mới quan trọng**. Công thức tôi dạy suốt mấy chục năm chỉ có ba bước: công nhận ý người kia, nói ý mình, đưa một lý do. Các bạn hãy thuộc lòng ba câu I see your point, but…, I'm not so sure… và In my opinion…, rồi mỗi ngày dùng thử một lần, kể cả khi bàn chuyện ăn trưa."),
+      summary(
+        "Nêu ý kiến: **I think… / In my opinion… / As far as I'm concerned…**",
+        "Phản đối lịch sự theo ba bước: công nhận ý người kia, nói ý mình, đưa lý do: **I see your point, but…**",
+        "**Agree** là động từ: I agree with you, không nói I am agree.",
+        "**Although** nối hai vế trong một câu và không đi kèm but; **however** đứng đầu câu mới, có dấu phẩy theo sau.",
+        "Nói **I don't think it works**, tự nhiên và mềm hơn I think it doesn't work.",
+      ),
     ],
   },
   words: [
@@ -309,6 +486,42 @@ const bayToYKien = lesson({
     say("I see your point, but I don't completely agree.", "Tôi hiểu ý bạn, nhưng tôi không hoàn toàn đồng ý."),
     say("Although it's difficult, I really enjoy learning English.", "Mặc dù khó, tôi thực sự thích học tiếng Anh."),
   ],
+  dialogue: dialogue(
+    "Có nên làm việc tại nhà ngày thứ Sáu?",
+    "Trong cuộc họp nhóm, anh David, trưởng nhóm người nước ngoài, hỏi ý kiến Hương về kế hoạch cho cả nhóm làm việc tại nhà mỗi thứ Sáu. Hương đồng ý một phần và phản đối lịch sự một phần.",
+    { A: "David, trưởng nhóm", B: "Hương, nhân viên" },
+    A("We're thinking about working from home every Friday. What do you think, Huong?", "Chúng ta đang tính làm việc tại nhà mỗi thứ Sáu. Hương thấy thế nào?"),
+    B("In my opinion, it's a great idea because we'll save a lot of time on the road.", "Theo tôi, đó là ý rất hay vì chúng ta sẽ đỡ mất nhiều thời gian đi đường."),
+    A("I agree. However, some people say they feel lonely at home.", "Tôi đồng ý. Tuy nhiên, một số người nói họ thấy cô đơn khi ở nhà."),
+    B("I see your point, but it's only one day a week.", "Tôi hiểu ý anh, nhưng mỗi tuần chỉ có một ngày thôi."),
+    A("That's true. What about meetings with customers?", "Đúng vậy. Thế còn các cuộc họp với khách hàng thì sao?"),
+    B("I'm not so sure about that. Although online meetings are convenient, some customers prefer to meet face to face.", "Chuyện đó thì tôi không chắc lắm. Mặc dù họp trực tuyến tiện lợi, một số khách hàng vẫn thích gặp trực tiếp."),
+    A("So what do you suggest?", "Vậy Hương đề xuất thế nào?"),
+    B("As far as I'm concerned, we can meet customers on Thursday and work from home on Friday.", "Theo tôi thấy, mình có thể gặp khách vào thứ Năm và làm việc tại nhà vào thứ Sáu."),
+    A("That's a strong argument. Are there any disadvantages?", "Lập luận thuyết phục đấy. Có bất lợi nào không?"),
+    B("The main disadvantage is the internet. Some of us don't have a good connection at home.", "Bất lợi chính là mạng internet. Một số người trong nhóm không có mạng tốt ở nhà."),
+    A("Good point. I don't think it's a big problem. The company can help with that.", "Ý hay. Tôi không nghĩ đó là vấn đề lớn. Công ty có thể hỗ trợ chuyện đó."),
+    B("Then I completely agree with the plan.", "Vậy thì tôi hoàn toàn đồng ý với kế hoạch này."),
+  ),
+  task: task({
+    prompt: "Công ty bạn đề xuất rút ngắn giờ nghỉ trưa từ chín mươi phút xuống ba mươi phút để mọi người được về sớm hơn một tiếng. Viết một đoạn nêu ý kiến gửi cả nhóm: bạn đồng ý hay phản đối, vì sao, và phản hồi lịch sự một ý kiến ngược lại.",
+    hints: [
+      "Mở đầu bằng In my opinion hoặc As far as I'm concerned để nêu rõ quan điểm.",
+      "Đưa ít nhất hai lý do với because.",
+      "Công nhận ý ngược lại trước khi phản đối: I see their point, but…",
+      "Dùng although trong một câu và however ở đầu một câu mới.",
+    ],
+    model: "In my opinion, a shorter lunch break is a good idea because we can go home one hour earlier and avoid the traffic. I also think it is good for our families because we will have more time together in the evening. However, some colleagues like a long break, and they say they need a nap after lunch. I see their point, but I don't think a nap is more important than a free evening. Although a short lunch can be tiring at first, we can take two small breaks in the afternoon. As far as I'm concerned, we should try it for one month and then decide together.",
+    checklist: [
+      "Câu đầu nêu rõ quan điểm bằng In my opinion, I think hoặc As far as I'm concerned.",
+      "Có ít nhất 2 lý do với because.",
+      "Có 1 câu công nhận ý ngược lại rồi mới phản đối (I see their point, but…).",
+      "Dùng although mà không có but trong cùng câu.",
+      "Có 1 câu however đứng đầu câu mới, có dấu phẩy theo sau.",
+      "Không có câu I am agree hay You're wrong.",
+    ],
+    minWords: 60,
+  }),
 });
 
 const tinTucVaSuViec = lesson({
@@ -338,10 +551,18 @@ const tinTucVaSuViec = lesson({
       ex("When was this temple built?", "Ngôi chùa này được xây khi nào?", "Câu hỏi bị động: từ để hỏi + was / were + chủ ngữ + V3."),
       tip("Nhiều người Việt nghĩ câu bị động chỉ dùng cho chuyện xấu vì chữ “bị”. Thực ra câu bị động **trung tính**: “được khen” và “bị phạt” đều là bị động trong tiếng Anh."),
       tip("Câu bị động cần V3, nên hãy ôn kỹ những động từ bất quy tắc hay gặp trong tin tức: **build, built, built**; **write, wrote, written**; **sell, sold, sold**; **take, took, taken**. Khi đọc to, nhớ bật âm cuối của V3 như built, sold, damaged."),
+      p("Mẹo đọc tin nhanh: **tiêu đề báo** thường bỏ be và mạo từ cho gọn. “Bridge opened in Da Nang” nghĩa là The bridge was opened in Da Nang; “Three injured in crash” nghĩa là Three people were injured in a crash. Khi đọc hoặc nghe một bản tin, hãy tìm năm ý chính: **what** (chuyện gì), **who** (ai), **where** (ở đâu), **when** (khi nào), **why** (vì sao). Nắm được năm ý này là bạn đã hiểu phần chính của bản tin, dù còn vài từ chưa biết."),
       mistake("The thief was arrest yesterday.", "The thief was arrested yesterday.", "Tiếng Việt động từ không đổi dạng, “bị bắt” vẫn là “bắt”, nên người học quên thêm -ed. Sau was / were phải là V3 (arrested), không dùng động từ nguyên mẫu."),
       mistake("The accident was happened at night.", "The accident happened at night.", "Người học thấy tai nạn là chuyện “không ai muốn”, giống như bị làm gì đó, nên thêm was. Nhưng happen là nội động từ, không có tân ngữ, nên không bao giờ dùng ở dạng bị động."),
       mistake("This house built in 1990.", "This house was built in 1990.", "Tiếng Việt nói “Ngôi nhà này xây năm 1990” mà không cần chữ “được”, nên người học bỏ luôn be. Tiếng Anh bắt buộc phải có was / were trước V3."),
-      teacher("Có một bài tập tôi giao cho học trò suốt mấy chục năm và chưa bao giờ thấy thừa: **mỗi sáng đọc một mẩu tin tiếng Anh ngắn, gạch chân mọi cụm be + V3**, rồi tự hỏi “Ai làm việc này, và vì sao bài báo không nói ra?” Làm vậy một tuần, các em sẽ thấy câu bị động không còn là công thức trong sách, mà là cách người bản xứ kể chuyện hằng ngày."),
+      teacher("Có một bài tập tôi giao cho học viên suốt mấy chục năm và chưa bao giờ thấy thừa: **mỗi sáng đọc một mẩu tin tiếng Anh ngắn, gạch chân mọi cụm be + V3**, rồi tự hỏi “Ai làm việc này, và vì sao bài báo không nói ra?” Làm vậy một tuần, các bạn sẽ thấy câu bị động không còn là công thức trong sách, mà là cách người bản xứ kể chuyện hằng ngày."),
+      summary(
+        "Câu bị động: **be + V3**. Hiện tại đơn: am / is / are + V3; quá khứ đơn: was / were + V3.",
+        "Dùng bị động khi **sự việc quan trọng hơn người làm**; chỉ thêm **by** khi người làm là thông tin đáng chú ý.",
+        "Sau be luôn là V3 (was arrested), và không được bỏ be (This house was built in 1990).",
+        "**Happen** không có dạng bị động: The accident happened, không nói was happened.",
+        "Bị động là trung tính: cả “được” và “bị” trong tiếng Việt đều là be + V3.",
+      ),
     ],
   },
   words: [
@@ -369,6 +590,42 @@ const tinTucVaSuViec = lesson({
     say("The old market was rebuilt last year.", "Khu chợ cũ đã được xây lại vào năm ngoái."),
     say("Luckily, nobody was injured in the fire.", "May mắn là không ai bị thương trong vụ cháy."),
   ],
+  dialogue: dialogue(
+    "Bàn tin tức buổi sáng",
+    "Giờ ăn sáng ở căng tin công ty, Minh và Sarah, đồng nghiệp người Anh, bàn về những tin tức vừa đọc: trận lũ ở miền Trung, cây cầu mới ở Đà Nẵng và một vụ trộm.",
+    { A: "Minh", B: "Sarah, đồng nghiệp người Anh" },
+    A("Did you see the news this morning? Hundreds of homes were damaged by the flood in Quang Binh.", "Chị đọc tin sáng nay chưa? Hàng trăm ngôi nhà bị lũ làm hư hại ở Quảng Bình."),
+    B("Yes, I read about it. Was anyone injured?", "Rồi, tôi có đọc. Có ai bị thương không?"),
+    A("Luckily, nobody was injured. Many families were moved to a school nearby.", "May mắn là không ai bị thương. Nhiều gia đình được chuyển đến một trường học gần đó."),
+    B("That's good news. Were the roads closed?", "Thế thì tốt quá. Đường có bị đóng không?"),
+    A("Yes, two main roads were closed, and some flights were cancelled.", "Có, hai tuyến đường chính bị đóng, và một số chuyến bay bị hủy."),
+    B("I also read that a new bridge was opened in Da Nang last Sunday.", "Tôi còn đọc thấy một cây cầu mới được khánh thành ở Đà Nẵng hôm Chủ nhật tuần trước."),
+    A("Right. It was built by a Vietnamese company in only two years.", "Đúng rồi. Cầu do một công ty Việt Nam xây chỉ trong hai năm."),
+    B("Impressive! And what about the robbery at the jewellery shop? Was the thief arrested?", "Ấn tượng thật! Còn vụ trộm ở tiệm vàng thì sao? Tên trộm bị bắt chưa?"),
+    A("Yes, he was arrested yesterday. The story was reported by a local journalist.", "Rồi, hắn bị bắt hôm qua. Chuyện này do một nhà báo địa phương đưa tin."),
+    B("You read a lot of news in English, Minh. Is it difficult?", "Minh đọc nhiều tin bằng tiếng Anh nhỉ. Có khó không?"),
+    A("Sometimes. A lot of sentences in the news are written in the passive, so it's good practice for me.", "Đôi khi. Rất nhiều câu trong bản tin được viết ở dạng bị động, nên đọc tin là cách luyện rất tốt cho tôi."),
+    B("Good idea. Send me a story every morning, and I'll help you with the difficult words.", "Ý hay. Mỗi sáng anh gửi tôi một bản tin, tôi sẽ giúp anh những từ khó."),
+  ),
+  task: task({
+    prompt: "Viết một bản tin ngắn về một sự việc có thật hoặc tưởng tượng ở nơi bạn sống: một trận bão, một khu chợ hay cây cầu mới, một vụ trộm… Viết như một nhà báo: sự việc quan trọng hơn người làm.",
+    hints: [
+      "Trả lời đủ các ý what, where, when, và nếu có thể thì who, why.",
+      "Dùng was / were + V3 cho sự việc đã xảy ra, is / are + V3 cho sự thật ở hiện tại.",
+      "Chỉ thêm by khi người làm là thông tin quan trọng.",
+      "Happen luôn ở dạng chủ động.",
+    ],
+    model: "A new market was opened in Hoi An last Saturday. It was built by a local company in eighteen months, and it cost about fifty billion dong. More than two hundred stalls are rented to local sellers, and fresh food is brought from nearby farms every morning. The opening ceremony was attended by thousands of people. Unfortunately, a small accident happened in the car park, but nobody was injured. The market is open every day from early morning until late evening.",
+    checklist: [
+      "Có ít nhất 3 câu was / were + V3 cho sự việc đã xảy ra.",
+      "Có ít nhất 1 câu is / are + V3 ở hiện tại đơn.",
+      "Sau be luôn là V3, không có câu kiểu was arrest hay was build.",
+      "Không viết happen ở dạng bị động.",
+      "By chỉ xuất hiện khi người làm là thông tin đáng chú ý.",
+      "Bản tin trả lời được what, where và when.",
+    ],
+    minWords: 50,
+  }),
 });
 
 export const tiengAnhB1: Course = {

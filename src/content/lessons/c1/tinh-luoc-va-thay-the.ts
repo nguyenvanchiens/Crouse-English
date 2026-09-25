@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "tinh-luoc-va-thay-the",
@@ -16,7 +16,7 @@ export default lesson({
         ["guess", "I guess so.", "I guess not.", "(thân mật, hay gặp ở Mỹ)"],
       ),
       ex("Is the director coming to the dinner? — I'm afraid not. She's still in Singapore.", "Giám đốc có đến bữa tối không? — Tiếc là không. Bà ấy vẫn đang ở Singapore.", "I'm afraid not là cách lịch sự để báo một tin không vui, không phải là “tôi sợ”."),
-      mistake("Will it rain tomorrow? — I don't hope so.", "Will it rain tomorrow? — I hope not.", "Tiếng Việt nói “tôi không mong vậy”, nên học trò dịch thẳng thành I don't hope so. Với hope và be afraid, tiếng Anh chỉ đặt not ở cuối: I hope not, I'm afraid not."),
+      mistake("Will it rain tomorrow? — I don't hope so.", "Will it rain tomorrow? — I hope not.", "Tiếng Việt nói “tôi không mong vậy”, nên học viên dịch thẳng thành I don't hope so. Với hope và be afraid, tiếng Anh chỉ đặt not ở cuối: I hope not, I'm afraid not."),
       p("Kỹ thuật thứ hai: **do so** thay cho cả một cụm động từ, hay gặp trong văn viết trang trọng, email công việc và báo cáo. Còn **one / ones** thay cho một danh từ đếm được đã nhắc trước đó."),
       ex("The board asked all departments to cut costs, and most of them did so within a month.", "Hội đồng quản trị yêu cầu mọi phòng ban cắt giảm chi phí, và phần lớn đã làm vậy trong vòng một tháng.", "Did so thay cho cut costs. Trong văn nói, người ta thường chỉ nói did."),
       ex("These chairs are too low. Have you got any higher ones?", "Mấy chiếc ghế này thấp quá. Anh có chiếc nào cao hơn không?", "Ones thay cho chairs. Đây chính là chữ “cái, chiếc” của tiếng Việt: cái màu xanh là the blue one."),
@@ -33,8 +33,14 @@ export default lesson({
       p("Kỹ thuật thứ tư: **tỉnh lược sau trợ động từ**. Khi động từ chính đã rõ, người bản xứ dừng ở trợ động từ, hoặc ở **to** nếu là động từ nguyên mẫu có to."),
       ex("I haven't finished the report yet, but Minh has.", "Tôi chưa làm xong báo cáo, nhưng Minh thì xong rồi.", "Has thay cho has finished the report."),
       ex("Would you like to join us for lunch? — I'd love to.", "Anh có muốn ăn trưa cùng chúng tôi không? — Tôi rất muốn.", "Giữ lại to, không nói I'd love. Chữ to là dấu hiệu cho người nghe biết có động từ bị lược đi."),
-      mistake("Have you sent the invoice? — Yes, I sent.", "Have you sent the invoice? — Yes, I have.", "Tiếng Việt trả lời “Rồi, tôi gửi rồi”, nên học trò giữ động từ và bỏ trợ động từ. Tiếng Anh làm ngược lại: giữ trợ động từ, bỏ động từ chính."),
-      teacher("Sau năm mươi năm đứng lớp, tôi thấy học trò giỏi ngữ pháp thường nói **quá đủ**, vì sợ thiếu là sai. Thầy dặn: mỗi khi định lặp lại nguyên cụm từ người kia vừa nói, hãy dừng lại và tự hỏi **“Mình có thể dừng ở trợ động từ không?”**. Mỗi tối, lấy năm câu hỏi Yes/No trong ngày và tập trả lời chỉ bằng trợ động từ: Yes, I have. No, she didn't. I hope so. Làm đủ hai tuần, miệng các em sẽ tự gọn lại."),
+      mistake("Have you sent the invoice? — Yes, I sent.", "Have you sent the invoice? — Yes, I have.", "Tiếng Việt trả lời “Rồi, tôi gửi rồi”, nên học viên giữ động từ và bỏ trợ động từ. Tiếng Anh làm ngược lại: giữ trợ động từ, bỏ động từ chính."),
+      teacher("Sau nhiều năm đứng lớp, tôi thấy học viên giỏi ngữ pháp thường nói **quá đủ**, vì sợ thiếu là sai. Tôi dặn: mỗi khi định lặp lại nguyên cụm từ người kia vừa nói, hãy dừng lại và tự hỏi **“Mình có thể dừng ở trợ động từ không?”**. Mỗi tối, lấy năm câu hỏi Yes/No trong ngày và tập trả lời chỉ bằng trợ động từ: Yes, I have. No, she didn't. I hope so. Làm đủ hai tuần, miệng các bạn sẽ tự gọn lại."),
+      summary(
+        "**So / not** thay cho cả mệnh đề sau think, hope, expect, believe, be afraid: I hope not, I'm afraid so. Không nói I don't hope so.",
+        "**Do so** thay cho cả cụm động từ (hợp văn trang trọng); **one / ones** thay danh từ đếm được. Danh từ không đếm được thì chỉ cần bỏ đi.",
+        "Đồng tình: **So + trợ động từ + chủ ngữ** với câu khẳng định, **Neither/Nor + trợ động từ + chủ ngữ** với câu phủ định; trợ động từ khớp thì của câu trước.",
+        "Câu trả lời ngắn: **giữ trợ động từ, bỏ động từ chính** (Yes, I have; Minh can). Với động từ nguyên mẫu, giữ lại **to** (I'd love to).",
+      ),
     ],
   },
   words: [
@@ -62,4 +68,41 @@ export default lesson({
     say("I haven't finished yet, but Minh has.", "Tôi chưa xong, nhưng Minh thì xong rồi."),
     say("I don't eat spicy food, and neither does my wife.", "Tôi không ăn cay, và vợ tôi cũng vậy."),
   ],
+  dialogue: dialogue(
+    "Giờ nghỉ giải lao ở hội nghị quốc tế",
+    "Tuấn, nhà nghiên cứu năng lượng người Việt, gặp tiến sĩ Tan, đại biểu Singapore, trong giờ nghỉ uống cà phê ở một diễn đàn năng lượng tại Bangkok. Cuộc trò chuyện xã giao dần chuyển thành lời mời hợp tác. Để ý cách cả hai trả lời gọn mà không lặp lại câu hỏi.",
+    { A: "Tiến sĩ Tan (đại biểu Singapore)", B: "Tuấn (nhà nghiên cứu)" },
+    A("Have you been to the Asia Energy Forum before?", "Anh đã từng dự Diễn đàn Năng lượng châu Á chưa?"),
+    B("Yes, I have. I came two years ago. My colleague hasn't, though, so I'm showing her around.", "Rồi, tôi đến đây hai năm trước. Nhưng đồng nghiệp tôi thì chưa, nên tôi đang dẫn cô ấy đi xem."),
+    A("Lovely. Will you be presenting tomorrow?", "Hay quá. Ngày mai anh có trình bày không?"),
+    B("I hope so. The organisers asked me to shorten my talk, and I've done so, but they haven't confirmed my slot yet.", "Tôi hy vọng vậy. Ban tổ chức yêu cầu tôi rút ngắn bài nói, tôi đã làm vậy, nhưng họ chưa xác nhận khung giờ cho tôi."),
+    A("I heard the keynote speaker's flight was cancelled. Is that true?", "Tôi nghe nói chuyến bay của diễn giả chính bị hủy. Có đúng vậy không?"),
+    B("I'm afraid so. She'll be joining online instead.", "Tiếc là đúng vậy. Thay vào đó bà ấy sẽ tham gia trực tuyến."),
+    A("What a shame. I don't really enjoy online keynotes.", "Tiếc thật. Tôi không thích lắm những bài phát biểu chính qua mạng."),
+    B("Neither do I. The energy in the room just isn't the same.", "Tôi cũng vậy. Không khí trong hội trường không thể giống được."),
+    A("By the way, I've read your paper on solar storage.", "Nhân tiện, tôi đã đọc bài báo của anh về lưu trữ năng lượng mặt trời."),
+    B("Have you? I'm flattered. Most people only read the abstract.", "Thật ạ? Tôi thấy vinh dự quá. Đa số chỉ đọc phần tóm tắt thôi."),
+    A("I'd like to discuss a possible collaboration. Would you be interested?", "Tôi muốn bàn về khả năng hợp tác. Anh có quan tâm không?"),
+    B("I'd love to. Do you have a business card? My printed ones are gone, but I've got a digital one.", "Rất sẵn lòng. Chị có danh thiếp không? Danh thiếp in của tôi hết rồi, nhưng tôi có một cái bản điện tử."),
+    A("Here you are. Shall we talk over breakfast tomorrow, if you're free?", "Của anh đây. Sáng mai mình nói chuyện trong bữa sáng nhé, nếu anh rảnh?"),
+    B("I think so. Let me check my schedule and message you tonight.", "Tôi nghĩ là được. Để tôi xem lại lịch rồi tối nay nhắn chị."),
+  ),
+  task: task({
+    prompt: "Đối tác nước ngoài gửi email hỏi bốn việc: đã nhận hợp đồng đã ký chưa; bạn có dự được cuộc họp thứ Năm không; mẫu sản phẩm gửi sang có ổn không; phòng kỹ thuật có đồng ý tiến độ mới không. Hãy viết email trả lời gọn gàng, lịch sự, không chép lại nguyên văn câu hỏi.",
+    hints: [
+      "Trả lời có/không bằng trợ động từ hoặc so/not: we have, I'm afraid not, my deputy can, I believe so.",
+      "Dùng one/ones để khỏi lặp lại danh từ chỉ mẫu sản phẩm.",
+      "Dùng do so cho một hành động vừa nhắc đến, hợp văn phong email trang trọng.",
+    ],
+    model:
+      "Dear Ms Walker, thank you for your email. Yes, we have received the signed contract, and our legal team has already reviewed it. As for Thursday's meeting, I'm afraid I can't attend in person, but my deputy, Mr Long, can. Regarding the product samples, the grey ones arrived in perfect condition, whereas the blue ones were slightly damaged in transit. Could you possibly send us two new ones? Finally, you asked whether our engineers accept the revised timeline. I believe so. They would prefer to confirm it in writing, and they will do so by Friday. Kind regards, Hoa",
+    checklist: [
+      "Có ít nhất một câu dùng so hoặc not thay cho cả mệnh đề (I believe so, I'm afraid not)",
+      "Có ít nhất một câu dừng ở trợ động từ (Mr Long can, we have)",
+      "Dùng one/ones đúng với danh từ đếm được",
+      "Có do so thay cho một cụm động từ đã nhắc",
+      "Không có câu nào lặp lại nguyên văn câu hỏi của đối tác",
+    ],
+    minWords: 80,
+  }),
 });

@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "cau-hoi-gian-tiep",
@@ -28,12 +28,27 @@ export default lesson({
       ex("Could you tell me how much this jacket costs?", "Anh có thể cho tôi biết cái áo khoác này giá bao nhiêu không?", "Câu trực tiếp là How much does this jacket cost? Khi gián tiếp, does biến mất và cost thêm -s."),
       ex("Do you know if Mr Minh is in the office today?", "Chị có biết hôm nay anh Minh có ở văn phòng không?"),
       ex("I wonder whether they still have tickets for tonight.", "Không biết họ còn vé cho tối nay không nhỉ.", "Câu bắt đầu bằng I wonder là câu kể, nên kết thúc bằng dấu chấm, không phải dấu hỏi."),
-      ex("Would you mind telling me where you bought it?", "Bạn có phiền cho tôi biết bạn mua nó ở đâu không?"),
+      ex("Hello, I have a reservation under the name Nguyen. Could you tell me what time breakfast starts?", "Xin chào, tôi có đặt phòng tên Nguyễn. Anh có thể cho tôi biết mấy giờ bắt đầu bữa sáng không?", "Tình huống nhận phòng khách sạn. Câu trực tiếp là What time does breakfast start? Khi gián tiếp, bỏ does và thêm -s: starts."),
+      p("Khi **kể lại** lời người khác (thuật lại cho sếp, cho người nhà), ta dùng **câu tường thuật**: said (that)… cho câu kể, asked (me) + từ để hỏi hoặc if… cho câu hỏi. Phần sau vẫn theo **trật tự câu kể** giống hệt câu hỏi gián tiếp. Vì said, asked ở quá khứ, động từ phía sau thường **lùi một thì**: hiện tại thành quá khứ, will thành would."),
+      table(
+        ["Lời nói trực tiếp", "Kể lại"],
+        ["“I'm tired.”", "She said (that) she was tired."],
+        ["“We'll call you tomorrow.”", "They said they would call me the next day."],
+        ["“Where do you live?”", "He asked me where I lived."],
+        ["“Is the museum open?”", "I asked if the museum was open."],
+      ),
       mistake("Could you tell me where is the bank?", "Could you tell me where the bank is?", "Người Việt quen đảo is lên trước theo câu hỏi thường. Nhưng sau Could you tell me, phần sau là câu kể: the bank + is. Tiếng Việt không đảo trật tự khi hỏi nên ta dễ học vẹt công thức đảo rồi dùng mọi chỗ."),
       mistake("Do you know what time does the train leave?", "Do you know what time the train leaves?", "Đã có Do ở cụm mở đầu thì phần sau không được có does nữa. Bỏ does và nhớ trả lại đuôi -s cho động từ: leaves."),
       mistake("Can you tell me is the shop open?", "Can you tell me if the shop is open?", "Tiếng Việt nói “cho tôi hỏi cửa hàng có mở không” mà không cần từ nối. Tiếng Anh bắt buộc có if hoặc whether cho câu hỏi Có / Không."),
       tip("Nhìn cụm mở đầu để chọn dấu câu: **Could you tell me…? / Do you know…?** là câu hỏi, nên có dấu hỏi. **I wonder… / I'd like to know…** là câu kể, nên kết thúc bằng dấu chấm. Khi nói, hãy **lên giọng nhẹ ở cuối** câu Could you tell me… để nghe mềm mại."),
-      teacher("Sau 50 năm dạy, tôi thấy học trò giỏi ngữ pháp vẫn nói “Could you tell me where is…” vì miệng chạy nhanh hơn đầu. Cách chữa của tôi rất đơn giản: **nói câu kể trước trong đầu**, “the bank is”, rồi mới gắn cụm Could you tell me where vào phía trước. Mỗi ngày, các em lấy năm câu hỏi thường gặp, đi chợ, đi ngân hàng, hỏi đường, rồi tự đổi sang câu gián tiếp và đọc to. Một tuần là quen miệng."),
+      teacher("Sau nhiều năm dạy, tôi thấy cả những người giỏi ngữ pháp vẫn nói “Could you tell me where is…” vì miệng chạy nhanh hơn đầu. Cách chữa của tôi rất đơn giản: **nói câu kể trước trong đầu**, “the bank is”, rồi mới gắn cụm Could you tell me where vào phía trước. Mỗi ngày, các bạn lấy năm câu hỏi thường gặp, đi chợ, đi ngân hàng, hỏi đường, rồi tự đổi sang câu gián tiếp và đọc to. Một tuần là quen miệng."),
+      summary(
+        "Could you tell me / Do you know + từ để hỏi + chủ ngữ + động từ: Could you tell me where the bank is?",
+        "Phần câu hỏi phía sau không đảo ngữ, bỏ do / does / did và chia lại động từ (leaves, called).",
+        "Câu hỏi Có / Không: thêm if hoặc whether.",
+        "Could you tell me…, Do you know… kết thúc bằng dấu hỏi; I wonder…, I'd like to know… kết thúc bằng dấu chấm.",
+        "Kể lại lời người khác: said (that) / asked + trật tự câu kể, động từ lùi một thì.",
+      ),
     ],
   },
   words: [
@@ -52,7 +67,7 @@ export default lesson({
     fill("b1-n11-3", "Do you know what time the train ___? (leave)", ["leaves"], "Câu trực tiếp là What time does the train leave? Khi gián tiếp, bỏ does và trả đuôi -s cho động từ: leaves."),
     fill("b1-n11-4", "I wonder ___ she will come to the party. (liệu… có… không)", ["if", "whether"], "Hỏi Có / Không một cách gián tiếp: if hoặc whether đều đúng."),
     reorder("b1-n11-5", "Could you tell me where the bank is?", "Cụm mở đầu Could you tell me + where + câu kể the bank is. Không đảo is lên trước the bank."),
-    reorder("b1-n11-6", "I wonder why the bus is late.", "I wonder là câu kể nên sau why giữ trật tự chủ ngữ + động từ, và kết thúc bằng dấu chấm."),
+    reorder("b1-n11-6", "She asked me where I lived.", "Câu tường thuật: asked me + where + trật tự câu kể (I lived). Không đảo thành where did I live, và live lùi về quá khứ lived."),
     listen("b1-n11-7", "Do you know if the museum is open on Mondays?", ["Bảo tàng đóng cửa vào thứ Hai phải không?", "Bạn có biết bảo tàng có mở cửa vào thứ Hai không?", "Bạn có biết bảo tàng ở đâu không?", "Thứ Hai này chúng ta đi bảo tàng nhé?"], 1, "Do you know if…: bạn có biết liệu… có… không."),
     listen("b1-n11-8", "Would you mind telling me how much this costs?", ["Bạn có phiền cho tôi biết cái này giá bao nhiêu không?", "Bạn có muốn mua cái này không?", "Cái này đắt quá, bạn có thể giảm giá không?"], 0, "Would you mind telling me… là cách hỏi rất lịch sự, hợp khi hỏi giá hoặc hỏi thông tin riêng."),
   ],
@@ -61,4 +76,38 @@ export default lesson({
     say("Do you know if this train goes to Hai Phong?", "Bạn có biết chuyến tàu này có đi Hải Phòng không?"),
     say("I wonder whether they have a table for two.", "Không biết họ còn bàn cho hai người không nhỉ."),
   ],
+  dialogue: dialogue(
+    "Hỏi thông tin ở quầy lễ tân",
+    "Chị Hương vừa nhận phòng ở một khách sạn tại Singapore và hỏi nhân viên lễ tân vài thông tin cần thiết cho chuyến công tác.",
+    { A: "Chị Hương (khách)", B: "Nhân viên lễ tân" },
+    A("Excuse me, could you tell me what time breakfast starts?", "Xin lỗi, anh có thể cho tôi biết mấy giờ bắt đầu bữa sáng không?"),
+    B("Of course. Breakfast starts at half past six on the second floor.", "Dạ vâng. Bữa sáng bắt đầu lúc sáu rưỡi ở tầng hai."),
+    A("Thank you. Do you know if the hotel has a gym?", "Cảm ơn anh. Anh có biết khách sạn có phòng tập không?"),
+    B("Yes, it does. It's open from six in the morning until ten at night.", "Có ạ. Phòng tập mở từ sáu giờ sáng đến mười giờ tối."),
+    A("Great. I'd also like to know how I can get to the conference centre.", "Tốt quá. Tôi cũng muốn biết làm sao để đến trung tâm hội nghị."),
+    B("You can take the metro. Shall I show you where the station is on the map?", "Chị có thể đi tàu điện ngầm. Để tôi chỉ cho chị ga ở đâu trên bản đồ nhé?"),
+    A("Yes, please. And could you tell me whether I can pay for a taxi by card?", "Vâng, làm ơn. Và anh có thể cho tôi biết đi taxi có trả bằng thẻ được không?"),
+    B("Most taxis here accept cards, but you should ask the driver before you get in.", "Hầu hết taxi ở đây nhận thẻ, nhưng chị nên hỏi tài xế trước khi lên xe."),
+    A("Good idea. One more thing. Do you know when the swimming pool closes?", "Ý hay đấy. Còn một việc nữa. Anh có biết mấy giờ bể bơi đóng cửa không?"),
+    B("I'm not sure exactly, but I'll check and call your room.", "Tôi không chắc chính xác, nhưng tôi sẽ kiểm tra rồi gọi lên phòng chị."),
+    A("Thank you so much. You've been very helpful.", "Cảm ơn anh nhiều. Anh đã giúp tôi rất nhiều."),
+  ),
+  task: task({
+    prompt: "Bạn sắp tham gia một tour du lịch Đà Nẵng. Viết một email ngắn gửi công ty du lịch, hỏi 4–5 thông tin bạn cần biết bằng câu hỏi gián tiếp.",
+    hints: [
+      "Mở đầu: I'm writing to ask about…",
+      "Dùng Could you tell me…?, Do you know if…?, I'd like to know…, I wonder whether…",
+      "Nhớ trật tự câu kể sau từ để hỏi, và if / whether cho câu hỏi Có / Không.",
+      "Kết thư lịch sự: Thank you for your help.",
+    ],
+    model: "Dear Sir or Madam, I'm writing to ask about the Da Nang tour on the fifteenth of June. Could you tell me what time the bus leaves from Hanoi? I'd also like to know whether the price includes breakfast. Do you know if children under six can join the tour for free? Could you tell me how much it costs to stay one more night at the hotel? Finally, I wonder whether I can pay by bank transfer. Thank you for your help. Best regards, Tran Thi Hoa",
+    checklist: [
+      "Có ít nhất bốn câu hỏi gián tiếp, dùng ít nhất ba cụm mở đầu khác nhau.",
+      "Sau từ để hỏi là chủ ngữ + động từ, không đảo is / can lên trước chủ ngữ.",
+      "Phần câu hỏi không còn do / does / did; động từ được chia lại (leaves, costs).",
+      "Câu hỏi Có / Không có if hoặc whether.",
+      "Câu bắt đầu bằng I'd like to know hoặc I wonder kết thúc bằng dấu chấm.",
+    ],
+    minWords: 60,
+  }),
 });

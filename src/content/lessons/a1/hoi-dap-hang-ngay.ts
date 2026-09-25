@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "hoi-dap-hang-ngay",
@@ -33,7 +33,14 @@ export default lesson({
       mistake("I every day drink coffee.", "I drink coffee every day.", "Tiếng Việt nói “tôi ngày nào cũng uống cà phê”, nên người Việt hay nhét every day vào giữa. Cụm tần suất đứng ở cuối câu, khác với always, usually đứng trước động từ."),
       ex("How often does your son play badminton? Every Saturday.", "Con trai bạn chơi cầu lông bao lâu một lần? Thứ Bảy nào cũng chơi."),
       tip("Trong câu hỏi, **do** và **does** được đọc rất nhẹ và nhanh, gần như dính vào từ sau: What do you do? nghe như /wɒt də jə duː/. Bạn không cần đọc to do, nhưng đừng bỏ nó đi."),
-      teacher("Có một bài tập tôi giao cho mọi lớp A1 suốt mấy chục năm: mỗi em hỏi **năm câu** về thói quen của một người thân rồi ghi lại câu trả lời. Where does my mother go every morning? What time does my father have dinner? Hỏi về người thật thì các em phải dùng **does** thật, và chỉ sau một tuần, lỗi quên does giảm hẳn."),
+      teacher("Có một bài tập tôi giao cho mọi lớp A1 suốt mấy chục năm: mỗi bạn hỏi **năm câu** về thói quen của một người thân rồi ghi lại câu trả lời. Where does my mother go every morning? What time does my father have dinner? Hỏi về người thật thì các bạn phải dùng **does** thật, và chỉ sau một tuần, lỗi quên does giảm hẳn."),
+      summary(
+        "Công thức: **Từ để hỏi + do / does + chủ ngữ + động từ nguyên mẫu?** Where do you live?",
+        "**Does** đi với he, she, it. Đã có does thì động từ **không thêm -s**: What time does he get up?",
+        "What do you do? hỏi nghề nghiệp; What time…? hỏi giờ; Where…? hỏi nơi chốn; How often…? hỏi bao lâu một lần.",
+        "**Once** là một lần, **twice** là hai lần; từ ba lần trở đi: **three times** a week.",
+        "Cụm tần suất như every day, once a week đứng **ở cuối câu**.",
+      ),
     ],
   },
   words: [
@@ -61,4 +68,38 @@ export default lesson({
     say("I visit my parents twice a month.", "Tôi về thăm bố mẹ hai lần một tháng."),
     say("Where does your sister live?", "Chị gái bạn sống ở đâu?"),
   ],
+  dialogue: dialogue(
+    "Gặp hàng xóm mới trong thang máy",
+    "Anh Nam gặp David, người hàng xóm người Anh mới chuyển đến chung cư, trong thang máy buổi sáng. Hai người hỏi nhau về thói quen hằng ngày.",
+    { A: "David", B: "Nam" },
+    A("Good morning, Nam! What time do you go to work?", "Chào buổi sáng, Nam! Mấy giờ anh đi làm?"),
+    B("At seven o'clock. I start work at eight.", "Lúc bảy giờ. Tôi bắt đầu làm việc lúc tám giờ."),
+    A("Where do you have breakfast?", "Anh ăn sáng ở đâu?"),
+    B("At a small café. I eat pho there every day.", "Ở một quán cà phê nhỏ. Ngày nào tôi cũng ăn phở ở đó."),
+    A("Every day? I love pho too. How often do you go to the gym?", "Ngày nào cũng ăn à? Tôi cũng mê phở. Anh đi tập gym bao lâu một lần?"),
+    B("Twice a week, on Tuesday and Friday. What about you?", "Hai lần một tuần, vào thứ Ba và thứ Sáu. Còn anh?"),
+    A("I go three times a week.", "Tôi đi ba lần một tuần."),
+    B("Where does your wife work, David?", "Vợ anh làm việc ở đâu, David?"),
+    A("She works at an international school. She teaches English.", "Cô ấy làm ở một trường quốc tế. Cô ấy dạy tiếng Anh."),
+    B("What time does she finish work?", "Mấy giờ cô ấy tan làm?"),
+    A("At four o'clock. Then she goes to the market.", "Lúc bốn giờ. Sau đó cô ấy đi chợ."),
+    B("Great. See you at the gym on Friday!", "Hay quá. Hẹn gặp anh ở phòng tập vào thứ Sáu nhé!"),
+  ),
+  task: task({
+    prompt: "Hãy tìm hiểu thói quen của một người thân (bố, mẹ, anh chị hoặc vợ chồng). Viết 3–4 câu hỏi Wh- về người đó rồi tự trả lời từng câu bằng một câu đầy đủ.",
+    hints: [
+      "Dùng does vì người đó là he hoặc she: Where does my mother work?",
+      "Câu hỏi có does thì động từ giữ nguyên; câu trả lời thì động từ thêm -s.",
+      "Có ít nhất một câu How often…? và trả lời bằng once, twice, three times hoặc every…",
+    ],
+    model: "Where does my mother work? She works in a hospital. What time does she get up? She gets up at five o'clock. How often does she go to the market? She goes to the market every morning. How often does she visit her parents? She visits them twice a month.",
+    checklist: [
+      "Mỗi câu hỏi có do hoặc does đứng sau từ để hỏi",
+      "Câu hỏi có does thì động từ chính không thêm -s",
+      "Câu trả lời về he hoặc she có động từ thêm -s (she works, she gets up)",
+      "Có ít nhất một câu How often và trả lời bằng once, twice hoặc every",
+      "Cụm tần suất đứng ở cuối câu",
+    ],
+    minWords: 25,
+  }),
 });

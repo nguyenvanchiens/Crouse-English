@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "tuong-lai-nang-cao",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Các cách nói tương lai nâng cao",
     blocks: [
-      p("Người Việt nói về tương lai chủ yếu bằng hai chữ: “sẽ” và “sắp”. Lên đến B2, các em đã dùng thạo will, be going to và thì tiếp diễn. Nhưng khi đọc báo tiếng Anh, nghe bản tin sân bay hay viết email cho đối tác, các em sẽ gặp một nhóm cấu trúc khác: **be about to**, **be due to**, **be bound to**, **be on the verge of**, **be set to**, **be to**. Mỗi cấu trúc là một sắc thái riêng của chữ “sắp” và chữ “sẽ”."),
+      p("Người Việt nói về tương lai chủ yếu bằng hai chữ: “sẽ” và “sắp”. Lên đến B2, các bạn đã dùng thạo will, be going to và thì tiếp diễn. Nhưng khi đọc báo tiếng Anh, nghe bản tin sân bay hay viết email cho đối tác, các bạn sẽ gặp một nhóm cấu trúc khác: **be about to**, **be due to**, **be bound to**, **be on the verge of**, **be set to**, **be to**. Mỗi cấu trúc là một sắc thái riêng của chữ “sắp” và chữ “sẽ”."),
       table(
         ["Cấu trúc", "Nghĩa", "Theo sau là", "Ví dụ"],
         ["be about to", "sắp sửa, ngay bây giờ", "V nguyên mẫu", "The film is about to start."],
@@ -23,12 +23,19 @@ export default lesson({
       mistake("The conference is about to start next Monday.", "The conference is due to start next Monday.", "Tiếng Việt dùng “sắp” cho cả việc ngay trước mắt lẫn việc tuần sau. Tiếng Anh thì about to chỉ dành cho việc ngay tức khắc; việc theo lịch dùng due to."),
       ex("The two companies are on the verge of signing a major deal.", "Hai công ty sắp ký một thương vụ lớn.", "On the verge of (hoặc on the brink of) nhấn mạnh rằng một bước ngoặt sắp đến. Brink thường đi với điều xấu: on the brink of war."),
       mistake("The factory is on the verge to close.", "The factory is on the verge of closing.", "Of là giới từ, nên sau nó phải là danh từ hoặc V-ing. Người Việt quen “sắp + động từ” nên hay ghép với to."),
-      ex("You've worked so hard. You're bound to pass the exam.", "Em đã học chăm như vậy. Chắc chắn em sẽ đỗ.", "Bound to thể hiện niềm tin rất mạnh của người nói, mạnh hơn will và likely to."),
+      ex("You've worked so hard. You're bound to pass the exam.", "Bạn đã học chăm như vậy. Chắc chắn bạn sẽ đỗ.", "Bound to thể hiện niềm tin rất mạnh của người nói, mạnh hơn will và likely to."),
       p("**Be set to** và **be to** là hai cấu trúc của báo chí và văn bản chính thức. **Be set to** là dự đoán gần như chắc chắn dựa trên thông tin hiện có. **Be to** là kế hoạch đã được cơ quan, tổ chức quyết định; ngoài ra còn dùng để ra chỉ thị: You are to report to reception at eight."),
       ex("Petrol prices are set to rise again next month.", "Giá xăng dự kiến sẽ lại tăng vào tháng tới."),
       mistake("The flight due to arrive at nine.", "The flight is due to arrive at nine.", "Tiếng Việt nói “chuyến bay dự kiến đến lúc chín giờ” mà không cần “là” hay “thì”. Tiếng Anh bắt buộc có động từ be trong tất cả các cấu trúc của bài này. Riêng tiêu đề báo được phép bỏ be: Bank set to cut rates."),
       tip("Mẹo nhớ theo mức độ gần: **about to** (vài giây, vài phút) → **on the verge of** (sắp đến bước ngoặt) → **due to** (theo lịch) → **set to / be to** (tin tức, kế hoạch chính thức). Còn **bound to** không nói về thời gian mà nói về **độ chắc chắn**."),
-      teacher("Tôi dạy người Việt năm mươi năm, và cấu trúc bị bỏ quên nhiều nhất là **be to**. Học trò đọc câu The President is to visit Vietnam rồi dịch là “Tổng thống là để thăm Việt Nam”, nghe rất ngô nghê. Thầy khuyên: mỗi sáng đọc năm tiêu đề trên một trang báo tiếng Anh, gạch chân mọi chữ **set to**, **due to**, **to + động từ** ngay sau danh từ, rồi tự dịch sang tiếng Việt kiểu bản tin thời sự. Một tháng thôi, các em sẽ đọc báo nhanh hơn hẳn."),
+      teacher("Tôi dạy người Việt nhiều năm, và cấu trúc bị bỏ quên nhiều nhất là **be to**. Học trò đọc câu The President is to visit Vietnam rồi dịch là “Tổng thống là để thăm Việt Nam”, nghe rất ngô nghê. Tôi khuyên: mỗi sáng đọc năm tiêu đề trên một trang báo tiếng Anh, gạch chân mọi chữ **set to**, **due to**, **to + động từ** ngay sau danh từ, rồi tự dịch sang tiếng Việt kiểu bản tin thời sự. Một tháng thôi, các bạn sẽ đọc báo nhanh hơn hẳn."),
+      summary(
+        "**Be about to** + V: sắp sửa ngay tức khắc, không đi với tomorrow hay next week. **Was about to... when**: vừa định... thì...",
+        "**Be on the verge / brink of** + danh từ hoặc V-ing (không đi với to): sắp đến một bước ngoặt; brink thường dành cho điều xấu.",
+        "**Be due to**: theo lịch, thời gian biểu. **Be set to**: dự báo của báo chí. **Be to**: kế hoạch chính thức hoặc chỉ thị.",
+        "**Be bound to** nói về **độ chắc chắn** của người nói, không nói về thời gian: You're bound to pass.",
+        "Mọi cấu trúc đều cần động từ **be** chia đúng; chỉ tiêu đề báo mới được bỏ be.",
+      ),
     ],
   },
   words: [
@@ -56,4 +63,40 @@ export default lesson({
     say("Hurry up, the train is about to leave.", "Nhanh lên, tàu sắp chạy rồi."),
     say("If you keep working this hard, you're bound to succeed.", "Nếu bạn cứ chăm chỉ thế này, chắc chắn bạn sẽ thành công."),
   ],
+  dialogue: dialogue(
+    "Phỏng vấn giám đốc một hãng xe điện",
+    "Ben, phóng viên kinh tế người Anh, phỏng vấn anh Quân, giám đốc điều hành một công ty khởi nghiệp xe điện ở Hà Nội, về các kế hoạch sắp tới. Mỗi câu trả lời cần phân biệt rõ việc nào ngay trước mắt, việc nào theo lịch, việc nào chỉ là dự đoán.",
+    { A: "Ben (phóng viên kinh tế)", B: "Anh Quân (giám đốc điều hành)" },
+    A("Mr Quan, thank you for your time. I understand you're about to announce something big.", "Anh Quân, cảm ơn anh đã dành thời gian. Tôi được biết anh sắp công bố một điều quan trọng."),
+    B("That's right. We're on the verge of signing a partnership with a Korean battery maker.", "Đúng vậy. Chúng tôi sắp ký thỏa thuận hợp tác với một hãng pin Hàn Quốc."),
+    A("When is the deal due to be signed?", "Theo lịch, thỏa thuận sẽ được ký khi nào?"),
+    B("It's due to be signed on the fifteenth, in Seoul. Our chairman is to attend the ceremony in person.", "Theo lịch là ngày mười lăm, tại Seoul. Theo kế hoạch chính thức, chủ tịch của chúng tôi sẽ đích thân dự lễ ký."),
+    A("Analysts say battery prices are set to fall next year. Will that affect you?", "Giới phân tích nói giá pin dự kiến sẽ giảm vào năm tới. Điều đó có ảnh hưởng đến anh không?"),
+    B("If they fall, our costs are bound to drop as well, so it can only help us.", "Nếu giá giảm, chắc chắn chi phí của chúng tôi cũng giảm theo, nên chỉ có lợi cho chúng tôi."),
+    A("Last year there were rumours that the company was on the brink of bankruptcy.", "Năm ngoái có tin đồn công ty đang đứng bên bờ vực phá sản."),
+    B("I won't deny it. We were about to run out of cash when our second investor stepped in.", "Tôi không phủ nhận. Chúng tôi sắp cạn tiền mặt thì nhà đầu tư thứ hai xuất hiện."),
+    A("And the new model? Is it set to launch this year?", "Còn mẫu xe mới? Nó dự kiến ra mắt trong năm nay chứ?"),
+    B("We're set to unveil it at the forthcoming Hanoi Motor Show, although the date is still tentative.", "Chúng tôi dự kiến giới thiệu nó tại Triển lãm Ô tô Hà Nội sắp tới, dù ngày cụ thể vẫn chưa chốt."),
+    A("Aren't your competitors bound to copy the design?", "Chẳng phải đối thủ của anh chắc chắn sẽ sao chép thiết kế sao?"),
+    B("Some are bound to try. I'm sorry, my next meeting is about to start. Shall we continue by email?", "Chắc chắn sẽ có người thử. Xin lỗi anh, cuộc họp tiếp theo của tôi sắp bắt đầu. Mình tiếp tục qua email nhé?"),
+  ),
+  task: task({
+    prompt: "Viết một bản tin ngắn (khoảng một trăm từ) về một sự kiện sắp diễn ra ở thành phố hoặc công ty của bạn: hội chợ, hội nghị, lễ khánh thành... Dùng ít nhất bốn cấu trúc tương lai khác nhau của bài.",
+    hints: [
+      "Câu mở đầu dùng be set to như giọng báo chí, nhưng nhớ giữ động từ be trong câu.",
+      "Nêu lịch cụ thể bằng be due to, và một kế hoạch chính thức của cơ quan bằng be to.",
+      "Thêm một dự đoán chắc chắn bằng be bound to và một việc sắp đến bước ngoặt bằng be on the verge of + V-ing.",
+      "Dùng be about to cho việc ngay sát (ví dụ: sắp mở đăng ký), không kèm mốc thời gian xa.",
+    ],
+    model:
+      "Da Nang is set to host its first International Green Energy Expo next spring. The three-day event is due to open on the twelfth of April at the city's main convention centre, and more than two hundred companies are expected to take part. The Minister of Industry and Trade is to deliver the opening speech, while several foreign investors are on the verge of finalising major wind-power deals with local partners. Organisers say the city's hotels are bound to be fully booked, so visitors are advised to reserve rooms early. Online registration is about to open, and a tentative programme will be published next week.",
+    checklist: [
+      "Có ít nhất bốn cấu trúc khác nhau: be about to, be due to, be set to, be to, be bound to, be on the verge of",
+      "Mọi cấu trúc đều có động từ be chia đúng",
+      "On the verge of hoặc on the brink of đi với danh từ hoặc V-ing, không đi với to",
+      "Be about to không đi kèm mốc thời gian xa như next month",
+      "Giọng văn khách quan như bản tin, không dùng I think",
+    ],
+    minWords: 90,
+  }),
 });

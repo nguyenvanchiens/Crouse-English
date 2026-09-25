@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "dieu-kien-nang-cao",
@@ -32,7 +32,14 @@ export default lesson({
       ex("Supposing you lost your job tomorrow, what would you do?", "Giả sử ngày mai bạn mất việc, bạn sẽ làm gì?", "Lost là quá khứ giả định, đi với would ở vế sau, giống câu điều kiện loại 2."),
       mistake("Suppose if the client says no, what will we do?", "Suppose the client says no, what will we do?", "Dịch từng chữ “giả sử nếu” nên học trò đặt cả suppose lẫn if. Suppose đã làm nhiệm vụ của if, chỉ dùng một trong hai."),
       tip("Mẹo nhớ nhanh: **unless = if not**; **in case = chuẩn bị trước cho chắc**; **as long as = miễn là**; **otherwise = không thì…**. Khi làm bài, hãy thử thay unless bằng if… not. Nếu câu vẫn đúng nghĩa thì bạn đã chọn đúng."),
-      teacher("Có một bẫy mà năm nào tôi cũng thấy học trò rơi vào: nhầm **in case** với **if**. Tôi hay bảo các em tự hỏi một câu: **việc này làm bây giờ, hay chỉ làm khi chuyện kia xảy ra?** Làm ngay bây giờ để phòng hờ thì dùng in case, chờ chuyện xảy ra mới làm thì dùng if. Mỗi sáng trước khi ra khỏi nhà, hãy tự nói một câu với in case: **I'm taking a raincoat in case it rains.** Nói mãi thành quen, lúc cần sẽ tự bật ra đúng."),
+      teacher("Có một bẫy mà năm nào tôi cũng thấy học trò rơi vào: nhầm **in case** với **if**. Tôi hay bảo các bạn tự hỏi một câu: **việc này làm bây giờ, hay chỉ làm khi chuyện kia xảy ra?** Làm ngay bây giờ để phòng hờ thì dùng in case, chờ chuyện xảy ra mới làm thì dùng if. Mỗi sáng trước khi ra khỏi nhà, hãy tự nói một câu với in case: **I'm taking a raincoat in case it rains.** Nói mãi thành quen, lúc cần sẽ tự bật ra đúng."),
+      summary(
+        "**Unless = if… not.** Không thêm not sau unless: Unless you hurry, không phải Unless you don't hurry.",
+        "**In case** = làm ngay bây giờ để phòng hờ; **if** = chỉ làm khi chuyện đó xảy ra.",
+        "**Provided (that)**, **as long as** = với điều kiện là, miễn là; provided that trang trọng hơn.",
+        "Sau unless, provided that, as long as, in case dùng **hiện tại đơn** cho tương lai, không dùng will.",
+        "**Otherwise** mở đầu mệnh đề **kết quả** (nếu không thì…); **suppose / supposing** đưa ra giả thiết và không đi kèm if.",
+      ),
     ],
   },
   words: [
@@ -60,4 +67,36 @@ export default lesson({
     say("We won't sign the contract unless they lower the price.", "Chúng tôi sẽ không ký hợp đồng trừ khi họ hạ giá."),
     say("As long as we work together, we'll finish on time.", "Miễn là chúng ta làm cùng nhau, chúng ta sẽ xong đúng hạn."),
   ],
+  dialogue: dialogue(
+    "Lên phương án dự phòng cho buổi hội thảo",
+    "Thứ Bảy này công ty tổ chức hội thảo khách hàng ở một khách sạn tại Đà Nẵng. Chị Mai, người phụ trách, và anh Tom, đồng nghiệp người Anh, rà lại các phương án dự phòng.",
+    { A: "Mai, phụ trách sự kiện", B: "Tom, đồng nghiệp" },
+    A("Tom, the workshop is on Saturday. Let's go through the backup plan.", "Tom, hội thảo diễn ra vào thứ Bảy. Mình rà lại phương án dự phòng nhé."),
+    B("Good idea. Suppose it rains, can we still use the garden?", "Ý hay đấy. Giả sử trời mưa thì mình còn dùng khu vườn được không?"),
+    A("No. The forecast says rain, so unless it changes, we'll move everything inside.", "Không. Dự báo nói trời sẽ mưa, nên trừ khi dự báo thay đổi, mình sẽ chuyển hết vào trong."),
+    B("OK. I'll bring a second projector in case the hotel projector doesn't work.", "Được. Tôi sẽ mang thêm một máy chiếu phòng khi máy của khách sạn không chạy."),
+    A("Great. The hotel will return our deposit provided that we cancel before Thursday.", "Tốt quá. Khách sạn sẽ trả lại tiền đặt cọc với điều kiện mình hủy trước thứ Năm."),
+    B("So we have to decide by Wednesday. Otherwise, we'll pay a penalty.", "Vậy mình phải quyết định trước thứ Tư. Nếu không thì sẽ bị phạt."),
+    A("Exactly. And our speaker from Singapore can join online as long as we send her the link by Friday.", "Đúng vậy. Còn diễn giả từ Singapore có thể tham gia trực tuyến, miễn là mình gửi đường link cho chị ấy trước thứ Sáu."),
+    B("Supposing the internet went down during her talk, what would we do?", "Giả sử mạng bị mất khi chị ấy đang nói thì mình làm gì?"),
+    A("We'd play her recorded talk. I've made a backup of it on my laptop, just in case.", "Mình sẽ phát bản ghi hình bài nói của chị ấy. Tôi đã sao lưu một bản trên máy tính, để phòng hờ."),
+    B("You've thought of everything. I'll send her the link today in case she wants to test it.", "Chị tính hết cả rồi. Hôm nay tôi sẽ gửi link cho chị ấy, phòng khi chị ấy muốn thử trước."),
+  ),
+  task: task({
+    prompt: "Viết email gửi nhóm của bạn về kế hoạch dự phòng cho một chuyến thăm của khách hàng hoặc một sự kiện sắp tới. Nêu rõ việc gì sẽ diễn ra trừ khi có sự cố, cần chuẩn bị gì để phòng hờ, điều kiện của các bên và điều gì xảy ra nếu không làm đúng hạn.",
+    hints: [
+      "Dùng ít nhất bốn từ khác nhau: unless, in case, provided that / as long as, otherwise, suppose.",
+      "Sau unless, in case, provided that, as long as dùng hiện tại đơn, không dùng will.",
+      "Đặt otherwise sau dấu chấm hoặc dấu chấm phẩy để mở đầu phần kết quả, và có dấu phẩy phía sau.",
+    ],
+    model: "Hi team,\n\nHere is the backup plan for Friday's client visit. The client will arrive at nine unless their flight is delayed. Please print extra copies of the contract in case the printer in the meeting room breaks down. We can take the client to lunch at Sen Restaurant, provided that we book a table by Wednesday. Please reply to me by Tuesday; otherwise, I will book it myself. Suppose the client wants to visit the factory, who will drive them there?\n\nThanks,\nMai",
+    checklist: [
+      "Dùng ít nhất bốn từ nối điều kiện khác nhau.",
+      "Sau unless, in case, provided that, as long as dùng hiện tại đơn, không dùng will.",
+      "Không có not thừa sau unless.",
+      "In case chỉ dùng cho việc chuẩn bị trước để phòng hờ.",
+      "Otherwise mở đầu mệnh đề kết quả và đứng sau dấu chấm hoặc dấu chấm phẩy.",
+    ],
+    minWords: 70,
+  }),
 });

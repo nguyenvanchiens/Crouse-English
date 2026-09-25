@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { fill, lesson, listen, mc, reorder } from "./builders";
-import { buildReviewLesson, chapter } from "./review";
+import { buildFinalTest, buildReviewLesson, chapter, withFinalTest } from "./review";
 import type { Exercise, Lesson } from "./types";
 
 const make = (n: number): Lesson =>
@@ -50,5 +50,40 @@ describe("chapter", () => {
     const m = chapter(3, "Ba", [make(1), make(2)]);
     expect(m).toMatchObject({ id: "m3", title: "Ba" });
     expect(m.lessons.map((l) => l.slug)).toEqual(["l1", "l2", "on-tap-chuong-3"]);
+  });
+});
+
+describe("buildFinalTest", () => {
+  const chapters = [1, 2, 3, 4].map((n) => chapter(n, `C${n}`, [make(n * 10 + 1), make(n * 10 + 2), make(n * 10 + 3), make(n * 10 + 4)]));
+  const final = buildFinalTest(chapters);
+  const items = (final.steps[0] as { items: Exercise[] }).items;
+
+  it("is a final test with one exercise step of 20 items", () => {
+    expect(final).toMatchObject({ slug: "kiem-tra-cuoi-khoa", title: "Kiểm tra cuối khóa", final: true });
+    expect(final.review).toBeFalsy();
+    expect(items).toHaveLength(20);
+  });
+  it("draws 5 items from every chapter and covers every kind", () => {
+    for (const n of [1, 2, 3, 4]) expect(items.filter((e) => e.id.startsWith(`e${n}`)).length).toBe(5);
+    expect(new Set(items.map((e) => e.kind)).size).toBe(4);
+  });
+  it("prefers items the chapter reviews did not use, with their own ids", () => {
+    const reviewIds = new Set(chapters.flatMap((m) => m.lessons.filter((l) => l.review).flatMap((l) => (l.steps[0] as { items: Exercise[] }).items.map((e) => e.id.replace(/-r$/, "")))));
+    const reused = items.filter((e) => reviewIds.has(e.id.replace(/-f$/, "")));
+    expect(reused.length).toBeLessThan(items.length / 2);
+    expect(items.every((e) => e.id.endsWith("-f"))).toBe(true);
+    expect(new Set(items.map((e) => e.id)).size).toBe(20);
+  });
+});
+
+describe("withFinalTest", () => {
+  it("adds a closing module with the final test and leaves chapters untouched", () => {
+    const chapters = [chapter(1, "A", [make(1), make(2)])];
+    const course = { modules: chapters } as unknown as import("./types").Course;
+    const out = withFinalTest(course);
+    expect(out.modules).toHaveLength(2);
+    expect(out.modules[1]).toMatchObject({ id: "m-final", title: "Kiểm tra cuối khóa" });
+    expect(out.modules[1].lessons[0].final).toBe(true);
+    expect(course.modules).toHaveLength(1);
   });
 });

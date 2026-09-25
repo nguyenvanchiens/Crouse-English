@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "hien-tai-hoan-thanh-tiep-dien",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Hiện tại hoàn thành tiếp diễn: have been + V-ing",
     blocks: [
-      p("Bạn hẹn bạn bè ở quán cà phê, đợi mãi không thấy ai đến, rồi gọi điện: “Tớ **đợi** cậu **bốn mươi phút rồi** đấy!” Việc đợi bắt đầu từ trước, **kéo dài liên tục** và **bây giờ vẫn đang đợi**. Để nhấn mạnh quá trình kéo dài này, tiếng Anh dùng **hiện tại hoàn thành tiếp diễn**: have / has been + V-ing."),
+      p("Bạn hẹn bạn bè ở quán cà phê, đợi mãi không thấy ai đến, rồi gọi điện: “Tớ **đợi** cậu **bốn mươi phút rồi** đấy!” Việc đợi bắt đầu từ trước, **kéo dài liên tục** và **bây giờ vẫn đang đợi**. Để nhấn mạnh quá trình kéo dài này, tiếng Anh dùng **hiện tại hoàn thành tiếp diễn**: have / has been + V-ing. Bài “Đã… được bao lâu rồi” đã dạy have / has + V3 với for và since; hôm nay ta thêm **been + V-ing** để nhấn mạnh quá trình."),
       table(
         ["Dạng", "Cấu trúc", "Ví dụ"],
         ["Khẳng định", "S + have / has been + V-ing", "I've been waiting for forty minutes."],
@@ -30,7 +30,14 @@ export default lesson({
       mistake("I'm learning English for three years.", "I've been learning English for three years.", "Tiếng Việt chỉ nói “tôi học tiếng Anh ba năm rồi”, không đổi động từ, nên người Việt hay dùng hiện tại tiếp diễn. Việc bắt đầu từ quá khứ và kéo dài đến giờ cần have been + V-ing."),
       mistake("I've been knowing her since high school.", "I've known her since high school.", "Know, like, want, believe, own là động từ chỉ trạng thái, không dùng dạng tiếp diễn. Với chúng, dùng hiện tại hoàn thành đơn."),
       mistake("I've been drinking three cups of coffee today.", "I've drunk three cups of coffee today.", "Có con số cụ thể (three cups) là nói kết quả, nên dùng hiện tại hoàn thành đơn."),
-      teacher("Học trò hay hỏi thầy: “Vậy I've lived here for five years và I've been living here for five years khác gì nhau?” Với những động từ như live, work, study, hai câu gần như **cùng nghĩa**, đừng lo chọn sai. Cái bẫy thật sự nằm ở hai chỗ: quên **been**, và dùng thì này với động từ trạng thái như know. Cách luyện của thầy: mỗi sáng tự hỏi mình một câu **How long have I been…?** rồi trả lời thành tiếng. I've been working at this company for two years. I've been reading this book since Sunday."),
+      teacher("Các bạn hay hỏi tôi: “Vậy I've lived here for five years và I've been living here for five years khác gì nhau?” Với những động từ như live, work, study, hai câu gần như **cùng nghĩa**, đừng lo chọn sai. Cái bẫy thật sự nằm ở hai chỗ: quên **been**, và dùng thì này với động từ trạng thái như know. Cách luyện của tôi: các bạn mỗi sáng tự hỏi mình một câu **How long have I been…?** rồi trả lời thành tiếng. I've been working at this company for two years. I've been reading this book since Sunday."),
+      summary(
+        "**have / has been + V-ing**: việc bắt đầu trong quá khứ, kéo dài liên tục đến bây giờ; nhấn mạnh **quá trình**.",
+        "Dùng cả khi thấy **dấu vết** của hoạt động vừa diễn ra: Your eyes are red. Have you been crying?",
+        "Có **con số đếm được** (three emails) thì dùng have + V3; có **khoảng thời gian** (all morning, for two hours) thì dùng have been + V-ing.",
+        "Động từ trạng thái như know, like, want, own không dùng dạng tiếp diễn: I've known her, không nói I've been knowing her.",
+        "Đừng quên **been**: I've been waiting, không nói I've waiting hay I'm waiting for an hour.",
+      ),
     ],
   },
   words: [
@@ -58,4 +65,39 @@ export default lesson({
     say("How long have you been waiting?", "Bạn đợi được bao lâu rồi?"),
     say("We've been working on this project since Monday.", "Chúng tôi làm dự án này từ thứ Hai đến giờ."),
   ],
+  dialogue: dialogue(
+    "Đến muộn ở quán cà phê",
+    "Hà hẹn Nam ở quán cà phê sau giờ làm. Nam đến muộn hơn bốn mươi phút vì tắc đường. Hai người kể cho nhau nghe dạo này đang bận việc gì.",
+    { A: "Hà", B: "Nam" },
+    A("Nam! I've been waiting for forty minutes. Where have you been?", "Nam! Tớ đợi bốn mươi phút rồi đấy. Cậu đi đâu thế?"),
+    B("I'm so sorry. I've been sitting in traffic since five o'clock.", "Tớ xin lỗi. Tớ bị kẹt xe từ năm giờ đến giờ."),
+    A("You look exhausted. Have you been working late?", "Trông cậu kiệt sức quá. Dạo này cậu làm muộn à?"),
+    B("Yes. We've been working on a big project all week, and I've written five reports today.", "Ừ. Cả tuần nay bọn tớ làm một dự án lớn, riêng hôm nay tớ đã viết xong năm bản báo cáo."),
+    A("Poor you! How long have you been doing this job now?", "Tội cậu quá! Cậu làm công việc này được bao lâu rồi nhỉ?"),
+    B("I've been working there for two years. And you? Have you been revising for your exam?", "Tớ làm ở đó được hai năm rồi. Còn cậu? Cậu vẫn đang ôn thi à?"),
+    A("Yes, I've been revising every evening, but I've been feeling stressed lately.", "Ừ, tối nào tớ cũng ôn, nhưng dạo này tớ thấy căng thẳng lắm."),
+    B("I know that feeling. Have you been sleeping well?", "Tớ hiểu cảm giác đó. Dạo này cậu có ngủ ngon không?"),
+    A("Not really. I've drunk three cups of coffee today!", "Không hẳn. Hôm nay tớ uống ba cốc cà phê rồi!"),
+    B("Then let's order tea this time. I've been coming here for years, and their tea is great.", "Vậy lần này mình gọi trà nhé. Tớ đến quán này mấy năm rồi, trà ở đây ngon lắm."),
+    A("Good idea. And next time, please text me if you're late!", "Được đấy. Mà lần sau đến muộn thì nhắn cho tớ nhé!"),
+    B("I promise. I've known you for ten years, and I don't want to lose my best friend!", "Tớ hứa. Tớ quen cậu mười năm rồi, không muốn mất bạn thân đâu!"),
+  ),
+  task: task({
+    prompt: "Viết một tin nhắn gửi một người bạn lâu ngày không gặp, kể dạo này bạn đang làm gì: công việc, học tập, sở thích mới. Kết thúc bằng một câu hỏi thăm bạn ấy.",
+    hints: [
+      "Dùng have / has been + V-ing cho hoạt động kéo dài đến bây giờ, kèm for, since, lately hoặc all week.",
+      "Dùng have / has + V3 khi có con số hoặc kết quả đã xong (three reports, two books).",
+      "Với know, like, want thì dùng have + V3, không dùng dạng tiếp diễn.",
+      "Kết bằng một câu hỏi: What have you been doing lately? hoặc How long have you been…?",
+    ],
+    model: "Hi Lan, it's been ages! Life has been busy lately. I've been working at a new company since March, and I've been learning a lot about marketing. We've been working on a big project for two months, and I've already finished three reports. Lately, I've also been practising yoga every morning, so I feel less stressed. I've read two English books this month too! I've known you for ten years, and I really miss our coffee chats. What have you been doing lately? How long have you been living in Hue now?",
+    checklist: [
+      "Có ít nhất 3 câu have / has been + V-ing kèm for, since, lately hoặc all week.",
+      "Có ít nhất 1 câu have / has + V3 với con số hoặc kết quả đã xong.",
+      "Không bỏ sót been (không viết I've working).",
+      "Know, like, want không ở dạng tiếp diễn.",
+      "Có ít nhất 1 câu hỏi What have you been doing…? hoặc How long have you been…?",
+    ],
+    minWords: 55,
+  }),
 });

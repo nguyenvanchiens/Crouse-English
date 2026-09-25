@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Flame, Gauge, NotebookPen } from "lucide-react";
 import type { Course } from "@/content/types";
 import { suggestCourseSlug } from "@/lib/course-utils";
-import { courseProgress, displayStreak, todayKey } from "@/lib/progress-core";
+import { certificateStatus, courseProgress, displayStreak, todayKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { GOAL_META } from "@/components/course/goal-meta";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -81,7 +81,9 @@ export function MyCourses({ courses }: { courses: Course[] }) {
                       Học tiếp: {p.nextLesson.title}
                     </Link>
                   ) : (
-                    <Link href={`/hoc/${c.slug}/hoan-thanh`} className="btn btn-primary">Xem chứng chỉ</Link>
+                    <Link href={`/hoc/${c.slug}/hoan-thanh`} className="btn btn-primary">
+            {certificateStatus(c, state).status === "final-failed" ? "Làm lại bài kiểm tra" : "Xem chứng chỉ"}
+          </Link>
                   )}
                 </div>
               </article>

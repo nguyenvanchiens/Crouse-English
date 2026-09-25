@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "ngay-xua-toi-tung",
@@ -31,7 +31,14 @@ export default lesson({
       mistake("I use to play football when I was a child.", "I used to play football when I was a child.", "Vì chữ d không nghe rõ khi nói, học trò hay viết thiếu. Nói về quá khứ ở câu khẳng định thì phải là used to."),
       mistake("Did you used to live here?", "Did you use to live here?", "Giống như didn't went là sai: did đã báo quá khứ rồi, nên used to bỏ d thành use to."),
       mistake("Now I used to get up at six.", "Now I usually get up at six.", "Tiếng Việt “tôi thường” dùng được cho cả xưa lẫn nay, nên nhiều người lẫn used to với usually. Used to chỉ nói về quá khứ; thói quen hiện tại dùng usually."),
-      teacher("Học trò của tôi hay dịch chữ “từng” thành used to trong mọi câu, kể cả “Tôi từng đi Nhật một lần”. Câu đó phải là quá khứ đơn hoặc hiện tại hoàn thành như bài Bạn đã từng…? Cách tự kiểm tra: thử thêm vào câu tiếng Việt cụm **“ngày xưa hay…, còn bây giờ thì không”**. Nghe hợp nghĩa thì dùng used to. Về nhà, các em lấy một tấm ảnh cũ, nói năm câu I used to... và hai câu I didn't use to... về chính mình hồi đó."),
+      teacher("Học viên của tôi hay dịch chữ “từng” thành used to trong mọi câu, kể cả “Tôi từng đi Nhật năm ngoái”. Câu đó chỉ là một chuyến đi, nên dùng quá khứ đơn như bài Hôm qua bạn làm gì: I went to Japan last year. (Về sau, ở bài Bạn đã từng…?, các bạn sẽ học thêm một cách nói “đã từng” nữa.) Cách tự kiểm tra: thử thêm vào câu tiếng Việt cụm **“ngày xưa hay…, còn bây giờ thì không”**. Nghe hợp nghĩa thì dùng used to. Về nhà, các bạn lấy một tấm ảnh cũ, nói năm câu I used to... và hai câu I didn't use to... về chính mình hồi đó."),
+      summary(
+        "Used to + động từ nguyên mẫu: thói quen hoặc trạng thái ngày xưa, bây giờ không còn nữa.",
+        "Phủ định và câu hỏi đã có did thì bỏ d: didn't use to, Did you use to...?",
+        "Chuyện xảy ra một lần, hoặc có số lần, thời gian cụ thể: dùng quá khứ đơn, không dùng used to.",
+        "Thói quen bây giờ dùng usually, không dùng used to.",
+        "There used to be... để kể một nơi đã thay đổi. Used to đọc là /ˈjuːs.tə/.",
+      ),
     ],
   },
   words: [
@@ -41,7 +48,7 @@ export default lesson({
     word("neighbour", "/ˈneɪ.bər/", "hàng xóm", "Our neighbours used to give us fruit from their garden.", "neigh|bour", 0, "Chữ gh không đọc: /ˈneɪ.bər/."),
     word("shy", "/ʃaɪ/", "nhút nhát, ngại ngùng", "I used to be very shy at school.", "shy", 0),
     word("remember", "/rɪˈmem.bər/", "nhớ", "I remember my first teacher very well.", "re|mem|ber", 1),
-    word("change", "/tʃeɪndʒ/", "thay đổi", "My city has changed a lot.", "change", 0, "Kết thúc bằng âm /dʒ/, nhớ khép răng đọc rõ, đừng nuốt thành “chên”."),
+    word("change", "/tʃeɪndʒ/", "thay đổi", "My village changed a lot after they built the new road.", "change", 0, "Kết thúc bằng âm /dʒ/, nhớ khép răng đọc rõ, đừng nuốt thành “chên”."),
   ],
   exercises: [
     mc("a2-n03-1", "When I was a child, I ___ climb trees in my village.", ["use to", "was use to", "used to", "uses to"], 2, "Câu khẳng định nói về thói quen ngày xưa: used to + động từ nguyên mẫu."),
@@ -58,4 +65,39 @@ export default lesson({
     say("I didn't use to like coffee, but now I love it.", "Ngày xưa tôi không thích cà phê, nhưng giờ tôi mê nó."),
     say("Did you use to play football when you were a child?", "Hồi nhỏ bạn có hay đá bóng không?"),
   ],
+  dialogue: dialogue(
+    "Xem ảnh cũ với bạn",
+    "Tom, bạn người Anh, đến nhà Lan chơi và thấy một tấm ảnh cũ. Lan kể về tuổi thơ ở làng quê và ngôi làng đã thay đổi thế nào.",
+    { A: "Tom", B: "Lan" },
+    A("Is this you in the photo, Lan?", "Đây là bạn trong ảnh à, Lan?"),
+    B("Yes! I was eight. I used to live in a small village near Nam Dinh.", "Đúng rồi! Hồi đó mình tám tuổi. Ngày xưa mình sống ở một ngôi làng nhỏ gần Nam Định."),
+    A("You look so shy here!", "Trong ảnh trông bạn nhút nhát quá!"),
+    B("I used to be very shy. I didn't use to talk to people I didn't know.", "Ngày xưa mình rất nhút nhát. Mình đâu có nói chuyện với người lạ."),
+    A("Really? You aren't shy now! Did you use to walk to school?", "Thật à? Bây giờ bạn đâu có nhút nhát! Ngày xưa bạn có đi bộ đi học không?"),
+    B("No, I didn't. I used to ride my bike to school with the children next door.", "Không. Mình hay đạp xe đi học cùng mấy đứa con nhà hàng xóm."),
+    A("And what's this? Is it a river?", "Còn đây là gì? Một con sông à?"),
+    B("Yes. There used to be a small river behind our house. We used to swim there every summer.", "Ừ. Ngày xưa sau nhà mình từng có một con sông nhỏ. Hè nào bọn mình cũng hay bơi ở đó."),
+    A("Is it still there?", "Bây giờ nó vẫn còn chứ?"),
+    B("No. The village changed a lot. Now there's a big road there.", "Không còn nữa. Làng thay đổi nhiều lắm. Giờ ở đó là một con đường lớn."),
+    A("That's a pity. Do you often go back?", "Tiếc thật. Bạn có hay về không?"),
+    B("Yes, I usually go back at Tet. Last year I went there with my husband.", "Có, mình thường về vào dịp Tết. Năm ngoái mình về cùng chồng."),
+  ),
+  task: task({
+    prompt: "Viết 5–6 câu so sánh cuộc sống của bạn ngày xưa (hồi nhỏ hoặc hồi sinh viên) với bây giờ.",
+    hints: [
+      "Thói quen ngày xưa: I used to + động từ nguyên mẫu.",
+      "Điều ngày xưa không làm: I didn't use to...",
+      "Nơi đã thay đổi: There used to be...",
+      "Bây giờ dùng hiện tại đơn và usually: but now I usually...",
+    ],
+    model: "When I was a child, I used to live with my grandparents in the countryside. I used to walk to school with my friends every morning. There used to be a big tree in front of our house, and we used to play under it. I didn't use to like vegetables, but now I eat them every day. Now I live in Hanoi, and I usually go to work by motorbike.",
+    checklist: [
+      "Có ít nhất 3 câu used to + động từ nguyên mẫu",
+      "Có 1 câu didn't use to (không có chữ d)",
+      "Có 1 câu There used to be... hoặc used to be... để tả trạng thái ngày xưa",
+      "Thói quen bây giờ dùng usually hoặc hiện tại đơn, không dùng used to",
+      "Không dùng used to với số lần hay thời điểm cụ thể",
+    ],
+    minWords: 35,
+  }),
 });
