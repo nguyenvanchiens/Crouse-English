@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "bang-thai-cach",
@@ -34,6 +34,14 @@ export default lesson({
       ex("If need be, we can postpone the launch by a week.", "Nếu cần, chúng ta có thể lùi buổi ra mắt một tuần.", "Không nói if need is hay if needed be. Thành ngữ là cụm cố định, không chia động từ."),
       mistake("It is important that she doesn't miss the interview.", "It is important that she not miss the interview. / It is important that she should not miss the interview.", "Trong thể giả định không mượn does để phủ định. Chỉ cần not + V nguyên mẫu, hoặc should not theo lối Anh-Anh."),
       teacher("Nói thật với các bạn, sau nhiều năm đứng lớp, tôi thấy thể giả định là thứ học viên Việt **nhận ra khi đọc** nhưng **không dám dùng khi viết**, vì sợ bị chấm là quên chia động từ. Tôi dặn hai điều. Một: khi viết bài luận hay email trang trọng, cứ mạnh dạn viết It is essential that everyone be... Hai: nếu vẫn thấy chưa yên tâm, dùng lối **should** của người Anh, vừa đúng vừa an toàn. Mỗi ngày đặt ba câu với recommend, insist và It is vital that, đọc to lên cho quen tai."),
+      summary(
+        "Sau **insist, recommend, demand, suggest, propose, request, require** + that: động từ ở **dạng nguyên mẫu**, không thêm -s, be giữ nguyên là be.",
+        "Sau **It is essential / vital / crucial / important / imperative that** cũng dùng động từ nguyên mẫu.",
+        "Phủ định chỉ cần **not + V nguyên mẫu** (that she not miss), không mượn do, does, did.",
+        "Lối Anh-Anh an toàn: **should + V nguyên mẫu**. Suggest không đi với người + to V.",
+        "Khi insist, suggest nghĩa là khẳng định một sự thật thì chia động từ bình thường: He insisted that he was innocent.",
+        "Học thuộc thành ngữ cố định: **if need be, be that as it may, so be it, come what may, suffice it to say**.",
+      ),
     ],
   },
   words: [
@@ -60,4 +68,36 @@ export default lesson({
     say("It is essential that everyone be on time tomorrow.", "Điều thiết yếu là ngày mai mọi người phải đúng giờ."),
     say("We can stay late if need be.", "Chúng ta có thể ở lại muộn nếu cần."),
   ],
+  dialogue: dialogue(
+    "Thực hiện khuyến nghị sau đợt kiểm tra an toàn",
+    "Chị Thu, trưởng phòng nhân sự của một nhà máy điện tử ở Bắc Ninh, trao đổi với ông Weber, giám đốc nhà máy người Đức, về báo cáo của đoàn kiểm tra an toàn vừa gửi sáng nay.",
+    { A: "Chị Thu, trưởng phòng nhân sự", B: "Ông Weber, giám đốc nhà máy" },
+    A("The auditors' report arrived this morning. They recommend that every worker attend a refresher course on fire safety.", "Báo cáo của đoàn kiểm tra đến sáng nay. Họ khuyến nghị mọi công nhân phải tham gia khóa bồi dưỡng về an toàn phòng cháy."),
+    B("Every worker? Including the office staff?", "Mọi công nhân sao? Kể cả nhân viên văn phòng?"),
+    A("Yes. It is essential that everyone be trained, not just the people on the factory floor.", "Vâng. Điều thiết yếu là tất cả mọi người đều được huấn luyện, không chỉ những người đứng máy."),
+    B("Fine. But I'd suggest that we run the sessions in small groups, so that production doesn't stop.", "Được. Nhưng tôi đề nghị chúng ta tổ chức theo nhóm nhỏ để sản xuất không bị gián đoạn."),
+    A("Good idea. They also insist that the emergency exits not be blocked at any time. Last month two of them were.", "Ý hay ạ. Họ cũng yêu cầu lối thoát hiểm tuyệt đối không được để bị chắn. Tháng trước có hai lối bị chắn."),
+    B("That's unacceptable. I'll request that the warehouse manager check them every morning.", "Không thể chấp nhận được. Tôi sẽ yêu cầu quản lý kho kiểm tra các lối đó mỗi sáng."),
+    A("And head office requires that the action plan be submitted within a week.", "Và trụ sở chính yêu cầu nộp kế hoạch hành động trong vòng một tuần."),
+    B("A week is tight. We'll work over the weekend if need be.", "Một tuần thì gấp đấy. Nếu cần, chúng ta sẽ làm cả cuối tuần."),
+    A("Some supervisors will complain about the extra paperwork.", "Sẽ có vài tổ trưởng phàn nàn về giấy tờ tăng thêm."),
+    B("Be that as it may, safety isn't optional. It's vital that we get this right.", "Dù vậy, an toàn không phải chuyện tùy chọn. Điều cực kỳ quan trọng là chúng ta phải làm cho đúng."),
+  ),
+  task: task({
+    prompt: "Bạn là trưởng phòng. Sau một đợt kiểm tra nội bộ, hãy viết email gửi cả nhóm thông báo các quy định mới và lý do. Dùng thể giả định sau động từ và tính từ chỉ yêu cầu, tầm quan trọng.",
+    hints: [
+      "Dùng recommend, request, insist, propose + that + S + V nguyên mẫu.",
+      "Dùng It is essential / vital / important that + S + V nguyên mẫu, có ít nhất một câu phủ định với not.",
+      "Chèn một thành ngữ cố định như if need be hoặc be that as it may.",
+    ],
+    model: "Dear team,\n\nFollowing last week's inspection, the auditors have made several recommendations, and I would like to share them with you. First, they recommend that every member of staff complete the online data protection course by the end of the month. Second, it is essential that customer files not be left on desks overnight. Third, head office has requested that each department appoint a compliance officer, and I propose that Minh take on this role for our team. I realise that this means extra work at a very busy time. Be that as it may, it is vital that we follow these rules carefully. If need be, I will reorganise our schedule so that nobody falls behind. Please let me know if you have any questions.\n\nBest wishes,\nHoa",
+    checklist: [
+      "Có ít nhất ba câu dạng động từ hoặc tính từ chỉ yêu cầu + that + S + V nguyên mẫu.",
+      "Động từ sau that không thêm -s dù chủ ngữ là ngôi thứ ba (Minh take, every member complete).",
+      "Có ít nhất một câu phủ định dạng not + V nguyên mẫu (not be, not miss).",
+      "Không dùng suggest hay recommend + người + to V.",
+      "Có ít nhất một thành ngữ cố định (if need be, be that as it may...).",
+    ],
+    minWords: 90,
+  }),
 });

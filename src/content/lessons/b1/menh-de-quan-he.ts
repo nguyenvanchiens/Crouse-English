@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "menh-de-quan-he",
@@ -31,6 +31,13 @@ export default lesson({
       mistake("I lost the bag which my mother gave it to me.", "I lost the bag which my mother gave me.", "Which đã thay cho the bag, nên không thêm it nữa."),
       mistake("That's the restaurant which we had dinner.", "That's the restaurant where we had dinner.", "Nói về nơi xảy ra sự việc thì dùng where (hoặc which … at, nhưng where tự nhiên hơn)."),
       teacher("Tôi vẫn nhớ một học viên làm hướng dẫn viên du lịch, mỗi lần giới thiệu đều nói một chuỗi câu ngắn: “This is a temple. It is old. People built it in 1070.” Tôi chỉ dạy anh ấy ghép lại: **This is a temple which people built in 1070.** Khách nghe thấy chuyên nghiệp hơn hẳn. Lời khuyên của tôi: mỗi ngày các bạn lấy hai câu ngắn có chung một danh từ và **ghép thành một câu** bằng who, which, where hay whose. Làm đều tay một tháng, câu nói của các bạn sẽ dài và mượt hơn rất nhiều."),
+      summary(
+        "who cho người, which cho vật, that cho cả người lẫn vật, where cho nơi chốn, whose + danh từ chỉ sở hữu.",
+        "Mệnh đề quan hệ đứng ngay sau danh từ mà nó bổ nghĩa.",
+        "Không lặp lại chủ ngữ hay tân ngữ: the man who lives (không phải who he lives), the bag which my mother gave me (không thêm it).",
+        "Bỏ được who / which / that khi ngay sau nó là chủ ngữ + động từ: the book I'm reading.",
+        "Nói về nơi xảy ra sự việc thì dùng where: the café where we first met.",
+      ),
     ],
   },
   words: [
@@ -58,4 +65,37 @@ export default lesson({
     say("This is the phone I bought last week.", "Đây là chiếc điện thoại tôi mua tuần trước."),
     say("Hanoi is the city where I was born.", "Hà Nội là thành phố nơi tôi sinh ra."),
   ],
+  dialogue: dialogue(
+    "Dẫn khách dạo phố cổ",
+    "Minh là hướng dẫn viên du lịch, đang dẫn chị Sarah, một du khách người Úc, đi dạo phố cổ Hà Nội.",
+    { A: "Minh", B: "Sarah" },
+    A("This is the street where you can buy traditional silk.", "Đây là con phố nơi chị có thể mua lụa truyền thống."),
+    B("Lovely! Who is the old man who is sitting outside that shop?", "Đẹp quá! Ông cụ đang ngồi trước cửa hàng kia là ai vậy?"),
+    A("He's the owner. He's a man whose family has run the shop for a hundred years.", "Ông ấy là chủ tiệm. Gia đình ông đã mở tiệm này suốt một trăm năm."),
+    B("Amazing. And what's the dish that everyone is eating over there?", "Tuyệt thật. Còn món mà mọi người đang ăn đằng kia là gì?"),
+    A("That's bun cha. It's the dish which President Obama tried in Hanoi.", "Đó là bún chả. Đó là món mà Tổng thống Obama đã ăn thử ở Hà Nội."),
+    B("I read about that! Is this the restaurant where he ate it?", "Tôi có đọc về chuyện đó! Đây có phải nhà hàng nơi ông ấy đã ăn không?"),
+    A("No, the restaurant he visited is on another street. I can take you there.", "Không, nhà hàng ông ấy ghé nằm ở phố khác. Tôi có thể đưa chị tới đó."),
+    B("Great. I also need a shop that sells good coffee. It's for my friends at home.", "Tuyệt. Tôi cũng cần một cửa hàng bán cà phê ngon. Để làm quà cho bạn bè ở nhà."),
+    A("I know a woman whose coffee shop is near the lake. Her coffee is the best I've ever tried.", "Tôi quen một chị có quán cà phê gần hồ. Cà phê của chị ấy ngon nhất mà tôi từng uống."),
+    B("You're the kind of guide who knows everything! Let's go.", "Anh đúng là kiểu hướng dẫn viên cái gì cũng biết! Đi thôi."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn văn 6–8 câu giới thiệu quê hương hoặc khu phố của bạn cho một người bạn nước ngoài: một địa điểm, một người và một món ăn đặc biệt.",
+    hints: [
+      "Dùng where cho địa điểm: the market where…",
+      "Dùng who hoặc whose cho người: a woman whose son…",
+      "Dùng which / that, hoặc lược bỏ đại từ, cho món ăn và đồ vật.",
+      "Thử ghép hai câu ngắn có chung một danh từ thành một câu.",
+    ],
+    model: "I come from Nam Dinh, a small city which is about ninety kilometres from Hanoi. Near my house there is a market where people sell fresh fish every morning. My favourite person there is an old lady who has sold rice cakes for forty years. She has a son whose restaurant is famous for beef noodle soup. It's a dish that every visitor should try. The temple I visit every spring is also worth seeing. I hope you can come and visit the city where I grew up.",
+    checklist: [
+      "Có ít nhất một câu với who và một câu với where.",
+      "Có ít nhất một câu với whose + danh từ.",
+      "Không lặp lại chủ ngữ hay tân ngữ trong mệnh đề (who he…, which… it).",
+      "Có ít nhất một câu lược bỏ that / which đúng chỗ.",
+      "Mệnh đề quan hệ đứng ngay sau danh từ mà nó bổ nghĩa.",
+    ],
+    minWords: 60,
+  }),
 });

@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "so-sanh-nang-cao",
@@ -33,6 +33,12 @@ export default lesson({
       mistake("My salary is twice more than his.", "My salary is twice as high as his.", "Với twice, three times, dùng cấu trúc as… as. Đừng dịch từng chữ “gấp đôi hơn”."),
       tip("Hai câu rút gọn rất hay dùng, học thuộc như thành ngữ: **The sooner, the better** (càng sớm càng tốt) và **The more, the merrier** (càng đông càng vui). Khi nói, nhấn giọng vào hai từ so sánh: the SOONer, the BETter."),
       teacher("Sau nhiều năm dạy, tôi thấy chữ “very” là cái bẫy lớn nhất của người Việt khi so sánh. Tôi dặn các bạn: **hễ thấy đuôi -er hoặc chữ more, xóa very đi và thay bằng much**. Mỗi tối, các bạn thử so sánh hai thứ quen thuộc, hai quán cà phê, hai chiếc xe máy, hai thành phố, bằng ba mức: a bit, much, twice as… as. Nói to thành tiếng, chỉ năm phút thôi, nhưng làm đều đặn."),
+      summary(
+        "Hơn nhiều: much / far / a lot + so sánh hơn. Hơn một chút: a bit / a little / slightly. Không dùng very với so sánh hơn.",
+        "Càng… càng…: the + so sánh hơn…, the + so sánh hơn…; tính từ đi liền với the more (the more confident).",
+        "Không… bằng: not as + tính từ + as.",
+        "Gấp đôi, gấp ba: twice / three times as + tính từ + as; chỉ bằng một nửa: half as + tính từ + as.",
+      ),
     ],
   },
   words: [
@@ -60,4 +66,36 @@ export default lesson({
     say("The more you practise, the more confident you become.", "Càng luyện tập nhiều, bạn càng trở nên tự tin."),
     say("My new flat is twice as big as my old one.", "Căn hộ mới của tôi rộng gấp đôi căn cũ."),
   ],
+  dialogue: dialogue(
+    "Chọn căn hộ nào?",
+    "Hai vợ chồng Quân và Thảo vừa đi xem hai căn hộ cho thuê ở Hà Nội và đang bàn nên chọn căn nào.",
+    { A: "Quân", B: "Thảo" },
+    A("So, which flat did you like more?", "Vậy em thích căn nào hơn?"),
+    B("The first one is much bigger. The living room is almost twice as big as ours.", "Căn đầu rộng hơn nhiều. Phòng khách rộng gần gấp đôi phòng nhà mình."),
+    A("True, but the rent is far higher. The second flat is only half as expensive.", "Đúng, nhưng tiền thuê cao hơn hẳn. Căn thứ hai giá chỉ bằng một nửa."),
+    B("The second one isn't as bright as the first, though. It only has one small window.", "Nhưng căn thứ hai không sáng bằng căn đầu. Nó chỉ có một cửa sổ nhỏ."),
+    A("But it's a bit closer to my office. I could save thirty minutes a day.", "Nhưng căn đó gần cơ quan anh hơn một chút. Anh có thể tiết kiệm ba mươi phút mỗi ngày."),
+    B("And the first one is slightly further from my school. Hmm.", "Còn căn đầu thì xa trường em hơn một chút. Hừm."),
+    A("Think about it: the bigger the flat, the higher the bills.", "Em nghĩ xem: căn hộ càng rộng thì hóa đơn càng cao."),
+    B("That's true. And the less we spend on rent, the more we can save for a car.", "Đúng thế. Và mình càng tiêu ít cho tiền thuê thì càng để dành được nhiều tiền mua ô tô."),
+    A("So the second flat is a much better choice for us.", "Vậy căn thứ hai là lựa chọn tốt hơn nhiều cho mình."),
+    B("Okay, let's call the landlord tonight. The sooner, the better!", "Được, tối nay gọi cho chủ nhà luôn. Càng sớm càng tốt!"),
+  ),
+  task: task({
+    prompt: "Viết một đoạn văn 6–8 câu so sánh hai nơi bạn từng sống hoặc hai thành phố bạn biết rõ (giá cả, giao thông, không khí, con người).",
+    hints: [
+      "Dùng much / far / a bit + so sánh hơn để nói mức độ.",
+      "Có ít nhất một câu not as… as và một câu twice / three times as… as.",
+      "Kết bằng một câu càng… càng…: the longer…, the more…",
+    ],
+    model: "I have lived in both Hanoi and my hometown, Thai Binh. Hanoi is much bigger and far more exciting, but the traffic is a lot worse. In Thai Binh, the air is slightly cleaner and the streets are much quieter. Food in my hometown isn't as expensive as in Hanoi. In fact, a bowl of pho in Hanoi is almost twice as expensive as at home. However, salaries in Hanoi are also three times as high. For me, the longer I live in the city, the more I miss my quiet hometown.",
+    checklist: [
+      "Có ít nhất hai câu dùng much / far / a lot / a bit trước so sánh hơn.",
+      "Không dùng very trước so sánh hơn.",
+      "Có một câu not as + tính từ + as.",
+      "Có một câu twice / three times / half as + tính từ + as.",
+      "Có một câu càng… càng… đúng cấu trúc the + so sánh hơn.",
+    ],
+    minWords: 60,
+  }),
 });

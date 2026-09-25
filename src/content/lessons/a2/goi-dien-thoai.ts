@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "goi-dien-thoai",
@@ -37,6 +37,13 @@ export default lesson({
       mistake("Could you to call me back?", "Could you call me back?", "Can, could, would là động từ khuyết thiếu: theo sau là động từ nguyên mẫu, không có to."),
       mistake("Can you call back me later?", "Can you call me back later?", "Tiếng Việt nói “gọi lại cho tôi” nên người học hay đặt me ở cuối. Với call back, đại từ phải chen vào giữa: call me back, call him back."),
       teacher("Sau nhiều năm dạy, tôi thấy học viên sợ điện thoại không phải vì kém ngữ pháp mà vì **sợ không nghe kịp**. Mẹo của tôi: thuộc lòng câu **Sorry, could you repeat that, please?** và **Could you speak more slowly, please?** Có hai câu này trong túi, các bạn không bao giờ bị “đứng hình”. Mỗi tối, các bạn hãy tự đóng vai cả hai người trong một cuộc gọi, nói to thành tiếng từ lời chào đến lời tạm biệt. Làm vậy một tuần là các bạn nhấc máy tự tin hẳn."),
+      summary(
+        "Xưng tên qua điện thoại: This is Lan hoặc It's Lan, không nói I am Lan.",
+        "Xin gặp: Can I speak to..., please?; người gọi leave a message, người nghe take a message.",
+        "Nhờ và xin phép: Can / Could / Would + động từ nguyên mẫu, không có to; could, would lịch sự hơn.",
+        "Với call back, đại từ chen vào giữa: call me back, call her back.",
+        "Không nghe kịp thì nói: Could you repeat that, please? hoặc Could you speak more slowly, please?",
+      ),
     ],
   },
   words: [
@@ -64,4 +71,39 @@ export default lesson({
     say("Could you ask him to call me back?", "Chị có thể nhắn anh ấy gọi lại cho tôi được không?"),
     say("That's OK. I'll call back later.", "Không sao ạ. Tôi sẽ gọi lại sau."),
   ],
+  dialogue: dialogue(
+    "Gọi đến khách sạn",
+    "Minh gọi đến khách sạn Sunrise để gặp chị Hoa, quản lý đặt phòng, nhưng chị ấy đang họp. Minh để lại lời nhắn và nhờ chị ấy gọi lại.",
+    { A: "Lễ tân khách sạn Sunrise", B: "Minh, nhân viên công ty ABC" },
+    A("Good morning, Sunrise Hotel. How can I help you?", "Chào buổi sáng, khách sạn Sunrise xin nghe. Tôi có thể giúp gì ạ?"),
+    B("Hello, this is Minh from ABC Company. Can I speak to Ms Hoa, please?", "Alô, tôi là Minh ở công ty ABC. Cho tôi gặp chị Hoa được không ạ?"),
+    A("Just a moment, please. I'm afraid she's in a meeting right now.", "Xin anh chờ một lát. Rất tiếc là chị ấy đang họp."),
+    B("Oh, I see. Could I leave a message?", "Ồ, tôi hiểu rồi. Tôi để lại lời nhắn được không?"),
+    A("Of course. Could you spell your name, please?", "Tất nhiên rồi. Anh đánh vần tên mình giúp tôi được không?"),
+    B("Sure. M, I, N, H. Minh.", "Được ạ. M, I, N, H. Minh."),
+    A("Thank you. And what's the message?", "Cảm ơn anh. Lời nhắn là gì ạ?"),
+    B("I'd like to book three rooms for next Friday. Would you ask her to call me back, please?","Tôi muốn đặt ba phòng cho thứ Sáu tới. Chị nhắn chị ấy gọi lại cho tôi được không?"),
+    A("Sorry, could you repeat that, please? The line is bad.", "Xin lỗi, anh nhắc lại được không ạ? Đường truyền kém quá."),
+    B("No problem. Could you ask Ms Hoa to call me back about booking three rooms for next Friday?","Không sao. Chị nhắn chị Hoa gọi lại cho tôi về việc đặt ba phòng thứ Sáu tới được không?"),
+    A("Of course. I'll ask her to call you back after the meeting.", "Vâng ạ. Tôi sẽ nhắn chị ấy gọi lại cho anh sau cuộc họp."),
+    B("Thank you very much. Goodbye.", "Cảm ơn chị nhiều. Chào chị."),
+  ),
+  task: task({
+    prompt: "Bạn gọi đến văn phòng một công ty đối tác để gặp ông Peter Smith, nhưng ông ấy không có mặt. Viết lại những câu bạn nói trong cuộc gọi: chào, xưng tên, xin gặp, để lại lời nhắn, nhờ gọi lại và chào tạm biệt.",
+    hints: [
+      "Xưng tên bằng This is... from...",
+      "Xin gặp bằng Can I speak to..., please?",
+      "Để lại lời nhắn: Could I leave a message, please? rồi nhờ bằng Could you / Would you + động từ.",
+      "Kết thúc bằng Thank you. Goodbye. hoặc I'll call back later.",
+    ],
+    model: "Hello, this is Hanh from Green Travel. Can I speak to Mr Smith, please? Oh, I see. Could I leave a message, please? Could you ask him to call me back this afternoon, please? My number is 0912 345 678. Would you tell him it's about the hotel booking, please? Thank you very much. Goodbye.",
+    checklist: [
+      "Xưng tên bằng this is hoặc it's, không dùng I am.",
+      "Có câu xin gặp Can I speak to..., please?",
+      "Có ít nhất 2 câu nhờ hoặc xin phép với could hay would, theo sau là động từ nguyên mẫu không có to.",
+      "Viết đúng call me back, không viết call back me.",
+      "Các câu nhờ đều có please.",
+    ],
+    minWords: 30,
+  }),
 });

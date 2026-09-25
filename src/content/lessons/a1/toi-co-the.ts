@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "toi-co-the",
@@ -31,6 +31,13 @@ export default lesson({
       ),
       tip("Người bản xứ hay nuốt âm /t/ ở cuối can't, nên đừng chờ nghe chữ t. Hãy nghe **nguyên âm**: câu khẳng định đọc lướt **/kən/** như “cần” rất nhẹ, còn câu phủ định kéo dài và nhấn mạnh **/kɑːnt/** như “caaan”."),
       teacher("Sau nhiều năm đứng lớp, tôi thấy học viên người Việt nhầm can và can't nhiều hơn bất cứ cặp từ nào, vì các bạn cố nghe âm /t/ mà người ta không đọc. Mỗi tối, các bạn nói to ba câu về mình: **I can…**, **I can't…**, **Can I…?** Câu khẳng định đọc nhẹ can và nhấn vào động từ; câu phủ định thì nhấn chính chữ can't. Nói đúng nhịp thì tự khắc sẽ nghe ra."),
+      summary(
+        "**Can + động từ nguyên mẫu** với mọi chủ ngữ: she can swim (không nói cans, không nói can to).",
+        "Phủ định là **can't**; câu hỏi đảo can lên đầu: Can you drive? Yes, I can. / No, I can't.",
+        "Can nói **khả năng** (I can cook) và **xin phép** (Can I sit here?); nhờ người khác thì hỏi **Can you…?**",
+        "**You can't…** còn có nghĩa là không được phép: You can't park here.",
+        "Nghe bằng nguyên âm: can đọc nhẹ /kən/, can't đọc dài và mạnh /kɑːnt/.",
+      ),
     ],
   },
   words: [
@@ -58,4 +65,38 @@ export default lesson({
     say("Excuse me, can I sit here?", "Xin lỗi, tôi ngồi đây được không?"),
     say("My son can swim, but he can't ride a bike.", "Con trai tôi biết bơi, nhưng chưa biết đi xe đạp."),
   ],
+  dialogue: dialogue(
+    "Phỏng vấn xin việc lễ tân",
+    "Hoa đi phỏng vấn làm lễ tân ở một khách sạn tại Đà Nẵng. Người phỏng vấn là quản lý người Úc, hỏi Hoa biết làm những gì; cuối buổi Hoa xin phép hỏi một câu.",
+    { A: "Quản lý khách sạn", B: "Hoa" },
+    A("Good morning, Hoa. Can you speak English?", "Chào buổi sáng, Hoa. Em có nói được tiếng Anh không?"),
+    B("Yes, I can. I can speak English and a little Chinese.", "Dạ được ạ. Em nói được tiếng Anh và một chút tiếng Trung."),
+    A("Great. Can you use a computer?", "Tốt quá. Em có biết dùng máy tính không?"),
+    B("Yes, I can. I can use Word and Excel.", "Dạ có. Em biết dùng Word và Excel."),
+    A("Can you drive a car?", "Em có biết lái ô tô không?"),
+    B("No, I can't. But I can ride a motorbike.", "Dạ không. Nhưng em biết đi xe máy."),
+    A("That's OK. Can you work on Saturdays?", "Không sao. Em làm được vào các ngày thứ Bảy không?"),
+    B("Yes, I can. Sorry, can I ask a question?", "Dạ được ạ. Xin lỗi, em hỏi một câu được không ạ?"),
+    A("Of course.", "Tất nhiên rồi."),
+    B("Can I park my motorbike here?", "Em có được để xe máy ở đây không ạ?"),
+    A("Yes, you can. But you can't smoke here.", "Được chứ. Nhưng ở đây không được hút thuốc."),
+    B("No problem. I don't smoke.", "Không sao ạ. Em không hút thuốc."),
+  ),
+  task: task({
+    prompt: "Bạn đang viết vài dòng giới thiệu bản thân cho một công việc làm thêm. Viết 5–6 câu về những việc bạn biết làm và chưa biết làm, rồi thêm một câu xin phép.",
+    hints: [
+      "Việc biết làm: I can… (speak English, cook, use a computer).",
+      "Việc chưa biết làm: I can't… Dùng but để nối hai ý: I can cook, but I can't sing.",
+      "Câu xin phép: Can I…, please?",
+    ],
+    model: "I can speak English and a little French. I can use a computer. I can cook, but I can't sing. I can ride a motorbike, but I can't drive a car. I can work at the weekend. Can I start next Monday, please?",
+    checklist: [
+      "Sau can là động từ nguyên mẫu, không có to (không viết can to cook)",
+      "Can không thêm -s và động từ sau can cũng không thêm -s (she can speak)",
+      "Có ít nhất 2 câu với can't",
+      "Có ít nhất một câu xin phép Can I…?",
+      "Câu hỏi đảo can lên đầu câu (không viết You can…?)",
+    ],
+    minWords: 25,
+  }),
 });

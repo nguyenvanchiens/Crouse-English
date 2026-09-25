@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "qua-khu-hoan-thanh",
@@ -29,6 +29,13 @@ export default lesson({
       mistake("When I arrived, the train already left.", "When I arrived, the train had already left.", "Tiếng Việt nói “tàu đã chạy rồi” mà không đổi hình thức động từ, nên người Việt quen dùng quá khứ đơn. Việc xảy ra trước một mốc quá khứ khác cần had + V3."),
       mistake("I had gone to Da Lat last year.", "I went to Da Lat last year.", "Chỉ kể một việc đơn lẻ trong quá khứ thì dùng quá khứ đơn. Quá khứ hoàn thành chỉ cần khi có một mốc quá khứ khác để so sánh trước sau."),
       teacher("Sau nhiều năm dạy, tôi thấy người Việt học tiếng Anh mắc hai bệnh ngược nhau: hoặc **không bao giờ dùng** had, hoặc **dùng had cho mọi chuyện cũ** vì nghĩ “đã lâu rồi thì là quá khứ hoàn thành”. Các bạn nhớ giúp tôi: had + V3 không phải là “quá khứ xa”, mà là “quá khứ **trước** một quá khứ khác”. Mỗi tối, các bạn hãy kể lại một chuyện trong ngày bằng ba câu, trong đó có đúng một câu với had. Ví dụ: I got to work late. The meeting had already started. My boss wasn't happy."),
+      summary(
+        "**had + V3** cho việc xảy ra **trước** một mốc khác trong quá khứ; had dùng chung cho mọi chủ ngữ.",
+        "Chỉ kể một việc đơn lẻ, không có mốc quá khứ thứ hai để so sánh, thì dùng quá khứ đơn: I went to Da Lat last year.",
+        "Hay đi cùng **by the time, already, never… before, because**; với before / after, quá khứ đơn cho cả hai vế cũng được.",
+        "When I arrived, she left: hai người gặp nhau. When I arrived, she **had left**: không gặp nhau.",
+        "Nghe **'d + V3** là had (I'd gone); **'d + động từ nguyên mẫu** là would (I'd go).",
+      ),
     ],
   },
   words: [
@@ -56,4 +63,39 @@ export default lesson({
     say("I had never seen snow before I went to Japan.", "Trước khi sang Nhật, tôi chưa từng thấy tuyết."),
     say("She was upset because she had lost her phone.", "Cô ấy buồn vì đã làm mất điện thoại."),
   ],
+  dialogue: dialogue(
+    "Chuyến công tác suýt hỏng",
+    "Phong vừa đi công tác Singapore về. Chị Lan, đồng nghiệp, hỏi thăm chuyến đi, và Phong kể lại một loạt chuyện trục trặc: việc nào xảy ra trước thì anh dùng had + V3.",
+    { A: "Chị Lan, đồng nghiệp", B: "Phong" },
+    A("Welcome back, Phong! How was your trip to Singapore?", "Chào mừng Phong về! Chuyến đi Singapore thế nào?"),
+    B("Terrible at the start! By the time I got to the airport, check-in had already closed.", "Lúc đầu thì tệ lắm chị ạ! Lúc em đến sân bay thì quầy làm thủ tục đã đóng rồi."),
+    A("Oh no! Why were you so late?", "Ôi trời! Sao em đến muộn thế?"),
+    B("I had forgotten my passport, so I went back home to get it.", "Em để quên hộ chiếu, nên phải quay về nhà lấy."),
+    A("So did you miss the flight?", "Thế em có lỡ chuyến bay không?"),
+    B("Luckily, no. The airline had delayed the flight by two hours, so they let me check in.", "May mà không. Hãng bay đã hoãn chuyến hai tiếng, nên họ vẫn cho em làm thủ tục."),
+    A("What luck! Had you ever been to Singapore before?", "May thật! Trước đó em đã từng đến Singapore chưa?"),
+    B("No, I had never been there. It was my first time.", "Chưa, em chưa đến đó bao giờ. Đó là lần đầu tiên."),
+    A("Did the meeting go well?", "Cuộc họp có suôn sẻ không?"),
+    B("Not at first. When I arrived at the office, my colleague had already started the presentation.", "Lúc đầu thì không. Khi em đến văn phòng thì đồng nghiệp em đã bắt đầu bài thuyết trình rồi."),
+    A("Were you upset?", "Em có bực không?"),
+    B("A little. But I was relieved because she had prepared everything very well.", "Một chút ạ. Nhưng em thấy nhẹ nhõm vì chị ấy đã chuẩn bị mọi thứ rất kỹ."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn văn kể lại một ngày “mọi thứ đều trục trặc” của bạn: dậy muộn, lỡ xe, quên đồ, đến nơi thì việc đã bắt đầu… Hãy làm rõ việc nào xảy ra trước.",
+    hints: [
+      "Kể các việc chính theo thứ tự bằng quá khứ đơn.",
+      "Việc nào xảy ra trước một mốc quá khứ khác thì dùng had + V3 (had forgotten, had already left).",
+      "Dùng by the time, already, because, never… before.",
+      "Kết bằng một chuyện may mắn hoặc một bài học.",
+    ],
+    model: "Last Monday was a terrible day. I woke up late because I had forgotten to set my alarm. By the time I got to the bus stop, the bus had already left, so I took a taxi. When I arrived at the office, the meeting had started twenty minutes earlier. Then I realised that I had left my laptop at home! My boss wasn't happy. Luckily, a colleague had saved the report on her computer, so we used hers. I had never had such a bad morning before.",
+    checklist: [
+      "Có ít nhất 3 câu had + V3, và mỗi câu đều có một mốc quá khứ khác để so sánh trước sau.",
+      "Các việc chính của câu chuyện ở quá khứ đơn (woke up, got, took), không dùng had cho mọi câu.",
+      "Dùng ít nhất 2 trong số: by the time, already, because, never… before.",
+      "V3 bất quy tắc viết đúng: forgotten, left, gone, seen.",
+      "Had dùng chung cho mọi chủ ngữ, không có câu nào viết has + V3 trong chuyện quá khứ.",
+    ],
+    minWords: 50,
+  }),
 });

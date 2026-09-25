@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "bi-dong-nang-cao",
@@ -32,6 +32,13 @@ export default lesson({
       mistake("The samples got analysed in the laboratory.", "The samples were analysed in the laboratory.", "Get-passive là văn nói. Trong báo cáo khoa học, email trang trọng hay bài luận, luôn dùng be + V3."),
       tip("Chữ **said** trong **is said to** đọc là /sed/, vần với red, không đọc /seɪd/ như nhiều bạn vẫn đọc theo mặt chữ. Còn chữ **to have** trong câu nhanh thường nhẹ hẳn đi, nghe như /tə həv/ hoặc /təv/."),
       teacher("Sau nhiều năm dạy, tôi thấy người Việt đọc hiểu cấu trúc này rất nhanh, nhưng khi viết thì cứ quay về **People say that**. Mỗi sáng, các bạn hãy đọc một tiêu đề tin tức tiếng Anh và tìm xem có is said to, is believed to, is reported to hay không, rồi tự hỏi: sự việc xảy ra **cùng lúc** hay **trước** lúc đưa tin? Chỉ cần trả lời đúng câu hỏi đó là các bạn chọn đúng **to V** hay **to have V3**. Thói quen năm phút mỗi sáng hiệu quả hơn một buổi học ngữ pháp dài."),
+      summary(
+        "Hai cách đưa tin khách quan: **It is said that + mệnh đề**, hoặc **Chủ ngữ + is said to + V**.",
+        "Chọn dạng sau to theo thời điểm: cùng lúc dùng **to V**; xảy ra trước dùng **to have V3**; đang diễn ra dùng **to be V-ing**.",
+        "Bắt đầu bằng It thì phải có **that + mệnh đề**; không nói It is said him to be.",
+        "Động từ hay gặp: say, believe, think, report, expect, know, consider, allege, estimate, understand.",
+        "**Get + V3** chỉ dùng trong văn nói cho việc bất ngờ, thường không mong muốn; văn trang trọng luôn dùng **be + V3**.",
+      ),
     ],
   },
   words: [
@@ -59,4 +66,38 @@ export default lesson({
     say("The singer is believed to have left the country.", "Người ta tin rằng nữ ca sĩ đã rời khỏi đất nước."),
     say("I got stuck in traffic for two hours.", "Tôi bị kẹt xe suốt hai tiếng."),
   ],
+  dialogue: dialogue(
+    "Biên tập một bản tin nóng",
+    "Tại tòa soạn một báo điện tử tiếng Anh ở Hà Nội, chị Hạnh, biên tập viên, cùng phóng viên trẻ Duy sửa bản tin về vụ cháy xưởng ở Bình Dương trước khi đăng.",
+    { A: "Chị Hạnh, biên tập viên", B: "Duy, phóng viên" },
+    A("Duy, your draft says: people say the fire started in the warehouse. We can't publish that.", "Duy, bản nháp của em viết: người ta nói đám cháy bắt đầu từ nhà kho. Mình không đăng thế được."),
+    B("Why not? That's exactly what the witnesses told me.", "Sao vậy chị? Đó đúng là điều nhân chứng kể với em mà."),
+    A("Because it sounds like gossip. Write: the fire is believed to have started in the warehouse.", "Vì nghe như tin đồn. Em viết: đám cháy được cho là đã bắt đầu từ nhà kho."),
+    B("Got it. And the workers? The police are still interviewing them.", "Em hiểu rồi. Còn công nhân thì sao? Cảnh sát vẫn đang lấy lời khai họ."),
+    A("Then: police are understood to be questioning several workers. It's happening right now, so use to be plus ing.", "Vậy thì: theo những gì được biết, cảnh sát đang thẩm vấn một số công nhân. Việc đang diễn ra nên dùng to be cộng đuôi ing."),
+    B("What about the owner? Some people say he ignored earlier safety warnings.", "Còn chủ xưởng? Có người nói ông ấy đã phớt lờ các cảnh báo an toàn trước đó."),
+    A("Careful. The owner is alleged to have ignored safety warnings. Nothing has been proven yet.", "Cẩn thận nhé. Chủ xưởng bị cáo buộc là đã phớt lờ cảnh báo an toàn. Chưa có gì được chứng minh cả."),
+    B("Okay. One worker told me his friend got hurt trying to save the equipment.", "Vâng. Một công nhân kể với em là bạn anh ấy bị thương khi cố cứu máy móc."),
+    A("In the article, write was injured, not got hurt. Save get for when you're chatting.", "Trong bài, em viết was injured, đừng viết got hurt. Get để dành khi nói chuyện thôi."),
+    B("Understood. And the insurance company thinks the damage is around two million dollars.", "Em hiểu. Còn công ty bảo hiểm cho rằng thiệt hại khoảng hai triệu đô la."),
+    A("So: the damage is estimated to be around two million dollars. Now it reads like real news.", "Vậy viết: thiệt hại ước tính vào khoảng hai triệu đô la. Giờ thì nghe ra bản tin thật rồi đấy."),
+    B("Thanks. I'll send you the revised version in ten minutes.", "Em cảm ơn chị. Mười phút nữa em gửi bản đã sửa."),
+  ),
+  task: task({
+    prompt: "Hãy viết một bản tin ngắn bằng tiếng Anh về một sự việc có thật hoặc tưởng tượng (bão lũ, cháy, một vụ lừa đảo...) theo văn phong báo chí khách quan. Đưa tin bằng bị động với động từ tường thuật, không nói ai là người nói.",
+    hints: [
+      "Mở đầu bằng sự việc chính, rồi đưa thông tin chưa được xác nhận bằng is reported to, is believed to, is thought to.",
+      "Tự hỏi với mỗi câu: sự việc xảy ra cùng lúc, trước, hay đang diễn ra? Chọn to V, to have V3 hay to be V-ing.",
+      "Dùng ít nhất một câu It is thought / said that + mệnh đề, và is alleged to cho lời cáo buộc chưa chứng minh.",
+    ],
+    model: "Hundreds of residents were evacuated from their homes in Da Nang last night after heavy rain caused severe flooding. At least two people are reported to have died, and several others are believed to be missing. Rescue teams are understood to be searching the worst-affected areas this morning. It is thought that a blocked drainage system made the flooding worse, although officials have not yet confirmed this. A local construction company is alleged to have dumped waste into the canal last month. The total damage is estimated to exceed five million dollars. The storm is expected to move north later today, and the authorities have urged residents to stay indoors until further notice.",
+    checklist: [
+      "Có ít nhất một câu It is + V3 + that + mệnh đề.",
+      "Có ít nhất ba câu dạng Chủ ngữ + is/are + V3 + to...",
+      "Chọn đúng to V, to have V3 hoặc to be V-ing theo thời điểm của sự việc.",
+      "Không dùng get + V3 và không dùng People say that.",
+      "Giọng văn khách quan: không nêu ý kiến cá nhân, không khẳng định điều chưa được xác nhận.",
+    ],
+    minWords: 90,
+  }),
 });

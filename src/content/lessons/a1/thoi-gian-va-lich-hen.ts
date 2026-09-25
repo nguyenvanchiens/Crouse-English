@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "thoi-gian-va-lich-hen",
@@ -45,6 +45,13 @@ export default lesson({
       ex("The class starts on Monday morning.", "Lớp học bắt đầu vào sáng thứ Hai.", "Có tên thứ đi kèm thì dùng on, dù có chữ morning."),
       mistake("in Monday / at May", "on Monday / in May", "Tiếng Việt chỉ dùng một chữ “vào” cho mọi trường hợp: vào thứ Hai, vào tháng Năm, vào lúc sáu giờ. Tiếng Anh tách thành ba giới từ, nên phải học theo nhóm."),
       teacher("Tôi dạy các bạn học viên nhớ in, on, at bằng hình **cái phễu**: miệng phễu rộng là **in** (tháng, năm), giữa phễu là **on** (ngày), đáy phễu nhọn là **at** (giờ). Mỗi tối trước khi ngủ, các bạn thử nói lịch của ngày mai bằng tiếng Anh, một câu thôi: I have a meeting on Tuesday at nine. Ba tháng sau các bạn sẽ không cần nghĩ nữa."),
+      summary(
+        "Nói giờ: **past** cho nửa giờ đầu (ten past seven), **to** cho nửa giờ sau (quarter to eight là 7:45). Quarter là mười lăm phút, half là ba mươi phút.",
+        "Ngày nói bằng **số thứ tự**: the first, the fifth, the twelfth of May.",
+        "**In** + tháng, năm, buổi trong ngày; **on** + thứ, ngày tháng; **at** + giờ (và at night).",
+        "Có tên thứ đi kèm buổi thì dùng **on**: on Monday morning, on Friday afternoon.",
+        "Tên thứ và tháng luôn **viết hoa**: Monday, May.",
+      ),
     ],
   },
   words: [
@@ -72,4 +79,39 @@ export default lesson({
     say("The meeting is on Monday at half past nine.", "Cuộc họp vào thứ Hai lúc chín giờ rưỡi."),
     say("It's quarter to eight. We're late.", "Bây giờ là tám giờ kém mười lăm. Chúng ta muộn rồi."),
   ],
+  dialogue: dialogue(
+    "Đặt lịch khám răng qua điện thoại",
+    "Anh Tuấn gọi điện đến một phòng khám nha khoa quốc tế ở Hà Nội để đặt lịch. Chị lễ tân nói tiếng Anh, hỏi anh muốn đến thứ mấy, lúc mấy giờ.",
+    { A: "Chị lễ tân", B: "Anh Tuấn" },
+    A("Good morning, City Dental Clinic.", "Chào buổi sáng, phòng khám nha khoa City xin nghe."),
+    B("Good morning. I need an appointment with the dentist, please.", "Chào chị. Tôi cần đặt lịch hẹn với nha sĩ."),
+    A("Of course. Is Tuesday OK?", "Vâng ạ. Thứ Ba có được không anh?"),
+    B("Sorry, I have a meeting on Tuesday. What about Thursday?", "Xin lỗi, thứ Ba tôi có cuộc họp. Thứ Năm thì sao?"),
+    A("Thursday, the twelfth of May, at quarter to ten. Is that OK?", "Thứ Năm, ngày mười hai tháng Năm, lúc mười giờ kém mười lăm. Có được không anh?"),
+    B("Quarter to ten? So that's nine forty-five?", "Mười giờ kém mười lăm? Tức là chín giờ bốn mươi lăm phải không?"),
+    A("Yes, that's right.", "Vâng, đúng rồi ạ."),
+    B("Hmm, I start work at nine. Do you have anything in the afternoon?", "Hừm, tôi bắt đầu làm lúc chín giờ. Buổi chiều còn giờ nào không chị?"),
+    A("Yes. We have half past four on Thursday afternoon.", "Có ạ. Chiều thứ Năm còn giờ bốn rưỡi."),
+    B("Half past four on Thursday is great.", "Bốn rưỡi chiều thứ Năm thì tốt quá."),
+    A("OK. Your appointment is on Thursday, the twelfth of May, at half past four. What's your name, please?", "Vâng. Lịch hẹn của anh là thứ Năm, ngày mười hai tháng Năm, lúc bốn giờ rưỡi. Anh tên là gì ạ?"),
+    B("It's Tuan. See you on Thursday. Thank you!", "Tôi tên Tuấn. Hẹn gặp chị thứ Năm. Cảm ơn chị!"),
+  ),
+  task: task({
+    prompt: "Hãy viết một tin nhắn 5–7 câu cho một người bạn nước ngoài, kể lịch tuần này của bạn: có cuộc hẹn gì, vào thứ mấy, lúc mấy giờ, và sinh nhật bạn vào ngày nào. Viết số bằng chữ.",
+    hints: [
+      "Dùng on + thứ và at + giờ: on Monday at nine o'clock.",
+      "Thử nói giờ với past hoặc to: half past two, quarter to five.",
+      "Nói ngày bằng số thứ tự: the fifth of May.",
+      "Viết hoa tên thứ và tháng.",
+    ],
+    model: "Hi Tom. Here's my week. I have a meeting on Monday at nine o'clock. My appointment with the dentist is on Wednesday at half past two. On Friday evening, I have dinner with my family. My birthday is on the twentieth of October. See you on Saturday!",
+    checklist: [
+      "Thứ và ngày tháng dùng on, giờ dùng at (nếu có tháng đứng một mình thì dùng in)",
+      "Có ít nhất một giờ nói bằng past hoặc to",
+      "Ngày dùng số thứ tự (the twentieth, không viết the twenty)",
+      "Tên thứ và tháng viết hoa",
+      "Số viết bằng chữ, không dùng chữ số",
+    ],
+    minWords: 30,
+  }),
 });

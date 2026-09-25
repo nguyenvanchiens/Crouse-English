@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "trong-am-tu",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Trọng âm từ và nguyên âm yếu /ə/",
     blocks: [
-      p("Bạn hỏi đường: “Where is the HO-tel?”, đọc đều từng tiếng như tiếng Việt, và người Anh ngẩn ra. Họ quen nghe **ho-TEL**. Tiếng Việt dùng **thanh điệu**: mỗi âm tiết có dấu riêng và mạnh ngang nhau. Tiếng Anh không có thanh điệu mà có **trọng âm**: trong mỗi từ có một âm tiết được đọc **to hơn, dài hơn và cao hơn**, các âm tiết còn lại đọc nhẹ đi. Sai trọng âm thì dù đọc đúng từng âm, người nghe vẫn khó nhận ra từ."),
+      p("Một học trò của tôi hỏi đường ở London: “Where is the HÔ-TEN?”, đọc đều từng tiếng như tiếng Việt, và người Anh ngẩn ra. Họ quen nghe **ho-TEL**. Tiếng Việt dùng **thanh điệu**: mỗi âm tiết có dấu riêng và mạnh ngang nhau. Tiếng Anh không có thanh điệu mà có **trọng âm**: trong mỗi từ có một âm tiết được đọc **to hơn, dài hơn và cao hơn**, các âm tiết còn lại đọc nhẹ đi. Sai trọng âm thì dù các bạn đọc đúng từng âm, người nghe vẫn khó nhận ra từ."),
       table(
         ["Ký hiệu trong từ điển", "Ý nghĩa", "Ví dụ"],
         ["ˈ (dấu phẩy trên)", "trọng âm chính, đặt trước âm tiết được nhấn", "hotel /həʊˈtel/: ho-TEL"],
@@ -29,28 +29,53 @@ export default lesson({
       ex("I got a lovely present for my birthday.", "Tôi nhận được một món quà rất đẹp nhân dịp sinh nhật.", "Present là danh từ (món quà) nên nhấn âm đầu: /ˈprez.ənt/."),
       ex("She will present her report tomorrow.", "Ngày mai cô ấy sẽ trình bày báo cáo.", "Present là động từ (trình bày) nên nhấn âm sau: /prɪˈzent/."),
       mistake("banana đọc thành “ba-na-na”, ba tiếng mạnh như nhau", "banana /bəˈnɑː.nə/: bơ-NAA-nơ", "Tiếng Việt đọc mỗi âm tiết rõ ràng như nhau. Tiếng Anh chỉ nhấn một âm, hai âm còn lại co thành /ə/ rất nhẹ."),
-      mistake("photographer nhấn âm đầu giống photograph: PHO-to-gra-pher", "photographer /fəˈtɒɡ.rə.fər/: pho-TO-gra-pher", "Người Việt hay giữ nguyên trọng âm của từ gốc. Nhưng khi thêm đuôi, trọng âm có thể dịch chuyển: PHOtograph, phoTOgrapher, photoGRAPHic."),
+      mistake("photographer nhấn âm đầu giống photograph: PHO-to-gra-pher", "photographer /fəˈtɒɡ.rə.fə/: pho-TOG-ra-pher", "Người Việt hay giữ nguyên trọng âm của từ gốc. Nhưng khi thêm đuôi, trọng âm có thể dịch chuyển: PHOtograph, phoTOGrapher, photoGRAPHic."),
       tip("Mẹo kiểm tra: vừa đọc vừa **vỗ tay thật mạnh** ở âm tiết được nhấn, các âm khác chỉ gõ nhẹ ngón tay. Khi học một từ mới từ hai âm tiết trở lên, hãy tra từ điển và nhìn **dấu ˈ** trước tiên, rồi mới học nghĩa."),
       teacher("Nhiều học trò của tôi phát âm từng âm rất chuẩn mà người nước ngoài vẫn không hiểu, và lần nào nguyên nhân cũng là trọng âm. Tôi nói với các bạn điều tôi đã rút ra sau nhiều năm: **người bản xứ nhận ra từ nhờ trọng âm trước, nhờ từng âm sau**. Vì thế khi ghi từ mới vào sổ, các bạn hãy viết hoa âm tiết được nhấn ngay bên cạnh, ví dụ ho-TEL, ba-NA-na, in-for-MA-tion. Làm đều như vậy ba tháng, tai và miệng các bạn sẽ tự quen."),
+      summary(
+        "Mỗi từ nhiều âm tiết có **một âm nhấn chính**: to hơn, dài hơn, cao hơn các âm còn lại.",
+        "Âm tiết không nhấn thường co lại thành **/ə/**: banana /bəˈnɑː.nə/, không phải “ba-na-na”.",
+        "Danh từ, tính từ hai âm tiết thường nhấn âm đầu; động từ hai âm tiết thường nhấn âm sau: a PREsent, to preSENT.",
+        "Đuôi -tion, -sion, -ic, -ity kéo trọng âm về âm tiết ngay trước nó.",
+        "Thêm đuôi có thể dịch trọng âm: PHOtograph, phoTOGrapher, photoGRAPHic.",
+      ),
     ],
   },
   words: [
     word("hotel", "/həʊˈtel/", "khách sạn", "Our hotel is near the beach.", "ho|tel", 1, "Nhấn âm thứ hai: ho-TEL. Đừng đọc đều như “hô-ten”, và nhớ âm /l/ cuối."),
     word("banana", "/bəˈnɑː.nə/", "quả chuối", "I eat a banana every morning.", "ba|na|na", 1, "Chỉ nhấn âm giữa, kéo dài /ɑː/; hai âm còn lại là /ə/ rất nhẹ."),
-    word("decide", "/dɪˈsaɪd/", "quyết định", "I can't decide what to eat.", "de|cide", 1, "Động từ hai âm tiết nên nhấn âm sau: de-CIDE."),
+    word("decide", "/dɪˈsaɪd/", "quyết định", "I can't decide what to eat.", "de|cide", 1, "Động từ hai âm tiết nên nhấn âm sau: de-CIDE, và nhớ /d/ ở cuối."),
     word("photograph", "/ˈfəʊ.tə.ɡrɑːf/", "bức ảnh", "This is an old photograph of my family.", "pho|to|graph", 0, "Nhấn âm đầu: PHO-to-graph. Âm giữa co thành /ə/."),
-    word("photographer", "/fəˈtɒɡ.rə.fər/", "nhiếp ảnh gia", "My uncle is a wedding photographer.", "pho|tog|ra|pher", 1, "Trọng âm chuyển sang âm thứ hai: pho-TO-gra-pher; âm đầu co thành /fə/."),
-    word("photographic", "/ˌfəʊ.təˈɡræf.ɪk/", "thuộc về nhiếp ảnh", "She has a photographic memory.", "pho|to|graph|ic", 2, "Đuôi -ic kéo trọng âm về ngay trước nó: photo-GRAPH-ic."),
+    word("photographer", "/fəˈtɒɡ.rə.fə/", "nhiếp ảnh gia", "My uncle is a wedding photographer.", "pho|tog|ra|pher", 1, "Trọng âm chuyển sang âm thứ hai: pho-TOG-ra-pher; âm đầu co thành /fə/, chữ r cuối không đọc."),
+    word("photographic", "/ˌfəʊ.təˈɡræf.ɪk/", "thuộc về nhiếp ảnh", "She has a photographic memory.", "pho|to|graph|ic", 2, "Đuôi -ic kéo trọng âm về ngay trước nó: pho-to-GRAPH-ic."),
     word("information", "/ˌɪn.fəˈmeɪ.ʃən/", "thông tin", "I need more information, please.", "in|for|ma|tion", 2, "Đuôi -tion: nhấn ngay âm trước, in-for-MA-tion."),
     word("university", "/ˌjuː.nɪˈvɜː.sə.ti/", "trường đại học", "My sister studies at a university in Hue.", "u|ni|ver|si|ty", 2, "Đuôi -ity: nhấn âm ngay trước, u-ni-VER-si-ty."),
   ],
+  dialogue: dialogue(
+    "Hỏi thông tin ở quầy lễ tân",
+    "Chị Hoa sang Edinburgh dự hội thảo. Đến khách sạn, chị hỏi lễ tân về phòng, bữa sáng và đường đến trường đại học.",
+    { A: "Chị Hoa (khách)", B: "Lễ tân" },
+    B("Good evening. Welcome to the hotel.", "Chào buổi tối. Chào mừng chị đến khách sạn."),
+    A("Hello. I have a reservation. My name is Hoa.", "Xin chào. Tôi đã đặt phòng. Tên tôi là Hoa."),
+    B("Thank you. Your room is on the seventh floor.", "Cảm ơn chị. Phòng của chị ở tầng bảy."),
+    A("Could I have some information about breakfast?", "Cho tôi hỏi thông tin về bữa sáng được không?"),
+    B("Of course. Breakfast is from seven to ten in the restaurant.", "Tất nhiên rồi. Bữa sáng phục vụ từ bảy đến mười giờ ở nhà hàng."),
+    A("Great. I have a conference at the university tomorrow.", "Tốt quá. Ngày mai tôi có hội thảo ở trường đại học."),
+    B("The university is ten minutes by taxi.", "Trường đại học cách đây mười phút đi taxi."),
+    A("When should I leave? I can't decide.", "Tôi nên đi lúc mấy giờ nhỉ? Tôi chưa quyết được."),
+    B("When does the conference begin?", "Hội thảo bắt đầu lúc mấy giờ ạ?"),
+    A("At nine. I have to present my report.", "Chín giờ. Tôi phải trình bày báo cáo."),
+    B("Then leave at eight thirty. Here is a map of the city.", "Vậy chị đi lúc tám rưỡi nhé. Đây là bản đồ thành phố."),
+    A("Perfect. You've been very helpful.", "Tuyệt quá. Anh đã giúp tôi nhiều lắm."),
+    B("My pleasure. Enjoy your stay!", "Rất hân hạnh. Chúc chị ở đây vui vẻ!"),
+  ),
   exercises: [
     mc("pa-n07-1", "Từ “hotel” nhấn trọng âm ở đâu?", ["Âm thứ nhất: HO-tel", "Âm thứ hai: ho-TEL", "Nhấn đều cả hai âm", "Không nhấn âm nào"], 1, "Hotel /həʊˈtel/: dấu ˈ đứng trước âm thứ hai."),
     mc("pa-n07-2", "Từ nào có trọng âm khác với ba từ còn lại?", ["happy", "table", "decide", "student"], 2, "Decide là động từ, nhấn âm sau: de-CIDE. Happy, table, student đều nhấn âm đầu."),
-    listen("pa-n07-3", "photographer", ["photograph", "photographer", "photographic"], 1, "Bạn nghe pho-TO-gra-pher: bốn âm tiết, nhấn âm thứ hai."),
+    listen("pa-n07-3", "photographer", ["photograph", "photographer", "photographic"], 1, "Các bạn nghe pho-TOG-ra-pher: bốn âm tiết, nhấn âm thứ hai."),
     listen("pa-n07-4", "She will present her report tomorrow.", ["Cô ấy sẽ tặng quà vào ngày mai.", "Cô ấy nhận được quà hôm qua.", "Ngày mai cô ấy sẽ trình bày báo cáo."], 2, "Present ở đây là động từ, nhấn âm sau pre-SENT, nghĩa là trình bày."),
     fill("pa-n07-5", "Excuse me, I need some ___ about the train times. (thông tin)", ["information"], "Information nhấn âm thứ ba: in-for-MA-tion, vì đuôi -tion kéo trọng âm về ngay trước nó."),
-    fill("pa-n07-6", "My sister is a ___. She takes wonderful pictures. (nhiếp ảnh gia)", ["photographer"], "Photographer nhấn pho-TO-gra-pher, khác với PHO-to-graph."),
+    fill("pa-n07-6", "My sister is a ___. She takes wonderful pictures. (nhiếp ảnh gia)", ["photographer"], "Photographer nhấn pho-TOG-ra-pher, khác với PHO-to-graph."),
     reorder("pa-n07-7", "She gave me a lovely present.", "Present ở đây là danh từ nên nhấn âm đầu: PRE-sent."),
     reorder("pa-n07-8", "My brother studies at a big university.", "University nhấn u-ni-VER-si-ty; hai âm cuối đọc nhẹ /sə.ti/."),
   ],
@@ -59,4 +84,21 @@ export default lesson({
     say("My sister is a photographer.", "Chị tôi là nhiếp ảnh gia."),
     say("She will present her report tomorrow.", "Ngày mai cô ấy sẽ trình bày báo cáo."),
   ],
+  task: task({
+    prompt: "Viết 5 câu giới thiệu bản thân (tên, công việc, nơi học hoặc làm việc, dự định), dùng ít nhất năm từ có từ hai âm tiết trở lên. Viết hoa âm tiết được nhấn của các từ đó (ví dụ ho-TEL), rồi đọc to và vỗ tay ở âm nhấn.",
+    hints: [
+      "Tra dấu ˈ trong từ điển cho mọi từ nhiều âm tiết trước khi viết hoa âm nhấn.",
+      "Thử dùng từ có đuôi -tion, -ic, -ity như information, photographic, university.",
+      "Có thể bắt đầu bằng: My name is… and I am a…",
+    ],
+    model: "My name is Minh and I am a photographer. I studied at a university in Hanoi. Now I work for a travel company near a big hotel. I take pictures for our information books. Next year I want to open my own studio.",
+    checklist: [
+      "Có ít nhất năm từ nhiều âm tiết và đã đánh dấu đúng âm nhấn",
+      "Photographer đọc pho-TOG-ra-pher, khác PHO-to-graph",
+      "Từ có đuôi -tion, -ity nhấn ngay âm trước: in-for-MA-tion, u-ni-VER-si-ty",
+      "Âm tiết không nhấn đọc nhẹ thành /ə/, không đọc rõ đều mọi tiếng",
+      "Danh từ hai âm tiết như TRA-vel nhấn âm đầu; hotel là ngoại lệ, luôn đọc ho-TEL",
+    ],
+    minWords: 25,
+  }),
 });

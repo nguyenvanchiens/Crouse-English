@@ -5,12 +5,12 @@ import { Volume2 } from "lucide-react";
 import type { IpaSound } from "@/content/ipa";
 import { speak, useSpeechSupport } from "@/lib/speech";
 
-const GROUPS: { title: string; note: string; filter: (s: IpaSound) => boolean }[] = [
-  { title: "Nguyên âm ngắn", note: "Đọc gọn, không kéo dài.", filter: (s) => s.group === "short" },
-  { title: "Nguyên âm dài", note: "Dấu ː nghĩa là kéo dài âm.", filter: (s) => s.group === "long" },
-  { title: "Nguyên âm đôi", note: "Trượt từ âm đầu sang âm sau.", filter: (s) => s.group === "diphthong" },
-  { title: "Phụ âm vô thanh", note: "Chỉ có hơi, cổ họng không rung.", filter: (s) => s.group === "consonant" && s.voiced === false },
-  { title: "Phụ âm hữu thanh", note: "Đặt tay lên cổ: cổ họng rung.", filter: (s) => s.group === "consonant" && s.voiced === true },
+const GROUPS: { key: string; title: string; note: string; filter: (s: IpaSound) => boolean }[] = [
+  { key: "short", title: "Nguyên âm ngắn", note: "Đọc gọn, không kéo dài.", filter: (s) => s.group === "short" },
+  { key: "long", title: "Nguyên âm dài", note: "Dấu ː nghĩa là kéo dài âm.", filter: (s) => s.group === "long" },
+  { key: "diphthong", title: "Nguyên âm đôi", note: "Trượt từ âm đầu sang âm sau.", filter: (s) => s.group === "diphthong" },
+  { key: "voiceless", title: "Phụ âm vô thanh", note: "Chỉ có hơi, cổ họng không rung.", filter: (s) => s.group === "consonant" && s.voiced === false },
+  { key: "voiced", title: "Phụ âm hữu thanh", note: "Đặt tay lên cổ: cổ họng rung.", filter: (s) => s.group === "consonant" && s.voiced === true },
 ];
 
 /** IPA glyphs are not in the display fonts; use a system face that has them. */
@@ -26,8 +26,8 @@ export function IpaChart({ sounds }: { sounds: IpaSound[] }) {
         {GROUPS.map((g) => {
           const items = sounds.filter(g.filter);
           return (
-            <section key={g.title} aria-labelledby={`g-${g.title}`}>
-              <h2 id={`g-${g.title}`} className="font-display text-2xl font-extrabold">
+            <section key={g.key} aria-labelledby={`ipa-${g.key}`}>
+              <h2 id={`ipa-${g.key}`} className="font-display text-2xl font-extrabold">
                 {g.title} <span className="text-lg font-bold text-ink-soft">({items.length})</span>
               </h2>
               <p className="text-ink-soft">{g.note}</p>
@@ -40,7 +40,7 @@ export function IpaChart({ sounds }: { sounds: IpaSound[] }) {
                         type="button"
                         onClick={() => {
                           setSelected(x);
-                          speak(x.examples[0].word, { rate: 0.8 });
+                          speak(x.examples[0].word, { rate: 0.8, accent: "GB" });
                         }}
                         aria-pressed={active}
                         aria-label={`Âm /${x.symbol}/, ví dụ ${x.examples[0].word}`}
@@ -64,20 +64,22 @@ export function IpaChart({ sounds }: { sounds: IpaSound[] }) {
         })}
       </div>
 
-      <aside aria-live="polite" className="lg:sticky lg:top-24 lg:self-start">
+      <aside className="lg:sticky lg:top-24 lg:self-start">
         <div className="clay p-6">
           <p className="text-sm font-semibold text-ink-soft">Âm đang xem</p>
-          <p className="mt-1 text-6xl leading-none" style={IPA_FONT}>
-            /{selected.symbol}/
-          </p>
-          <p className="mt-4 leading-relaxed">{selected.tip}</p>
+          <div aria-live="polite">
+            <p className="mt-1 text-6xl leading-none" style={IPA_FONT}>
+              /{selected.symbol}/
+            </p>
+            <p className="mt-4 leading-relaxed">{selected.tip}</p>
+          </div>
           <h3 className="mt-6 font-display text-lg font-bold">Từ ví dụ</h3>
           <ul className="mt-2 space-y-2">
             {selected.examples.map((e) => (
               <li key={e.word}>
                 <button
                   type="button"
-                  onClick={() => speak(e.word, { rate: 0.8 })}
+                  onClick={() => speak(e.word, { rate: 0.8, accent: "GB" })}
                   disabled={!tts}
                   className="flex min-h-11 w-full items-center gap-3 rounded-xl border-2 border-ink bg-sky px-3 text-left hover:bg-sun-soft disabled:opacity-60"
                 >
@@ -102,7 +104,7 @@ export function IpaChart({ sounds }: { sounds: IpaSound[] }) {
                   <button
                     key={w}
                     type="button"
-                    onClick={() => speak(w, { rate: 0.7 })}
+                    onClick={() => speak(w, { rate: 0.7, accent: "GB" })}
                     disabled={!tts}
                     className="btn btn-ghost min-h-11 px-4 text-base"
                   >

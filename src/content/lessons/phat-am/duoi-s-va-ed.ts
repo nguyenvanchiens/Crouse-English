@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "duoi-s-va-ed",
@@ -7,8 +7,8 @@ export default lesson({
   lecture: {
     title: "Ba cách đọc -s và ba cách đọc -ed",
     blocks: [
-      p("Bạn kể với sếp người Anh: “Yesterday I walk to the office”, trong khi bạn đã viết đúng **walked** trong email. Vấn đề không nằm ở ngữ pháp mà ở miệng: tiếng Việt không có đuôi chia động từ, nên khi nói ta hay **bỏ mất -s và -ed**, hoặc ngược lại đọc thừa thành một âm tiết mới. Tin vui là cả hai đuôi đều theo quy tắc rất rõ, dựa vào **âm cuối** của từ gốc."),
-      p("Trước hết cần nhớ: quy tắc dựa vào **âm**, không dựa vào **chữ cái**. Âm **vô thanh** là âm cổ không rung: /p/ /t/ /k/ /f/ /θ/ /s/ /ʃ/ /tʃ/. Âm **hữu thanh** là âm cổ rung: /b/ /d/ /g/ /v/ /ð/ /z/ /m/ /n/ /l/ và mọi nguyên âm."),
+      p("Một học trò kể với sếp người Anh: “Yesterday I walk to the office”, dù trong email cậu ấy đã viết đúng **walked**. Vấn đề không nằm ở ngữ pháp mà ở miệng: tiếng Việt không có đuôi chia động từ, nên khi nói ta hay **bỏ mất -s và -ed**, hoặc ngược lại đọc thừa thành một âm tiết mới. Tin vui cho các bạn là cả hai đuôi đều theo quy tắc rất rõ, dựa vào **âm cuối** của từ gốc."),
+      p("Trước hết cần nhớ: quy tắc dựa vào **âm**, không dựa vào **chữ cái**. Âm **vô thanh** là âm cổ không rung: /p/ /t/ /k/ /f/ /θ/ /s/ /ʃ/ /tʃ/. Âm **hữu thanh** là âm cổ rung: /b/ /d/ /ɡ/ /v/ /ð/ /z/ /ʒ/ /dʒ/ /m/ /n/ /ŋ/ /l/ và mọi nguyên âm."),
       table(
         ["Đuôi -s đọc là", "Khi từ gốc tận cùng bằng âm", "Ví dụ"],
         ["/ɪz/ (thêm một âm tiết)", "/s/ /z/ /ʃ/ /ʒ/ /tʃ/ /dʒ/", "watches, boxes, washes, pages"],
@@ -20,32 +20,56 @@ export default lesson({
       table(
         ["Đuôi -ed đọc là", "Khi từ gốc tận cùng bằng âm", "Ví dụ"],
         ["/ɪd/ (thêm một âm tiết)", "/t/ /d/", "wanted, needed, visited, decided"],
-        ["/t/", "âm vô thanh còn lại: /p/ /k/ /f/ /s/ /ʃ/ /tʃ/", "walked, stopped, washed, watched"],
+        ["/t/", "âm vô thanh còn lại: /p/ /k/ /f/ /θ/ /s/ /ʃ/ /tʃ/", "walked, stopped, washed, watched"],
         ["/d/", "âm hữu thanh còn lại và nguyên âm", "played, lived, cleaned, called"],
       ),
       ex("We walked for an hour, so we needed a rest.", "Chúng tôi đi bộ một tiếng nên cần nghỉ một chút.", "Walked /wɔːkt/ chỉ có một âm tiết; needed /ˈniː.dɪd/ có hai âm tiết vì need tận cùng bằng /d/."),
       ex("I wanted to call you, but I played football all afternoon.", "Tôi định gọi cho bạn nhưng cả buổi chiều tôi đá bóng.", "Wanted /ˈwɒn.tɪd/ thêm âm tiết; played /pleɪd/ vẫn một âm tiết."),
       mistake("walked đọc thành “uốc-kịt” /ˈwɔː.kɪd/", "walked /wɔːkt/, chỉ một âm tiết", "Thấy chữ -ed là người Việt đọc thành “ịt”. Nhưng chỉ sau /t/ và /d/ mới thêm âm tiết /ɪd/. Wanted có hai âm tiết, walked thì không."),
       mistake("He play football every Sunday.", "He plays /pleɪz/ football every Sunday.", "Tiếng Việt không chia động từ nên ta quên -s ở ngôi thứ ba. Khi nói, nhớ đọc ra âm /z/ ở cuối plays, cổ rung nhẹ."),
-      mistake("boxes đọc thành “bóc” hoặc “bóc-x”", "boxes /ˈbɒk.sɪz/, hai âm tiết", "Box đã tận cùng bằng /s/ nên phải thêm hẳn âm tiết /ɪz/. Bỏ đi thì người nghe tưởng chỉ có một cái hộp."),
+      mistake("boxes đọc thành “bóc” hoặc “bóc-x”", "boxes /ˈbɒk.sɪz/, hai âm tiết", "Box đã tận cùng bằng /s/ (chữ x đọc /ks/) nên phải thêm hẳn âm tiết /ɪz/. Bỏ đi thì người nghe tưởng chỉ có một cái hộp."),
       tip("Đặt tay lên cổ, đọc âm cuối của từ gốc: nếu cổ rung thì đuôi đọc /z/ hoặc /d/, không rung thì đọc /s/ hoặc /t/. Nhìn **âm**, đừng nhìn chữ: **laughed** đọc /lɑːft/ vì gh đọc là /f/, **fixed** đọc /fɪkst/ vì x là /ks/. Quy tắc -s cũng áp dụng cho **'s** sở hữu: Kate's /keɪts/, John's /dʒɒnz/."),
-      teacher("Tôi dạy quy tắc này cho học trò ở mọi lứa tuổi, và cái bẫy lớn nhất luôn là **đọc thừa âm tiết**: walked thành “uốc-kịt”, cooked thành “cúc-kịt”. Các bạn chỉ cần nhớ một câu: **-ed chỉ thành âm tiết mới sau /t/ và /d/**, **-s chỉ thành âm tiết mới sau các âm xì**. Mỗi tối, các bạn kể lại ba việc mình đã làm trong ngày bằng tiếng Anh, nói to, rồi tự hỏi: đuôi của mình là /t/, /d/ hay /ɪd/?"),
+      teacher("Tôi dạy quy tắc này cho học trò ở mọi lứa tuổi, và cái bẫy lớn nhất luôn là **đọc thừa âm tiết**: walked thành “uốc-kịt”, cooked thành “cúc-kịt”. Các bạn chỉ cần nhớ hai câu: **-ed chỉ thành âm tiết mới sau /t/ và /d/**, **-s chỉ thành âm tiết mới sau các âm xì, âm rít** (/s/ /z/ /ʃ/ /ʒ/ /tʃ/ /dʒ/). Mỗi tối, các bạn kể lại ba việc mình đã làm trong ngày bằng tiếng Anh, nói to, rồi tự hỏi: đuôi của mình là /t/, /d/ hay /ɪd/?"),
+      summary(
+        "Cách đọc đuôi dựa vào **âm cuối** của từ gốc, không dựa vào chữ cái.",
+        "Đuôi -s: /ɪz/ sau /s/ /z/ /ʃ/ /ʒ/ /tʃ/ /dʒ/; /s/ sau âm vô thanh còn lại; /z/ sau âm hữu thanh và nguyên âm.",
+        "Đuôi -ed: /ɪd/ sau /t/ /d/; /t/ sau âm vô thanh còn lại; /d/ sau âm hữu thanh và nguyên âm.",
+        "Chỉ /ɪz/ và /ɪd/ mới thêm âm tiết: walked là một âm tiết, wanted là hai.",
+        "Đuôi 's sở hữu đọc theo đúng quy tắc của -s: Kate's /keɪts/, John's /dʒɒnz/.",
+      ),
     ],
   },
   words: [
     word("watches", "/ˈwɒtʃ.ɪz/", "xem (ngôi thứ ba); những chiếc đồng hồ đeo tay", "He watches the news every morning.", "watch|es", 0, "Hai âm tiết: /ˈwɒtʃ/ + /ɪz/. Đừng nuốt âm tiết cuối."),
     word("boxes", "/ˈbɒk.sɪz/", "những cái hộp", "Put the boxes in the car.", "box|es", 0, "Box đã có /ks/ ở cuối, nên thêm hẳn một âm tiết /ɪz/."),
     word("cooks", "/kʊks/", "nấu ăn (ngôi thứ ba)", "My mother cooks very well.", "cooks", 0, "Một âm tiết, kết thúc bằng /ks/ vô thanh, không rung cổ."),
-    word("dogs", "/dɒɡz/", "những con chó", "They have two dogs.", "dogs", 0, "Đuôi -s đọc /z/ vì /g/ hữu thanh. Cổ rung ở cuối từ."),
+    word("dogs", "/dɒɡz/", "những con chó", "They have two dogs.", "dogs", 0, "Đuôi -s đọc /z/ vì /ɡ/ hữu thanh. Cổ rung ở cuối từ."),
     word("wanted", "/ˈwɒn.tɪd/", "đã muốn", "I wanted a cup of coffee.", "want|ed", 0, "Want tận cùng bằng /t/ nên -ed thành âm tiết /ɪd/."),
     word("needed", "/ˈniː.dɪd/", "đã cần", "We needed more time.", "need|ed", 0, "Need tận cùng bằng /d/ nên thêm âm tiết /ɪd/."),
-    word("walked", "/wɔːkt/", "đã đi bộ", "She walked to the station.", "walked", 0, "Chỉ một âm tiết. Không đọc thành “uốc-kịt”."),
+    word("walked", "/wɔːkt/", "đã đi bộ", "She walked to the station.", "walked", 0, "Chỉ một âm tiết. Không đọc thành “uốc-kịt”; chữ l không đọc."),
     word("played", "/pleɪd/", "đã chơi", "The children played in the park.", "played", 0, "Một âm tiết, kết thúc bằng /d/ nhẹ, cổ rung."),
   ],
+  dialogue: dialogue(
+    "Kể chuyện cuối tuần",
+    "Sáng thứ Hai ở văn phòng, Hùng hỏi Sarah, đồng nghiệp người Anh, về kỳ nghỉ cuối tuần của cô.",
+    { A: "Hùng", B: "Sarah" },
+    A("Hi, Sarah. How was your weekend?", "Chào Sarah. Cuối tuần của bạn thế nào?"),
+    B("Great, thanks. I visited my friends in Ninh Binh.", "Tuyệt lắm, cảm ơn anh. Tôi đi thăm mấy người bạn ở Ninh Bình."),
+    A("Nice. What did you do there?", "Hay quá. Bạn làm gì ở đó?"),
+    B("We walked in the hills and watched the boats on the river.", "Chúng tôi đi bộ trên đồi và ngắm thuyền trên sông."),
+    A("Did you stay in a hotel?", "Bạn có ở khách sạn không?"),
+    B("No, we stayed with a family. The mother cooked for us every night.", "Không, chúng tôi ở nhà một gia đình. Tối nào bà mẹ cũng nấu ăn cho chúng tôi."),
+    A("That sounds lovely.", "Nghe thật thích."),
+    B("It was. What about you?", "Đúng vậy. Còn anh thì sao?"),
+    A("I needed a rest, so I stayed at home. I cleaned the flat and washed the dishes.", "Tôi cần nghỉ ngơi nên ở nhà. Tôi dọn căn hộ và rửa bát."),
+    B("Did you do anything fun?", "Anh có làm gì vui không?"),
+    A("Yes, I watched two films. My son played games all day.", "Có, tôi xem hai bộ phim. Con trai tôi chơi điện tử cả ngày."),
+    B("He likes games, and you like films. A perfect weekend!", "Cậu bé thích trò chơi, còn anh thích phim. Một cuối tuần hoàn hảo!"),
+  ),
   exercises: [
     mc("pa-n06-1", "Từ nào đọc đuôi -ed là /ɪd/?", ["walked", "played", "wanted", "watched"], 2, "Want tận cùng bằng /t/ nên wanted đọc /ˈwɒn.tɪd/. Walked và watched đọc /t/, played đọc /d/."),
-    mc("pa-n06-2", "Đuôi -s trong “dogs” đọc là gì?", ["/s/", "/z/", "/ɪz/"], 1, "Dog tận cùng bằng /g/ hữu thanh nên -s đọc /z/: /dɒɡz/."),
-    listen("pa-n06-3", "She watches TV every night.", ["watch", "watches", "watched"], 1, "Bạn nghe được âm tiết /ɪz/ ở cuối: watches /ˈwɒtʃ.ɪz/."),
+    mc("pa-n06-2", "Đuôi -s trong “dogs” đọc là gì?", ["/s/", "/z/", "/ɪz/"], 1, "Dog tận cùng bằng /ɡ/ hữu thanh nên -s đọc /z/: /dɒɡz/."),
+    listen("pa-n06-3", "She watches TV every night.", ["watch", "watches", "watched"], 1, "Các bạn nghe được âm tiết /ɪz/ ở cuối: watches /ˈwɒtʃ.ɪz/."),
     listen("pa-n06-4", "He walked home yesterday.", ["walked", "walks", "walk"], 0, "Cuối từ có âm /t/ nhẹ: walked /wɔːkt/, và yesterday cho biết đây là quá khứ. Walks sẽ kết thúc bằng /s/."),
     fill("pa-n06-5", "She ___ TV every night. (watch)", ["watches"], "Ngôi thứ ba số ít, watch tận cùng bằng ch nên thêm -es, đọc /ɪz/."),
     fill("pa-n06-6", "Yesterday we ___ a taxi to the airport. (need)", ["needed"], "Quá khứ của need là needed, đọc /ˈniː.dɪd/ với âm tiết /ɪd/ vì need tận cùng bằng /d/."),
@@ -57,4 +81,21 @@ export default lesson({
     say("We walked home and needed a rest.", "Chúng tôi đi bộ về nhà và cần nghỉ ngơi."),
     say("My brother plays football and cooks dinner.", "Anh tôi đá bóng và nấu bữa tối."),
   ],
+  task: task({
+    prompt: "Viết 5–6 câu kể lại những việc bạn đã làm cuối tuần vừa rồi và những việc người thân thường làm. Dùng ít nhất ba động từ có đuôi -ed và ba từ có đuôi -s, ghi cách đọc đuôi (/t/, /d/, /ɪd/, /s/, /z/, /ɪz/) bên cạnh, rồi đọc to.",
+    hints: [
+      "Động từ -ed gợi ý: cleaned, washed, visited, talked, stayed, needed.",
+      "Dùng thì hiện tại cho thói quen của người thân: My mother cooks…, My father watches…",
+      "Trước khi đọc, đặt tay lên cổ và kiểm tra âm cuối của từ gốc.",
+    ],
+    model: "Last Saturday I cleaned my room and washed my clothes. In the afternoon I visited my grandparents. We talked and laughed a lot. My grandmother cooks very well, and my grandfather watches the news every day. I needed a rest, so I stayed at home on Sunday.",
+    checklist: [
+      "Có ít nhất ba động từ -ed, thuộc ít nhất hai cách đọc khác nhau",
+      "Chỉ visited, needed (sau /t/, /d/) có thêm âm tiết /ɪd/; washed, talked, laughed chỉ một âm tiết",
+      "Cleaned, stayed kết thúc bằng /d/, tay trên cổ thấy rung",
+      "Không quên -s ở ngôi thứ ba: cooks đọc /s/, watches đọc thêm âm tiết /ɪz/",
+      "Đọc to cả đoạn mà không nuốt đuôi nào",
+    ],
+    minWords: 30,
+  }),
 });

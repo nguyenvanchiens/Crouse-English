@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "du-doan-tuong-lai",
@@ -36,6 +36,13 @@ export default lesson({
       mistake("It will maybe rain tomorrow.", "It might rain tomorrow.", "Dịch từng chữ “trời sẽ có lẽ mưa” sẽ ra câu sai. Maybe thường đứng đầu câu (Maybe it'll rain), còn gọn nhất là dùng might."),
       mistake("It might to rain tonight.", "It might rain tonight.", "Quen nói want to, need to, học trò hay thêm to sau might. Might cũng như will, should: theo sau luôn là động từ nguyên mẫu không có to."),
       teacher("Sau nhiều năm đứng lớp, tôi để ý người Việt dùng will cho mọi thứ thuộc về tương lai, còn người bản xứ lại chọn rất kỹ: đoán thì will, dự định thì going to, không chắc thì might. Mỗi sáng đọc tin thời tiết, các bạn hãy tự nói ba câu: một câu với **will**, một câu với **probably won't**, một câu với **might**. Chỉ cần hai tuần là các “nấc” chắc chắn này sẽ bật ra tự nhiên."),
+      summary(
+        "Dự đoán dùng will / won't + động từ nguyên mẫu; chưa chắc chắn thì dùng might + động từ nguyên mẫu.",
+        "Probably, definitely đứng sau will nhưng đứng trước won't: he'll probably come, he probably won't come.",
+        "Sau will, won't, might không có to và động từ không thêm s.",
+        "Nói nhẹ nhàng: I think... will, I don't think... will; hỏi ý kiến: Do you think... will...?",
+        "Won't /wəʊnt/ khác want /wɒnt/: đọc nhầm là nghĩa ngược hẳn.",
+      ),
     ],
   },
   words: [
@@ -63,4 +70,39 @@ export default lesson({
     say("She'll definitely pass the exam.", "Chắc chắn cô ấy sẽ đỗ kỳ thi."),
     say("I might visit my parents next month, but I'm not sure.", "Tháng sau có thể tôi sẽ về thăm bố mẹ, nhưng tôi chưa chắc."),
   ],
+  dialogue: dialogue(
+    "Chuyến đi Hạ Long cuối tuần",
+    "Công ty tổ chức cho cả phòng đi Hạ Long cuối tuần này. Anh Hùng, trưởng nhóm, hỏi Mai về thời tiết, người đi, đường xá và chi phí.",
+    { A: "Anh Hùng, trưởng nhóm", B: "Mai, đồng nghiệp" },
+    A("Do you think it'll rain in Ha Long this weekend?", "Em nghĩ cuối tuần này ở Hạ Long có mưa không?"),
+    B("I don't think so. The weather app says it'll probably be sunny.", "Em không nghĩ vậy. Ứng dụng thời tiết bảo có lẽ trời sẽ nắng."),
+    A("Great. Will everyone come on the trip?", "Tốt quá. Mọi người sẽ đi hết chứ?"),
+    B("Most people will. But Nam might not come. His son is sick.", "Hầu hết sẽ đi. Nhưng anh Nam có thể không đi. Con trai anh ấy bị ốm."),
+    A("Oh no. I hope his son will be OK. What about the traffic?", "Ôi. Mong là cháu sẽ ổn. Còn đường xá thì sao?"),
+    B("It'll definitely be busy on Saturday morning. Let's leave at six.", "Sáng thứ Bảy chắc chắn sẽ đông. Mình đi lúc sáu giờ nhé."),
+    A("Good idea. Do you think the boat trip will be expensive?", "Ý hay. Em nghĩ đi thuyền có đắt không?"),
+    B("I don't think it'll be very expensive. We'll probably pay about five hundred thousand dong each.", "Em nghĩ sẽ không đắt lắm. Có lẽ mỗi người mất khoảng năm trăm nghìn đồng."),
+    A("And will we be home early on Sunday?", "Thế chủ nhật mình có về nhà sớm không?"),
+    B("We probably won't get home before nine.", "Có lẽ mình sẽ không về đến nhà trước chín giờ đâu."),
+    A("That's fine. Don't worry, it'll be a great trip.", "Không sao. Đừng lo, chuyến đi sẽ tuyệt lắm."),
+    B("I hope so!", "Mong là vậy!"),
+  ),
+  task: task({
+    prompt: "Một người bạn nước ngoài sắp sang Việt Nam du lịch vào tháng tới và hỏi bạn chuyến đi sẽ thế nào. Viết 5–6 câu dự đoán về thời tiết, giao thông, đồ ăn và chuyến đi của họ.",
+    hints: [
+      "Điều bạn khá chắc: will / won't; điều chưa chắc: might.",
+      "Thêm probably hoặc definitely, nhớ: sau will nhưng trước won't.",
+      "Mở đầu nhẹ nhàng bằng I think... hoặc I don't think...",
+      "Kết thúc bằng một câu động viên: Don't worry...",
+    ],
+    model: "I think you'll love Vietnam. It'll probably be very hot in Ho Chi Minh City next month, and it might rain in the afternoon. The traffic will definitely be busy, but it won't be a big problem. I don't think the food will be expensive. You might not like some spicy dishes, but you'll definitely enjoy pho. Don't worry. You'll have a great time.",
+    checklist: [
+      "Có ít nhất 1 câu với will và 1 câu với won't.",
+      "Có ít nhất 1 câu với might cho điều chưa chắc.",
+      "Probably, definitely đặt đúng chỗ: sau will, trước won't.",
+      "Sau will, won't, might là động từ nguyên mẫu, không có to.",
+      "Có ít nhất 1 câu I think... hoặc I don't think...",
+    ],
+    minWords: 30,
+  }),
 });

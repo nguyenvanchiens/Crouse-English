@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "ky-nghi-cua-toi",
@@ -40,6 +40,13 @@ export default lesson({
       mistake("How long did you stayed there?", "How long did you stay there?", "Đã có did báo quá khứ rồi thì động từ chính phải về nguyên mẫu. Quá khứ chỉ đánh dấu một lần."),
       mistake("I went to Nha Trang in holiday.", "I went to Nha Trang on holiday.", "Dịch từng chữ “trong kỳ nghỉ” sẽ ra in. Tiếng Anh nói đi nghỉ là on holiday."),
       teacher("Sau nhiều năm dạy, tôi thấy học viên thuộc làu bảng động từ bất quy tắc, nhưng cứ đặt câu hỏi là quên did. Vì thế tôi dặn các bạn một câu: **“Có did thì động từ nghỉ”**. Mỗi tối trước khi ngủ, các bạn hãy tự hỏi mình năm câu về ngày hôm đó: Where did I go? What did I eat? Who did I talk to?... rồi tự trả lời bằng động từ quá khứ. Làm đều một tuần là miệng tự quen."),
+      summary(
+        "Hỏi chuyện đã qua: từ để hỏi + did + chủ ngữ + động từ nguyên mẫu? (Where did you go?)",
+        "Có did thì động từ nghỉ: nói How long did you stay?, không nói did you stayed.",
+        "Hỏi cảm nhận bằng to be thì dùng was, không dùng did: How was your holiday? How was the weather?",
+        "Giới từ để cuối câu hỏi: Who did you go with?",
+        "Trả lời bằng động từ quá khứ, nhiều từ bất quy tắc: flew, took, swam, left, spent, brought. Đi nghỉ là on holiday.",
+      ),
     ],
   },
   words: [
@@ -67,4 +74,39 @@ export default lesson({
     say("I flew to Phu Quoc with my family.", "Tôi bay ra Phú Quốc cùng gia đình."),
     say("We stayed in a small hotel near the beach for five days.", "Chúng tôi ở một khách sạn nhỏ gần biển trong năm ngày."),
   ],
+  dialogue: dialogue(
+    "Sau kỳ nghỉ Tết",
+    "Ngày đầu đi làm sau Tết, David, đồng nghiệp người Mỹ, hỏi Hương về chuyến đi Phú Quốc. Hương kể lại rồi hỏi ngược lại David.",
+    { A: "David (đồng nghiệp)", B: "Hương" },
+    A("Hi Huong! How was your holiday?", "Chào Hương! Kỳ nghỉ của bạn thế nào?"),
+    B("It was wonderful, thanks. I went to Phu Quoc with my family.", "Tuyệt lắm, cảm ơn bạn. Mình đi Phú Quốc với gia đình."),
+    A("Lucky you! How did you get there?", "Sướng thế! Bạn đi bằng gì?"),
+    B("We flew from Hanoi. The flight took two hours.", "Nhà mình bay từ Hà Nội. Chuyến bay mất hai tiếng."),
+    A("How long did you stay?", "Bạn ở đó bao lâu?"),
+    B("We stayed for five days in a small hotel near the beach.", "Nhà mình ở năm ngày trong một khách sạn nhỏ gần biển."),
+    A("What did you do there?", "Bạn làm gì ở đó?"),
+    B("We swam every morning and ate a lot of seafood. I brought some souvenirs for the team, too.", "Sáng nào cũng đi bơi và ăn rất nhiều hải sản. Mình còn mang quà lưu niệm về cho cả nhóm nữa."),
+    A("Oh, thank you! How was the weather?", "Ồ, cảm ơn bạn! Thời tiết thế nào?"),
+    B("It was sunny every day. What about you? Where did you go?", "Ngày nào cũng nắng. Còn bạn? Bạn đi đâu?"),
+    A("I didn't go anywhere. I stayed in Hanoi and slept a lot!", "Mình chẳng đi đâu cả. Mình ở Hà Nội và ngủ thật nhiều!"),
+    B("That sounds nice, too!", "Nghe cũng thích đấy chứ!"),
+  ),
+  task: task({
+    prompt: "Viết 5–6 câu kể về một kỳ nghỉ gần đây của bạn: đi đâu, với ai, đi bằng gì, ở bao lâu, làm gì và kỳ nghỉ thế nào. Kết thúc bằng một câu hỏi Wh- để hỏi lại người nghe.",
+    hints: [
+      "Trả lời lần lượt các câu hỏi Where, Who... with, How, How long, What.",
+      "Dùng động từ bất quy tắc của bài: went, flew, took, swam, spent, brought.",
+      "Nói cảm nhận bằng was: It was a wonderful holiday.",
+      "Câu hỏi cuối: Where did you go last summer?",
+    ],
+    model: "Last summer I went to Da Nang with my two best friends. We took the train from Hue, and the trip took three hours. We stayed in a small hotel near the beach for four days. Every morning we swam in the sea, and in the evening we ate seafood. I spent a lot of money on souvenirs. It was a wonderful holiday! Where did you go last summer?",
+    checklist: [
+      "Trả lời được ít nhất 4 ý: đi đâu, với ai, bằng gì, bao lâu, làm gì",
+      "Mọi động từ kể chuyện đều ở dạng quá khứ",
+      "Có ít nhất 3 động từ bất quy tắc (went, took, flew, swam, spent...)",
+      "Có 1 câu cảm nhận với was (It was...)",
+      "Câu hỏi cuối có did + động từ nguyên mẫu (Where did you go?, không viết Where did you went?)",
+    ],
+    minWords: 35,
+  }),
 });

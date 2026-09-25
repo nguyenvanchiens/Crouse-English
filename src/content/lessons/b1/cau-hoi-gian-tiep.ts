@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "cau-hoi-gian-tiep",
@@ -42,6 +42,13 @@ export default lesson({
       mistake("Can you tell me is the shop open?", "Can you tell me if the shop is open?", "Tiếng Việt nói “cho tôi hỏi cửa hàng có mở không” mà không cần từ nối. Tiếng Anh bắt buộc có if hoặc whether cho câu hỏi Có / Không."),
       tip("Nhìn cụm mở đầu để chọn dấu câu: **Could you tell me…? / Do you know…?** là câu hỏi, nên có dấu hỏi. **I wonder… / I'd like to know…** là câu kể, nên kết thúc bằng dấu chấm. Khi nói, hãy **lên giọng nhẹ ở cuối** câu Could you tell me… để nghe mềm mại."),
       teacher("Sau nhiều năm dạy, tôi thấy cả những người giỏi ngữ pháp vẫn nói “Could you tell me where is…” vì miệng chạy nhanh hơn đầu. Cách chữa của tôi rất đơn giản: **nói câu kể trước trong đầu**, “the bank is”, rồi mới gắn cụm Could you tell me where vào phía trước. Mỗi ngày, các bạn lấy năm câu hỏi thường gặp, đi chợ, đi ngân hàng, hỏi đường, rồi tự đổi sang câu gián tiếp và đọc to. Một tuần là quen miệng."),
+      summary(
+        "Could you tell me / Do you know + từ để hỏi + chủ ngữ + động từ: Could you tell me where the bank is?",
+        "Phần câu hỏi phía sau không đảo ngữ, bỏ do / does / did và chia lại động từ (leaves, called).",
+        "Câu hỏi Có / Không: thêm if hoặc whether.",
+        "Could you tell me…, Do you know… kết thúc bằng dấu hỏi; I wonder…, I'd like to know… kết thúc bằng dấu chấm.",
+        "Kể lại lời người khác: said (that) / asked + trật tự câu kể, động từ lùi một thì.",
+      ),
     ],
   },
   words: [
@@ -69,4 +76,38 @@ export default lesson({
     say("Do you know if this train goes to Hai Phong?", "Bạn có biết chuyến tàu này có đi Hải Phòng không?"),
     say("I wonder whether they have a table for two.", "Không biết họ còn bàn cho hai người không nhỉ."),
   ],
+  dialogue: dialogue(
+    "Hỏi thông tin ở quầy lễ tân",
+    "Chị Hương vừa nhận phòng ở một khách sạn tại Singapore và hỏi nhân viên lễ tân vài thông tin cần thiết cho chuyến công tác.",
+    { A: "Chị Hương (khách)", B: "Nhân viên lễ tân" },
+    A("Excuse me, could you tell me what time breakfast starts?", "Xin lỗi, anh có thể cho tôi biết mấy giờ bắt đầu bữa sáng không?"),
+    B("Of course. Breakfast starts at half past six on the second floor.", "Dạ vâng. Bữa sáng bắt đầu lúc sáu rưỡi ở tầng hai."),
+    A("Thank you. Do you know if the hotel has a gym?", "Cảm ơn anh. Anh có biết khách sạn có phòng tập không?"),
+    B("Yes, it does. It's open from six in the morning until ten at night.", "Có ạ. Phòng tập mở từ sáu giờ sáng đến mười giờ tối."),
+    A("Great. I'd also like to know how I can get to the conference centre.", "Tốt quá. Tôi cũng muốn biết làm sao để đến trung tâm hội nghị."),
+    B("You can take the metro. Shall I show you where the station is on the map?", "Chị có thể đi tàu điện ngầm. Để tôi chỉ cho chị ga ở đâu trên bản đồ nhé?"),
+    A("Yes, please. And could you tell me whether I can pay for a taxi by card?", "Vâng, làm ơn. Và anh có thể cho tôi biết đi taxi có trả bằng thẻ được không?"),
+    B("Most taxis here accept cards, but you should ask the driver before you get in.", "Hầu hết taxi ở đây nhận thẻ, nhưng chị nên hỏi tài xế trước khi lên xe."),
+    A("Good idea. One more thing. Do you know when the swimming pool closes?", "Ý hay đấy. Còn một việc nữa. Anh có biết mấy giờ bể bơi đóng cửa không?"),
+    B("I'm not sure exactly, but I'll check and call your room.", "Tôi không chắc chính xác, nhưng tôi sẽ kiểm tra rồi gọi lên phòng chị."),
+    A("Thank you so much. You've been very helpful.", "Cảm ơn anh nhiều. Anh đã giúp tôi rất nhiều."),
+  ),
+  task: task({
+    prompt: "Bạn sắp tham gia một tour du lịch Đà Nẵng. Viết một email ngắn gửi công ty du lịch, hỏi 4–5 thông tin bạn cần biết bằng câu hỏi gián tiếp.",
+    hints: [
+      "Mở đầu: I'm writing to ask about…",
+      "Dùng Could you tell me…?, Do you know if…?, I'd like to know…, I wonder whether…",
+      "Nhớ trật tự câu kể sau từ để hỏi, và if / whether cho câu hỏi Có / Không.",
+      "Kết thư lịch sự: Thank you for your help.",
+    ],
+    model: "Dear Sir or Madam, I'm writing to ask about the Da Nang tour on the fifteenth of June. Could you tell me what time the bus leaves from Hanoi? I'd also like to know whether the price includes breakfast. Do you know if children under six can join the tour for free? Could you tell me how much it costs to stay one more night at the hotel? Finally, I wonder whether I can pay by bank transfer. Thank you for your help. Best regards, Tran Thi Hoa",
+    checklist: [
+      "Có ít nhất bốn câu hỏi gián tiếp, dùng ít nhất ba cụm mở đầu khác nhau.",
+      "Sau từ để hỏi là chủ ngữ + động từ, không đảo is / can lên trước chủ ngữ.",
+      "Phần câu hỏi không còn do / does / did; động từ được chia lại (leaves, costs).",
+      "Câu hỏi Có / Không có if hoặc whether.",
+      "Câu bắt đầu bằng I'd like to know hoặc I wonder kết thúc bằng dấu chấm.",
+    ],
+    minWords: 60,
+  }),
 });

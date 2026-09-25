@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "tu-noi-nang-cao",
@@ -45,6 +45,13 @@ export default lesson({
       mistake("The flight was delayed, therefore we missed the meeting.", "The flight was delayed. Therefore, we missed the meeting.", "Therefore là trạng từ, không nối hai câu bằng dấu phẩy được. Hãy tách câu, dùng dấu chấm phẩy, hoặc đổi sang liên từ so: …delayed, so we missed…"),
       tip("Mẹo nhớ nhanh: **liên từ** (and, but, so, whereas, although) thì **đi được với dấu phẩy**. **Trạng từ liên kết** (however, moreover, therefore…) thì **cần dấu chấm hoặc chấm phẩy đứng trước**. Đọc to câu văn: chỗ nào bạn phải ngừng hẳn hơi thì đó là chỗ của dấu chấm."),
       teacher("Sau nhiều năm dạy, tôi thấy học trò giỏi thường mắc một tật: **thấy moreover, therefore sang trọng quá nên câu nào cũng nhét vào**. Một đoạn văn năm câu mà có bốn từ nối thì đọc như bài diễn văn. Mỗi đoạn, **một hai từ nối là đủ**, và phải đúng chức năng. Cách luyện của tôi: viết xong một email, lấy bút tô tất cả từ nối, rồi tự hỏi từng từ một: “Ý sau là **thêm**, **ngược lại** hay **hệ quả** của ý trước?” Trả lời được thì giữ, không trả lời được thì xóa."),
+      summary(
+        "whereas là liên từ: nối hai mệnh đề trong cùng một câu bằng dấu phẩy.",
+        "however, nevertheless, moreover, therefore, as a result là trạng từ liên kết: cần dấu chấm hoặc chấm phẩy đứng trước, dấu phẩy phía sau.",
+        "Chọn từ nối theo chức năng: thêm ý (moreover), ngược lại (however, nevertheless), hệ quả (therefore, as a result).",
+        "Đã có although thì không có but; On the other hand luôn chỉ sự đối lập, không dùng để thêm ý.",
+        "Đoạn lập luận: nêu quan điểm, mặt lợi, mặt hại, thừa nhận rồi phản bác, kết luận bằng On balance hoặc Overall.",
+      ),
     ],
   },
   words: [
@@ -72,4 +79,39 @@ export default lesson({
     say("On balance, I believe the benefits outweigh the costs.", "Cân nhắc mọi mặt, tôi tin rằng lợi ích lớn hơn chi phí."),
     say("The flight was delayed. As a result, we missed the meeting.", "Chuyến bay bị hoãn. Kết quả là chúng tôi lỡ cuộc họp."),
   ],
+  dialogue: dialogue(
+    "Có nên cho làm việc ở nhà?",
+    "Chị Lan, trưởng phòng nhân sự, đề xuất với ông Brown, giám đốc người Anh, cho nhân viên làm việc ở nhà vào thứ Sáu. Hai người cân nhắc lợi và hại.",
+    { A: "Chị Lan, trưởng phòng nhân sự", B: "Ông Brown, giám đốc" },
+    A("Mr Brown, I'd like to discuss the idea of letting staff work from home on Fridays.", "Thưa ông Brown, tôi muốn bàn về ý tưởng cho nhân viên làm việc ở nhà vào thứ Sáu."),
+    B("Go ahead. What's the main benefit?", "Chị cứ nói. Lợi ích chính là gì?"),
+    A("Staff would save two hours of travel. Moreover, our survey shows that most of them want it.", "Nhân viên sẽ tiết kiệm được hai tiếng đi lại. Hơn nữa, khảo sát cho thấy phần lớn họ muốn vậy."),
+    B("I see. However, I'm worried that teamwork will suffer.", "Tôi hiểu. Tuy nhiên, tôi lo là tinh thần làm việc nhóm sẽ giảm sút."),
+    A("That's a fair point. On the one hand, people will meet less. On the other hand, they will be less tired.", "Ý đó hợp lý. Một mặt, mọi người sẽ ít gặp nhau hơn. Mặt khác, họ sẽ bớt mệt mỏi."),
+    B("The sales team needs to see clients in person, whereas the IT team can work anywhere.", "Nhóm kinh doanh cần gặp khách trực tiếp, trong khi nhóm IT có thể làm ở bất cứ đâu."),
+    A("Exactly. Therefore, we could start with the IT team only.", "Chính xác. Vì vậy, chúng ta có thể bắt đầu chỉ với nhóm IT."),
+    B("That sounds reasonable. Nevertheless, I'd like to see some evidence first.", "Nghe có vẻ hợp lý. Dù vậy, tôi muốn thấy bằng chứng trước đã."),
+    A("We tried it with one team last year. As a result, productivity rose slightly.", "Năm ngoái chúng ta đã thử với một nhóm. Kết quả là năng suất tăng nhẹ."),
+    B("While it is true that one trial isn't enough, I think it's worth trying for three months.", "Dù đúng là một lần thử chưa đủ, tôi nghĩ đáng để thử trong ba tháng."),
+    A("Thank you. I'll prepare a plan and share it with the team leaders.", "Cảm ơn ông. Tôi sẽ chuẩn bị kế hoạch và gửi cho các trưởng nhóm."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn lập luận khoảng 80–100 từ trả lời câu hỏi: “Công ty có nên cấm dùng điện thoại trong các cuộc họp không?” Nêu quan điểm, cân nhắc hai mặt và kết luận.",
+    hints: [
+      "Câu đầu nêu rõ quan điểm: In my view… hoặc I would argue that…",
+      "Đưa ít nhất một mặt lợi và một mặt hại, cân hai mặt bằng On the one hand… On the other hand…",
+      "Dùng một từ nối bổ sung, một từ đối lập và một từ chỉ kết quả, đặt đúng dấu câu.",
+      "Kết luận bằng On balance hoặc Overall.",
+    ],
+    model: "In my view, companies should ban mobile phones in meetings. One advantage of this rule is that people pay more attention. Moreover, meetings usually finish earlier when nobody is checking messages. On the one hand, some staff need to answer urgent calls from clients. On the other hand, they can step outside for a moment. Young employees often see phones as essential tools, whereas older managers tend to find them rude. While it is true that a ban may seem strict, it saves everyone time. Therefore, on balance, I believe the benefits outweigh the drawbacks.",
+    checklist: [
+      "Có câu nêu quan điểm ở đầu đoạn và câu kết luận ở cuối đoạn.",
+      "Có ít nhất một từ nối cho mỗi chức năng: bổ sung, đối lập, kết quả.",
+      "However, moreover, therefore đứng sau dấu chấm hoặc chấm phẩy và có dấu phẩy phía sau.",
+      "On the other hand chỉ dùng để nêu ý đối lập.",
+      "Không dùng although và but trong cùng một câu.",
+      "Có một câu thừa nhận ý kiến trái chiều bằng While it is true that…",
+    ],
+    minWords: 80,
+  }),
 });

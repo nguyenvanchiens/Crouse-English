@@ -20,23 +20,55 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
   const stopRef = useRef<(() => void) | null>(null);
   const cancelled = useRef(false);
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    // reset on (re)mount: StrictMode runs a mount-unmount-mount cycle in development
+    cancelled.current = false;
+    return () => {
       cancelled.current = true;
+      if (timer.current) clearTimeout(timer.current);
       stopRef.current?.();
       stopSpeaking();
-    },
-    [],
-  );
+    };
+  }, []);
+
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** each playback gets a token; skipping or a newer playback invalidates older callbacks */
+  const playSeq = useRef(0);
+
+  function cancelPlayback() {
+    playSeq.current++;
+    if (timer.current) clearTimeout(timer.current);
+    stopSpeaking();
+    setPlaying(null);
+  }
 
   function playLine(i: number, then?: () => void) {
+    const token = ++playSeq.current;
     setPlaying(i);
+    const finish = () => {
+      if (token !== playSeq.current) return;
+      playSeq.current++;
+      if (timer.current) clearTimeout(timer.current);
+      setPlaying(null);
+      if (!cancelled.current) then?.();
+    };
+    const arm = (ms: number) => {
+      if (timer.current) clearTimeout(timer.current);
+      timer.current = setTimeout(finish, ms);
+    };
+    const words = step.lines[i].en.split(/\s+/).length;
+    if (!tts) {
+      arm(1500 + words * 450); // no voice at all: give the learner time to read the line
+      return;
+    }
+    // Some browsers never start or never finish an utterance (no voices, speech blocked).
+    // Wait a few seconds for it to start; once it has started, rely on onend with a generous safety net
+    // so a slow voice is never cut off mid-sentence.
+    arm(4000);
     speak(step.lines[i].en, {
       rate: 0.9,
-      onEnd: () => {
-        setPlaying(null);
-        if (!cancelled.current) then?.();
-      },
+      onStart: () => token === playSeq.current && arm(5000 + words * 900),
+      onEnd: finish,
     });
   }
 
@@ -56,13 +88,14 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
   }
 
   function startRole(role: "A" | "B") {
-    stopSpeaking();
+    cancelPlayback();
     setMode(role);
     setResults({});
     advanceTo(0, role);
   }
 
   function sayMyLine() {
+    stopSpeaking(); // never let the microphone hear the computer's voice
     setListening(true);
     stopRef.current = listenOnce({
       onResult: (heard) => setResults((r) => ({ ...r, [turn]: matchSpeech(step.lines[turn].en, heard).percent })),
@@ -71,8 +104,23 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
     });
   }
 
+  function nextTurn() {
+    stopRef.current?.();
+    stopRef.current = null;
+    setListening(false);
+    advanceTo(turn + 1, mode as "A" | "B");
+  }
+
   const roleName = (sp: "A" | "B") => step.roles[sp];
   const finishedRole = mode !== "listen" && turn >= step.lines.length;
+  const rolePlaying = mode !== "listen" && !finishedRole;
+  const myTurn = rolePlaying && step.lines[turn].speaker === mode;
+
+  // Each turn swaps the role-play buttons; keep keyboard focus on the current action.
+  const actionRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (mode !== "listen") actionRef.current?.focus({ preventScroll: true });
+  }, [mode, turn, myTurn, finishedRole]);
 
   return (
     <article className="clay p-6 sm:p-8">
@@ -80,7 +128,11 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
       <p className="mt-2 text-lg text-ink-soft">{step.context}</p>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <button type="button" className="btn btn-primary" onClick={() => { setMode("listen"); playAll(); }} disabled={!tts}>
+        <button type="button" className="btn btn-primary" onClick={() => {
+            setMode("listen");
+            setResults({});
+            playAll();
+          }} disabled={!tts}>
           <Play className="size-5" aria-hidden />
           Nghe cả đoạn
         </button>
@@ -92,7 +144,6 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
 
       <ol className="mt-6 space-y-3" aria-label="Lời thoại">
         {step.lines.map((l, i) => {
-          const mine = mode !== "listen" && l.speaker === mode;
           const current = mode !== "listen" && i === turn;
           const score = results[i];
           return (
@@ -117,12 +168,12 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
                 <button
                   type="button"
                   onClick={() => playLine(i)}
-                  disabled={!tts}
-                  className="mt-1 inline-flex items-start gap-2 text-left font-display text-lg font-bold leading-snug hover:text-tangerine-deep"
-                  lang="en"
+                  // during role-play a manual replay would break the turn sequence
+                  disabled={!tts || rolePlaying}
+                  className="mt-1 inline-flex items-start gap-2 text-left font-display text-lg font-bold leading-snug hover:text-tangerine-deep disabled:hover:text-inherit"
                 >
                   <Volume2 className="mt-1 size-4 shrink-0" aria-hidden />
-                  <span>{mine && current && score === undefined ? "…" : l.en}</span>
+                  <span lang="en">{l.en}</span>
                   <span className="sr-only">, bấm để nghe</span>
                 </button>
                 {showVi && <p className="mt-1 text-ink-soft">{l.vi}</p>}
@@ -137,6 +188,7 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
 
       <section className="mt-8 rounded-2xl border-2 border-ink bg-sky p-5" aria-labelledby="roleplay">
         <h3 id="roleplay" className="font-display text-xl font-bold">Đóng vai</h3>
+        <div aria-live="polite">
         {!stt ? (
           <p className="mt-2 text-ink-soft">Trình duyệt này chưa nhận được giọng nói. Hãy đọc to vai của bạn theo từng câu ở trên, dùng Chrome hoặc Edge để được chấm.</p>
         ) : mode === "listen" ? (
@@ -151,28 +203,49 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
           <div className="mt-2">
             <p className="font-semibold">Xong vai {roleName(mode)}.</p>
             <div className="mt-3 flex flex-wrap gap-3">
-              <button type="button" className="btn btn-ghost" onClick={() => startRole(mode === "A" ? "B" : "A")}>Đổi vai</button>
+              <button ref={actionRef} type="button" className="btn btn-ghost" onClick={() => startRole(mode === "A" ? "B" : "A")}>
+                Đổi vai
+              </button>
               <button type="button" className="btn btn-ghost" onClick={() => startRole(mode)}>Đóng vai lại</button>
             </div>
           </div>
-        ) : step.lines[turn].speaker === mode ? (
+        ) : myTurn ? (
           <div className="mt-2">
             <p>
               Đến lượt bạn: <strong lang="en">{step.lines[turn].en}</strong>
             </p>
             <div className="mt-3 flex flex-wrap gap-3">
-              <button type="button" className="btn btn-primary" onClick={sayMyLine} disabled={listening}>
+              <button ref={actionRef} type="button" className="btn btn-primary" onClick={sayMyLine} disabled={listening}>
                 <Mic className="size-5" aria-hidden />
                 {listening ? "Đang nghe…" : "Nói câu của tôi"}
               </button>
-              <button type="button" className="btn btn-ghost" onClick={() => advanceTo(turn + 1, mode)}>
+              <button type="button" className="btn btn-ghost" onClick={nextTurn}>
                 {results[turn] !== undefined ? "Câu tiếp" : "Bỏ qua câu này"}
               </button>
             </div>
+            {results[turn] !== undefined && (
+              <p className="mt-2 font-semibold">
+                {results[turn] === null ? "Không nhận được giọng nói, hãy thử lại." : `Khớp ${results[turn]}%`}
+              </p>
+            )}
           </div>
         ) : (
-          <p className="mt-2 text-ink-soft">Máy đang đọc lời của {roleName(step.lines[turn].speaker)}…</p>
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            <p className="text-ink-soft">Máy đang đọc lời của {roleName(step.lines[turn].speaker)}…</p>
+            <button
+              ref={actionRef}
+              type="button"
+              className="btn btn-ghost min-h-11 px-4 text-base"
+              onClick={() => {
+                cancelPlayback();
+                advanceTo(turn + 1, mode);
+              }}
+            >
+              Bỏ qua
+            </button>
+          </div>
         )}
+        </div>
       </section>
 
       <button type="button" className="btn btn-ghost mt-8" onClick={onComplete} disabled={done}>

@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "mo-ta-nguoi",
@@ -36,6 +36,13 @@ export default lesson({
       ex("What does your boss look like? He's short and he's got glasses.", "Sếp bạn trông thế nào? Ông ấy thấp và đeo kính.", "Tiếng Việt nói “đeo kính”, tiếng Anh nói có kính: he's got glasses."),
       ex("Has your son got blue eyes? No, he hasn't. He's got brown eyes.", "Con trai bạn có mắt xanh không? Không. Cháu có mắt nâu."),
       teacher("Tôi dạy người Việt đã nửa thế kỷ, và câu các bạn hỏi sai nhiều nhất là “What does she look?” Hãy nhớ chữ **like** như một cái đuôi không bao giờ rời: **What does she look like?** Bài tập mỗi ngày tôi giao cho các bạn: nhìn một người trên xe buýt hay trong văn phòng, rồi tả thầm trong đầu ba câu, một câu với **is**, hai câu với **has got**. Làm một tuần là miệng sẽ tự nói đúng thứ tự tính từ."),
+      summary(
+        "**Have got / has got** để nói ai có gì: I've got a car, she's got blue eyes.",
+        "Phủ định **haven't / hasn't got**; câu hỏi **Has she got…?** Yes, she has. / No, she hasn't.",
+        "Chiều cao, dáng người dùng **to be**: He is tall. Tóc, mắt, râu, kính dùng **have got**: He's got glasses.",
+        "Thứ tự trước danh từ: độ dài, kiểu, màu: **long curly black hair**. Hair không đi với a.",
+        "Hỏi ngoại hình: **What does he look like?** Đừng quên chữ like ở cuối.",
+      ),
     ],
   },
   words: [
@@ -63,4 +70,40 @@ export default lesson({
     say("What does your brother look like?", "Anh trai bạn trông thế nào?"),
     say("He's tall and he's got glasses.", "Anh ấy cao và đeo kính."),
   ],
+  dialogue: dialogue(
+    "Đón khách ở sân bay",
+    "Minh được công ty cử ra sân bay Nội Bài đón ông Brown, một khách hàng người Anh mà anh chưa gặp bao giờ. Minh gọi điện cho chị Hương, trưởng phòng, hỏi ông Brown trông thế nào.",
+    { A: "Minh", B: "Chị Hương" },
+    A("Hi, Huong. I'm at the airport. What does Mr Brown look like?", "Chào chị Hương. Em đang ở sân bay. Ông Brown trông thế nào ạ?"),
+    B("He's tall and slim.", "Ông ấy cao và dong dỏng."),
+    A("Has he got a beard?", "Ông ấy có râu không ạ?"),
+    B("Yes, he has. He's got a short grey beard.", "Có. Ông ấy có bộ râu ngắn màu bạc."),
+    A("What colour is his hair?", "Tóc ông ấy màu gì ạ?"),
+    B("It's grey too. He's got short straight hair and glasses.", "Cũng màu bạc. Ông ấy có tóc ngắn, thẳng và đeo kính."),
+    A("Is he old?", "Ông ấy có già không ạ?"),
+    B("No, he isn't. He's about fifty.", "Không. Ông ấy khoảng năm mươi tuổi."),
+    A("Has he got a big bag?", "Ông ấy có mang túi to không ạ?"),
+    B("Yes, he has. He's got a big black bag.", "Có. Ông ấy có một cái túi to màu đen."),
+    A("Oh, I can see him now! Tall, grey hair, glasses.", "À, em thấy ông ấy rồi! Cao, tóc bạc, đeo kính."),
+    B("Great. Thank you, Minh.", "Tốt quá. Cảm ơn em, Minh."),
+  ),
+  task: task({
+    prompt: "Hãy tả hai người trong gia đình hoặc hai đồng nghiệp của bạn: dáng người, tóc, mắt và một điểm đặc biệt (kính, râu…). Viết 5–6 câu.",
+    hints: [
+      "Chiều cao, dáng người: He is tall. She is slim.",
+      "Tóc, mắt, râu, kính: She's got long black hair. He's got glasses.",
+      "Nhiều tính từ trước hair: độ dài, kiểu, màu (short straight grey hair).",
+      "Thêm một câu phủ định: He hasn't got a beard.",
+    ],
+    model: "This is my father. He's tall and slim. He's got short straight grey hair and brown eyes. He hasn't got a beard, but he's got glasses. My sister is short. She's got long curly black hair and big eyes.",
+    checklist: [
+      "Tall, short, slim đi với is, không đi với has",
+      "Tóc, mắt, râu, kính đi với has got hoặc have got",
+      "He và she dùng has got, không dùng have got",
+      "Tính từ đứng trước danh từ theo thứ tự độ dài, kiểu, màu",
+      "Không viết a hair khi nói về mái tóc",
+      "Có ít nhất một câu phủ định với hasn't got hoặc haven't got",
+    ],
+    minWords: 25,
+  }),
 });

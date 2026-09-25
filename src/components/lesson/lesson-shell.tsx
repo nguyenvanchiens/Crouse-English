@@ -6,7 +6,8 @@ import { Flame, List, PartyPopper, X } from "lucide-react";
 import type { Step } from "@/content/types";
 import type { LessonContext } from "@/lib/content";
 import { FINAL_PASS } from "@/content/review";
-import { certificateStatus, courseProgress, displayStreak, todayKey } from "@/lib/progress-core";
+import { certificateStatus, courseProgress, displayStreak, todayKey, type CertificateStatus } from "@/lib/progress-core";
+import { setDefaultAccent } from "@/lib/speech";
 import { progress, useProgress } from "@/lib/progress";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
@@ -15,7 +16,7 @@ import { LessonSidebar } from "./lesson-sidebar";
 import { StepExercise, type ExerciseProgress } from "./step-exercise";
 import { StepDialogue } from "./step-dialogue";
 import { StepLecture } from "./step-lecture";
-import { StepTask } from "./step-task";
+import { StepTask, type TaskProgress } from "./step-task";
 import { StepSpeaking } from "./step-speaking";
 import { StepVideo } from "./step-video";
 import { StepVocab } from "./step-vocab";
@@ -46,7 +47,8 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const [completed, setCompleted] = useState<boolean[]>(() => lesson.steps.map(() => false));
   const [exerciseScore, setExerciseScore] = useState<number | null>(null);
   const [exerciseProgress, setExerciseProgress] = useState<Record<number, ExerciseProgress>>({});
-  const [finished, setFinished] = useState<{ score: number | null; earned: boolean } | null>(null);
+  const [taskProgress, setTaskProgress] = useState<Record<number, TaskProgress>>({});
+  const [finished, setFinished] = useState<{ score: number | null; cert: CertificateStatus } | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
   const menuCloseRef = useRef<HTMLButtonElement>(null);
@@ -56,6 +58,12 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   useEffect(() => {
     if (course.status === "open" && lesson.steps.length > 0) progress.enroll(course.slug);
   }, [course.slug, course.status, lesson.steps.length]);
+
+  // The pronunciation course teaches British (RP) sounds: play them with a British voice.
+  useEffect(() => {
+    setDefaultAccent(course.goal === "phat-am" ? "GB" : "US");
+    return () => setDefaultAccent("US");
+  }, [course.goal]);
 
   // Move focus into the drawer on open and back to its trigger on close.
   useEffect(() => {
@@ -81,7 +89,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
 
   function finishLesson() {
     const nextState = progress.completeLesson(course.slug, lesson.slug, exerciseScore);
-    setFinished({ score: exerciseScore, earned: certificateStatus(course, nextState).status === "earned" });
+    setFinished({ score: exerciseScore, cert: certificateStatus(course, nextState) });
   }
 
   function restart() {
@@ -90,6 +98,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     setCompleted(lesson.steps.map(() => false));
     setExerciseScore(null);
     setExerciseProgress({});
+    setTaskProgress({});
   }
 
   const sidebar = (onNavigate?: () => void) => (
@@ -102,7 +111,15 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
       case "dialogue":
         return <StepDialogue step={step} done={completed[i]} onComplete={done} />;
       case "task":
-        return <StepTask step={step} done={completed[i]} onComplete={done} />;
+        return (
+          <StepTask
+            step={step}
+            done={completed[i]}
+            saved={taskProgress[i]}
+            onProgress={(p) => setTaskProgress((s) => ({ ...s, [i]: p }))}
+            onComplete={done}
+          />
+        );
       case "lecture":
         return <StepLecture step={step} done={completed[i]} onComplete={done} />;
       case "video":
@@ -134,10 +151,34 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
       );
     }
 
-    if (finished && lesson.final && !finished.earned) {
+    const earned = finished?.cert.status === "earned";
+    const attempt = finished?.score ?? 0;
+
+    if (finished && lesson.final && !earned && attempt >= FINAL_PASS) {
+      // passed the test, but some lessons are still unfinished (lessons can be opened in any order)
+      const left = cp.total - cp.done;
       return (
         <div className="clay card-in mx-auto max-w-2xl px-6 py-12 text-center">
-          <h2 className="font-display text-4xl font-extrabold">Bạn đạt {finished.score ?? 0}%</h2>
+          <h2 className="font-display text-4xl font-extrabold">Bạn đạt {attempt}%, đã qua bài kiểm tra!</h2>
+          <p className="mx-auto mt-3 max-w-md text-lg">
+            Còn {left} bài học chưa hoàn thành. Học nốt các bài đó là bạn nhận được chứng chỉ, không cần làm lại bài kiểm tra.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {cp.nextLesson && (
+              <Link href={`/hoc/${course.slug}/${cp.nextLesson.slug}`} className="btn btn-primary">
+                Học tiếp: {cp.nextLesson.title}
+              </Link>
+            )}
+            <Link href={`/khoa-hoc/${course.slug}`} className="btn btn-ghost">Xem giáo trình</Link>
+          </div>
+        </div>
+      );
+    }
+
+    if (finished && lesson.final && !earned) {
+      return (
+        <div className="clay card-in mx-auto max-w-2xl px-6 py-12 text-center">
+          <h2 className="font-display text-4xl font-extrabold">Bạn đạt {attempt}%</h2>
           <p className="mx-auto mt-3 max-w-md text-lg">
             Cần đạt ít nhất {FINAL_PASS}% để nhận chứng chỉ. Hãy xem lại những câu sai, ôn các bài ôn tập chương rồi làm lại.
             Lần làm tốt nhất sẽ được tính.
@@ -155,21 +196,28 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
         <div className="clay card-in mx-auto max-w-2xl px-6 py-12 text-center">
           <PartyPopper className="mx-auto size-12 text-tangerine-deep" aria-hidden />
           <h2 className="mt-4 font-display text-4xl font-extrabold">
-            {lesson.final ? `Bạn đã vượt qua bài kiểm tra cuối khóa!` : `Xong bài ${lesson.title}!`}
+            {lesson.final ? "Bạn đã vượt qua bài kiểm tra cuối khóa!" : `Xong bài ${lesson.title}!`}
           </h2>
           {finished.score !== null && (
-            <p className="mt-3 text-lg">Điểm bài tập: <strong>{finished.score}%</strong></p>
+            <p className="mt-3 text-lg">
+              {lesson.final ? "Điểm lần này" : "Điểm bài tập"}: <strong>{finished.score}%</strong>
+            </p>
+          )}
+          {lesson.final && finished.cert.status === "earned" && finished.cert.finalScore !== undefined && finished.cert.finalScore > attempt && (
+            <p className="mt-1 text-ink-soft">Điểm cao nhất của bạn ({finished.cert.finalScore}%) vẫn được tính.</p>
           )}
           <p className="mt-1 text-ink-soft">Chuỗi ngày học: {displayStreak(state.streak, todayKey())} ngày</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {finished.earned ? (
+            {earned ? (
               <Link href={`/hoc/${course.slug}/hoan-thanh`} className="btn btn-primary">Nhận chứng chỉ</Link>
             ) : next ? (
               <Link href={`/hoc/${course.slug}/${next.slug}`} className="btn btn-primary">Bài tiếp theo: {next.title}</Link>
             ) : (
               <Link href={`/khoa-hoc/${course.slug}`} className="btn btn-primary">Về trang khóa học</Link>
             )}
-            <button type="button" className="btn btn-ghost" onClick={restart}>Học lại bài này</button>
+            <button type="button" className="btn btn-ghost" onClick={restart}>
+              {lesson.final ? "Làm lại bài kiểm tra" : "Học lại bài này"}
+            </button>
           </div>
         </div>
       );

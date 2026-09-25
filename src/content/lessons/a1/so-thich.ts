@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "so-thich",
@@ -38,6 +38,14 @@ export default lesson({
       mistake("Do you like cooking? Yes, I like.", "Do you like cooking? Yes, I do.", "Tiếng Việt trả lời “Có, tôi thích”, nên người Việt hay đáp Yes, I like. Tiếng Anh không để like đứng trơ trọi ở cuối; câu trả lời ngắn chỉ cần Yes, I do."),
       tip("Đuôi **-ing** đọc là /ɪŋ/: kết thúc bằng âm mũi ở cuống lưỡi, gần giống vần “inh” của tiếng Việt, nhưng **không bật thành /k/**: swimming là /ˈswɪm.ɪŋ/, không phải “xuy-mink”."),
       teacher("Nhiều bạn học viên hỏi tôi: sao nói mãi vẫn quên -ing? Tôi luôn trả lời: vì các bạn học quy tắc mà không học **cả cụm**. Các bạn hãy viết ra năm sở thích thật của chính mình dưới dạng cụm hoàn chỉnh: **I love cooking. I enjoy walking. I hate waiting.** Dán lên tủ lạnh, mỗi lần mở tủ đọc to một câu. Câu nói về chính mình thì nhớ lâu gấp mười câu trong sách."),
+      summary(
+        "Công thức: **like / love / enjoy / hate + V-ing**: I love reading. Không để hai động từ nguyên mẫu đứng liền nhau (không nói like read).",
+        "Với **he, she, it**, động từ chính vẫn thêm -s: she likes cooking, my father enjoys fishing.",
+        "**Enjoy** chỉ đi với V-ing; like, love, hate đi được cả với to + động từ.",
+        "Không nói very like: dùng **really like** hoặc **like … very much**.",
+        "Trả lời ngắn không lặp lại like: **Yes, I do. / No, she doesn't.**",
+        "Chính tả -ing: dance → dancing (bỏ e), swim → swimming (gấp đôi phụ âm).",
+      ),
     ],
   },
   words: [
@@ -65,4 +73,38 @@ export default lesson({
     say("My brother enjoys playing football.", "Anh trai tôi thích chơi bóng đá."),
     say("Do you like dancing? Yes, I do.", "Bạn có thích nhảy không? Có, tôi thích."),
   ],
+  dialogue: dialogue(
+    "Giờ nghỉ trưa ở công ty",
+    "Minh là nhân viên mới. Giờ nghỉ trưa, anh ngồi ăn cùng chị Anna, đồng nghiệp người Úc, và hai người hỏi nhau về sở thích.",
+    { A: "Minh", B: "Anna" },
+    A("Anna, do you like sports?", "Chị Anna, chị có thích thể thao không?"),
+    B("Yes, I do. I love swimming. I swim every Saturday.", "Có chứ. Tôi rất thích bơi. Thứ Bảy nào tôi cũng bơi."),
+    A("Really? I like swimming too, but I'm not very good.", "Thật à? Tôi cũng thích bơi, nhưng tôi bơi không giỏi lắm."),
+    B("What about you, Minh? What's your hobby?", "Còn anh thì sao, Minh? Sở thích của anh là gì?"),
+    A("I enjoy reading. And I really like cooking.", "Tôi thích đọc sách. Và tôi rất thích nấu ăn."),
+    B("Oh, nice! Does your wife like cooking?", "Ồ, hay quá! Vợ anh có thích nấu ăn không?"),
+    A("No, she doesn't. She hates cooking, but she loves eating!", "Không. Cô ấy ghét nấu ăn, nhưng lại rất thích ăn!"),
+    B("My husband is the same. He enjoys playing football and watching it on TV.", "Chồng tôi cũng vậy. Anh ấy thích chơi bóng đá và xem bóng đá trên ti vi."),
+    A("Do you like football?", "Chị có thích bóng đá không?"),
+    B("No, I don't. I hate watching football. I like dancing.", "Không. Tôi ghét xem bóng đá. Tôi thích nhảy."),
+  ),
+  task: task({
+    prompt: "Một người bạn nước ngoài hỏi bạn: What do you like doing? Hãy viết 5–6 câu về sở thích của bạn và của một người trong gia đình, có cả điều bạn thích và điều bạn không thích.",
+    hints: [
+      "Dùng like, love, enjoy, hate + V-ing: I love reading.",
+      "Khi nói về bố, mẹ, anh chị: nhớ thêm -s cho động từ chính (she loves, he enjoys).",
+      "Điều không thích: I don't like… / She doesn't like…",
+      "Kết thúc bằng một câu hỏi lại bạn mình: Do you like…?",
+    ],
+    model: "My hobby is reading. I love reading books on the bus. I also enjoy cooking for my family. I don't like shopping, and I hate getting up early. My sister loves dancing, but she doesn't like cooking. Do you like reading?",
+    checklist: [
+      "Có ít nhất 4 câu dùng like, love, enjoy hoặc hate + V-ing",
+      "Không có hai động từ nguyên mẫu đứng liền nhau (không viết like read)",
+      "Câu nói về he hoặc she có động từ thêm -s (she loves, he enjoys)",
+      "Có ít nhất một câu phủ định với don't like hoặc doesn't like",
+      "Không viết very like; nếu muốn nhấn mạnh thì dùng really",
+      "Viết đúng chính tả -ing (dancing, swimming, shopping)",
+    ],
+    minWords: 25,
+  }),
 });

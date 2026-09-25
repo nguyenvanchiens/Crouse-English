@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "mao-tu",
@@ -35,6 +35,13 @@ export default lesson({
       mistake("I love the music, especially the jazz.", "I love music, especially jazz.", "Thích âm nhạc nói chung thì không có the. Chỉ nói “I love the music in this film” khi đó là âm nhạc cụ thể."),
       tip("Mẹo **“chỉ tay được không?”**: nếu bạn có thể chỉ tay hoặc nói thêm “cái đó, cái mà…” thì thường dùng **the**. Nếu bạn đang nói về cả một loại, chung chung khắp thế giới, thì bỏ mạo từ và dùng **số nhiều** hoặc **danh từ không đếm được**: **Dogs are loyal**, không phải **The dogs are loyal**."),
       teacher("Nói thật với các bạn, mạo từ là thứ **tôi chưa thấy học trò nào học xong trong một buổi**. Nó chỉ vào đầu bằng cách đọc thật nhiều và để ý. Cách tôi hay giao bài: mỗi ngày chép lại **một đoạn tin tiếng Anh ngắn**, rồi khoanh tròn mọi a, an, the và mọi danh từ đứng trơn không mạo từ, tự giải thích từng chỗ. Sau một tháng, tai và mắt bạn sẽ tự thấy “câu này thiếu cái gì đó”. Và đừng quá sợ: sai mạo từ ít khi làm người ta hiểu nhầm, nhưng **dùng đúng thì câu của bạn nghe chuyên nghiệp hẳn lên**."),
+      summary(
+        "a/an: danh từ đếm được số ít nhắc lần đầu, và bắt buộc trước nghề nghiệp: She is a teacher.",
+        "the: người nghe biết rõ cái nào (đã nhắc, có cụm xác định đi kèm, chỉ có một), so sánh nhất, số thứ tự.",
+        "Không mạo từ: danh từ số nhiều, không đếm được hoặc trừu tượng khi nói chung: Life is short. Dogs are loyal.",
+        "school, hospital, prison, bed: nói mục đích chính thì không mạo từ; nói tòa nhà, địa điểm thì dùng the.",
+        "Câu hỏi then chốt: người nghe có biết tôi đang nói đến cái cụ thể nào không?",
+      ),
     ],
   },
   words: [
@@ -62,4 +69,38 @@ export default lesson({
     say("My brother is an engineer, and his wife is a doctor.", "Anh trai tôi là kỹ sư, còn vợ anh ấy là bác sĩ."),
     say("I went to the hospital to visit my uncle.", "Tôi đến bệnh viện để thăm chú tôi."),
   ],
+  dialogue: dialogue(
+    "Hỏi thăm đồng nghiệp",
+    "Giờ nghỉ trưa, Phong thấy Sarah, đồng nghiệp người Anh, trông rất mệt. Anh hỏi thăm và biết mẹ cô đang nằm viện.",
+    { A: "Phong", B: "Sarah, đồng nghiệp người Anh" },
+    A("Sarah, you look tired. Is everything OK?", "Sarah, trông chị mệt quá. Mọi chuyện ổn chứ?"),
+    B("Not really. My mother is in hospital. She had an operation on Monday.", "Không hẳn. Mẹ tôi đang nằm viện. Bà mới phẫu thuật hôm thứ Hai."),
+    A("I'm sorry to hear that. Is it the hospital near our office?", "Tôi rất tiếc. Có phải bệnh viện gần văn phòng mình không?"),
+    B("Yes. I go to the hospital every evening after work, so I usually go to bed after midnight.", "Đúng vậy. Tối nào tan làm tôi cũng đến bệnh viện, nên thường đi ngủ sau nửa đêm."),
+    A("That's hard. Health is more important than work, you know.", "Vất vả quá. Sức khỏe quan trọng hơn công việc mà."),
+    B("I know. Luckily, the doctor looking after her is excellent.", "Tôi biết. May là bác sĩ chăm sóc bà rất giỏi."),
+    A("Would she like some fruit? I know a shop that sells the best mangoes in town.", "Bà có muốn ăn chút hoa quả không? Tôi biết một cửa hàng bán xoài ngon nhất thành phố."),
+    B("That's kind of you. She loves fruit, especially mangoes.", "Anh tốt quá. Bà rất thích hoa quả, nhất là xoài."),
+    A("Then I'll buy a box tomorrow. The shop is on the way to the hospital.", "Vậy mai tôi sẽ mua một hộp. Cửa hàng đó nằm trên đường đến bệnh viện."),
+    B("Thank you. It's the first time anyone here has offered to help me.", "Cảm ơn anh. Đây là lần đầu tiên có người ở đây đề nghị giúp tôi."),
+    A("That's what friends are for.", "Bạn bè là để giúp nhau mà."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn khoảng 60–90 từ giới thiệu một người thân của bạn: nghề nghiệp, nơi làm việc, sở thích và một quan niệm sống của người đó. Chú ý từng mạo từ.",
+    hints: [
+      "Nêu nghề nghiệp của người đó: nhớ a/an trước nghề.",
+      "Nói về sở thích hoặc quan niệm chung (music, money, health) mà không dùng the.",
+      "Nhắc một đồ vật lần đầu với a/an, lần sau với the.",
+      "Dùng một cụm như in hospital, at school hoặc go to bed.",
+    ],
+    model: "My uncle Binh is a doctor at a hospital in Hue. He works long hours, but he says that helping people brings him happiness. Last year, he was in hospital himself for a week, and it was the first time he had seen the job from a patient's point of view. In his free time, he loves music, especially jazz. He has an old guitar. The guitar was a present from my grandfather, and he plays it every weekend. He always tells me that money is less important than health.",
+    checklist: [
+      "Có a/an trước nghề nghiệp ở số ít.",
+      "Danh từ trừu tượng hoặc không đếm được nói chung (life, music, money, health) không có the.",
+      "Có ít nhất một danh từ nhắc lần đầu với a/an, lần sau với the.",
+      "Có một cụm school, hospital hoặc bed dùng đúng: nói mục đích chính thì không mạo từ.",
+      "Có the trước so sánh nhất hoặc số thứ tự (the best, the first).",
+    ],
+    minWords: 60,
+  }),
 });

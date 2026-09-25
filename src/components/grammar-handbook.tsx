@@ -3,14 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Search } from "lucide-react";
-import type { Level } from "@/content/types";
 import { filterGrammar, type GrammarEntry } from "@/lib/grammar";
-import { LEVEL_LABEL } from "@/components/course/goal-meta";
 
 export function GrammarHandbook({ entries }: { entries: GrammarEntry[] }) {
   const [query, setQuery] = useState("");
   const shown = filterGrammar(entries, query);
-  const levels = [...new Set(shown.map((e) => e.level))] as Level[];
+  const groups = [...new Set(shown.map((e) => e.courseSlug))];
 
   return (
     <>
@@ -33,15 +31,14 @@ export function GrammarHandbook({ entries }: { entries: GrammarEntry[] }) {
         <p className="clay mt-6 p-8 text-center text-lg">Không có điểm ngữ pháp nào khớp. Thử một từ khóa ngắn hơn.</p>
       ) : (
         <div className="mt-6 space-y-12">
-          {levels.map((level) => (
-            <section key={level} aria-labelledby={`lv-${level}`}>
-              <h2 id={`lv-${level}`} className="flex items-baseline gap-3 font-display text-3xl font-extrabold">
-                {level}
-                <span className="text-xl font-bold text-ink-soft">{LEVEL_LABEL[level]}</span>
+          {groups.map((slug) => (
+            <section key={slug} aria-labelledby={`g-${slug}`}>
+              <h2 id={`g-${slug}`} className="font-display text-3xl font-extrabold">
+                {shown.find((e) => e.courseSlug === slug)?.courseTitle}
               </h2>
               <ol className="mt-5 grid gap-3 sm:grid-cols-2">
                 {shown
-                  .filter((e) => e.level === level)
+                  .filter((e) => e.courseSlug === slug)
                   .map((e) => (
                     <li key={`${e.courseSlug}/${e.lessonSlug}`}>
                       <Link

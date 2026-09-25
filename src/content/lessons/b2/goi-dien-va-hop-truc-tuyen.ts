@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "goi-dien-va-hop-truc-tuyen",
@@ -37,6 +37,13 @@ export default lesson({
       mistake("Could you tell me when does the meeting start?", "Could you tell me when the meeting starts?", "Học trò thuộc lòng công thức “từ để hỏi + does + S + V” rồi bê nguyên vào mọi câu. Trong câu hỏi gián tiếp, phần sau Could you tell me đã là câu kể: S + V, không còn does."),
       tip("Khi nói nhanh, **I'll be** đọc liền thành /aɪl bi/, và nhớ bật rõ âm /t/ cuối trong **mute** /mjuːt/. Nếu đọc thành “miu” thì người nghe dễ nhầm với **mew** (tiếng mèo kêu)."),
       teacher("Sau **nhiều năm đứng lớp**, tôi thấy học trò giỏi ngữ pháp vẫn đứng hình khi mạng chập chờn, chỉ vì chưa có sẵn câu trong miệng. Cách tôi dặn các bạn: viết **năm câu cứu cánh** (You're on mute. You're breaking up. Could you repeat that? I'll be joining late. Could you tell me…?) ra một tờ giấy nhỏ, dán ngay cạnh màn hình máy tính. Trước mỗi cuộc họp, đọc to một lượt. Chỉ sau hai tuần, các câu ấy sẽ tự bật ra đúng lúc, không cần nghĩ."),
+      summary(
+        "Câu cứu cánh khi gọi: **You're on mute.**, **You're breaking up.**, **Could you repeat that?**, **I think we've lost…** Nói on mute, không nói You are mute.",
+        "Tương lai tiếp diễn **will be + V-ing**: việc đang diễn ra tại một lúc trong tương lai, hoặc việc đã sắp xếp sẵn: I'll be joining late.",
+        "**Will you be + V-ing?** hỏi kế hoạch một cách tế nhị, không ép người nghe làm gì.",
+        "Câu hỏi gián tiếp (**Could you tell me…?**, **Do you know…?**) dùng **trật tự câu kể**, bỏ do/does/did.",
+        "Câu hỏi Có/Không trong câu gián tiếp thêm **if / whether**: Do you know if the client has the link?",
+      ),
     ],
   },
   words: [
@@ -64,4 +71,39 @@ export default lesson({
     say("I think you're on mute, so we can't hear you.", "Hình như anh đang tắt mic nên chúng tôi không nghe thấy gì."),
     say("Could you tell me when the next meeting is?", "Anh có thể cho tôi biết cuộc họp tiếp theo là khi nào không?"),
   ],
+  dialogue: dialogue(
+    "Cuộc gọi video với khách hàng Anh",
+    "Chị Lan ở công ty Minh Phát gọi video cho ông Brown, khách hàng ở London, để cập nhật về hàng mẫu. Đường truyền chập chờn, đồng nghiệp Hùng bị rớt khỏi cuộc gọi.",
+    { A: "Lan, nhân viên kinh doanh", B: "Mr Brown, khách hàng" },
+    A("Hi Mr Brown, it's Lan from Minh Phat. Can you hear me?", "Chào ông Brown, tôi là Lan ở Minh Phát. Ông có nghe thấy tôi không?"),
+    B("Hi Lan. Yes, but you're a bit quiet. Could you speak up a little?", "Chào Lan. Có, nhưng tiếng chị hơi nhỏ. Chị nói to hơn một chút được không?"),
+    A("Is that better now?", "Bây giờ đã rõ hơn chưa ạ?"),
+    B("Much better, thanks. Where's Hung? I can't see him.", "Rõ hơn nhiều rồi, cảm ơn chị. Hùng đâu rồi? Tôi không thấy anh ấy."),
+    A("I think we've lost him. He'll be joining us again in a minute.", "Hình như anh ấy bị rớt khỏi cuộc gọi. Một phút nữa anh ấy sẽ vào lại."),
+    B("No problem. Could you tell me when the samples will arrive?", "Không sao. Chị có thể cho tôi biết khi nào hàng mẫu đến không?"),
+    A("They'll be arriving at your office on Thursday morning.", "Hàng mẫu sẽ đến văn phòng ông vào sáng thứ Năm."),
+    B("Great. Do you know if your manager has approved the new design?", "Tốt. Chị có biết quản lý của chị đã duyệt thiết kế mới chưa?"),
+    A("She has, and she'll be presenting it to you herself next week.", "Chị ấy duyệt rồi, và tuần sau chị ấy sẽ tự trình bày thiết kế với ông."),
+    B("Wonderful. Oh, Hung is back. Hung, I think you're on mute.", "Tuyệt vời. À, Hùng vào lại rồi. Hùng, hình như anh đang tắt mic."),
+    A("He's writing in the chat that his microphone isn't working. I'll send you a quick summary after the call.", "Anh ấy đang nhắn trong khung chat là micrô bị hỏng. Tôi sẽ gửi ông bản tóm tắt ngắn sau cuộc gọi."),
+    B("That's fine. Will you be sending the price list too?", "Được thôi. Chị có gửi kèm bảng giá không?"),
+    A("Yes, I'll attach it to the summary. Thanks for your time, Mr Brown.", "Có ạ, tôi sẽ đính kèm vào bản tóm tắt. Cảm ơn ông đã dành thời gian."),
+  ),
+  task: task({
+    prompt: "Ngày mai bạn sẽ vào muộn cuộc họp trực tuyến với khách hàng vì đang trên đường đi công tác về. Viết email ngắn gửi chị Hoa, người tổ chức cuộc họp: báo trước việc vào muộn, nói ai sẽ làm gì trong lúc bạn chưa vào, và hỏi gián tiếp hai thông tin bạn cần.",
+    hints: [
+      "Báo lịch của mình bằng will be + V-ing: I'll be joining… late, because I'll be driving…",
+      "Nói việc của đồng nghiệp: My colleague… will be starting / presenting…",
+      "Hỏi lịch sự bằng Could you tell me…? hoặc I'd like to know if…, nhớ dùng trật tự câu kể.",
+    ],
+    model: "Hi Hoa,\n\nJust a quick note about tomorrow's video call with the client. I'm afraid I'll be joining about fifteen minutes late, because I'll be driving back from a client visit in Bac Ninh. My colleague Hung will be starting the meeting and presenting the first item. Could you tell me which platform we'll be using, Zoom or Teams? I'd also like to know if the client has received the agenda.\n\nThanks, and speak soon.\nLan",
+    checklist: [
+      "Có ít nhất hai câu will be + V-ing, động từ sau be có đuôi -ing.",
+      "Có ít nhất hai câu hỏi gián tiếp (Could you tell me…, Do you know…, I'd like to know…).",
+      "Phần sau cụm hỏi gián tiếp dùng trật tự câu kể, không còn do/does/did.",
+      "Câu hỏi Có/Không trong câu gián tiếp có if hoặc whether.",
+      "Nói rõ lý do và vào muộn khoảng bao lâu.",
+    ],
+    minWords: 60,
+  }),
 });

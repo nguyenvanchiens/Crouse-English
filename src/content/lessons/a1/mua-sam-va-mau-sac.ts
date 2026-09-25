@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "mua-sam-va-mau-sac",
@@ -41,6 +41,13 @@ export default lesson({
       ex("Can I try on this yellow dress, please?", "Cho tôi mặc thử chiếc váy vàng này được không?"),
       tip("Người Việt chỉ có một chữ “xanh” cho cả hai màu. Tiếng Anh tách hẳn: **blue** là xanh da trời, xanh nước biển; **green** là xanh lá cây. Nói nhầm hai từ này, người bán sẽ đưa bạn sai món."),
       teacher("Tôi hay dặn các bạn học viên: đi đường thấy gì thì **tả nhẩm bằng tiếng Anh**, và luôn theo thứ tự màu trước, đồ vật sau. A red car. A black bag. Two white shirts. Đó là cách rẻ nhất để sửa thói quen nói “áo đỏ” theo kiểu tiếng Việt. Và khi hỏi giá, hãy **nhìn món đồ trước**: một cái thì this và is, hai ống hay một đôi thì these và are."),
+      summary(
+        "Màu sắc và tính từ đứng **trước** danh từ: a red shirt, không nói a shirt red.",
+        "Tính từ **không thêm -s**: two red dresses.",
+        "**How much is this** + số ít? → It's… ; **How much are these** + số nhiều? → They're…",
+        "Trousers, jeans, shorts, glasses, shoes luôn là số nhiều: these jeans, they're.",
+        "**Blue** là xanh da trời, **green** là xanh lá; thousand và million không thêm -s.",
+      ),
     ],
   },
   words: [
@@ -68,4 +75,38 @@ export default lesson({
     say("These black shoes are very expensive.", "Đôi giày đen này đắt quá."),
     say("I'd like a white shirt, please.", "Cho tôi một cái áo sơ mi trắng."),
   ],
+  dialogue: dialogue(
+    "Mua áo ở một cửa hàng khi đi du lịch",
+    "Chị Lan đi du lịch Singapore và vào một cửa hàng quần áo. Chị hỏi giá, hỏi màu và mua một chiếc áo sơ mi.",
+    { A: "Chị Lan", B: "Người bán hàng" },
+    A("Excuse me. How much is this white shirt?", "Xin lỗi, cái áo sơ mi trắng này bao nhiêu tiền?"),
+    B("It's twenty-five dollars.", "Hai mươi lăm đô la."),
+    A("Do you have a blue shirt? I really like blue.", "Chị có áo sơ mi màu xanh da trời không? Tôi rất thích màu xanh da trời."),
+    B("Yes, we do. This blue shirt is twenty-two dollars.", "Có ạ. Cái áo sơ mi xanh này hai mươi hai đô la."),
+    A("It's very nice. Can I try it on, please?", "Đẹp quá. Tôi mặc thử được không?"),
+    B("Of course. And these black trousers? They're new.", "Được chứ. Còn cái quần đen này thì sao? Hàng mới về đấy."),
+    A("How much are they?", "Cái quần này bao nhiêu tiền?"),
+    B("They're forty dollars.", "Bốn mươi đô la."),
+    A("Oh, they're very expensive. Just the blue shirt, please.", "Ôi, đắt quá. Cho tôi lấy cái áo sơ mi xanh thôi."),
+    B("OK. That's twenty-two dollars.", "Vâng. Của chị hết hai mươi hai đô la."),
+    A("Here you are. Thank you!", "Tiền đây. Cảm ơn chị!"),
+    B("Thank you. Have a nice day!", "Cảm ơn chị. Chúc chị một ngày vui vẻ!"),
+  ),
+  task: task({
+    prompt: "Bạn đang ở một cửa hàng quần áo. Viết 6–8 câu: nói bạn muốn mua gì (có màu sắc), hỏi giá hai ba món đồ và trả lời thay người bán.",
+    hints: [
+      "Màu đứng trước đồ vật: a white shirt, black shoes.",
+      "Một món: How much is this…? It's… Hai ống hoặc một đôi: How much are these…? They're…",
+      "Viết giá bằng chữ: two hundred thousand dong (thousand không thêm -s).",
+    ],
+    model: "I'd like a white shirt and a black jacket, please. How much is this white shirt? It's two hundred thousand dong. How much are these blue jeans? They're four hundred thousand dong. They're very expensive. How much are these yellow shoes? They're three hundred thousand dong.",
+    checklist: [
+      "Màu sắc luôn đứng trước danh từ (a white shirt, không viết a shirt white)",
+      "Tính từ không thêm -s, kể cả khi danh từ là số nhiều",
+      "Món số ít dùng this và is; jeans, trousers, shoes dùng these và are",
+      "Có ít nhất 2 câu hỏi giá với How much",
+      "Giá viết bằng chữ, thousand và million không thêm -s",
+    ],
+    minWords: 25,
+  }),
 });

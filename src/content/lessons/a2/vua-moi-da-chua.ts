@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "vua-moi-da-chua",
@@ -40,6 +40,13 @@ export default lesson({
       mistake("I have finished my homework yet.", "I have already finished my homework.", "Yet chỉ dùng trong câu phủ định và câu hỏi. Câu khẳng định “đã... rồi” dùng already."),
       mistake("I've just seen him yesterday.", "I saw him yesterday.", "Có thời điểm cụ thể (yesterday) thì không dùng hiện tại hoàn thành, dù trong đầu bạn nghĩ “vừa mới”. Chuyển sang quá khứ đơn."),
       teacher("Học viên Việt Nam may mắn hơn người nước khác ở bài này, vì chúng ta đã có sẵn thói quen hỏi “**...chưa?**” mỗi ngày. Tôi dặn các bạn: **mỗi lần định hỏi “chưa” bằng tiếng Việt, hãy nói thầm câu tiếng Anh với yet**. Have you eaten yet? Have you finished yet? Have they arrived yet? Và mỗi tối, trước khi ngủ, liệt kê ba việc hôm nay đã làm rồi với already, ba việc chưa làm với haven't... yet. Một tháng thôi, cấu trúc này sẽ là của các bạn."),
+      summary(
+        "Việc vừa xảy ra, kết quả còn liên quan đến bây giờ: have / has + V3.",
+        "Just (vừa mới) và already (đã... rồi) đứng giữa have và V3: I've just arrived, she's already left.",
+        "Yet đứng cuối câu, chỉ dùng trong câu phủ định và câu hỏi; trả lời ngắn “chưa” là Not yet.",
+        "“Chưa làm” là haven't + V3 + yet, không dùng didn't: I haven't finished yet.",
+        "Có thời điểm cụ thể như yesterday, last week thì dùng quá khứ đơn, không dùng hiện tại hoàn thành.",
+      ),
     ],
   },
   words: [
@@ -67,4 +74,40 @@ export default lesson({
     say("Have you had dinner yet?", "Bạn ăn tối chưa?"),
     say("I haven't finished my work yet.", "Tôi vẫn chưa làm xong việc."),
   ],
+  dialogue: dialogue(
+    "Chuẩn bị đón khách",
+    "Mười giờ sáng nay khách hàng đến công ty họp. Anh Quang, trưởng phòng, hỏi Thảo xem việc nào đã xong, việc nào chưa.",
+    { A: "Anh Quang, trưởng phòng", B: "Thảo, nhân viên" },
+    A("Thao, the customers are coming at ten. Have you booked the meeting room yet?", "Thảo ơi, mười giờ khách đến. Em đặt phòng họp chưa?"),
+    B("Yes, I've already booked it.", "Rồi ạ, em đặt rồi."),
+    A("Great. Have you sent them the address yet?", "Tốt. Em gửi địa chỉ cho họ chưa?"),
+    B("I've just sent it. They've already replied.", "Em vừa gửi xong. Họ trả lời rồi ạ."),
+    A("And the report? Have you finished it yet?", "Còn bản báo cáo? Em làm xong chưa?"),
+    B("Not yet. I haven't written the last part yet.", "Chưa ạ. Em chưa viết phần cuối."),
+    A("That's OK. Can you finish it before ten?", "Không sao. Em làm xong trước mười giờ được không?"),
+    B("Yes, of course. Have you had breakfast yet? There are some cakes in the kitchen.", "Được ạ. Anh ăn sáng chưa? Trong bếp có ít bánh đấy."),
+    A("Yes, I've already eaten, thanks. Oh, a message. The customers have just left their hotel.", "Anh ăn rồi, cảm ơn em. Ồ, có tin nhắn. Khách vừa rời khách sạn."),
+    B("Then they'll be here soon. I'll tidy the meeting room now.", "Vậy họ sắp tới rồi. Em đi dọn phòng họp ngay."),
+    A("Don't worry. I've already tidied it. You only need to finish and print the report.", "Đừng lo. Anh dọn rồi. Em chỉ cần làm xong rồi in báo cáo thôi."),
+    B("OK. I'll do it right now.", "Vâng. Em làm ngay đây ạ."),
+  ),
+  task: task({
+    prompt: "Ngày mai bạn đi du lịch Đà Nẵng cùng một người bạn. Viết tin nhắn 5–6 câu cho bạn ấy: việc gì bạn đã làm rồi, việc gì vừa mới làm, việc gì chưa làm, và hỏi bạn ấy đã chuẩn bị chưa.",
+    hints: [
+      "Việc đã xong rồi: I've already + V3.",
+      "Việc vừa mới xong: I've just + V3.",
+      "Việc chưa làm: I haven't + V3 + yet.",
+      "Hỏi bạn: Have you + V3 + yet?",
+    ],
+    model: "Hi Linh, I'm getting ready for our trip to Da Nang. I've already booked the hotel, and I've just bought the train tickets online. I've packed my clothes, but I haven't bought any snacks yet. Have you checked the weather yet? It might rain. Have you packed your bag yet? See you at the station tomorrow!",
+    checklist: [
+      "Câu nào có just, already hoặc yet đều dùng have / has + V3.",
+      "Just và already đứng giữa have và V3.",
+      "Yet đứng cuối câu, chỉ trong câu phủ định hoặc câu hỏi.",
+      "Có ít nhất 1 câu hỏi Have you... yet?",
+      "Không dùng hiện tại hoàn thành cùng yesterday hay last night.",
+      "V3 bất quy tắc viết đúng (bought, sent, done, written).",
+    ],
+    minWords: 30,
+  }),
 });

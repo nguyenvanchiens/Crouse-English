@@ -144,7 +144,8 @@ export type CertificateStatus =
 
 /** The certificate needs every lesson done and, if the course has a final test, a pass on it. */
 export function certificateStatus(course: Course, state: ProgressState): CertificateStatus {
-  if (courseProgress(course, state).percent < 100) return { status: "incomplete" };
+  const cp = courseProgress(course, state);
+  if (cp.done < cp.total) return { status: "incomplete" };
   const final = course.modules.flatMap((m) => m.lessons).find((l) => l.final);
   if (!final) return { status: "earned" };
   const score = state.lessons[lessonKey(course.slug, final.slug)]?.score ?? 0;

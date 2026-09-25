@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { listenOnce } from "./speech";
+import { listenOnce, pickVoice } from "./speech";
 
 type Handlers = { onerror: ((e: { error: string }) => void) | null; onend: (() => void) | null };
 
@@ -36,5 +36,21 @@ describe("listenOnce", () => {
     listenOnce({ onResult: () => {}, onError });
     rec!.onerror?.({ error: "not-allowed" });
     expect(onError).toHaveBeenCalledWith("not-allowed");
+  });
+});
+
+describe("pickVoice", () => {
+  const v = (lang: string, name = lang) => ({ lang, name }) as SpeechSynthesisVoice;
+  it("prefers a voice of the requested accent", () => {
+    const voices = [v("en-US"), v("en-GB"), v("vi-VN")];
+    expect(pickVoice(voices, "GB")?.lang).toBe("en-GB");
+    expect(pickVoice(voices, "US")?.lang).toBe("en-US");
+  });
+  it("falls back to any English voice, else none", () => {
+    expect(pickVoice([v("vi-VN"), v("en-AU")], "GB")?.lang).toBe("en-AU");
+    expect(pickVoice([v("vi-VN")], "GB")).toBeUndefined();
+  });
+  it("accepts underscore language tags used by some Android browsers", () => {
+    expect(pickVoice([v("en_US"), v("en_GB")], "GB")?.lang).toBe("en_GB");
   });
 });

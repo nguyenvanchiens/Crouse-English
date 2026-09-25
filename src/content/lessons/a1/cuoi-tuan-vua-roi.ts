@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "cuoi-tuan-vua-roi",
@@ -37,6 +37,14 @@ export default lesson({
       ex("What was the weather like? It was sunny and hot.", "Thời tiết hôm đó thế nào? Trời nắng và nóng.", "What ... like? giống câu What does he look like? ở bài Mô tả một người, dùng để hỏi một thứ như thế nào."),
       tip("Trong câu khẳng định, **was** và **were** đọc nhẹ: /wəz/, /wər/. Trong câu trả lời ngắn thì đọc mạnh: **Yes, I was** /wɒz/. Wasn't đọc là /ˈwɒz.ənt/, nhớ bật âm /t/ cuối để không lẫn với was."),
       teacher("Sáng thứ Hai nào đi dạy tôi cũng hỏi các bạn học viên một câu: **How was your weekend?** Và lần nào cũng có người trả lời “It is good”. Các bạn hãy tập cho mình phản xạ: nghe **How was…?** thì miệng trả lời bằng **It was…**. Tối chủ nhật, trước khi ngủ, viết ba câu về cuối tuần của mình: một câu với **was**, một câu với **were**, một câu với **there was/were**. Nhỏ thôi nhưng đều đặn, đó là cách người lớn tuổi như tôi đã học ngoại ngữ."),
+      summary(
+        "Quá khứ của to be: **I, he, she, it + was**; **you, we, they + were**.",
+        "Phủ định **wasn't / weren't**; câu hỏi đảo lên đầu: Were you at home? Yes, I was.",
+        "Có yesterday hay last… thì phải đổi am, is, are thành **was, were**.",
+        "Nói **last night**, không nói yesterday night; không đặt the hay in trước last.",
+        "**There was** + số ít hoặc không đếm được; **there were** + số nhiều.",
+        "Nghe **How was…?** thì trả lời bằng **It was…**, không trả lời It is…",
+      ),
     ],
   },
   words: [
@@ -64,4 +72,39 @@ export default lesson({
     say("How was your weekend?", "Cuối tuần của bạn thế nào?"),
     say("There were a lot of people at the market.", "Ở chợ có rất nhiều người."),
   ],
+  dialogue: dialogue(
+    "Sáng thứ Hai ở văn phòng",
+    "Sáng thứ Hai, Mark, đồng nghiệp người Mỹ, hỏi Linh về cuối tuần vừa rồi. Linh kể chuyến đi biển Vũng Tàu cùng gia đình, rồi hỏi lại Mark.",
+    { A: "Mark", B: "Linh" },
+    A("Good morning, Linh! How was your weekend?", "Chào buổi sáng, Linh! Cuối tuần của em thế nào?"),
+    B("It was great, thanks. I was in Vung Tau with my family.", "Tuyệt lắm, cảm ơn anh. Em ở Vũng Tàu với gia đình."),
+    A("Oh, nice! Was the weather good?", "Ồ, hay quá! Thời tiết có đẹp không?"),
+    B("Yes, it was. It was sunny and hot. We were at the beach all day.", "Có ạ. Trời nắng và nóng. Cả nhà em ở bãi biển cả ngày."),
+    A("Was it crowded?", "Có đông không?"),
+    B("Yes, it was very crowded. There were a lot of people from Ho Chi Minh City.", "Có, đông lắm. Có rất nhiều người từ Thành phố Hồ Chí Minh xuống."),
+    A("And the hotel? Was it nice?", "Còn khách sạn? Có đẹp không?"),
+    B("It was small, but it was clean. There was a good restaurant near the hotel.", "Nhỏ, nhưng sạch sẽ. Gần khách sạn có một nhà hàng ngon."),
+    A("Were your children happy?", "Các con em có vui không?"),
+    B("Yes, they were! But we were very tired on Sunday evening. How was your weekend, Mark?", "Có, chúng vui lắm! Nhưng tối chủ nhật cả nhà mệt lắm. Cuối tuần của anh thế nào, Mark?"),
+    A("It wasn't very good. I was at home, and there was a lot of work.", "Không vui lắm. Anh ở nhà, và có rất nhiều việc."),
+    B("Oh, I'm sorry, Mark.", "Ôi, tiếc quá, anh Mark."),
+  ),
+  task: task({
+    prompt: "Đồng nghiệp hỏi bạn: How was your weekend? Hãy viết 6–7 câu kể về cuối tuần vừa rồi: bạn ở đâu, với ai, thời tiết thế nào, ở đó có gì và bạn cảm thấy thế nào.",
+    hints: [
+      "Chỉ dùng was, were, there was, there were; các động từ quá khứ khác như went, had bạn sẽ học ở A2.",
+      "Mở đầu bằng mốc thời gian: Last Saturday… / Last weekend…",
+      "Tả nơi chốn bằng there was / there were: There were a lot of people.",
+      "Thêm một câu phủ định: It wasn't hot.",
+    ],
+    model: "My weekend was great. Last Saturday I was at my grandmother's house in the countryside. The weather was cool and sunny. It wasn't hot. There were a lot of trees and flowers in the garden. My cousins were there too. On Sunday evening I was very tired, but I was happy.",
+    checklist: [
+      "I, he, she, it đi với was; you, we, they và danh từ số nhiều đi với were",
+      "Không dùng am, is, are cho chuyện đã qua",
+      "Có ít nhất một câu với there was hoặc there were",
+      "Có mốc thời gian (last…, yesterday…), không viết yesterday night",
+      "Có ít nhất một câu phủ định với wasn't hoặc weren't",
+    ],
+    minWords: 25,
+  }),
 });

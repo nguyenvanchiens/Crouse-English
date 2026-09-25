@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "dong-tu-tuong-thuat",
@@ -29,6 +29,13 @@ export default lesson({
       ex("The consultant suggested that the firm reduce its overheads.", "Chuyên gia tư vấn đề xuất công ty cắt giảm chi phí vận hành.", "Reduce giữ nguyên mẫu dù chủ ngữ là the firm. Có thể viết the firm should reduce."),
       tip("Học động từ tường thuật theo **cặp động từ và giới từ**, đọc to như một chữ: **accuse-of**, **blame-for**, **apologise-for**, **insist-on**, **congratulate-on**. Mẹo nhớ: “buộc tội OF, đổ lỗi FOR, khăng khăng ON”. Còn nhóm **urge, warn, advise, persuade** thì luôn là **người + to V**."),
       teacher("Sau nhiều năm dạy, tôi thấy học viên giỏi ngữ pháp đến đâu thì khi kể chuyện vẫn chỉ dùng **said**. Mỗi tối, các bạn lấy một đoạn hội thoại trong ngày (tin nhắn của sếp, một cảnh cãi nhau trong phim) rồi viết lại bằng **ba động từ tường thuật khác nhau**. Khi chép vào sổ, đừng bao giờ ghi riêng chữ accuse; hãy ghi cả khối **accuse somebody of doing something**. Tự kiểm tra bằng một câu hỏi: “Sau động từ này là to V, V-ing hay giới từ?”. Trả lời được ngay thì mới là thuộc."),
+      summary(
+        "Động từ tường thuật kể lại cả **thái độ** người nói (accuse, deny, urge, insist, apologise), không chỉ said.",
+        "Học **cả khối mẫu câu**: agree, refuse, offer, promise + to V; urge, warn, advise, persuade + người + to V; deny, admit + V-ing.",
+        "Cặp động từ và giới từ + V-ing: **accuse of, blame for, apologise for, insist on, congratulate on, confess to**.",
+        "Lời khuyên phủ định: warn someone **not to** V. Apologise **to** someone **for** something.",
+        "**Suggest + V-ing**, hoặc suggest that + S + (should) + V nguyên mẫu; không nói suggest someone to V.",
+      ),
     ],
   },
   words: [
@@ -56,4 +63,38 @@ export default lesson({
     say("The doctor urged him to get more sleep.", "Bác sĩ thúc giục anh ấy ngủ nhiều hơn."),
     say("I apologise for keeping you waiting.", "Tôi xin lỗi vì đã để anh chị phải chờ."),
   ],
+  dialogue: dialogue(
+    "Báo cáo lại một buổi họp căng thẳng với khách hàng",
+    "Chi, quản lý khách hàng của một công ty phần mềm ở TP.HCM, vừa họp xong với một khách hàng Nhật đang không hài lòng vì dự án bị trễ. Chị báo cáo lại cho sếp là anh Quân.",
+    { A: "Anh Quân, giám đốc dự án", B: "Chi, quản lý khách hàng" },
+    A("So how did the meeting go? Were they still angry?", "Buổi họp thế nào rồi? Họ vẫn còn giận à?"),
+    B("At first, yes. Their director accused us of missing the deadline on purpose.", "Lúc đầu thì có. Giám đốc bên họ buộc tội mình cố tình trễ hạn."),
+    A("On purpose? That's absurd. What did you say?", "Cố tình ư? Vô lý quá. Em đã nói gì?"),
+    B("I denied delaying anything deliberately, but I admitted that our testing had taken too long.", "Em phủ nhận chuyện cố tình trì hoãn, nhưng thừa nhận là khâu kiểm thử của mình đã kéo dài quá lâu."),
+    A("Fair enough. Did you apologise?", "Vậy là hợp lý. Em có xin lỗi không?"),
+    B("I apologised to them for not keeping them informed. That seemed to calm things down.", "Em xin lỗi họ vì đã không cập nhật tình hình thường xuyên. Có vẻ như vậy làm không khí dịu xuống."),
+    A("Good. Did they threaten to cancel the contract?", "Tốt. Họ có dọa hủy hợp đồng không?"),
+    B("Not directly, but their lawyer warned us not to miss another deadline.", "Không trực tiếp, nhưng luật sư của họ cảnh báo mình không được trễ hạn thêm lần nào nữa."),
+    A("And the new timeline? Did they agree to it?", "Còn tiến độ mới thì sao? Họ có đồng ý không?"),
+    B("Eventually. They insisted on receiving weekly progress reports, and they urged us to add more testers.", "Cuối cùng thì có. Họ khăng khăng đòi nhận báo cáo tiến độ hằng tuần, và thúc giục mình bổ sung thêm người kiểm thử."),
+    A("That's reasonable. I suggest that you send the first report this Friday.", "Như vậy là hợp lý. Anh đề nghị em gửi bản báo cáo đầu tiên vào thứ sáu này."),
+    B("Will do. Oh, and their director congratulated us on the new design, so it wasn't all bad news.", "Em sẽ làm ạ. À, giám đốc bên họ còn khen mình về thiết kế mới, nên cũng không toàn tin xấu."),
+  ),
+  task: task({
+    prompt: "Một đồng nghiệp vắng mặt trong buổi họp căng thẳng với nhà cung cấp hôm qua. Hãy viết email kể lại cho người đó ai đã nói gì và với thái độ ra sao. Không dùng said; hãy chọn đúng động từ tường thuật và mẫu câu đi kèm.",
+    hints: [
+      "Chọn động từ theo thái độ: accuse, deny, admit, apologise, refuse, warn, agree, insist, urge.",
+      "Kiểm tra mẫu câu sau mỗi động từ: to V, người + to V, V-ing hay giới từ + V-ing.",
+      "Kể theo trình tự cuộc họp, kết thúc bằng một đề xuất với suggest.",
+    ],
+    model: "Hi Tuan,\n\nSince you missed yesterday's meeting with the supplier, here is a quick summary. Things started badly. Their sales manager accused us of changing the order at the last minute, but Lan denied making any changes after the deadline and showed him the emails. He then admitted that there had been a mix-up on their side and apologised for causing so much confusion. However, he refused to lower the delivery fee. Lan warned him not to expect a long-term contract under those conditions, and in the end he agreed to split the cost with us. Before we left, he insisted on meeting again next month and urged us to confirm all future orders in writing. I suggest that we reply by Friday so that we don't lose momentum.\n\nBest,\nMai",
+    checklist: [
+      "Dùng ít nhất năm động từ tường thuật khác nhau và không dùng said.",
+      "Mỗi động từ đi đúng mẫu câu (to V, người + to V, V-ing, giới từ + V-ing).",
+      "Accuse đi với of, apologise đi với for, insist đi với on.",
+      "Có ít nhất một câu phủ định dạng warn hoặc advise + người + not to V.",
+      "Người đọc hiểu rõ ai nói gì, với thái độ nào, theo đúng trình tự.",
+    ],
+    minWords: 100,
+  }),
 });

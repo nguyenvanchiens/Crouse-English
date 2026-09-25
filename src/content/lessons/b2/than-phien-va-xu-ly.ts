@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "than-phien-va-xu-ly",
@@ -26,6 +26,13 @@ export default lesson({
       mistake("We apologise for send you the wrong invoice.", "We apologise for sending you the wrong invoice.", "For là giới từ nên động từ sau nó phải ở dạng V-ing. Tiếng Việt không chia động từ nên học trò hay để nguyên mẫu."),
       tip("Khi viết thư phản hồi khiếu nại, nhớ công thức **“Cảm ơn, xin lỗi, giải thích ngắn, giải pháp”**: Thank you for… / We apologise for… / This was due to… / We will… Đừng bao giờ chỉ xin lỗi mà không nói bạn sẽ **làm gì** tiếp theo."),
       teacher("Tôi đã dạy nhiều lớp cho nhân viên khách sạn và hãng hàng không, và bài học tôi dặn đi dặn lại là: **người đang giận không cần nghe bạn giỏi ngữ pháp, họ cần thấy bạn hiểu họ**. Vì vậy câu đầu tiên luôn là ghi nhận: “I completely understand how frustrating this must be.” Luyện thế này: mỗi tuần tự viết **một thư khiếu nại** về một chuyện có thật (đồ ăn giao chậm, máy giặt hỏng), rồi đổi vai, tự viết **thư trả lời** của công ty. Viết được cả hai chiều thì bạn xử lý tình huống nào cũng vững."),
+      summary(
+        "Khiếu nại mở đầu bằng I am writing to complain about…; nêu yêu cầu bằng I would like… chứ không phải I want you to…",
+        "Dùng bị động để nêu sự việc mà không chỉ tay vào người: The wrong item was delivered.",
+        "apologise for + V-ing hoặc danh từ; I'm afraid + mệnh đề (không có of) để báo tin không vui.",
+        "Trả lời khiếu nại theo công thức: cảm ơn, xin lỗi, giải thích ngắn, giải pháp.",
+        "Luôn ghi nhận cảm xúc của khách trước, rồi mới đưa ra giải pháp cụ thể.",
+      ),
     ],
   },
   words: [
@@ -53,4 +60,39 @@ export default lesson({
     say("We apologise for the delay and will send a replacement today.", "Chúng tôi xin lỗi vì sự chậm trễ và sẽ gửi hàng thay thế ngay hôm nay."),
     say("I'm afraid we are unable to offer a full refund.", "Tôi e là chúng tôi không thể hoàn lại toàn bộ tiền."),
   ],
+  dialogue: dialogue(
+    "Khách phàn nàn ở quầy lễ tân",
+    "Ông Weber, khách người Đức, xuống quầy lễ tân khách sạn để phàn nàn về phòng. Ngọc, nhân viên lễ tân, lắng nghe và xử lý.",
+    { A: "Ông Weber, khách", B: "Ngọc, lễ tân" },
+    A("Excuse me. I'd like to make a complaint about my room.", "Xin lỗi. Tôi muốn khiếu nại về phòng của tôi."),
+    B("Of course, sir. Thank you for bringing this to our attention. What seems to be the problem?", "Vâng thưa ông. Cảm ơn ông đã báo cho chúng tôi. Có vấn đề gì vậy ạ?"),
+    A("I booked a non-smoking room, but the room I was given smells of cigarettes.", "Tôi đặt phòng không hút thuốc, nhưng phòng tôi được giao lại có mùi thuốc lá."),
+    B("I completely understand how frustrating this must be. We apologise for the inconvenience.", "Tôi hoàn toàn hiểu việc này gây khó chịu thế nào. Chúng tôi xin lỗi vì sự bất tiện."),
+    A("Also, I was told the air conditioning would be fixed yesterday. However, nothing has been done.", "Thêm nữa, tôi được báo là điều hòa sẽ được sửa hôm qua. Thế nhưng chưa có gì được làm cả."),
+    B("I'm very sorry. It seems the request was not passed on to our technical team.", "Tôi rất xin lỗi. Có vẻ yêu cầu đã không được chuyển đến đội kỹ thuật."),
+    A("I would like to move to another room today, please.", "Tôi muốn được chuyển sang phòng khác ngay hôm nay."),
+    B("I'm afraid all our standard rooms are full tonight. However, we would be happy to move you to a suite at no extra cost.", "Tôi e là tối nay tất cả phòng tiêu chuẩn đã kín. Tuy nhiên, chúng tôi rất sẵn lòng chuyển ông sang phòng hạng sang mà không tính thêm phí."),
+    A("That would be acceptable. Thank you.", "Như vậy thì được. Cảm ơn cô."),
+    B("As a gesture of goodwill, we would also like to offer you free breakfast for the rest of your stay.", "Để bày tỏ thiện chí, chúng tôi cũng xin mời ông ăn sáng miễn phí trong suốt thời gian còn lại."),
+    A("That's very kind. I appreciate how quickly this was handled.", "Cô thật chu đáo. Tôi đánh giá cao việc này được xử lý nhanh như vậy."),
+    B("You're welcome, sir. Your new key will be ready in ten minutes.", "Không có gì ạ. Chìa khóa phòng mới của ông sẽ sẵn sàng trong mười phút nữa."),
+  ),
+  task: task({
+    prompt: "Bạn đặt mua một chiếc nồi cơm điện trên mạng. Hàng giao chậm hai tuần, hộp bị để ngoài mưa và nồi không dùng được. Viết email khiếu nại khoảng 70–90 từ gửi bộ phận chăm sóc khách hàng.",
+    hints: [
+      "Mở đầu bằng I am writing to complain about…",
+      "Dùng ít nhất hai câu bị động để nêu sự việc (was delivered, was damaged…).",
+      "Nêu rõ yêu cầu bằng I would like… hoặc I would be grateful if you could…",
+      "Kết thư bằng Yours faithfully khi không biết tên người nhận.",
+    ],
+    model: "Dear Sir or Madam,\nI am writing to complain about the rice cooker I ordered from your website on 3 May. I was told it would be delivered within three days. However, it arrived two weeks late, and the box had been left outside in the rain. As a result, the lid was damaged and the cooker does not work. I would like a replacement to be sent by next Friday. Alternatively, I would be grateful if you could give me a full refund.\nYours faithfully,\nLan Nguyen",
+    checklist: [
+      "Câu mở đầu nói rõ mục đích khiếu nại.",
+      "Có ít nhất hai câu bị động mô tả sự việc.",
+      "Có một yêu cầu cụ thể: đổi hàng, hoàn tiền hoặc thời hạn giải quyết.",
+      "Không dùng I want you to… hay câu buộc tội trực tiếp như You sent me…",
+      "Giọng văn trang trọng, có lời chào và lời kết thư phù hợp.",
+    ],
+    minWords: 70,
+  }),
 });

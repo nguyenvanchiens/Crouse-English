@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "dong-tu-khuyet-thieu-qua-khu",
@@ -32,6 +32,13 @@ export default lesson({
       mistake("I needn't to have bought so much food.", "I needn't have bought so much food.", "Need khi làm động từ khuyết thiếu (needn't) đi thẳng với have, không có to. Học trò lẫn với động từ thường need to nên chen to vào giữa."),
       tip("Khi nói, **should have** rút gọn thành **should've** /ˈʃʊd.əv/, **could have** thành **could've** /ˈkʊd.əv/. Vì nghe giống “should of” nên có người viết sai thành **should of**. Đừng bao giờ viết như vậy. Thêm một điều thú vị: khi được tặng quà, người Anh hay nói **Oh, you shouldn't have!** Đây là lời cảm ơn khách sáo, không phải lời trách."),
       teacher("Tôi hay giao cho học trò một bài tập rất đơn giản: tối nào trước khi ngủ cũng viết **ba câu rút kinh nghiệm** về ngày hôm đó, một câu với should have, một câu với shouldn't have, một câu với needn't have. Ví dụ: **I should have left home earlier. I shouldn't have drunk so much coffee. I needn't have brought my umbrella.** Chỉ mất hai phút, nhưng sau một tháng các bạn sẽ dùng cấu trúc này tự nhiên như nói tiếng mẹ đẻ. Điều quan trọng hơn: **luôn tự hỏi sự thật là gì**, vì cấu trúc này bao giờ cũng nói ngược với điều đã xảy ra."),
+      summary(
+        "Động từ khuyết thiếu + have + V3 nói về quá khứ, và luôn ngược với điều đã thật sự xảy ra.",
+        "should have + V3: lẽ ra nên làm (nhưng đã không làm); shouldn't have + V3: lẽ ra không nên làm (nhưng đã làm).",
+        "could have + V3: đã có thể làm mà không làm; dùng để trách nhẹ hoặc nói về một khả năng đã không thành.",
+        "needn't have + V3: đã làm rồi mới thấy thừa; didn't need to + V: không cần, thường là đã không làm.",
+        "Không viết should told hay should of; đừng nhầm must have (chắc hẳn đã) với should have (lẽ ra nên).",
+      ),
     ],
   },
   words: [
@@ -59,4 +66,36 @@ export default lesson({
     say("You could have asked me for help.", "Lẽ ra bạn có thể nhờ tôi giúp mà."),
     say("We needn't have hurried because the meeting started late.", "Hóa ra chúng ta vội vàng chẳng để làm gì, vì cuộc họp bắt đầu muộn."),
   ],
+  dialogue: dialogue(
+    "Rút kinh nghiệm sau buổi thuyết trình",
+    "Sáng nay khách hàng không hài lòng với bài thuyết trình. Chị Linh, trưởng nhóm, nói chuyện riêng với Quân để rút kinh nghiệm cho lần sau.",
+    { A: "Chị Linh, trưởng nhóm", B: "Quân, nhân viên" },
+    A("Quan, the client wasn't happy with the presentation this morning.", "Quân này, sáng nay khách hàng không hài lòng với bài thuyết trình."),
+    B("I know. I should have checked the sales figures again before the meeting.", "Em biết ạ. Lẽ ra em nên kiểm tra lại số liệu doanh số trước buổi họp."),
+    A("Yes, and you shouldn't have used last year's slides.", "Đúng vậy, và lẽ ra em không nên dùng bộ slide của năm ngoái."),
+    B("You're right. I could have asked Mai for the new version, but I didn't want to bother her.", "Chị nói đúng. Lẽ ra em có thể xin Mai bản mới, nhưng em ngại làm phiền cô ấy."),
+    A("You could have asked me too. That's what I'm here for.", "Em cũng có thể hỏi chị mà. Chị ở đây là để giúp em."),
+    B("I also printed fifty copies of the report, but nobody wanted them.", "Em còn in năm mươi bản báo cáo, nhưng chẳng ai lấy."),
+    A("Well, you needn't have printed them. They had already received it by email.", "Ừ, hóa ra em in thừa rồi. Họ đã nhận báo cáo qua email."),
+    B("At least I didn't need to book a meeting room, because they came to our office.", "Ít ra em không cần đặt phòng họp, vì họ đến văn phòng mình."),
+    A("True. Don't worry too much. Next time, just send me the slides a day earlier.", "Đúng thế. Đừng lo quá. Lần sau em cứ gửi chị slide sớm một ngày nhé."),
+    B("I will. Thanks for being so understanding.", "Em sẽ làm vậy. Cảm ơn chị đã thông cảm."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn khoảng 60–100 từ kể lại một chuyện không suôn sẻ gần đây của bạn (lỡ chuyến bay, đi họp muộn, mua nhầm đồ…) và tự rút kinh nghiệm bằng các cấu trúc lẽ ra trong bài.",
+    hints: [
+      "Kể ngắn gọn chuyện gì đã xảy ra bằng thì quá khứ đơn.",
+      "Dùng should have và shouldn't have để tự trách, could have để nói việc lẽ ra có thể làm.",
+      "Thêm một câu needn't have hoặc didn't need to, rồi kết bằng một bài học cho lần sau.",
+    ],
+    model: "Last Friday I missed my flight to Da Nang, and it was completely my fault. I should have left home earlier, because the traffic is always terrible on Friday afternoons. I shouldn't have stopped at the café near the airport, either. My colleague could have given me a lift, but I didn't ask him. The funny thing is that I needn't have packed so many clothes, since the trip was only two days long. Luckily, I didn't need to buy a new ticket, because the airline moved me to the next flight. Next time I will plan better.",
+    checklist: [
+      "Có ít nhất một câu should have + V3 và một câu shouldn't have + V3.",
+      "Có một câu could have + V3.",
+      "Có needn't have + V3 hoặc didn't need to + V, dùng đúng việc đã làm hay đã không làm.",
+      "Sau should, could, needn't luôn là have + V3, không có V2 và không có to.",
+      "Mỗi câu lẽ ra đều nói ngược với điều đã thật sự xảy ra.",
+    ],
+    minWords: 60,
+  }),
 });

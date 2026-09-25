@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "qua-va-khong-du",
@@ -31,6 +31,13 @@ export default lesson({
       mistake("He isn't enough old to drive.", "He isn't old enough to drive.", "Tiếng Việt nói “đủ lớn” (đủ đứng trước), nên người học đặt enough trước tính từ. Tiếng Anh ngược lại: tính từ + enough."),
       mistake("There is too much people here.", "There are too many people here.", "People là danh từ đếm được số nhiều, nên dùng too many và are."),
       teacher("Tôi đã chứng kiến không ít lần học viên khen chủ nhà người nước ngoài “Your house is too big!” và chủ nhà ngẩn người, tưởng mình bị chê. Nên các bạn nhớ kỹ: **too là lời phàn nàn, very là lời khen**. Cách luyện của tôi: mỗi ngày nhìn quanh và nói ba câu than phiền nhỏ bằng too, ba câu bằng not enough. Ví dụ: My coffee is too sweet. My desk isn't big enough. Nói thành tiếng, nhanh và vui, như đang càu nhàu thật."),
+      summary(
+        "Too + tính từ là quá mức, gây vấn đề; muốn khen thì dùng very, really hoặc so.",
+        "Enough đứng sau tính từ, trước danh từ: big enough, enough money.",
+        "Too many + danh từ đếm được số nhiều; too much + danh từ không đếm được.",
+        "Thêm to + động từ để nói hậu quả hoặc mục đích: too hot to drink, old enough to drive.",
+        "Phàn nàn lịch sự: Excuse me + vấn đề + Could I / Could you...?",
+      ),
     ],
   },
   words: [
@@ -58,4 +65,40 @@ export default lesson({
     say("The room isn't big enough for our family.", "Căn phòng không đủ rộng cho gia đình chúng tôi."),
     say("There are too many people here today.", "Hôm nay ở đây đông người quá."),
   ],
+  dialogue: dialogue(
+    "Mua giày",
+    "Chị Hà vào một cửa hàng giày để mua một đôi đi làm. Chị thử vài đôi, nói với người bán đôi nào chật, đôi nào rộng, rồi hỏi giá.",
+    { A: "Chị Hà, khách hàng", B: "Người bán hàng" },
+    A("Excuse me, can I try these shoes in size thirty-eight?", "Chị ơi, cho tôi thử đôi này cỡ ba mươi tám được không?"),
+    B("Of course. Here you are.", "Tất nhiên rồi. Của chị đây."),
+    A("Hmm, they're too tight. Do you have a bigger size?", "Hừm, chật quá. Chị có cỡ lớn hơn không?"),
+    B("Yes, here's size thirty-nine. How are they?", "Có, đây là cỡ ba mươi chín. Chị thấy thế nào?"),
+    A("They're better, but they're a bit loose.", "Đôi này đỡ hơn, nhưng hơi rộng một chút."),
+    B("What about these white ones? They're really beautiful.", "Chị thử đôi màu trắng này xem? Đẹp lắm ạ."),
+    A("Yes, they're lovely, and they're big enough. How much are they?", "Ừ, đẹp thật, mà cũng vừa đủ rộng. Bao nhiêu tiền vậy?"),
+    B("One million two hundred thousand dong.", "Một triệu hai trăm nghìn đồng ạ."),
+    A("Oh, they're too expensive for me. I don't have enough money today.", "Ôi, đắt quá so với tôi. Hôm nay tôi không mang đủ tiền."),
+    B("These black ones are on sale. They're only six hundred thousand. Try them on.", "Đôi màu đen này đang giảm giá. Chỉ sáu trăm nghìn thôi. Chị đi thử xem."),
+    A("Oh, they're comfortable enough to wear all day. I'll take them.", "Ồ, đôi này đủ êm để đi cả ngày. Tôi lấy đôi này."),
+    B("Good choice. Would you like a bag?", "Chị chọn hay đấy. Chị có cần túi không ạ?"),
+    A("No, thanks. My bag is big enough.", "Không, cảm ơn chị. Túi của tôi đủ to rồi."),
+  ),
+  task: task({
+    prompt: "Bạn vừa ăn tối ở một nhà hàng và có vài điều chưa hài lòng. Viết một lời nhận xét ngắn (5–6 câu) về đồ ăn, chỗ ngồi và phục vụ, có cả một điểm khen.",
+    hints: [
+      "Điều quá mức: too + tính từ (too salty, too noisy).",
+      "Điều chưa đủ: not + tính từ + enough, hoặc not enough + danh từ.",
+      "Phân biệt too many (đếm được) và too much (không đếm được).",
+      "Khen một điểm tốt bằng very hoặc really, không dùng too.",
+    ],
+    model: "We had dinner at Lotus Restaurant last night. The food was really delicious, but the soup was too salty. There were too many people, and the restaurant was too noisy. There weren't enough chairs, so we waited for twenty minutes. The room wasn't big enough for our group. The waiter put too much sugar in my coffee, and it was too hot to drink. But the staff were very friendly.",
+    checklist: [
+      "Có ít nhất 2 câu với too + tính từ.",
+      "Có ít nhất 1 câu với enough đặt đúng chỗ: sau tính từ, trước danh từ.",
+      "Dùng đúng too many hay too much theo loại danh từ.",
+      "Lời khen dùng very hoặc really, không dùng too.",
+      "Có ít nhất 1 câu too hoặc enough + to + động từ.",
+    ],
+    minWords: 30,
+  }),
 });

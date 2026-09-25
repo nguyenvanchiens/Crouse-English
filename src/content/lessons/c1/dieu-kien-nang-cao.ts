@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "dieu-kien-nang-cao",
@@ -29,6 +29,13 @@ export default lesson({
       ex("Supposing the client rejects our offer, what's our plan B?", "Giả sử khách hàng từ chối đề nghị của mình, phương án dự phòng là gì?"),
       tip("Mẹo nhớ ba từ đảo ngữ điều kiện: **S-W-H**, tức là **Should, Were, Had**. Chỉ ba từ này được đứng đầu thay cho if. Không bao giờ đảo với will, would hay do."),
       teacher("Năm mươi năm dạy tiếng Anh thương mại, tôi thấy học viên Việt viết email rất lễ phép bằng tiếng Việt, nhưng sang tiếng Anh lại cụt lủn: If you need, call me. Tôi dặn các bạn: hãy học thuộc **một câu mẫu** cho mỗi cấu trúc, như Should you need anything, please let me know, rồi dùng nó ngay trong email tuần này. Ngữ pháp nâng cao chỉ trở thành của mình khi mình **dùng nó cho việc thật**, không phải khi làm đúng bài tập."),
+      summary(
+        "**If + were to + V** cho giả định rất xa; **If + should + V** cho khả năng nhỏ, nói lịch sự.",
+        "Chỉ ba từ được đảo lên thay cho if: **Should, Were, Had**. Phủ định tách not ra sau chủ ngữ: **Had I not known**, không viết Hadn't I known.",
+        "Mệnh đề if giả định **không chứa would**; would chỉ đứng ở mệnh đề chính.",
+        "**But for + danh từ**; **If it weren't for** cho hiện tại, **If it hadn't been for** cho quá khứ.",
+        "**Supposing, suppose, what if** mở ra một tình huống giả định khi bàn kế hoạch và rủi ro.",
+      ),
     ],
   },
   words: [
@@ -55,4 +62,38 @@ export default lesson({
     say("Had I known, I would have called you.", "Nếu tôi biết thì tôi đã gọi cho bạn rồi."),
     say("But for your help, I would have given up long ago.", "Nếu không nhờ bạn giúp, tôi đã bỏ cuộc từ lâu rồi."),
   ],
+  dialogue: dialogue(
+    "Bàn phương án dự phòng trước khi ký hợp đồng",
+    "Anh Nam, giám đốc thu mua của một công ty nội thất ở Bình Dương, gặp bà Carter, đại diện nhà cung cấp gỗ từ Úc, để rà soát các rủi ro trước khi ký hợp đồng cung ứng ba năm.",
+    { A: "Anh Nam, giám đốc thu mua", B: "Bà Carter, đại diện nhà cung cấp" },
+    A("Before we sign, I'd like to go through a few scenarios. Supposing the shipment is held up at the port, what happens?", "Trước khi ký, tôi muốn rà qua vài tình huống. Giả sử lô hàng bị giữ lại ở cảng thì sao?"),
+    B("Should that happen, we would cover the storage costs. It's all in clause seven.", "Nếu chuyện đó xảy ra, chúng tôi sẽ chịu chi phí lưu kho. Tất cả đã nằm trong điều khoản bảy."),
+    A("And were your main factory to close for any reason, could another site take over?", "Còn nếu nhà máy chính của bà phải đóng cửa vì lý do nào đó, liệu một cơ sở khác có thay thế được không?"),
+    B("In theory, yes, although it wouldn't be feasible for more than a month. We do have a contingency plan, though.", "Về lý thuyết thì được, dù không khả thi quá một tháng. Nhưng chúng tôi có phương án dự phòng."),
+    A("Good. Had we known about the strike last year, we would have ordered much earlier. We lost nearly two weeks.", "Tốt. Nếu năm ngoái chúng tôi biết trước vụ đình công thì đã đặt hàng sớm hơn nhiều. Chúng tôi mất gần hai tuần."),
+    B("I remember. But for your team's flexibility, we would have lost the contract altogether.", "Tôi nhớ chứ. Nếu không nhờ sự linh hoạt của đội anh, chúng tôi đã mất trắng hợp đồng."),
+    A("Well, if it hadn't been for your engineers working overtime, we wouldn't have recovered so quickly either.", "Thật ra nếu không có các kỹ sư bên bà làm thêm giờ, chúng tôi cũng không phục hồi nhanh như vậy."),
+    B("Then let's put all of this in writing. Should you have any further concerns, just email me before Friday.", "Vậy chúng ta ghi tất cả vào văn bản nhé. Nếu anh còn băn khoăn gì, cứ gửi email cho tôi trước thứ sáu."),
+    A("One last thing: what if the exchange rate changes sharply before then?", "Một điều cuối: nếu tỷ giá biến động mạnh trước thời điểm đó thì sao?"),
+    B("Were it to move by more than five per cent, we'd reopen the price discussion. That seems fair to both sides.", "Nếu tỷ giá biến động quá năm phần trăm, chúng ta sẽ đàm phán lại giá. Như vậy là công bằng cho cả hai bên."),
+  ),
+  task: task({
+    prompt: "Sau buổi họp với đối tác nước ngoài, hãy viết email trang trọng xác nhận lại các phương án dự phòng hai bên đã thống nhất. Dùng các cấu trúc điều kiện nâng cao của bài để email nghe chuyên nghiệp.",
+    hints: [
+      "Mỗi rủi ro viết một câu: Should + S + V, Were + S + to V, hoặc If + S + were to V.",
+      "Nhắc lại một sự việc trong quá khứ bằng Had + S + V3, và cảm ơn đối tác bằng But for + danh từ.",
+      "Nêu thêm một tình huống cần bàn tiếp bằng What if hoặc Supposing.",
+      "Kết thư bằng câu kinh điển Should you require any further information...",
+    ],
+    model: "Dear Ms Carter,\n\nThank you for a productive meeting on Tuesday. I would like to confirm the contingency arrangements we discussed. Should the shipment be delayed at customs, your company will cover the additional storage costs. Were your main factory to close unexpectedly, production would move to your site in Penang for up to four weeks. Should any shipment not pass our quality inspection, it will be replaced free of charge. We also agreed that, if the exchange rate were to change by more than five per cent, both sides would review the price. Had we agreed on these terms last year, we would have avoided considerable losses. But for your team's flexibility, the project would not have survived that crisis. Finally, what if demand doubles next spring? I suggest that we discuss this scenario at our next meeting. Should you require any further information, please do not hesitate to contact me.\n\nYours sincerely,\nNguyen Thanh Nam",
+    checklist: [
+      "Có ít nhất một câu đảo ngữ Should + S + V nguyên mẫu.",
+      "Có ít nhất một câu đảo ngữ với Were hoặc Had.",
+      "Có But for + danh từ, hoặc If it weren't for / If it hadn't been for.",
+      "Không có would trong mệnh đề điều kiện.",
+      "Phủ định trong đảo ngữ viết tách (Had we not, Should it not), không rút gọn.",
+      "Giọng văn trang trọng, có câu mở đầu và câu kết lịch sự.",
+    ],
+    minWords: 100,
+  }),
 });

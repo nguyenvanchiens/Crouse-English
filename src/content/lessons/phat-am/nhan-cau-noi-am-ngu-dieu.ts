@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "nhan-cau-noi-am-ngu-dieu",
@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Nhịp điệu của câu tiếng Anh",
     blocks: [
-      p("Nhiều bạn phát âm từng từ rất chuẩn, nhưng ghép thành câu thì nghe như robot: “I. Want. To. Go. To. The. Market.” Đó là vì tiếng Việt đọc **mỗi tiếng mạnh như nhau**. Câu tiếng Anh thì có nhịp: **từ mang nghĩa được nhấn**, còn **từ ngữ pháp đọc nhẹ và lướt qua**. Nắm được nhịp này, bạn vừa nói tự nhiên hơn vừa nghe người bản xứ dễ hơn."),
+      p("Nhiều bạn phát âm từng từ rất chuẩn, nhưng ghép thành câu thì nghe như robot: “I. Want. To. Go. To. The. Market.” Đó là vì tiếng Việt đọc **mỗi tiếng mạnh như nhau**. Câu tiếng Anh thì có nhịp: **từ mang nghĩa được nhấn**, còn **từ ngữ pháp đọc nhẹ và lướt qua**. Nắm được nhịp này, các bạn vừa nói tự nhiên hơn vừa nghe người bản xứ dễ hơn."),
       table(
         ["Từ nội dung (thường nhấn)", "Từ chức năng (thường đọc nhẹ)"],
         ["danh từ: market, coffee, friend", "mạo từ: a, an, the"],
@@ -23,13 +23,13 @@ export default lesson({
         ["and", "/ænd/", "/ən/", "fish and chips /ən/"],
         ["can", "/kæn/", "/kən/", "I can swim. /kən/"],
         ["of", "/ɒv/", "/əv/", "a cup of tea /əv/"],
-        ["for", "/fɔːr/", "/fər/", "It's for you. /fər/"],
+        ["for", "/fɔː/", "/fə/", "It's for you. /fə/"],
       ),
       ex("Would you like a cup of tea?", "Bạn có muốn uống một tách trà không?", "Of đọc /əv/, gần như nuốt vào: a CUP əv TEA."),
       mistake("I can swim, đọc can thật mạnh /kæn/", "I can swim, đọc /aɪ kən ˈswɪm/", "Người Việt đọc từng chữ mạnh như nhau. Nhưng can mà đọc mạnh lại dễ bị nghe thành can't /kɑːnt/. Câu khẳng định thì can đọc nhẹ, nhấn vào swim; can't thì luôn đọc mạnh."),
       p("**Nối âm**: khi một từ kết thúc bằng phụ âm và từ sau bắt đầu bằng nguyên âm, người bản xứ **nối phụ âm sang từ sau**, như thể đó là một từ dài. Turn it off nghe như /tɜː nɪ tɒf/, pick it up nghe như /pɪ kɪ tʌp/."),
       ex("Could you turn it off?", "Bạn tắt nó đi được không?", "Nối âm: turn‿it‿off, đọc liền /tɜː.nɪ.tɒf/."),
-      ex("Can I have an apple?", "Cho tôi một quả táo được không?", "Nối âm: can‿I, an‿apple. Đọc gần như /kə naɪ/ và /ə næp.əl/."),
+      ex("Can I have an apple?", "Cho tôi một quả táo được không?", "Nối âm: can‿I, have‿an‿apple. Đọc gần như /kə naɪ/ và /hæ və næp.əl/."),
       mistake("turn it off đọc tách rời từng từ: “tơn. ít. óp”", "turn it off đọc liền: /tɜː.nɪ.tɒf/", "Tiếng Việt ngắt giữa các tiếng, lại ngậm âm cuối, nên từng từ bị cắt rời. Hãy để âm cuối của từ trước “chạy” sang nguyên âm của từ sau."),
       p("**Ngữ điệu** là giọng lên xuống của cả câu. Tiếng Việt thêm chữ “không”, “à”, “chưa” để hỏi; tiếng Anh dùng giọng. Quy tắc cơ bản: câu hỏi **Có/Không** thường **lên giọng** ở cuối; câu hỏi có từ để hỏi (**Wh-**) và câu kể thường **xuống giọng** ở cuối."),
       table(
@@ -40,18 +40,43 @@ export default lesson({
       ),
       tip("Đừng mang thanh điệu tiếng Việt vào từ tiếng Anh: không đọc “ready” thành “ré-đì” với dấu sắc, dấu huyền. Giọng chỉ **lên hoặc xuống ở từ được nhấn cuối cùng** trong câu. Tập nói **Are you READY?** với giọng đi lên ở READY, rồi **Where do you LIVE?** với giọng đi xuống ở LIVE."),
       teacher("Sau nhiều năm dạy, tôi tin rằng nhịp điệu là bước cuối để các bạn nói **nghe như người thật**, chứ không phải đọc từ điển. Cách luyện tôi luôn giao cho học trò là **nói đuổi**: mở một đoạn ghi âm ngắn của người bản xứ, nghe một câu, dừng lại, rồi nói theo đúng nhịp, đúng chỗ nhấn, đúng chỗ nối. Mỗi ngày chỉ mười phút thôi. Các bạn đừng cố đọc to mọi từ; hãy để những từ nhỏ như to, and, of lướt qua thật nhẹ."),
+      summary(
+        "Nhấn **từ nội dung** (danh từ, động từ chính, tính từ, từ để hỏi), đọc nhẹ **từ chức năng** (a, the, to, of, and, can).",
+        "Từ chức năng đọc nhẹ dùng **dạng yếu** có /ə/: to /tə/, of /əv/, and /ən/, can /kən/, for /fə/.",
+        "Can trong câu khẳng định đọc nhẹ /kən/; can't luôn đọc mạnh /kɑːnt/.",
+        "**Nối âm**: phụ âm cuối nối sang nguyên âm đầu của từ sau, như turn‿it‿off.",
+        "Câu hỏi Có/Không thường lên giọng ở cuối; câu hỏi Wh- và câu kể thường xuống giọng.",
+      ),
     ],
   },
   words: [
     word("and", "/ænd/", "và", "I'd like fish and chips.", "and", 0, "Trong câu thường đọc dạng yếu /ən/, rất nhẹ: fish ən chips."),
     word("to", "/tuː/", "đến; để", "I want to go home.", "to", 0, "Trước động từ thường đọc yếu /tə/. Chỉ đọc mạnh /tuː/ khi đứng cuối câu hoặc khi muốn nhấn mạnh."),
     word("can", "/kæn/", "có thể", "I can speak English.", "can", 0, "Trong câu khẳng định đọc /kən/; câu trả lời ngắn Yes, I can mới đọc mạnh /kæn/."),
-    word("of", "/ɒv/", "của", "a cup of tea", "of", 0, "Dạng yếu /əv/, gần như chỉ nghe thấy /v/. Cuối từ là /v/, không phải /f/."),
-    word("for", "/fɔːr/", "cho, dành cho", "This is for you.", "for", 0, "Trong câu thường đọc yếu /fər/, âm rất ngắn."),
+    word("of", "/ɒv/", "của", "I'd like a cup of tea.", "of", 0, "Dạng yếu /əv/, gần như chỉ nghe thấy /v/. Cuối từ là /v/, không phải /f/."),
+    word("for", "/fɔː/", "cho, dành cho", "This is for you.", "for", 0, "Trong câu thường đọc yếu /fə/, âm rất ngắn. Kiểu Anh không đọc chữ r, trừ khi từ sau bắt đầu bằng nguyên âm (for an hour)."),
     word("question", "/ˈkwes.tʃən/", "câu hỏi", "Can I ask you a question?", "ques|tion", 0, "Nhấn âm đầu; âm sau là /tʃən/ đọc nhẹ, đừng đọc thành “quét-sừn”."),
     word("rhythm", "/ˈrɪð.əm/", "nhịp điệu", "English has a strong rhythm.", "rhy|thm", 0, "Chữ th đọc /ð/: đặt đầu lưỡi giữa hai hàm răng. Âm cuối /əm/ rất nhẹ."),
     word("intonation", "/ˌɪn.təˈneɪ.ʃən/", "ngữ điệu", "Listen to her intonation.", "in|to|na|tion", 2, "Đuôi -tion nên nhấn ngay âm trước: in-to-NA-tion."),
   ],
+  dialogue: dialogue(
+    "Hỏi đường đi chợ",
+    "Một du khách người Anh ở Hà Nội muốn đến chợ Đồng Xuân. Anh hỏi Lan, một sinh viên đang đứng ở bến xe buýt.",
+    { A: "Du khách", B: "Lan" },
+    A("Excuse me. Can I ask you a question?", "Xin lỗi. Tôi hỏi bạn một chút được không?"),
+    B("Yes, of course. Are you lost?", "Vâng, tất nhiên rồi. Anh bị lạc à?"),
+    A("A bit. I want to go to the market.", "Hơi hơi. Tôi muốn đi chợ."),
+    B("Which one? There are lots of markets in Hanoi.", "Chợ nào ạ? Ở Hà Nội có nhiều chợ lắm."),
+    A("The big old one. It sells fruit and flowers.", "Cái chợ to và cổ ấy. Ở đó bán hoa quả và hoa."),
+    B("Ah, Dong Xuan Market. Can you see the bus stop over there?", "À, chợ Đồng Xuân. Anh có thấy bến xe buýt đằng kia không?"),
+    A("Yes, I can.", "Có, tôi thấy."),
+    B("Take the number nine bus and get off at the last stop.", "Anh đi xe buýt số chín và xuống ở bến cuối."),
+    A("How long does it take?", "Đi mất bao lâu?"),
+    B("About twenty minutes. Is it your first time in Hanoi?", "Khoảng hai mươi phút. Đây là lần đầu anh đến Hà Nội à?"),
+    A("Yes, it is. It's a lovely city.", "Đúng vậy. Thành phố đẹp lắm."),
+    B("Have a good time, and look after your bag.", "Chúc anh chơi vui, và nhớ trông túi cẩn thận nhé."),
+    A("Thanks for your help.", "Cảm ơn bạn đã giúp."),
+  ),
   exercises: [
     mc("pa-n08-1", "Trong câu “I want to go home.”, từ nào thường được đọc nhẹ nhất?", ["want", "to", "go", "home"], 1, "To là từ chức năng, đọc dạng yếu /tə/. Want, go, home là từ nội dung nên được nhấn."),
     mc("pa-n08-2", "Câu hỏi nào thường lên giọng ở cuối?", ["Where do you live?", "What time is it?", "Are you ready?", "Why are you late?"], 2, "Are you ready? là câu hỏi Có/Không nên lên giọng. Ba câu còn lại bắt đầu bằng từ để hỏi Wh- nên xuống giọng."),
@@ -67,4 +92,21 @@ export default lesson({
     say("Could you turn it off?", "Bạn tắt nó đi được không?"),
     say("Are you ready?", "Bạn sẵn sàng chưa?"),
   ],
+  task: task({
+    prompt: "Viết 5–6 câu một du khách có thể nói khi đi mua sắm, gồm ít nhất hai câu hỏi Có/Không và một câu hỏi Wh-. Viết hoa các từ được nhấn, đánh dấu chỗ nối âm (‿) và ghi “lên” hoặc “xuống” sau mỗi câu, rồi đọc to.",
+    hints: [
+      "Dùng các từ chức năng hay đọc yếu: a, of, and, to, for, can.",
+      "Tìm chỗ phụ âm cuối gặp nguyên âm đầu để nối: look‿at, made‿of, piece‿of.",
+      "Câu hỏi Có/Không gợi ý: Can I…? Is it…? Câu hỏi Wh-: How much…?",
+    ],
+    model: "Excuse me, can I have a look at that bag? Is it made of leather? How much is it? I'd like a cup of tea and a piece of cake, please. Can I pay by card? Thanks for your help.",
+    checklist: [
+      "Từ chức năng a, of, and, can, for đọc dạng yếu có /ə/",
+      "Nhấn rõ các từ nội dung như look, bag, leather, much, tea, cake",
+      "Nối âm ở các chỗ như look‿at, made‿of, piece‿of",
+      "Câu hỏi Có/Không lên giọng ở cuối; câu hỏi Wh- và câu kể xuống giọng",
+      "Đọc cả đoạn liền mạch, không ngắt từng từ như robot",
+    ],
+    minWords: 25,
+  }),
 });

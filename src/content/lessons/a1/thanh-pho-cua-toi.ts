@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "thanh-pho-cua-toi",
@@ -34,6 +34,13 @@ export default lesson({
       ex("Hoi An is a small town. It's old and very beautiful.", "Hội An là một thị trấn nhỏ. Nó cổ kính và rất đẹp.", "Small đứng trước town; old và beautiful đứng sau it's."),
       tip("Left và right đều kết thúc bằng âm /t/, nhưng người Việt hay nuốt mất. Đọc **left** /left/ bật nhẹ /f/ rồi /t/; đọc **right** /raɪt/ tròn môi ở /r/, đừng đọc thành “rai”. Không rõ âm cuối thì người nghe dễ đi nhầm hướng."),
       teacher("Học viên của tôi thuộc bảng giới từ rất nhanh nhưng đứng trước người nước ngoài thì cứng họng. Cách tôi luyện cho các bạn: mỗi sáng đi làm, tự nói về con đường mình đi qua, kiểu **The pharmacy is next to the bank. The school is opposite the park.** Còn khi chỉ đường mà không chắc, cứ nói chậm, chỉ tay, và kết thúc bằng **It's on your left**. Người hỏi đường cần câu rõ ràng, không cần câu dài."),
+      summary(
+        "Hỏi nơi chốn: **Where is the…?** (is đứng trước chủ ngữ). Trả lời: It's…",
+        "**in** + thành phố, quận; **on** + tên đường; **at** + địa chỉ có số nhà.",
+        "near, next to, **opposite** (không có of), **between… and…** (không dùng with).",
+        "Chỉ đường bằng câu mệnh lệnh, bắt đầu bằng động từ: Go along…, Turn left, Take the first street on the right. Kết thúc: It's on your left.",
+        "Tả thành phố: tính từ trước danh từ (a big city), hoặc to be + tính từ (It's busy).",
+      ),
     ],
   },
   words: [
@@ -61,4 +68,39 @@ export default lesson({
     say("It's on Le Loi Street, next to the bank.", "Nó ở đường Lê Lợi, ngay cạnh ngân hàng."),
     say("Go along this street and turn left.", "Đi dọc đường này rồi rẽ trái."),
   ],
+  dialogue: dialogue(
+    "Chỉ đường cho du khách ở bờ hồ Hoàn Kiếm",
+    "Một du khách nước ngoài dừng bạn ở bờ hồ Hoàn Kiếm để hỏi đường đến hiệu thuốc. Bạn chỉ đường, nói lại khi họ chưa nghe kịp, và giới thiệu thêm một nơi gần đó.",
+    { A: "Du khách", B: "Bạn" },
+    A("Excuse me. Is there a pharmacy near here?", "Xin lỗi, gần đây có hiệu thuốc nào không?"),
+    B("Yes, there is. It's on Trang Tien Street.", "Có ạ. Nó ở đường Tràng Tiền."),
+    A("How do I get to Trang Tien Street?", "Đi đến đường Tràng Tiền thế nào ạ?"),
+    B("Go along this street and turn right. Then take the first street on the left.", "Đi dọc đường này rồi rẽ phải. Sau đó rẽ vào đường đầu tiên bên trái."),
+    A("Sorry, can you say that again, please?", "Xin lỗi, bạn nói lại được không?"),
+    B("Of course. Go along this street, turn right, then take the first street on the left.", "Được chứ. Đi dọc đường này, rẽ phải, rồi rẽ vào đường đầu tiên bên trái."),
+    A("Thank you. Where is the pharmacy on that street?", "Cảm ơn bạn. Hiệu thuốc nằm ở chỗ nào trên đường đó?"),
+    B("It's opposite a big bookshop. It's on your right.", "Nó đối diện một hiệu sách lớn. Nó ở bên tay phải bạn."),
+    A("Great. Is there a museum near here too?", "Tốt quá. Gần đây có bảo tàng nào không?"),
+    B("Yes. The museum is between the bookshop and a small park.", "Có. Bảo tàng nằm giữa hiệu sách và một công viên nhỏ."),
+    A("Thank you so much. Hanoi is a beautiful city!", "Cảm ơn bạn nhiều. Hà Nội là một thành phố đẹp quá!"),
+    B("Yes, it's busy and noisy, but I love it. Have a nice day!", "Vâng, nó đông đúc và ồn ào, nhưng tôi rất yêu nó. Chúc bạn một ngày vui vẻ!"),
+  ),
+  task: task({
+    prompt: "Một người bạn nước ngoài sắp đến nhà bạn chơi. Viết 6–8 câu tả khu phố của bạn: nhà bạn ở đâu, gần đó có những nơi nào và chúng nằm ở đâu, kèm một câu chỉ đường từ bến xe buýt.",
+    hints: [
+      "in + quận hoặc thành phố, on + tên đường: I live in Cau Giay District. My house is on Tran Thai Tong Street.",
+      "Dùng near, next to, opposite, between… and… để nói vị trí các nơi.",
+      "Chỉ đường bằng câu bắt đầu bằng động từ: Go along…, Turn left… It's on your right.",
+    ],
+    model: "I live in Cau Giay District. It's a big, busy area. My house is on Tran Thai Tong Street. There is a supermarket near my house. The pharmacy is opposite the park, and the library is between the bank and the school. From the bus stop, turn left and go along Tran Thai Tong Street. My house is on your right.",
+    checklist: [
+      "Dùng in với quận hoặc thành phố, on với tên đường",
+      "Dùng ít nhất 3 giới từ vị trí khác nhau (near, next to, opposite, between)",
+      "Opposite đứng thẳng trước danh từ, không có of",
+      "Between đi với and, không dùng with",
+      "Có ít nhất một câu chỉ đường bắt đầu bằng động từ (Go, Turn, Take)",
+      "Tính từ đứng trước danh từ (a big city, a small park)",
+    ],
+    minWords: 30,
+  }),
 });

@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../builders";
 import nKyNghiCuaToi from "../lessons/a2/ky-nghi-cua-toi";
 import nNgayXuaToiTung from "../lessons/a2/ngay-xua-toi-tung";
 import nTieuSu from "../lessons/a2/tieu-su";
@@ -45,6 +45,13 @@ const homQua = lesson({
       mistake("Yesterday I go to the market.", "Yesterday I went to the market.", "Tiếng Việt có “hôm qua” là đủ, động từ không đổi. Tiếng Anh có yesterday vẫn phải chia động từ ở quá khứ."),
       mistake("I was go to the market.", "I went to the market.", "Nhiều người nghĩ was nghĩa là “đã” nên ghép was với động từ. Was chỉ là quá khứ của to be; muốn nói “đã đi” thì chỉ cần went."),
       teacher("Sau nhiều năm dạy, tôi thấy học viên người Việt thuộc quy tắc rất nhanh, nhưng mở miệng ra vẫn “Yesterday I go”, vì trong đầu vẫn nghĩ bằng tiếng Việt. Cách chữa của tôi: **tối nào trước khi ngủ, các bạn hãy nói to năm câu về những việc mình đã làm trong ngày**, bắt đầu bằng I woke up..., I had..., I went... Làm đều ba tuần, miệng các bạn sẽ tự bật ra went, had, bought mà không cần nghĩ. Và nhớ đọc rõ âm cuối: worked mà nuốt mất /t/ thì người nghe tưởng các bạn nói work, tức là chuyện hằng ngày chứ không phải chuyện hôm qua."),
+      summary(
+        "Kể chuyện đã qua thì động từ phải đổi sang quá khứ, kể cả khi câu đã có yesterday, last week, ago.",
+        "Động từ có quy tắc thêm -ed (worked, played); động từ bất quy tắc phải thuộc (go → went, buy → bought).",
+        "Phủ định và câu hỏi dùng didn't / did, động từ chính về nguyên mẫu: I didn't go. Did you go?",
+        "To be dùng was / were, không cần did và không ghép với động từ khác: không nói I was go.",
+        "Đuôi -ed chỉ đọc /ɪd/ sau âm /t/, /d/; còn lại đọc nhẹ /t/ hoặc /d/, và nhớ đọc rõ âm cuối.",
+      ),
     ],
   },
   words: [
@@ -71,6 +78,40 @@ const homQua = lesson({
     say("I didn't watch TV last night.", "Tối qua tôi không xem ti vi."),
     say("We went to Da Lat two years ago.", "Chúng tôi đã đi Đà Lạt hai năm trước."),
   ],
+  dialogue: dialogue(
+    "Sáng thứ Hai ở văn phòng",
+    "Sáng thứ Hai, Mark, đồng nghiệp người Úc, hỏi Lan cuối tuần làm gì. Lan kể chuyện về quê ăn cưới rồi hỏi lại Mark.",
+    { A: "Mark (đồng nghiệp)", B: "Lan" },
+    A("Good morning, Lan. What did you do at the weekend?", "Chào Lan. Cuối tuần bạn làm gì?"),
+    B("I went back to my hometown. My cousin got married on Saturday.", "Mình về quê. Thứ Bảy em họ mình cưới."),
+    A("Oh, nice! Did you enjoy the wedding?", "Ồ, hay quá! Bạn đi đám cưới có vui không?"),
+    B("Yes, I did. We ate a lot and danced until late.", "Vui lắm. Bọn mình ăn rất nhiều và nhảy đến khuya."),
+    A("When did you come back?", "Bạn về lại lúc nào?"),
+    B("I came back last night. What about you? What did you do?", "Tối qua mình mới về. Còn bạn? Bạn làm gì?"),
+    A("I didn't go out. I cleaned my flat and watched a film.", "Mình không ra ngoài. Mình dọn nhà rồi xem phim."),
+    B("Which film did you watch?", "Bạn xem phim gì?"),
+    A("An old Vietnamese film. My friend told me about it two weeks ago.", "Một bộ phim Việt Nam cũ. Bạn mình kể cho mình về nó hai tuần trước."),
+    B("Did you like it?", "Bạn có thích không?"),
+    A("Yes, I did. It was really good!", "Có. Phim hay thật sự!"),
+  ),
+  task: task({
+    prompt: "Viết 5–6 câu kể lại những việc bạn đã làm vào cuối tuần vừa rồi, như thể đang trả lời đồng nghiệp hỏi “What did you do at the weekend?”.",
+    hints: [
+      "Mở đầu bằng một cụm thời gian quá khứ: Last weekend, On Saturday, Yesterday.",
+      "Dùng vài động từ bất quy tắc quen thuộc: went, had, made, bought, ate, came.",
+      "Thêm một câu về việc bạn không làm: I didn't + động từ nguyên mẫu.",
+      "Kết bằng cảm nhận với was: It was a quiet but happy weekend.",
+    ],
+    model: "Last weekend I visited my grandparents in Nam Dinh. I went there by bus on Saturday morning. My grandmother made a big lunch, and we ate together in the garden. In the afternoon I helped my grandfather in the kitchen. I didn't watch TV at all. I came back home on Sunday evening. It was a quiet but happy weekend.",
+    checklist: [
+      "Mọi động từ kể chuyện đều ở dạng quá khứ (V-ed hoặc V2)",
+      "Có ít nhất 2 động từ bất quy tắc (went, had, made, bought...)",
+      "Có ít nhất 1 câu phủ định didn't + động từ nguyên mẫu (không viết didn't went)",
+      "Có cụm chỉ thời gian quá khứ (last weekend, on Saturday, yesterday...)",
+      "Không ghép was / were với động từ khác (không viết I was go)",
+    ],
+    minWords: 30,
+  }),
 });
 
 const keHoach = lesson({
@@ -112,6 +153,12 @@ const keHoach = lesson({
       mistake("I going to visit my parents.", "I'm going to visit my parents.", "Tiếng Việt nói “tôi định đi” không cần động từ to be, nên người Việt hay bỏ am / is / are. Trong tiếng Anh, going to luôn cần to be đứng trước."),
       mistake("Would you like go to the cinema?", "Would you like to go to the cinema?", "Sau would like phải có to trước động từ. Người Việt hay quên vì câu “bạn có muốn đi” không có từ nối nào."),
       teacher("Học viên hay hỏi tôi: will và going to khác nhau thế nào, sao mỗi sách nói một kiểu? Tôi đúc kết cho các bạn dễ nhớ: **đã nghĩ từ trước thì going to, đã hẹn đã đặt thì -ing, vừa nghĩ ra thì will**. Chọn nhầm một chút người nghe vẫn hiểu. Cái làm các bạn nghe cứng nhắc là đáp lời mời bằng “Yes, I like” hay một chữ “No”. Các bạn hãy học thuộc hai câu nhận lời và hai câu từ chối trong bài như học số điện thoại, rồi dùng ngay lần tới có người rủ đi cà phê."),
+      summary(
+        "Dự định đã nghĩ từ trước: am / is / are + going to + động từ nguyên mẫu. Không được bỏ to be.",
+        "Cuộc hẹn đã sắp xếp (có giờ, có người, có vé): hiện tại tiếp diễn kèm thời gian, như I'm meeting Lan at seven.",
+        "Will dành cho quyết định ngay lúc nói: It's raining. I'll take a taxi.",
+        "Mời: Would you like to + động từ? (nhớ có to). Nhận lời: I'd love to. Từ chối: Sorry, I can't. kèm một lý do ngắn.",
+      ),
     ],
   },
   words: [
@@ -138,6 +185,38 @@ const keHoach = lesson({
     say("Would you like to have dinner with us on Friday?", "Thứ Sáu bạn có muốn ăn tối với chúng tôi không?"),
     say("Sorry, I can't. I'm meeting my friend tomorrow.", "Xin lỗi, mình không đi được. Mai mình có hẹn với bạn."),
   ],
+  dialogue: dialogue(
+    "Rủ đồng nghiệp đi dã ngoại",
+    "Chiều thứ Sáu, Minh rủ Sarah, đồng nghiệp người Anh, đi dã ngoại ở công viên Thống Nhất. Sarah nhận lời, rồi rủ Minh đi xem phim nhưng Minh đã có hẹn.",
+    { A: "Minh", B: "Sarah (đồng nghiệp)" },
+    A("Hi Sarah, are you free this weekend?", "Chào Sarah, cuối tuần này bạn có rảnh không?"),
+    B("Well, I'm going to clean my flat on Saturday morning. Why?", "Ừm, sáng thứ Bảy mình định dọn nhà. Sao thế?"),
+    A("We're going to have a picnic in Thong Nhat Park on Saturday afternoon. Would you like to come?", "Chiều thứ Bảy bọn mình định đi dã ngoại ở công viên Thống Nhất. Bạn có muốn đi cùng không?"),
+    B("I'd love to! Who are you going to invite?", "Mình rất muốn đi! Bạn định mời những ai?"),
+    A("Just a few people from our team. Hoa is bringing some cakes.", "Chỉ vài người trong nhóm mình thôi. Hoa sẽ mang bánh đến."),
+    B("Sounds great. What time are we meeting?", "Nghe hay quá. Mấy giờ mình gặp nhau?"),
+    A("We're meeting at the park gate at three.", "Bọn mình hẹn nhau ở cổng công viên lúc ba giờ."),
+    B("Great. Do you want to see a film on Sunday evening, too?", "Tuyệt. Tối Chủ nhật bạn có muốn đi xem phim nữa không?"),
+    A("Sorry, I can't. I'm having dinner with my parents on Sunday.", "Xin lỗi, mình không đi được. Chủ nhật mình ăn tối với bố mẹ."),
+    B("No problem. See you on Saturday, then!", "Không sao. Vậy hẹn gặp bạn thứ Bảy nhé!"),
+  ),
+  task: task({
+    prompt: "Đồng nghiệp người nước ngoài nhắn tin hỏi: “What are you doing this weekend?”. Viết tin nhắn trả lời 5–6 câu: kể dự định của bạn, một cuộc hẹn đã sắp xếp, rồi mời bạn ấy tham gia một hoạt động.",
+    hints: [
+      "Dự định đã nghĩ từ trước: I'm going to + động từ nguyên mẫu.",
+      "Cuộc hẹn đã có giờ, có người: I'm meeting... at... on Saturday.",
+      "Mời lịch sự: Would you like to + động từ...?",
+    ],
+    model: "Hi Tom! This weekend I'm going to stay in Hanoi. On Saturday morning I'm going to clean my flat and do some shopping. In the afternoon I'm meeting my cousin at a café near Hoan Kiem Lake. I'm not going to do anything special on Sunday. Would you like to go to the cinema with me on Sunday evening?",
+    checklist: [
+      "Có ít nhất 2 câu be going to + động từ nguyên mẫu, không thiếu am / is / are",
+      "Có 1 câu hiện tại tiếp diễn kèm thời gian cụ thể cho cuộc hẹn đã sắp xếp",
+      "Câu mời có Would you like to + động từ (không quên to)",
+      "Có từ chỉ thời gian tương lai (this weekend, on Saturday, tomorrow...)",
+      "Không dùng will cho dự định đã có từ trước",
+    ],
+    minWords: 30,
+  }),
 });
 
 const soSanh = lesson({
@@ -171,6 +250,13 @@ const soSanh = lesson({
       mistake("It's the most good restaurant.", "It's the best restaurant.", "Good là bất quy tắc: good → better → the best. Không ghép most với good."),
       mistake("This bag is cheaper that bag.", "This bag is cheaper than that bag.", "Tiếng Việt nói “rẻ hơn cái kia” không cần từ nối, nên người Việt hay quên than. Trong tiếng Anh, có vật đem ra so thì phải có than."),
       teacher("Ở chợ Việt Nam ai cũng quen câu “bớt chút đi chị”, nên học viên của tôi nhớ chữ cheaper rất nhanh. Cái bẫy nằm ở tính từ dài. Mẹo tôi dạy mấy chục năm nay: **vỗ tay đếm âm tiết**. Một tiếng (cheap, big) hoặc hai tiếng tận cùng bằng -y (easy, happy) thì thêm -er; từ hai tiếng khác (bor-ing, fa-mous) và từ ba tiếng trở lên (ex-pen-sive, beau-ti-ful) thì dùng more. Còn good và bad phải thuộc như thuộc tên người nhà: better, the best; worse, the worst. Lần tới đi siêu thị, các bạn hãy thầm so sánh hai món hàng bằng tiếng Anh trước khi bỏ vào giỏ."),
+      summary(
+        "Tính từ ngắn thêm -er / the -est (cheap → cheaper → the cheapest); tính từ dài dùng more / the most.",
+        "Đã thêm -er thì không dùng more: không nói more cheaper.",
+        "Có vật đem ra so thì phải có than: cheaper than that one.",
+        "Bất quy tắc: good → better → the best; bad → worse → the worst.",
+        "Bằng nhau: as + tính từ + as. Không bằng: not as + tính từ + as.",
+      ),
     ],
   },
   words: [
@@ -197,6 +283,42 @@ const soSanh = lesson({
     say("These are the most comfortable shoes in the shop.", "Đây là đôi giày thoải mái nhất trong cửa hàng."),
     say("Do you have this shirt in a smaller size?", "Bạn có cái áo này cỡ nhỏ hơn không?"),
   ],
+  dialogue: dialogue(
+    "Bán áo khoác ở chợ Bến Thành",
+    "Bạn bán quần áo ở chợ Bến Thành. Một du khách nước ngoài hỏi giá áo khoác, so sánh với cửa hàng khác, thử cỡ lớn hơn rồi mua.",
+    { A: "Du khách", B: "Bạn (người bán hàng)" },
+    A("Excuse me, how much is this jacket?", "Xin lỗi, cái áo khoác này bao nhiêu tiền?"),
+    B("It's four hundred thousand dong.", "Bốn trăm nghìn đồng ạ."),
+    A("Hmm, it's more expensive than the jacket in the other shop.", "Hừm, đắt hơn cái áo ở cửa hàng kia."),
+    B("But this one is better. It's warmer and more comfortable. Try it on!", "Nhưng cái này tốt hơn. Nó ấm hơn và dễ chịu hơn. Anh mặc thử đi!"),
+    A("It's nice, but it's a bit small. Do you have it in a bigger size?", "Đẹp đấy, nhưng hơi chật. Chị có cỡ lớn hơn không?"),
+    B("Yes, here you are. This is the biggest size.", "Có ạ, đây anh. Đây là cỡ lớn nhất."),
+    A("Perfect. Is the blue one as warm as the black one?", "Vừa quá. Cái màu xanh có ấm bằng cái màu đen không?"),
+    B("Yes, it's the same jacket. But the black one is the most popular colour.", "Có ạ, cùng một loại áo. Nhưng màu đen là màu được mua nhiều nhất."),
+    A("Then I'll take the black one. Can I get a discount?", "Vậy tôi lấy cái màu đen. Chị giảm giá được không?"),
+    B("OK, three hundred and fifty thousand. That's the best price in the market!", "Được, ba trăm năm mươi nghìn. Đó là giá tốt nhất chợ rồi đấy!"),
+    A("Great. Can I pay by card?", "Tốt quá. Tôi trả bằng thẻ được không?"),
+    B("Sorry, cash only. Anything else?", "Xin lỗi, chỉ nhận tiền mặt thôi ạ. Anh cần gì nữa không?"),
+    A("No, that's all, thanks.", "Không, thế thôi, cảm ơn chị."),
+  ),
+  task: task({
+    prompt: "Bạn định mua một chiếc điện thoại mới và đang phân vân giữa hai mẫu (gọi là Phone A và Phone B). Viết 5–6 câu so sánh hai mẫu đó rồi nói bạn chọn cái nào và vì sao.",
+    hints: [
+      "So sánh hơn: cheaper than, bigger than, more expensive than.",
+      "So sánh nhất: the best, the most modern, the cheapest in the shop.",
+      "Chê nhẹ nhàng bằng not as... as: Its camera isn't as good as...",
+      "Kết bằng lựa chọn của bạn: I'm going to buy... hoặc I'll take...",
+    ],
+    model: "I want a new phone, and I like two models, Phone A and Phone B. Phone A is cheaper than Phone B, but its camera isn't as good as Phone B's camera. Phone B is bigger and more modern than Phone A. Its battery is also better. It's the most expensive phone in the shop, but I think it's the best. I'm going to buy Phone B.",
+    checklist: [
+      "Có ít nhất 2 câu so sánh hơn đi với than",
+      "Có ít nhất 1 câu so sánh nhất có the",
+      "Có 1 câu as... as hoặc not as... as",
+      "Không dùng more cùng với -er (không viết more cheaper)",
+      "Dùng đúng dạng bất quy tắc của good: better, the best",
+    ],
+    minWords: 30,
+  }),
 });
 
 const hoiDuong = lesson({
@@ -238,6 +360,13 @@ const hoiDuong = lesson({
       mistake("How long it takes?", "How long does it take?", "Tiếng Việt hỏi “mất bao lâu?” chỉ cần thêm từ để hỏi. Câu hỏi tiếng Anh ở hiện tại đơn cần trợ động từ does đứng trước chủ ngữ."),
       mistake("Go straight and turn to left.", "Go straight and turn left.", "Tiếng Việt nói “rẽ sang trái” nên người Việt hay thêm to. Trong tiếng Anh, turn left và turn right đi liền, không có to."),
       teacher("Học viên của tôi đi du lịch về hay kể: hỏi đường thì nói được, nhưng người ta trả lời nhanh quá, nghe không kịp. **Các bạn đừng ngại nhờ họ nói lại**: Sorry, could you say that again, please? (câu nhờ lịch sự mà các bạn đã học ở bài Gọi điện thoại). Rồi nhắc lại từng bước để kiểm tra: So, straight on, then left at the bank? Người bản xứ rất quý người hỏi lại cẩn thận. Ở nhà, các bạn hãy tập chỉ đường từ nhà mình ra chợ bằng tiếng Anh, vừa đi vừa nói thầm. Đó là cách luyện rẻ nhất mà lại hiệu quả nhất tôi từng biết."),
+      summary(
+        "Hỏi đường mở đầu bằng Excuse me, rồi hỏi How do I get to...? hoặc Is there a... near here?",
+        "Chỉ đường bằng câu mệnh lệnh, động từ nguyên mẫu đứng đầu: Go straight on. Turn left. Cross the road. Turn left không có to.",
+        "Chia từng bước bằng first, then, after that; chỗ rẽ dùng at: at the traffic lights, at the bank.",
+        "Phương tiện: by bus, by train, by taxi (không có a, the); đi bộ là on foot.",
+        "Hỏi mất bao lâu: How long does it take? Trả lời: It takes about + thời gian.",
+      ),
     ],
   },
   words: [
@@ -264,6 +393,42 @@ const hoiDuong = lesson({
     say("Go straight and turn left at the corner.", "Đi thẳng rồi rẽ trái ở góc phố."),
     say("It takes about fifteen minutes by bus.", "Đi xe buýt mất khoảng mười lăm phút."),
   ],
+  dialogue: dialogue(
+    "Chỉ đường ở phố cổ Hội An",
+    "Buổi tối ở phố cổ Hội An, một du khách hỏi bạn đường ra chợ đêm và giờ chuyến xe cuối đi Đà Nẵng.",
+    { A: "Du khách", B: "Bạn (người địa phương)" },
+    A("Excuse me, how do I get to the night market?", "Xin lỗi, cho tôi hỏi đi ra chợ đêm thế nào?"),
+    B("It's not far. First go straight on to the river.", "Không xa đâu. Đầu tiên anh đi thẳng ra bờ sông."),
+    A("Straight on to the river. And then?", "Đi thẳng ra bờ sông. Rồi sao nữa?"),
+    B("Then turn left and take the second street on the right. The market is opposite a small bridge.", "Sau đó rẽ trái, rồi rẽ vào con phố thứ hai bên phải. Chợ ở đối diện một cây cầu nhỏ."),
+    A("Sorry, could you say that again, please?", "Xin lỗi, bạn nói lại được không?"),
+    B("Sure. Straight on, then left at the river, then the second street on the right.", "Được chứ. Đi thẳng, rẽ trái ở bờ sông, rồi vào con phố thứ hai bên phải."),
+    A("Thank you. Is it far from here? How long does it take?", "Cảm ơn bạn. Có xa đây không? Mất bao lâu?"),
+    B("It takes about ten minutes on foot.", "Đi bộ mất khoảng mười phút."),
+    A("Great. What time does the last bus to Da Nang leave?", "Tốt quá. Chuyến xe buýt cuối đi Đà Nẵng chạy lúc mấy giờ?"),
+    B("At nine. You can go by taxi, too. It takes about forty minutes.", "Lúc chín giờ. Anh cũng có thể đi taxi. Mất khoảng bốn mươi phút."),
+    A("Thanks a lot!", "Cảm ơn bạn nhiều!"),
+    B("You're welcome. Enjoy the market!", "Không có gì. Chúc anh đi chợ vui nhé!"),
+  ),
+  task: task({
+    prompt: "Một đồng nghiệp người nước ngoài sẽ đến nhà bạn ăn tối. Viết tin nhắn 5–6 câu chỉ đường từ bến xe buýt gần nhà đến nhà bạn, và cho biết đi bằng gì, mất bao lâu.",
+    hints: [
+      "Chia bước bằng First, Then, After that.",
+      "Dùng câu mệnh lệnh: Go straight on, Turn left / right, Take the second street on the left.",
+      "Tả vị trí nhà: next to, opposite, on the corner.",
+      "Nói thời gian: It takes about... on foot / by taxi.",
+    ],
+    model: "Hi Anna! It's easy to get to my house from the bus stop. First go straight on along Tran Phu Street. Then turn right at the traffic lights. After that, take the second street on the left. My house is number twelve, opposite a small park. It takes about ten minutes on foot or five minutes by taxi. See you at seven!",
+    checklist: [
+      "Các câu chỉ đường bắt đầu bằng động từ nguyên mẫu (Go, Turn, Take, Cross)",
+      "Có first, then, after that để chia bước",
+      "Có ít nhất 1 cụm vị trí (next to, opposite, on the corner)",
+      "Dùng by + phương tiện không có the, hoặc on foot cho đi bộ",
+      "Có câu It takes about... để nói thời gian",
+      "Viết turn left / turn right, không có to",
+    ],
+    minWords: 35,
+  }),
 });
 
 const sucKhoe = lesson({
@@ -304,6 +469,13 @@ const sucKhoe = lesson({
       mistake("I am headache.", "I have a headache.", "Dịch từng chữ “tôi bị đau đầu” nên dùng to be. Tiếng Anh dùng have + tên bệnh."),
       mistake("He have to work today.", "He has to work today.", "Tiếng Việt không chia động từ theo ngôi, nên người Việt hay quên. He, she, it đi với has to."),
       teacher("Trong nhiều năm đứng lớp, cặp từ tôi phải chữa nhiều nhất là **mustn't** và **don't have to**. Học viên dịch cả hai là “không phải” nên dùng lẫn lộn. Tôi dạy thế này: mustn't là **tấm biển cấm**, như biển cấm hút thuốc; don't have to là **được miễn**, như Chủ nhật được miễn đi làm. Gặp câu nào các bạn cũng tự hỏi: đây là biển cấm hay được miễn? Thêm một điều nữa: khuyên người lớn tuổi hay sếp mà nói You should... thì nghe hơi thẳng. Thêm I think phía trước cho mềm: I think you should rest."),
+      summary(
+        "Nói bệnh: have + a + tên bệnh (I have a headache, a sore throat), không nói I am headache.",
+        "Should / shouldn't để khuyên; sau should và must không có to.",
+        "Have to / has to là phải do hoàn cảnh; câu hỏi cần do / does: Do I have to pay now?",
+        "Mustn't là cấm, don't have to là không cần. Hai nghĩa khác hẳn nhau.",
+        "Khuyên người lớn tuổi hay sếp, thêm I think cho mềm: I think you should rest.",
+      ),
     ],
   },
   words: [
@@ -331,6 +503,40 @@ const sucKhoe = lesson({
     say("You should drink more water and rest.", "Bạn nên uống nhiều nước hơn và nghỉ ngơi."),
     say("You don't have to go to work tomorrow.", "Mai bạn không cần đi làm."),
   ],
+  dialogue: dialogue(
+    "Mua thuốc ở hiệu thuốc",
+    "Bạn đi công tác ở Singapore và bị đau họng, ho. Bạn vào hiệu thuốc hỏi mua thuốc và xin lời khuyên của dược sĩ.",
+    { A: "Bạn", B: "Dược sĩ" },
+    A("Excuse me, do you have anything for a sore throat?", "Xin lỗi, chị có thuốc gì trị đau họng không?"),
+    B("Yes. What's the matter? Do you have a fever, too?", "Có. Anh bị sao vậy? Anh có sốt không?"),
+    A("No, but I have a bad cough and a headache.", "Không, nhưng tôi ho nhiều và đau đầu."),
+    B("Try this medicine. You should take it three times a day.", "Anh dùng thử thuốc này. Anh nên uống ngày ba lần."),
+    A("Do I have to take it after meals?", "Tôi có phải uống sau bữa ăn không?"),
+    B("Yes, you do. And you mustn't drink alcohol with it.", "Có, anh phải uống sau ăn. Và anh không được uống rượu bia khi dùng thuốc."),
+    A("OK. Should I see a doctor?", "Vâng. Tôi có nên đi khám bác sĩ không?"),
+    B("You don't have to see a doctor now. But if you have a fever tomorrow, you should make an appointment.", "Bây giờ anh chưa cần đi khám. Nhưng nếu mai anh bị sốt thì anh nên đặt lịch khám."),
+    A("Thank you. What else should I do?", "Cảm ơn chị. Tôi nên làm gì nữa?"),
+    B("You should drink a lot of warm water and rest. You shouldn't talk too much.", "Anh nên uống nhiều nước ấm và nghỉ ngơi. Anh không nên nói nhiều."),
+    A("That's hard. I have to give a presentation tomorrow!", "Khó quá. Mai tôi phải thuyết trình!"),
+    B("Then rest tonight. I hope you feel better soon.", "Vậy tối nay anh nghỉ ngơi đi. Chúc anh mau khỏe."),
+  ),
+  task: task({
+    prompt: "Đồng nghiệp người nước ngoài nhắn tin: “I have a bad cold and a headache. I have to work tomorrow. What should I do?”. Viết tin nhắn trả lời 5–6 câu: hỏi thăm, đưa lời khuyên, và nói điều bạn ấy không cần làm hoặc không được làm.",
+    hints: [
+      "Khuyên nhẹ nhàng: I think you should... / You shouldn't...",
+      "Nói điều không cần làm: You don't have to...; điều bị cấm: You mustn't...",
+      "Kết bằng lời chúc: Get well soon!",
+    ],
+    model: "Oh no, I'm sorry to hear that! I think you should go to bed early tonight and drink a lot of warm water. You shouldn't drink cold drinks. You don't have to come to the office tomorrow, because you can work from home. If you have a fever, you should see a doctor. Get well soon!",
+    checklist: [
+      "Có ít nhất 2 câu should / shouldn't + động từ nguyên mẫu (không có to)",
+      "Có 1 câu don't have to hoặc mustn't dùng đúng nghĩa (không cần hoặc bị cấm)",
+      "Có I think trước lời khuyên cho lịch sự",
+      "Nếu nhắc đến bệnh, dùng have + a + tên bệnh",
+      "Có câu hỏi thăm ở đầu và lời chúc ở cuối tin nhắn",
+    ],
+    minWords: 30,
+  }),
 });
 
 const banDaTung = lesson({
@@ -370,6 +576,13 @@ const banDaTung = lesson({
       mistake("I haven't never seen snow.", "I've never seen snow.", "“Chưa bao giờ” nghe như câu phủ định nên nhiều người nghĩ phải thêm not. Never đã mang nghĩa phủ định, thêm not là phủ định hai lần."),
       mistake("I have been to abroad.", "I have been abroad.", "Tiếng Việt nói “ra nước ngoài” nên người Việt hay thêm to. Abroad đã có nghĩa là “ở nước ngoài”, không cần giới từ."),
       teacher("Tôi hay bảo các bạn học viên: thì hiện tại hoàn thành giống như **lật cuốn album cuộc đời**, chỉ hỏi có tấm ảnh đó hay không, chưa hỏi chụp lúc nào. Hễ có ai hỏi “khi nào”, “năm nào”, các bạn gấp album lại và kể bằng quá khứ đơn như ở bài Hôm qua bạn làm gì. Bài tập mỗi ngày tôi giao: viết ba câu I've never... về những điều các bạn chưa từng làm và ba câu Have you ever...? để hỏi bạn bè. Đó là bộ câu mở chuyện dễ nhất khi gặp người nước ngoài."),
+      summary(
+        "Trải nghiệm trong đời, không nói khi nào: have / has + V3 (I've been to Hue).",
+        "Hỏi: Have you ever + V3? Trả lời ngắn: Yes, I have. / No, I haven't.",
+        "Chưa bao giờ: I've never + V3. Never đã mang nghĩa phủ định, không thêm not.",
+        "Kể tiếp chi tiết có thời gian cụ thể (last year, two years ago) thì chuyển sang quá khứ đơn.",
+        "Been to là đã đến và đã về; abroad không có to đứng trước.",
+      ),
     ],
   },
   words: [
@@ -397,6 +610,42 @@ const banDaTung = lesson({
     say("I've never eaten durian.", "Tôi chưa bao giờ ăn sầu riêng."),
     say("Yes, I have. I went there two years ago.", "Có, tôi từng đến. Tôi đến đó hai năm trước."),
   ],
+  dialogue: dialogue(
+    "Làm quen với du khách",
+    "Bạn là hướng dẫn viên, đang trò chuyện với Emma, một du khách người Anh, trên xe đi Hạ Long. Hai người hỏi nhau về những trải nghiệm đã từng có.",
+    { A: "Bạn (hướng dẫn viên)", B: "Emma (du khách)" },
+    A("Is this your first time in Vietnam, Emma?", "Đây là lần đầu chị đến Việt Nam à, Emma?"),
+    B("Yes, it is. But I've been to Thailand and Cambodia.", "Đúng vậy. Nhưng tôi từng đến Thái Lan và Campuchia rồi."),
+    A("Have you ever tried bun cha?", "Chị đã ăn bún chả bao giờ chưa?"),
+    B("No, I haven't. What is it?", "Chưa. Món đó là gì vậy?"),
+    A("It's grilled pork with noodles. It's delicious. You should try it in Hanoi.", "Là thịt nướng ăn với bún. Ngon lắm. Chị nên ăn thử ở Hà Nội."),
+    B("I'd love to. And have you ever been abroad?", "Tôi rất muốn thử. Còn anh, anh đã từng ra nước ngoài chưa?"),
+    A("Yes, I have. I went to Singapore two years ago.", "Rồi. Tôi đi Singapore hai năm trước."),
+    B("Did you like it?", "Anh có thích không?"),
+    A("Yes, it was great. But I've never seen snow. Have you ever seen it?", "Có, tuyệt lắm. Nhưng tôi chưa bao giờ thấy tuyết. Chị đã thấy tuyết bao giờ chưa?"),
+    B("Yes, I have. It often snows in England in winter.", "Rồi. Ở Anh mùa đông hay có tuyết."),
+    A("Have you ever eaten durian?", "Chị đã ăn sầu riêng bao giờ chưa?"),
+    B("Yes, I have. I tried it in Bangkok last year, but I didn't like the smell!", "Rồi. Tôi ăn thử ở Bangkok năm ngoái, nhưng tôi không thích mùi của nó!"),
+    A("I've eaten it many times, and I love it.", "Tôi ăn nhiều lần rồi, và tôi mê nó."),
+  ),
+  task: task({
+    prompt: "Viết 5–6 câu giới thiệu trải nghiệm của bạn với một người bạn nước ngoài: những điều bạn đã từng làm, những điều chưa bao giờ làm, kể chi tiết một trải nghiệm, rồi hỏi lại bạn ấy.",
+    hints: [
+      "Trải nghiệm: I've been to... / I've tried... / I've met...",
+      "Điều chưa từng làm: I've never + V3.",
+      "Kể chi tiết có thời gian cụ thể bằng quá khứ đơn: I went there last month.",
+      "Kết bằng câu hỏi: Have you ever...?",
+    ],
+    model: "I've been to many places in Vietnam, but I've never been abroad. I've tried a lot of foreign food. For example, I've eaten sushi. I tried it for the first time last month at a Japanese restaurant in Ho Chi Minh City, and it was delicious. I've never seen snow, and I've never been on a plane. Have you ever travelled abroad?",
+    checklist: [
+      "Có ít nhất 2 câu have / has + V3 nói về trải nghiệm",
+      "Có ít nhất 1 câu I've never + V3 (không thêm not)",
+      "Câu có thời gian cụ thể (last month, two years ago...) dùng quá khứ đơn",
+      "V3 của động từ bất quy tắc viết đúng (been, eaten, seen, met)",
+      "Có 1 câu hỏi Have you ever + V3?",
+    ],
+    minWords: 35,
+  }),
 });
 
 export const tiengAnhA2: Course = {

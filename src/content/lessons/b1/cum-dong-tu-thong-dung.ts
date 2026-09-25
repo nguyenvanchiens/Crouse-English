@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "cum-dong-tu-thong-dung",
@@ -35,6 +35,13 @@ export default lesson({
       mistake("My father gave up to smoke.", "My father gave up smoking.", "Sau give up, động từ phải ở dạng V-ing."),
       tip("Khi nói, **nhấn giọng vào tiểu từ** chứ không nhấn vào động từ: turn it OFF, pick me UP, give UP. Nếu tân ngữ là danh từ đứng sau thì nhấn vào danh từ: turn off the LIGHT."),
       teacher("Sau nhiều năm dạy, tôi khuyên các bạn đừng học cụm động từ theo danh sách dài hàng trăm cụm, học xong là quên. Hãy **học theo một ngày của chính mình**: sáng get up, turn off the alarm, tối turn on the TV, look for the remote. Mỗi hành động trong ngày, các bạn tự nói thầm cụm động từ tương ứng. Một tháng sau, những cụm này sẽ bật ra tự nhiên như tiếng mẹ đẻ."),
+      summary(
+        "Nghĩa của cụm động từ thường khác nghĩa từng chữ: find out là biết được, give up là từ bỏ.",
+        "Cụm tách được (turn on / off, pick up, give up): đại từ bắt buộc đứng giữa, turn it off.",
+        "Cụm không tách được (look for, look after): tân ngữ luôn đứng sau cả cụm.",
+        "Look for mới là tìm, look một mình là nhìn. Sau give up dùng V-ing.",
+        "Pick up có nhiều nghĩa (nhặt lên, đón ai, học lỏm được): đoán nghĩa theo ngữ cảnh.",
+      ),
     ],
   },
   words: [
@@ -62,4 +69,36 @@ export default lesson({
     say("I'm looking for my phone. Have you seen it?", "Tôi đang tìm điện thoại. Bạn có thấy nó không?"),
     say("Could you pick me up from the station at seven?", "Bạn đón tôi ở ga lúc bảy giờ được không?"),
   ],
+  dialogue: dialogue(
+    "Buổi sáng vội vã",
+    "Sáng thứ Hai, hai chị em cùng thuê nhà là Trang và Ngọc đang vội vàng chuẩn bị đi làm.",
+    { A: "Trang", B: "Ngọc" },
+    A("Ngoc, get up! It's already seven o'clock.", "Ngọc ơi, dậy đi! Bảy giờ rồi đấy."),
+    B("Oh no! I didn't hear my alarm. Did you turn it off?", "Chết rồi! Em không nghe thấy báo thức. Chị tắt nó à?"),
+    A("No, I didn't. What are you looking for now?", "Không, chị không tắt. Giờ em đang tìm gì thế?"),
+    B("I'm looking for my phone. I can't find it anywhere.", "Em đang tìm điện thoại. Em tìm mãi không thấy."),
+    A("It's on the floor next to the sofa. I'll pick it up for you. Here you are.", "Nó nằm dưới sàn cạnh ghế sofa. Để chị nhặt lên cho. Đây này."),
+    B("Thanks. Can you pick me up after work? My motorbike is broken.", "Cảm ơn chị. Tan làm chị đón em được không? Xe máy em hỏng rồi."),
+    A("Sure. By the way, did you find out what's wrong with it?", "Được. À mà em đã biết xe bị làm sao chưa?"),
+    B("Not yet. The mechanic will call me this afternoon.", "Chưa chị. Chiều nay thợ sửa xe sẽ gọi cho em."),
+    A("Okay. Oh, and please turn off the lights before you leave.", "Ừ. À, nhớ tắt đèn trước khi đi nhé."),
+    B("Don't worry, I'll turn them off. And I promise to give up staying up late!", "Chị đừng lo, em sẽ tắt. Và em hứa sẽ bỏ thói thức khuya!"),
+  ),
+  task: task({
+    prompt: "Viết một đoạn văn 6–8 câu kể về một ngày bình thường của bạn, dùng ít nhất năm cụm động từ trong bài.",
+    hints: [
+      "Đi theo thứ tự thời gian: buổi sáng, trong ngày, buổi tối.",
+      "Dùng đại từ với cụm tách được: turn it off, pick her up.",
+      "Thêm một thói quen bạn muốn bỏ: I want to give up + V-ing.",
+    ],
+    model: "On weekdays, I get up at six o'clock. The first thing I do is turn off my alarm and turn on the kettle. Before I leave, I often spend five minutes looking for my keys. My mother looks after my daughter while I'm at the office. After work, I pick her up from my mother's house. In the evening, I turn on the TV to find out what is happening in the world. I want to give up checking my phone in bed, but it's hard!",
+    checklist: [
+      "Dùng ít nhất năm cụm động từ khác nhau.",
+      "Đại từ (it, her, them) đứng giữa với cụm tách được: pick her up, turn it off.",
+      "Look for và look after không bị tách ra.",
+      "Không quên tiểu từ: looking for my keys, không phải looking my keys.",
+      "Sau give up dùng V-ing.",
+    ],
+    minWords: 60,
+  }),
 });

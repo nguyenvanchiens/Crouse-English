@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Volume2 } from "lucide-react";
 import type { Course, PlacementQuestion } from "@/content/types";
@@ -67,6 +68,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
   if (stage === "result" && result) {
     const suggested = courses.find((c) => c.slug === suggestCourseSlug(result.startLevel));
     const passedAny = result.startLevel !== "A1";
+    const pronunciation = courses.find((c) => c.goal === "phat-am");
     return (
       <div className="space-y-8">
         <div className="clay card-in p-8 text-center sm:p-10">
@@ -94,6 +96,15 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
           <div>
             <h2 className="mb-4 font-display text-3xl font-extrabold">Khóa học gợi ý cho bạn</h2>
             <CourseCard course={suggested} />
+            {result.startLevel === "A1" && pronunciation && (
+              <p className="mt-4 rounded-2xl border-2 border-ink bg-leaf-soft px-4 py-3">
+                Mới bắt đầu thì nên học khóa{" "}
+                <Link href={`/khoa-hoc/${pronunciation.slug}`} className="font-semibold underline underline-offset-4">
+                  {pronunciation.title}
+                </Link>{" "}
+                trước (khoảng 4 tuần), để phát âm đúng ngay từ đầu.
+              </p>
+            )}
           </div>
         )}
         <button type="button" className="btn btn-ghost" onClick={start}>Làm lại bài kiểm tra</button>

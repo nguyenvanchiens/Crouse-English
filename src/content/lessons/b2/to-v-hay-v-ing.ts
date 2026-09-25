@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "to-v-hay-v-ing",
@@ -28,6 +28,13 @@ export default lesson({
       mistake("Don't forget locking the door when you leave.", "Don't forget to lock the door when you leave.", "Việc khóa cửa chưa xảy ra, nên dùng to V. Forget + V-ing gần như chỉ dùng trong câu “I'll never forget + V-ing”."),
       tip("Mẹo ghi nhớ: **to** giống như **mũi tên chỉ về phía trước**. Thấy việc sắp làm, việc chưa xảy ra, mục đích thì dùng **to V**. Còn **-ing** giống **cuốn phim quay lại**: việc đã làm, thói quen đã có, một cách thử nghiệm."),
       teacher("Đừng học nhóm động từ này bằng cách chép bảng rồi đọc thuộc. Tôi luôn bảo học trò **tự đặt cho mỗi động từ hai câu về chính đời mình**, một câu to V, một câu V-ing, rồi dán lên gương: “I must remember to call Mum on Sunday.”, “I remember going to the beach with my father.” **Câu có kỷ niệm của bạn thì không bao giờ quên**. Còn khi viết email trang trọng, hãy nhớ riêng mẫu **We regret to inform you…**, thư từ chối và thông báo hủy nào cũng có nó."),
+      summary(
+        "to V nhìn về phía trước (việc chưa làm, mục đích); V-ing nhìn lại (việc đã làm hoặc đang làm).",
+        "remember / forget to V: nhớ, quên làm việc sắp tới; remember V-ing, never forget V-ing: nhớ lại việc đã làm.",
+        "stop V-ing: thôi hẳn việc đó; stop to V: dừng việc đang làm để làm việc khác.",
+        "try to V: cố gắng làm một việc khó; try V-ing: thử một cách xem có hiệu quả không.",
+        "regret V-ing: hối tiếc vì đã làm; regret to inform: tiếc phải báo; mean to V: định làm; mean V-ing: kéo theo việc gì.",
+      ),
     ],
   },
   words: [
@@ -55,4 +62,37 @@ export default lesson({
     say("I remember visiting this temple when I was a child.", "Tôi nhớ là đã đến thăm ngôi chùa này hồi còn nhỏ."),
     say("If you feel tired, try going for a short walk.", "Nếu thấy mệt, bạn thử đi bộ một chút xem sao."),
   ],
+  dialogue: dialogue(
+    "Chuẩn bị đi công tác",
+    "Thảo và Đức sắp cùng đi Singapore gặp khách hàng. Trước ngày đi, hai người kiểm tra lại mọi việc cần chuẩn bị.",
+    { A: "Thảo", B: "Đức" },
+    A("Duc, did you remember to book the hotel for our trip to Singapore?", "Đức ơi, anh có nhớ đặt khách sạn cho chuyến đi Singapore không?"),
+    B("Yes, I remember booking it last Monday. I got a confirmation email.", "Có, tôi nhớ là đã đặt hôm thứ Hai tuần trước. Tôi có nhận email xác nhận."),
+    A("Great. I've tried to log in to the booking website, but it keeps saying my password is wrong.", "Tốt quá. Tôi đã cố đăng nhập vào trang đặt phòng, nhưng nó cứ báo sai mật khẩu."),
+    B("Try resetting your password. That worked for me.", "Chị thử đặt lại mật khẩu xem. Tôi làm thế là được."),
+    A("Good idea. By the way, the new schedule means leaving home at five in the morning.", "Ý hay đấy. À, lịch mới đồng nghĩa với việc phải ra khỏi nhà lúc năm giờ sáng."),
+    B("Really? I didn't mean to choose such an early flight. Sorry!", "Thật à? Tôi không cố ý chọn chuyến sớm thế đâu. Xin lỗi nhé!"),
+    A("It's fine. We can stop to have breakfast on the way.", "Không sao. Mình có thể dừng lại ăn sáng trên đường đi."),
+    B("Good. And please don't forget to bring the samples for the client.", "Được. Và chị đừng quên mang hàng mẫu cho khách nhé."),
+    A("I won't. Last time I forgot to pack them, and I still regret making that mistake.", "Tôi sẽ không quên đâu. Lần trước tôi quên đóng gói chúng, và đến giờ tôi vẫn hối tiếc vì sai lầm đó."),
+    B("I'll never forget seeing your face in that meeting!", "Tôi sẽ không bao giờ quên được nét mặt chị trong buổi họp đó!"),
+    A("Please stop reminding me. Let's just get ready for this trip.", "Thôi đừng nhắc nữa. Mình chuẩn bị cho chuyến này đi."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn khoảng 60–80 từ kể về một thói quen bạn đã bỏ hoặc đã thay đổi. Dùng ít nhất bốn động từ trong bài (remember, forget, stop, try, regret, mean) và chọn đúng to V hay V-ing.",
+    hints: [
+      "Dùng stop + V-ing để nói thói quen bạn đã bỏ.",
+      "Kể một việc bạn đã try to V (cố gắng) và một cách bạn đã try V-ing (thử xem sao).",
+      "Thêm remember hoặc regret, rồi tự hỏi hành động đó xảy ra trước hay sau.",
+    ],
+    model: "Two years ago, I stopped drinking coffee after lunch. I had tried to go to sleep earlier many times, but nothing worked. Then a friend told me to try drinking herbal tea in the afternoon instead. At first it was hard, and I remember feeling sleepy at work for a whole week. Now I always remember to make a cup of tea at three o'clock. I don't regret changing my habit at all, even though it meant giving up my favourite drink.",
+    checklist: [
+      "Có stop + V-ing để nói bỏ hẳn một thói quen.",
+      "Có cả try to V (cố gắng) và try V-ing (thử xem sao), dùng đúng nghĩa.",
+      "Có remember to V hoặc remember V-ing, khớp với việc chưa làm hay đã làm.",
+      "Có regret V-ing hoặc mean V-ing.",
+      "Mỗi to V chỉ việc xảy ra sau, mỗi V-ing chỉ việc đã xảy ra hoặc đang diễn ra.",
+    ],
+    minWords: 60,
+  }),
 });

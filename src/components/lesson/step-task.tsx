@@ -8,11 +8,44 @@ export function countWords(text: string): number {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
-export function StepTask({ step, done, onComplete }: { step: TaskStep; done: boolean; onComplete: () => void }) {
-  const [text, setText] = useState("");
-  const [revealed, setRevealed] = useState(false);
-  const [checked, setChecked] = useState<boolean[]>(() => step.checklist.map(() => false));
+export interface TaskProgress {
+  text: string;
+  revealed: boolean;
+  checked: boolean[];
+}
+
+export function StepTask({
+  step,
+  done,
+  saved,
+  onProgress,
+  onComplete,
+}: {
+  step: TaskStep;
+  done: boolean;
+  /** restores the learner's draft when they come back to this step */
+  saved?: TaskProgress;
+  onProgress?: (p: TaskProgress) => void;
+  onComplete: () => void;
+}) {
+  const [text, setTextState] = useState(saved?.text ?? "");
+  const [revealed, setRevealedState] = useState(saved?.revealed ?? false);
+  const [checked, setCheckedState] = useState<boolean[]>(() => saved?.checked ?? step.checklist.map(() => false));
   const id = useId();
+  const save = (p: Partial<TaskProgress>) => onProgress?.({ text, revealed, checked, ...p });
+  const setText = (v: string) => {
+    setTextState(v);
+    save({ text: v });
+  };
+  const setRevealed = (v: boolean) => {
+    setRevealedState(v);
+    save({ revealed: v });
+  };
+  const toggle = (i: number) => {
+    const v = checked.map((x, k) => (k === i ? !x : x));
+    setCheckedState(v);
+    save({ checked: v });
+  };
   const words = countWords(text);
   const canReveal = words >= step.minWords;
 
@@ -50,8 +83,12 @@ export function StepTask({ step, done, onComplete }: { step: TaskStep; done: boo
         spellCheck
         className="mt-2 w-full rounded-2xl border-[2.5px] border-ink bg-card px-4 py-3 text-lg leading-relaxed"
       />
-      <p className="mt-1 text-sm text-ink-soft" aria-live="polite">
+      <p className="mt-1 text-sm text-ink-soft">
         {words} từ{!canReveal ? `, viết ít nhất ${step.minWords} từ để mở bài mẫu` : ""}
+      </p>
+      {/* announce only the threshold, not every keystroke */}
+      <p className="sr-only" aria-live="polite">
+        {canReveal ? "Đã đủ số từ, bạn có thể xem bài mẫu." : ""}
       </p>
 
       <button type="button" className="btn btn-ghost mt-4" disabled={!canReveal || revealed} onClick={() => setRevealed(true)}>
@@ -75,7 +112,7 @@ export function StepTask({ step, done, onComplete }: { step: TaskStep; done: boo
                     <input
                       type="checkbox"
                       checked={checked[i]}
-                      onChange={() => setChecked((v) => v.map((x, k) => (k === i ? !x : x)))}
+                      onChange={() => toggle(i)}
                       className="mt-1 size-5 shrink-0 accent-[var(--color-leaf)]"
                     />
                     <span>{c}</span>

@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "gia-dinh-khong-that",
@@ -28,6 +28,13 @@ export default lesson({
       mistake("I wish I can speak Japanese.", "I wish I could speak Japanese.", "Ước về hiện tại thì lùi một thì: can thành could, am thành were, have thành had. Nhớ phân biệt với bài Tiếc nuối: ước về quá khứ thì dùng had + V3."),
       tip("Mẹo nhớ: **lùi thì là lùi xa khỏi sự thật**. Hễ thấy **wish, would rather + người khác, it's time + chủ ngữ, as if (không thật)**, hãy lùi động từ một bậc: hiện tại thành quá khứ. Viết bốn cụm này lên một tấm thẻ và gọi chúng là **bốn chiếc chìa khóa lùi thì**."),
       teacher("Nhiều năm chấm bài, tôi thấy học trò không sai vì không biết quy tắc, mà vì **tai chưa quen**. Câu **It's time we went** nghe lạ tai nên nhiều bạn sửa thành **go**. Cách chữa duy nhất là nghe và nói thật nhiều. Tôi khuyên các bạn mỗi ngày tự nói về bản thân một câu **I wish…**, một câu **I'd rather…** và một câu **It's time I…** Ví dụ: **It's time I started exercising.** Nói to, nói thật lòng về đời mình, cấu trúc sẽ bám vào trí nhớ lâu hơn bất kỳ bảng công thức nào."),
+      summary(
+        "Quá khứ giả định: lùi động từ một thì để nói điều không có thật hoặc chỉ là mong muốn ở hiện tại.",
+        "wish + quá khứ đơn (can thành could, am thành were): ước điều trái với hiện tại.",
+        "would rather + V nguyên mẫu khi nói về mình; would rather + người khác + quá khứ đơn khi muốn người khác làm gì.",
+        "It's time to + V: đến giờ làm gì; It's (high/about) time + chủ ngữ + quá khứ đơn: lẽ ra phải làm rồi.",
+        "as if + quá khứ: điều không có thật; as if + thì bình thường: điều có thể thật (thường sau look, seem, sound).",
+      ),
     ],
   },
   words: [
@@ -55,4 +62,36 @@ export default lesson({
     say("It's high time we updated our website.", "Đã đến lúc chúng ta phải cập nhật trang web rồi."),
     say("She talks as if she knew everyone here.", "Cô ấy nói cứ như thể quen hết mọi người ở đây."),
   ],
+  dialogue: dialogue(
+    "Văn phòng ồn quá",
+    "Hai đồng nghiệp ngồi cạnh nhau trong văn phòng mở. Ông quản lý mới hay nói điện thoại rất to, và họ bàn cách góp ý khéo.",
+    { A: "Hương, nhân viên", B: "Tuấn, đồng nghiệp" },
+    A("I wish our office weren't so noisy. I can't concentrate at all.", "Ước gì văn phòng mình không ồn thế. Tôi chẳng tập trung được chút nào."),
+    B("Me neither. Our new manager talks on the phone as if he were alone in the room.", "Tôi cũng vậy. Ông quản lý mới nói điện thoại cứ như thể chỉ có mình ông ấy trong phòng."),
+    A("Maybe we should tell him. It's about time someone said something.", "Có lẽ mình nên nói với ông ấy. Đến lúc phải có người lên tiếng rồi."),
+    B("I'd rather not be the one who tells him. He's only been here a week.", "Tôi thà không phải là người nói. Ông ấy mới đến có một tuần."),
+    A("Then would you rather I spoke to him?", "Vậy anh có muốn tôi nói chuyện với ông ấy không?"),
+    B("Yes, please. But I'd rather you didn't mention my name.", "Có, nhờ chị nhé. Nhưng tôi mong chị đừng nhắc tên tôi."),
+    A("Don't worry. It looks as if he's quite friendly, so it should be fine.", "Đừng lo. Có vẻ ông ấy khá thân thiện, nên chắc sẽ ổn thôi."),
+    B("I hope so. Honestly, it's high time the company gave us a quiet room for calls.", "Mong là vậy. Thật lòng mà nói, đã đến lúc công ty phải cho mình một phòng yên tĩnh để gọi điện rồi."),
+    A("Agreed. I'd rather work from home than sit here all day with my headphones on.", "Đồng ý. Tôi thà làm ở nhà còn hơn ngồi đây cả ngày đeo tai nghe."),
+    B("I wish I could, but my team needs me in the office.", "Ước gì tôi làm được thế, nhưng nhóm tôi cần tôi ở văn phòng."),
+  ),
+  task: task({
+    prompt: "Viết một đoạn khoảng 60–90 từ về một điều bạn muốn thay đổi ở khu phố, trường học hoặc nơi làm việc của mình, dùng các cấu trúc quá khứ giả định trong bài.",
+    hints: [
+      "Mở bằng một câu I wish… về điều bạn chưa hài lòng.",
+      "Dùng It's (high) time + chủ ngữ + quá khứ đơn để nói việc lẽ ra phải làm rồi.",
+      "Thêm một câu would rather (về mình hoặc về người khác) và một câu as if.",
+    ],
+    model: "I wish my neighbourhood had more green spaces. At the moment, children play football in the street as if it were a playground, which is dangerous. It's high time the local council built a small park near the market. I'd rather pay a little more tax than watch my son play next to motorbikes. Some neighbours want to plant trees on the pavement, but I'd rather they asked the council first. It looks as if our new ward leader is interested in the idea, so I'm hopeful.",
+    checklist: [
+      "Có ít nhất một câu I wish + quá khứ đơn (hoặc could, were).",
+      "Có It's time hoặc It's high time + chủ ngữ + quá khứ đơn.",
+      "Có would rather dùng đúng mẫu: nguyên mẫu khi nói về mình, quá khứ đơn khi nói về người khác.",
+      "Có as if hoặc as though, lùi thì khi điều đó không có thật.",
+      "Không còn động từ hiện tại nào sau wish, would rather + người khác, it's time + chủ ngữ.",
+    ],
+    minWords: 60,
+  }),
 });

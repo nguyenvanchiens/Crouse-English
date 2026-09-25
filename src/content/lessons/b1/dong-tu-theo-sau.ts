@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "dong-tu-theo-sau",
@@ -34,6 +34,13 @@ export default lesson({
       mistake("I look forward to hear from you.", "I look forward to hearing from you.", "Chữ to ở đây là giới từ, không phải to của động từ nguyên mẫu, nên theo sau phải là V-ing. Đây là lỗi rất hay gặp trong email công việc."),
       mistake("She decided going home early.", "She decided to go home early.", "Decide luôn đi với to V."),
       teacher("Tôi dạy nửa thế kỷ và chưa thấy ai nhớ được danh sách này bằng cách chép một trăm lần. Cách hiệu quả là **học động từ kèm luôn cái đuôi**: đừng học enjoy, hãy học **enjoy doing**; đừng học decide, hãy học **decide to do**. Các bạn viết vào sổ tay đúng như vậy. Mỗi khi viết email, trước khi gửi hãy dò lại những chữ look forward to, thank you for, interested in, xem sau chúng đã là V-ing chưa. Thói quen nhỏ này giúp các bạn tránh một lỗi mà sếp nước ngoài nhìn thấy ngay."),
+      summary(
+        "to + V sau want, decide, hope, plan, promise, refuse, agree, need, would like.",
+        "V-ing sau enjoy, avoid, finish, mind, suggest, consider, keep, practise, give up.",
+        "Sau giới từ luôn là V-ing: interested in, good at, thank you for, before / after / without.",
+        "Look forward to + V-ing: chữ to ở đây là giới từ.",
+        "Học động từ kèm luôn cái đuôi: enjoy doing, decide to do.",
+      ),
     ],
   },
   words: [
@@ -61,4 +68,37 @@ export default lesson({
     say("My dream is to open a small café by the sea.", "Ước mơ của tôi là mở một quán cà phê nhỏ bên bờ biển."),
     say("Thank you for helping me with my homework.", "Cảm ơn bạn đã giúp tôi làm bài tập."),
   ],
+  dialogue: dialogue(
+    "Dự định năm tới",
+    "Nam và Vy gặp nhau ở quán cà phê cuối tuần, kể cho nhau nghe về công việc và dự định sắp tới.",
+    { A: "Nam", B: "Vy" },
+    A("So, how's your new job? Do you enjoy working there?", "Công việc mới thế nào? Bạn có thích làm ở đó không?"),
+    B("Yes, I do. And I've decided to learn Japanese, because my company is planning to open an office in Osaka.", "Có chứ. Mình còn quyết định học tiếng Nhật, vì công ty mình đang có kế hoạch mở văn phòng ở Osaka."),
+    A("That's great! Are you thinking of moving there?", "Hay quá! Bạn đang tính chuyển sang đó à?"),
+    B("Maybe. My manager suggested applying for a job there. I'm considering it.", "Có thể. Sếp mình gợi ý nộp đơn vào vị trí ở đó. Mình đang cân nhắc."),
+    A("I hope to change jobs too. I really want to avoid spending two hours in traffic every day.", "Mình cũng hy vọng đổi việc. Mình thật sự muốn tránh mất hai tiếng kẹt xe mỗi ngày."),
+    B("Have you considered working from home? Many companies allow it now.", "Bạn đã cân nhắc làm việc ở nhà chưa? Giờ nhiều công ty cho phép lắm."),
+    A("Good idea. I'm good at designing websites, so I could work online.", "Ý hay đấy. Mình giỏi thiết kế trang web, nên có thể làm trực tuyến."),
+    B("Exactly. Don't hesitate to ask me if you need help with your CV.", "Đúng vậy. Đừng ngại hỏi mình nếu bạn cần giúp viết CV nhé."),
+    A("Thanks for offering. I promise to buy you dinner when I find a new job!", "Cảm ơn bạn đã ngỏ ý. Mình hứa sẽ mời bạn ăn tối khi tìm được việc mới!"),
+    B("Deal! I'm looking forward to having that dinner.", "Chốt nhé! Mình mong bữa tối đó lắm đấy."),
+  ),
+  task: task({
+    prompt: "Viết một email ngắn (6–8 câu) gửi một người bạn, kể về những việc bạn thích làm dạo này và dự định của bạn trong năm tới.",
+    hints: [
+      "Dùng enjoy / avoid / keep + V-ing cho thói quen.",
+      "Dùng hope / plan / decide + to V cho dự định.",
+      "Thêm ít nhất một cụm giới từ + V-ing: interested in, good at, before / after.",
+      "Kết thư bằng I look forward to hearing from you.",
+    ],
+    model: "Hi Lan, how are you? These days I really enjoy cooking for my family at the weekend, and I've started going to the gym after work. I try to avoid eating fast food, but it isn't easy! I've decided to take a baking course next year because I'm interested in opening a small cake shop one day. I also hope to visit you in Da Nang in the summer. I promise to bring you some of my cakes. I look forward to hearing from you. Best wishes, Hoa",
+    checklist: [
+      "Có ít nhất hai động từ + V-ing (enjoy, avoid, keep, finish…).",
+      "Có ít nhất hai động từ + to V (hope, plan, decide, promise…).",
+      "Sau giới từ (in, at, for, after…) dùng V-ing.",
+      "Viết đúng look forward to hearing, không viết to hear.",
+      "Không có lỗi kiểu enjoy to cook hay decided going.",
+    ],
+    minWords: 60,
+  }),
 });

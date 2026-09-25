@@ -1,4 +1,4 @@
-import { ex, fill, lesson, listen, mc, mistake, p, reorder, say, table, teacher, tip, word } from "../../builders";
+import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "suy-doan-hien-tai",
@@ -25,6 +25,13 @@ export default lesson({
       mistake("She maybe is at the office.", "She may be at the office. / Maybe she is at the office.", "Maybe (một từ) là trạng từ, thường đứng đầu câu. May be (hai từ) là động từ khuyết thiếu + be, đứng sau chủ ngữ. Tiếng Việt chỉ có một chữ “có lẽ” nên người Việt hay trộn hai cách."),
       mistake("You must to be tired.", "You must be tired.", "Sau must, might, could, can't là động từ nguyên mẫu không có to."),
       teacher("Nhiều năm đứng lớp, tôi thấy người học Việt Nam chỉ biết must với nghĩa “phải”, nên nghe câu **You must be Lan's mother** thì tưởng người ta đang ra lệnh. Thật ra đó là câu đoán rất lịch sự: “Chắc chị là mẹ của Lan.” Bài tập mỗi ngày tôi giao cho các bạn: ngồi quán cà phê, nhìn người qua đường và thầm đoán bằng ba mức. **She must be a teacher. He might be a tourist. They can't be students.** Luyện năm phút mỗi ngày, phản xạ sẽ tự đến."),
+      summary(
+        "must + V: chắc hẳn là (gần như chắc chắn đúng); can't + V: không thể nào (gần như chắc chắn sai).",
+        "might / may / could + V: có lẽ, chỉ là một khả năng.",
+        "Đoán việc đang diễn ra ngay lúc này: must / might / can't + be + V-ing.",
+        "Đoán phủ định dùng can't, không dùng mustn't (mustn't nghĩa là cấm).",
+        "Sau must, might, could, can't là động từ nguyên mẫu không to. Maybe (một từ) đứng đầu câu, may be (hai từ) đứng sau chủ ngữ.",
+      ),
     ],
   },
   words: [
@@ -52,4 +59,35 @@ export default lesson({
     say("He might be stuck in traffic.", "Có lẽ anh ấy đang bị kẹt xe."),
     say("That can't be true.", "Chuyện đó không thể nào là thật."),
   ],
+  dialogue: dialogue(
+    "Ai để quên điện thoại?",
+    "Sau cuộc họp, Hà và Tuấn thấy một chiếc điện thoại bị bỏ quên trong phòng họp và cùng đoán xem nó là của ai.",
+    { A: "Hà", B: "Tuấn" },
+    A("Look, someone has left a phone on the table.", "Nhìn kìa, ai đó để quên điện thoại trên bàn."),
+    B("It must be Mr Long's. He was sitting here during the meeting.", "Chắc hẳn là của anh Long. Anh ấy ngồi ở đây trong cuộc họp."),
+    A("It can't be his. He always uses a black phone, and this one is pink.", "Không thể là của anh ấy được. Anh ấy luôn dùng điện thoại màu đen, còn cái này màu hồng."),
+    B("You're right. It might be Linh's, then. She loves pink.", "Chị nói đúng. Vậy có lẽ là của Linh. Cô ấy thích màu hồng."),
+    A("Maybe, but Linh is on holiday this week. It could be the new intern's.", "Có thể, nhưng tuần này Linh nghỉ phép. Có khi là của bạn thực tập sinh mới."),
+    B("Oh, it's ringing. The screen says “Mum”.", "Ôi, nó đang đổ chuông. Màn hình hiện chữ “Mẹ”."),
+    A("Her mother must be worried. Should we answer it?", "Chắc mẹ bạn ấy đang lo lắm. Mình có nên nghe máy không?"),
+    B("Wait, I can hear someone running down the corridor. That must be her.", "Khoan, tôi nghe có người đang chạy ngoài hành lang. Chắc là bạn ấy rồi."),
+    A("Poor girl. She must be looking for it everywhere. Let's give it back.", "Tội nghiệp. Chắc bạn ấy đang tìm khắp nơi. Mình trả lại cho bạn ấy thôi."),
+  ),
+  task: task({
+    prompt: "Hãy nhìn một người lạ trong quán cà phê hoặc trên xe buýt (hoặc tưởng tượng ra một người). Viết một đoạn 6–8 câu đoán về người đó: nghề nghiệp, tâm trạng, việc người đó đang làm, và nêu dấu hiệu làm bằng chứng.",
+    hints: [
+      "Dùng đủ ba mức: must, might / could, can't.",
+      "Mỗi lời đoán nên kèm bằng chứng: He's wearing…, so he must…",
+      "Có ít nhất một câu đoán việc đang diễn ra: must be + V-ing.",
+    ],
+    model: "There's a man sitting near the window. He's wearing a smart suit and carrying a laptop, so he must work in an office nearby. He keeps looking at his watch. He might be waiting for a client, or he could be late for a meeting. He can't be a tourist, because he doesn't have a camera or a map. Now he's smiling at his phone. He must be reading a message from his family.",
+    checklist: [
+      "Có ít nhất một câu với must, một câu với might hoặc could, và một câu với can't.",
+      "Không dùng mustn't để đoán phủ định.",
+      "Sau must / might / could / can't là động từ nguyên mẫu không to.",
+      "Ít nhất hai lời đoán có nêu bằng chứng (so, because).",
+      "Có ít nhất một câu must / might be + V-ing.",
+    ],
+    minWords: 50,
+  }),
 });

@@ -198,6 +198,19 @@ describe("certificateStatus", () => {
     expect(certificateStatus(withFinal, doAll(65))).toEqual({ status: "final-failed", finalScore: 65 });
     expect(certificateStatus(withFinal, doAll(70))).toEqual({ status: "earned", finalScore: 70 });
   });
+  it("is incomplete while any lesson is undone, even when the percentage rounds to 100", () => {
+    const many: Course = {
+      ...withFinal,
+      modules: [
+        { id: "m-many", title: "M", lessons: Array.from({ length: 250 }, (_, i) => ({ slug: `l${i}`, title: "L", minutes: 5, steps: [] })) },
+        withFinal.modules[withFinal.modules.length - 1],
+      ],
+    };
+    let s = emptyState();
+    for (let i = 0; i < 250; i++) s = applyCompleteLesson(s, "c", `l${i}`, null, new Date());
+    // 250 of 251 lessons done → 99.6% → rounds to 100
+    expect(certificateStatus(many, s).status).toBe("incomplete");
+  });
   it("counts the best attempt", () => {
     const s = applyCompleteLesson(doAll(50), "c", "f", 90, new Date());
     expect(certificateStatus(withFinal, s)).toEqual({ status: "earned", finalScore: 90 });
