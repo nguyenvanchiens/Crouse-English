@@ -40,3 +40,10 @@ Mỗi bài có **6 bước**: bài giảng → từ vựng → **hội thoại**
 
 ## Khi xong
 Chạy `npx tsc --noEmit -p .` trong thư mục `web`, sửa lỗi trong file của bạn (bỏ qua lỗi ở file người khác đang sửa). Không chạy git. Báo lại: danh sách file hoặc bài đã viết, và những điểm bạn còn phân vân.
+
+### Tự kiểm trước khi báo xong (bổ sung sau vòng review 2026-09-25)
+
+- Đi qua **từng** tiêu chí trong `checklist` và chỉ ra câu nào trong `model` thỏa tiêu chí đó. Không chỉ ra được thì sửa bài mẫu hoặc sửa tiêu chí.
+- Đếm lại số từ và số câu của `model` so với con số trong `prompt` (ví dụ "60–80 từ", "6–8 câu").
+- Hội thoại và bài mẫu chỉ dùng ngữ pháp đã dạy tới bài hiện tại. Cụm cố định (Can I try it on?, Come in) thì được dùng.
+- Tên riêng: Mr/Ms đi với họ, không đi với tên (Hi Long, Dear Mr Nguyen).
