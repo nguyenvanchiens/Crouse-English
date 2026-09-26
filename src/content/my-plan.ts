@@ -129,3 +129,144 @@ export const DAILY_ROUTINE: { minutes: number; what: string; to: "vocab" | "gram
  */
 export const OFFICIAL_EXAMS =
   "Muốn có chứng nhận C1 được công nhận khi đi học, đi làm, hãy thi một chứng chỉ quốc tế như Cambridge C1 Advanced hoặc IELTS. Theo IELTS, ngưỡng C1 nằm giữa band 6.5 và 7, nên nhắm band 7 nếu cần chắc chắn là C1.";
+
+export interface OfficialCheck {
+  exam: string;
+  /** Cambridge's preparation page with the free digital and paper sample tests and answer keys */
+  prepUrl: string;
+  /** Cambridge English Scale score for the level */
+  scale: number;
+  /** marked with the answer key */
+  sections: { id: string; label: string; max: number; pass: number }[];
+  /** two tasks, each criterion 0–5 per task */
+  writing: { max: number; pass: number; criteria: string[] };
+  /** each criterion 0–5 (half marks allowed), multiplied by its weight */
+  speaking: { max: number; pass: number; criteria: { id: string; label: string; weight: number }[] };
+}
+
+export const CONVERSION_PDF =
+  "https://www.cambridgeenglish.org/Images/210434-converting-practice-test-scores-to-cambridge-english-scale-scores.pdf";
+
+const WRITING_B = ["Content", "Communicative Achievement", "Organisation", "Language"];
+const GLOBAL = "Global Achievement";
+
+/**
+ * The official sample test for each plan level, the raw marks that reach the level and how writing and
+ * speaking are marked, from Cambridge's "Converting practice test scores to Cambridge English Scale
+ * scores" (Nov 2023; read 2026-09). The marks apply to official Cambridge practice tests only.
+ */
+export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
+  A2: {
+    exam: "A2 Key",
+    prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/key/preparation/",
+    scale: 120,
+    sections: [
+      { id: "reading", label: "Reading (Parts 1–5)", max: 30, pass: 20 },
+      { id: "listening", label: "Listening", max: 25, pass: 17 },
+    ],
+    writing: { max: 30, pass: 18, criteria: ["Content", "Organisation", "Language"] },
+    speaking: {
+      max: 45,
+      pass: 27,
+      criteria: [
+        { id: "gv", label: "Grammar and Vocabulary", weight: 2 },
+        { id: "pron", label: "Pronunciation", weight: 2 },
+        { id: "ic", label: "Interactive Communication", weight: 2 },
+        { id: "ga", label: GLOBAL, weight: 3 },
+      ],
+    },
+  },
+  B1: {
+    exam: "B1 Preliminary",
+    prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/",
+    scale: 140,
+    sections: [
+      { id: "reading", label: "Reading", max: 32, pass: 23 },
+      { id: "listening", label: "Listening", max: 25, pass: 18 },
+    ],
+    writing: { max: 40, pass: 24, criteria: WRITING_B },
+    speaking: {
+      max: 30,
+      pass: 18,
+      criteria: [
+        { id: "gv", label: "Grammar and Vocabulary", weight: 1 },
+        { id: "dm", label: "Discourse Management", weight: 1 },
+        { id: "pron", label: "Pronunciation", weight: 1 },
+        { id: "ic", label: "Interactive Communication", weight: 1 },
+        { id: "ga", label: GLOBAL, weight: 2 },
+      ],
+    },
+  },
+  B2: {
+    exam: "B2 First",
+    prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/first/preparation/",
+    scale: 160,
+    sections: [
+      { id: "reading", label: "Reading (Parts 1, 5, 6, 7)", max: 42, pass: 24 },
+      { id: "use", label: "Use of English (Parts 2, 3, 4)", max: 28, pass: 18 },
+      { id: "listening", label: "Listening", max: 30, pass: 18 },
+    ],
+    writing: { max: 40, pass: 24, criteria: WRITING_B },
+    speaking: {
+      max: 60,
+      pass: 36,
+      criteria: [
+        { id: "gv", label: "Grammar and Vocabulary", weight: 2 },
+        { id: "dm", label: "Discourse Management", weight: 2 },
+        { id: "pron", label: "Pronunciation", weight: 2 },
+        { id: "ic", label: "Interactive Communication", weight: 2 },
+        { id: "ga", label: GLOBAL, weight: 4 },
+      ],
+    },
+  },
+  C1: {
+    exam: "C1 Advanced",
+    prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/preparation/",
+    scale: 180,
+    sections: [
+      { id: "reading", label: "Reading (Parts 1, 5, 6, 7, 8)", max: 50, pass: 32 },
+      { id: "use", label: "Use of English (Parts 2, 3, 4)", max: 28, pass: 16 },
+      { id: "listening", label: "Listening", max: 30, pass: 18 },
+    ],
+    writing: { max: 40, pass: 24, criteria: WRITING_B },
+    speaking: {
+      max: 75,
+      pass: 45,
+      criteria: [
+        { id: "gr", label: "Grammatical Resource", weight: 2 },
+        { id: "lr", label: "Lexical Resource", weight: 2 },
+        { id: "dm", label: "Discourse Management", weight: 2 },
+        { id: "pron", label: "Pronunciation", weight: 2 },
+        { id: "ic", label: "Interactive Communication", weight: 2 },
+        { id: "ga", label: GLOBAL, weight: 5 },
+      ],
+    },
+  },
+};
+
+/** What to paste into an AI chat so it marks the way Cambridge examiners do. */
+export function writingPrompt(c: OfficialCheck): string {
+  return [
+    `Bạn là giám khảo chấm phần Writing của kỳ thi Cambridge ${c.exam}.`,
+    `Chấm từng bài theo thang chính thức: mỗi tiêu chí cho 0–5 điểm, chỉ điểm nguyên: ${c.writing.criteria.join(", ")}.`,
+    `Với mỗi bài: cho điểm từng tiêu chí, giải thích ngắn bằng tiếng Việt vì sao, chỉ ra lỗi cụ thể và cách sửa.`,
+    `Cuối cùng cộng tổng của cả hai bài (tối đa ${c.writing.max} điểm). Chấm nghiêm như thi thật, không nâng điểm.`,
+    ``,
+    `Đề bài 1: [dán đề]`,
+    `Bài làm 1: [dán bài]`,
+    `Đề bài 2: [dán đề]`,
+    `Bài làm 2: [dán bài]`,
+  ].join("\n");
+}
+
+export function speakingPrompt(c: OfficialCheck): string {
+  return [
+    `Bạn là giám khảo chấm phần Speaking của kỳ thi Cambridge ${c.exam}. Tôi gửi bản ghi âm (hoặc bản chép lời) bài nói của tôi theo đề mẫu chính thức.`,
+    `Cho điểm 0–5 (được cho nửa điểm) cho từng tiêu chí: ${c.speaking.criteria.map((x) => x.label).join(", ")}.`,
+    `Giải thích ngắn bằng tiếng Việt vì sao, chỉ ra lỗi cụ thể và cách sửa. Chấm nghiêm như thi thật, không nâng điểm.`,
+    `Nếu chỉ có bản chép lời thì nói rõ là không chấm được Pronunciation.`,
+    ``,
+    `Đề: [dán câu hỏi của đề mẫu]`,
+    `Bài nói: [đính kèm bản ghi âm hoặc dán bản chép lời]`,
+  ].join("\n");
+}
