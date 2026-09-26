@@ -9,6 +9,14 @@ import { FINAL_PASS } from "@/content/review";
 import { certificateStatus, courseProgress, lastCompletedAt } from "@/lib/progress-core";
 import { progress, useProgress } from "@/lib/progress";
 import { EmptyState } from "@/components/ui/empty-state";
+import { rewardById } from "@/content/rewards";
+
+/** Certificate border bought in the rewards shop (/doi-qua). */
+const FRAME_CLASS: Record<string, string> = {
+  "frame-silver": "border-slate-400 [box-shadow:0_8px_0_0_var(--color-slate-500)]",
+  "frame-gold": "border-amber-500 [box-shadow:0_8px_0_0_var(--color-amber-700)]",
+  "frame-jade": "border-emerald-600 [box-shadow:0_8px_0_0_var(--color-emerald-800)]",
+};
 import { ProgressBar } from "@/components/ui/progress-bar";
 
 export function CompletionView({ course }: { course: Course }) {
@@ -94,11 +102,14 @@ export function CompletionView({ course }: { course: Course }) {
           <section
             id="certificate"
             aria-label="Chứng chỉ hoàn thành"
-            className="clay mt-10 border-[6px] bg-card px-8 py-14 text-center sm:px-16"
+            className={`clay mt-10 border-[6px] bg-card px-8 py-14 text-center sm:px-16 ${FRAME_CLASS[state.rewards.frame ?? ""] ?? ""}`}
           >
             <Award className="mx-auto size-14 text-tangerine-deep" aria-hidden />
             <p className="mt-4 font-display text-2xl font-bold text-ink-soft">Chứng nhận hoàn thành</p>
             <p className="mt-6 font-display text-5xl font-extrabold sm:text-6xl">{state.learnerName}</p>
+            {rewardById(state.rewards.title) && (
+              <p className="mt-2 font-display text-xl font-bold text-grape">{rewardById(state.rewards.title)!.name}</p>
+            )}
             <p className="mx-auto mt-6 max-w-lg text-lg">
               đã hoàn thành khóa <strong>{course.title}</strong> (trình độ {course.level}) tại Crouse English.
             </p>

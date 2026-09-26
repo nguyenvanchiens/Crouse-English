@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import type { Level } from "@/content/types";
+import type { Reward, RewardKind } from "./points";
 import {
   STORAGE_KEY,
   applyCompleteLesson,
@@ -10,6 +11,8 @@ import {
   applyPlacement,
   applyReviewWord,
   applyToggleTopic,
+  applyBuyReward,
+  applyEquipReward,
   emptyState,
   parseState,
   type ProgressState,
@@ -71,8 +74,8 @@ export const progress = {
   enroll(courseSlug: string) {
     write(applyEnroll(read(), courseSlug));
   },
-  completeLesson(courseSlug: string, lessonSlug: string, score: number | null): ProgressState {
-    const next = applyCompleteLesson(read(), courseSlug, lessonSlug, score, new Date());
+  completeLesson(courseSlug: string, lessonSlug: string, score: number | null, kind: "lesson" | "review" | "final" = "lesson"): ProgressState {
+    const next = applyCompleteLesson(read(), courseSlug, lessonSlug, score, new Date(), kind);
     write(next);
     return next;
   },
@@ -87,5 +90,11 @@ export const progress = {
   },
   toggleTopic(key: string) {
     write(applyToggleTopic(read(), key));
+  },
+  buyReward(reward: Reward) {
+    write(applyBuyReward(read(), reward, new Date()));
+  },
+  equipReward(kind: Exclude<RewardKind, "freeze">, id: string | null) {
+    write(applyEquipReward(read(), kind, id));
   },
 };

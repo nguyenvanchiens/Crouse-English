@@ -10,6 +10,8 @@ import { certificateStatus, courseProgress, displayStreak, todayKey, type Certif
 import { clearDraft, loadDraft, saveDraft, type LessonDraft } from "@/lib/lesson-draft";
 import { percentScore } from "@/lib/scoring";
 import { setDefaultAccent } from "@/lib/speech";
+import type { PointEntry } from "@/lib/points";
+import { PointsEarned } from "@/components/points";
 import { progress, useProgress } from "@/lib/progress";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
@@ -55,11 +57,12 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const [results, setResults] = useState<LessonDraft["results"]>(draft?.results ?? {});
   const [exerciseProgress, setExerciseProgress] = useState<Record<number, ExerciseProgress>>(draft?.exerciseProgress ?? {});
   const [taskProgress, setTaskProgress] = useState<Record<number, TaskProgress>>(draft?.taskProgress ?? {});
-  const [finished, setFinished] = useState<{ score: number | null; cert: CertificateStatus } | null>(null);
+  const [finished, setFinished] = useState<{ score: number | null; cert: CertificateStatus; points: PointEntry[] } | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
   const menuCloseRef = useRef<HTMLButtonElement>(null);
   const menuWasOpen = useRef(false);
+  const finishRef = useRef<HTMLDivElement>(null);
 
   // Opening a lesson of an open course puts that course in "Khóa học của tôi".
   useEffect(() => {
@@ -86,6 +89,11 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
+  // The result card replaces the step, which was usually scrolled far down: bring it into view.
+  useEffect(() => {
+    if (finished) finishRef.current?.focus();
+  }, [finished]);
+
   // Keep the lesson in progress across reloads; nothing is saved before the first step is touched.
   const touched = stepIndex > 0 || completed.some(Boolean) || Object.keys(exerciseProgress).length > 0 || Object.keys(taskProgress).length > 0;
   useEffect(() => {
@@ -94,7 +102,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   }, [course.slug, lesson.slug, finished, touched, stepIndex, completed, results, exerciseProgress, taskProgress]);
 
   const cp = courseProgress(course, state);
-  const streak = displayStreak(state.streak, todayKey());
+  const streak = displayStreak(state.streak, todayKey(), state.rewards.freezes);
 
   function markComplete(i: number, result?: ExerciseResult) {
     setCompleted((c) => c.map((v, k) => (k === i ? true : v)));
@@ -112,9 +120,12 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
 
   function finishLesson() {
     const score = lessonScore();
-    const nextState = progress.completeLesson(course.slug, lesson.slug, score);
+    const before = state.points.log;
+    const nextState = progress.completeLesson(course.slug, lesson.slug, score, lesson.final ? "final" : lesson.review ? "review" : "lesson");
     clearDraft(course.slug, lesson.slug);
-    setFinished({ score, cert: certificateStatus(course, nextState) });
+    // entries added by this finish (older ones keep their identity in the log)
+    const gained = nextState.points.log.filter((e) => !before.includes(e));
+    setFinished({ score, cert: certificateStatus(course, nextState), points: gained });
   }
 
   function restart() {
@@ -185,11 +196,12 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
       // passed the test, but some lessons are still unfinished (lessons can be opened in any order)
       const left = cp.total - cp.done;
       return (
-        <div className="clay card-in mx-auto max-w-2xl px-6 py-12 text-center">
+        <div ref={finishRef} tabIndex={-1} className="clay card-in mx-auto max-w-2xl scroll-mt-28 px-6 py-12 text-center">
           <h2 className="font-display text-4xl font-extrabold">Bạn đạt {attempt}%, đã qua bài kiểm tra!</h2>
           <p className="mx-auto mt-3 max-w-md text-lg">
             Còn {left} bài học chưa hoàn thành. Học nốt các bài đó là bạn nhận được chứng chỉ, không cần làm lại bài kiểm tra.
           </p>
+          <PointsEarned entries={finished.points} />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {cp.nextLesson && (
               <Link href={`/hoc/${course.slug}/${cp.nextLesson.slug}`} className="btn btn-primary">
@@ -204,12 +216,13 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
 
     if (finished && lesson.final && !earned) {
       return (
-        <div className="clay card-in mx-auto max-w-2xl px-6 py-12 text-center">
+        <div ref={finishRef} tabIndex={-1} className="clay card-in mx-auto max-w-2xl scroll-mt-28 px-6 py-12 text-center">
           <h2 className="font-display text-4xl font-extrabold">Bạn đạt {attempt}%</h2>
           <p className="mx-auto mt-3 max-w-md text-lg">
             Cần đạt ít nhất {FINAL_PASS}% để nhận chứng chỉ. Hãy xem lại những câu sai, ôn các bài ôn tập chương rồi làm lại.
             Lần làm tốt nhất sẽ được tính.
           </p>
+          <PointsEarned entries={finished.points} />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button type="button" className="btn btn-primary" onClick={restart}>Làm lại bài kiểm tra</button>
             <Link href={`/khoa-hoc/${course.slug}`} className="btn btn-ghost">Ôn lại theo giáo trình</Link>
@@ -220,7 +233,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
 
     if (finished) {
       return (
-        <div className="clay card-in mx-auto max-w-2xl px-6 py-12 text-center">
+        <div ref={finishRef} tabIndex={-1} className="clay card-in mx-auto max-w-2xl scroll-mt-28 px-6 py-12 text-center">
           <PartyPopper className="mx-auto size-12 text-tangerine-deep" aria-hidden />
           <h2 className="mt-4 font-display text-4xl font-extrabold">
             {lesson.final ? "Bạn đã vượt qua bài kiểm tra cuối khóa!" : `Xong bài ${lesson.title}!`}
@@ -233,7 +246,8 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
           {lesson.final && finished.cert.status === "earned" && finished.cert.finalScore !== undefined && finished.cert.finalScore > attempt && (
             <p className="mt-1 text-ink-soft">Điểm cao nhất của bạn ({finished.cert.finalScore}%) vẫn được tính.</p>
           )}
-          <p className="mt-1 text-ink-soft">Chuỗi ngày học: {displayStreak(state.streak, todayKey())} ngày</p>
+          <p className="mt-1 text-ink-soft">Chuỗi ngày học: {displayStreak(state.streak, todayKey(), state.rewards.freezes)} ngày</p>
+          <PointsEarned entries={finished.points} />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {earned ? (
               <Link href={`/hoc/${course.slug}/hoan-thanh`} className="btn btn-primary">Nhận chứng chỉ</Link>

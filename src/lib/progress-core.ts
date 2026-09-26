@@ -1,6 +1,21 @@
 import type { Course, Lesson, Level } from "@/content/types";
 import { FINAL_PASS } from "@/content/review";
 import { isLevel } from "./course-utils";
+import {
+  POINTS,
+  award,
+  awardVocab,
+  buy,
+  emptyPoints,
+  emptyRewards,
+  equip,
+  parsePoints,
+  parseRewards,
+  type PointsState,
+  type Reward,
+  type RewardKind,
+  type RewardsState,
+} from "./points";
 
 export const STORAGE_KEY = "ce:progress:v1";
 
@@ -18,6 +33,10 @@ export interface ProgressState {
   srs: Record<string, SrsCard>;
   /** word-bank topics the learner added to their review, keyed by topicKey() */
   topics: string[];
+  /** learning points (see lib/points.ts) */
+  points: PointsState;
+  /** rewards bought with points: cosmetics and streak freezes */
+  rewards: RewardsState;
 }
 export interface SrsCard { box: number; due: string }
 export interface CourseProgress { done: number; total: number; percent: number; nextLesson: Lesson | null }
@@ -32,6 +51,8 @@ export function emptyState(): ProgressState {
     placement: null,
     srs: {},
     topics: [],
+    points: emptyPoints(),
+    rewards: emptyRewards(),
   };
 }
 
@@ -73,6 +94,8 @@ export function parseState(raw: string | null): ProgressState {
       ? Object.fromEntries(Object.entries(data.srs).filter((e): e is [string, SrsCard] => isSrsCard(e[1])))
       : {},
     topics: Array.isArray(data.topics) ? [...new Set(data.topics.filter((t): t is string => typeof t === "string"))] : [],
+    points: parsePoints(data.points),
+    rewards: parseRewards(data.rewards),
     streak:
       isRecord(streak) && Number.isInteger(streak.current) && (streak.current as number) >= 0
         ? { current: streak.current as number, lastDay: typeof streak.lastDay === "string" ? streak.lastDay : null }
@@ -145,10 +168,38 @@ export function nextStreak(streak: Streak, today: string): Streak {
   return { current: 1, lastDay: today };
 }
 
-export function displayStreak(streak: Streak, today: string): number {
+/** The streak to show today; with a streak freeze in hand, one missed day does not break it yet. */
+export function displayStreak(streak: Streak, today: string, freezes = 0): number {
   if (streak.lastDay === null) return 0;
   const diff = dayNumber(today) - dayNumber(streak.lastDay);
+  if (diff === 2 && freezes > 0) return streak.current;
   return diff >= -1 && diff <= 1 ? streak.current : 0;
+}
+
+/**
+ * Records activity today: advances the streak (spending a streak freeze if exactly one day
+ * was missed), then pays the first-of-day and streak-milestone points.
+ */
+function recordActivity(state: ProgressState, now: Date): ProgressState {
+  const today = todayKey(now);
+  const last = state.streak.lastDay;
+  const missedOne = last !== null && dayNumber(today) - dayNumber(last) === 2;
+  let next: ProgressState;
+  if (missedOne && state.rewards.freezes > 0) {
+    next = {
+      ...state,
+      streak: { current: state.streak.current + 1, lastDay: today },
+      rewards: { ...state.rewards, freezes: state.rewards.freezes - 1 },
+      points: { ...state.points, log: [{ at: now.toISOString(), amount: 0, reason: "Dùng thẻ đóng băng chuỗi: chuỗi ngày học được giữ" }, ...state.points.log].slice(0, 50) },
+    };
+  } else {
+    next = { ...state, streak: nextStreak(state.streak, today) };
+  }
+  let points = award(next.points, `day:${today}`, POINTS.firstOfDay, "Ngày học mới", now);
+  for (const [days, amount] of Object.entries(POINTS.streak)) {
+    if (next.streak.current >= Number(days)) points = award(points, `streak:${days}`, amount, `Chuỗi ${days} ngày học liên tiếp`, now);
+  }
+  return { ...next, points };
 }
 
 export function lessonKey(courseSlug: string, lessonSlug: string): string {
@@ -206,19 +257,31 @@ export function applyCompleteLesson(
   lessonSlug: string,
   score: number | null,
   now: Date,
+  kind: "lesson" | "review" | "final" = "lesson",
 ): ProgressState {
   const key = lessonKey(courseSlug, lessonSlug);
   const prev = state.lessons[key];
   const best =
     score === null ? (prev?.score ?? null) : prev?.score != null ? Math.max(prev.score, score) : score;
-  return {
-    ...applyEnroll(state, courseSlug),
-    lessons: {
-      ...state.lessons,
-      [key]: { done: true, score: best, completedAt: prev?.done ? prev.completedAt : now.toISOString() },
+  const next = recordActivity(
+    {
+      ...applyEnroll(state, courseSlug),
+      lessons: {
+        ...state.lessons,
+        [key]: { done: true, score: best, completedAt: prev?.done ? prev.completedAt : now.toISOString() },
+      },
     },
-    streak: nextStreak(state.streak, todayKey(now)),
-  };
+    now,
+  );
+  let points = next.points;
+  if (kind === "review") points = award(points, `lesson:${key}`, POINTS.review, "Xong bài ôn tập chương", now);
+  else if (kind === "lesson") points = award(points, `lesson:${key}`, POINTS.lesson, "Xong một bài học", now);
+  if (best !== null && best >= 80) points = award(points, `s80:${key}`, POINTS.score80, "Đạt từ 80% trở lên", now);
+  if (best === 100) points = award(points, `s100:${key}`, POINTS.score100, "Đạt điểm tuyệt đối", now);
+  if (kind === "final" && best !== null && best >= FINAL_PASS) {
+    points = award(points, `final:${courseSlug}`, POINTS.finalPass, "Vượt qua bài kiểm tra cuối khóa", now);
+  }
+  return { ...next, points };
 }
 
 export function applyLearnerName(state: ProgressState, name: string): ProgressState {
@@ -233,7 +296,11 @@ export function applyPlacement(
   score: number,
   now: Date,
 ): ProgressState {
-  return { ...state, placement: { level, startLevel, score, takenAt: now.toISOString() } };
+  return {
+    ...state,
+    placement: { level, startLevel, score, takenAt: now.toISOString() },
+    points: award(state.points, "placement", POINTS.placement, "Làm bài kiểm tra trình độ", now),
+  };
 }
 
 // ---- spaced repetition (Leitner boxes) for vocabulary ----
@@ -260,7 +327,17 @@ export function applyReviewWord(state: ProgressState, key: string, remembered: b
   const prev = state.srs[key];
   const box = remembered ? Math.min((prev?.box ?? 0) + 1, SRS_INTERVALS.length) : 0;
   const due = addDays(today, remembered ? SRS_INTERVALS[box - 1] : 1);
-  return { ...state, srs: { ...state.srs, [key]: { box, due } }, streak: nextStreak(state.streak, today) };
+  const next = recordActivity({ ...state, srs: { ...state.srs, [key]: { box, due } } }, now);
+  return remembered ? { ...next, points: awardVocab(next.points, today, now) } : next;
+}
+
+export function applyBuyReward(state: ProgressState, reward: Reward, now: Date): ProgressState {
+  const { points, rewards } = buy(state.points, state.rewards, reward, now);
+  return points === state.points ? state : { ...state, points, rewards };
+}
+
+export function applyEquipReward(state: ProgressState, kind: Exclude<RewardKind, "freeze">, id: string | null): ProgressState {
+  return { ...state, rewards: equip(state.rewards, kind, id) };
 }
 
 export function topicKey(courseSlug: string, topicId: string): string {
