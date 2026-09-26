@@ -139,7 +139,7 @@ export default async function StartHerePage() {
 
       <section aria-labelledby="week">
         <h2 id="week" className="font-display text-3xl font-extrabold">Một tuần học mẫu cho người đi làm</h2>
-        <div className="mt-6 overflow-x-auto rounded-2xl border-[2.5px] border-ink bg-card">
+        <div className="mt-6 overflow-x-auto rounded-2xl border-[2.5px] border-ink bg-card" tabIndex={0} role="region" aria-label="Bảng, cuộn ngang để xem hết">
           <table className="w-full min-w-[28rem] border-collapse text-left">
             <tbody>
               {WEEK.map(([day, what]) => (

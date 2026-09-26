@@ -131,10 +131,21 @@ export interface SpeakingStep {
 }
 export type Step = LectureStep | VideoStep | VocabStep | DialogueStep | ReadingStep | ExerciseStep | SpeakingStep | TaskStep;
 
+/**
+ * Outside material that illustrates a lesson, shown with its lecture: a YouTube video played on the page,
+ * or a page from a trusted source opened in a new tab. Every entry was checked to exist and to teach the
+ * lesson's point; a lesson without a good match has none. Vietnamese explanations come first, English when
+ * no Vietnamese one is good enough.
+ */
+export type LessonMedia =
+  | { kind: "youtube"; youtubeId: string; title: string; source: string; minutes: number; lang: "vi" | "en"; note: string }
+  | { kind: "link"; url: string; title: string; source: string; lang: "vi" | "en"; note: string };
+
 export interface Lesson {
   slug: string;
   title: string;
   minutes: number;
+  media?: LessonMedia;
   /** generated chapter review: a single exercise step drawn from the chapter's lessons */
   review?: boolean;
   /** generated end-of-course test; the certificate needs FINAL_PASS on it */

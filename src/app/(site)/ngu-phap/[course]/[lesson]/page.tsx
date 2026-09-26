@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import type { LectureStep } from "@/content/types";
 import { LectureContent } from "@/components/lesson/step-lecture";
+import { LessonMediaCard } from "@/components/lesson/lesson-media";
 import { getCourses, getLesson } from "@/lib/content";
 import { grammarIndex } from "@/lib/grammar";
 
@@ -43,6 +44,11 @@ export default async function GrammarEntryPage(props: PageProps<"/ngu-phap/[cour
       <article className="clay mt-3 p-6 sm:p-8">
         <LectureContent step={lecture} headingLevel={1} />
       </article>
+      {ctx.lesson.media && (
+        <div className="mt-6">
+          <LessonMediaCard media={ctx.lesson.media} />
+        </div>
+      )}
       <div className="mt-8 flex flex-wrap gap-3">
         <Link href={`/hoc/${ctx.course.slug}/${ctx.lesson.slug}`} className="btn btn-primary">
           Luyện tập bài này

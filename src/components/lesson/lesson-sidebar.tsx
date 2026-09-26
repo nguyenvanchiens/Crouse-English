@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle2, Circle, ClipboardCheck, PlayCircle } from "lucide-react";
+import { CheckCircle2, Circle, ClipboardCheck, PlayCircle, Video } from "lucide-react";
 import type { Course } from "@/content/types";
 import { lessonKey, type ProgressState } from "@/lib/progress-core";
 
@@ -37,6 +37,12 @@ export function LessonSidebar({
                   >
                     <Icon className={`size-5 shrink-0 ${done && !current ? "text-leaf" : ""}`} aria-hidden />
                     <span className="flex-1">{l.title}</span>
+                    {l.media?.kind === "youtube" && (
+                      <>
+                        <Video className="size-4 shrink-0 text-ink-soft" aria-hidden />
+                        <span className="sr-only">(có video)</span>
+                      </>
+                    )}
                     {done && <span className="sr-only">(đã học)</span>}
                   </Link>
                 </li>

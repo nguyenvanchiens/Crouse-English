@@ -185,7 +185,8 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
           />
         );
       case "lecture":
-        return <StepLecture step={step} done={completed[i]} onComplete={done} />;
+        // the lesson's video or link goes with its (first) lecture
+        return <StepLecture step={step} media={steps.findIndex((s) => s.type === "lecture") === i ? lesson.media : undefined} done={completed[i]} onComplete={done} />;
       case "video":
         return <StepVideo step={step} done={completed[i]} onComplete={done} />;
       case "vocab":

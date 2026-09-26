@@ -8,6 +8,7 @@ import { tiengAnhC1 } from "./courses/tieng-anh-c1";
 import { toeic } from "./courses/toeic";
 import { treEm } from "./courses/tre-em";
 import { withFinalTest } from "./review";
+import { LESSON_MEDIA } from "./media";
 import { SELF_STUDY } from "./self-study";
 import type { Course, WordTopic } from "./types";
 import wordsA1 from "./wordbanks/a1";
@@ -24,9 +25,16 @@ const WORD_BANKS: Record<string, WordTopic[]> = {
   "tieng-anh-c1": wordsC1,
 };
 
-/** Adds the course's word bank and self-study plan, which live in their own files. */
+/** Adds the course's word bank, self-study plan and lesson videos or links, which live in their own files. */
 const withExtras = (c: Course): Course => ({
   ...c,
+  modules: c.modules.map((m) => ({
+    ...m,
+    lessons: m.lessons.map((l) => {
+      const media = LESSON_MEDIA[c.slug]?.[l.slug];
+      return media ? { ...l, media } : l;
+    }),
+  })),
   ...(WORD_BANKS[c.slug] ? { wordBank: WORD_BANKS[c.slug] } : {}),
   ...(SELF_STUDY[c.slug] ? { selfStudy: SELF_STUDY[c.slug] } : {}),
 });

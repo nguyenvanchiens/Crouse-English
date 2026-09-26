@@ -1,7 +1,8 @@
 "use client";
 
 import { Check, GraduationCap, Lightbulb, ListChecks, TriangleAlert, Volume2 } from "lucide-react";
-import type { LectureBlock, LectureStep } from "@/content/types";
+import type { LectureBlock, LectureStep, LessonMedia } from "@/content/types";
+import { LessonMediaCard } from "./lesson-media";
 import { parseBold } from "@/lib/rich-text";
 import { speak, useSpeechSupport } from "@/lib/speech";
 
@@ -31,7 +32,8 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
       );
     case "table":
       return (
-        <div className="overflow-x-auto rounded-2xl border-[2.5px] border-ink bg-card">
+        // a wide table scrolls sideways on phones; focusable so it can be scrolled with the keyboard too
+        <div className="overflow-x-auto rounded-2xl border-[2.5px] border-ink bg-card" tabIndex={0} role="region" aria-label="Bảng, cuộn ngang để xem hết">
           <table className="w-full min-w-[28rem] border-collapse text-left">
             <thead className="bg-sun-soft">
               <tr>
@@ -152,14 +154,17 @@ export function LectureContent({ step, headingLevel = 2 }: { step: LectureStep; 
   );
 }
 
-export function StepLecture({ step, done, onComplete }: { step: LectureStep; done: boolean; onComplete: () => void }) {
+export function StepLecture({ step, media, done, onComplete }: { step: LectureStep; media?: LessonMedia; done: boolean; onComplete: () => void }) {
   return (
-    <article className="clay p-6 sm:p-8">
-      <LectureContent step={step} />
-      <button type="button" className="btn btn-ghost mt-8" onClick={onComplete} disabled={done}>
-        {done && <Check className="size-5 text-leaf" aria-hidden />}
-        Đã đọc xong
-      </button>
-    </article>
+    <div className="space-y-6">
+      {media && <LessonMediaCard media={media} />}
+      <article className="clay p-6 sm:p-8">
+        <LectureContent step={step} />
+        <button type="button" className="btn btn-ghost mt-8" onClick={onComplete} disabled={done}>
+          {done && <Check className="size-5 text-leaf" aria-hidden />}
+          Đã đọc xong
+        </button>
+      </article>
+    </div>
   );
 }
