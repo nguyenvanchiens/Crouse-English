@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Volume2 } from "lucide-react";
 import type { Course, PlacementQuestion } from "@/content/types";
 import { suggestCourseSlug } from "@/lib/course-utils";
-import { PLACEMENT_LEVELS, scorePlacement, type PlacementResult } from "@/lib/placement";
+import { DONT_KNOW, PLACEMENT_LEVELS, scorePlacement, type PlacementResult } from "@/lib/placement";
 import { progress, useProgress } from "@/lib/progress";
 import { POINTS } from "@/lib/points";
 import { speak, useSpeechSupport } from "@/lib/speech";
@@ -40,12 +40,12 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
     setStage("quiz");
   }
 
-  function next() {
+  function next(all = answers) {
     if (i < questions.length - 1) {
       setI(i + 1);
       return;
     }
-    const r = scorePlacement(questions, answers);
+    const r = scorePlacement(questions, all);
     setFirstTime(!state.points.awarded.includes("placement"));
     progress.savePlacement(r.level, r.startLevel, r.score);
     setResult(r);
@@ -58,6 +58,9 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
         <h1 className="font-display text-5xl font-extrabold leading-tight">Kiểm tra trình độ tiếng Anh</h1>
         <p className="mt-4 text-lg text-ink-soft">
           {questions.length} câu, khoảng 20 phút, gồm từ vựng, ngữ pháp, nghe và đọc hiểu, từ A1 đến C1. Mỗi câu chỉ trả lời một lần, không quay lại câu trước.
+        </p>
+        <p className="mt-3 rounded-2xl border-2 border-ink bg-sun-soft px-4 py-3">
+          Câu nào không biết thì bấm <strong>Tôi không biết</strong>, đừng đoán. Đoán trúng làm kết quả cao hơn sức thật, và bạn sẽ được xếp vào khóa quá khó.
         </p>
         {ready && state.placement && (
           <p className="mt-4 rounded-2xl bg-sky px-4 py-3">
@@ -86,6 +89,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
                 ? `Bạn đã vững đến cấp ${result.level}. `
                 : "Bạn chưa vượt qua cấp nào, hãy bắt đầu từ nền tảng. "}
             Đúng {result.score}% tổng số câu.
+            {result.dontKnow > 0 && ` Bạn chọn “Tôi không biết” ở ${result.dontKnow} câu, các câu này được tính là chưa đúng.`}
           </p>
           {firstTime && <p className="mt-2 font-display text-lg font-bold">+{POINTS.placement} điểm học cho lần kiểm tra đầu tiên</p>}
           <dl className="mx-auto mt-8 grid max-w-md gap-3 text-left">
@@ -149,9 +153,22 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
           onChange={(k) => setAnswers({ ...answers, [q.id]: k })}
         />
       </div>
-      <button type="button" className="btn btn-primary mt-8" disabled={choice === null} onClick={next}>
-        {i < questions.length - 1 ? "Câu tiếp" : "Xem kết quả"}
-      </button>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <button type="button" className="btn btn-primary" disabled={choice === null || choice === DONT_KNOW} onClick={() => next()}>
+          {i < questions.length - 1 ? "Câu tiếp" : "Xem kết quả"}
+        </button>
+        <button
+          type="button"
+          className="btn btn-ghost"
+          onClick={() => {
+            const all = { ...answers, [q.id]: DONT_KNOW };
+            setAnswers(all);
+            next(all);
+          }}
+        >
+          Tôi không biết
+        </button>
+      </div>
     </div>
   );
 }

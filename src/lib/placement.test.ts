@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { PlacementQuestion } from "@/content/types";
 import { PLACEMENT_QUESTIONS } from "@/content/placement";
-import { PLACEMENT_LEVELS, scorePlacement } from "./placement";
+import { DONT_KNOW, PLACEMENT_LEVELS, scorePlacement } from "./placement";
 
 const q = (id: string, level: PlacementQuestion["level"]): PlacementQuestion => ({
   id, level, skill: "grammar", prompt: id, options: ["a", "b"], answer: 0,
@@ -38,6 +38,15 @@ describe("scorePlacement", () => {
   it("reports C1 mastered when everything is right", () => {
     const r = scorePlacement(questions, answer(questions.map((x) => x.id)));
     expect(r).toMatchObject({ level: "C1", startLevel: "C1", score: 100, mastered: true });
+  });
+});
+
+describe("Tôi không biết", () => {
+  it("scores as wrong and is counted", () => {
+    const all = { ...answer(questions.map((x) => x.id)), e1: DONT_KNOW, e2: DONT_KNOW };
+    const r = scorePlacement(questions, all);
+    expect(r).toMatchObject({ level: "B2", startLevel: "C1", dontKnow: 2, score: 80 });
+    expect(r.perLevel.C1).toEqual({ correct: 0, total: 2 });
   });
 });
 
