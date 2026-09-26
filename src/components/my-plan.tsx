@@ -1,14 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { ArrowRight, BookOpen, Check, Circle, Clock, ExternalLink, Lock } from "lucide-react";
-import { DAILY_MINUTES, DAILY_ROUTINE, OFFICIAL_EXAMS, READING_STEPS, SENTENCE_DRILLS } from "@/content/my-plan";
+import {
+  CONVERSION_PDF,
+  DAILY_MINUTES,
+  DAILY_ROUTINE,
+  OFFICIAL_CHECKS,
+  OFFICIAL_EXAMS,
+  READING_STEPS,
+  SENTENCE_DRILLS,
+  speakingPrompt,
+  writingPrompt,
+  type OfficialCheck,
+} from "@/content/my-plan";
 import { FINAL_PASS } from "@/content/review";
 import type { Level, SelfStudyPlan } from "@/content/types";
 import { useAuth } from "@/lib/auth";
 import { formatHours } from "@/lib/course-utils";
 import { formatDateVi } from "@/lib/format";
-import { togglePlanTick, usePlanTicks } from "@/lib/my-plan";
+import { plan, usePlan } from "@/lib/my-plan";
+import { MAX_WEEK_HOURS, judgeExam, speakingTotal, weekKey, type ExamRecord, type ExamVerdict } from "@/lib/my-plan-core";
 import { PLACEMENT_LEVELS } from "@/lib/placement";
 import { lessonKey, type ProgressState } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
@@ -38,7 +51,7 @@ const BASE_WEEKS: [number, number] = [1, 2];
 function Tick({ id, ticks, label }: { id: string; ticks: string[]; label: string }) {
   return (
     <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-xl px-2 font-semibold hover:bg-sun-soft">
-      <input type="checkbox" checked={ticks.includes(id)} onChange={() => togglePlanTick(id)} className="size-5 shrink-0 accent-[var(--color-leaf)]" />
+      <input type="checkbox" checked={ticks.includes(id)} onChange={() => plan.toggleTick(id)} className="size-5 shrink-0 accent-[var(--color-leaf)]" />
       {label}
     </label>
   );
@@ -73,11 +86,12 @@ interface LevelStatus {
   finalPassed: boolean;
   certificate: boolean;
   placementPassed: boolean;
+  exam: ExamVerdict | null;
   passed: boolean;
   weak: { lesson: PlanLesson; score: number }[];
 }
 
-function levelStatus(l: PlanLevel, state: ProgressState): LevelStatus {
+function levelStatus(l: PlanLevel, state: ProgressState, exams: Record<string, ExamRecord>): LevelStatus {
   const lessons = l.chapters.flatMap((c) => c.lessons);
   const rec = (slug: string) => state.lessons[lessonKey(l.slug, slug)];
   const study = lessons.filter((x) => x.kind !== "final");
@@ -88,6 +102,7 @@ function levelStatus(l: PlanLevel, state: ProgressState): LevelStatus {
   const placement = state.placement;
   // placement.level is the highest level passed with every lower one passed too
   const placementPassed = !!placement && PLACEMENT_LEVELS.indexOf(placement.level as (typeof PLACEMENT_LEVELS)[number]) >= PLACEMENT_LEVELS.indexOf(l.level as (typeof PLACEMENT_LEVELS)[number]);
+  const exam = judgeExam(OFFICIAL_CHECKS[l.level], exams[l.level]);
   const weak = lessons
     .filter((x) => x.kind !== "final")
     .flatMap((x) => {
@@ -104,7 +119,8 @@ function levelStatus(l: PlanLevel, state: ProgressState): LevelStatus {
     finalPassed,
     certificate,
     placementPassed,
-    passed: certificate && placementPassed,
+    exam,
+    passed: certificate && placementPassed && exam?.passed === true,
     weak,
   };
 }
@@ -112,7 +128,8 @@ function levelStatus(l: PlanLevel, state: ProgressState): LevelStatus {
 export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; grammar: PlanGrammar[]; levels: PlanLevel[] }) {
   const { session, ready } = useAuth();
   const { state, ready: progressReady } = useProgress();
-  const ticks = usePlanTicks();
+  const data = usePlan();
+  const ticks = data.done;
 
   if (!ready || !progressReady) return <div className="clay h-96 animate-pulse bg-card" aria-hidden />;
 
@@ -133,7 +150,7 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
   const grammarDone = grammar.filter((g) => ticks.includes(`g:${g.slug}`)).length;
   const drillsDone = SENTENCE_DRILLS.filter((d) => ticks.includes(`d:${d.id}`)).length;
   const baseDone = grammarDone === grammar.length && drillsDone === SENTENCE_DRILLS.length;
-  const statuses = levels.map((l) => levelStatus(l, state));
+  const statuses = levels.map((l) => levelStatus(l, state, data.exams));
   // stages are taken in order: the first one not passed is the current one
   const currentLevel = baseDone ? statuses.findIndex((s) => !s.passed) : -1;
   const allDone = baseDone && currentLevel === -1;
@@ -158,7 +175,13 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
               href: `/hoc/${cur.slug}/${cur.finalSlug}`,
               why: curStatus.finalScore != null ? `Lần trước đạt ${curStatus.finalScore}%. Ôn các bài dưới 80% rồi làm lại.` : "Đã học hết bài, giờ kiểm tra cả khóa.",
             }
-          : { what: `Làm lại bài kiểm tra trình độ để xác nhận đã vững ${cur.level}`, href: "/kiem-tra-trinh-do", why: "Có chứng chỉ rồi, kiểm tra lại cho chắc trước khi lên cấp." }
+          : !curStatus.placementPassed
+            ? { what: `Làm lại bài kiểm tra trình độ để xác nhận đã vững ${cur.level}`, href: "/kiem-tra-trinh-do", why: "Có chứng chỉ rồi, kiểm tra lại cho chắc trước khi lên cấp." }
+            : {
+                what: `Làm đề mẫu chính thức ${OFFICIAL_CHECKS[cur.level].exam} và nhập điểm`,
+                href: `#exam-${cur.level}`,
+                why: "Bước kiểm chứng cuối: so với ngưỡng thật của Cambridge trước khi lên cấp.",
+              }
       : { what: "Thi chứng chỉ C1 quốc tế", href: "#c1", why: "Bạn đã đi hết lộ trình trên trang." };
 
   const weeksLo = BASE_WEEKS[0] + levels.reduce((n, l) => n + l.weeks[0], 0);
@@ -185,8 +208,8 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
           )}
           <p className="mt-3 text-lg">
             Lộ trình gồm 5 chặng đi theo thứ tự: <strong>chặng nền</strong> lấp ngữ pháp A1 và luyện tách câu, rồi <strong>A2 → B1 → B2 → C1</strong>.
-            Mỗi cấp chỉ tính là qua khi có đủ 3 điều kiện: học hết bài, đạt từ {FINAL_PASS}% bài kiểm tra cuối khóa, và làm lại bài kiểm tra trình độ
-            thấy qua đúng cấp đó. Chưa qua thì ôn lại, không nhảy cấp.
+            Mỗi cấp chỉ tính là qua khi có đủ 4 điều kiện: học hết bài, đạt từ {FINAL_PASS}% bài kiểm tra cuối khóa, làm lại bài kiểm tra trình độ
+            thấy qua đúng cấp đó, và làm đề mẫu chính thức của Cambridge đạt ngưỡng của cấp. Chưa qua thì ôn lại, không nhảy cấp.
           </p>
           <div className="mt-6">
             <p className="mb-2 font-semibold">Đã qua {stagesPassed}/5 chặng</p>
@@ -248,6 +271,14 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
           ))}
         </ol>
       </section>
+
+      <HoursLog
+        hours={data.hours}
+        target={cur ? cur.weeklyHours : Math.round((DAILY_MINUTES * 7) / 60)}
+        stageName={cur ? cur.title : "chặng nền"}
+        needLo={levels.reduce((n, l) => n + l.band[0], 0)}
+        needHi={levels.reduce((n, l) => n + l.band[1], 0)}
+      />
 
       <section aria-labelledby="stage-0" className="scroll-mt-28">
         <div className="flex flex-wrap items-center gap-3">
@@ -379,6 +410,10 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
                     Làm lại <Link href="/kiem-tra-trinh-do" className="font-semibold underline underline-offset-4">bài kiểm tra trình độ</Link> và qua cấp {l.level},
                     bấm Tôi không biết thay vì đoán
                   </Condition>
+                  <Condition ok={s.exam?.passed === true}>
+                    <a href={`#exam-${l.level}`} className="font-semibold underline underline-offset-4">Đề mẫu chính thức {OFFICIAL_CHECKS[l.level].exam}</a> đạt
+                    ngưỡng {l.level} ở mọi phần
+                  </Condition>
                 </ul>
                 {s.weak.length > 0 && (
                   <div className="mt-4 rounded-2xl border-2 border-ink bg-sun-soft px-4 py-3">
@@ -457,6 +492,8 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
                   </ul>
                 </>
               )}
+
+              <ExamCheck level={l.level} check={OFFICIAL_CHECKS[l.level]} record={data.exams[l.level]} verdict={s.exam} n={l.selfStudy ? 4 : 3} />
             </details>
           </section>
         );
@@ -470,5 +507,234 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
         {allDone && <p className="mt-3 font-display text-xl font-bold">Bạn đã đi hết lộ trình. Chúc mừng!</p>}
       </section>
     </div>
+  );
+}
+
+const INPUT = "mt-1 w-full rounded-xl border-[2.5px] border-ink bg-card px-3 py-2 text-lg";
+
+function CopyPrompt({ text, label }: { text: string; label: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <details className="mt-2">
+      <summary className="inline-flex min-h-11 cursor-pointer items-center font-semibold underline underline-offset-4">{label}</summary>
+      <pre className="mt-2 whitespace-pre-wrap rounded-xl border-2 border-ink bg-sky p-3 text-sm">{text}</pre>
+      <button
+        type="button"
+        className="btn btn-ghost mt-2"
+        onClick={async () => {
+          try {
+            await navigator.clipboard.writeText(text);
+            setCopied(true);
+          } catch {
+            setCopied(false);
+          }
+        }}
+      >
+        {copied ? "Đã chép" : "Chép câu lệnh"}
+      </button>
+    </details>
+  );
+}
+
+type Field = { key: string; label: string; max: number; step: number };
+
+function ExamCheck({ level, check, record, verdict, n }: { level: Level; check: OfficialCheck; record: ExamRecord | undefined; verdict: ExamVerdict | null; n: number }) {
+  const fields: Field[] = [
+    ...check.sections.map((sec) => ({ key: sec.id, label: `${sec.label} (trên ${sec.max}, cần ${sec.pass})`, max: sec.max, step: 1 })),
+    { key: "writing", label: `Writing, tổng hai bài (trên ${check.writing.max}, cần ${check.writing.pass})`, max: check.writing.max, step: 1 },
+    ...check.speaking.criteria.map((c) => ({ key: `sp:${c.id}`, label: `Speaking: ${c.label} (0–5${c.weight > 1 ? `, nhân ${c.weight}` : ""})`, max: 5, step: 0.5 })),
+  ];
+  const [marks, setMarks] = useState<Record<string, string>>(() =>
+    Object.fromEntries(fields.map((f) => [f.key, record?.marks[f.key] != null ? String(record.marks[f.key]) : ""])),
+  );
+  const [saved, setSaved] = useState(false);
+  const ok = (f: Field) => {
+    const v = marks[f.key];
+    const x = Number(v);
+    return v !== "" && Number.isFinite(x) && x >= 0 && x <= f.max && Number.isInteger(x / f.step);
+  };
+  const valid = fields.every(ok);
+  const speakingNow = speakingTotal(check, Object.fromEntries(fields.filter((f) => f.key.startsWith("sp:") && ok(f)).map((f) => [f.key, Number(marks[f.key])])));
+  const tick = (good: boolean) => (
+    <>
+      <span aria-hidden>{good ? "✓" : "✗"}</span> <span className="sr-only">{good ? "Đạt: " : "Chưa đạt: "}</span>
+    </>
+  );
+
+  return (
+    <div id={`exam-${level}`} className="scroll-mt-28">
+      <h3 className="mt-8 font-display text-xl font-bold">
+        {n}. Kiểm chứng bằng đề mẫu chính thức: {check.exam}
+      </h3>
+      <ol className="mt-2 max-w-3xl list-decimal space-y-1 pl-6">
+        <li>
+          Mở{" "}
+          <a href={check.prepUrl} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4">
+            trang ôn thi {check.exam} của Cambridge<span className="sr-only"> (mở trang mới)</span>
+          </a>{" "}
+          và làm trọn một đề mẫu miễn phí (bản làm trên máy hoặc bản giấy), tính giờ như thi thật.
+        </li>
+        <li>Tự chấm phần đọc, nghe{check.sections.some((sec) => sec.id === "use") ? ", Use of English" : ""} bằng đáp án (answer key) trên cùng trang.</li>
+        <li>
+          Nhờ AI chấm phần viết và nói bằng hai câu lệnh dưới đây: câu lệnh bắt AI chấm đúng các tiêu chí 0–5 mà giám khảo Cambridge dùng. Phần nói
+          nên gửi bản ghi âm, vì từ bản chép lời thì không chấm được phát âm.
+        </li>
+      </ol>
+      <CopyPrompt label="Câu lệnh chấm bài viết" text={writingPrompt(check)} />
+      <CopyPrompt label="Câu lệnh chấm bài nói" text={speakingPrompt(check)} />
+      <form
+        className="clay mt-4 grid gap-4 p-5 sm:grid-cols-2 sm:p-6"
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (!valid) return;
+          plan.saveExam(level, { marks: Object.fromEntries(fields.map((f) => [f.key, Number(marks[f.key])])), at: new Date().toISOString() });
+          setSaved(true);
+        }}
+      >
+        {fields.map((f) => (
+          <label key={f.key}>
+            <span className="block font-semibold">{f.label}</span>
+            <input
+              type="number"
+              inputMode="decimal"
+              min={0}
+              max={f.max}
+              step={f.step}
+              value={marks[f.key]}
+              onChange={(e) => {
+                setMarks({ ...marks, [f.key]: e.target.value });
+                setSaved(false);
+              }}
+              aria-invalid={marks[f.key] !== "" && !ok(f) ? true : undefined}
+              className={INPUT}
+            />
+          </label>
+        ))}
+        <p className="sm:col-span-2">
+          Speaking quy đổi theo hệ số của Cambridge: <strong>{speakingNow ?? "…"}</strong>/{check.speaking.max}, cần {check.speaking.pass}.
+        </p>
+        <div className="flex flex-wrap items-center gap-3 sm:col-span-2">
+          <button type="submit" className="btn btn-primary" disabled={!valid}>Lưu kết quả</button>
+          <p role="status" className="font-semibold">{saved ? "Đã lưu." : ""}</p>
+        </div>
+      </form>
+      {record && verdict && (
+        <div className={`mt-4 rounded-2xl border-2 border-ink px-4 py-3 ${verdict.passed ? "bg-leaf-soft" : "bg-sun-soft"}`}>
+          <p className="font-semibold">
+            {verdict.passed ? `Đạt ngưỡng ${level} ở mọi phần.` : `Chưa đạt ngưỡng ${level} ở mọi phần.`} Lần nhập gần nhất: {formatDateVi(record.at)}.
+          </p>
+          <ul className="mt-1 grid gap-1">
+            {check.sections.map((sec, i) => (
+              <li key={sec.id}>
+                {tick(verdict.sections[i].ok)}
+                {sec.label}: {record.marks[sec.id]}/{sec.max}, cần {sec.pass}
+              </li>
+            ))}
+            <li>
+              {tick(verdict.writing.ok)}Writing: {verdict.writing.total ?? "chưa có"}/{check.writing.max}, cần {check.writing.pass}
+            </li>
+            <li>
+              {tick(verdict.speaking.ok)}Speaking: {verdict.speaking.total ?? "chưa có"}/{check.speaking.max}, cần {check.speaking.pass}
+            </li>
+          </ul>
+          {!verdict.passed && <p className="mt-2">Ôn thêm phần chưa đạt rồi làm một đề mẫu khác trên cùng trang của Cambridge.</p>}
+        </div>
+      )}
+      <p className="mt-3 text-sm text-ink-soft">
+        Ngưỡng và cách tính điểm viết, nói lấy từ{" "}
+        <a href={CONVERSION_PDF} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+          bảng quy đổi điểm đề mẫu của Cambridge<span className="sr-only"> (mở trang mới)</span>
+        </a>{" "}
+        ({check.scale} điểm trên thang Cambridge English Scale, tức cấp {level}) và chỉ đúng với đề mẫu chính thức. Cambridge lưu ý điểm chỉ vừa sát ngưỡng thì khi
+        thi thật chưa chắc đạt, nên hãy ôn tiếp đến khi vượt ngưỡng rõ ràng. Lộ trình đòi mọi phần đều đạt, chặt hơn cách Cambridge tính điểm trung bình. AI chấm
+        viết, nói chỉ là ước lượng.
+      </p>
+    </div>
+  );
+}
+
+
+function addDays(week: string, days: number): string {
+  const [y, m, d] = week.split("-").map(Number);
+  return weekKey(new Date(y, m - 1, d + days));
+}
+
+function HoursLog({ hours, target, stageName, needLo, needHi }: { hours: Record<string, number>; target: number; stageName: string; needLo: number; needHi: number }) {
+  const thisWeek = weekKey(new Date());
+  const [value, setValue] = useState(hours[thisWeek] != null ? String(hours[thisWeek]) : "");
+  const [saved, setSaved] = useState(false);
+  const weeks = Array.from({ length: 8 }, (_, i) => addDays(thisWeek, -7 * i));
+  // the last four full weeks, an empty week counted as zero
+  const recent = weeks.slice(1, 5).map((w) => hours[w] ?? 0);
+  const avg = recent.reduce((a, b) => a + b, 0) / recent.length;
+  const total = Object.values(hours).reduce((a, b) => a + b, 0);
+  const n = Number(value);
+  const valid = value !== "" && Number.isFinite(n) && n >= 0 && n <= MAX_WEEK_HOURS;
+  const [y, m, d] = thisWeek.split("-");
+  const round1 = (x: number) => Math.round(x * 10) / 10;
+
+  return (
+    <section aria-labelledby="hours">
+      <h2 id="hours" className="font-display text-3xl font-extrabold">Nhật ký giờ học</h2>
+      <p className="mt-2 max-w-3xl text-ink-soft">
+        Mỗi cuối tuần ghi tổng số giờ học tiếng Anh trong tuần, cả trên trang lẫn tự học. Mục tiêu của {stageName} là khoảng {target} giờ mỗi tuần. Cột bên phải là số giờ đã học trên mục tiêu.
+      </p>
+      <form
+        className="clay mt-4 flex flex-wrap items-end gap-4 p-5"
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (!valid) return;
+          plan.setWeekHours(thisWeek, Math.round(n * 2) / 2);
+          setSaved(true);
+        }}
+      >
+        <label className="min-w-48 flex-1">
+          <span className="block font-semibold">
+            Tuần này (từ thứ Hai {d}/{m}/{y}), số giờ
+          </span>
+          <input
+            type="number"
+            inputMode="decimal"
+            min={0}
+            max={MAX_WEEK_HOURS}
+            step={0.5}
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+              setSaved(false);
+            }}
+            className={INPUT}
+          />
+        </label>
+        <button type="submit" className="btn btn-primary" disabled={!valid}>Lưu giờ học</button>
+        <p role="status" className="font-semibold">{saved ? "Đã lưu." : ""}</p>
+      </form>
+      <ul className="mt-5 grid gap-2">
+        {weeks.map((w) => {
+          const h = hours[w] ?? 0;
+          const [wy, wm, wd] = w.split("-");
+          return (
+            <li key={w} className="grid grid-cols-[4.75rem_minmax(0,1fr)_auto] items-center gap-3">
+              <span className="text-sm font-semibold">{w === thisWeek ? "Tuần này" : `${wd}/${wm}/${wy.slice(2)}`}</span>
+              <ProgressBar value={target ? (h / target) * 100 : 0} label={`Tuần từ ${wd}/${wm}: ${formatHours(h)} trên ${target} giờ`} />
+              <span className="text-right text-sm font-semibold tabular-nums" aria-hidden>
+                {formatHours(h)}/{target}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+      <div className={`mt-5 rounded-2xl border-2 border-ink px-5 py-4 ${avg >= target ? "bg-leaf-soft" : "bg-sun-soft"}`}>
+        <p className="font-semibold">
+          Trung bình 4 tuần trước: {formatHours(round1(avg))} giờ mỗi tuần.{" "}
+          {avg >= target
+            ? "Đúng nhịp của lộ trình."
+            : `Thiếu khoảng ${formatHours(round1(target - avg))} giờ mỗi tuần so với mục tiêu, nên lộ trình sẽ dài hơn ước tính.`}
+        </p>
+        <p className="mt-1 text-ink-soft">
+          Tổng đã ghi: {formatHours(total)} giờ. Theo Cambridge, từ A2 tới C1 cần khoảng {needLo}–{needHi} giờ học.
+        </p>
+      </div>
+    </section>
   );
 }
