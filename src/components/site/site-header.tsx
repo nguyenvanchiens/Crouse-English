@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { BookText, UserRound } from "lucide-react";
+import { UserRound } from "lucide-react";
 import { Logo } from "./logo";
+import { NavLinks, SiteMenu, type NavItem } from "./site-menu";
 
-const NAV = [
+export const NAV: NavItem[] = [
   { href: "/bat-dau", label: "Bắt đầu" },
   { href: "/khoa-hoc", label: "Khóa học" },
   { href: "/ngu-phap", label: "Ngữ pháp" },
@@ -15,27 +16,16 @@ const NAV = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b-[2.5px] border-ink bg-sky/90 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <nav aria-label="Menu chính" className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Logo />
-        <ul className="hidden items-center gap-6 font-semibold lg:flex">
-          {NAV.map((n) => (
-            <li key={n.href}>
-              <Link className="hover:text-tangerine-deep" href={n.href}>{n.label}</Link>
-            </li>
-          ))}
-        </ul>
-        <div className="flex items-center gap-2 sm:gap-3">
-          <Link
-            href="/ngu-phap"
-            aria-label="Sổ tay ngữ pháp"
-            className="grid size-11 place-items-center rounded-full border-2 border-ink bg-card hover:bg-sun-soft lg:hidden"
-          >
-            <BookText className="size-5" aria-hidden />
-          </Link>
+        {/* one line only from xl up; "Khóa học của tôi" becomes the icon button on the right */}
+        <NavLinks items={NAV.filter((n) => n.href !== "/cua-toi")} />
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <Link
             href="/cua-toi"
             aria-label="Khóa học của tôi"
-            className="grid size-11 place-items-center rounded-full border-2 border-ink bg-card hover:bg-sun-soft lg:hidden"
+            title="Khóa học của tôi"
+            className="hidden size-11 place-items-center rounded-full border-2 border-ink bg-card hover:bg-sun-soft xl:grid"
           >
             <UserRound className="size-5" aria-hidden />
           </Link>
@@ -43,6 +33,7 @@ export function SiteHeader() {
             <span className="sm:hidden">Bắt đầu</span>
             <span className="hidden sm:inline">Bắt đầu học</span>
           </Link>
+          <SiteMenu items={NAV} />
         </div>
       </nav>
     </header>
