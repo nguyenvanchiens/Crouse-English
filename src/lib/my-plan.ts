@@ -63,6 +63,11 @@ export const plan = {
   },
   saveExam(level: string, record: ExamRecord) {
     const now = read();
-    write({ ...now, exams: { ...now.exams, [level]: record } });
+    const used = now.used[level] ?? [];
+    write({
+      ...now,
+      exams: { ...now.exams, [level]: record },
+      used: record.sample && !used.includes(record.sample) ? { ...now.used, [level]: [...used, record.sample] } : now.used,
+    });
   },
 };

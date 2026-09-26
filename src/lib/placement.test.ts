@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { PlacementQuestion } from "@/content/types";
 import { PLACEMENT_QUESTIONS } from "@/content/placement";
 import { DONT_KNOW, PLACEMENT_LEVELS, scorePlacement } from "./placement";
+import { PLACEMENT_MIX } from "./test-draw";
 
 const q = (id: string, level: PlacementQuestion["level"]): PlacementQuestion => ({
   id, level, skill: "grammar", prompt: id, options: ["a", "b"], answer: 0,
@@ -51,14 +52,15 @@ describe("Tôi không biết", () => {
 });
 
 describe("PLACEMENT_QUESTIONS", () => {
-  it("has 8 questions per level from A1 to C1, unique ids, valid answers", () => {
-    expect(PLACEMENT_QUESTIONS).toHaveLength(8 * PLACEMENT_LEVELS.length);
+  it("has at least 24 questions per level from A1 to C1, three attempts' worth of each skill, unique ids, valid answers", () => {
+    expect(PLACEMENT_QUESTIONS.length).toBeGreaterThanOrEqual(24 * PLACEMENT_LEVELS.length);
     for (const level of PLACEMENT_LEVELS) {
       const mine = PLACEMENT_QUESTIONS.filter((x) => x.level === level);
-      expect(mine, level).toHaveLength(8);
-      expect(mine.some((x) => x.skill === "listening"), `${level} listening`).toBe(true);
-      expect(mine.some((x) => x.skill === "reading"), `${level} reading`).toBe(true);
+      expect(mine.length, level).toBeGreaterThanOrEqual(24);
+      for (const [skill, n] of Object.entries(PLACEMENT_MIX)) expect(mine.filter((x) => x.skill === skill).length, `${level} ${skill}`).toBeGreaterThanOrEqual(3 * n);
     }
+    const texts = PLACEMENT_QUESTIONS.map((x) => `${x.passage ?? ""}|${x.audioText ?? ""}|${x.prompt}`);
+    expect(texts.filter((t, i) => texts.indexOf(t) !== i), "repeated question").toEqual([]);
     expect(new Set(PLACEMENT_QUESTIONS.map((x) => x.id)).size).toBe(PLACEMENT_QUESTIONS.length);
     for (const x of PLACEMENT_QUESTIONS) {
       expect(x.answer).toBeGreaterThanOrEqual(0);

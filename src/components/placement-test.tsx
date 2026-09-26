@@ -8,6 +8,8 @@ import { suggestCourseSlug } from "@/lib/course-utils";
 import { DONT_KNOW, PLACEMENT_LEVELS, scorePlacement, type PlacementResult } from "@/lib/placement";
 import { progress, useProgress } from "@/lib/progress";
 import { POINTS } from "@/lib/points";
+import { addSeen, getSeen } from "@/lib/seen";
+import { PLACEMENT_MIX, drawPlacement, resolveDrawn } from "@/lib/test-draw";
 import { speak, useSpeechSupport } from "@/lib/speech";
 import { CourseCard } from "@/components/course/course-card";
 import { LEVEL_LABEL } from "@/components/course/goal-meta";
@@ -21,7 +23,10 @@ const SKILL_LABEL: Record<PlacementQuestion["skill"], string> = {
   reading: "Đọc hiểu",
 };
 
-export function PlacementTest({ questions, courses }: { questions: PlacementQuestion[]; courses: Course[] }) {
+const PER_ATTEMPT = PLACEMENT_LEVELS.length * Object.values(PLACEMENT_MIX).reduce((a, b) => a + b, 0);
+
+/** `bank` holds every placement question; each attempt draws a fresh 8 per level from it. */
+export function PlacementTest({ bank, courses }: { bank: PlacementQuestion[]; courses: Course[] }) {
   const { state, ready } = useProgress();
   const { tts } = useSpeechSupport();
   const [stage, setStage] = useState<"intro" | "quiz" | "result">("intro");
@@ -29,11 +34,13 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<PlacementResult | null>(null);
   const [firstTime, setFirstTime] = useState(false);
+  const [questions, setQuestions] = useState<PlacementQuestion[]>([]);
 
   const q = questions[i];
   const choice = q ? (answers[q.id] ?? null) : null;
 
   function start() {
+    setQuestions(resolveDrawn(bank, drawPlacement(bank, PLACEMENT_LEVELS, getSeen("placement"), Math.random)) ?? []);
     setAnswers({});
     setI(0);
     setResult(null);
@@ -46,6 +53,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
       return;
     }
     const r = scorePlacement(questions, all);
+    addSeen("placement", questions.map((x) => x.id));
     setFirstTime(!state.points.awarded.includes("placement"));
     progress.savePlacement(r.level, r.startLevel, r.score);
     setResult(r);
@@ -57,7 +65,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
       <div className="clay p-8 sm:p-10">
         <h1 className="font-display text-5xl font-extrabold leading-tight">Kiểm tra trình độ tiếng Anh</h1>
         <p className="mt-4 text-lg text-ink-soft">
-          {questions.length} câu, khoảng 20 phút, gồm từ vựng, ngữ pháp, nghe và đọc hiểu, từ A1 đến C1. Mỗi câu chỉ trả lời một lần, không quay lại câu trước.
+          {PER_ATTEMPT} câu, khoảng 20 phút, gồm từ vựng, ngữ pháp, nghe và đọc hiểu, từ A1 đến C1. Mỗi câu chỉ trả lời một lần, không quay lại câu trước. Mỗi lần làm là một bộ câu hỏi khác, nên làm lại không thể nhớ đáp án.
         </p>
         <p className="mt-3 rounded-2xl border-2 border-ink bg-sun-soft px-4 py-3">
           Câu nào không biết thì bấm <strong>Tôi không biết</strong>, đừng đoán. Đoán trúng làm kết quả cao hơn sức thật, và bạn sẽ được xếp vào khóa quá khó.

@@ -10,7 +10,8 @@ import nMaoTu from "../lessons/b2/mao-tu";
 import nToVHayVIng from "../lessons/b2/to-v-hay-v-ing";
 import nThanPhienVaXuLy from "../lessons/b2/than-phien-va-xu-ly";
 import nCacThiHoanThanhTiepDien from "../lessons/b2/cac-thi-hoan-thanh-tiep-dien";
-import { chapter } from "../review";
+import { FINAL_EXTRA_TIENG_ANH_B2 } from "../banks/final-tieng-anh-b2";
+import { chapter, finalBank } from "../review";
 import type { Course, Exercise } from "../types";
 
 const vietEmail = lesson({
@@ -918,7 +919,7 @@ Daniel Lim, Regional Sales Manager`,
 });
 
 /** End-of-course test: 5 unseen items per chapter, written only for this test. */
-const finalTest: Exercise[] = [
+const finalTestBase: Exercise[] = [
   // Chapter 1: email, meetings, reported speech, calls and online meetings
   mc("b2-f01", "The report isn't on my desk. Anna ___ it yet, because she only started it this morning.", ["must have finished", "can't have finished", "mustn't have finished", "should finish"], 1, "Mới bắt đầu sáng nay nên gần như chắc chắn chưa xong: can't have + V3. Trong tiếng Anh Anh, mustn't không dùng để suy đoán (người Mỹ có nói must not have)."),
   fill("b2-f02", "“Can you send the slides tonight?” My manager asked me if I ___ send the slides that night.", ["could"], "Câu tường thuật lùi thì: can thành could."),
@@ -944,6 +945,7 @@ const finalTest: Exercise[] = [
   listenQ("b2-f19", "What does the speaker offer the customer?", "I'm afraid we can't give you a full refund, but we could replace the damaged items free of charge this week.", ["A full refund", "Free replacement of the damaged items", "A discount on the next order", "Free delivery next month"], 1, "Không hoàn tiền toàn bộ, nhưng thay miễn phí các món bị hỏng."),
   correct("b2-f20", "She is engineer at a large car company.", ["She is an engineer at a large car company.", "She's an engineer at a large car company."], "Sau be, trước nghề nghiệp số ít thường có a/an: an engineer."),
 ];
+const finalTest = finalBank(finalTestBase, FINAL_EXTRA_TIENG_ANH_B2);
 
 export const tiengAnhB2: Course = {
   slug: "tieng-anh-b2",

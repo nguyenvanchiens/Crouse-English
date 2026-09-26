@@ -9,7 +9,8 @@ import nMoTaNguoi from "../lessons/a1/mo-ta-nguoi";
 import nThanhPhoCuaToi from "../lessons/a1/thanh-pho-cua-toi";
 import nDangLamGi from "../lessons/a1/dang-lam-gi";
 import nCuoiTuanVuaRoi from "../lessons/a1/cuoi-tuan-vua-roi";
-import { chapter } from "../review";
+import { FINAL_EXTRA_TIENG_ANH_A1 } from "../banks/final-tieng-anh-a1";
+import { chapter, finalBank } from "../review";
 import type { Course } from "../types";
 
 const chaoHoi = lesson({
@@ -969,30 +970,33 @@ export const tiengAnhA1: Course = {
     chapter(3, "Đồ ăn, mua sắm và con người", [doAn, nMuaSamVaMauSac, nToiCoThe, nMoTaNguoi]),
     chapter(4, "Nơi chốn và hoạt động", [nhaNoiChon, nThanhPhoCuaToi, nDangLamGi, nCuoiTuanVuaRoi]),
   ],
-  finalTest: [
-    // chương 1: to be, a/an, số nhiều, sở hữu, số và tuổi, nghề và quốc tịch
-    mc("a1-f01", "Minh and I ___ from Hue.", ["am", "is", "are"], 2, "Minh and I là we (chúng tôi) nên đi với are."),
-    fill("a1-f02", "My aunt is ___ engineer. (một)", ["an"], "Engineer bắt đầu bằng âm nguyên âm /e/ nên dùng an. Nói nghề nghiệp luôn cần a hoặc an."),
-    reorder("a1-f03", "Where is your new teacher from?", "Câu hỏi Wh- với to be: Where + is + chủ ngữ + from? Tính từ new đứng trước danh từ teacher, còn from đứng cuối câu."),
-    listenQ("a1-f04", "Kate bao nhiêu tuổi và đến từ đâu?", "Hi, I'm Kate. I'm forty-three, and I'm from England.", ["43 tuổi, đến từ Anh", "34 tuổi, đến từ Anh", "43 tuổi, đến từ Hàn Quốc"], 0, "Forty-three là 43 (bốn mươi ba); England là nước Anh."),
-    correct("a1-f05", "Her brothers is doctors.", ["Her brothers are doctors."], "Her brothers là số nhiều (they) nên dùng are."),
-    // chương 2: hiện tại đơn, trạng từ tần suất, giờ và giới từ thời gian, sở thích, câu hỏi Wh- với do/does
-    mc("a1-f06", "My English class starts ___ Monday.", ["in", "on", "at"], 1, "Trước thứ trong tuần dùng on: on Monday."),
-    fill("a1-f07", "Where ___ your brother work? (hiện tại đơn)", ["does"], "Your brother là he nên câu hỏi Wh- dùng does, động từ work giữ nguyên."),
-    reorder("a1-f08", "Does your mother like cooking?", "Câu hỏi với she dùng Does; sau like là động từ thêm -ing: like cooking."),
-    listenQ("a1-f09", "Tom làm gì vào cuối tuần?", "Tom works from Monday to Friday. At the weekend, he loves playing football.", ["Anh ấy đi làm", "Anh ấy chơi bóng đá", "Anh ấy xem ti vi"], 1, "At the weekend, he loves playing football: cuối tuần anh ấy thích chơi bóng đá. Anh ấy đi làm từ thứ Hai đến thứ Sáu."),
-    correct("a1-f10", "He don't like watching TV.", ["He doesn't like watching TV."], "Chủ ngữ he thì phủ định dùng doesn't, không dùng don't."),
-    // chương 3: đếm được và không đếm được, some/any, mua sắm, How much, can, have got
-    mc("a1-f11", "How much ___ these shoes?", ["is", "are", "am"], 1, "These shoes là số nhiều nên hỏi giá bằng How much are...?"),
-    fill("a1-f12", "My sister ___ got long black hair.", ["has", "'s"], "My sister là she nên dùng has got (viết tắt 's got)."),
-    reorder("a1-f13", "I'd like a red dress, please.", "Tính từ chỉ màu đứng trước danh từ: a red dress, không nói a dress red."),
-    listen("a1-f14", "My sister can't swim, but she can ride a bike.", ["Em gái tôi biết bơi nhưng không biết đi xe đạp.", "Em gái tôi không biết bơi nhưng biết đi xe đạp.", "Em gái tôi không biết bơi và cũng không biết đi xe đạp."], 1, "Can't swim là không biết bơi; can ride a bike là biết đi xe đạp."),
-    correct("a1-f15", "She can speaks English very well.", ["She can speak English very well."], "Sau can, động từ luôn ở nguyên mẫu: can speak, không thêm -s."),
-    // chương 4: there is/are, giới từ vị trí, thành phố, hiện tại tiếp diễn, was/were
-    mc("a1-f16", "___ there any shops near your house?", ["Is", "Are", "Do"], 1, "Any shops là số nhiều nên câu hỏi dùng Are there...?"),
-    fill("a1-f17", "Look! The children ___ playing in the park.", ["are"], "Look! cho thấy việc đang xảy ra: hiện tại tiếp diễn. The children là số nhiều nên dùng are + playing."),
-    reorder("a1-f18", "What is your sister doing?", "Hỏi ai đang làm gì: What + is + chủ ngữ + V-ing?"),
-    listenQ("a1-f19", "Hôm qua thời tiết thế nào và Mai ở đâu?", "Hi, I'm Mai. It was very hot yesterday, so I was at home all day.", ["Trời nóng, Mai ở biển", "Trời nóng, Mai ở nhà cả ngày", "Trời lạnh, Mai ở văn phòng"], 1, "It was very hot yesterday: hôm qua trời rất nóng; I was at home all day: Mai ở nhà cả ngày."),
-    correct("a1-f20", "There was three people in the shop.", ["There were three people in the shop."], "Three people là số nhiều nên dùng there were, không dùng there was."),
-  ],
+  finalTest: finalBank(
+    [
+      // chương 1: to be, a/an, số nhiều, sở hữu, số và tuổi, nghề và quốc tịch
+      mc("a1-f01", "Minh and I ___ from Hue.", ["am", "is", "are"], 2, "Minh and I là we (chúng tôi) nên đi với are."),
+      fill("a1-f02", "My aunt is ___ engineer. (một)", ["an"], "Engineer bắt đầu bằng âm nguyên âm /e/ nên dùng an. Nói nghề nghiệp luôn cần a hoặc an."),
+      reorder("a1-f03", "Where is your new teacher from?", "Câu hỏi Wh- với to be: Where + is + chủ ngữ + from? Tính từ new đứng trước danh từ teacher, còn from đứng cuối câu."),
+      listenQ("a1-f04", "Kate bao nhiêu tuổi và đến từ đâu?", "Hi, I'm Kate. I'm forty-three, and I'm from England.", ["43 tuổi, đến từ Anh", "34 tuổi, đến từ Anh", "43 tuổi, đến từ Hàn Quốc"], 0, "Forty-three là 43 (bốn mươi ba); England là nước Anh."),
+      correct("a1-f05", "Her brothers is doctors.", ["Her brothers are doctors."], "Her brothers là số nhiều (they) nên dùng are."),
+      // chương 2: hiện tại đơn, trạng từ tần suất, giờ và giới từ thời gian, sở thích, câu hỏi Wh- với do/does
+      mc("a1-f06", "My English class starts ___ Monday.", ["in", "on", "at"], 1, "Trước thứ trong tuần dùng on: on Monday."),
+      fill("a1-f07", "Where ___ your brother work? (hiện tại đơn)", ["does"], "Your brother là he nên câu hỏi Wh- dùng does, động từ work giữ nguyên."),
+      reorder("a1-f08", "Does your mother like cooking?", "Câu hỏi với she dùng Does; sau like là động từ thêm -ing: like cooking."),
+      listenQ("a1-f09", "Tom làm gì vào cuối tuần?", "Tom works from Monday to Friday. At the weekend, he loves playing football.", ["Anh ấy đi làm", "Anh ấy chơi bóng đá", "Anh ấy xem ti vi"], 1, "At the weekend, he loves playing football: cuối tuần anh ấy thích chơi bóng đá. Anh ấy đi làm từ thứ Hai đến thứ Sáu."),
+      correct("a1-f10", "He don't like watching TV.", ["He doesn't like watching TV."], "Chủ ngữ he thì phủ định dùng doesn't, không dùng don't."),
+      // chương 3: đếm được và không đếm được, some/any, mua sắm, How much, can, have got
+      mc("a1-f11", "How much ___ these shoes?", ["is", "are", "am"], 1, "These shoes là số nhiều nên hỏi giá bằng How much are...?"),
+      fill("a1-f12", "My sister ___ got long black hair.", ["has", "'s"], "My sister là she nên dùng has got (viết tắt 's got)."),
+      reorder("a1-f13", "I'd like a red dress, please.", "Tính từ chỉ màu đứng trước danh từ: a red dress, không nói a dress red."),
+      listen("a1-f14", "My sister can't swim, but she can ride a bike.", ["Em gái tôi biết bơi nhưng không biết đi xe đạp.", "Em gái tôi không biết bơi nhưng biết đi xe đạp.", "Em gái tôi không biết bơi và cũng không biết đi xe đạp."], 1, "Can't swim là không biết bơi; can ride a bike là biết đi xe đạp."),
+      correct("a1-f15", "She can speaks English very well.", ["She can speak English very well."], "Sau can, động từ luôn ở nguyên mẫu: can speak, không thêm -s."),
+      // chương 4: there is/are, giới từ vị trí, thành phố, hiện tại tiếp diễn, was/were
+      mc("a1-f16", "___ there any shops near your house?", ["Is", "Are", "Do"], 1, "Any shops là số nhiều nên câu hỏi dùng Are there...?"),
+      fill("a1-f17", "Look! The children ___ playing in the park.", ["are"], "Look! cho thấy việc đang xảy ra: hiện tại tiếp diễn. The children là số nhiều nên dùng are + playing."),
+      reorder("a1-f18", "What is your sister doing?", "Hỏi ai đang làm gì: What + is + chủ ngữ + V-ing?"),
+      listenQ("a1-f19", "Hôm qua thời tiết thế nào và Mai ở đâu?", "Hi, I'm Mai. It was very hot yesterday, so I was at home all day.", ["Trời nóng, Mai ở biển", "Trời nóng, Mai ở nhà cả ngày", "Trời lạnh, Mai ở văn phòng"], 1, "It was very hot yesterday: hôm qua trời rất nóng; I was at home all day: Mai ở nhà cả ngày."),
+      correct("a1-f20", "There was three people in the shop.", ["There were three people in the shop."], "Three people là số nhiều nên dùng there were, không dùng there was."),
+    ],
+    FINAL_EXTRA_TIENG_ANH_A1,
+  ),
 };

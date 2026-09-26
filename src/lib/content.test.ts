@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { COURSES } from "@/content";
-import { FINAL_PER_CHAPTER } from "@/content/review";
+import { FINAL_BANK_PER_CHAPTER } from "@/content/review";
 import type { Course, Exercise, LectureStep, Lesson, Step } from "@/content/types";
 import { checkCorrection } from "./scoring";
 import { getAllLessonParams, getCourse, getCourses, getLesson } from "./content";
@@ -180,7 +180,13 @@ describe("A1 to C1 path", () => {
       it("has a final test of unseen items, written for it and covering every kind", () => {
         const course = c as Course;
         const bank = course.finalTest ?? [];
-        expect(bank).toHaveLength(FINAL_PER_CHAPTER * chapters);
+        expect(bank).toHaveLength(FINAL_BANK_PER_CHAPTER * chapters);
+        // each chapter's slice has every kind, so every attempt covers every kind in every chapter
+        for (let ch = 0; ch < chapters; ch++) {
+          const slice = bank.slice(ch * FINAL_BANK_PER_CHAPTER, (ch + 1) * FINAL_BANK_PER_CHAPTER);
+          for (const k of kinds) expect(slice.some((e) => e.kind === k), `chapter ${ch + 1} needs ${k}`).toBe(true);
+        }
+        expect(new Set(bank.map((e) => e.id)).size, "final ids").toBe(bank.length);
         const final = c.modules[chapters].lessons[0].steps[0];
         expect(final.type === "exercise" ? final.items : []).toEqual(bank);
         const lessonIds = new Set(regular.flatMap((l) => l.steps.flatMap((s) => itemsOf(s).map((e) => e.id))));

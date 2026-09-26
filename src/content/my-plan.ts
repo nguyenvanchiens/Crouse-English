@@ -142,7 +142,29 @@ export interface OfficialCheck {
   writing: { max: number; pass: number; criteria: string[] };
   /** each criterion 0–5 (half marks allowed), multiplied by its weight */
   speaking: { max: number; pass: number; criteria: { id: string; label: string; weight: number }[] };
+  /** the free official sample tests on the preparation page; each one counts once */
+  samples: { id: string; label: string }[];
 }
+
+/**
+ * The free sample tests listed on each Cambridge preparation page (checked 2026-09). The "for Schools"
+ * versions are at the same CEFR level and follow the same format, with topics for school-age learners,
+ * so they are fair extra checks. C1 Advanced has no "for Schools" version.
+ */
+const samples = (exam: string, paper: number, schools: boolean) => [
+  { id: "digital", label: `Đề mẫu làm trên máy (${exam})` },
+  ...Array.from({ length: paper }, (_, i) => ({ id: `paper-${i + 1}`, label: `Đề mẫu giấy${paper > 1 ? ` ${i + 1}` : ""} (${exam})` })),
+  ...(schools
+    ? [
+        { id: "schools-digital", label: `Đề mẫu làm trên máy (${exam} for Schools)` },
+        ...Array.from({ length: paper }, (_, i) => ({ id: `schools-paper-${i + 1}`, label: `Đề mẫu giấy${paper > 1 ? ` ${i + 1}` : ""} (${exam} for Schools)` })),
+      ]
+    : []),
+];
+
+/** Checked 2026-09 on cambridge.org: official practice-test books hold four authentic papers each (e.g. "B2 First 4"). */
+export const AFTER_SAMPLES =
+  "Đã dùng hết đề mẫu miễn phí. Làm lại một đề cũ thì điểm không còn đúng sức nữa, vì bạn đã nhớ đáp án. Để kiểm chứng tiếp, hãy mua sách đề chính thức của Cambridge University Press & Assessment (mỗi cuốn có 4 đề thi thật, ví dụ cuốn B2 First 4), hoặc đăng ký thi thật.";
 
 export const CONVERSION_PDF =
   "https://www.cambridgeenglish.org/Images/210434-converting-practice-test-scores-to-cambridge-english-scale-scores.pdf";
@@ -165,6 +187,7 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
       { id: "listening", label: "Listening", max: 25, pass: 17 },
     ],
     writing: { max: 30, pass: 18, criteria: ["Content", "Organisation", "Language"] },
+    samples: samples("A2 Key", 1, true),
     speaking: {
       max: 45,
       pass: 27,
@@ -179,6 +202,7 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
   B1: {
     exam: "B1 Preliminary",
     prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/",
+    samples: samples("B1 Preliminary", 1, true),
     scale: 140,
     sections: [
       { id: "reading", label: "Reading", max: 32, pass: 23 },
@@ -200,6 +224,7 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
   B2: {
     exam: "B2 First",
     prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/first/preparation/",
+    samples: samples("B2 First", 2, true),
     scale: 160,
     sections: [
       { id: "reading", label: "Reading (Parts 1, 5, 6, 7)", max: 42, pass: 24 },
@@ -222,6 +247,7 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
   C1: {
     exam: "C1 Advanced",
     prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/preparation/",
+    samples: samples("C1 Advanced", 2, false),
     scale: 180,
     sections: [
       { id: "reading", label: "Reading (Parts 1, 5, 6, 7, 8)", max: 50, pass: 32 },

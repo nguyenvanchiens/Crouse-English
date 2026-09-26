@@ -1,3 +1,5 @@
+import type { Drawn } from "./test-draw";
+
 /**
  * Where the learner is inside one lesson (step, answers, draft text), saved so that a reload
  * or a closed tab does not throw the lesson away. Cleared when the lesson is finished.
@@ -9,6 +11,8 @@ export interface LessonDraft<E = unknown, T = unknown> {
   results: Record<number, { correct: number; total: number }>;
   exerciseProgress: Record<number, E>;
   taskProgress: Record<number, T>;
+  /** the final test drawn for this attempt, kept so a reload shows the same questions */
+  drawn?: Drawn[];
 }
 
 const key = (courseSlug: string, lessonSlug: string) => `ce:lesson:v1:${courseSlug}/${lessonSlug}`;
@@ -38,6 +42,7 @@ export function parseDraft<E, T>(raw: string | null, stepCount: number): LessonD
       results: isRecord(d.results) ? (d.results as LessonDraft["results"]) : {},
       exerciseProgress: isRecord(d.exerciseProgress) ? (d.exerciseProgress as Record<number, E>) : {},
       taskProgress: isRecord(d.taskProgress) ? (d.taskProgress as Record<number, T>) : {},
+      ...(Array.isArray(d.drawn) && d.drawn.every((x) => isRecord(x) && typeof x.id === "string") ? { drawn: d.drawn as Drawn[] } : {}),
     };
   } catch {
     return null;
