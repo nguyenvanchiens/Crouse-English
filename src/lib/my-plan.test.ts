@@ -4,11 +4,14 @@ import { judgeExam, parsePlan, speakingTotal, weekKey } from "./my-plan-core";
 
 describe("parsePlan", () => {
   it("keeps the old tick-only format and drops bad data", () => {
-    expect(parsePlan(JSON.stringify({ done: ["g:a", "g:a", 3, "d:b"] }))).toEqual({ done: ["g:a", "d:b"], hours: {}, exams: {} });
+    expect(parsePlan(JSON.stringify({ done: ["g:a", "g:a", 3, "d:b"] }))).toEqual({ done: ["g:a", "d:b"], hours: {}, exams: {}, used: {} });
     const p = parsePlan(JSON.stringify({ done: [], hours: { "2026-09-21": 6, "2026-09-14": -1, bad: 3, "2026-09-07": 500 }, exams: { B1: { marks: { reading: 25, x: "y" }, at: "t" }, B2: "no" } }));
     expect(p.hours).toEqual({ "2026-09-21": 6 });
     expect(p.exams).toEqual({ B1: { marks: { reading: 25 }, at: "t" } });
-    expect(parsePlan("nope")).toEqual({ done: [], hours: {}, exams: {} });
+    const u = parsePlan(JSON.stringify({ used: { B1: ["digital", "digital", 3], B2: "x" }, exams: { A2: { marks: {}, sample: "paper-1", at: "t" } } }));
+    expect(u.used).toEqual({ B1: ["digital"] });
+    expect(u.exams.A2.sample).toBe("paper-1");
+    expect(parsePlan("nope")).toEqual({ done: [], hours: {}, exams: {}, used: {} });
   });
 });
 
@@ -48,6 +51,17 @@ describe("official sample test check", () => {
   it("gives the AI the right criteria for the level", () => {
     expect(writingPrompt(OFFICIAL_CHECKS.A2)).toContain("Content, Organisation, Language");
     expect(speakingPrompt(OFFICIAL_CHECKS.C1)).toContain("Grammatical Resource, Lexical Resource");
+  });
+});
+
+describe("official samples", () => {
+  it("lists each exam's free samples with unique ids, For Schools versions except at C1", () => {
+    for (const [level, c] of Object.entries(OFFICIAL_CHECKS)) {
+      expect(new Set(c.samples.map((x) => x.id)).size, level).toBe(c.samples.length);
+      expect(c.samples.some((x) => x.id.startsWith("schools-")), level).toBe(level !== "C1");
+    }
+    expect(OFFICIAL_CHECKS.B2.samples).toHaveLength(6);
+    expect(OFFICIAL_CHECKS.C1.samples).toHaveLength(3);
   });
 });
 

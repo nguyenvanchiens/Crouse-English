@@ -3,6 +3,8 @@ import type { OfficialCheck } from "@/content/my-plan";
 export interface ExamRecord {
   /** raw marks: answer-key section ids, "writing" (both tasks) and "sp:<criterion>" for speaking */
   marks: Record<string, number>;
+  /** which official sample test the marks come from */
+  sample?: string;
   at: string;
 }
 
@@ -11,8 +13,10 @@ export interface PlanData {
   done: string[];
   /** hours studied per week, keyed by the week's Monday (YYYY-MM-DD) */
   hours: Record<string, number>;
-  /** official sample test results by plan level */
+  /** official sample test results by plan level (the latest attempt) */
   exams: Record<string, ExamRecord>;
+  /** sample tests already used, by plan level: each counts once */
+  used: Record<string, string[]>;
 }
 
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
@@ -20,7 +24,7 @@ const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "obj
 export const MAX_WEEK_HOURS = 100;
 
 export function parsePlan(raw: string | null): PlanData {
-  const empty: PlanData = { done: [], hours: {}, exams: {} };
+  const empty: PlanData = { done: [], hours: {}, exams: {}, used: {} };
   if (!raw) return empty;
   let d: unknown;
   try {
@@ -42,11 +46,14 @@ export function parsePlan(raw: string | null): PlanData {
         Object.entries(d.exams).flatMap(([level, r]) => {
           if (!isRecord(r) || !isRecord(r.marks) || typeof r.at !== "string") return [];
           const marks = Object.fromEntries(Object.entries(r.marks).filter((m): m is [string, number] => typeof m[1] === "number" && m[1] >= 0));
-          return [[level, { marks, at: r.at }]];
+          return [[level, { marks, ...(typeof r.sample === "string" ? { sample: r.sample } : {}), at: r.at }]];
         }),
       )
     : {};
-  return { done, hours, exams };
+  const used = isRecord(d.used)
+    ? Object.fromEntries(Object.entries(d.used).flatMap(([k, v]) => (Array.isArray(v) ? [[k, [...new Set(v.filter((x): x is string => typeof x === "string"))]]] : [])))
+    : {};
+  return { done, hours, exams, used };
 }
 
 /** The Monday of the date's week, in local time, as YYYY-MM-DD. */

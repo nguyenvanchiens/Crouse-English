@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, BookOpen, Check, Circle, Clock, ExternalLink, Lock } from "lucide-react";
 import {
+  AFTER_SAMPLES,
   CONVERSION_PDF,
   DAILY_MINUTES,
   DAILY_ROUTINE,
@@ -87,6 +88,7 @@ interface LevelStatus {
   certificate: boolean;
   placementPassed: boolean;
   exam: ExamVerdict | null;
+  examPassed: boolean;
   passed: boolean;
   weak: { lesson: PlanLesson; score: number }[];
 }
@@ -100,9 +102,17 @@ function levelStatus(l: PlanLevel, state: ProgressState, exams: Record<string, E
   const finalPassed = l.finalSlug ? (finalScore ?? 0) >= FINAL_PASS : true;
   const certificate = done === study.length && finalPassed;
   const placement = state.placement;
+  // the retest counts only when taken after the last lesson, so it measures the finished course
+  const lessonsDoneAt = done === study.length ? study.reduce((t, x) => (rec(x.slug)!.completedAt > t ? rec(x.slug)!.completedAt : t), "") : null;
   // placement.level is the highest level passed with every lower one passed too
-  const placementPassed = !!placement && PLACEMENT_LEVELS.indexOf(placement.level as (typeof PLACEMENT_LEVELS)[number]) >= PLACEMENT_LEVELS.indexOf(l.level as (typeof PLACEMENT_LEVELS)[number]);
+  const placementPassed =
+    !!placement &&
+    lessonsDoneAt !== null &&
+    placement.takenAt > lessonsDoneAt &&
+    PLACEMENT_LEVELS.indexOf(placement.level as (typeof PLACEMENT_LEVELS)[number]) >= PLACEMENT_LEVELS.indexOf(l.level as (typeof PLACEMENT_LEVELS)[number]);
   const exam = judgeExam(OFFICIAL_CHECKS[l.level], exams[l.level]);
+  // a result counts only when it names the official sample it came from
+  const examPassed = exam?.passed === true && !!exams[l.level]?.sample;
   const weak = lessons
     .filter((x) => x.kind !== "final")
     .flatMap((x) => {
@@ -120,7 +130,8 @@ function levelStatus(l: PlanLevel, state: ProgressState, exams: Record<string, E
     certificate,
     placementPassed,
     exam,
-    passed: certificate && placementPassed && exam?.passed === true,
+    examPassed,
+    passed: certificate && placementPassed && examPassed,
     weak,
   };
 }
@@ -407,10 +418,10 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
                     )}
                   </Condition>
                   <Condition ok={s.placementPassed}>
-                    Làm lại <Link href="/kiem-tra-trinh-do" className="font-semibold underline underline-offset-4">bài kiểm tra trình độ</Link> và qua cấp {l.level},
-                    bấm Tôi không biết thay vì đoán
+                    Học xong các bài rồi mới làm lại <Link href="/kiem-tra-trinh-do" className="font-semibold underline underline-offset-4">bài kiểm tra trình độ</Link> và
+                    qua cấp {l.level}, bấm Tôi không biết thay vì đoán
                   </Condition>
-                  <Condition ok={s.exam?.passed === true}>
+                  <Condition ok={s.examPassed}>
                     <a href={`#exam-${l.level}`} className="font-semibold underline underline-offset-4">Đề mẫu chính thức {OFFICIAL_CHECKS[l.level].exam}</a> đạt
                     ngưỡng {l.level} ở mọi phần
                   </Condition>
@@ -493,7 +504,7 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
                 </>
               )}
 
-              <ExamCheck level={l.level} check={OFFICIAL_CHECKS[l.level]} record={data.exams[l.level]} verdict={s.exam} n={l.selfStudy ? 4 : 3} />
+              <ExamCheck level={l.level} check={OFFICIAL_CHECKS[l.level]} record={data.exams[l.level]} used={data.used[l.level] ?? []} verdict={s.exam} n={l.selfStudy ? 4 : 3} />
             </details>
           </section>
         );
@@ -538,7 +549,21 @@ function CopyPrompt({ text, label }: { text: string; label: string }) {
 
 type Field = { key: string; label: string; max: number; step: number };
 
-function ExamCheck({ level, check, record, verdict, n }: { level: Level; check: OfficialCheck; record: ExamRecord | undefined; verdict: ExamVerdict | null; n: number }) {
+function ExamCheck({
+  level,
+  check,
+  record,
+  used,
+  verdict,
+  n,
+}: {
+  level: Level;
+  check: OfficialCheck;
+  record: ExamRecord | undefined;
+  used: string[];
+  verdict: ExamVerdict | null;
+  n: number;
+}) {
   const fields: Field[] = [
     ...check.sections.map((sec) => ({ key: sec.id, label: `${sec.label} (trên ${sec.max}, cần ${sec.pass})`, max: sec.max, step: 1 })),
     { key: "writing", label: `Writing, tổng hai bài (trên ${check.writing.max}, cần ${check.writing.pass})`, max: check.writing.max, step: 1 },
@@ -548,12 +573,16 @@ function ExamCheck({ level, check, record, verdict, n }: { level: Level; check: 
     Object.fromEntries(fields.map((f) => [f.key, record?.marks[f.key] != null ? String(record.marks[f.key]) : ""])),
   );
   const [saved, setSaved] = useState(false);
+  const [sample, setSample] = useState(record?.sample ?? "");
+  // a sample already used by an earlier attempt cannot be counted again; the latest one can still be corrected
+  const takenBefore = (id: string) => used.includes(id) && id !== record?.sample;
+  const left = check.samples.filter((x) => !used.includes(x.id));
   const ok = (f: Field) => {
     const v = marks[f.key];
     const x = Number(v);
     return v !== "" && Number.isFinite(x) && x >= 0 && x <= f.max && Number.isInteger(x / f.step);
   };
-  const valid = fields.every(ok);
+  const valid = fields.every(ok) && sample !== "" && !takenBefore(sample);
   const speakingNow = speakingTotal(check, Object.fromEntries(fields.filter((f) => f.key.startsWith("sp:") && ok(f)).map((f) => [f.key, Number(marks[f.key])])));
   const tick = (good: boolean) => (
     <>
@@ -587,10 +616,32 @@ function ExamCheck({ level, check, record, verdict, n }: { level: Level; check: 
         onSubmit={(e) => {
           e.preventDefault();
           if (!valid) return;
-          plan.saveExam(level, { marks: Object.fromEntries(fields.map((f) => [f.key, Number(marks[f.key])])), at: new Date().toISOString() });
+          plan.saveExam(level, { marks: Object.fromEntries(fields.map((f) => [f.key, Number(marks[f.key])])), sample, at: new Date().toISOString() });
           setSaved(true);
         }}
       >
+        <label className="sm:col-span-2">
+          <span className="block font-semibold">Bạn đã làm đề nào</span>
+          <select
+            value={sample}
+            onChange={(e) => {
+              setSample(e.target.value);
+              setSaved(false);
+            }}
+            className={INPUT}
+          >
+            <option value="">Chọn đề mẫu</option>
+            {check.samples.map((x) => (
+              <option key={x.id} value={x.id} disabled={takenBefore(x.id)}>
+                {x.label}
+                {takenBefore(x.id) ? " (đã dùng)" : ""}
+              </option>
+            ))}
+          </select>
+          <span className="mt-1 block text-sm text-ink-soft">
+            Mỗi đề chỉ được tính một lần, vì làm lại đề cũ thì đã nhớ đáp án. Còn {left.length}/{check.samples.length} đề chưa dùng.
+          </span>
+        </label>
         {fields.map((f) => (
           <label key={f.key}>
             <span className="block font-semibold">{f.label}</span>
@@ -637,7 +688,10 @@ function ExamCheck({ level, check, record, verdict, n }: { level: Level; check: 
               {tick(verdict.speaking.ok)}Speaking: {verdict.speaking.total ?? "chưa có"}/{check.speaking.max}, cần {check.speaking.pass}
             </li>
           </ul>
-          {!verdict.passed && <p className="mt-2">Ôn thêm phần chưa đạt rồi làm một đề mẫu khác trên cùng trang của Cambridge.</p>}
+          {!verdict.passed && (
+            <p className="mt-2">{left.length > 0 ? `Ôn thêm phần chưa đạt rồi làm một đề mẫu khác (còn ${left.length} đề chưa dùng).` : AFTER_SAMPLES}</p>
+          )}
+          {record.sample === undefined && <p className="mt-2">Kết quả này chưa ghi làm đề nào nên chưa được tính. Chọn đề rồi lưu lại.</p>}
         </div>
       )}
       <p className="mt-3 text-sm text-ink-soft">

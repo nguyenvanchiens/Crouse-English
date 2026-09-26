@@ -40,7 +40,19 @@ export function chapter(n: number, title: string, lessons: Lesson[]): Module {
 
 /** Minimum final-test score (%) for the certificate. */
 export const FINAL_PASS = 70;
+/** Items per chapter in one attempt of the final test. */
 export const FINAL_PER_CHAPTER = 5;
+/** Items per chapter in a course's final-test bank: three attempts in a row share no item. */
+export const FINAL_BANK_PER_CHAPTER = 15;
+
+/**
+ * A course's whole final-test bank in chapter order: the original items (FINAL_PER_CHAPTER per chapter)
+ * followed by that chapter's extra items. Each attempt draws FINAL_PER_CHAPTER per chapter from it.
+ */
+export function finalBank(base: Exercise[], extra: Exercise[][]): Exercise[] {
+  if (base.length !== extra.length * FINAL_PER_CHAPTER) throw new Error("final bank: base items do not match the chapters");
+  return extra.flatMap((more, c) => [...base.slice(c * FINAL_PER_CHAPTER, (c + 1) * FINAL_PER_CHAPTER), ...more]);
+}
 
 function finalLesson(items: Exercise[]): Lesson {
   return {

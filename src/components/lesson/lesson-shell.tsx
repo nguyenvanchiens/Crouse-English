@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Flame, List, PartyPopper, X } from "lucide-react";
-import type { Step } from "@/content/types";
+import type { Exercise, Lesson, Step } from "@/content/types";
 import type { LessonContext } from "@/lib/content";
-import { FINAL_PASS } from "@/content/review";
+import { FINAL_PASS, FINAL_PER_CHAPTER } from "@/content/review";
 import { certificateStatus, courseProgress, displayStreak, todayKey, type CertificateStatus } from "@/lib/progress-core";
 import { clearDraft, loadDraft, saveDraft, type LessonDraft } from "@/lib/lesson-draft";
 import { percentScore } from "@/lib/scoring";
+import { addSeen, getSeen } from "@/lib/seen";
+import { drawFinal, resolveDrawn, type Drawn } from "@/lib/test-draw";
 import { setDefaultAccent } from "@/lib/speech";
 import type { PointEntry } from "@/lib/points";
 import { PointsEarned } from "@/components/points";
@@ -47,11 +49,27 @@ const STEP_HINT: Record<Step["type"], string> = {
   speaking: "Luyện hết các câu, hoặc bỏ qua, để tiếp tục.",
 };
 
+/** The final test's whole bank; each attempt shows a draw from it. */
+const bankOf = (lesson: Lesson): Exercise[] => (lesson.final ? lesson.steps.flatMap((s) => (s.type === "exercise" ? s.items : [])) : []);
+
 export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const { course, module: currentModule, lesson, index, total, next } = ctx;
   const { state, ready } = useProgress();
   // A saved draft is only read on the client; the step UI renders after `ready`, so it never hydrates against it.
-  const [draft] = useState(() => loadDraft<ExerciseProgress, TaskProgress>(course.slug, lesson.slug, lesson.steps.length));
+  const [draft] = useState(() => {
+    const d = loadDraft<ExerciseProgress, TaskProgress>(course.slug, lesson.slug, lesson.steps.length);
+    // a final-test draft is only usable with the questions it was answering
+    return d && lesson.final && !(d.drawn && resolveDrawn(bankOf(lesson), d.drawn)) ? null : d;
+  });
+  // The final test is a fresh draw from the bank on every attempt (fresh items first, options shuffled).
+  const bank = useMemo(() => bankOf(lesson), [lesson]);
+  const chapters = course.modules.filter((m) => !m.lessons.some((l) => l.final)).length;
+  const drawTest = () => drawFinal(bank, chapters, FINAL_PER_CHAPTER, getSeen(`final:${course.slug}`), Math.random);
+  const [drawn, setDrawn] = useState<Drawn[] | null>(() => (lesson.final ? (draft?.drawn ?? drawTest()) : null));
+  const steps: Step[] = useMemo(() => {
+    const items = drawn ? resolveDrawn(bank, drawn) : null;
+    return items ? [{ type: "exercise", items }] : lesson.steps;
+  }, [bank, drawn, lesson.steps]);
   const [stepIndex, setStepIndex] = useState(draft?.stepIndex ?? 0);
   const [completed, setCompleted] = useState<boolean[]>(() => draft?.completed ?? lesson.steps.map(() => false));
   const [results, setResults] = useState<LessonDraft["results"]>(draft?.results ?? {});
@@ -98,8 +116,8 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const touched = stepIndex > 0 || completed.some(Boolean) || Object.keys(exerciseProgress).length > 0 || Object.keys(taskProgress).length > 0;
   useEffect(() => {
     if (finished || !touched) return;
-    saveDraft(course.slug, lesson.slug, { stepIndex, completed, results, exerciseProgress, taskProgress });
-  }, [course.slug, lesson.slug, finished, touched, stepIndex, completed, results, exerciseProgress, taskProgress]);
+    saveDraft(course.slug, lesson.slug, { stepIndex, completed, results, exerciseProgress, taskProgress, ...(drawn ? { drawn } : {}) });
+  }, [course.slug, lesson.slug, finished, touched, stepIndex, completed, results, exerciseProgress, taskProgress, drawn]);
 
   const cp = courseProgress(course, state);
   const streak = displayStreak(state.streak, todayKey(), state.rewards.freezes);
@@ -123,6 +141,8 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     const before = state.points.log;
     const nextState = progress.completeLesson(course.slug, lesson.slug, score, lesson.final ? "final" : lesson.review ? "review" : "lesson");
     clearDraft(course.slug, lesson.slug);
+    // the next attempt starts with questions this one did not use
+    if (drawn) addSeen(`final:${course.slug}`, drawn.map((d) => d.id));
     // entries added by this finish (older ones keep their identity in the log)
     const gained = nextState.points.log.filter((e) => !before.includes(e));
     setFinished({ score, cert: certificateStatus(course, nextState), points: gained });
@@ -132,6 +152,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     setFinished(null);
     setStepIndex(0);
     setCompleted(lesson.steps.map(() => false));
+    if (lesson.final) setDrawn(drawTest());
     setResults({});
     setExerciseProgress({});
     setTaskProgress({});
@@ -264,12 +285,12 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
       );
     }
 
-    const step = lesson.steps[stepIndex];
-    const isLast = stepIndex === lesson.steps.length - 1;
+    const step = steps[stepIndex];
+    const isLast = stepIndex === steps.length - 1;
     return (
       <>
         <ol className="mb-6 flex flex-wrap gap-2" aria-label="Các bước của bài">
-          {lesson.steps.map((s, k) => {
+          {steps.map((s, k) => {
             const reachable = k === 0 || completed[k - 1];
             return (
               <li key={k}>

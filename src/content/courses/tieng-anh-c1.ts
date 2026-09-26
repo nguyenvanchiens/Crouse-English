@@ -10,7 +10,8 @@ import nMenhDeQuanHeNangCao from "../lessons/c1/menh-de-quan-he-nang-cao";
 import nTrangTuBinhLuan from "../lessons/c1/trang-tu-binh-luan";
 import nVietLuanVaTomTat from "../lessons/c1/viet-luan-va-tom-tat";
 import nTuDeNhamVaNgonNguUocLuong from "../lessons/c1/tu-de-nham-va-ngon-ngu-uoc-luong";
-import { chapter } from "../review";
+import { FINAL_EXTRA_TIENG_ANH_C1 } from "../banks/final-tieng-anh-c1";
+import { chapter, finalBank } from "../review";
 import type { Course, Exercise } from "../types";
 
 const noiTuNhien = lesson({
@@ -899,7 +900,7 @@ Notwithstanding these limitations, the study has clear practical implications. U
 });
 
 /** End-of-course test: 5 new items per chapter, never shown in a lesson. */
-const finalTest: Exercise[] = [
+const finalTestBase: Exercise[] = [
   // Chương 1: cụm động từ và kết hợp từ, tỉnh lược và thay thế, tương lai nâng cao, cấu tạo từ, từ dễ nhầm
   mc("c1-f01", "The arrival of cheap smartphones has ___ a fundamental change in how people read the news.", ["brought up", "brought about", "brought back", "brought down"], 1, "Bring about: gây ra, tạo ra một thay đổi. Bring up là nêu ra hoặc nuôi dạy, bring back là mang trở lại, bring down là làm giảm."),
   mc("c1-f02", "Your suggestion is very ___: it is practical and will save us both time and money.", ["sensitive", "sensible", "sympathetic", "eventual"], 1, "Sensible: hợp lý, biết điều. Sensitive là nhạy cảm, sympathetic là cảm thông, eventual là cuối cùng (sau một thời gian)."),
@@ -925,6 +926,7 @@ const finalTest: Exercise[] = [
   listen("c1-f19", "Presumably, the client has already seen the revised figures.", ["Chắc chắn khách hàng chưa xem số liệu mới.", "Khách hàng yêu cầu sửa lại số liệu.", "Thẳng thắn mà nói, khách hàng không thích số liệu mới.", "Tôi đoán là khách hàng đã xem số liệu đã sửa rồi."], 3, "Presumably: đoán là, có lẽ là, dựa trên suy luận hợp lý."),
   correct("c1-f20", "Arguably that the new system is the best option we have.", ["Arguably, the new system is the best option we have.", "The new system is arguably the best option we have."], "Trạng từ bình luận đứng đầu câu kèm dấu phẩy, không thêm that phía sau."),
 ];
+const finalTest = finalBank(finalTestBase, FINAL_EXTRA_TIENG_ANH_C1);
 
 export const tiengAnhC1: Course = {
   slug: "tieng-anh-c1",

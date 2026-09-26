@@ -11,7 +11,8 @@ import nCuaAi from "../lessons/a2/cua-ai";
 import nVuaMoiDaChua from "../lessons/a2/vua-moi-da-chua";
 import nDieuKienLoai01 from "../lessons/a2/dieu-kien-loai-0-va-1";
 import nQuaKhuTiepDien from "../lessons/a2/qua-khu-tiep-dien";
-import { chapter } from "../review";
+import { FINAL_EXTRA_TIENG_ANH_A2 } from "../banks/final-tieng-anh-a2";
+import { chapter, finalBank } from "../review";
 import type { Course } from "../types";
 
 const homQua = lesson({
@@ -929,30 +930,33 @@ export const tiengAnhA2: Course = {
     chapter(3, "Mua sắm và đồ vật", [soSanh, nBaoNhieu, nQuaVaKhongDu, nCuaAi]),
     chapter(4, "Ra ngoài và trải nghiệm", [hoiDuong, sucKhoe, banDaTung, nVuaMoiDaChua]),
   ],
-  finalTest: [
-    // Chương 1: chuyện đã qua
-    mc("a2-f01", "A: ___ did you stay in Nha Trang? B: For five days.", ["When", "How long", "Where", "Who"], 1, "Câu trả lời For five days là một khoảng thời gian, nên câu hỏi là How long."),
-    fill("a2-f02", "When I was a child, I ___ to walk to school every morning. (use)", ["used"], "Thói quen ngày xưa, câu khẳng định: used to + động từ nguyên mẫu."),
-    reorder("a2-f03", "What did your sister buy at the market?", "Từ để hỏi + did + chủ ngữ + động từ nguyên mẫu: What did your sister buy...?"),
-    listenQ("a2-f04", "Ông của người nói nghỉ hưu khi nào?", "My grandfather was born in nineteen fifty. He became a teacher after he finished university, and he retired when he was sixty.", ["Khi ông tốt nghiệp đại học", "Năm một nghìn chín trăm năm mươi", "Khi ông sáu mươi tuổi", "Khi ông bắt đầu làm giáo viên"], 2, "He retired when he was sixty: ông nghỉ hưu khi sáu mươi tuổi. Năm 1950 là năm ông sinh ra."),
-    correct("a2-f05", "My brother was play computer games when I got home.", ["My brother was playing computer games when I got home.", "When I got home, my brother was playing computer games."], "Việc đang diễn ra thì bị việc khác chen ngang: quá khứ tiếp diễn was + V-ing (was playing). Không ghép was với động từ nguyên mẫu."),
-    // Chương 2: dự định và tương lai
-    mc("a2-f06", "I'm not sure yet, but I ___ go to the party. It depends on my work.", ["will", "won't", "might", "am going to"], 2, "Người nói chưa chắc chắn (I'm not sure yet) nên dùng might. Will, won't và am going to đều nghe như đã chắc."),
-    fill("a2-f07", "Your bag looks heavy. ___ I carry it for you?", ["shall", "can", "could", "may"], "Đề nghị làm giúp người khác: Shall I...? (Can I...?, Could I...? hoặc May I...? cũng đúng)."),
-    reorder("a2-f08", "Are you going to take the train to Hue?", "Câu hỏi với going to: Are + chủ ngữ + going to + động từ nguyên mẫu?"),
-    listenQ("a2-f09", "Vì sao Mai hỏi người gọi có muốn để lại lời nhắn không?", "Hello, this is Mai from Sen Travel. I'm afraid Mr Vu isn't available right now. Would you like to leave a message?", ["Vì ông Vũ đang không nghe máy được", "Vì đường dây bị hỏng", "Vì người gọi nói quá nhanh"], 0, "Mr Vu isn't available right now: lúc này ông Vũ không nghe máy được, nên Mai đề nghị ghi lại lời nhắn."),
-    correct("a2-f10", "If you will study hard, you'll pass the exam.", ["If you study hard, you'll pass the exam.", "You'll pass the exam if you study hard."], "Điều kiện loại 1: vế if dùng hiện tại đơn dù nói về tương lai (If you study hard), will chỉ đứng ở vế kết quả."),
-    // Chương 3: mua sắm và đồ vật
-    mc("a2-f11", "Hurry up! We don't have ___ time. The film starts in five minutes.", ["much", "many", "a few"], 0, "Time không đếm được, câu phủ định nên dùng much. Many và a few đi với danh từ đếm được."),
-    fill("a2-f12", "This T-shirt isn't big ___ for my father. (đủ)", ["enough"], "Enough đứng sau tính từ: big enough."),
-    reorder("a2-f13", "It's the cheapest restaurant in our street.", "Cheap là tính từ ngắn: the cheapest. So sánh nhất luôn có the."),
-    listenQ("a2-f14", "Theo Lan, cái ô là của ai?", "Whose umbrella is this? Is it yours, Lan? No, it isn't mine. I think it's Minh's.", ["Của Lan", "Của người hỏi", "Của Minh"], 2, "Lan nói It isn't mine. I think it's Minh's: không phải của Lan, chắc là của Minh."),
-    correct("a2-f15", "There are too much people in this café.", "There are too many people in this café.", "People là danh từ đếm được số nhiều nên dùng too many, không dùng too much."),
-    // Chương 4: ra ngoài và trải nghiệm
-    mc("a2-f16", "A: Is the new bookshop far from here? B: No, it only takes five minutes ___.", ["by foot", "on foot", "in foot"], 1, "Đi bộ là on foot. By chỉ dùng với phương tiện: by bus, by taxi."),
-    fill("a2-f17", "Have you finished your report ___? (chưa)", ["yet"], "Câu hỏi “đã... chưa?” ở hiện tại hoàn thành dùng yet ở cuối câu."),
-    reorder("a2-f18", "Have you ever been to Phu Quoc?", "Câu hỏi trải nghiệm: Have + chủ ngữ + ever + V3?"),
-    listenQ("a2-f19", "Ngày mai người nghe phải làm gì?", "You don't have to come to the office tomorrow. But you mustn't forget the online meeting at nine.", ["Phải đến văn phòng lúc chín giờ", "Không cần đến văn phòng, nhưng phải tham gia cuộc họp trực tuyến lúc chín giờ", "Không cần làm gì cả", "Phải gọi điện cho sếp lúc chín giờ"], 1, "Don't have to come là không cần đến văn phòng; mustn't forget the online meeting là không được quên cuộc họp trực tuyến."),
-    correct("a2-f20", "I have already see this film.", ["I have already seen this film."], "Hiện tại hoàn thành: have + quá khứ phân từ. See → saw → seen: I have already seen this film."),
-  ],
+  finalTest: finalBank(
+    [
+      // Chương 1: chuyện đã qua
+      mc("a2-f01", "A: ___ did you stay in Nha Trang? B: For five days.", ["When", "How long", "Where", "Who"], 1, "Câu trả lời For five days là một khoảng thời gian, nên câu hỏi là How long."),
+      fill("a2-f02", "When I was a child, I ___ to walk to school every morning. (use)", ["used"], "Thói quen ngày xưa, câu khẳng định: used to + động từ nguyên mẫu."),
+      reorder("a2-f03", "What did your sister buy at the market?", "Từ để hỏi + did + chủ ngữ + động từ nguyên mẫu: What did your sister buy...?"),
+      listenQ("a2-f04", "Ông của người nói nghỉ hưu khi nào?", "My grandfather was born in nineteen fifty. He became a teacher after he finished university, and he retired when he was sixty.", ["Khi ông tốt nghiệp đại học", "Năm một nghìn chín trăm năm mươi", "Khi ông sáu mươi tuổi", "Khi ông bắt đầu làm giáo viên"], 2, "He retired when he was sixty: ông nghỉ hưu khi sáu mươi tuổi. Năm 1950 là năm ông sinh ra."),
+      correct("a2-f05", "My brother was play computer games when I got home.", ["My brother was playing computer games when I got home.", "When I got home, my brother was playing computer games."], "Việc đang diễn ra thì bị việc khác chen ngang: quá khứ tiếp diễn was + V-ing (was playing). Không ghép was với động từ nguyên mẫu."),
+      // Chương 2: dự định và tương lai
+      mc("a2-f06", "I'm not sure yet, but I ___ go to the party. It depends on my work.", ["will", "won't", "might", "am going to"], 2, "Người nói chưa chắc chắn (I'm not sure yet) nên dùng might. Will, won't và am going to đều nghe như đã chắc."),
+      fill("a2-f07", "Your bag looks heavy. ___ I carry it for you?", ["shall", "can", "could", "may"], "Đề nghị làm giúp người khác: Shall I...? (Can I...?, Could I...? hoặc May I...? cũng đúng)."),
+      reorder("a2-f08", "Are you going to take the train to Hue?", "Câu hỏi với going to: Are + chủ ngữ + going to + động từ nguyên mẫu?"),
+      listenQ("a2-f09", "Vì sao Mai hỏi người gọi có muốn để lại lời nhắn không?", "Hello, this is Mai from Sen Travel. I'm afraid Mr Vu isn't available right now. Would you like to leave a message?", ["Vì ông Vũ đang không nghe máy được", "Vì đường dây bị hỏng", "Vì người gọi nói quá nhanh"], 0, "Mr Vu isn't available right now: lúc này ông Vũ không nghe máy được, nên Mai đề nghị ghi lại lời nhắn."),
+      correct("a2-f10", "If you will study hard, you'll pass the exam.", ["If you study hard, you'll pass the exam.", "You'll pass the exam if you study hard."], "Điều kiện loại 1: vế if dùng hiện tại đơn dù nói về tương lai (If you study hard), will chỉ đứng ở vế kết quả."),
+      // Chương 3: mua sắm và đồ vật
+      mc("a2-f11", "Hurry up! We don't have ___ time. The film starts in five minutes.", ["much", "many", "a few"], 0, "Time không đếm được, câu phủ định nên dùng much. Many và a few đi với danh từ đếm được."),
+      fill("a2-f12", "This T-shirt isn't big ___ for my father. (đủ)", ["enough"], "Enough đứng sau tính từ: big enough."),
+      reorder("a2-f13", "It's the cheapest restaurant in our street.", "Cheap là tính từ ngắn: the cheapest. So sánh nhất luôn có the."),
+      listenQ("a2-f14", "Theo Lan, cái ô là của ai?", "Whose umbrella is this? Is it yours, Lan? No, it isn't mine. I think it's Minh's.", ["Của Lan", "Của người hỏi", "Của Minh"], 2, "Lan nói It isn't mine. I think it's Minh's: không phải của Lan, chắc là của Minh."),
+      correct("a2-f15", "There are too much people in this café.", "There are too many people in this café.", "People là danh từ đếm được số nhiều nên dùng too many, không dùng too much."),
+      // Chương 4: ra ngoài và trải nghiệm
+      mc("a2-f16", "A: Is the new bookshop far from here? B: No, it only takes five minutes ___.", ["by foot", "on foot", "in foot"], 1, "Đi bộ là on foot. By chỉ dùng với phương tiện: by bus, by taxi."),
+      fill("a2-f17", "Have you finished your report ___? (chưa)", ["yet"], "Câu hỏi “đã... chưa?” ở hiện tại hoàn thành dùng yet ở cuối câu."),
+      reorder("a2-f18", "Have you ever been to Phu Quoc?", "Câu hỏi trải nghiệm: Have + chủ ngữ + ever + V3?"),
+      listenQ("a2-f19", "Ngày mai người nghe phải làm gì?", "You don't have to come to the office tomorrow. But you mustn't forget the online meeting at nine.", ["Phải đến văn phòng lúc chín giờ", "Không cần đến văn phòng, nhưng phải tham gia cuộc họp trực tuyến lúc chín giờ", "Không cần làm gì cả", "Phải gọi điện cho sếp lúc chín giờ"], 1, "Don't have to come là không cần đến văn phòng; mustn't forget the online meeting là không được quên cuộc họp trực tuyến."),
+      correct("a2-f20", "I have already see this film.", ["I have already seen this film."], "Hiện tại hoàn thành: have + quá khứ phân từ. See → saw → seen: I have already seen this film."),
+    ],
+    FINAL_EXTRA_TIENG_ANH_A2,
+  ),
 };

@@ -1,7 +1,9 @@
+import { PLACEMENT_EXTRA_HIGH } from "./banks/placement-high";
+import { PLACEMENT_EXTRA_LOW } from "./banks/placement-low";
 import type { PlacementQuestion } from "./types";
 
-/** 8 questions per level, A1 to C1: each level has at least one listening and one reading item. */
-export const PLACEMENT_QUESTIONS: PlacementQuestion[] = [
+/** The first 40 questions: 8 per level, A1 to C1, each level with at least one listening and one reading item. */
+const PLACEMENT_BASE: PlacementQuestion[] = [
   // ---- A1 ----
   { id: "p01", level: "A1", skill: "vocab", prompt: "“Apple” nghĩa là gì?", options: ["Quả táo", "Quả cam", "Quả chuối", "Quả nho"], answer: 0 },
   { id: "p02", level: "A1", skill: "grammar", prompt: "She ___ a teacher.", options: ["am", "is", "are", "be"], answer: 1 },
@@ -72,3 +74,9 @@ export const PLACEMENT_QUESTIONS: PlacementQuestion[] = [
     prompt: "Có thể suy ra điều gì từ đoạn văn?", options: ["Việc cấm xe đã khiến các cửa hàng phá sản như dự đoán", "Mọi người dân và doanh nghiệp đều hài lòng với thay đổi", "Một số người từng phản đối nay lại hưởng lợi từ thay đổi này", "Các công ty giao hàng ủng hộ việc cấm xe"], answer: 2,
   },
 ];
+
+/**
+ * The whole placement bank: per level at least 9 grammar, 9 vocab, 3 listening and 3 reading questions. Each attempt
+ * draws 8 per level from it, fresh questions first, so three attempts in a row share no question.
+ */
+export const PLACEMENT_QUESTIONS: PlacementQuestion[] = [...PLACEMENT_BASE, ...PLACEMENT_EXTRA_LOW, ...PLACEMENT_EXTRA_HIGH];
