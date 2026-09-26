@@ -1,0 +1,142 @@
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "qua-khu-tiep-dien",
+  title: "Lúc đó tôi đang…: quá khứ tiếp diễn",
+  minutes: 32,
+  lecture: {
+    title: "Thì quá khứ tiếp diễn với when và while",
+    blocks: [
+      p("Bạn gọi cho đồng nghiệp ba lần mà không ai nghe. Sáng hôm sau anh ấy giải thích: “Sorry, I was cooking dinner.” (Xin lỗi, lúc đó tôi đang nấu cơm). Khi kể chuyện, ta rất hay cần nói **việc gì đang diễn ra ở một thời điểm trong quá khứ**, hoặc **đang làm việc này thì việc kia xảy ra**. Đó là việc của **thì quá khứ tiếp diễn**."),
+      p("Công thức: **was / were + V-ing**. I, he, she, it và danh từ số ít đi với **was**; you, we, they và danh từ số nhiều đi với **were**. Tiếng Việt chỉ cần chữ “đang” hoặc “lúc đó đang”, còn tiếng Anh cần **cả hai phần**: was / were và đuôi -ing."),
+      table(
+        ["Dạng câu", "Cấu trúc", "Ví dụ"],
+        ["Khẳng định", "chủ ngữ + was / were + V-ing", "I was cooking at seven."],
+        ["Phủ định", "chủ ngữ + wasn't / weren't + V-ing", "They weren't listening."],
+        ["Nghi vấn", "Was / Were + chủ ngữ + V-ing?", "Were you sleeping?"],
+        ["Có từ để hỏi", "Wh- + was / were + chủ ngữ + V-ing?", "What were you doing?"],
+        ["Trả lời ngắn", "Yes, I was. / No, I wasn't.", "No, I wasn't. I was reading."],
+      ),
+      ex("At eight o'clock last night, I was watching TV.", "Lúc tám giờ tối qua, tôi đang xem ti vi.", "Có một thời điểm cụ thể trong quá khứ, việc xem ti vi đã bắt đầu trước đó và vẫn đang tiếp diễn."),
+      ex("What were you doing at ten yesterday? I was sleeping.", "Mười giờ hôm qua bạn đang làm gì? Tôi đang ngủ."),
+      p("Quá khứ tiếp diễn hay đi cùng **quá khứ đơn** mà bạn đã học ở bài Hôm qua bạn làm gì. Việc **dài, đang diễn ra** (làm nền) dùng quá khứ tiếp diễn; việc **ngắn, chen ngang** dùng quá khứ đơn. **When** thường đứng trước việc ngắn, **while** thường đứng trước việc dài."),
+      table(
+        ["Việc dài, làm nền: was / were + V-ing", "Việc ngắn, chen ngang: quá khứ đơn", "Cả câu"],
+        ["I was cooking", "the phone rang", "I was cooking when the phone rang."],
+        ["we were having dinner", "the lights went out", "While we were having dinner, the lights went out."],
+        ["she was walking home", "she saw an accident", "She saw an accident while she was walking home."],
+      ),
+      ex("I was cooking when the phone rang.", "Tôi đang nấu ăn thì điện thoại reo."),
+      ex("While we were having dinner, the lights went out.", "Trong lúc cả nhà đang ăn tối thì mất điện.", "Mệnh đề while hay when đứng đầu câu thì có dấu phẩy, giống câu với if."),
+      p("Hai việc dài **cùng diễn ra song song** thì cả hai đều dùng quá khứ tiếp diễn: **While I was cooking, my husband was washing the dishes.** Lưu ý: các động từ chỉ **trạng thái**, không phải hành động, như **know, like, love, want, need, understand, have** (nghĩa là có, sở hữu), thường **không** dùng dạng -ing. Hãy dùng quá khứ đơn: I knew the answer, không nói I was knowing."),
+      tip("Trong câu nói, **was** đọc nhẹ /wəz/ và **were** đọc nhẹ /wə/; hãy nhấn vào động từ chính: I was COOKing. Nhưng **wasn't** /ˈwɒz.ənt/, **weren't** /wɜːnt/ và câu trả lời ngắn **Yes, I was** /wɒz/ thì đọc rõ, không đọc nhẹ."),
+      mistake("I was cook dinner when you called.", "I was cooking dinner when you called.", "Người Việt coi was là chữ “đang” nên ghép thẳng với động từ nguyên mẫu. Quá khứ tiếp diễn cần cả was và đuôi -ing."),
+      mistake("They was playing football when it started to rain.", "They were playing football when it started to rain.", "Tiếng Việt không chia động từ theo ngôi, nên học trò hay dùng was cho mọi chủ ngữ. They, we, you đi với were."),
+      mistake("I was knowing her phone number.", "I knew her phone number.", "Chữ “đang” trong tiếng Việt đi với động từ nào cũng được, nhưng know là động từ trạng thái, không dùng -ing. Dùng quá khứ đơn: I knew."),
+      teacher("Khi đứng lớp, tôi hay cho học viên chơi trò “nhân chứng”: tôi hỏi **What were you doing at seven last night?**, rồi cả lớp lần lượt trả lời, và người sau phải kể lại câu của người trước: Lan was cooking, Minh was watching football... Trò chơi nhỏ mà luyện được cả was / were lẫn đuôi -ing. Về nhà, tối nào các bạn cũng thử nói hai câu: một câu có **when** (I was washing the dishes when my mum called) và một câu có **while**. Nhớ là việc chen ngang dùng quá khứ đơn, đừng cho cả hai vế cùng -ing."),
+      summary(
+        "Quá khứ tiếp diễn: was / were + V-ing, cho việc đang diễn ra ở một thời điểm trong quá khứ.",
+        "I, he, she, it đi với was; you, we, they đi với were. Không được bỏ đuôi -ing.",
+        "Việc dài làm nền dùng quá khứ tiếp diễn, việc ngắn chen ngang dùng quá khứ đơn: I was cooking when the phone rang.",
+        "When thường đứng trước việc ngắn, while đứng trước việc dài; mệnh đề đứng đầu câu thì có dấu phẩy.",
+        "Động từ trạng thái (know, like, want, need, have nghĩa là có) thường dùng quá khứ đơn, không dùng -ing.",
+      ),
+    ],
+  },
+  words: [
+    word("thunder", "/ˈθʌn.də/", "sấm", "I was sleeping when the thunder woke me up.", "thun|der", 0, "Âm đầu /θ/: đặt đầu lưỡi giữa hai hàm răng rồi thổi hơi, không đọc thành “thăn-đơ” hay “tăn-đơ”."),
+    word("lightning", "/ˈlaɪt.nɪŋ/", "tia chớp, sét", "We saw lightning while we were driving home.", "light|ning", 0, "Chỉ có hai âm tiết, viết không có chữ e: lightning, khác với lightening (làm sáng lên)."),
+    word("thunderstorm", "/ˈθʌn.də.stɔːm/", "cơn giông, bão có sấm sét", "There was a big thunderstorm when I was driving home.", "thun|der|storm", 0, "Âm /θ/ đầu từ: đặt đầu lưỡi giữa hai hàm răng, đừng đọc thành “thăn”."),
+    word("knock", "/nɒk/", "gõ (cửa)", "Someone knocked on the door while I was having a shower.", "knock", 0, "Chữ k đầu từ không đọc: /nɒk/, giống know, knife."),
+    word("slip", "/slɪp/", "trượt chân, trượt ngã", "She slipped on the wet floor while she was carrying the plates.", "slip", 0),
+    word("crash", "/kræʃ/", "đâm, va chạm; vụ đâm xe", "Two motorbikes crashed while it was raining.", "crash", 0, "Âm /æ/ mở rộng miệng như giữa “a” và “e”, kết thúc bằng /ʃ/ như “sh”."),
+    word("noise", "/nɔɪz/", "tiếng ồn, tiếng động", "I heard a strange noise while I was reading.", "noise", 0, "Kết thúc bằng âm /z/ rung, không phải /s/."),
+  ],
+  exercises: [
+    mc("a2-n18-1", "At nine o'clock last night, I ___ a film.", ["watch", "was watching", "were watching", "am watching"], 1, "Có thời điểm cụ thể trong quá khứ và chủ ngữ I: was watching."),
+    mc("a2-n18-2", "I was having a shower when the phone ___.", ["was ringing", "rings", "rang", "ring"], 2, "Việc ngắn chen ngang dùng quá khứ đơn: the phone rang."),
+    fill("a2-n18-3", "They ___ playing football when it started to rain. (was / were)", ["were"], "They đi với were: they were playing."),
+    fill("a2-n18-4", "___ I was walking home, I saw an accident. (trong khi)", ["While", "while"], "While đứng trước việc dài, đang diễn ra: While I was walking home..."),
+    reorder("a2-n18-5", "The children were playing in the garden.", "Chủ ngữ số nhiều (the children) đi với were + V-ing."),
+    reorder("a2-n18-6", "Why were you standing in the rain?", "Câu hỏi có từ để hỏi: Why + were + chủ ngữ + V-ing?"),
+    listen("a2-n18-7", "I was sleeping when you called.", ["Tôi ngủ dậy rồi mới gọi cho bạn.", "Lúc bạn gọi thì tôi đang ngủ.", "Bạn gọi xong thì tôi đi ngủ."], 1, "Was sleeping là việc đang diễn ra, called là việc chen ngang."),
+    listen("a2-n18-8", "While my mother was cooking, my father was watching the news.", ["Mẹ tôi nấu ăn xong thì bố tôi xem thời sự.", "Bố tôi vừa nấu ăn vừa xem thời sự.", "Trong lúc mẹ tôi nấu ăn thì bố tôi xem thời sự."], 2, "Hai việc dài diễn ra song song nên cả hai đều ở quá khứ tiếp diễn."),
+    correct("a2-n18-9", "We was waiting for the bus when it started to rain.", ["We were waiting for the bus when it started to rain."], "We đi với were, không đi với was."),
+    correct("a2-n18-10", "She was knowing the answer, but she didn't say it.", ["She knew the answer, but she didn't say it."], "Know là động từ trạng thái, không dùng -ing: she knew."),
+  ],
+  freeSpeaking: free(
+    "What were you doing at eight o'clock last night?",
+    "Nói 4–5 câu: tám giờ tối qua bạn và người nhà đang làm gì, rồi kể một việc xảy ra chen ngang (dùng when hoặc while).",
+    "At eight o'clock last night, I was cooking dinner in the kitchen. My husband was helping our son with his homework, and my daughter was talking to her friend on the phone. While I was washing the dishes, it started to rain. It was a normal evening at home.",
+  ),
+  speaking: [
+    say("I was watching TV when the lights went out.", "Tôi đang xem ti vi thì mất điện."),
+    say("While we were having dinner, it started to rain.", "Trong lúc chúng tôi đang ăn tối thì trời bắt đầu mưa."),
+    say("What were you doing at nine o'clock last night?", "Chín giờ tối qua bạn đang làm gì?"),
+  ],
+  dialogue: dialogue(
+    "Kể chuyện đêm mưa bão",
+    "Sáng hôm sau một trận bão lớn, Peter, đồng nghiệp người Anh, và Mai kể cho nhau nghe tối qua mỗi người đang làm gì khi bão đến.",
+    { A: "Peter (đồng nghiệp)", B: "Mai" },
+    A("Did you hear the storm last night, Mai?", "Tối qua bạn có nghe thấy bão không, Mai?"),
+    B("Yes! I was reading on the sofa when the thunder started. It was so loud!", "Có chứ! Mình đang đọc sách trên ghế sofa thì sấm bắt đầu nổ. To kinh khủng!"),
+    A("Were you at home when the lights went out?", "Lúc mất điện bạn có ở nhà không?"),
+    B("Yes. I was cooking dinner, and suddenly everything went dark.", "Có. Mình đang nấu bữa tối thì bỗng dưng tối om."),
+    A("Oh no! What did you do?", "Ôi không! Thế bạn làm gì?"),
+    B("I found a torch and finished the cooking. What about you?", "Mình tìm cái đèn pin rồi nấu cho xong. Còn bạn thì sao?"),
+    A("I wasn't at home. I was driving back from work when lightning hit a tree near the road.", "Mình không ở nhà. Mình đang lái xe từ chỗ làm về thì sét đánh vào một cái cây gần đường."),
+    B("That's terrible! Were you OK?", "Kinh khủng quá! Bạn có sao không?"),
+    A("I was fine. But while I was waiting in traffic, a woman slipped on the wet pavement.", "Mình không sao. Nhưng trong lúc mình đang kẹt xe thì một chị trượt chân ngã trên vỉa hè ướt."),
+    B("Was she hurt?", "Chị ấy có bị thương không?"),
+    A("No, luckily. Some people were helping her when I left.", "May là không. Lúc mình đi thì có mấy người đang giúp chị ấy."),
+    B("Thank goodness. The power came back at midnight here, so I didn't sleep much.", "Ơn trời. Chỗ mình nửa đêm mới có điện lại, nên mình ngủ chẳng được mấy."),
+  ),
+  dialogueQuestions: [
+    listenQ("a2-n18-d1", "Mai đang làm gì lúc mất điện?", "Yes. I was cooking dinner, and suddenly everything went dark.", ["Đang đọc sách", "Đang nấu bữa tối", "Đang ngủ", "Đang lái xe"], 1, "I was cooking dinner, and suddenly everything went dark."),
+    mc("a2-n18-d2", "Lúc sét đánh vào cái cây, Peter đang làm gì?", ["Đang ngồi ở nhà", "Đang đợi xe buýt", "Đang lái xe từ chỗ làm về"], 2, "I was driving back from work when lightning hit a tree near the road."),
+    mc("a2-n18-d3", "Chuyện gì xảy ra với người phụ nữ mà Peter nhìn thấy?", ["Trượt chân ngã trên vỉa hè ướt nhưng không bị thương", "Bị cây đổ vào người", "Bị thương nặng, phải vào viện"], 0, "A woman slipped on the wet pavement. Was she hurt? No, luckily."),
+  ],
+  reading: reading({
+    title: "Bản tin: Cơn bão đêm qua ở Hà Nội",
+    text: `A strong storm hit Hanoi yesterday evening. At about six o'clock, when the storm started, thousands of people were riding home from work. There was heavy rain, thunder and lightning, and many streets flooded quickly.
+
+On Kim Ma Street, a big tree fell onto three parked cars. Luckily, nobody was sitting inside them. "I was having dinner in a restaurant across the road when I heard a loud noise," said Mr Hung, one of the car owners. "I ran outside, and my car was under the tree."
+
+While the storm was moving across the city, many areas lost power. In Cau Giay, the lights went out at seven and came back after midnight. Students in one dormitory were studying for an exam when it happened. They finished their work with torches and phone lights.
+
+Nobody was hurt in the storm, but the city is still cleaning the streets today.`,
+    glossary: [
+      ["hit", "ập vào, đánh vào"],
+      ["heavy rain", "mưa to"],
+      ["parked", "đang đỗ"],
+      ["owner", "chủ, người sở hữu"],
+      ["lost power", "bị mất điện"],
+      ["dormitory", "ký túc xá"],
+    ],
+    questions: [
+      mc("a2-n18-r1", "Bản tin chủ yếu nói về điều gì?", ["Một cơn bão ở Hà Nội và những gì xảy ra trong lúc bão", "Một vụ tai nạn xe máy", "Một nhà hàng mới trên phố Kim Mã", "Kỳ thi của sinh viên"], 0, "Cả bài kể lại cơn bão tối qua: cây đổ, mất điện, ngập đường."),
+      mc("a2-n18-r2", "Lúc cơn bão bắt đầu, rất nhiều người đang làm gì?", ["Đang ăn tối ở nhà hàng", "Đang đi xe về nhà sau giờ làm", "Đang ngủ"], 1, "Thousands of people were riding home from work."),
+      mc("a2-n18-r3", "Ông Hùng đang làm gì khi nghe thấy tiếng động lớn?", ["Đang ngồi trong ô tô", "Đang lái xe về nhà", "Đang ăn tối trong một nhà hàng bên kia đường"], 2, "I was having dinner in a restaurant across the road when I heard a loud noise."),
+      fill("a2-n18-r4", "Sinh viên trong ký túc xá đang ôn thi thì mất điện: Students were ___ for an exam when it happened. (study)", ["studying"], "Việc đang diễn ra dùng were + V-ing: were studying."),
+      mc("a2-n18-r5", "Có ai bị thương trong cơn bão không?", ["Có, ba người bị thương", "Không có ai bị thương", "Có một sinh viên bị thương"], 1, "Nobody was hurt in the storm."),
+    ],
+  }),
+  task: task({
+    prompt: "Viết 6–8 câu (ít nhất 45 từ) kể lại một lần mất điện, một trận mưa lớn hoặc một chuyện bất ngờ bạn còn nhớ: lúc đó bạn và mọi người đang làm gì, và chuyện gì đã xảy ra.",
+    hints: [
+      "Việc đang diễn ra: was / were + V-ing (My family was having dinner).",
+      "Việc chen ngang: when + quá khứ đơn (when the lights went out).",
+      "Hai việc cùng lúc: While I was..., my brother was...",
+      "Động từ trạng thái dùng quá khứ đơn: We wanted some fresh air.",
+    ],
+    model: "Last summer there was a big storm in my city. At eight o'clock in the evening, my family was having dinner. My father was telling a funny story when the lights suddenly went out. While my mother was looking for a torch, my two little brothers were laughing in the dark. We wanted some fresh air, so we sat on the balcony. The power came back at eleven. It was a strange but happy night.",
+    checklist: [
+      "Có ít nhất 3 câu was / were + V-ing (was having, was telling, were laughing)",
+      "Có 1 câu when + quá khứ đơn cho việc chen ngang (when the lights suddenly went out)",
+      "Có 1 câu while + quá khứ tiếp diễn (While my mother was looking for a torch)",
+      "Chủ ngữ số ít dùng was, số nhiều dùng were",
+      "Động từ trạng thái (have, know, want) dùng quá khứ đơn, không dùng -ing",
+    ],
+    minWords: 45,
+  }),
+});

@@ -7,15 +7,18 @@ import type { Step } from "@/content/types";
 import type { LessonContext } from "@/lib/content";
 import { FINAL_PASS } from "@/content/review";
 import { certificateStatus, courseProgress, displayStreak, todayKey, type CertificateStatus } from "@/lib/progress-core";
+import { clearDraft, loadDraft, saveDraft, type LessonDraft } from "@/lib/lesson-draft";
+import { percentScore } from "@/lib/scoring";
 import { setDefaultAccent } from "@/lib/speech";
 import { progress, useProgress } from "@/lib/progress";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { LessonSidebar } from "./lesson-sidebar";
-import { StepExercise, type ExerciseProgress } from "./step-exercise";
+import { StepExercise, type ExerciseProgress, type ExerciseResult } from "./step-exercise";
 import { StepDialogue } from "./step-dialogue";
 import { StepLecture } from "./step-lecture";
+import { StepReading } from "./step-reading";
 import { StepTask, type TaskProgress } from "./step-task";
 import { StepSpeaking } from "./step-speaking";
 import { StepVideo } from "./step-video";
@@ -24,6 +27,7 @@ import { StepVocab } from "./step-vocab";
 const STEP_LABEL: Record<Step["type"], string> = {
   lecture: "Bài giảng",
   dialogue: "Hội thoại",
+  reading: "Đọc hiểu",
   task: "Thực hành",
   video: "Video",
   vocab: "Từ vựng",
@@ -32,7 +36,8 @@ const STEP_LABEL: Record<Step["type"], string> = {
 };
 const STEP_HINT: Record<Step["type"], string> = {
   lecture: "Đọc bài giảng rồi bấm “Đã đọc xong” để tiếp tục.",
-  dialogue: "Nghe và đóng vai hội thoại, rồi bấm “Đã luyện xong hội thoại”.",
+  dialogue: "Nghe và đóng vai hội thoại, rồi trả lời các câu hỏi hoặc bấm “Đã luyện xong hội thoại”.",
+  reading: "Đọc bài rồi trả lời hết các câu hỏi để tiếp tục.",
   task: "Viết bài, xem bài mẫu và tự chấm để hoàn thành.",
   video: "Xem video rồi bấm “Đã xem xong” để tiếp tục.",
   vocab: "Xem hết các từ rồi bấm “Đã học xong các từ”.",
@@ -43,11 +48,13 @@ const STEP_HINT: Record<Step["type"], string> = {
 export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const { course, module: currentModule, lesson, index, total, next } = ctx;
   const { state, ready } = useProgress();
-  const [stepIndex, setStepIndex] = useState(0);
-  const [completed, setCompleted] = useState<boolean[]>(() => lesson.steps.map(() => false));
-  const [exerciseScore, setExerciseScore] = useState<number | null>(null);
-  const [exerciseProgress, setExerciseProgress] = useState<Record<number, ExerciseProgress>>({});
-  const [taskProgress, setTaskProgress] = useState<Record<number, TaskProgress>>({});
+  // A saved draft is only read on the client; the step UI renders after `ready`, so it never hydrates against it.
+  const [draft] = useState(() => loadDraft<ExerciseProgress, TaskProgress>(course.slug, lesson.slug, lesson.steps.length));
+  const [stepIndex, setStepIndex] = useState(draft?.stepIndex ?? 0);
+  const [completed, setCompleted] = useState<boolean[]>(() => draft?.completed ?? lesson.steps.map(() => false));
+  const [results, setResults] = useState<LessonDraft["results"]>(draft?.results ?? {});
+  const [exerciseProgress, setExerciseProgress] = useState<Record<number, ExerciseProgress>>(draft?.exerciseProgress ?? {});
+  const [taskProgress, setTaskProgress] = useState<Record<number, TaskProgress>>(draft?.taskProgress ?? {});
   const [finished, setFinished] = useState<{ score: number | null; cert: CertificateStatus } | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
@@ -79,24 +86,42 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
+  // Keep the lesson in progress across reloads; nothing is saved before the first step is touched.
+  const touched = stepIndex > 0 || completed.some(Boolean) || Object.keys(exerciseProgress).length > 0 || Object.keys(taskProgress).length > 0;
+  useEffect(() => {
+    if (finished || !touched) return;
+    saveDraft(course.slug, lesson.slug, { stepIndex, completed, results, exerciseProgress, taskProgress });
+  }, [course.slug, lesson.slug, finished, touched, stepIndex, completed, results, exerciseProgress, taskProgress]);
+
   const cp = courseProgress(course, state);
   const streak = displayStreak(state.streak, todayKey());
 
-  function markComplete(i: number, result?: { score?: number }) {
+  function markComplete(i: number, result?: ExerciseResult) {
     setCompleted((c) => c.map((v, k) => (k === i ? true : v)));
-    if (result?.score !== undefined) setExerciseScore(result.score);
+    if (result) setResults((r) => ({ ...r, [i]: { correct: result.correct, total: result.total } }));
+  }
+
+  /** The lesson score counts every scored item: exercises, reading and dialogue questions. */
+  function lessonScore(): number | null {
+    const all = Object.values(results);
+    return percentScore(
+      all.reduce((n, r) => n + r.correct, 0),
+      all.reduce((n, r) => n + r.total, 0),
+    );
   }
 
   function finishLesson() {
-    const nextState = progress.completeLesson(course.slug, lesson.slug, exerciseScore);
-    setFinished({ score: exerciseScore, cert: certificateStatus(course, nextState) });
+    const score = lessonScore();
+    const nextState = progress.completeLesson(course.slug, lesson.slug, score);
+    clearDraft(course.slug, lesson.slug);
+    setFinished({ score, cert: certificateStatus(course, nextState) });
   }
 
   function restart() {
     setFinished(null);
     setStepIndex(0);
     setCompleted(lesson.steps.map(() => false));
-    setExerciseScore(null);
+    setResults({});
     setExerciseProgress({});
     setTaskProgress({});
   }
@@ -107,9 +132,16 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
 
   function renderStep(step: Step, i: number) {
     const done = () => markComplete(i);
+    const quiz = {
+      saved: exerciseProgress[i],
+      onProgress: (p: ExerciseProgress) => setExerciseProgress((s) => ({ ...s, [i]: p })),
+      onComplete: (r?: ExerciseResult) => markComplete(i, r),
+    };
     switch (step.type) {
       case "dialogue":
-        return <StepDialogue step={step} done={completed[i]} onComplete={done} />;
+        return <StepDialogue step={step} done={completed[i]} {...quiz} />;
+      case "reading":
+        return <StepReading step={step} {...quiz} />;
       case "task":
         return (
           <StepTask
@@ -128,12 +160,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
         return <StepVocab step={step} onComplete={done} />;
       case "exercise":
         return (
-          <StepExercise
-            step={step}
-            saved={exerciseProgress[i]}
-            onProgress={(p) => setExerciseProgress((s) => ({ ...s, [i]: p }))}
-            onComplete={(r) => markComplete(i, r)}
-          />
+          <StepExercise items={step.items} {...quiz} />
         );
       case "speaking":
         return <StepSpeaking step={step} onComplete={done} />;
@@ -200,7 +227,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
           </h2>
           {finished.score !== null && (
             <p className="mt-3 text-lg">
-              {lesson.final ? "Điểm lần này" : "Điểm bài tập"}: <strong>{finished.score}%</strong>
+              {lesson.final ? "Điểm lần này" : "Điểm cả bài"}: <strong>{finished.score}%</strong>
             </p>
           )}
           {lesson.final && finished.cert.status === "earned" && finished.cert.finalScore !== undefined && finished.cert.finalScore > attempt && (

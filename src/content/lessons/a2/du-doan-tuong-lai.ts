@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "du-doan-tuong-lai",
   title: "Dự đoán tương lai",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "Will, won't và might để dự đoán",
     blocks: [
@@ -31,11 +31,11 @@ export default lesson({
       ex("I might be late tonight. The traffic is terrible.", "Tối nay tôi có thể về muộn. Đường tắc kinh khủng.", "Might đi thẳng với động từ nguyên mẫu, không có to và không thêm s: she might be, không phải she mights be."),
       ex("Will people live on Mars one day?", "Liệu một ngày nào đó con người có sống trên sao Hỏa không?"),
       p("Muốn **hỏi ý kiến** người khác về tương lai, dùng **Do you think + chủ ngữ + will + V?**: Do you think it'll rain? Để **đồng ý hay không đồng ý** với một dự đoán, chỉ cần những câu trả lời ngắn: **I think so.** (tôi nghĩ vậy), **I don't think so.** (tôi không nghĩ vậy), **I hope so.** (mong là vậy), **I hope not.** (mong là không), **Maybe.** (có thể)."),
-      tip("**Won't** đọc là /wəʊnt/, nghe như “uơn-t”, miệng tròn và kéo dài. **Want** đọc là /wɒnt/, âm ngắn. Đọc lẫn hai từ này thì người nghe tưởng bạn nói want (muốn) chứ không phải won't (sẽ không), nghĩa ngược hẳn. Nhớ bật âm /t/ ở cuối won't."),
+      tip("**Won't** đọc là /wəʊnt/, nghe như “uơn-t”, miệng tròn và kéo dài. **Want** đọc là /wɒnt/, âm ngắn. Đọc lẫn hai từ này thì người nghe tưởng bạn nói want (muốn) chứ không phải won't (sẽ không), nghĩa ngược hẳn. Nhớ giữ âm /t/ ở cuối won't."),
       mistake("He won't probably come.", "He probably won't come.", "Probably đứng sau will (he'll probably come) nhưng đứng trước won't. Học trò hay đặt theo kiểu tiếng Việt “sẽ không có lẽ”, nghe rất lạ."),
       mistake("It will maybe rain tomorrow.", "It might rain tomorrow.", "Dịch từng chữ “trời sẽ có lẽ mưa” sẽ ra câu sai. Maybe thường đứng đầu câu (Maybe it'll rain), còn gọn nhất là dùng might."),
       mistake("It might to rain tonight.", "It might rain tonight.", "Quen nói want to, need to, học trò hay thêm to sau might. Might cũng như will, should: theo sau luôn là động từ nguyên mẫu không có to."),
-      teacher("Sau nhiều năm đứng lớp, tôi để ý người Việt dùng will cho mọi thứ thuộc về tương lai, còn người bản xứ lại chọn rất kỹ: đoán thì will, dự định thì going to, không chắc thì might. Mỗi sáng đọc tin thời tiết, các bạn hãy tự nói ba câu: một câu với **will**, một câu với **probably won't**, một câu với **might**. Chỉ cần hai tuần là các “nấc” chắc chắn này sẽ bật ra tự nhiên."),
+      teacher("Khi đứng lớp, tôi để ý người Việt dùng will cho mọi thứ thuộc về tương lai, còn người bản xứ lại chọn rất kỹ: đoán thì will, dự định thì going to, không chắc thì might. Mỗi sáng đọc tin thời tiết, các bạn hãy tự nói ba câu: một câu với **will**, một câu với **probably won't**, một câu với **might**. Chỉ cần hai tuần là các “nấc” chắc chắn này sẽ bật ra tự nhiên."),
       summary(
         "Dự đoán dùng will / won't + động từ nguyên mẫu; chưa chắc chắn thì dùng might + động từ nguyên mẫu.",
         "Probably, definitely đứng sau will nhưng đứng trước won't: he'll probably come, he probably won't come.",
@@ -46,12 +46,12 @@ export default lesson({
     ],
   },
   words: [
-    word("future", "/ˈfjuː.tʃər/", "tương lai", "What will you do in the future?", "fu|ture", 0),
+    word("future", "/ˈfjuː.tʃə/", "tương lai", "What will you do in the future?", "fu|ture", 0),
     word("predict", "/prɪˈdɪkt/", "dự đoán", "Nobody can predict the future.", "pre|dict", 1, "Nhớ đọc rõ cả /k/ và /t/ ở cuối: /prɪˈdɪkt/."),
-    word("weather", "/ˈweð.ər/", "thời tiết", "The weather will be better tomorrow.", "weath|er", 0, "Âm /ð/ đặt đầu lưỡi giữa hai hàm răng, không đọc thành “ve-dơ”."),
+    word("forecast", "/ˈfɔː.kɑːst/", "dự báo (thời tiết)", "The forecast says it'll be sunny tomorrow.", "fore|cast", 0, "Kiểu Anh-Anh không đọc âm r: /ˈfɔː.kɑːst/, nhấn âm đầu. Nhớ đọc đủ cả /s/ và /t/ ở cuối."),
     word("probably", "/ˈprɒb.ə.bli/", "có lẽ, có khả năng", "It'll probably be cold tonight.", "prob|a|bly", 0),
     word("definitely", "/ˈdef.ɪ.nət.li/", "chắc chắn", "I'll definitely call you tomorrow.", "def|i|nite|ly", 0, "Bốn âm tiết, trọng âm ở âm đầu: ĐÉP-fi-nợt-li."),
-    word("rain", "/reɪn/", "mưa", "I think it'll rain this evening.", "rain", 0),
+    word("storm", "/stɔːm/", "cơn bão, giông", "There might be a storm tonight, so stay at home.", "storm", 0, "Không đọc âm r: /stɔːm/, nguyên âm dài rồi khép môi ở âm /m/."),
     word("win", "/wɪn/", "thắng", "Do you think Vietnam will win?", "win", 0),
     word("worry", "/ˈwʌr.i/", "lo lắng", "Don't worry. Everything will be fine.", "wor|ry", 0, "Âm /ʌ/ gần giống “ă” ngắn trong tiếng Việt, nghe như “uă-ri”, không đọc thành “uo-ri” theo mặt chữ."),
   ],
@@ -64,7 +64,14 @@ export default lesson({
     reorder("a2-n06-6", "Do you think prices will go up?", "Hỏi ý kiến người khác về tương lai: Do you think + chủ ngữ + will...?"),
     listen("a2-n06-7", "It probably won't be very hot tomorrow.", ["Mai chắc chắn sẽ rất nóng.", "Hôm nay có lẽ không nóng lắm.", "Mai có lẽ sẽ không nóng lắm."], 2, "Probably won't: có lẽ sẽ không. Tomorrow là ngày mai."),
     listen("a2-n06-8", "I might go to the party, but I'm not sure.", ["Có thể tôi sẽ đi dự tiệc, nhưng tôi chưa chắc.", "Chắc chắn tôi sẽ đi dự tiệc.", "Tôi không đi dự tiệc được đâu."], 0, "Might go: có thể sẽ đi, người nói chưa chắc chắn."),
+    correct("a2-n06-9", "She won't probably call you tonight.", ["She probably won't call you tonight."], "Probably đứng sau will nhưng đứng trước won't: she'll probably call, she probably won't call."),
+    correct("a2-n06-10", "I think it might to be cold tomorrow.", ["I think it might be cold tomorrow."], "Sau might là động từ nguyên mẫu không có to: might be, không phải might to be."),
   ],
+  freeSpeaking: free(
+    "What do you think your life will be like in ten years?",
+    "Dự đoán cuộc sống của bạn mười năm nữa: công việc, nơi sống, gia đình. Dùng will, won't, might, probably, definitely.",
+    "In ten years, I think I'll probably live in Da Nang, because I love the sea. I'll definitely have a better job, and I might start my own small business. I don't think I'll have a big house, but I'll have a happy family. I hope so!",
+  ),
   speaking: [
     say("I think it will rain this evening.", "Tôi nghĩ tối nay trời sẽ mưa."),
     say("She'll definitely pass the exam.", "Chắc chắn cô ấy sẽ đỗ kỳ thi."),
@@ -87,8 +94,40 @@ export default lesson({
     A("That's fine. Don't worry, it'll be a great trip.", "Không sao. Đừng lo, chuyến đi sẽ tuyệt lắm."),
     B("I hope so!", "Mong là vậy!"),
   ),
+  dialogueQuestions: [
+    listenQ("a2-n06-d1", "Theo ứng dụng thời tiết, cuối tuần này ở Hạ Long thế nào?", "I don't think so. The weather app says it'll probably be sunny.", ["Chắc chắn sẽ mưa", "Có thể có bão", "Trời sẽ rất lạnh", "Có lẽ trời sẽ nắng"], 3, "It'll probably be sunny: có lẽ trời sẽ nắng."),
+    mc("a2-n06-d2", "Vì sao anh Nam có thể không đi?", ["Con trai anh ấy bị ốm", "Anh ấy bận họp", "Anh ấy không thích đi thuyền"], 0, "Nam might not come. His son is sick."),
+    mc("a2-n06-d3", "Mai đề nghị sáng thứ Bảy xuất phát lúc mấy giờ?", ["Năm giờ", "Sáu giờ", "Chín giờ"], 1, "Let's leave at six. Chín giờ là giờ Mai đoán cả nhóm về đến nhà hôm Chủ nhật."),
+  ],
+  reading: reading({
+    title: "Ý kiến độc giả: cuộc sống năm 2050",
+    text: `Last month we asked our readers one question: What will life in Vietnam be like in 2050? Here are three of the answers.
+
+Minh, 24, engineer: I think most people will drive electric cars, so the air in Hanoi will be cleaner. But the traffic definitely won't disappear!
+
+Lan, 35, teacher: Children will probably study at home on computers two or three days a week. They might not need paper books. I hope they'll still play outside with their friends.
+
+Mr Hoang, 68, retired: I don't think people will cook much. Robots might make our meals. But I'm sure families will still eat together at Tet. Some things never change.
+
+What do you think? Send us your ideas by email.`,
+    glossary: [
+      ["be like", "(sẽ) như thế nào"],
+      ["electric", "chạy bằng điện"],
+      ["air", "không khí"],
+      ["disappear", "biến mất"],
+      ["robots", "người máy"],
+      ["meals", "bữa ăn"],
+    ],
+    questions: [
+      mc("a2-n06-r1", "Bài viết này là gì?", ["Một bản tin dự báo thời tiết", "Dự đoán của độc giả về cuộc sống ở Việt Nam năm 2050", "Quảng cáo ô tô điện", "Một bài học về người máy"], 1, "Tòa soạn hỏi What will life in Vietnam be like in 2050? và đăng ba câu trả lời."),
+      mc("a2-n06-r2", "Anh Minh chắc chắn điều gì?", ["Mọi người sẽ đi xe đạp", "Không khí sẽ bẩn hơn", "Ô tô sẽ biến mất", "Tắc đường vẫn sẽ còn"], 3, "The traffic definitely won't disappear: chắc chắn tắc đường sẽ không biến mất."),
+      mc("a2-n06-r3", "Theo chị Lan, trẻ em có lẽ sẽ học như thế nào?", ["Có vài ngày trong tuần học ở nhà bằng máy tính", "Không đi học nữa", "Chỉ học bằng sách giấy", "Học cùng người máy ở trường"], 0, "Children will probably study at home on computers two or three days a week."),
+      fill("a2-n06-r4", "Hoàn thành câu của ông Hoàng: Robots ___ make our meals. (có thể)", ["might"], "Ông Hoàng không chắc chắn, chỉ nói có thể: might + động từ nguyên mẫu."),
+      mc("a2-n06-r5", "Ông Hoàng tin điều gì sẽ không thay đổi?", ["Mọi người vẫn tự nấu ăn", "Các gia đình vẫn ăn cùng nhau dịp Tết", "Người máy sẽ không nấu ăn", "Trẻ em vẫn chơi ngoài trời"], 1, "I'm sure families will still eat together at Tet. Some things never change."),
+    ],
+  }),
   task: task({
-    prompt: "Một người bạn nước ngoài sắp sang Việt Nam du lịch vào tháng tới và hỏi bạn chuyến đi sẽ thế nào. Viết 5–6 câu dự đoán về thời tiết, giao thông, đồ ăn và chuyến đi của họ.",
+    prompt: "Một người bạn nước ngoài sắp sang Việt Nam du lịch vào tháng tới và hỏi bạn chuyến đi sẽ thế nào. Viết 5–7 câu (ít nhất 50 từ) dự đoán về thời tiết, giao thông, đồ ăn và chuyến đi của họ.",
     hints: [
       "Điều bạn khá chắc: will / won't; điều chưa chắc: might.",
       "Thêm probably hoặc definitely, nhớ: sau will nhưng trước won't.",
@@ -103,6 +142,6 @@ export default lesson({
       "Sau will, won't, might là động từ nguyên mẫu, không có to.",
       "Có ít nhất 1 câu I think... hoặc I don't think...",
     ],
-    minWords: 30,
+    minWords: 50,
   }),
 });

@@ -4,7 +4,7 @@ import { getCourses, getPlacementTest } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Kiểm tra trình độ tiếng Anh miễn phí | Crouse English",
-  description: "20 câu, khoảng 10 phút, biết ngay trình độ và khóa học phù hợp.",
+  description: "40 câu từ A1 đến C1, khoảng 20 phút, biết ngay trình độ và khóa học phù hợp.",
 };
 
 export default async function PlacementPage() {

@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "nguyen-am-doi",
   title: "Nguyên âm đôi",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "Tám nguyên âm đôi và cách trượt âm",
     blocks: [
@@ -20,15 +20,15 @@ export default lesson({
         ["/eə/", "/e/ sang /ə/", "hair, where, care", "“e-ơ”"],
         ["/ʊə/", "/ʊ/ sang /ə/", "tour, pure, cure", "“u-ơ”, gần “ua”"],
       ),
-      ex("I'll phone you when I get home.", "Về đến nhà tôi sẽ gọi cho bạn.", "Phone và home đều có /əʊ/: bắt đầu bằng “ơ” rồi khép môi tròn thành “u”."),
-      ex("The boy found a coin near the house.", "Cậu bé nhặt được một đồng xu gần ngôi nhà.", "Boy và coin có /ɔɪ/, found và house có /aʊ/, near có /ɪə/."),
+      ex("I phone my mum when I get home.", "Về đến nhà là tôi gọi điện cho mẹ.", "Phone và home đều có /əʊ/: bắt đầu bằng “ơ” rồi khép môi tròn thành “u”."),
+      ex("The boy can see a coin near the house.", "Cậu bé nhìn thấy một đồng xu gần ngôi nhà.", "Boy và coin có /ɔɪ/, house có /aʊ/, near có /ɪə/."),
       ex("Where can I buy a nice chair?", "Tôi có thể mua một chiếc ghế đẹp ở đâu?", "Where và chair có /eə/, buy và nice có /aɪ/."),
       p("Âm **/əʊ/** là dấu hiệu rõ nhất của giọng Anh-Anh: người Anh bắt đầu bằng /ə/ (gần “ơ”), còn người Mỹ bắt đầu bằng âm gần “ô”. Ba âm **/ɪə/ /eə/ /ʊə/** thì kết thúc bằng /ə/, và trong tiếng Anh-Anh chữ “r” ở cuối từ như near, hair, tour **không đọc**, trừ khi từ sau bắt đầu bằng nguyên âm (here is… đọc nối /hɪə.rɪz/). Riêng /ʊə/ ngày càng hiếm: nhiều người Anh đọc tour, sure, poor bằng /ɔː/."),
       mistake("phone đọc thành “phôn”, no đọc thành “nô”", "phone /fəʊn/, no /nəʊ/: trượt từ “ơ” sang “u”", "Tiếng Việt có âm “ô” đơn, nên người Việt thay nguyên âm đôi bằng một âm phẳng. Phải để môi chuyển động từ thả lỏng sang tròn trong cùng một âm tiết."),
       mistake("late đọc thành “lết”, take đọc thành “tếch”", "late /leɪt/, take /teɪk/: kéo “ê” rồi trượt sang “i”, giữ phụ âm cuối", "Người Việt vừa đọc /eɪ/ thành “ê” ngắn, vừa nuốt âm cuối. Late mà đọc thành “lết” thì người nghe khó phân biệt với let /let/."),
       mistake("now và no đọc giống nhau", "now /naʊ/ (mở rộng miệng, “ao”), no /nəʊ/ (“ơ-u”)", "Khi hai nguyên âm đôi đều bị đọc thành một âm đơn, now và no nghe như nhau. Hãy mở miệng rộng ở đầu /aʊ/."),
       tip("Đặt **một ngón tay lên cằm** khi đọc day, my, now, go. Nếu cằm và môi **di chuyển** trong lúc đọc, các bạn đang trượt đúng. Lúc mới tập, hãy đọc chậm và phóng đại độ trượt: “ê… i”, “ơ… u”, rồi nhanh dần cho đến khi thành một âm tiết."),
-      teacher("Tôi dạy nguyên âm đôi bằng một câu các bạn nói hằng ngày: **“Hello, how are you? I'm going home now.”** Trong câu đó có /əʊ/, /aʊ/, /aɪ/ đủ cả. Các bạn thu âm giọng mình, nghe lại xem hello có còn là “hê-lô” không, home có còn là “hôm” không. Tự nghe giọng mình là cách sửa nhanh nhất mà tôi biết."),
+      teacher("Tôi dạy nguyên âm đôi bằng một câu các bạn nói hằng ngày: **“Hello! How are you? Is it time to go home now?”** Trong câu đó có /əʊ/ (hello, go, home), /aʊ/ (how, now), /aɪ/ (time) đủ cả. Các bạn thu âm giọng mình, nghe lại xem hello có còn là “hê-lô” không, home có còn là “hôm” không. Tự nghe giọng mình là cách sửa nhanh nhất mà tôi biết."),
       summary(
         "Nguyên âm đôi là hai âm **trượt** liền nhau trong một âm tiết: âm đầu rõ, âm sau nhẹ.",
         "/əʊ/ (phone, go, home) bắt đầu bằng “ơ” rồi tròn môi thành “u”, không phải “ô” phẳng.",
@@ -47,7 +47,7 @@ export default lesson({
     word("house", "/haʊs/", "ngôi nhà", "Their house is near the lake.", "house", 0, "Đọc “hao” rồi thêm /s/ ở cuối; nhiều người Việt bỏ mất /s/."),
     word("near", "/nɪə/", "gần", "Is there a bank near here?", "near", 0, "Trượt “i-ơ”, không đọc chữ “r” cuối trong tiếng Anh-Anh."),
     word("hair", "/heə/", "tóc", "She has long black hair.", "hair", 0, "Trượt “e-ơ”; đừng đọc thành “he” hay “hia”."),
-    word("tour", "/tʊə/", "chuyến tham quan", "We went on a tour of the old town.", "tour", 0, "Trượt “u-ơ”; nhiều người Anh ngày nay cũng đọc là /tɔː/."),
+    word("tour", "/tʊə/", "chuyến tham quan", "Let's go on a tour of the old town.", "tour", 0, "Trượt “u-ơ”; nhiều người Anh ngày nay cũng đọc là /tɔː/."),
   ],
   dialogue: dialogue(
     "Hẹn nhau qua điện thoại",
@@ -59,28 +59,61 @@ export default lesson({
     B("That sounds great. What time?", "Nghe hay đấy. Mấy giờ?"),
     A("At nine. We can meet near the bridge.", "Chín giờ. Mình gặp nhau gần cây cầu nhé."),
     B("Where is the bridge? I don't know the way.", "Cây cầu ở đâu? Mình không biết đường."),
-    A("It's near a brown house by the river. I'll show you on my phone.", "Nó ở gần một ngôi nhà màu nâu bên sông. Mình sẽ chỉ cho bạn trên điện thoại."),
-    B("OK. Should I bring a coat?", "Được. Mình có nên mang áo khoác không?"),
-    A("Yes, it may rain again.", "Có, trời có thể lại mưa đấy."),
+    A("It's near a brown house by the river. I can show you on my phone.", "Nó ở gần một ngôi nhà màu nâu bên sông. Mình chỉ cho bạn trên điện thoại nhé."),
+    B("OK. Do I need a coat?", "Được. Mình có cần mang áo khoác không?"),
+    A("Yes. It often rains in the afternoon.", "Có. Buổi chiều trời hay mưa lắm."),
     B("Fine. I'd like a photo by the boats, too.", "Được. Mình cũng muốn chụp một tấm ảnh bên những con thuyền."),
     A("Great idea. See you there. Don't be late!", "Ý hay đấy. Hẹn gặp ở đó. Đừng đến muộn nhé!"),
-    B("I won't. Bye for now!", "Mình sẽ không muộn đâu. Tạm biệt nhé!"),
+    B("Don't worry, I'm never late. Bye for now!", "Đừng lo, mình không bao giờ muộn. Tạm biệt nhé!"),
   ),
+  dialogueQuestions: [
+    listenQ("pa-n03-d1", "Nam và Kate hẹn gặp nhau lúc mấy giờ, ở đâu?", "At nine. We can meet near the bridge.", ["Chín giờ, gần cây cầu", "Chín giờ, ở nhà Kate", "Mười giờ, gần cây cầu"], 0, "“At nine. We can meet near the bridge.” Near /nɪə/ trượt “i-ơ”."),
+    mc("pa-n03-d2", "Vì sao Kate nên mang áo khoác?", ["Vì trời rất lạnh", "Vì buổi chiều trời hay mưa", "Vì hai người đi thuyền"], 1, "Nam nói “It often rains in the afternoon.”"),
+    mc("pa-n03-d3", "Kate còn muốn làm gì ở phố cổ?", ["Mua một chiếc điện thoại", "Ăn trưa gần sông", "Chụp ảnh bên những con thuyền"], 2, "Kate nói “I'd like a photo by the boats, too.”"),
+  ],
+  reading: reading({
+    title: "Tin nhắn của Nam",
+    text: `Hi Kate,
+
+Welcome to Hoi An! My house is near the old bridge. It's a brown house with a white gate, and the number is nine.
+
+The old town is very nice at night. There are lights in the trees and boats on the river. You can take a boat ride for five dollars.
+
+It often rains here in the afternoon, so take a coat. Phone me from the bus stop, and I can meet you there.
+
+See you soon,
+Nam`,
+    glossary: [["gate", "cổng"], ["light", "đèn, ánh đèn"], ["boat ride", "chuyến đi thuyền"], ["bus stop", "bến xe buýt"]],
+    questions: [
+      mc("pa-n03-r1", "Nam viết tin nhắn này để làm gì?", ["Mời Kate đi ăn tối", "Chào đón và dặn dò Kate khi đến Hội An", "Xin lỗi vì đến muộn"], 1, "Nam chào mừng Kate, chỉ nhà mình và dặn mang áo khoác, gọi điện khi đến bến xe."),
+      mc("pa-n03-r2", "Nhà của Nam trông thế nào?", ["Nhà màu nâu, cổng màu trắng", "Nhà màu trắng, cổng màu nâu", "Nhà màu nâu, cổng màu đen", "Nhà màu trắng, không có cổng"], 0, "“It's a brown house with a white gate.” Brown /braʊn/ có /aʊ/, white /waɪt/ có /aɪ/."),
+      fill("pa-n03-r3", "You can take a boat ride for ___ dollars. (số tiền)", ["five", "5"], "“You can take a boat ride for five dollars.”"),
+      mc("pa-n03-r4", "Buổi tối ở phố cổ có gì?", ["Chợ đêm và nhạc sống", "Nhiều xe buýt và taxi", "Đèn trên cây và thuyền trên sông"], 2, "“There are lights in the trees and boats on the river.”"),
+      mc("pa-n03-r5", "Nam dặn Kate gọi điện cho mình khi nào?", ["Khi Kate ở bến xe buýt", "Trước khi Kate lên máy bay", "Khi trời mưa"], 0, "“Phone me from the bus stop, and I can meet you there.”"),
+    ],
+  }),
   exercises: [
     listen("pa-n03-1", "wait", ["wet", "wait", "white"], 1, "Wait /weɪt/ có /eɪ/ trượt “ê-i”. Wet /wet/ chỉ có một âm “e” ngắn, white /waɪt/ có /aɪ/."),
     listen("pa-n03-2", "coat", ["cot", "caught", "coat"], 2, "Coat /kəʊt/ có nguyên âm đôi /əʊ/, môi chuyển từ thả lỏng sang tròn. Cot /kɒt/ và caught /kɔːt/ là nguyên âm đơn."),
     mc("pa-n03-3", "Từ nào có nguyên âm đôi /aʊ/?", ["house", "horse", "hose"], 0, "House /haʊs/ có /aʊ/ (“ao”). Horse /hɔːs/ có /ɔː/, hose /həʊz/ có /əʊ/."),
     mc("pa-n03-4", "Từ nào có âm /eə/?", ["hear", "her", "hair", "hire"], 2, "Hair /heə/ trượt “e-ơ”. Hear /hɪə/ có /ɪə/, her /hɜː/ có /ɜː/, hire /haɪə/ có /aɪ/ nối với /ə/."),
     fill("pa-n03-5", "My ___ is Lan. (tên, có âm /eɪ/)", ["name"], "Name /neɪm/: kéo “ê” rồi trượt sang “i”, rồi khép môi cho /m/. Đừng đọc thành “nêm”."),
-    fill("pa-n03-6", "I'll ___ you tonight. (gọi điện, có âm /əʊ/)", ["phone"], "Phone /fəʊn/ trượt từ “ơ” sang “u”. Call cũng là gọi điện nhưng có âm /ɔː/, không phải /əʊ/."),
+    fill("pa-n03-6", "I ___ my mother every Sunday. (gọi điện, có âm /əʊ/)", ["phone"], "Phone /fəʊn/ trượt từ “ơ” sang “u”. Call cũng là gọi điện nhưng có âm /ɔː/, không phải /əʊ/."),
     reorder("pa-n03-7", "Where is my brown coat?", "Where + is + my + tính từ + danh từ? Where có /eə/, brown có /aʊ/, coat có /əʊ/."),
     reorder("pa-n03-8", "Don't go home alone.", "Câu mệnh lệnh phủ định: Don't + động từ. Cả bốn từ đều có /əʊ/, rất tốt để luyện trượt âm."),
+    correct("pa-n03-9", "Where are my brown coat?", ["Where is my brown coat?", "Where's my brown coat?", "Where are my brown coats?"], "Coat là danh từ số ít nên dùng is: Where is my coat? Nhớ trượt /eə/ trong where, /aʊ/ trong brown, /əʊ/ trong coat."),
+    correct("pa-n03-10", "The boy have a new toy.", ["The boy has a new toy.", "The boys have a new toy.", "The boy had a new toy."], "Chủ ngữ ngôi thứ ba số ít (the boy) đi với has, không dùng have. Boy và toy đều có /ɔɪ/."),
   ],
   speaking: [
-    say("I'll phone you when I get home.", "Về đến nhà tôi sẽ gọi cho bạn."),
-    say("The boy found a coin near the house.", "Cậu bé nhặt được một đồng xu gần ngôi nhà."),
+    say("I phone my mum when I get home.", "Về đến nhà là tôi gọi điện cho mẹ."),
+    say("The boy can see a coin near the house.", "Cậu bé nhìn thấy một đồng xu gần ngôi nhà."),
     say("It's time to go now.", "Đến giờ đi rồi."),
   ],
+  freeSpeaking: free(
+    "Where is your home, and what is it like?",
+    "Nói 3–4 câu về ngôi nhà của bạn, dùng các từ có nguyên âm đôi như home, house, near, brown, nice, go. Nhớ trượt âm thật rõ.",
+    "My home is a small house near a big road. It has a brown door and a nice garden. I live there with my parents, and I go home at five every day.",
+  ),
   task: task({
     prompt: "Viết 5 câu giới thiệu ngôi nhà hoặc khu phố của bạn, mỗi câu có ít nhất một từ chứa nguyên âm đôi (/eɪ/, /aɪ/, /ɔɪ/, /aʊ/, /əʊ/, /ɪə/, /eə/). Gạch chân các nguyên âm đôi, rồi đọc to từng câu.",
     hints: [
@@ -91,10 +124,10 @@ export default lesson({
     model: "My home is a small house near a lake. I live there with my wife and two boys. Our house has a brown door and a nice garden. When it rains, we stay at home and play games. I phone my mother every day.",
     checklist: [
       "Có ít nhất năm nguyên âm đôi khác nhau trong bài",
-      "Home, phone, go đọc /əʊ/ trượt “ơ-u”, không phải “ô” phẳng",
+      "Home, phone đọc /əʊ/ trượt “ơ-u”, không phải “ô” phẳng",
       "Rain, play, stay trượt “ê-i” rõ ràng",
       "House, brown mở miệng rộng cho /aʊ/, nghe khác no, go",
-      "Near, where không đọc chữ r ở cuối",
+      "Near không đọc chữ r ở cuối: /nɪə/",
       "Đặt ngón tay lên cằm: cằm chuyển động ở mỗi nguyên âm đôi",
     ],
     minWords: 25,

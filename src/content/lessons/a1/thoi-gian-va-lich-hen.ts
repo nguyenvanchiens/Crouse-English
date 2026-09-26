@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "thoi-gian-va-lich-hen",
   title: "Thời gian và lịch hẹn",
-  minutes: 22,
+  minutes: 28,
   lecture: {
     title: "Nói giờ, thứ, tháng và giới từ in/on/at",
     blocks: [
@@ -60,7 +60,7 @@ export default lesson({
     word("week", "/wiːk/", "tuần", "There are seven days in a week.", "week", 0),
     word("month", "/mʌnθ/", "tháng", "My birthday is next month.", "month", 0, "Âm cuối /nθ/: đưa đầu lưỡi ra giữa hai hàm răng, đừng đọc thành “mân”."),
     word("minute", "/ˈmɪn.ɪt/", "phút", "The bus comes in five minutes.", "min|ute", 0),
-    word("quarter", "/ˈkwɔː.tər/", "mười lăm phút, một phần tư", "It's quarter past ten.", "quar|ter", 0),
+    word("quarter", "/ˈkwɔː.tə/", "mười lăm phút, một phần tư", "It's quarter past ten.", "quar|ter", 0),
     word("half", "/hɑːf/", "một nửa, rưỡi", "It's half past six.", "half", 0, "Chữ l câm: đọc là /hɑːf/."),
     word("appointment", "/əˈpɔɪnt.mənt/", "cuộc hẹn, lịch hẹn", "I have an appointment at ten o'clock.", "ap|point|ment", 1),
   ],
@@ -73,7 +73,14 @@ export default lesson({
     reorder("a1-n06-6", "Is the meeting on Friday afternoon?", "Câu hỏi với to be: Is đứng đầu. Buổi chiều của một thứ cụ thể dùng on: on Friday afternoon."),
     listen("a1-n06-7", "It's quarter to seven.", ["Bây giờ là bảy giờ mười lăm.", "Bây giờ là bảy giờ kém mười lăm.", "Bây giờ là sáu giờ kém mười lăm."], 1, "Quarter to seven là bảy giờ kém mười lăm, tức 6:45."),
     listen("a1-n06-8", "See you on Wednesday at ten.", ["Hẹn gặp bạn thứ Năm lúc mười giờ.", "Hẹn gặp bạn thứ Tư lúc hai giờ.", "Hẹn gặp bạn thứ Tư lúc mười giờ."], 2, "Wednesday là thứ Tư, at ten là lúc mười giờ."),
+    correct("a1-n06-9", "My English class is in Friday.", ["My English class is on Friday."], "Tên thứ đi với on, không dùng in. In chỉ dùng với tháng, năm, buổi trong ngày."),
+    correct("a1-n06-10", "Her birthday is on the twelve of June.", ["Her birthday is on the twelfth of June.", "Her birthday's on the twelfth of June."], "Nói ngày phải dùng số thứ tự: the twelfth, không dùng số đếm twelve."),
   ],
+  freeSpeaking: free(
+    "When is your birthday? And what are your appointments this week?",
+    "Nói sinh nhật bạn vào ngày nào và kể hai, ba cuộc hẹn trong tuần này: thứ mấy, lúc mấy giờ.",
+    "My birthday is on the fourteenth of July. This week, I have a meeting on Tuesday at nine o'clock. I have an appointment with the doctor on Thursday at quarter past three. On Saturday evening, I have dinner with my friends.",
+  ),
   speaking: [
     say("My birthday is in October.", "Sinh nhật tôi vào tháng Mười."),
     say("The meeting is on Monday at half past nine.", "Cuộc họp vào thứ Hai lúc chín giờ rưỡi."),
@@ -96,6 +103,41 @@ export default lesson({
     A("OK. Your appointment is on Thursday, the twelfth of May, at half past four. What's your name, please?", "Vâng. Lịch hẹn của anh là thứ Năm, ngày mười hai tháng Năm, lúc bốn giờ rưỡi. Anh tên là gì ạ?"),
     B("It's Tuan. See you on Thursday. Thank you!", "Tôi tên Tuấn. Hẹn gặp chị thứ Năm. Cảm ơn chị!"),
   ),
+  dialogueQuestions: [
+    listenQ("a1-n06-d1", "Vì sao anh Tuấn không đến vào thứ Ba?", "Sorry, I have a meeting on Tuesday. What about Thursday?", ["Anh ấy có một cuộc họp", "Phòng khám đóng cửa", "Anh ấy đi công tác"], 0, "I have a meeting on Tuesday: thứ Ba anh Tuấn có cuộc họp."),
+    mc("a1-n06-d2", "Vì sao anh Tuấn không nhận giờ hẹn mười giờ kém mười lăm?", ["Anh ấy có cuộc họp lúc mười giờ", "Anh ấy bắt đầu làm việc lúc chín giờ", "Anh ấy thích đi buổi tối"], 1, "Anh Tuấn nói: I start work at nine. Chín giờ bốn mươi lăm thì anh đang ở chỗ làm."),
+    listenQ("a1-n06-d3", "Lịch hẹn cuối cùng của anh Tuấn là khi nào?", "OK. Your appointment is on Thursday, the twelfth of May, at half past four.", ["Thứ Năm, 12 tháng Năm, lúc 4:30", "Thứ Năm, 12 tháng Năm, lúc 9:45", "Thứ Ba, 20 tháng Năm, lúc 4:30"], 0, "On Thursday, the twelfth of May, at half past four: thứ Năm, ngày mười hai tháng Năm, lúc bốn giờ rưỡi."),
+  ],
+  reading: reading({
+    title: "Thông báo của trung tâm tiếng Anh",
+    text: `Sunshine English Centre
+
+New classes start on Monday, the fifth of September.
+
+Our centre is open from Monday to Saturday. On weekdays, we open at half past seven in the morning and close at nine o'clock at night. On Saturdays, we close at noon. We are closed on Sundays.
+
+Beginner classes are on Tuesday and Thursday evenings at quarter to seven. Each class is ninety minutes long.
+
+The speaking club is on Saturday mornings at nine. It's free for all students!
+
+Please note: the centre is closed for one week at Tet.`,
+    glossary: [
+      ["centre", "trung tâm"],
+      ["open", "mở cửa"],
+      ["weekdays", "các ngày trong tuần (thứ Hai đến thứ Sáu)"],
+      ["close", "đóng cửa"],
+      ["beginner", "người mới bắt đầu"],
+      ["each", "mỗi"],
+      ["free", "miễn phí"],
+    ],
+    questions: [
+      mc("a1-n06-r1", "Bài đọc này là gì?", ["Một tin nhắn mời bạn đi ăn tối", "Thông báo giờ mở cửa và lịch học của một trung tâm", "Quảng cáo bán sách tiếng Anh"], 1, "Bài đọc nói giờ mở cửa, lịch các lớp và câu lạc bộ của Sunshine English Centre."),
+      mc("a1-n06-r2", "Vào ngày thường, trung tâm mở cửa lúc mấy giờ?", ["7:15", "7:30", "9:00"], 1, "We open at half past seven in the morning: bảy giờ rưỡi sáng."),
+      mc("a1-n06-r3", "Lớp cho người mới bắt đầu học lúc mấy giờ?", ["6:45 tối", "7:15 tối", "7:45 tối"], 0, "At quarter to seven là bảy giờ kém mười lăm, tức 6:45. To là “kém”, nên đừng chọn 7:15."),
+      fill("a1-n06-r4", "Câu lạc bộ nói tiếng Anh vào sáng thứ Bảy: The speaking club is ___ Saturday mornings.", ["on"], "Có tên thứ đi kèm buổi thì dùng on: on Saturday mornings (các sáng thứ Bảy)."),
+      mc("a1-n06-r5", "Trung tâm đóng cửa vào lúc nào?", ["Chủ nhật và một tuần dịp Tết", "Thứ Bảy và cả tháng Chín", "Chỉ vào tối thứ Sáu"], 0, "We are closed on Sundays; the centre is closed for one week at Tet."),
+    ],
+  }),
   task: task({
     prompt: "Hãy viết một tin nhắn 5–7 câu cho một người bạn nước ngoài, kể lịch tuần này của bạn: có cuộc hẹn gì, vào thứ mấy, lúc mấy giờ, và sinh nhật bạn vào ngày nào. Viết số bằng chữ.",
     hints: [

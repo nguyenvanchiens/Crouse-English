@@ -1,14 +1,14 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "mo-ta-nguoi",
   title: "Mô tả một người",
-  minutes: 20,
+  minutes: 26,
   lecture: {
     title: "Have got, has got và tính từ tả ngoại hình",
     blocks: [
       p("Ra sân bay đón một vị khách nước ngoài chưa gặp bao giờ, bạn sẽ phải hỏi qua điện thoại: **What does he look like?** (Trông anh ấy thế nào?). Người ta trả lời: **He's tall and he's got short grey hair.** Bài này giúp bạn tả một người và hiểu người khác tả."),
-      p("Để nói ai đó **có** cái gì (tóc, mắt, râu, kính, con cái, xe…), người Anh rất hay dùng **have got**. Với he, she, it thì đổi thành **has got**. Khi nói, gần như luôn viết tắt: **I've got**, **she's got**. Nghĩa giống hệt have và has."),
+      p("Để nói ai đó **có** cái gì (tóc, mắt, râu, kính, con cái, xe…), người Anh rất hay dùng **have got**. Với he, she, it thì đổi thành **has got**. Khi nói, thường rút gọn: **I've got**, **she's got**. Khi nói về sở hữu (I've got a car), nghĩa giống have và has; nhưng với hành động như have breakfast, have a shower thì không dùng got."),
       table(
         ["Chủ ngữ", "Khẳng định", "Phủ định", "Câu hỏi", "Trả lời ngắn"],
         ["I / you / we / they", "I've got a car.", "I haven't got a car.", "Have you got a car?", "Yes, I have. / No, I haven't."],
@@ -23,7 +23,7 @@ export default lesson({
       tip("Đừng trộn hai cách với nhau. Đã dùng **got** thì phủ định bằng **haven't/hasn't**; đã dùng **have** không có got thì phủ định bằng **don't/doesn't**. Nói “He doesn't have got” là sai."),
       p("Chiều cao và dáng người thì dùng **to be**: **She is tall.** **He is slim.** Còn các bộ phận như tóc, mắt, râu thì dùng **have got**: **She has got long hair.**"),
       mistake("She has tall.", "She is tall.", "Tiếng Việt nói “cô ấy cao”, không có động từ, nên người Việt hay đoán bừa. Tính từ đứng một mình sau chủ ngữ thì cần to be; have chỉ đi với danh từ: she has long hair."),
-      mistake("She has hair long.", "She has long hair.", "Tiếng Việt nói “tóc dài”, tính từ đứng sau danh từ. Tiếng Anh ngược lại: tính từ luôn đứng trước danh từ."),
+      mistake("She has hair long.", "She has long hair.", "Tiếng Việt nói “tóc dài”, tính từ đứng sau danh từ. Tiếng Anh ngược lại: tính từ thường đứng trước danh từ (chỉ sau something, someone mới đứng sau: something nice)."),
       p("Khi có nhiều tính từ trước **hair**, xếp theo thứ tự: **độ dài hoặc kích cỡ** trước, rồi **kiểu tóc**, rồi **màu sắc**, cuối cùng là danh từ."),
       table(
         ["Độ dài, kích cỡ", "Kiểu", "Màu", "Danh từ"],
@@ -35,7 +35,7 @@ export default lesson({
       mistake("He has a short black hair.", "He has short black hair.", "Hair (mái tóc) là danh từ không đếm được, không dùng a. Chỉ nói a hair khi nói một sợi tóc."),
       ex("What does your boss look like? He's short and he's got glasses.", "Sếp bạn trông thế nào? Ông ấy thấp và đeo kính.", "Tiếng Việt nói “đeo kính”, tiếng Anh nói có kính: he's got glasses."),
       ex("Has your son got blue eyes? No, he hasn't. He's got brown eyes.", "Con trai bạn có mắt xanh không? Không. Cháu có mắt nâu."),
-      teacher("Tôi dạy người Việt đã nửa thế kỷ, và câu các bạn hỏi sai nhiều nhất là “What does she look?” Hãy nhớ chữ **like** như một cái đuôi không bao giờ rời: **What does she look like?** Bài tập mỗi ngày tôi giao cho các bạn: nhìn một người trên xe buýt hay trong văn phòng, rồi tả thầm trong đầu ba câu, một câu với **is**, hai câu với **has got**. Làm một tuần là miệng sẽ tự nói đúng thứ tự tính từ."),
+      teacher("Khi đứng lớp, câu tôi thấy các bạn hỏi sai nhiều nhất là “What does she look?” Hãy nhớ chữ **like** như một cái đuôi không bao giờ rời: **What does she look like?** Bài tập mỗi ngày tôi giao cho các bạn: nhìn một người trên xe buýt hay trong văn phòng, rồi tả thầm trong đầu ba câu, một câu với **is**, hai câu với **has got**. Làm một tuần là miệng sẽ tự nói đúng thứ tự tính từ."),
       summary(
         "**Have got / has got** để nói ai có gì: I've got a car, she's got blue eyes.",
         "Phủ định **haven't / hasn't got**; câu hỏi **Has she got…?** Yes, she has. / No, she hasn't.",
@@ -48,7 +48,7 @@ export default lesson({
   words: [
     word("tall", "/tɔːl/", "cao (người, tòa nhà)", "My brother is very tall.", "tall", 0, "Âm /ɔː/ tròn môi và kéo dài, cuối từ có âm /l/, đừng đọc thành “tô”."),
     word("slim", "/slɪm/", "thon thả, mảnh mai", "She's slim and she's got short hair.", "slim", 0, "Slim là lời khen lịch sự; nói thin (gầy) đôi khi nghe không hay."),
-    word("hair", "/heər/", "tóc, mái tóc", "He's got short grey hair.", "hair", 0, "Đọc như “he-ơ”, gần giống từ here nhưng miệng mở rộng hơn."),
+    word("hair", "/heə/", "tóc, mái tóc", "He's got short grey hair.", "hair", 0, "Đọc như “he-ơ”, gần giống từ here nhưng miệng mở rộng hơn."),
     word("curly", "/ˈkɜː.li/", "xoăn", "My daughter has got curly hair.", "cur|ly", 0),
     word("eye", "/aɪ/", "mắt", "She's got big brown eyes.", "eye", 0, "Đọc giống hệt chữ I (tôi); số nhiều eyes đọc /aɪz/."),
     word("beard", "/bɪəd/", "râu (ở cằm)", "My grandfather has got a white beard.", "beard", 0, "Chữ ea ở đây đọc là /ɪə/, không đọc như bear (con gấu)."),
@@ -64,7 +64,14 @@ export default lesson({
     reorder("a1-n12-6", "What does your new teacher look like?", "What does + chủ ngữ + look like? Tính từ new đứng trước teacher."),
     listen("a1-n12-7", "He's tall and he's got short curly hair.", ["Anh ấy cao và có mái tóc xoăn ngắn.", "Anh ấy thấp và có mái tóc xoăn ngắn.", "Anh ấy cao và có mái tóc thẳng dài."], 0, "Tall là cao; short curly hair là tóc xoăn ngắn."),
     listen("a1-n12-8", "Has she got brown eyes?", ["Cô ấy có mắt xanh không?", "Cô ấy có mắt nâu không?", "Cô ấy có đeo kính không?"], 1, "Has she got…? là câu hỏi về cái cô ấy có; brown eyes là mắt nâu."),
+    correct("a1-n12-9", "My grandmother has got a long white hair.", ["My grandmother has got long white hair.", "My grandmother's got long white hair."], "Hair (mái tóc) là danh từ không đếm được nên không dùng a. A hair chỉ là một sợi tóc."),
+    correct("a1-n12-10", "What does your sister look?", ["What does your sister look like?"], "Hỏi ngoại hình phải có like ở cuối: What does + chủ ngữ + look like?"),
   ],
+  freeSpeaking: free(
+    "What does your best friend look like?",
+    "Tả ngoại hình của bạn thân hoặc một người trong gia đình: dáng người, tóc, mắt và một điểm đặc biệt.",
+    "My best friend is Hanh. She's short and slim. She's got long straight black hair and big brown eyes. She hasn't got glasses. She's very friendly.",
+  ),
   speaking: [
     say("My mother has got long black hair.", "Mẹ tôi có mái tóc đen dài."),
     say("What does your brother look like?", "Anh trai bạn trông thế nào?"),
@@ -87,6 +94,36 @@ export default lesson({
     A("Oh, I can see him now! Tall, grey hair, glasses.", "À, em thấy ông ấy rồi! Cao, tóc bạc, đeo kính."),
     B("Great. Thank you, Minh.", "Tốt quá. Cảm ơn em, Minh."),
   ),
+  dialogueQuestions: [
+    listenQ("a1-n12-d1", "Ông Brown có râu không?", "Yes, he has. He's got a short grey beard.", ["Không có râu", "Có bộ râu ngắn màu bạc", "Có bộ râu dài màu đen"], 1, "He's got a short grey beard: bộ râu ngắn màu bạc."),
+    mc("a1-n12-d2", "Ông Brown khoảng bao nhiêu tuổi?", ["Khoảng năm mươi tuổi", "Khoảng mười lăm tuổi", "Khoảng sáu mươi tuổi"], 0, "Chị Hương nói: He's about fifty."),
+    mc("a1-n12-d3", "Những đặc điểm nào giúp Minh nhận ra ông Brown?", ["Thấp, tóc đen, đeo kính", "Cao, tóc bạc, đeo kính", "Cao, tóc xoăn, không đeo kính"], 1, "Cuối hội thoại Minh nói: Tall, grey hair, glasses."),
+  ],
+  reading: reading({
+    title: "Tin nhắn nhờ đón người",
+    text: `Hi Tuan! Thank you for your help. My cousin Lily arrives at Da Nang bus station at half past three. She's from Australia, and she's twenty years old.
+
+What does she look like? She's tall and slim. She's got long straight red hair and green eyes. She hasn't got glasses. She's got a big blue bag and a small black backpack.
+
+She can't speak Vietnamese, but she can speak a little French. Her phone number is 0935 218 467.
+
+Thanks again!
+Mai`,
+    glossary: [
+      ["cousin", "anh chị em họ"],
+      ["arrive", "đến nơi"],
+      ["bus station", "bến xe khách"],
+      ["red hair", "tóc màu đỏ hung"],
+      ["backpack", "ba lô"],
+    ],
+    questions: [
+      mc("a1-n12-r1", "Mai nhắn tin cho Tuấn để làm gì?", ["Để nhờ Tuấn đón em họ của Mai ở bến xe", "Để mời Tuấn đi ăn tối", "Để hỏi đường đến bến xe"], 0, "Mai cảm ơn Tuấn đã giúp và tả Lily để Tuấn đón ở Da Nang bus station."),
+      mc("a1-n12-r2", "Lily đến bến xe lúc mấy giờ?", ["3:00", "3:30", "2:30"], 1, "At half past three: ba giờ rưỡi."),
+      mc("a1-n12-r3", "Tóc của Lily thế nào?", ["Ngắn, xoăn, màu đỏ", "Dài, thẳng, màu đen", "Dài, thẳng, màu đỏ"], 2, "She's got long straight red hair: dài, thẳng, màu đỏ."),
+      fill("a1-n12-r4", "Lily không đeo kính: She ___ got glasses.", ["hasn't", "has not"], "She đi với has got; phủ định là hasn't got."),
+      mc("a1-n12-r5", "Ngoài tiếng Anh, Lily nói được tiếng gì?", ["Một chút tiếng Việt", "Tiếng Nhật", "Một chút tiếng Pháp"], 2, "She can't speak Vietnamese, but she can speak a little French."),
+    ],
+  }),
   task: task({
     prompt: "Hãy tả hai người trong gia đình hoặc hai đồng nghiệp của bạn: dáng người, tóc, mắt và một điểm đặc biệt (kính, râu…). Viết 5–6 câu.",
     hints: [

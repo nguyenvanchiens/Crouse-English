@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "so-thich",
   title: "Sở thích của bạn",
-  minutes: 20,
+  minutes: 26,
   lecture: {
     title: "like, love, enjoy, hate + V-ing",
     blocks: [
@@ -67,7 +67,14 @@ export default lesson({
     reorder("a1-n07-6", "My mother really loves cooking.", "Really đứng trước động từ loves để nhấn mạnh; không dùng very trước động từ."),
     listen("a1-n07-7", "I hate getting up early.", ["Tôi ghét dậy sớm.", "Tôi thích dậy sớm.", "Tôi ghét đi ngủ muộn."], 0, "Hate là ghét; get up early là dậy sớm."),
     listen("a1-n07-8", "Does she like reading? No, she doesn't.", ["Cô ấy có thích đọc sách không? Có.", "Cô ấy có thích viết không? Không.", "Cô ấy có thích đọc sách không? Không."], 2, "No, she doesn't là câu trả lời không."),
+    correct("a1-n07-9", "I like listen to music.", ["I like listening to music.", "I like to listen to music."], "Không để hai động từ nguyên mẫu đứng liền nhau: like listening (hoặc like to listen)."),
+    correct("a1-n07-10", "I very like dancing.", ["I really like dancing.", "I like dancing very much."], "Very không đứng trước like. Dùng really trước động từ, hoặc very much ở cuối câu."),
   ],
+  freeSpeaking: free(
+    "What do you like doing at the weekend?",
+    "Nói về ba, bốn việc bạn thích làm và một việc bạn ghét làm vào cuối tuần.",
+    "At the weekend, I love sleeping late. I enjoy cooking lunch for my family, and I really like reading books in the afternoon. I don't like shopping, and I hate washing the dishes.",
+  ),
   speaking: [
     say("I love reading books.", "Tôi rất thích đọc sách."),
     say("My brother enjoys playing football.", "Anh trai tôi thích chơi bóng đá."),
@@ -84,12 +91,41 @@ export default lesson({
     A("I enjoy reading. And I really like cooking.", "Tôi thích đọc sách. Và tôi rất thích nấu ăn."),
     B("Oh, nice! Does your wife like cooking?", "Ồ, hay quá! Vợ anh có thích nấu ăn không?"),
     A("No, she doesn't. She hates cooking, but she loves eating!", "Không. Cô ấy ghét nấu ăn, nhưng lại rất thích ăn!"),
-    B("My husband is the same. He enjoys playing football and watching it on TV.", "Chồng tôi cũng vậy. Anh ấy thích chơi bóng đá và xem bóng đá trên ti vi."),
+    B("My husband loves eating too. He also enjoys playing football and watching it on TV.", "Chồng tôi cũng rất thích ăn. Anh ấy còn thích chơi bóng đá và xem bóng đá trên ti vi."),
     A("Do you like football?", "Chị có thích bóng đá không?"),
     B("No, I don't. I hate watching football. I like dancing.", "Không. Tôi ghét xem bóng đá. Tôi thích nhảy."),
   ),
+  dialogueQuestions: [
+    listenQ("a1-n07-d1", "Anna đi bơi khi nào?", "Yes, I do. I love swimming. I swim every Saturday.", ["Thứ Bảy hằng tuần", "Chủ nhật hằng tuần", "Mỗi buổi sáng"], 0, "I swim every Saturday: thứ Bảy nào Anna cũng bơi."),
+    mc("a1-n07-d2", "Vợ của Minh có thích nấu ăn không?", ["Có, cô ấy rất thích nấu ăn", "Không, cô ấy ghét nấu ăn nhưng rất thích ăn", "Không, cô ấy chỉ thích nhảy"], 1, "Minh nói: She hates cooking, but she loves eating!"),
+    mc("a1-n07-d3", "Anna thích gì và ghét gì?", ["Thích nhảy, ghét xem bóng đá", "Thích bóng đá, ghét nhảy", "Thích nấu ăn, ghét bơi"], 0, "Anna nói: I hate watching football. I like dancing."),
+  ],
+  reading: reading({
+    title: "Hồ sơ trên trang tìm bạn luyện tiếng Anh",
+    text: `Hi! My name is Thao. I'm twenty-four years old, and I'm a nurse in Da Nang.
+
+I love swimming. I swim in the sea every Sunday morning. I also enjoy reading books about travel. I don't like watching TV, and I hate shopping on busy days.
+
+My brother Huy is my best friend. He loves playing football, and he really likes cooking. His fried rice is great!
+
+I want to practise my English. Do you like swimming or reading? Please write to me!`,
+    glossary: [
+      ["travel", "du lịch"],
+      ["busy", "đông đúc, bận rộn"],
+      ["best friend", "bạn thân nhất"],
+      ["fried rice", "cơm rang"],
+      ["practise", "luyện tập"],
+    ],
+    questions: [
+      mc("a1-n07-r1", "Thảo viết đoạn này để làm gì?", ["Để tìm bạn luyện tiếng Anh", "Để xin việc làm y tá", "Để bán sách du lịch"], 0, "Cuối bài: I want to practise my English... Please write to me!"),
+      mc("a1-n07-r2", "Thảo đi bơi khi nào?", ["Mỗi tối thứ Bảy", "Mỗi sáng Chủ nhật", "Mỗi ngày sau giờ làm"], 1, "I swim in the sea every Sunday morning."),
+      mc("a1-n07-r3", "Thảo không thích việc gì?", ["Đọc sách", "Bơi ở biển", "Xem ti vi"], 2, "I don't like watching TV."),
+      fill("a1-n07-r4", "Huy rất thích chơi bóng đá: He loves ___ football. (play)", ["playing", "to play"], "Sau love dùng V-ing: loves playing (to play cũng đúng)."),
+      mc("a1-n07-r5", "Huy nấu món gì rất ngon?", ["Cơm rang", "Phở", "Bánh mì"], 0, "His fried rice is great! Fried rice là cơm rang."),
+    ],
+  }),
   task: task({
-    prompt: "Một người bạn nước ngoài hỏi bạn: What do you like doing? Hãy viết 5–6 câu về sở thích của bạn và của một người trong gia đình, có cả điều bạn thích và điều bạn không thích.",
+    prompt: "Một người bạn nước ngoài hỏi bạn: What do you like doing? (Bạn thích làm gì? Câu hỏi này bạn học như một cụm; cách đặt câu hỏi với What… do… sẽ học ở bài Hỏi đáp về thói quen.) Hãy viết 5–6 câu về sở thích của bạn và của một người trong gia đình, có cả điều bạn thích và điều bạn không thích.",
     hints: [
       "Dùng like, love, enjoy, hate + V-ing: I love reading.",
       "Khi nói về bố, mẹ, anh chị: nhớ thêm -s cho động từ chính (she loves, he enjoys).",

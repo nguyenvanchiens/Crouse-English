@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "phu-am-huu-thanh-vo-thanh",
   title: "Phụ âm hữu thanh và vô thanh",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "Các cặp phụ âm và hai âm /θ/, /ð/",
     blocks: [
@@ -43,9 +43,9 @@ export default lesson({
     word("think", "/θɪŋk/", "nghĩ", "I think it's a good idea.", "think", 0, "Đầu lưỡi giữa hai răng, thổi hơi; không đọc thành sink hay “tink”."),
     word("this", "/ðɪs/", "này, đây", "This is my friend, Nam.", "this", 0, "Giống /θ/ nhưng cổ họng rung; không đọc thành “dít”."),
     word("very", "/ˈver.i/", "rất", "The food here is very good.", "ver|y", 0, "Răng trên chạm môi dưới cho /v/; đừng đọc thành “ye-ry” hay “be-ry”."),
-    word("zoo", "/zuː/", "sở thú", "We took the children to the zoo.", "zoo", 0, "/z/ có rung ở cổ họng như tiếng ong; không đọc thành “du” hay “su”."),
+    word("zoo", "/zuː/", "sở thú", "The children love the zoo.", "zoo", 0, "/z/ có rung ở cổ họng như tiếng ong; không đọc thành “du” hay “su”."),
     word("shoe", "/ʃuː/", "chiếc giày", "I can't find my other shoe.", "shoe", 0, "Chu môi tròn như ra hiệu “suỵt” cho /ʃ/; khác với sue /suː/."),
-    word("measure", "/ˈmeʒ.ə/", "đo", "Please measure the room.", "meas|ure", 0, "/ʒ/ là bản hữu thanh của /ʃ/: môi chu tròn và cổ họng rung, gần chữ “gi” kéo dài."),
+    word("measure", "/ˈmeʒ.ə/", "đo", "Please measure the room.", "meas|ure", 0, "/ʒ/ là bản hữu thanh của /ʃ/: đặt lưỡi và chu môi y như khi nói /ʃ/ (“suỵt”), rồi cho cổ họng rung. Đừng đọc thành “gi” hay “d” tiếng Việt."),
     word("judge", "/dʒʌdʒ/", "thẩm phán; đánh giá", "Don't judge a book by its cover.", "judge", 0, "Có hai âm /dʒ/, đầu và cuối; cuối từ vẫn phải bật nhẹ /dʒ/ ra."),
     word("cheap", "/tʃiːp/", "rẻ", "The bread here is cheap.", "cheap", 0, "/tʃ/ vô thanh, bật hơi mạnh; khác với jeep /dʒiːp/ có rung."),
   ],
@@ -58,43 +58,73 @@ export default lesson({
     B("Yes, they are. What size are you?", "Vâng, đúng rồi. Anh đi cỡ bao nhiêu?"),
     A("I think I'm a forty-three.", "Tôi nghĩ tôi đi cỡ bốn mươi ba."),
     B("Here are the forty-threes. Try them on.", "Đây là cỡ bốn mươi ba. Anh đi thử đi."),
-    A("Thanks. They're a bit tight. Have you got a bigger size?", "Cảm ơn chị. Hơi chật một chút. Chị có cỡ to hơn không?"),
-    B("Yes. These are forty-four.", "Có ạ. Đôi này cỡ bốn mươi bốn."),
-    A("That's much better. How much are they?", "Đôi này vừa hơn nhiều. Bao nhiêu tiền vậy chị?"),
+    A("Thanks. They're a bit tight. Do you have a size forty-four?", "Cảm ơn chị. Hơi chật một chút. Chị có cỡ bốn mươi bốn không?"),
+    B("Yes. These are a forty-four.", "Có ạ. Đôi này cỡ bốn mươi bốn."),
+    A("These are perfect. How much are they?", "Đôi này vừa khít. Bao nhiêu tiền vậy chị?"),
     B("Seven hundred thousand dong. That's very cheap!", "Bảy trăm nghìn đồng. Thế là rẻ lắm đấy!"),
     A("Is six hundred thousand OK?", "Sáu trăm nghìn được không chị?"),
     B("Six hundred and fifty. That's my best price.", "Sáu trăm năm mươi. Đó là giá tốt nhất rồi."),
     A("OK. Thank you very much.", "Được. Cảm ơn chị nhiều."),
   ),
+  dialogueQuestions: [
+    mc("pa-n04-d1", "Cuối cùng anh Tom đi vừa đôi giày cỡ bao nhiêu?", ["Bốn mươi ba", "Bốn mươi bốn", "Bốn mươi hai"], 1, "Cỡ bốn mươi ba hơi chật (a bit tight), cỡ bốn mươi bốn thì vừa (These are perfect)."),
+    listenQ("pa-n04-d2", "Cuối cùng anh Tom trả bao nhiêu tiền?", "Six hundred and fifty. That's my best price.", ["Sáu trăm nghìn đồng", "Bảy trăm nghìn đồng", "Sáu trăm năm mươi nghìn đồng"], 2, "Chị Thảo chốt giá “six hundred and fifty” (thousand dong) và anh Tom đồng ý."),
+    mc("pa-n04-d3", "Đôi giày làm bằng gì?", ["Da", "Vải", "Nhựa"], 0, "Anh Tom hỏi “Are they leather?” và chị Thảo trả lời “Yes, they are.”"),
+  ],
+  reading: reading({
+    title: "Cửa hàng giày của chị Thu",
+    text: `Thu's Shoe Shop is near the city zoo. We sell shoes for men, women and children. Our shoes are leather, and they are very cheap.
+
+This Thursday and Friday, all sandals are three hundred thousand dong. Buy two pairs and get a free pair of socks.
+
+Do you think your shoes are too old? Bring them to us. We can clean and fix them in thirty minutes.
+
+We open from seven in the morning to nine in the evening, every day. Come in and say hello!`,
+    glossary: [["sandals", "dép quai hậu, xăng-đan"], ["pair", "đôi"], ["socks", "tất"], ["fix", "sửa"]],
+    questions: [
+      mc("pa-n04-r1", "Cửa hàng này bán gì?", ["Quần áo trẻ em", "Giày dép", "Đồ chơi"], 1, "“We sell shoes for men, women and children.”"),
+      mc("pa-n04-r2", "Xăng-đan có giá ba trăm nghìn đồng vào những ngày nào?", ["Thứ Năm và thứ Sáu", "Thứ Bảy và Chủ nhật", "Mọi ngày trong tuần"], 0, "“This Thursday and Friday, all sandals are three hundred thousand dong.” Thursday bắt đầu bằng /θ/."),
+      fill("pa-n04-r3", "We can clean and fix your old shoes in ___ minutes. (số phút)", ["thirty", "30"], "“We can clean and fix them in thirty minutes.” Thirty bắt đầu bằng /θ/."),
+      mc("pa-n04-r4", "Mua hai đôi xăng-đan thì được tặng gì?", ["Một đôi giày da", "Một cái túi", "Một đôi tất"], 2, "“Buy two pairs and get a free pair of socks.”"),
+      mc("pa-n04-r5", "Cửa hàng mở cửa khi nào?", ["Từ chín giờ sáng đến bảy giờ tối, trừ Chủ nhật", "Từ bảy giờ sáng đến chín giờ tối, ngày nào cũng mở", "Chỉ vào thứ Năm và thứ Sáu"], 1, "“We open from seven in the morning to nine in the evening, every day.”"),
+    ],
+  }),
   exercises: [
     listen("pa-n04-1", "think", ["sink", "think", "tink"], 1, "Think /θɪŋk/ có đầu lưỡi giữa hai răng, tiếng hơi mềm. Sink bắt đầu bằng /s/ rít, tink bắt đầu bằng /t/ bật."),
     listen("pa-n04-2", "shell", ["sell", "fell", "shell"], 2, "Shell /ʃel/ môi chu tròn, âm dày. Sell /sel/ môi dẹt, tiếng rít mảnh; fell /fel/ răng trên chạm môi dưới."),
     mc("pa-n04-3", "Từ nào bắt đầu bằng phụ âm hữu thanh?", ["pig", "cap", "tea", "big"], 3, "Big bắt đầu bằng /b/ hữu thanh (cổ họng rung). Pig /p/, cap /k/, tea /t/ đều là vô thanh."),
     mc("pa-n04-4", "Từ nào có âm /ð/?", ["think", "they", "three", "thank"], 1, "They /ðeɪ/ có /ð/ hữu thanh. Think, three, thank đều bắt đầu bằng /θ/ vô thanh."),
-    fill("pa-n04-5", "I ___ it's going to rain. (nghĩ, có âm /θ/)", ["think"], "Think /θɪŋk/: thò đầu lưỡi, thổi hơi. Đọc thành sink là thành “chìm”."),
+    fill("pa-n04-5", "I ___ this bag is very cheap. (nghĩ, có âm /θ/)", ["think"], "Think /θɪŋk/: thò đầu lưỡi, thổi hơi. Đọc thành sink là thành “chìm”."),
     fill("pa-n04-6", "___ is my brother, Minh. (Đây là, có âm /ð/)", ["This", "this"], "This /ðɪs/ dùng để giới thiệu người đứng gần. Đầu lưỡi giữa hai răng, cổ họng rung."),
     reorder("pa-n04-7", "They think the shoes are very cheap.", "They think + mệnh đề. Câu có đủ /ð/, /θ/, /ʃ/, /v/ và /tʃ/ để các bạn đọc to."),
     reorder("pa-n04-8", "My brother drives a very big van.", "Chủ ngữ + drives + a + very + tính từ + danh từ. Very và van có /v/: răng trên chạm môi dưới; brother có /ð/."),
+    correct("pa-n04-9", "She think the shoes are cheap.", "She thinks the shoes are cheap.", "Chủ ngữ she nên động từ thêm -s: thinks /θɪŋks/. Đầu từ là /θ/ (thò lưỡi), cuối từ có cụm /ŋks/, đừng nuốt."),
+    correct("pa-n04-10", "These shoe are very cheap.", ["These shoes are very cheap.", "This shoe is very cheap."], "These đi với danh từ số nhiều: these shoes, đọc /ʃuːz/ với /z/ rung ở cuối. Nếu muốn nói một chiếc thì dùng this shoe is."),
   ],
   speaking: [
     say("I think this is my bag.", "Tôi nghĩ đây là túi của tôi."),
     say("Thank you, that's very kind of you.", "Cảm ơn bạn, bạn thật tốt."),
     say("She sells sea shells on the seashore.", "Cô ấy bán vỏ sò trên bờ biển."),
   ],
+  freeSpeaking: free(
+    "What do you think of the shops near your home?",
+    "Nói 3–4 câu về một cửa hàng gần nhà bạn: nó bán gì, giá thế nào, bạn nghĩ gì về nó. Dùng think, this, these, very, shoes, shop.",
+    "There is a very nice shop near my home. It sells shoes and clothes. I think the prices there are cheap. These shoes on my feet are from that shop.",
+  ),
   task: task({
-    prompt: "Viết 5 câu kể về một lần bạn đi mua sắm, dùng nhiều từ có /θ/, /ð/, /v/, /ʃ/ và /z/. Rồi đứng trước gương đọc to từng câu, một tay đặt lên cổ để kiểm tra độ rung.",
+    prompt: "Viết 5 câu giới thiệu một cửa hàng gần nhà bạn (bán gì, giá thế nào, bạn và người thân nghĩ gì về nó), dùng nhiều từ có /θ/, /ð/, /v/, /ʃ/ và /z/. Rồi đứng trước gương đọc to từng câu, một tay đặt lên cổ để kiểm tra độ rung.",
     hints: [
-      "Từ có /θ/: think, three, thank, Thursday; từ có /ð/: this, these, that, brother, mother.",
+      "Từ có /θ/: think, three, thank, Thursday; từ có /ð/: this, these, there, brother, mother.",
       "Từ có /v/: very, five, seven; từ có /ʃ/: shop, shoes, shirt.",
-      "Có thể bắt đầu bằng: Last Thursday I went shopping with…",
+      "Có thể bắt đầu bằng: There is a small shop near my house. It sells…",
     ],
-    model: "Last Thursday I went shopping with my brother. We bought three shirts and a pair of shoes. The shoes were very cheap. I think these clothes are nice. My mother thinks so, too.",
+    model: "There is a small shop near my house. It sells shoes and shirts. The shoes there are very cheap. My brother thinks the shirts are nice. On Thursdays my mother and I go there together.",
     checklist: [
-      "Có ít nhất hai từ có /θ/ và hai từ có /ð/",
+      "Có ít nhất hai từ có /θ/ (thinks, Thursdays) và hai từ có /ð/ (there, brother, mother)",
       "Nhìn gương thấy đầu lưỡi giữa hai răng mỗi khi đọc th",
-      "Very, seven, five: răng trên chạm môi dưới cho /v/",
-      "Shop, shoes, shirt: môi chu tròn cho /ʃ/, nghe khác see, sip",
-      "Tay đặt lên cổ thấy rung ở /z/ cuối shoes, clothes và ở /ð/ trong these, brother",
+      "Very: răng trên chạm môi dưới cho /v/, không đọc thành “ye-ry”",
+      "Shop, shoes, shirts: môi chu tròn cho /ʃ/, nghe khác see, sip",
+      "Tay đặt lên cổ thấy rung ở /z/ cuối shoes, sells và ở /ð/ trong there, brother",
     ],
     minWords: 25,
   }),

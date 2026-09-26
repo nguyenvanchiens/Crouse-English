@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Check, Mic, Volume2 } from "lucide-react";
-import type { SpeakingStep } from "@/content/types";
+import type { FreeSpeaking, SpeakingStep } from "@/content/types";
 import { matchSpeech } from "@/lib/scoring";
 import { listenOnce, speak, useSpeechSupport } from "@/lib/speech";
 
@@ -32,9 +32,19 @@ export function StepSpeaking({ step, onComplete }: { step: SpeakingStep; onCompl
   const [error, setError] = useState<string | null>(null);
   const [allDone, setAllDone] = useState(false);
   const [blocked, setBlocked] = useState(false);
+  const [freeStage, setFreeStage] = useState(false);
   const stopRef = useRef<(() => void) | null>(null);
 
   useEffect(() => () => stopRef.current?.(), []);
+
+  function finishAll() {
+    setAllDone(true);
+    onComplete();
+  }
+
+  if (step.free && !allDone && (freeStage || blocked || !stt)) {
+    return <FreeSpeakingCard free={step.free} stt={stt && !blocked} tts={tts} onDone={finishAll} />;
+  }
 
   if (!stt) {
     return (
@@ -78,7 +88,9 @@ export function StepSpeaking({ step, onComplete }: { step: SpeakingStep; onCompl
   function advance() {
     stopRef.current?.();
     setListening(false);
-    if (last) {
+    if (last && step.free) {
+      setFreeStage(true);
+    } else if (last) {
       setAllDone(true);
       onComplete();
     } else {
@@ -111,10 +123,7 @@ export function StepSpeaking({ step, onComplete }: { step: SpeakingStep; onCompl
           <button
             type="button"
             className="btn btn-ghost mt-3"
-            onClick={() => {
-              setAllDone(true);
-              onComplete();
-            }}
+            onClick={finishAll}
           >
             Bỏ qua bước này
           </button>
@@ -136,8 +145,97 @@ export function StepSpeaking({ step, onComplete }: { step: SpeakingStep; onCompl
       </div>
 
       <button type="button" className="btn btn-ghost mt-6" onClick={advance}>
-        {last ? (heard ? "Xong phần luyện nói" : "Bỏ qua và kết thúc") : heard ? "Câu tiếp" : "Bỏ qua câu này"}
+        {last
+          ? step.free
+            ? "Sang phần nói tự do"
+            : heard
+              ? "Xong phần luyện nói"
+              : "Bỏ qua và kết thúc"
+          : heard
+            ? "Câu tiếp"
+            : "Bỏ qua câu này"}
       </button>
+    </div>
+  );
+}
+
+/** Open answer: the learner speaks freely; the app shows what it heard and a sample answer to compare with. */
+function FreeSpeakingCard({ free, stt, tts, onDone }: { free: FreeSpeaking; stt: boolean; tts: boolean; onDone: () => void }) {
+  const [parts, setParts] = useState<string[]>([]);
+  const [listening, setListening] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [showModel, setShowModel] = useState(false);
+  const stopRef = useRef<(() => void) | null>(null);
+
+  useEffect(() => () => stopRef.current?.(), []);
+
+  const said = parts.join(" ");
+  const words = said.split(/\s+/).filter(Boolean).length;
+
+  function record() {
+    setError(null);
+    setListening(true);
+    stopRef.current = listenOnce({
+      onResult: (t) => t.trim() && setParts((p) => [...p, t.trim()]),
+      onError: (code) => setError(ERRORS[code] ?? ERRORS.default),
+      onEnd: () => setListening(false),
+    });
+  }
+
+  return (
+    <div className="clay p-6 sm:p-8">
+      <p className="text-sm font-semibold text-ink-soft">Nói tự do</p>
+      <p lang="en" className="mt-3 font-display text-3xl font-extrabold leading-snug">{free.question}</p>
+      <p className="mt-2 text-lg text-ink-soft">{free.prompt}</p>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <button type="button" className="btn btn-ghost" onClick={() => speak(free.question, { rate: 0.85 })} disabled={!tts}>
+          <Volume2 className="size-5" aria-hidden />
+          Nghe câu hỏi
+        </button>
+        {stt && (
+          <button type="button" className="btn btn-primary" onClick={record} disabled={listening} aria-pressed={listening}>
+            <Mic className="size-5" aria-hidden />
+            {listening ? "Đang nghe…" : parts.length ? "Nói tiếp" : "Bấm để trả lời"}
+          </button>
+        )}
+      </div>
+      {!stt && (
+        <p className="mt-4 rounded-2xl bg-sun-soft px-4 py-3">
+          Trình duyệt này không nhận được giọng nói. Hãy trả lời thành tiếng, rồi mở bài nói mẫu để so sánh.
+        </p>
+      )}
+
+      <div role="status" aria-live="polite">
+        {error && <p className="mt-5 rounded-2xl border-2 border-ink bg-sun-soft px-4 py-3">{error}</p>}
+        {said && (
+          <div className="mt-6 rounded-2xl border-[2.5px] border-ink bg-sky p-4">
+            <p className="text-sm font-semibold text-ink-soft">Máy nghe được ({words} từ)</p>
+            <p lang="en" className="mt-1 text-lg">“{said}”</p>
+            <p className="mt-2 text-sm text-ink-soft">
+              Máy chỉ ghi lại lời bạn nói, không chấm ngữ pháp. Hãy tự đọc lại: đã trả lời đúng câu hỏi chưa, câu có đủ chủ ngữ và động từ chưa?
+            </p>
+          </div>
+        )}
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <button type="button" className="btn btn-ghost" onClick={() => setShowModel((v) => !v)} aria-expanded={showModel}>
+          {showModel ? "Ẩn bài nói mẫu" : "Xem bài nói mẫu"}
+        </button>
+        <button type="button" className="btn btn-ghost" onClick={onDone}>
+          {said || showModel ? "Xong phần luyện nói" : "Bỏ qua và kết thúc"}
+        </button>
+      </div>
+      {showModel && (
+        <div className="mt-4 rounded-2xl border-2 border-ink bg-leaf-soft p-4">
+          <p lang="en" className="text-lg leading-relaxed">{free.model}</p>
+          <button type="button" className="btn btn-ghost mt-3" onClick={() => speak(free.model, { rate: 0.9 })} disabled={!tts}>
+            <Volume2 className="size-5" aria-hidden />
+            Nghe bài mẫu
+          </button>
+        </div>
+      )}
     </div>
   );
 }

@@ -17,6 +17,7 @@ const SKILL_LABEL: Record<PlacementQuestion["skill"], string> = {
   vocab: "Từ vựng",
   grammar: "Ngữ pháp",
   listening: "Nghe",
+  reading: "Đọc hiểu",
 };
 
 export function PlacementTest({ questions, courses }: { questions: PlacementQuestion[]; courses: Course[] }) {
@@ -53,7 +54,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
       <div className="clay p-8 sm:p-10">
         <h1 className="font-display text-5xl font-extrabold leading-tight">Kiểm tra trình độ tiếng Anh</h1>
         <p className="mt-4 text-lg text-ink-soft">
-          {questions.length} câu, khoảng 10 phút, gồm từ vựng, ngữ pháp và nghe. Mỗi câu chỉ trả lời một lần, không quay lại câu trước.
+          {questions.length} câu, khoảng 20 phút, gồm từ vựng, ngữ pháp, nghe và đọc hiểu, từ A1 đến C1. Mỗi câu chỉ trả lời một lần, không quay lại câu trước.
         </p>
         {ready && state.placement && (
           <p className="mt-4 rounded-2xl bg-sky px-4 py-3">
@@ -76,7 +77,11 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
           <p className="mt-2 font-display text-7xl font-extrabold">{result.startLevel}</p>
           <p className="font-display text-2xl font-bold">{LEVEL_LABEL[result.startLevel]}</p>
           <p className="mt-3 text-ink-soft">
-            {passedAny ? `Bạn đã vững đến cấp ${result.level}. ` : "Bạn chưa vượt qua cấp nào, hãy bắt đầu từ nền tảng. "}
+            {result.mastered
+              ? "Bạn đã vượt qua cả cấp C1. Khóa C1 vẫn hữu ích để ôn và mài giũa văn phong học thuật. "
+              : passedAny
+                ? `Bạn đã vững đến cấp ${result.level}. `
+                : "Bạn chưa vượt qua cấp nào, hãy bắt đầu từ nền tảng. "}
             Đúng {result.score}% tổng số câu.
           </p>
           <dl className="mx-auto mt-8 grid max-w-md gap-3 text-left">
@@ -102,7 +107,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
                 <Link href={`/khoa-hoc/${pronunciation.slug}`} className="font-semibold underline underline-offset-4">
                   {pronunciation.title}
                 </Link>{" "}
-                trước (khoảng 4 tuần), để phát âm đúng ngay từ đầu.
+                trước (khoảng 5 giờ bài học), để phát âm đúng ngay từ đầu.
               </p>
             )}
           </div>
@@ -118,7 +123,10 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
       <p className="mt-5 text-sm font-semibold text-ink-soft">
         Câu {i + 1}/{questions.length}, {SKILL_LABEL[q.skill].toLowerCase()}
       </p>
-      <h2 className="mt-2 font-display text-3xl font-extrabold leading-snug">{q.prompt}</h2>
+      {q.passage && (
+        <p lang="en" className="mt-3 rounded-2xl border-2 border-ink bg-card px-5 py-4 text-lg leading-relaxed">{q.passage}</p>
+      )}
+      <h2 className="mt-3 font-display text-3xl font-extrabold leading-snug">{q.prompt}</h2>
       {q.audioText && (
         <div className="mt-4">
           <button type="button" className="btn btn-ghost" onClick={() => speak(q.audioText!)} disabled={!tts}>

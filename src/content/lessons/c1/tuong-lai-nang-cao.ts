@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "tuong-lai-nang-cao",
   title: "Sắp sửa, dự kiến, chắc chắn sẽ",
-  minutes: 22,
+  minutes: 35,
   lecture: {
     title: "Các cách nói tương lai nâng cao",
     blocks: [
@@ -28,7 +28,7 @@ export default lesson({
       ex("Petrol prices are set to rise again next month.", "Giá xăng dự kiến sẽ lại tăng vào tháng tới."),
       mistake("The flight due to arrive at nine.", "The flight is due to arrive at nine.", "Tiếng Việt nói “chuyến bay dự kiến đến lúc chín giờ” mà không cần “là” hay “thì”. Tiếng Anh bắt buộc có động từ be trong tất cả các cấu trúc của bài này. Riêng tiêu đề báo được phép bỏ be: Bank set to cut rates."),
       tip("Mẹo nhớ theo mức độ gần: **about to** (vài giây, vài phút) → **on the verge of** (sắp đến bước ngoặt) → **due to** (theo lịch) → **set to / be to** (tin tức, kế hoạch chính thức). Còn **bound to** không nói về thời gian mà nói về **độ chắc chắn**."),
-      teacher("Tôi dạy người Việt nhiều năm, và cấu trúc bị bỏ quên nhiều nhất là **be to**. Học trò đọc câu The President is to visit Vietnam rồi dịch là “Tổng thống là để thăm Việt Nam”, nghe rất ngô nghê. Tôi khuyên: mỗi sáng đọc năm tiêu đề trên một trang báo tiếng Anh, gạch chân mọi chữ **set to**, **due to**, **to + động từ** ngay sau danh từ, rồi tự dịch sang tiếng Việt kiểu bản tin thời sự. Một tháng thôi, các bạn sẽ đọc báo nhanh hơn hẳn."),
+      teacher("Khi đứng lớp, tôi thấy cấu trúc bị học viên bỏ quên nhiều nhất là **be to**. Học trò đọc câu The President is to visit Vietnam rồi dịch là “Tổng thống là để thăm Việt Nam”, nghe rất ngô nghê. Tôi khuyên: mỗi sáng đọc năm tiêu đề trên một trang báo tiếng Anh, gạch chân mọi chữ **set to**, **due to**, **to + động từ** ngay sau danh từ, rồi tự dịch sang tiếng Việt kiểu bản tin thời sự. Một tháng thôi, các bạn sẽ đọc báo nhanh hơn hẳn."),
       summary(
         "**Be about to** + V: sắp sửa ngay tức khắc, không đi với tomorrow hay next week. **Was about to... when**: vừa định... thì...",
         "**Be on the verge / brink of** + danh từ hoặc V-ing (không đi với to): sắp đến một bước ngoặt; brink thường dành cho điều xấu.",
@@ -57,12 +57,19 @@ export default lesson({
     reorder("c1-n03-6", "The company is on the verge of bankruptcy.", "On the verge of + danh từ: bên bờ vực."),
     listen("c1-n03-7", "The Prime Minister is to visit Da Nang next week.", ["Thủ tướng đã thăm Đà Nẵng tuần trước.", "Thủ tướng muốn thăm Đà Nẵng nhưng chưa chắc chắn.", "Theo kế hoạch chính thức, Thủ tướng sẽ thăm Đà Nẵng vào tuần tới."], 2, "Be to + V: kế hoạch chính thức, hay gặp trong bản tin."),
     listen("c1-n03-8", "I was just about to leave when the phone rang.", ["Tôi vừa đi khỏi thì điện thoại reo.", "Tôi vừa định đi thì điện thoại reo.", "Tôi không đi vì điện thoại cứ reo mãi.", "Điện thoại reo nên tôi quyết định đi luôn."], 1, "Was about to... when: vừa định làm gì thì có việc khác xen vào. Việc rời đi chưa xảy ra."),
+    correct("c1-n03-9", "The two companies are on the verge to reach an agreement.", ["The two companies are on the verge of reaching an agreement.", "The two companies are on the verge of an agreement.", "The two companies are on the brink of reaching an agreement."], "Of là giới từ, nên sau on the verge of là V-ing hoặc danh từ: of reaching an agreement, hoặc gọn hơn là of an agreement."),
+    correct("c1-n03-10", "The new bridge is about to open next year.", ["The new bridge is due to open next year.", "The new bridge is set to open next year.", "The new bridge is to open next year.", "The new bridge is expected to open next year.", "The new bridge is scheduled to open next year.", "The new bridge is going to open next year.", "The new bridge will open next year."], "About to chỉ việc xảy ra ngay tức khắc, không đi với mốc thời gian xa như next year. Việc theo lịch dùng be due to; tin tức hoặc kế hoạch chính thức dùng be set to, be to."),
   ],
   speaking: [
     say("The meeting is due to start in ten minutes.", "Cuộc họp dự kiến bắt đầu sau mười phút nữa."),
     say("Hurry up, the train is about to leave.", "Nhanh lên, tàu sắp chạy rồi."),
     say("If you keep working this hard, you're bound to succeed.", "Nếu bạn cứ chăm chỉ thế này, chắc chắn bạn sẽ thành công."),
   ],
+  freeSpeaking: free(
+    "What changes are about to happen, or are due to happen, in your life, your job or your city over the next year?",
+    "Nói về ba bốn thay đổi sắp tới trong cuộc sống, công việc hoặc thành phố của bạn. Phân biệt rõ việc ngay trước mắt (be about to, be on the verge of), việc theo lịch (be due to), kế hoạch chính thức (be to, be set to) và điều bạn tin chắc (be bound to).",
+    "Quite a lot is about to change for me, actually. My company is due to move to a new office in Thu Duc at the end of next month, so my commute is bound to get longer, at least at first. I've also been told that I'm to lead a small team from January, which is exciting but slightly frightening. In my city, the second metro line is set to open next year, although I suspect the date will slip again. And personally, I'm on the verge of booking my first trip to Japan. I just need to find the courage to press the button.",
+  ),
   dialogue: dialogue(
     "Phỏng vấn giám đốc một hãng xe điện",
     "Ben, phóng viên kinh tế người Anh, phỏng vấn anh Quân, giám đốc điều hành một công ty khởi nghiệp xe điện ở Hà Nội, về các kế hoạch sắp tới. Mỗi câu trả lời cần phân biệt rõ việc nào ngay trước mắt, việc nào theo lịch, việc nào chỉ là dự đoán.",
@@ -80,23 +87,60 @@ export default lesson({
     A("Aren't your competitors bound to copy the design?", "Chẳng phải đối thủ của anh chắc chắn sẽ sao chép thiết kế sao?"),
     B("Some are bound to try. I'm sorry, my next meeting is about to start. Shall we continue by email?", "Chắc chắn sẽ có người thử. Xin lỗi anh, cuộc họp tiếp theo của tôi sắp bắt đầu. Mình tiếp tục qua email nhé?"),
   ),
+  dialogueQuestions: [
+    listenQ("c1-n03-d1", "According to Mr Quân, when and where is the partnership deal due to be signed?", "It's due to be signed on the fifteenth, in Seoul. Our chairman is to attend the ceremony in person.", ["On the fifteenth, in Hanoi", "On the fifteenth, in Seoul", "Next year, in Seoul", "At the Hanoi Motor Show"], 1, "It's due to be signed on the fifteenth, in Seoul: theo lịch là ngày mười lăm, tại Seoul."),
+    mc("c1-n03-d2", "What does Mr Quân admit about the company's situation last year?", ["It was about to run out of cash when a second investor stepped in.", "It had already gone bankrupt.", "It had just signed a deal with a battery maker.", "It had copied a competitor's design."], 0, "I won't deny it. We were about to run out of cash when our second investor stepped in: suýt cạn tiền thì nhà đầu tư thứ hai xuất hiện."),
+    mc("c1-n03-d3", "How does Mr Quân seem to feel about competitors copying the new model?", ["He is worried that it will ruin the launch.", "He thinks it is completely impossible.", "He expects some to try, but he does not seem troubled.", "He is planning to take them to court."], 2, "Some are bound to try: anh chắc chắn sẽ có người thử, nhưng rồi chuyển sang chuyện khác ngay, không tỏ ra lo lắng."),
+  ],
+  reading: reading({
+    title: "Port city set to go electric",
+    text: `The port city of Cang Xanh is set to become one of the first cities in Vietnam to run an entirely electric bus fleet, after the city council approved an ambitious plan on Tuesday. The first forty buses are due to enter service in March, and the remaining diesel vehicles are to be withdrawn by the end of 2028, according to the council's official timetable.
+
+The decision marks a sharp change of direction. Only two years ago, the city's bus company was on the verge of collapse, having lost passengers steadily to motorbikes and ride-hailing apps. Ticket sales covered barely a third of its running costs, and several routes were on the brink of being cut altogether. Officials now argue that cleaner, quieter and more reliable buses will win those passengers back.
+
+Not everyone is convinced. Transport economists point out that electric buses cost roughly twice as much as diesel ones to buy, and that the savings on fuel take years to appear. "Delays are inevitable in a project of this size," said one consultant, who asked not to be named. "The charging depots alone are bound to take longer than the council expects." Others worry that the city's power grid, already under pressure in the summer months, may struggle to cope with hundreds of buses charging overnight.
+
+Supporters dismiss these concerns as exaggerated. The bus manufacturer, a Vietnamese firm that is about to open a second factory in the city, has guaranteed delivery dates in its contract and will pay penalties if it misses them. The council, meanwhile, is to publish a detailed charging plan next month, and the national electricity company is reportedly on the verge of approving a new substation near the main depot.
+
+For passengers, the most visible changes are imminent. A tentative map of the new network, due to be unveiled at the forthcoming city transport fair, is expected to include three express routes linking the port, the airport and the city centre. Fares are set to remain unchanged for at least the first year, and residents over seventy are to travel free of charge on weekdays.
+
+Whether the plan succeeds will depend less on the buses themselves than on the habits of the people who are meant to use them. "If the service is frequent and punctual, people are bound to try it," said Nguyen Thi Mai, a secondary school teacher who currently rides a motorbike to work. "But I gave up on the old buses years ago. The new ones will have to earn my trust."`,
+    glossary: [
+      ["fleet", "đội xe (tất cả xe của một hãng)"],
+      ["ride-hailing app", "ứng dụng gọi xe"],
+      ["running costs", "chi phí vận hành"],
+      ["depot", "bến bãi, trạm (xe buýt)"],
+      ["power grid", "lưới điện"],
+      ["penalty", "tiền phạt"],
+      ["substation", "trạm biến áp"],
+    ],
+    questions: [
+      mc("c1-n03-r1", "What is the article mainly about?", ["A city's plan to switch to electric buses, and the doubts surrounding it", "The collapse of a city's bus company", "A new factory producing electric motorbikes", "Complaints about bus fares in the city"], 0, "Bài báo nêu kế hoạch chuyển sang xe buýt điện, rồi đưa cả ý kiến ủng hộ lẫn hoài nghi."),
+      mc("c1-n03-r2", "According to the council's timetable, what is to happen by the end of 2028?", ["The first forty buses will enter service.", "Fares will go up.", "The remaining diesel buses will be withdrawn.", "A second bus factory will open."], 2, "The remaining diesel vehicles are to be withdrawn by the end of 2028: be to là kế hoạch chính thức."),
+      mc("c1-n03-r3", "Why does the writer mention that the bus company was “on the verge of collapse” two years ago?", ["To show that electric buses have already failed once", "To explain why the city is making such a dramatic change", "To criticise the bus manufacturer", "To prove that motorbikes are cheaper than buses"], 1, "Công ty từng suýt sụp đổ vì mất khách; chi tiết này giải thích vì sao thành phố thay đổi mạnh như vậy (a sharp change of direction)."),
+      fill("c1-n03-r4", "When the consultant says the depots are “bound to take longer”, he means he is ___ that they will be late. (chắc chắn)", ["certain", "sure", "convinced", "confident"], "Be bound to thể hiện niềm tin rất mạnh của người nói: chắc chắn sẽ trễ."),
+      mc("c1-n03-r5", "What is Nguyen Thi Mai's attitude towards the new buses?", ["Enthusiastic: she has already sold her motorbike.", "Hostile: she will never use a bus again.", "Indifferent: she does not care about public transport.", "Cautiously open: she may try them, but they must prove reliable."], 3, "Chị nói người ta chắc chắn sẽ thử nếu xe chạy đều và đúng giờ, nhưng xe mới phải lấy lại được lòng tin của chị: thận trọng nhưng không phản đối."),
+      mc("c1-n03-r6", "How would you describe the way the article is written?", ["Strongly in favour of the plan", "Balanced: it reports the views of both supporters and critics", "Strongly against the plan", "Humorous and informal"], 1, "Tác giả đưa ý kiến chuyên gia hoài nghi (Not everyone is convinced) và phía ủng hộ (Supporters dismiss these concerns), không tự đưa quan điểm."),
+    ],
+  }),
   task: task({
-    prompt: "Viết một bản tin ngắn (khoảng một trăm từ) về một sự kiện sắp diễn ra ở thành phố hoặc công ty của bạn: hội chợ, hội nghị, lễ khánh thành... Dùng ít nhất bốn cấu trúc tương lai khác nhau của bài.",
+    prompt: "Viết một bài báo ngắn (khoảng 230–280 từ) về một dự án hoặc sự kiện lớn sắp diễn ra ở thành phố hoặc công ty của bạn: khai trương tuyến metro, hội chợ quốc tế, nhà máy mới... Nêu lịch trình, kế hoạch chính thức, dự báo của giới chuyên môn và cả ý kiến trái chiều. Dùng ít nhất năm cấu trúc tương lai khác nhau của bài.",
     hints: [
-      "Câu mở đầu dùng be set to như giọng báo chí, nhưng nhớ giữ động từ be trong câu.",
-      "Nêu lịch cụ thể bằng be due to, và một kế hoạch chính thức của cơ quan bằng be to.",
-      "Thêm một dự đoán chắc chắn bằng be bound to và một việc sắp đến bước ngoặt bằng be on the verge of + V-ing.",
-      "Dùng be about to cho việc ngay sát (ví dụ: sắp mở đăng ký), không kèm mốc thời gian xa.",
+      "Tiêu đề có thể bỏ be (Da Nang set to host...), nhưng trong thân bài mọi cấu trúc đều phải có be.",
+      "Nêu lịch cụ thể bằng be due to, kế hoạch chính thức của cơ quan bằng be to, dự báo bằng be set to.",
+      "Thêm một dự đoán chắc chắn bằng be bound to và một việc sắp đến bước ngoặt bằng be on the verge / brink of + danh từ hoặc V-ing.",
+      "Dùng be about to cho việc ngay sát (sắp mở đăng ký), không kèm mốc thời gian xa. Kết bài bằng một nhận định chung.",
     ],
     model:
-      "Da Nang is set to host its first International Green Energy Expo next spring. The three-day event is due to open on the twelfth of April at the city's main convention centre, and more than two hundred companies are expected to take part. The Minister of Industry and Trade is to deliver the opening speech, while several foreign investors are on the verge of finalising major wind-power deals with local partners. Organisers say the city's hotels are bound to be fully booked, so visitors are advised to reserve rooms early. Online registration is about to open, and a tentative programme will be published next week.",
+      "Da Nang set to host first green energy expo\n\nDa Nang is set to host its first International Green Energy Expo next spring, in what organisers describe as the most ambitious business event in the city's history. The three-day exhibition is due to open on the twelfth of April at the city's main convention centre, and more than two hundred companies from fifteen countries are expected to take part.\n\nAccording to the official programme, the Minister of Industry and Trade is to deliver the opening speech, and the city's leaders are to sign a cooperation agreement with two Korean provinces on the second day. Several foreign investors are also on the verge of finalising major wind-power deals with local partners, and at least one of these is likely to be announced during the event.\n\nThe expo comes at an important moment for the region. Demand for electricity in central Vietnam is set to double within a decade, and experts warn that the region is on the brink of a serious power shortage unless new capacity is added quickly.\n\nNot everyone is enthusiastic, however. Some residents fear that traffic around the convention centre is bound to be chaotic, and hotel prices are certain to rise sharply during the week. Organisers insist that shuttle buses will run every ten minutes, but visitors are advised to reserve rooms early.\n\nOnline registration is about to open, and a tentative programme is due to be published next week. For a city that was once known mainly for its beaches, the expo is bound to be a turning point.",
     checklist: [
-      "Có ít nhất bốn cấu trúc khác nhau: be about to, be due to, be set to, be to, be bound to, be on the verge of",
-      "Mọi cấu trúc đều có động từ be chia đúng",
-      "On the verge of hoặc on the brink of đi với danh từ hoặc V-ing, không đi với to",
-      "Be about to không đi kèm mốc thời gian xa như next month",
-      "Giọng văn khách quan như bản tin, không dùng I think",
+      "Có ít nhất năm cấu trúc khác nhau: be about to, be due to, be set to, be to, be bound to, be on the verge / brink of.",
+      "Trong thân bài, mọi cấu trúc đều có động từ be chia đúng (chỉ tiêu đề mới được bỏ be).",
+      "On the verge of hoặc on the brink of đi với danh từ hoặc V-ing, không đi với to.",
+      "Be about to không đi kèm mốc thời gian xa như next month.",
+      "Phân biệt rõ lịch trình (due to), kế hoạch chính thức (be to) và dự đoán (set to, bound to).",
+      "Giọng văn khách quan như bản tin, có cả ý kiến trái chiều, không dùng I think.",
     ],
-    minWords: 90,
+    minWords: 230,
   }),
 });

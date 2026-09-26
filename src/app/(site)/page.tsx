@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpenCheck, Gauge, Mic, PencilLine, Star } from "lucide-react";
+import { BookOpenCheck, Gauge, Mic, PencilLine } from "lucide-react";
 import { CourseCard } from "@/components/course/course-card";
 import { getCourses } from "@/lib/content";
 import { WordCard } from "@/components/word-card";
@@ -20,37 +20,13 @@ const STEPS = [
   },
   {
     icon: PencilLine,
-    title: "Luyện: từ vựng, hội thoại, bài tập",
-    body: "Từ vựng có IPA và trọng âm, hội thoại tình huống nghe được và đóng vai được, 8 câu bài tập đủ dạng, chấm ngay từng câu.",
+    title: "Luyện: từ vựng, hội thoại, đọc hiểu, bài tập",
+    body: "Từ vựng có IPA và trọng âm, hội thoại tình huống có câu hỏi nghe hiểu, một bài đọc ngắn, và 10 câu bài tập đủ dạng kể cả sửa lỗi sai, chấm ngay từng câu.",
   },
   {
     icon: Mic,
     title: "Dùng: nói và viết thật",
-    body: "Nói to từng câu và được chấm từng từ, rồi làm nhiệm vụ thực hành: tự viết, so với bài mẫu và tự chấm theo tiêu chí.",
-  },
-];
-
-const REVIEWS = [
-  {
-    name: "Minh Anh",
-    role: "Nhân viên kế toán, Hà Nội",
-    quote:
-      "Mình mất gốc từ cấp 3. Sau 3 tháng mình đã tự gọi điện đặt phòng khách sạn khi đi Singapore.",
-    color: "bg-sun",
-  },
-  {
-    name: "Quốc Huy",
-    role: "Sinh viên năm 4, TP.HCM",
-    quote:
-      "Phần chấm phát âm chỉ ra đúng lỗi mình đọc sai 10 năm nay. Thi thử TOEIC tăng từ 480 lên 785.",
-    color: "bg-leaf-soft",
-  },
-  {
-    name: "Thu Trang",
-    role: "Phụ huynh bé Bin, 8 tuổi",
-    quote:
-      "Con tự mở bài học mỗi tối mà không cần nhắc. Báo cáo hằng tuần giúp mình biết con đang học gì.",
-    color: "bg-grape-soft",
+    body: "Nói to từng câu và được so từng từ, trả lời một câu hỏi bằng lời của mình, rồi làm nhiệm vụ viết: so với bài mẫu và tự chấm theo tiêu chí.",
   },
 ];
 
@@ -61,11 +37,15 @@ const FAQS = [
   },
   {
     q: "Bài kiểm tra trình độ mất bao lâu, có mất phí không?",
-    a: "Khoảng 10 phút, miễn phí. Gồm 20 câu từ vựng, ngữ pháp và nghe; kết quả có ngay kèm cấp nên bắt đầu.",
+    a: "Khoảng 20 phút, miễn phí. Gồm 40 câu từ vựng, ngữ pháp, nghe và đọc hiểu từ A1 đến C1; kết quả có ngay kèm cấp nên bắt đầu.",
   },
   {
     q: "Khóa học có mất phí không?",
     a: "Không. Cả 5 cấp từ A1 đến C1 đều miễn phí, học được toàn bộ bài và nhận chứng chỉ từng cấp.",
+  },
+  {
+    q: "Học hết các khóa thì mình đạt được C1 không?",
+    a: "Chỉ học bài thì chưa đủ. Mỗi cấp có khoảng 9–12 giờ bài học, trong khi Cambridge English ước tính cần khoảng 700–800 giờ học và luyện tập (tính từ đầu) để đạt C1. Khóa học là phần lõi: ngữ pháp, từ vựng, bài đọc và bài tập theo đúng trình tự. Hãy kết hợp kho từ vựng, lịch ôn mỗi ngày và kế hoạch tự học ngoài khóa ở trang của từng cấp (nghe, đọc tài liệu thật, luyện viết và nói có chấm điểm).",
   },
   {
     q: "Có cần tạo tài khoản không?",
@@ -90,32 +70,20 @@ export default async function Home() {
               Nói tiếng Anh tự tin, bắt đầu từ cách đọc đúng từng từ.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              Lộ trình 30 bài từ A1 đến C1: bài giảng bằng tiếng Việt, bài tập chấm ngay
-              và luyện phát âm có chấm điểm. Hoàn toàn miễn phí.
+              Lộ trình hơn 80 bài từ A1 đến C1: bài giảng bằng tiếng Việt, đọc hiểu, bài tập chấm ngay
+              và luyện nói với nhận diện giọng nói. Hoàn toàn miễn phí.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/kiem-tra-trinh-do" className="btn btn-primary text-lg">
-                Kiểm tra trình độ trong 10 phút
+                Kiểm tra trình độ trong 20 phút
               </Link>
               <Link href="/khoa-hoc" className="btn btn-ghost text-lg">
                 Xem các khóa học
               </Link>
             </div>
-            <div className="mt-10 flex items-center gap-4">
-              <div className="flex -space-x-3" aria-hidden>
-                {["bg-sun", "bg-leaf-soft", "bg-grape-soft", "bg-sky-deep"].map((c, i) => (
-                  <span
-                    key={c}
-                    className={`grid size-11 place-items-center rounded-full border-[2.5px] border-ink font-display font-bold ${c}`}
-                  >
-                    {["M", "H", "T", "L"][i]}
-                  </span>
-                ))}
-              </div>
-              <p className="text-ink-soft">
-                <strong className="text-ink">12.400 học viên</strong> đang học mỗi ngày
-              </p>
-            </div>
+            <p className="mt-10 text-ink-soft">
+              Miễn phí, không cần tài khoản: tiến độ lưu ngay trên trình duyệt của bạn.
+            </p>
           </div>
 
           <div className="mx-auto w-full max-w-md lg:max-w-none">
@@ -175,8 +143,8 @@ export default async function Home() {
             Bắt đầu đúng cấp của bạn
           </h2>
           <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-            Bắt đầu bằng Bước 0 để phát âm chuẩn với bảng IPA, rồi đi lần lượt từ A1 đến C1. Mỗi cấp 16 bài, 4 bài ôn tập
-            và một bài kiểm tra cuối khóa để nhận chứng chỉ.
+            Bắt đầu bằng Bước 0 để phát âm chuẩn với bảng IPA, rồi đi lần lượt từ A1 đến C1. Mỗi cấp 16 đến 20 bài, 4 bài ôn tập, kho từ vựng theo chủ đề
+            và một bài kiểm tra cuối khóa với đề riêng để nhận chứng chỉ.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {pathCourses.map((c) => (
@@ -191,7 +159,7 @@ export default async function Home() {
               </span>
               <span>
                 <span className="mt-5 block font-display text-2xl font-extrabold leading-tight">Chưa biết bắt đầu từ đâu?</span>
-                <span className="mt-2 block">Làm bài kiểm tra 10 phút, hệ thống gợi ý cấp phù hợp.</span>
+                <span className="mt-2 block">Làm bài kiểm tra 20 phút, hệ thống gợi ý cấp phù hợp.</span>
               </span>
             </Link>
           </div>
@@ -233,40 +201,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Reviews */}
-        <section id="cam-nhan" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-          <h2 className="max-w-2xl font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-            Học viên nói gì sau khóa học
-          </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {REVIEWS.map((r, i) => (
-              <figure
-                key={r.name}
-                className={`clay p-7 ${i === 1 ? "md:translate-y-8" : ""}`}
-              >
-                <div className="flex gap-1 text-tangerine-deep" aria-label="5 trên 5 sao">
-                  {Array.from({ length: 5 }).map((_, k) => (
-                    <Star key={k} className="size-5 fill-current" aria-hidden />
-                  ))}
-                </div>
-                <blockquote className="mt-4 text-lg leading-relaxed">“{r.quote}”</blockquote>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  <span
-                    className={`grid size-11 place-items-center rounded-full border-[2.5px] border-ink font-display font-bold ${r.color}`}
-                    aria-hidden
-                  >
-                    {r.name[0]}
-                  </span>
-                  <span>
-                    <span className="block font-semibold">{r.name}</span>
-                    <span className="block text-sm text-ink-soft">{r.role}</span>
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
         {/* Placement test CTA */}
         <section id="kiem-tra" className="mx-auto max-w-6xl px-4 pb-24 pt-8 sm:px-6">
           <div className="clay relative overflow-hidden bg-tangerine px-6 py-14 text-center sm:px-12">
@@ -274,7 +208,7 @@ export default async function Home() {
               Chưa biết mình đang ở trình độ nào?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg">
-              Làm bài kiểm tra 10 phút, nhận kết quả ngay kèm lộ trình học phù hợp.
+              Làm bài kiểm tra 20 phút, nhận kết quả ngay kèm lộ trình học phù hợp.
               Miễn phí, không cần thẻ thanh toán.
             </p>
             <Link href="/kiem-tra-trinh-do" className="btn btn-ghost mt-8 text-lg">

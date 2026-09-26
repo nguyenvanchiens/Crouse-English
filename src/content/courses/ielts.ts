@@ -15,10 +15,7 @@ export const ielts: Course = {
     "Tăng tốc độ đọc và nghe hiểu",
   ],
   audience: ["Người có trình độ B1 trở lên", "Sinh viên cần IELTS để du học hoặc xét tốt nghiệp"],
-  teacher: { name: "Thầy Daniel Brooks", initials: "DB", bio: "Cựu giám khảo IELTS, 10 năm luyện thi tại Việt Nam." },
-  durationWeeks: 16,
-  rating: 4.8,
-  reviews: [{ name: "Ngọc Hân", role: "Sinh viên năm 3, Hà Nội", quote: "Được chấm Writing chi tiết từng tiêu chí nên mình biết chính xác phải sửa gì." }],
+  teacher: { name: "Thầy Daniel Brooks", initials: "DB", bio: "Người dẫn dắt khóa luyện thi IELTS (đang soạn)." },
   faqs: [{ q: "Đầu vào cần trình độ nào?", a: "Khoảng B1. Bạn có thể làm bài kiểm tra trình độ miễn phí để biết." }],
   status: "soon",
   modules: [

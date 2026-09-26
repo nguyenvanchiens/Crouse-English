@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Course } from "@/content/types";
-import { flattenLessons, lessonCounts } from "@/lib/course-utils";
+import { GUIDED_HOURS, contentHours, flattenLessons, formatHours, lessonCounts } from "@/lib/course-utils";
 import { certificateStatus, courseProgress } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { ProgressBar } from "@/components/ui/progress-bar";
@@ -20,9 +20,16 @@ export function EnrollPanel({ course }: { course: Course }) {
     <>
       <p className="font-display text-3xl font-extrabold">Miễn phí</p>
       <p className="mt-1 text-ink-soft">
-        {counts.lessons} bài học{counts.reviews > 0 ? `, ${counts.reviews} bài ôn tập` : ""}, khoảng {course.durationWeeks} tuần. Không cần
-        đăng ký tài khoản.
+        {counts.lessons} bài học{counts.reviews > 0 ? `, ${counts.reviews} bài ôn tập` : ""}
+        {course.status === "open" ? `, khoảng ${formatHours(contentHours(course))} giờ bài học` : ""}. Không cần đăng ký tài khoản.
       </p>
+      {course.status === "open" && course.goal === "lo-trinh" && (
+        <p className="mt-3 rounded-2xl bg-sky px-4 py-3 text-sm">
+          Theo Cambridge English, cần khoảng <strong>{GUIDED_HOURS[course.level][0]}–{GUIDED_HOURS[course.level][1]} giờ</strong> học
+          và luyện tập (tính từ đầu) để đạt trình độ {course.level}. Khóa này là phần lõi; hãy học thêm theo{" "}
+          <a href="#tu-hoc" className="font-semibold underline underline-offset-4">kế hoạch tự học</a> bên dưới.
+        </p>
+      )}
     </>
   );
 

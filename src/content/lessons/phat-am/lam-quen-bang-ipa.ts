@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "lam-quen-bang-ipa",
   title: "Làm quen với bảng IPA",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "IPA là gì và cách đọc phiên âm trong từ điển",
     blocks: [
@@ -16,8 +16,8 @@ export default lesson({
         ["tough (khó, dai)", "/tʌf/", "/ʌ/ ngắn, chữ “gh” đọc là /f/"],
         ["cough (ho)", "/kɒf/", "/ɒ/ ngắn, chữ “gh” đọc là /f/"],
       ),
-      ex("The exam was tough, but I passed.", "Bài thi khó, nhưng tôi đã đỗ.", "Tough đọc là /tʌf/: chữ “gh” ở cuối đọc thành /f/."),
-      ex("We walked through the park.", "Chúng tôi đi bộ xuyên qua công viên.", "Through /θruː/: đầu lưỡi giữa hai răng cho /θ/, rồi kéo dài /uː/. Chữ “gh” ở đây không đọc."),
+      ex("This test is tough, but I can do it.", "Bài kiểm tra này khó, nhưng tôi làm được.", "Tough đọc là /tʌf/: chữ “gh” ở cuối đọc thành /f/."),
+      ex("We walk through the park every day.", "Ngày nào chúng tôi cũng đi bộ xuyên qua công viên.", "Through /θruː/: đầu lưỡi giữa hai răng cho /θ/, rồi kéo dài /uː/. Chữ “gh” ở đây không đọc."),
       p("Mở từ điển Cambridge, sau mỗi từ các bạn sẽ thấy phần phiên âm nằm giữa hai dấu gạch chéo. Ngoài các ký hiệu âm, có bốn dấu phụ các bạn phải đọc được ngay: **ˈ** (trọng âm chính), **ˌ** (trọng âm phụ), **ː** (âm kéo dài) và **dấu chấm** (ranh giới âm tiết)."),
       table(
         ["Dấu", "Ý nghĩa", "Ví dụ"],
@@ -35,20 +35,20 @@ export default lesson({
         ["Phụ âm", "24", "p b t d k ɡ f v θ ð s z ʃ ʒ h tʃ dʒ m n ŋ l r j w"],
       ),
       mistake("Wednesday đọc theo mặt chữ thành “oét-nét-đây” /ˈwed.nes.deɪ/", "Wednesday /ˈwenz.deɪ/: hai âm tiết, chữ “d” đầu và chữ “e” thứ hai không đọc", "Người Việt quen đánh vần theo mặt chữ vì tiếng Việt viết sao đọc vậy. Tiếng Anh có nhiều chữ câm; chỉ phiên âm mới cho biết âm nào thực sự được đọc."),
-      mistake("comfortable đọc đủ bốn tiếng theo mặt chữ và nhấn nhầm: com-for-TA-ble", "comfortable /ˈkʌmf.tə.bəl/: ba âm tiết, nhấn âm đầu COMF, hai âm sau rất nhẹ", "Tiếng Việt không có trọng âm từ và không có chữ câm, nên người Việt đọc mỗi chữ thành một tiếng rõ ràng. Dấu chấm trong phiên âm cho biết có mấy âm tiết, dấu ˈ cho biết âm nào phải nhấn."),
+      mistake("comfortable đọc từng chữ rõ như nhau và nhấn nhầm: com-for-TA-ble", "comfortable /ˈkʌmf.tə.bəl/: thường đọc ba âm tiết, nhấn âm đầu COMF, các âm sau rất nhẹ", "Từ điển Oxford ghi cách ba âm tiết trước, cách bốn âm tiết /ˈkʌm.fə.tə.bəl/ cũng có, nhưng trọng âm vẫn ở đầu, không bao giờ nhấn -TA-. Tiếng Việt không có trọng âm từ và không có chữ câm, nên người Việt đọc mỗi chữ thành một tiếng rõ ràng. Dấu chấm trong phiên âm cho biết có mấy âm tiết, dấu ˈ cho biết âm nào phải nhấn."),
       tip("Trang **Bảng IPA** (/bang-ipa) của Crouse English có đủ 44 âm. Mỗi âm có ba từ ví dụ: **bấm vào từ để nghe**, rồi nhại lại ngay. Hãy để ý phần mẹo phát âm và **cặp từ dễ nhầm** ở mỗi âm. Mỗi ngày chỉ cần học ba đến bốn âm, đừng cố nuốt cả bảng trong một buổi."),
-      teacher("Sau nhiều năm dạy người Việt, tôi thấy học trò nào **chịu tra phiên âm** thì nói tiếng Anh rõ hơn hẳn người chỉ nghe rồi bắt chước. Các bạn hãy tập thói quen: gặp từ mới, trước khi đọc thành tiếng thì **nhìn phiên âm, đếm dấu chấm, tìm dấu ˈ, xem có dấu ː không**, rồi mới mở miệng. Lúc đầu chậm, nhưng một tháng sau các bạn sẽ tự đọc được bất kỳ từ nào trong từ điển."),
+      teacher("Khi đứng lớp, tôi thấy học trò nào **chịu tra phiên âm** thì nói tiếng Anh rõ hơn hẳn người chỉ nghe rồi bắt chước. Các bạn hãy tập thói quen: gặp từ mới, trước khi đọc thành tiếng thì **nhìn phiên âm, đếm dấu chấm, tìm dấu ˈ, xem có dấu ː không**, rồi mới mở miệng. Lúc đầu chậm, nhưng một tháng sau các bạn sẽ tự đọc được bất kỳ từ nào trong từ điển."),
       summary(
         "IPA ghi **âm**, không ghi chữ: mỗi ký hiệu là một âm. Gặp từ mới, hãy xem phiên âm trước khi đọc.",
         "**ˈ** đặt trước âm tiết nhấn chính, **ˌ** trước âm tiết nhấn phụ, **ː** là nguyên âm kéo dài, **dấu chấm** tách các âm tiết.",
         "Tiếng Anh-Anh có **44 âm**: 12 nguyên âm đơn, 8 nguyên âm đôi và 24 phụ âm.",
         "Chữ giống nhau chưa chắc đọc giống nhau: though /ðəʊ/, through /θruː/, tough /tʌf/.",
-        "Bẫy hay gặp: đọc theo mặt chữ. Wednesday chỉ có hai âm tiết, comfortable chỉ có ba.",
+        "Bẫy hay gặp: đọc theo mặt chữ. Wednesday chỉ có hai âm tiết, comfortable thường đọc ba âm tiết và nhấn âm đầu, không nhấn -TA-.",
       ),
     ],
   },
   words: [
-    word("though", "/ðəʊ/", "tuy nhiên, mặc dù", "It was cold. We went out, though.", "though", 0, "Đầu lưỡi đặt giữa hai hàm răng, cổ họng rung cho /ð/, rồi trượt “ơ-u” cho /əʊ/; đừng đọc thành “đô”."),
+    word("though", "/ðəʊ/", "tuy nhiên, mặc dù", "It's cold. I want to go out, though.", "though", 0, "Đầu lưỡi đặt giữa hai hàm răng, cổ họng rung cho /ð/, rồi trượt “ơ-u” cho /əʊ/; đừng đọc thành “đô”."),
     word("through", "/θruː/", "xuyên qua, thông qua", "The train goes through a long tunnel.", "through", 0, "Đầu lưỡi giữa hai răng rồi thổi hơi cho /θ/, không dùng chữ “th” tiếng Việt; kéo dài /uː/, chữ “gh” không đọc."),
     word("tough", "/tʌf/", "khó khăn; dai", "This steak is very tough.", "tough", 0, "Chữ “gh” ở cuối đọc là /f/; nhớ để răng trên chạm môi dưới và thổi hơi ra, đừng nuốt mất."),
     word("dictionary", "/ˈdɪk.ʃən.ər.i/", "từ điển", "I always keep a dictionary on my desk.", "dic|tion|ar|y", 0, "Nhấn mạnh âm đầu DIC, ba âm sau đọc nhẹ và nhanh."),
@@ -63,7 +63,7 @@ export default lesson({
     { A: "Minh", B: "Lan" },
     A("Lan, how do you pronounce this word?", "Lan ơi, từ này đọc thế nào?"),
     B("Let me check the dictionary. It's tough.", "Để mình tra từ điển. Từ này là tough."),
-    A("Tough? I thought it was though.", "Tough à? Mình cứ tưởng là though."),
+    A("Tough? I think it's though.", "Tough à? Mình cứ nghĩ là though."),
     B("No. Though starts with a soft th, and tough ends with an f sound.", "Không. Though bắt đầu bằng âm th mềm, còn tough kết thúc bằng âm f."),
     A("And what does this small mark mean?", "Thế cái dấu nhỏ này nghĩa là gì?"),
     B("That symbol shows the stress. Say that syllable louder.", "Ký hiệu đó chỉ trọng âm. Đọc âm tiết đó to hơn."),
@@ -72,23 +72,51 @@ export default lesson({
     A("The pronunciation is all there in the dictionary!", "Cách phát âm có hết trong từ điển rồi!"),
     B("Yes. Look at the symbols first, then say the word.", "Đúng vậy. Nhìn ký hiệu trước, rồi mới đọc từ."),
     A("It's tough at first, though.", "Nhưng lúc đầu thì khó thật."),
-    B("Don't worry. You'll get through it.", "Đừng lo. Bạn sẽ vượt qua thôi."),
+    B("Don't worry. You can get through it.", "Đừng lo. Bạn vượt qua được mà."),
   ),
+  dialogueQuestions: [
+    listenQ("pa-n01-d1", "Lúc đầu Minh nghĩ từ đó là từ nào?", "Tough? I think it's though.", ["tough", "though", "through"], 1, "Minh nói “I think it's though”: Minh nhầm tough /tʌf/ với though /ðəʊ/."),
+    mc("pa-n01-d2", "Theo Lan, hai chấm sau nguyên âm cho biết điều gì?", ["Âm tiết đó được nhấn", "Nguyên âm đó được kéo dài", "Âm đó không đọc"], 1, "Lan nói “They mean a long vowel, like in sheep”: hai chấm ː là nguyên âm dài."),
+    mc("pa-n01-d3", "Lan khuyên Minh làm gì trước khi đọc một từ?", ["Nghe người bản xứ đọc", "Viết từ đó ra vở", "Nhìn các ký hiệu phiên âm trước"], 2, "Lan nói “Look at the symbols first, then say the word”."),
+  ],
+  reading: reading({
+    title: "Đọc một mục từ trong từ điển",
+    text: `Every word in a good dictionary has a pronunciation between two slashes. Look at the word banana: /bəˈnɑː.nə/. The dots show the syllables, so banana has three. The small mark ˈ comes before the strong syllable. Here, it is the second one: ba-NA-na. The two dots ː show a long vowel, so the middle a is long.
+
+Some symbols look like letters, for example /p/, /t/ and /s/. Others are new, like /ə/ and /θ/. The symbol /ə/ is a very short, weak sound. You can hear it two times in banana.
+
+My tip: say the word slowly, one syllable at a time. Then say it again at normal speed. Do this with five new words every day.`,
+    glossary: [["slash", "dấu gạch chéo"], ["syllable", "âm tiết"], ["strong", "mạnh, được nhấn"], ["normal speed", "tốc độ bình thường"]],
+    questions: [
+      mc("pa-n01-r1", "Bài đọc chủ yếu nói về điều gì?", ["Cách đọc phiên âm của một từ trong từ điển", "Cách viết đúng chính tả từ banana", "Lịch sử của bảng IPA"], 0, "Cả bài hướng dẫn đọc phần phiên âm /bəˈnɑː.nə/ của từ banana."),
+      mc("pa-n01-r2", "Theo bài, từ banana có mấy âm tiết?", ["Hai", "Ba", "Bốn"], 1, "“The dots show the syllables, so banana has three.”"),
+      mc("pa-n01-r3", "Dấu ˈ đứng trước âm tiết nào của banana?", ["Âm tiết thứ nhất", "Âm tiết thứ ba", "Âm tiết thứ hai"], 2, "“Here, it is the second one: ba-NA-na.”"),
+      fill("pa-n01-r4", "The symbol /ə/ is a very short, ___ sound. (yếu, nhẹ)", ["weak"], "Bài viết: “The symbol /ə/ is a very short, weak sound.”"),
+      mc("pa-n01-r5", "Người viết khuyên bạn làm gì mỗi ngày?", ["Học thuộc cả bảng IPA", "Đọc năm từ mới, chậm từng âm tiết rồi nhanh dần", "Chép lại mười trang từ điển", "Nghe nhạc tiếng Anh"], 1, "“Say the word slowly… Then say it again at normal speed. Do this with five new words every day.”"),
+    ],
+  }),
   exercises: [
     mc("pa-n01-1", "Trong phiên âm, dấu ː (hai chấm) cho biết điều gì?", ["Âm tiết đó được nhấn mạnh", "Nguyên âm đứng trước được kéo dài", "Chỗ tách giữa hai âm tiết", "Âm đó không được đọc"], 1, "Dấu ː nghĩa là kéo dài nguyên âm: /iː/ trong sheep dài hơn /ɪ/ trong ship."),
-    mc("pa-n01-2", "Theo phiên âm /ˈkʌmf.tə.bəl/, từ comfortable có mấy âm tiết?", ["Hai", "Bốn", "Năm", "Ba"], 3, "Có hai dấu chấm nên có ba âm tiết: /ˈkʌmf/, /tə/, /bəl/. Chữ viết có bốn cụm nguyên âm nhưng người Anh chỉ đọc ba âm tiết."),
+    mc("pa-n01-2", "Theo phiên âm /ˈkʌmf.tə.bəl/, từ comfortable có mấy âm tiết?", ["Hai", "Bốn", "Năm", "Ba"], 3, "Có hai dấu chấm nên có ba âm tiết: /ˈkʌmf/, /tə/, /bəl/. Chữ viết có bốn cụm nguyên âm nhưng người Anh thường chỉ đọc ba âm tiết (cách đọc bốn âm tiết cũng có, trọng âm vẫn ở đầu)."),
     fill("pa-n01-3", "Check the ___ of the word in your dictionary. (cách phát âm)", ["pronunciation"], "Danh từ là pronunciation (pro-NUN-ci-a-tion), không viết pronounciation dù động từ là pronounce."),
     fill("pa-n01-4", "The words tough and cough both end in the letters ___, but they sound like /f/. (hai chữ cái cuối)", ["gh", "GH"], "Trong tough /tʌf/ và cough /kɒf/, hai chữ gh cuối đọc là /f/. Chữ viết và âm không trùng nhau, nên phải xem phiên âm."),
     reorder("pa-n01-5", "How do you pronounce this word?", "How do you + động từ + tân ngữ? Đây là câu các bạn dùng để hỏi thầy cô hoặc người bản xứ cách đọc một từ."),
     reorder("pa-n01-6", "This word has three syllables.", "Chủ ngữ this word + has + số lượng + danh từ số nhiều syllables."),
     listen("pa-n01-7", "through", ["though", "tough", "through"], 2, "Through /θruː/ có /r/ và /uː/ kéo dài; though /ðəʊ/ kết thúc bằng “ơ-u”; tough /tʌf/ kết thúc bằng /f/."),
     listen("pa-n01-8", "Look it up in the dictionary.", ["Hãy tra từ đó trong từ điển.", "Hãy đọc to từ đó lên.", "Hãy viết từ đó vào vở."], 0, "Look it up là tra cứu; dictionary là từ điển, nhấn âm đầu DIC."),
+    correct("pa-n01-9", "How you pronounce this word?", "How do you pronounce this word?", "Câu hỏi với động từ thường phải có trợ động từ do: How do you + động từ? Tiếng Việt không có từ tương đương nên người Việt hay bỏ do."),
+    correct("pa-n01-10", "I check the pronounciation in my dictionary.", "I check the pronunciation in my dictionary.", "Động từ là pronounce, nhưng danh từ viết pronunciation (không có chữ o sau n) và đọc pro-NUN-ci-A-tion."),
   ],
   speaking: [
     say("How do you pronounce this word?", "Từ này đọc thế nào?"),
-    say("The exam was tough, though.", "Tuy vậy, bài thi khó thật."),
+    say("This word is tough, though.", "Tuy vậy, từ này khó thật."),
     say("I check the pronunciation in my dictionary.", "Tôi tra cách phát âm trong từ điển."),
   ],
+  freeSpeaking: free(
+    "How do you learn a new English word?",
+    "Nói 3–4 câu về cách bạn học một từ mới: bạn tra ở đâu, nhìn gì trong phiên âm, đọc thế nào.",
+    "When I find a new word, I look it up in my dictionary. I check the symbols and the stress mark first. Then I say the word slowly, and I say it again at normal speed.",
+  ),
   task: task({
     prompt: "Viết 5 câu kể cách bạn học một từ mới bằng từ điển, dùng ít nhất bốn từ trong bài (dictionary, pronunciation, symbol, vowel, consonant, though, through, tough). Tra phiên âm từng từ đó, rồi đọc to từng câu.",
     hints: [

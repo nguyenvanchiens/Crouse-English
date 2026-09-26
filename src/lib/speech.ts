@@ -82,7 +82,8 @@ export function listenOnce({
     return () => {};
   }
   const rec = new Ctor();
-  rec.lang = "en-US";
+  // match the voice the learner is imitating (en-GB in the pronunciation course)
+  rec.lang = `en-${defaultAccent}`;
   rec.interimResults = false;
   rec.maxAlternatives = 1;
   rec.onresult = (e) => onResult(e.results[0]?.[0]?.transcript ?? "");

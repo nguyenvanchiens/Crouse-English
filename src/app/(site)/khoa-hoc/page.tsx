@@ -29,7 +29,7 @@ export default async function CoursesPage() {
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <h1 className="font-display text-5xl font-extrabold leading-tight">Khóa học tiếng Anh</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-        Chọn khóa theo mục tiêu và trình độ. Chưa biết mình ở đâu? Làm bài kiểm tra trình độ 10 phút.
+        Chọn khóa theo mục tiêu và trình độ. Chưa biết mình ở đâu? Làm bài kiểm tra trình độ 20 phút.
       </p>
       <Suspense fallback={<CatalogSkeleton count={courses.length} />}>
         <CourseCatalog courses={courses} />

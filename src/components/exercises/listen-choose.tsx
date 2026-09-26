@@ -26,7 +26,8 @@ export function ListenChoose({
         if (choice !== null) onAnswer(checkChoice(item.answer, choice));
       }}
     >
-      <h3 className="font-display text-2xl font-bold">Nghe và chọn đáp án đúng</h3>
+      <h3 className="font-display text-2xl font-bold">{item.question ? "Nghe rồi trả lời câu hỏi" : "Nghe và chọn đáp án đúng"}</h3>
+      {item.question && <p className="mt-3 font-display text-xl font-bold">{item.question}</p>}
       <div className="mb-5 mt-4 flex flex-wrap gap-3">
         <button type="button" className="btn btn-primary" onClick={() => speak(item.audioText)} disabled={!tts}>
           <Volume2 className="size-5" aria-hidden />

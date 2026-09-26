@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "tieu-su",
   title: "Kể về cuộc đời một người",
-  minutes: 22,
+  minutes: 30,
   lecture: {
     title: "Before, after, when với quá khứ đơn và cách nói ngày tháng, năm",
     blocks: [
@@ -26,20 +26,20 @@ export default lesson({
         ["21 June", "the twenty-first of June"],
       ),
       tip("Năm trước 2000 thì **cắt đôi** mà đọc: 19|98 thành nineteen ninety-eight. Ngày trong tháng đọc bằng **số thứ tự**: fifth, twenty-first, không đọc là five hay twenty-one. Viết là 5 May, nhưng nói thành **the fifth of May**."),
-      p("Để nối các sự kiện, dùng **when** (khi), **before** (trước khi), **after** (sau khi). Sau ba từ này thường là **một mệnh đề đầy đủ** (có chủ ngữ và động từ ở quá khứ đơn); riêng before và after còn đi được với **một danh từ**. Mệnh đề có when / before / after đứng đầu câu thì thêm dấu phẩy."),
+      p("Để nối các sự kiện, dùng **when** (khi), **before** (trước khi), **after** (sau khi). Sau ba từ này thường là **một mệnh đề đầy đủ** (có chủ ngữ và động từ ở quá khứ đơn); when đôi khi đi với V-ing (when crossing the road); before và after còn đi được với **một danh từ** (before the war) **hoặc V-ing** (after finishing university). Mệnh đề có when / before / after đứng đầu câu thì thêm dấu phẩy."),
       ex("She was born in Hai Phong in 1985.", "Bà ấy sinh ra ở Hải Phòng năm 1985."),
       ex("After he left school, he worked in a factory.", "Học hết phổ thông, anh ấy vào làm ở một nhà máy.", "Leave school là học xong phổ thông, không phải “rời khỏi trường” theo nghĩa đen."),
       ex("When I was twenty-two, I got my first job.", "Năm hai mươi hai tuổi, tôi có công việc đầu tiên.", "Tiếng Việt nói “năm hai mươi hai tuổi”. Tiếng Anh nói When I was twenty-two, hoặc at the age of twenty-two."),
       ex("My grandparents got married before the war.", "Ông bà tôi cưới nhau trước chiến tranh.", "Before ở đây đi với một danh từ: before the war."),
       mistake("I born in 1995.", "I was born in 1995.", "Tiếng Việt “tôi sinh năm…” không có chữ nào tương ứng với was, nên học trò hay bỏ. Tiếng Anh bắt buộc phải có was / were trước born."),
       mistake("She got married on 2010.", "She got married in 2010.", "Chỉ có năm thì dùng in. Có ngày cụ thể mới dùng on: on 12 June 2010."),
-      mistake("After finish university, I moved to Hanoi.", "After I finished university, I moved to Hanoi.", "Tiếng Việt “sau khi tốt nghiệp” không cần chủ ngữ. Tiếng Anh cần một mệnh đề đầy đủ sau after: chủ ngữ + động từ đã chia ở quá khứ."),
-      teacher("Bài tập tôi giao cho mọi lớp A2 suốt mấy chục năm nay là: **viết một tiểu sử năm câu về ông bà hoặc bố mẹ mình**, có năm sinh, năm cưới, công việc, và ít nhất một câu với before, after hay when. Rồi đọc to lên. Tôi nghe rất nhiều bạn đọc năm như đọc số điện thoại, “one nine nine eight”. Người bản xứ nghe sẽ khựng lại ngay. Các bạn hãy tập đọc năm sinh của từng người trong nhà cho trơn miệng trước đã."),
+      mistake("After finish university, I moved to Hanoi.", "After I finished university, I moved to Hanoi.", "“After finish” là sai: sau after không dùng động từ nguyên mẫu. Tiếng Việt “sau khi tốt nghiệp” không cần chủ ngữ nên học trò hay viết thiếu. Hãy dùng mệnh đề đầy đủ: After I finished university..., hoặc dùng V-ing: After finishing university..."),
+      teacher("Bài tập tôi hay giao cho các lớp A2 là: **viết một tiểu sử năm câu về ông bà hoặc bố mẹ mình**, có năm sinh, năm cưới, công việc, và ít nhất một câu với before, after hay when. Rồi đọc to lên. Tôi nghe rất nhiều bạn đọc năm như đọc số điện thoại, “one nine nine eight”. Người bản xứ nghe sẽ khựng lại ngay. Các bạn hãy tập đọc năm sinh của từng người trong nhà cho trơn miệng trước đã."),
       summary(
         "Năm sinh luôn có was / were: I was born in 1995, không nói I born.",
         "Năm và tháng dùng in (in 1998, in May); ngày cụ thể dùng on (on 5 May 1998).",
         "Năm trước 2000 đọc cắt đôi: nineteen ninety-eight; ngày đọc bằng số thứ tự: the fifth of May.",
-        "Sau when là mệnh đề đầy đủ (chủ ngữ + động từ quá khứ); sau before, after có thể là mệnh đề hoặc một danh từ (before the war).",
+        "Sau when thường là mệnh đề đầy đủ (chủ ngữ + động từ quá khứ), đôi khi là V-ing (when crossing the road); sau before, after có thể là mệnh đề, một danh từ (before the war) hoặc V-ing (after finishing university); không viết after finish.",
         "Mệnh đề when / before / after đứng đầu câu thì có dấu phẩy.",
       ),
     ],
@@ -49,8 +49,8 @@ export default lesson({
     word("married", "/ˈmær.id/", "đã kết hôn", "They got married in 1990.", "mar|ried", 0, "Chỉ có hai âm tiết, đuôi -ed đọc là /d/ nhẹ, không đọc thành “me-ri-đờ”."),
     word("graduate", "/ˈɡrædʒ.u.eɪt/", "tốt nghiệp", "She graduated from university in 2012.", "grad|u|ate", 0),
     word("university", "/ˌjuː.nɪˈvɜː.sə.ti/", "trường đại học", "He went to university in Hanoi.", "u|ni|ver|si|ty", 2, "Trọng âm chính ở âm thứ ba: diu-ni-VƠ-xi-ti."),
-    word("career", "/kəˈrɪər/", "sự nghiệp", "She had a long career as a doctor.", "ca|reer", 1, "Trọng âm ở âm sau: cơ-RIA. Âm đầu chỉ là /kə/ nhẹ, đừng đọc rõ thành “ca-ri-ơ”."),
-    word("retire", "/rɪˈtaɪər/", "nghỉ hưu", "My father retired when he was sixty.", "re|tire", 1),
+    word("career", "/kəˈrɪə/", "sự nghiệp", "She had a long career as a doctor.", "ca|reer", 1, "Trọng âm ở âm sau: cơ-RIA. Âm đầu chỉ là /kə/ nhẹ, đừng đọc rõ thành “ca-ri-ơ”."),
+    word("retire", "/rɪˈtaɪə/", "nghỉ hưu", "My father retired when he was sixty.", "re|tire", 1),
     word("die", "/daɪ/", "mất, qua đời", "My grandfather died in 2015.", "die", 0),
   ],
   exercises: [
@@ -62,7 +62,14 @@ export default lesson({
     reorder("a2-n04-6", "When did your parents get married?", "When + did + chủ ngữ + get married, động từ get giữ nguyên mẫu vì đã có did."),
     listen("a2-n04-7", "My grandfather was born on the tenth of March.", ["Ông tôi mất ngày mười tháng Ba.", "Ông tôi sinh ngày mười tháng Ba.", "Ông tôi sinh ngày mười tháng Tư."], 1, "Was born là được sinh ra. The tenth of March là ngày mười tháng Ba."),
     listen("a2-n04-8", "Before she became a teacher, she worked in a bank.", ["Sau khi làm giáo viên, cô ấy làm ở ngân hàng.", "Khi làm giáo viên, cô ấy cũng làm ở ngân hàng.", "Trước khi làm giáo viên, cô ấy làm ở ngân hàng."], 2, "Before là trước khi: việc làm ngân hàng xảy ra trước."),
+    correct("a2-n04-9", "My grandmother born in 1942.", ["My grandmother was born in 1942."], "Nói về năm sinh luôn cần was / were trước born: My grandmother was born in 1942."),
+    correct("a2-n04-10", "They got married in 20 May 1985.", ["They got married on 20 May 1985."], "Có ngày cụ thể (20 May) thì dùng on. Chỉ có năm hoặc tháng mới dùng in."),
   ],
+  freeSpeaking: free(
+    "Tell me about the life of someone in your family.",
+    "Kể về cuộc đời một người trong gia đình bạn: sinh năm nào, ở đâu, học hành, công việc và những sự kiện chính, nối bằng when, before, after.",
+    "I'd like to talk about my father. He was born in Nghe An in nineteen seventy. After he finished school, he joined the army. When he was twenty-eight, he married my mother. Before he retired last year, he worked in a factory in Vinh. Now he grows vegetables in his garden.",
+  ),
   speaking: [
     say("I was born in Hanoi in nineteen ninety-five.", "Tôi sinh ra ở Hà Nội năm một nghìn chín trăm chín mươi lăm."),
     say("After I finished university, I moved to Da Nang.", "Sau khi tốt nghiệp đại học, tôi chuyển đến Đà Nẵng."),
@@ -85,8 +92,38 @@ export default lesson({
     A("What an interesting life!", "Cuộc đời ông thú vị thật!"),
     B("Yes. He still tells me stories about his career.", "Vâng. Ông vẫn hay kể cho tôi nghe chuyện về sự nghiệp của ông."),
   ),
+  dialogueQuestions: [
+    listenQ("a2-n04-d1", "Ông của Lan làm nghề gì?", "He was a teacher. He taught maths for thirty years.", ["Bác sĩ", "Kỹ sư", "Giáo viên dạy toán", "Nông dân"], 2, "He was a teacher. He taught maths: ông là giáo viên dạy toán."),
+    mc("a2-n04-d2", "Sau khi cưới, ông bà của Lan sống ở đâu?", ["Nam Định", "Hải Phòng", "Hà Nội"], 2, "They moved to Hanoi: sau khi cưới, ông bà chuyển lên Hà Nội."),
+    listenQ("a2-n04-d3", "Ông của Lan nghỉ hưu năm nào?", "No, he retired in two thousand. Before he retired, he was the head teacher of his school.", ["1965", "1968", "2000", "2010"], 2, "He retired in two thousand: năm 2000. 1965 là năm ông cưới, 1968 là năm bố Lan sinh."),
+  ],
+  reading: reading({
+    title: "Bản tin trường: thư viện mang tên cô Liên",
+    text: `This month, our school opened a new library. We named it after Mrs Pham Thi Lien, a teacher at our school for many years. Here is her story.
+
+Mrs Pham was born in a small village in Thanh Hoa on 2 September 1950. Her family was poor, and she walked ten kilometres to school every day. After she finished school, she moved to Hanoi and studied at a teachers' college.
+
+She came to our school in 1974 and taught literature here for thirty-five years. Before she retired in 2009, she started a small reading club for students. When the club began, it had only twenty old books.
+
+Mrs Pham died in 2022. Today, the library has five thousand books, and her reading club still meets every Friday afternoon.`,
+    glossary: [
+      ["named it after", "đặt tên nó theo tên (ai đó)"],
+      ["poor", "nghèo"],
+      ["college", "trường cao đẳng"],
+      ["literature", "môn văn"],
+      ["club", "câu lạc bộ"],
+      ["meets", "họp, gặp nhau (meet)"],
+    ],
+    questions: [
+      mc("a2-n04-r1", "Mục đích chính của bài viết là gì?", ["Giới thiệu cuộc đời cô Liên, người được lấy tên đặt cho thư viện mới", "Mời học sinh vào câu lạc bộ đọc sách", "Kể về một ngôi làng ở Thanh Hóa", "Quảng cáo sách mới của thư viện"], 0, "Thư viện mới mang tên cô Liên, và bài viết kể lại cuộc đời cô: Here is her story."),
+      fill("a2-n04-r2", "Hoàn thành câu theo bài đọc: Mrs Pham was born ___ 2 September 1950.", ["on"], "Có ngày cụ thể thì dùng on: on 2 September 1950."),
+      mc("a2-n04-r3", "Sau khi học xong phổ thông, cô Liên làm gì?", ["Về dạy ở làng", "Lên Hà Nội học trường sư phạm", "Đi làm ở thư viện", "Lập gia đình"], 1, "After she finished school, she moved to Hanoi and studied at a teachers' college."),
+      mc("a2-n04-r4", "Cô Liên lập câu lạc bộ đọc sách khi nào?", ["Năm 1974, khi mới về trường", "Trước khi nghỉ hưu năm 2009", "Sau khi nghỉ hưu", "Năm 2022"], 1, "Before she retired in 2009, she started a small reading club."),
+      mc("a2-n04-r5", "Ngày nay câu lạc bộ đọc sách ra sao?", ["Đã đóng cửa", "Chỉ có hai mươi cuốn sách cũ", "Vẫn họp vào chiều thứ Sáu hằng tuần", "Mỗi tháng họp một lần"], 2, "Her reading club still meets every Friday afternoon. Hai mươi cuốn sách là lúc câu lạc bộ mới thành lập."),
+    ],
+  }),
   task: task({
-    prompt: "Viết một đoạn tiểu sử ngắn (5–7 câu) về ông, bà, bố hoặc mẹ của bạn: sinh năm nào, ở đâu, học hành, công việc, lập gia đình, nghỉ hưu.",
+    prompt: "Viết một đoạn tiểu sử ngắn (5–7 câu, ít nhất 50 từ) về ông, bà, bố hoặc mẹ của bạn: sinh năm nào, ở đâu, học hành, công việc, lập gia đình, nghỉ hưu.",
     hints: [
       "Mở đầu bằng năm sinh và nơi sinh: ... was born in (nơi) in (năm).",
       "Kể 3–4 sự kiện chính theo thứ tự thời gian, động từ ở quá khứ đơn.",
@@ -101,6 +138,6 @@ export default lesson({
       "Các động từ kể chuyện đều ở quá khứ đơn (moved, worked, got married).",
       "Mệnh đề when / before / after đứng đầu câu có dấu phẩy.",
     ],
-    minWords: 30,
+    minWords: 50,
   }),
 });

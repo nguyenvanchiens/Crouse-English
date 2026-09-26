@@ -41,12 +41,37 @@ export function checkReorder(words: string[], attempt: string[]): boolean {
   return attempt.length === words.length && attempt.every((w, i) => reorderKey(w) === reorderKey(words[i]));
 }
 
+const CONTRACTIONS: [RegExp, string][] = [
+  [/\bcan't\b/g, "cannot"],
+  [/\bcan not\b/g, "cannot"],
+  [/\bwon't\b/g, "will not"],
+  [/\bshan't\b/g, "shall not"],
+  [/\b(\w+)n't\b/g, "$1 not"],
+  [/\bi'm\b/g, "i am"],
+  [/\b(\w+)'re\b/g, "$1 are"],
+  [/\b(\w+)'ve\b/g, "$1 have"],
+  [/\b(\w+)'ll\b/g, "$1 will"],
+];
+
+/** Normalized sentence with the unambiguous contractions spelled out ('s and 'd stay as they are). */
+function expanded(text: string): string {
+  return CONTRACTIONS.reduce((s, [re, to]) => s.replace(re, to), normalize(text));
+}
+
+/** An error-correction answer is right when it matches an accepted sentence, ignoring case, punctuation and contractions. */
+export function checkCorrection(answers: string[], input: string): boolean {
+  const value = expanded(input);
+  if (value === "") return false;
+  return answers.some((a) => expanded(a) === value);
+}
+
 export function correctAnswerText(ex: Exercise): string {
   switch (ex.kind) {
     case "multiple-choice":
     case "listen-choose":
       return ex.options[ex.answer];
     case "fill-blank":
+    case "correct":
       return ex.answers[0];
     case "reorder":
       return ex.words.join(" ");

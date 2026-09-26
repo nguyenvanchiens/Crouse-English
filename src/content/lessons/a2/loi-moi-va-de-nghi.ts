@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "loi-moi-va-de-nghi",
   title: "Lời mời và đề nghị",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "Would you like, Shall we, Let's, Why don't we và will để đề nghị giúp",
     blocks: [
@@ -32,7 +32,7 @@ export default lesson({
       mistake("Let's to go home.", "Let's go home.", "Nhiều người quen want to, need to nên thêm to sau Let's. Sau Let's, Shall we, Why don't we đều là động từ nguyên mẫu không có to."),
       mistake("I help you carry it.", "I'll help you carry it.", "Tiếng Việt “để tôi giúp” không cần chia thì. Tiếng Anh muốn đề nghị giúp ngay lúc nói thì phải có will: I'll help you."),
       mistake("A: Would you like some tea? B: Yes, I like.", "A: Would you like some tea? B: Yes, please.", "Yes, I like nghĩa là tôi thích (nói chung), không phải nhận lời mời. Nhận đồ ăn, đồ uống thì nói Yes, please."),
-      teacher("Có một cái bẫy văn hóa mà tôi thấy học viên mắc suốt bao nhiêu năm: người Việt được mời thường **từ chối lần đầu cho khách sáo**, đợi mời lần hai mới nhận. Với người nói tiếng Anh, **No, thanks nghĩa là không thật**, và họ sẽ không mời lại đâu. Thế là các bạn ngồi nhìn người ta uống cà phê một mình. Muốn thì nói Yes, please ngay từ đầu, thế là lịch sự rồi."),
+      teacher("Có một cái bẫy văn hóa mà khi đứng lớp tôi thấy học viên mắc rất nhiều: người Việt được mời thường **từ chối lần đầu cho khách sáo**, đợi mời lần hai mới nhận. Với người nói tiếng Anh, **No, thanks nghĩa là không thật**, và họ sẽ không mời lại đâu. Thế là các bạn ngồi nhìn người ta uống cà phê một mình. Muốn thì nói Yes, please ngay từ đầu, thế là lịch sự rồi."),
       summary(
         "Mời: Would you like + danh từ? (some tea) hoặc Would you like to + động từ? (to join us).",
         "Rủ: Let's + V, Shall we + V?, Why don't we + V?; sau cả ba không có to.",
@@ -44,7 +44,7 @@ export default lesson({
   },
   words: [
     word("suggest", "/səˈdʒest/", "gợi ý, đề xuất", "She suggested a new restaurant.", "sug|gest", 1),
-    word("offer", "/ˈɒf.ər/", "đề nghị, mời", "He offered to help me.", "of|fer", 0),
+    word("offer", "/ˈɒf.ə/", "đề nghị, mời", "He offered to help me.", "of|fer", 0),
     word("accept", "/əkˈsept/", "nhận, chấp nhận", "I'm happy to accept your invitation.", "ac|cept", 1, "Đọc rõ âm /k/ ở âm đầu: ơk-SEPT. Đừng nhầm với except /ɪkˈsept/ (ngoại trừ)."),
     word("refuse", "/rɪˈfjuːz/", "từ chối", "It's not polite to refuse too quickly.", "re|fuse", 1, "Âm cuối là /z/, không phải /s/."),
     word("join", "/dʒɔɪn/", "tham gia, đi cùng", "Would you like to join us for dinner?", "join", 0),
@@ -61,7 +61,14 @@ export default lesson({
     reorder("a2-n07-6", "Shall we go for a walk?", "Shall we + động từ nguyên mẫu: rủ và hỏi ý người kia. Go for a walk là đi dạo."),
     listen("a2-n07-7", "That's very kind of you, but I can do it myself.", ["Bạn làm giúp tôi nhé.", "Bạn tốt quá, nhưng tôi tự làm được.", "Tôi sẽ làm giúp bạn."], 1, "That's very kind of you là cảm ơn lời đề nghị, but I can do it myself là từ chối khéo."),
     listen("a2-n07-8", "I'd love to, but I'm really tired tonight. Maybe another time.", ["Tối nay mình rất muốn đi chơi.", "Mình không thích đi đâu cả.", "Mình rất muốn đi, nhưng tối nay mệt quá. Để lần khác nhé."], 2, "I'd love to, but... là cách từ chối lịch sự: tỏ ý muốn đi, rồi nêu lý do."),
+    correct("a2-n07-9", "Why don't we to take the bus?", ["Why don't we take the bus?"], "Sau Why don't we là động từ nguyên mẫu không có to, giống như sau Let's và Shall we."),
+    correct("a2-n07-10", "Wait, I carry that box for you.", ["Wait, I'll carry that box for you.", "Wait, let me carry that box for you.", "Wait, shall I carry that box for you?"], "Đề nghị giúp, quyết định ngay lúc nói thì cần will: I'll carry it for you. Cũng có thể nói Let me carry... hoặc hỏi Shall I carry...?"),
   ],
+  freeSpeaking: free(
+    "How would you invite a foreign friend to your home?",
+    "Bạn mời một người bạn nước ngoài đến nhà chơi: mời họ, gợi ý thời gian, rủ làm một việc cùng nhau và đề nghị giúp họ một việc.",
+    "Would you like to come to my house this Sunday? My mother wants to cook bun cha for you. Shall we meet at eleven o'clock? Your hotel is far from my house, so I'll pick you up. After lunch, why don't we go to the market together?",
+  ),
   speaking: [
     say("Shall we have lunch together?", "Mình cùng đi ăn trưa nhé?"),
     say("Your bag looks heavy. I'll carry it for you.", "Túi của bạn trông nặng quá. Để tôi xách giúp."),
@@ -84,8 +91,43 @@ export default lesson({
     A("Great. Let's meet in the lobby at twelve.", "Tuyệt. Mình gặp nhau ở sảnh lúc mười hai giờ nhé."),
     B("Perfect. And after lunch, I'll buy the coffee.", "Được. Và sau bữa trưa, để tôi mời cà phê."),
   ),
+  dialogueQuestions: [
+    listenQ("a2-n07-d1", "Ông Brown muốn uống gì?", "Coffee, please. No sugar.", ["Trà có đường", "Cà phê không đường", "Cà phê sữa", "Nước lọc"], 1, "Coffee, please. No sugar: cà phê, không đường."),
+    mc("a2-n07-d2", "Khi Linh đề nghị mở cửa sổ, ông Brown trả lời thế nào?", ["Nhận lời và cảm ơn Linh", "Nhờ Linh bật quạt", "Từ chối lịch sự vì ông thấy ổn"], 2, "No, it's OK, thanks. I'm fine: từ chối lịch sự."),
+    mc("a2-n07-d3", "Sau bữa trưa, ông Brown đề nghị làm gì?", ["Mời mọi người uống cà phê", "Trả tiền bữa trưa", "Đi dạo quanh hồ"], 0, "I'll buy the coffee: để tôi mời cà phê. I'll ở đây là đề nghị ngay lúc nói."),
+  ],
+  reading: reading({
+    title: "Email mời cả nhóm đi ăn tối",
+    text: `Hi everyone,
+
+Our big project finished last week, and our customers were very happy. Great work, team! Let's celebrate together.
+
+Would you like to have dinner with us this Friday? I booked a table for fifteen people at Sen Restaurant on Tran Hung Dao Street. The dinner starts at seven o'clock. Why don't we meet in the lobby at half past six and walk there together? It's only ten minutes from the office.
+
+Some of you live far from the city centre. If you need a lift home after dinner, tell me. I'll ask our driver, Mr Tran, to help. Shall I book a taxi for anyone?
+
+Please reply by Wednesday, so I can tell the restaurant the number of people. If you can't come, that's OK. Maybe next time!
+
+Best wishes,
+Thu Trang`,
+    glossary: [
+      ["project", "dự án"],
+      ["celebrate", "ăn mừng"],
+      ["lobby", "sảnh"],
+      ["a lift", "việc cho đi nhờ xe"],
+      ["reply", "trả lời"],
+      ["the number of", "số lượng"],
+    ],
+    questions: [
+      mc("a2-n07-r1", "Thu Trang viết email này để làm gì?", ["Báo cáo kết quả dự án", "Mời cả nhóm đi ăn tối ăn mừng", "Xin nghỉ làm thứ Sáu", "Giới thiệu một nhà hàng mới mở"], 1, "Let's celebrate together. Would you like to have dinner with us this Friday?"),
+      mc("a2-n07-r2", "Mọi người gặp nhau ở sảnh lúc mấy giờ?", ["Sáu giờ", "Bảy giờ", "Bảy giờ rưỡi", "Sáu giờ rưỡi"], 3, "Meet in the lobby at half past six. Bảy giờ là giờ bữa tối bắt đầu."),
+      mc("a2-n07-r3", "Thu Trang đề nghị giúp những người sống xa trung tâm thế nào?", ["Cho họ về sớm", "Đặt phòng khách sạn cho họ", "Nhờ tài xế đưa họ về hoặc đặt taxi cho họ", "Đổi sang nhà hàng gần nhà họ"], 2, "I'll ask our driver, Mr Tran, to help. Shall I book a taxi for anyone?"),
+      fill("a2-n07-r4", "Hoàn thành câu trong email: ___ I book a taxi for anyone?", ["Shall"], "Đề nghị làm giúp người khác: Shall I + động từ nguyên mẫu?"),
+      mc("a2-n07-r5", "Nếu không đi được thì sao?", ["Phải báo trước thứ Hai", "Không sao, để lần sau", "Phải trả tiền đặt bàn"], 1, "If you can't come, that's OK. Maybe next time!"),
+    ],
+  }),
   task: task({
-    prompt: "Viết một tin nhắn cho đồng nghiệp người nước ngoài: mời họ đến nhà bạn ăn tối cuối tuần này, gợi ý giờ gặp, và đề nghị giúp một việc (đón họ, gọi taxi...).",
+    prompt: "Viết một tin nhắn (ít nhất 45 từ) cho đồng nghiệp người nước ngoài: mời họ đến nhà bạn ăn tối cuối tuần này, gợi ý giờ gặp, và đề nghị giúp một việc (đón họ, gọi taxi...).",
     hints: [
       "Mời bằng Would you like to + động từ...?",
       "Gợi ý giờ hoặc cách đi bằng Shall we...?, Why don't we...? hoặc Let's...",
@@ -100,6 +142,6 @@ export default lesson({
       "Không có to sau Let's, Shall we, Why don't we, I'll.",
       "Nói rõ thời gian hoặc cách gặp nhau.",
     ],
-    minWords: 30,
+    minWords: 45,
   }),
 });

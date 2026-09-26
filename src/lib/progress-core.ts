@@ -14,7 +14,12 @@ export interface ProgressState {
   streak: Streak;
   /** level = highest level passed; startLevel = the course level suggested to start with */
   placement: { level: Level; startLevel: Level; score: number; takenAt: string } | null;
+  /** spaced-repetition vocab cards, keyed by vocabKey(); box 0 = just missed */
+  srs: Record<string, SrsCard>;
+  /** word-bank topics the learner added to their review, keyed by topicKey() */
+  topics: string[];
 }
+export interface SrsCard { box: number; due: string }
 export interface CourseProgress { done: number; total: number; percent: number; nextLesson: Lesson | null }
 
 export function emptyState(): ProgressState {
@@ -25,8 +30,17 @@ export function emptyState(): ProgressState {
     lessons: {},
     streak: { current: 0, lastDay: null },
     placement: null,
+    srs: {},
+    topics: [],
   };
 }
+
+/** Lessons whose slug changed: progress saved under the old key carries over to the new one. */
+export const RENAMED_LESSONS: Record<string, string> = {
+  "tieng-anh-b1/bi-dong-nang-cao": "tieng-anh-b1/bi-dong-moi-thi",
+  "tieng-anh-b1/tuong-lai-nang-cao": "tieng-anh-b1/tuong-lai-tiep-dien-hoan-thanh",
+  "tieng-anh-b2/dieu-kien-nang-cao": "tieng-anh-b2/dieu-kien-khong-chi-if",
+};
 
 function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null && !Array.isArray(v);
@@ -49,8 +63,16 @@ export function parseState(raw: string | null): ProgressState {
     learnerName: typeof data.learnerName === "string" ? data.learnerName : null,
     enrolled: Array.isArray(data.enrolled) ? data.enrolled.filter((s): s is string => typeof s === "string") : [],
     lessons: isRecord(data.lessons)
-      ? Object.fromEntries(Object.entries(data.lessons).filter((e): e is [string, LessonRecord] => isLessonRecord(e[1])))
+      ? Object.fromEntries(
+          Object.entries(data.lessons)
+            .filter((e): e is [string, LessonRecord] => isLessonRecord(e[1]))
+            .map(([k, v]) => [RENAMED_LESSONS[k] ?? k, v]),
+        )
       : {},
+    srs: isRecord(data.srs)
+      ? Object.fromEntries(Object.entries(data.srs).filter((e): e is [string, SrsCard] => isSrsCard(e[1])))
+      : {},
+    topics: Array.isArray(data.topics) ? [...new Set(data.topics.filter((t): t is string => typeof t === "string"))] : [],
     streak:
       isRecord(streak) && Number.isInteger(streak.current) && (streak.current as number) >= 0
         ? { current: streak.current as number, lastDay: typeof streak.lastDay === "string" ? streak.lastDay : null }
@@ -82,6 +104,16 @@ function legacyStartLevel(level: Level): Level {
 
 function isIsoDate(v: unknown): v is string {
   return typeof v === "string" && !Number.isNaN(Date.parse(v));
+}
+
+function isSrsCard(v: unknown): v is SrsCard {
+  return (
+    isRecord(v) &&
+    Number.isInteger(v.box) &&
+    (v.box as number) >= 0 &&
+    typeof v.due === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(v.due)
+  );
 }
 
 function isLessonRecord(v: unknown): v is LessonRecord {
@@ -202,4 +234,41 @@ export function applyPlacement(
   now: Date,
 ): ProgressState {
   return { ...state, placement: { level, startLevel, score, takenAt: now.toISOString() } };
+}
+
+// ---- spaced repetition (Leitner boxes) for vocabulary ----
+
+/** Days until the next review after a correct answer, by the box the card moves into. */
+export const SRS_INTERVALS = [1, 2, 4, 7, 15, 30];
+
+export function vocabKey(courseSlug: string, word: string): string {
+  return `${courseSlug}/${word.toLowerCase()}`;
+}
+
+function addDays(day: string, n: number): string {
+  const [y, m, d] = day.split("-").map(Number);
+  return todayKey(new Date(y, m - 1, d + n));
+}
+
+/** A card never reviewed is due; otherwise it is due once its day has come. */
+export function isDue(card: SrsCard | undefined, today: string): boolean {
+  return card === undefined || card.due <= today;
+}
+
+export function applyReviewWord(state: ProgressState, key: string, remembered: boolean, now: Date): ProgressState {
+  const today = todayKey(now);
+  const prev = state.srs[key];
+  const box = remembered ? Math.min((prev?.box ?? 0) + 1, SRS_INTERVALS.length) : 0;
+  const due = addDays(today, remembered ? SRS_INTERVALS[box - 1] : 1);
+  return { ...state, srs: { ...state.srs, [key]: { box, due } }, streak: nextStreak(state.streak, today) };
+}
+
+export function topicKey(courseSlug: string, topicId: string): string {
+  return `${courseSlug}/${topicId}`;
+}
+
+/** Adds (or removes) a word-bank topic from the learner's review. */
+export function applyToggleTopic(state: ProgressState, key: string): ProgressState {
+  const topics = state.topics.includes(key) ? state.topics.filter((t) => t !== key) : [...state.topics, key];
+  return { ...state, topics };
 }
