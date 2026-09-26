@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { UserRound } from "lucide-react";
 import { Logo } from "./logo";
+import { PointsPill } from "@/components/points";
 import { NavLinks, SiteMenu, type NavItem } from "./site-menu";
 
 export const NAV: NavItem[] = [
@@ -11,6 +12,7 @@ export const NAV: NavItem[] = [
   { href: "/tu-vung", label: "Từ vựng" },
   { href: "/kiem-tra-trinh-do", label: "Kiểm tra trình độ" },
   { href: "/cua-toi", label: "Khóa học của tôi" },
+  { href: "/doi-qua", label: "Đổi quà" },
 ];
 
 export function SiteHeader() {
@@ -19,8 +21,9 @@ export function SiteHeader() {
       <nav aria-label="Menu chính" className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Logo />
         {/* one line only from xl up; "Khóa học của tôi" becomes the icon button on the right */}
-        <NavLinks items={NAV.filter((n) => n.href !== "/cua-toi")} />
+        <NavLinks items={NAV.filter((n) => n.href !== "/cua-toi" && n.href !== "/doi-qua")} />
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <PointsPill />
           <Link
             href="/cua-toi"
             aria-label="Khóa học của tôi"

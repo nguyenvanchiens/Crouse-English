@@ -31,6 +31,8 @@ export function VocabReview({ words }: { words: ReviewWord[] }) {
   const [session, setSession] = useState<ReviewWord[] | null>(null);
   const [i, setI] = useState(0);
   const [remembered, setRemembered] = useState(0);
+  // points earned at the start of this session, to show what the session brought
+  const [earnedAtStart, setEarnedAtStart] = useState(0);
 
   if (!ready) return <div className="clay mt-10 h-72 animate-pulse bg-card" aria-hidden />;
 
@@ -69,6 +71,7 @@ export function VocabReview({ words }: { words: ReviewWord[] }) {
             className="btn btn-primary mt-6"
             onClick={() => {
               setSession(queue);
+              setEarnedAtStart(state.points.earned);
               setI(0);
               setRemembered(0);
             }}
@@ -88,6 +91,9 @@ export function VocabReview({ words }: { words: ReviewWord[] }) {
         <Check className="mx-auto size-10 text-leaf" aria-hidden />
         <p className="mt-3 font-display text-3xl font-extrabold">Xong buổi ôn hôm nay</p>
         <p className="mt-2 text-lg">Bạn nhớ {remembered}/{session.length} từ. Những từ chưa nhớ sẽ quay lại vào ngày mai.</p>
+        {state.points.earned > earnedAtStart && (
+          <p className="mt-2 font-display text-xl font-bold">+{state.points.earned - earnedAtStart} điểm học</p>
+        )}
         <button type="button" className="btn btn-ghost mt-6" onClick={() => setSession(null)}>Về trang ôn tập</button>
       </div>
     );

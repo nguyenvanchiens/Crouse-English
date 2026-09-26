@@ -7,6 +7,7 @@ import type { Course, PlacementQuestion } from "@/content/types";
 import { suggestCourseSlug } from "@/lib/course-utils";
 import { PLACEMENT_LEVELS, scorePlacement, type PlacementResult } from "@/lib/placement";
 import { progress, useProgress } from "@/lib/progress";
+import { POINTS } from "@/lib/points";
 import { speak, useSpeechSupport } from "@/lib/speech";
 import { CourseCard } from "@/components/course/course-card";
 import { LEVEL_LABEL } from "@/components/course/goal-meta";
@@ -27,6 +28,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
   const [i, setI] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<PlacementResult | null>(null);
+  const [firstTime, setFirstTime] = useState(false);
 
   const q = questions[i];
   const choice = q ? (answers[q.id] ?? null) : null;
@@ -44,6 +46,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
       return;
     }
     const r = scorePlacement(questions, answers);
+    setFirstTime(!state.points.awarded.includes("placement"));
     progress.savePlacement(r.level, r.startLevel, r.score);
     setResult(r);
     setStage("result");
@@ -84,6 +87,7 @@ export function PlacementTest({ questions, courses }: { questions: PlacementQues
                 : "Bạn chưa vượt qua cấp nào, hãy bắt đầu từ nền tảng. "}
             Đúng {result.score}% tổng số câu.
           </p>
+          {firstTime && <p className="mt-2 font-display text-lg font-bold">+{POINTS.placement} điểm học cho lần kiểm tra đầu tiên</p>}
           <dl className="mx-auto mt-8 grid max-w-md gap-3 text-left">
             {PLACEMENT_LEVELS.map((l) => {
               const { correct, total } = result.perLevel[l];

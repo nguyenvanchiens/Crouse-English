@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Flame, Gauge, Layers, NotebookPen } from "lucide-react";
+import { Coins, Flame, Gauge, Layers, NotebookPen } from "lucide-react";
+import { rewardById } from "@/content/rewards";
+import { balance } from "@/lib/points";
+import { Avatar } from "@/components/points";
 import type { Course } from "@/content/types";
 import { suggestCourseSlug } from "@/lib/course-utils";
 import { certificateStatus, courseProgress, displayStreak, isDue, lessonKey, todayKey, topicKey, vocabKey } from "@/lib/progress-core";
@@ -16,7 +19,7 @@ export function MyCourses({ courses }: { courses: Course[] }) {
   if (!ready) return <div className="clay mt-10 h-64 animate-pulse bg-card" aria-hidden />;
 
   const mine = courses.filter((c) => state.enrolled.includes(c.slug));
-  const streak = displayStreak(state.streak, todayKey());
+  const streak = displayStreak(state.streak, todayKey(), state.rewards.freezes);
   const lessonsDone = Object.values(state.lessons).filter((l) => l.done).length;
   const placement = state.placement;
   const suggested = placement ? courses.find((c) => c.slug === suggestCourseSlug(placement.startLevel)) : null;
@@ -45,6 +48,19 @@ export function MyCourses({ courses }: { courses: Course[] }) {
           </span>
         </Link>
       )}
+      <Link href="/doi-qua" className="clay flex flex-wrap items-center gap-4 p-5 transition-transform duration-200 hover:-translate-y-0.5">
+        <Avatar id={state.rewards.avatar} />
+        <span className="min-w-48 flex-1">
+          <span className="block font-display text-xl font-bold">{state.learnerName ?? "Hồ sơ học của bạn"}</span>
+          {rewardById(state.rewards.title) && <span className="block font-semibold text-grape">{rewardById(state.rewards.title)!.name}</span>}
+          <span className="block text-ink-soft">{state.rewards.freezes > 0 ? `${state.rewards.freezes} thẻ đóng băng chuỗi · ` : ""}Bấm để đổi quà</span>
+        </span>
+        <span className="flex items-center gap-2 font-display text-3xl font-extrabold tabular-nums">
+          <Coins className="size-8 text-tangerine-deep" aria-hidden />
+          {balance(state.points).toLocaleString("vi-VN")}
+          <span className="text-base font-semibold text-ink-soft">điểm</span>
+        </span>
+      </Link>
       <div className="grid gap-4 sm:grid-cols-3">
         <div className="clay flex items-center gap-4 p-5">
           <Flame className="size-9 text-tangerine-deep" aria-hidden />
