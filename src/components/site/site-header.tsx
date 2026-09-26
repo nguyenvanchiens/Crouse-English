@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { UserRound } from "lucide-react";
+import { AccountMenu } from "./account-menu";
 import { Logo } from "./logo";
 import { PointsPill } from "@/components/points";
 import { NavLinks, SiteMenu, type NavItem } from "./site-menu";
@@ -20,18 +20,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b-[2.5px] border-ink bg-sky/90 backdrop-blur">
       <nav aria-label="Menu chính" className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Logo />
-        {/* one line only from xl up; "Khóa học của tôi" becomes the icon button on the right */}
+        {/* one line only from xl up; "Khóa học của tôi" moves into the account menu on the right */}
         <NavLinks items={NAV.filter((n) => n.href !== "/cua-toi" && n.href !== "/doi-qua")} />
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <PointsPill />
-          <Link
-            href="/cua-toi"
-            aria-label="Khóa học của tôi"
-            title="Khóa học của tôi"
-            className="hidden size-11 place-items-center rounded-full border-2 border-ink bg-card hover:bg-sun-soft xl:grid"
-          >
-            <UserRound className="size-5" aria-hidden />
-          </Link>
+          <AccountMenu />
           <Link href="/bat-dau" className="btn btn-primary min-h-11 whitespace-nowrap px-3 text-base sm:px-4">
             <span className="sm:hidden">Bắt đầu</span>
             <span className="hidden sm:inline">Bắt đầu học</span>
