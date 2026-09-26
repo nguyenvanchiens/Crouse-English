@@ -77,8 +77,8 @@ export default async function Home() {
               <Link href="/kiem-tra-trinh-do" className="btn btn-primary text-lg">
                 Kiểm tra trình độ trong 20 phút
               </Link>
-              <Link href="/khoa-hoc" className="btn btn-ghost text-lg">
-                Xem các khóa học
+              <Link href="/bat-dau" className="btn btn-ghost text-lg">
+                Người mới: bắt đầu từ đâu?
               </Link>
             </div>
             <p className="mt-10 text-ink-soft">
