@@ -85,7 +85,7 @@ export function MyCourses({ courses }: { courses: Course[] }) {
           ) : (
             <Link href="/kiem-tra-trinh-do" className="btn btn-primary">Kiểm tra trình độ</Link>
           )}
-          <Link href="/khoa-hoc" className="btn btn-ghost">Xem các khóa học</Link>
+          <Link href="/bat-dau" className="btn btn-ghost">Hướng dẫn cho người mới</Link>
         </EmptyState>
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
