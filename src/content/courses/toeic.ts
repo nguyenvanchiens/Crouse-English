@@ -14,10 +14,7 @@ export const toeic: Course = {
     "Làm quen bẫy thường gặp trong đề",
   ],
   audience: ["Người có điểm TOEIC thử từ 350 trở lên", "Sinh viên cần chuẩn đầu ra tiếng Anh"],
-  teacher: { name: "Cô Thanh Tâm", initials: "TT", bio: "TOEIC 990, 6 năm luyện thi cho sinh viên và người đi làm." },
-  durationWeeks: 10,
-  rating: 4.8,
-  reviews: [{ name: "Quốc Huy", role: "Sinh viên năm 4, TP.HCM", quote: "Thi thử tăng từ 480 lên 785 sau một khóa." }],
+  teacher: { name: "Cô Thanh Tâm", initials: "TT", bio: "Người dẫn dắt khóa luyện thi TOEIC (đang soạn)." },
   faqs: [{ q: "Khóa có luyện Speaking và Writing không?", a: "Khóa này tập trung vào Listening và Reading." }],
   status: "soon",
   modules: [

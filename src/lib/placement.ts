@@ -1,15 +1,18 @@
 import type { Level, PlacementLevel, PlacementQuestion } from "@/content/types";
 import { percentScore } from "./scoring";
 
-export const PLACEMENT_LEVELS: PlacementLevel[] = ["A1", "A2", "B1", "B2"];
+export const PLACEMENT_LEVELS: PlacementLevel[] = ["A1", "A2", "B1", "B2", "C1"];
 
-const START_LEVELS: Level[] = ["A1", "A2", "B1", "B2", "C1"];
+/** Course to start with after passing N levels; passing C1 as well still points at C1 (the last course). */
+const START_LEVELS: Level[] = ["A1", "A2", "B1", "B2", "C1", "C1"];
 
 export interface PlacementResult {
   /** highest level passed (A1 also when nothing is passed) */
   level: PlacementLevel;
   /** the course level to start with: the one after the highest level passed */
   startLevel: Level;
+  /** true when every level, C1 included, was passed */
+  mastered: boolean;
   score: number;
   perLevel: Record<PlacementLevel, { correct: number; total: number }>;
 }
@@ -34,5 +37,11 @@ export function scorePlacement(questions: PlacementQuestion[], answers: Record<s
   }
   const level = PLACEMENT_LEVELS[Math.max(0, passed - 1)];
   const startLevel = START_LEVELS[passed];
-  return { level, startLevel, score: percentScore(correct, questions.length) ?? 0, perLevel };
+  return {
+    level,
+    startLevel,
+    mastered: passed === PLACEMENT_LEVELS.length,
+    score: percentScore(correct, questions.length) ?? 0,
+    perLevel,
+  };
 }

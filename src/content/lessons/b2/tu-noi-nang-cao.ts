@@ -1,23 +1,23 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "tu-noi-nang-cao",
   title: "Liên kết ý mạch lạc",
-  minutes: 22,
+  minutes: 36,
   lecture: {
     title: "Từ nối chỉ đối lập, bổ sung, kết quả và cách đặt dấu câu",
     blocks: [
       p("Bạn viết một bản báo cáo gửi sếp người Úc. Ý nào cũng đúng, từ nào cũng đúng, vậy mà sếp đọc vẫn thấy “rời rạc”. Lý do thường nằm ở **từ nối**: người Việt quen viết một chuỗi câu ngắn nối bằng **and** và **but**, hoặc dùng từ nối sang trọng nhưng đặt sai dấu câu. Hôm nay ta học những từ nối hay gặp nhất trong văn viết công việc và, quan trọng không kém, **dấu phẩy, dấu chấm phẩy đặt ở đâu**."),
       table(
         ["Chức năng", "Từ nối", "Nghĩa", "Vị trí thường gặp"],
-        ["Đối lập hai sự thật", "whereas", "trong khi (đó)", "Giữa câu, nối hai mệnh đề: A, whereas B."],
+        ["Đối lập hai sự thật", "whereas", "trong khi (đó)", "Nối hai mệnh đề: A, whereas B; cũng có thể đứng đầu câu: Whereas A, B."],
         ["Đối lập, trái mong đợi", "however", "tuy nhiên", "Đầu câu mới: A. However, B."],
         ["Đối lập, trái mong đợi (mạnh, trang trọng)", "nevertheless", "tuy vậy, dù vậy", "Đầu câu mới: A. Nevertheless, B."],
         ["Bổ sung", "moreover / furthermore", "hơn nữa, ngoài ra", "Đầu câu mới: A. Moreover, B."],
         ["Kết quả", "therefore", "vì vậy, do đó", "Đầu câu mới hoặc giữa câu: We have therefore decided…"],
         ["Kết quả", "as a result / consequently", "kết quả là, do đó", "Đầu câu mới: A. As a result, B."],
       ),
-      p("Điểm mấu chốt: **whereas** là **liên từ**, nó nối hai mệnh đề trong **cùng một câu**. Còn **however, nevertheless, moreover, therefore, as a result, consequently** là **trạng từ liên kết**, chúng không đủ sức nối hai mệnh đề bằng một dấu phẩy. Muốn dùng chúng, bạn phải **kết thúc câu trước bằng dấu chấm** hoặc dùng **dấu chấm phẩy**, rồi đặt **dấu phẩy sau từ nối**."),
+      p("Điểm mấu chốt: **whereas** là **liên từ**, nó nối hai mệnh đề trong **cùng một câu**, đứng giữa (A, whereas B) hoặc ở đầu câu (Whereas A, B). Còn **however, nevertheless, moreover, therefore, as a result, consequently** là **trạng từ liên kết**, chúng không đủ sức nối hai mệnh đề bằng một dấu phẩy. Muốn dùng chúng, bạn phải **kết thúc câu trước bằng dấu chấm** hoặc dùng **dấu chấm phẩy**, rồi đặt **dấu phẩy sau từ nối**."),
       table(
         ["Cách viết", "Đúng hay sai"],
         ["The price is high. However, the quality is excellent.", "Đúng"],
@@ -44,9 +44,9 @@ export default lesson({
       mistake("The hotel is near the beach. On the other hand, it has a big pool.", "The hotel is near the beach. Moreover, it has a big pool.", "“Mặt khác” trong tiếng Việt thường mang nghĩa bổ sung, nhưng On the other hand trong tiếng Anh luôn chỉ sự đối lập. Muốn thêm ý, dùng moreover hoặc furthermore."),
       mistake("The flight was delayed, therefore we missed the meeting.", "The flight was delayed. Therefore, we missed the meeting.", "Therefore là trạng từ, không nối hai câu bằng dấu phẩy được. Hãy tách câu, dùng dấu chấm phẩy, hoặc đổi sang liên từ so: …delayed, so we missed…"),
       tip("Mẹo nhớ nhanh: **liên từ** (and, but, so, whereas, although) thì **đi được với dấu phẩy**. **Trạng từ liên kết** (however, moreover, therefore…) thì **cần dấu chấm hoặc chấm phẩy đứng trước**. Đọc to câu văn: chỗ nào bạn phải ngừng hẳn hơi thì đó là chỗ của dấu chấm."),
-      teacher("Sau nhiều năm dạy, tôi thấy học trò giỏi thường mắc một tật: **thấy moreover, therefore sang trọng quá nên câu nào cũng nhét vào**. Một đoạn văn năm câu mà có bốn từ nối thì đọc như bài diễn văn. Mỗi đoạn, **một hai từ nối là đủ**, và phải đúng chức năng. Cách luyện của tôi: viết xong một email, lấy bút tô tất cả từ nối, rồi tự hỏi từng từ một: “Ý sau là **thêm**, **ngược lại** hay **hệ quả** của ý trước?” Trả lời được thì giữ, không trả lời được thì xóa."),
+      teacher("Khi đứng lớp, tôi thấy học trò giỏi thường mắc một tật: **thấy moreover, therefore sang trọng quá nên câu nào cũng nhét vào**. Một đoạn văn năm câu mà có bốn từ nối thì đọc như bài diễn văn. Mỗi đoạn, **một hai từ nối là đủ**, và phải đúng chức năng. Cách luyện của tôi: viết xong một email, lấy bút tô tất cả từ nối, rồi tự hỏi từng từ một: “Ý sau là **thêm**, **ngược lại** hay **hệ quả** của ý trước?” Trả lời được thì giữ, không trả lời được thì xóa."),
       summary(
-        "whereas là liên từ: nối hai mệnh đề trong cùng một câu bằng dấu phẩy.",
+        "whereas là liên từ: nối hai mệnh đề trong cùng một câu bằng dấu phẩy (A, whereas B hoặc Whereas A, B).",
         "however, nevertheless, moreover, therefore, as a result là trạng từ liên kết: cần dấu chấm hoặc chấm phẩy đứng trước, dấu phẩy phía sau.",
         "Chọn từ nối theo chức năng: thêm ý (moreover), ngược lại (however, nevertheless), hệ quả (therefore, as a result).",
         "Đã có although thì không có but; On the other hand luôn chỉ sự đối lập, không dùng để thêm ý.",
@@ -56,8 +56,8 @@ export default lesson({
   },
   words: [
     word("coherent", "/kəʊˈhɪə.rənt/", "mạch lạc, chặt chẽ", "Her report was clear and coherent.", "co|her|ent", 1, "Trọng âm ở âm tiết thứ hai: co-HER-ent, âm /ɪə/ đọc gần như “ia”."),
-    word("whereas", "/weəˈræz/", "trong khi (đó)", "Tom likes working alone, whereas Lan prefers teamwork.", "where|as", 1, "Nhấn vào âm sau: where-AS, cuối từ là âm /z/, không phải /s/."),
-    word("furthermore", "/ˌfɜː.ðəˈmɔːr/", "hơn nữa, ngoài ra", "Furthermore, the new model uses less energy.", "fur|ther|more", 2),
+    word("whereas", "/weərˈæz/", "trong khi (đó)", "Tom likes working alone, whereas Lan prefers teamwork.", "where|as", 1, "Nhấn vào âm sau: where-AS, cuối từ là âm /z/, không phải /s/."),
+    word("furthermore", "/ˌfɜː.ðəˈmɔː/", "hơn nữa, ngoài ra", "Furthermore, the new model uses less energy.", "fur|ther|more", 2),
     word("nevertheless", "/ˌnev.ə.ðəˈles/", "tuy vậy, dù vậy", "It was a risky plan. Nevertheless, we decided to try it.", "nev|er|the|less", 3, "Bốn âm tiết, trọng âm rơi vào âm cuối: nev-er-the-LESS."),
     word("consequently", "/ˈkɒn.sɪ.kwənt.li/", "do đó, vì thế", "Sales fell. Consequently, the company cut its budget.", "con|se|quent|ly", 0),
     word("contrast", "/ˈkɒn.trɑːst/", "sự tương phản, đối lập", "There is a sharp contrast between the two reports.", "con|trast", 0, "Danh từ nhấn âm đầu: CON-trast. Động từ “to contrast” nhấn âm sau."),
@@ -73,12 +73,19 @@ export default lesson({
     reorder("b2-n11-6", "I am not convinced that it will work.", "I'm not convinced that…: phản bác một ý kiến một cách lịch sự, thay cho câu cộc lốc That's wrong."),
     listen("b2-n11-7", "The hotel was expensive. Nevertheless, we enjoyed our stay.", ["Khách sạn đắt nên chúng tôi không vui.", "Khách sạn rẻ và chúng tôi rất thích.", "Khách sạn đắt vì chúng tôi ở lâu.", "Khách sạn đắt, dù vậy chúng tôi vẫn rất thích thời gian ở đó."], 3, "Nevertheless báo hiệu điều trái mong đợi: đắt nhưng vẫn vui."),
     listen("b2-n11-8", "Moreover, the new software is easier to use.", ["Tuy nhiên, phần mềm mới khó dùng hơn.", "Hơn nữa, phần mềm mới dễ sử dụng hơn.", "Vì vậy, chúng ta cần phần mềm mới."], 1, "Moreover dùng để thêm một ý cùng chiều với ý trước."),
+    correct("b2-n11-9", "Although the price was high, but we decided to buy it.", ["Although the price was high, we decided to buy it.", "The price was high, but we decided to buy it."], "Although và but không đi cùng nhau trong một câu. Giữ although thì bỏ but, hoặc bỏ although và giữ but."),
+    correct("b2-n11-10", "The new laptop is lighter. On the other hand, its battery lasts longer.", ["The new laptop is lighter. Moreover, its battery lasts longer.", "The new laptop is lighter. Furthermore, its battery lasts longer.", "The new laptop is lighter. In addition, its battery lasts longer.", "The new laptop is lighter. Also, its battery lasts longer."], "Nhẹ hơn và pin lâu hơn là hai ưu điểm cùng chiều, nên cần từ nối bổ sung (moreover, furthermore). On the other hand chỉ dùng cho ý đối lập."),
   ],
   speaking: [
     say("The project was difficult. Nevertheless, we finished it on time.", "Dự án rất khó. Dù vậy, chúng tôi vẫn hoàn thành đúng hạn."),
     say("On balance, I believe the benefits outweigh the costs.", "Cân nhắc mọi mặt, tôi tin rằng lợi ích lớn hơn chi phí."),
     say("The flight was delayed. As a result, we missed the meeting.", "Chuyến bay bị hoãn. Kết quả là chúng tôi lỡ cuộc họp."),
   ],
+  freeSpeaking: free(
+    "Is it better to work for a large company or a small one?",
+    "Trình bày quan điểm của bạn về việc làm cho công ty lớn hay công ty nhỏ: nêu quan điểm, đưa mặt lợi và mặt hại, thừa nhận ý kiến trái chiều rồi kết luận. Dùng các từ nối trong bài.",
+    "In my view, working for a small company is better for young people. One advantage is that you learn many different skills, because everyone has to do a bit of everything. Moreover, your manager actually knows your name. On the other hand, salaries are often lower, whereas large companies usually offer better training and more job security. While it is true that a big firm looks good on a CV, I believe small companies help you grow faster. On balance, I would choose a small one.",
+  ),
   dialogue: dialogue(
     "Có nên cho làm việc ở nhà?",
     "Chị Lan, trưởng phòng nhân sự, đề xuất với ông Brown, giám đốc người Anh, cho nhân viên làm việc ở nhà vào thứ Sáu. Hai người cân nhắc lợi và hại.",
@@ -95,23 +102,56 @@ export default lesson({
     B("While it is true that one trial isn't enough, I think it's worth trying for three months.", "Dù đúng là một lần thử chưa đủ, tôi nghĩ đáng để thử trong ba tháng."),
     A("Thank you. I'll prepare a plan and share it with the team leaders.", "Cảm ơn ông. Tôi sẽ chuẩn bị kế hoạch và gửi cho các trưởng nhóm."),
   ),
+  dialogueQuestions: [
+    mc("b2-n11-d1", "What is Mr Brown's main concern about working from home?", ["Teamwork might suffer.", "Staff will waste time travelling.", "The IT team will not agree.", "The survey results are wrong."], 0, "Ông Brown nói: I'm worried that teamwork will suffer."),
+    listenQ("b2-n11-d2", "Which team does Lan suggest starting with?", "The sales team needs to see clients in person, whereas the IT team can work anywhere. Exactly. Therefore, we could start with the IT team only.", ["The sales team", "All the team leaders", "The human resources team", "The IT team"], 3, "Nhóm kinh doanh cần gặp khách trực tiếp, còn nhóm IT làm ở đâu cũng được, nên Lan đề xuất bắt đầu với nhóm IT."),
+    mc("b2-n11-d3", "What does Mr Brown finally decide?", ["To reject the idea completely", "To let every team work from home at once", "To try the plan for three months", "To wait for another survey next year"], 2, "I think it's worth trying for three months. Ông vẫn thận trọng nhưng đồng ý thử."),
+  ],
+  reading: reading({
+    title: "A four-day week: bold idea or expensive mistake?",
+    text: `The idea of a four-day working week has moved from the edges of the business world to the centre of the debate. Several trials in Europe have reported encouraging results, and a number of technology companies in Asia are now testing it. Nevertheless, most managers remain unconvinced. In my view, the four-day week can work well, but only in certain kinds of organisation.
+
+The main benefit is obvious: staff who work fewer days are less tired. In one British trial, the majority of employees said they felt less stressed, and sick days fell significantly. Moreover, companies that offer a shorter week find it easier to attract and keep talented people. In a competitive job market, that alone may justify the change.
+
+However, the picture is not entirely positive. On the one hand, office workers who deal mainly with emails and reports can often finish the same work in four longer days. On the other hand, a hospital, a factory or a restaurant cannot simply close on Fridays. Their staff work in shifts, whereas office workers can plan their own time. For these employers, a four-day week means hiring more people, and their costs consequently rise.
+
+Another drawback is that some employees may simply feel more pressure. When the same amount of work has to be done in less time, days become longer and more intense. As a result, the stress that the scheme was meant to remove may come back in a different form.
+
+While it is true that the evidence so far is limited, I would argue that the trials deserve to be taken seriously. Companies should not introduce the change overnight. Instead, they should start with one department, measure the results carefully and ask staff for honest feedback. On balance, I believe that for many office-based businesses, the benefits are likely to outweigh the costs.`,
+    glossary: [
+      ["trial", "cuộc thử nghiệm"],
+      ["unconvinced", "chưa bị thuyết phục"],
+      ["justify", "là lý do chính đáng cho"],
+      ["shift", "ca làm việc"],
+      ["intense", "căng thẳng, dồn dập"],
+      ["outweigh", "lớn hơn, nặng hơn (khi cân nhắc)"],
+      ["feedback", "ý kiến phản hồi"],
+    ],
+    questions: [
+      mc("b2-n11-r1", "What is the writer's overall opinion?", ["The four-day week should be introduced in every workplace immediately.", "The four-day week can work, especially in office-based businesses, if it is introduced carefully.", "The four-day week is too expensive for any company.", "There is not enough evidence to form an opinion."], 1, "Câu nêu quan điểm ở đoạn đầu (only in certain kinds of organisation) và câu kết luận On balance… for many office-based businesses."),
+      mc("b2-n11-r2", "Why is a four-day week difficult for hospitals and factories?", ["Their staff work in shifts, so the employers would need to hire more people.", "Their staff do not want shorter weeks.", "They are not allowed to take part in trials.", "Their workers already work four days a week."], 0, "Their staff work in shifts… a four-day week means hiring more people, and their costs consequently rise."),
+      fill("b2-n11-r3", "Office workers can plan their own time, ___ hospital staff work in shifts. (trong khi)", ["whereas", "while"], "Hai sự thật song song được so sánh trong cùng một câu: whereas (hoặc while)."),
+      mc("b2-n11-r4", "According to the writer, what might happen if five days of work are simply squeezed into four?", ["Staff will have more free time and less stress.", "The company will need fewer employees.", "Sick days will fall even further.", "Stress may return because the working days become longer and more intense."], 3, "Days become longer and more intense. As a result, the stress… may come back in a different form."),
+      mc("b2-n11-r5", "Why does the writer mention the British trial?", ["To show that the four-day week has failed", "To compare Britain with Asia", "To support the point that shorter weeks can reduce stress", "To criticise the companies involved"], 2, "Thử nghiệm ở Anh là bằng chứng cho lợi ích chính: nhân viên bớt căng thẳng, số ngày nghỉ ốm giảm."),
+    ],
+  }),
   task: task({
-    prompt: "Viết một đoạn lập luận khoảng 80–100 từ trả lời câu hỏi: “Công ty có nên cấm dùng điện thoại trong các cuộc họp không?” Nêu quan điểm, cân nhắc hai mặt và kết luận.",
+    prompt: "Viết một bài lập luận khoảng 140–180 từ trả lời câu hỏi: “Công ty có nên cấm dùng điện thoại trong các cuộc họp không?” Nêu quan điểm, cân nhắc hai mặt và kết luận.",
     hints: [
       "Câu đầu nêu rõ quan điểm: In my view… hoặc I would argue that…",
       "Đưa ít nhất một mặt lợi và một mặt hại, cân hai mặt bằng On the one hand… On the other hand…",
       "Dùng một từ nối bổ sung, một từ đối lập và một từ chỉ kết quả, đặt đúng dấu câu.",
       "Kết luận bằng On balance hoặc Overall.",
     ],
-    model: "In my view, companies should ban mobile phones in meetings. One advantage of this rule is that people pay more attention. Moreover, meetings usually finish earlier when nobody is checking messages. On the one hand, some staff need to answer urgent calls from clients. On the other hand, they can step outside for a moment. Young employees often see phones as essential tools, whereas older managers tend to find them rude. While it is true that a ban may seem strict, it saves everyone time. Therefore, on balance, I believe the benefits outweigh the drawbacks.",
+    model: "In my view, companies should ban mobile phones in most meetings. One advantage of this rule is that people pay more attention to the speaker. Moreover, meetings usually finish earlier when nobody is checking messages or scrolling through social media under the table.\n\nOn the one hand, some staff need to answer urgent calls from clients, and a strict ban could cause problems for them. On the other hand, they can step outside for a moment and come back when the call is over. It is also worth remembering that young employees often see phones as essential tools, whereas older managers tend to find them rude. As a result, a clear rule would prevent misunderstandings between the two groups.\n\nThe main drawback is that phones are sometimes useful in meetings, for example to check a date or share a document. However, a laptop or the screen in the meeting room can do the same job.\n\nWhile it is true that a ban may seem strict at first, it saves everyone time. On balance, I believe the benefits outweigh the drawbacks.",
     checklist: [
-      "Có câu nêu quan điểm ở đầu đoạn và câu kết luận ở cuối đoạn.",
+      "Có câu nêu quan điểm ở đầu bài và câu kết luận ở cuối bài.",
       "Có ít nhất một từ nối cho mỗi chức năng: bổ sung, đối lập, kết quả.",
-      "However, moreover, therefore đứng sau dấu chấm hoặc chấm phẩy và có dấu phẩy phía sau.",
+      "However, moreover, as a result đứng sau dấu chấm hoặc chấm phẩy và có dấu phẩy phía sau.",
       "On the other hand chỉ dùng để nêu ý đối lập.",
       "Không dùng although và but trong cùng một câu.",
       "Có một câu thừa nhận ý kiến trái chiều bằng While it is true that…",
     ],
-    minWords: 80,
+    minWords: 140,
   }),
 });

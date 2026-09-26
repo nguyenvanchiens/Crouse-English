@@ -5,10 +5,24 @@ import { Check, Eye, EyeOff, Mic, Play, Volume2 } from "lucide-react";
 import type { DialogueStep } from "@/content/types";
 import { matchSpeech } from "@/lib/scoring";
 import { listenOnce, speak, stopSpeaking, useSpeechSupport } from "@/lib/speech";
+import { StepExercise, type ExerciseProgress, type ExerciseResult } from "./step-exercise";
 
 type Mode = "listen" | "A" | "B";
 
-export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; done: boolean; onComplete: () => void }) {
+export function StepDialogue({
+  step,
+  done,
+  saved,
+  onProgress,
+  onComplete,
+}: {
+  step: DialogueStep;
+  done: boolean;
+  /** progress through the comprehension questions, if the dialogue has them */
+  saved?: ExerciseProgress;
+  onProgress?: (p: ExerciseProgress) => void;
+  onComplete: (r?: ExerciseResult) => void;
+}) {
   const { tts, stt } = useSpeechSupport();
   const [showVi, setShowVi] = useState(true);
   const [mode, setMode] = useState<Mode>("listen");
@@ -248,10 +262,18 @@ export function StepDialogue({ step, done, onComplete }: { step: DialogueStep; d
         </div>
       </section>
 
-      <button type="button" className="btn btn-ghost mt-8" onClick={onComplete} disabled={done}>
-        {done && <Check className="size-5 text-leaf" aria-hidden />}
-        Đã luyện xong hội thoại
-      </button>
+      {step.questions?.length ? (
+        <section className="mt-8 rounded-2xl border-2 border-ink bg-card p-5 sm:p-6" aria-labelledby="dialogue-check">
+          <h3 id="dialogue-check" className="font-display text-xl font-bold">Bạn có hiểu hội thoại không?</h3>
+          <p className="mb-5 mt-1 text-ink-soft">Trả lời {step.questions.length} câu hỏi để hoàn thành bước này.</p>
+          <StepExercise items={step.questions} saved={saved} onProgress={onProgress} onComplete={(r) => onComplete(r)} flat />
+        </section>
+      ) : (
+        <button type="button" className="btn btn-ghost mt-8" onClick={() => onComplete()} disabled={done}>
+          {done && <Check className="size-5 text-leaf" aria-hidden />}
+          Đã luyện xong hội thoại
+        </button>
+      )}
     </article>
   );
 }

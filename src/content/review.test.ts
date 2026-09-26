@@ -86,4 +86,11 @@ describe("withFinalTest", () => {
     expect(out.modules[1].lessons[0].final).toBe(true);
     expect(course.modules).toHaveLength(1);
   });
+  it("uses the course's own final-test bank when it has one", () => {
+    const bank = [mc("f1", "q", ["a", "b", "c"], 0), fill("f2", "a ___ b", ["x"])];
+    const course = { modules: [chapter(1, "A", [make(1)])], finalTest: bank } as unknown as import("./types").Course;
+    const final = withFinalTest(course).modules[1].lessons[0];
+    expect(final).toMatchObject({ slug: "kiem-tra-cuoi-khoa", final: true });
+    expect(final.steps).toEqual([{ type: "exercise", items: bank }]);
+  });
 });

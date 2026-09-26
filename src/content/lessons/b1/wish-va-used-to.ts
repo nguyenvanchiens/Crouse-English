@@ -1,0 +1,155 @@
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "wish-va-used-to",
+  title: "Ước muốn và thói quen: wish, be used to",
+  minutes: 32,
+  lecture: {
+    title: "Wish / if only + quá khứ đơn và quá khứ hoàn thành; be used to và get used to + V-ing",
+    blocks: [
+      p("Bạn vừa chuyển vào Sài Gòn làm việc, hoặc sang Hàn Quốc du học. Tháng đầu, bạn nhớ nhà, **ước gì** gia đình ở gần hơn, **tiếc** vì đã không mang đủ áo ấm. Vài tháng sau, bạn đã **quen với** việc dậy sớm, **dần quen** với khí hậu mới. Bài này cho bạn hai công cụ để nói những điều đó: **wish** cho ước muốn và tiếc nuối, **be used to / get used to** cho chuyện đã quen hoặc đang dần quen."),
+      p("**Ước về hiện tại**: khi muốn điều gì đó khác với thực tế bây giờ, dùng **wish + quá khứ đơn**. Động từ lùi về quá khứ nhưng nghĩa vẫn là hiện tại: đó là tín hiệu “điều này không có thật”. Can thành **could**; với be, văn viết chuẩn dùng **were** cho mọi chủ ngữ (văn nói hằng ngày có thể dùng was)."),
+      table(
+        ["Thực tế bây giờ", "Câu ước"],
+        ["I don't have a car.", "I wish I had a car."],
+        ["I can't swim.", "I wish I could swim."],
+        ["It's so hot here.", "I wish it weren't so hot here."],
+        ["My flat is far from work.", "I wish my flat were closer to work."],
+      ),
+      ex("I wish I spoke Korean.", "Ước gì tôi nói được tiếng Hàn.", "Thực tế: bây giờ tôi không nói được tiếng Hàn. Spoke là quá khứ về hình thức, nhưng nói về hiện tại."),
+      p("**Tiếc về quá khứ**: khi tiếc một việc đã làm hoặc đã không làm, dùng **wish / if only + had + V3** (quá khứ hoàn thành). **If only** nghĩa là “giá mà”, mạnh hơn wish, và thường kết thúc bằng dấu chấm than."),
+      table(
+        ["Chuyện đã xảy ra", "Câu tiếc nuối"],
+        ["I didn't study Korean before I left.", "I wish I had studied Korean before I left."],
+        ["I ate too much at the party.", "I wish I hadn't eaten so much at the party."],
+        ["We missed the last bus.", "If only we hadn't missed the last bus!"],
+      ),
+      ex("If only I had listened to my mother!", "Giá mà hồi đó tôi nghe lời mẹ!", "Chuyện đã qua, không sửa được nữa, nên dùng had + V3."),
+      mistake("I wish I can speak English well.", "I wish I could speak English well.", "Tiếng Việt nói “ước gì tôi có thể nói” mà không đổi gì ở động từ, nên người học giữ can. Sau wish, điều ước ở hiện tại phải lùi một thì: can → could."),
+      mistake("I wish I didn't say that yesterday.", "I wish I hadn't said that yesterday.", "Người học chỉ lùi một bậc như câu ước hiện tại. Nhưng yesterday là chuyện quá khứ, nên phải lùi thêm một bậc nữa: had + V3."),
+      p("Bây giờ đến chuyện **thói quen**. Ở A2, bạn đã học **used to + V**: thói quen trong quá khứ, bây giờ không còn nữa. Ở B1, ta thêm hai cấu trúc trông rất giống nhưng nghĩa khác hẳn: **be used to + V-ing / danh từ** (đã quen với) và **get used to + V-ing / danh từ** (dần quen với). Ở hai cấu trúc này, to là **giới từ**, nên sau nó là V-ing, không phải động từ nguyên mẫu."),
+      table(
+        ["Cấu trúc", "Nghĩa", "Ví dụ"],
+        ["used to + V", "từng, hồi trước hay (nay không còn)", "I used to live in Hue."],
+        ["be used to + V-ing / danh từ", "đã quen với", "I'm used to getting up at five."],
+        ["get used to + V-ing / danh từ", "dần quen với (quá trình)", "I'm getting used to the cold."],
+      ),
+      ex("It took me three months to get used to driving on the left.", "Tôi mất ba tháng mới quen lái xe bên trái.", "Get used to nhấn mạnh quá trình dần dần quen, có thể chia ở mọi thì: I got used to, I'm getting used to, I'll get used to."),
+      ex("I'm not used to spicy food, so please don't add chilli.", "Tôi không quen ăn cay, nên làm ơn đừng cho ớt.", "Sau be used to có thể là danh từ (spicy food) hoặc V-ing (eating spicy food)."),
+      mistake("I'm used to get up early.", "I'm used to getting up early.", "Người học thấy to là nghĩ ngay đến to + động từ nguyên mẫu. Trong be used to, to là giới từ, giống look forward to, nên theo sau là V-ing."),
+      mistake("When I was a child, I was used to swim in the river.", "When I was a child, I used to swim in the river.", "Muốn nói thói quen cũ, nay không còn, thì dùng used to + V, không có was. Thêm was vào là thành “đã quen với”, và khi đó phải là swimming, nghĩa cũng khác."),
+      tip("Mẹo nhớ: **có be hoặc get đứng trước thì là “quen”, sau đó là V-ing**; không có be / get thì là “từng”, sau đó là V. Mẹo phát âm: used to đọc liền là **/ˈjuːs.tə/**, âm /s/ chứ không phải /z/, và to đọc nhẹ /tə/."),
+      teacher("Nhiều bạn học viên hỏi tôi: “Sao cứ phải lùi thì sau wish, rắc rối quá?” Tôi trả lời: **lùi thì là cách tiếng Anh báo “chuyện này không có thật”**. Lùi một bậc là ước cho hiện tại, lùi hai bậc là tiếc cho quá khứ. Mỗi tối, các bạn thử viết ba câu về chính mình: một câu I wish… về hiện tại, một câu I wish I had… về một việc đã qua, và một câu I'm used to… hoặc I'm getting used to… Viết về đời mình thì cấu trúc bám rất lâu."),
+      summary(
+        "Ước về hiện tại: **wish + quá khứ đơn** (I wish I had a car); can → **could**, be → **were**.",
+        "Tiếc về quá khứ: **wish / if only + had + V3** (I wish I hadn't said that).",
+        "**used to + V**: thói quen cũ, nay không còn (I used to live in Hue).",
+        "**be used to / get used to + V-ing hoặc danh từ**: đã quen / dần quen (I'm used to getting up early). To ở đây là giới từ.",
+        "Không dùng can hay will sau wish cho điều ước ở hiện tại: I wish I could, không nói I wish I can.",
+      ),
+    ],
+  },
+  words: [
+    word("wish", "/wɪʃ/", "ước, mong ước", "I wish I lived closer to my parents.", "wish", 0, "Âm cuối /ʃ/, không đọc thành “uých”."),
+    word("homesick", "/ˈhəʊm.sɪk/", "nhớ nhà", "I was very homesick in my first month abroad.", "home|sick", 0),
+    word("adjust", "/əˈdʒʌst/", "thích nghi, điều chỉnh", "It took me a few weeks to adjust to the new timetable.", "ad|just", 1, "Cụm dj đọc là /dʒ/ như trong job, trọng âm ở âm sau: ə-JUST."),
+    word("routine", "/ruːˈtiːn/", "nếp sinh hoạt, việc thường ngày", "My morning routine starts at six.", "rou|tine", 1, "Trọng âm ở âm sau: rou-TINE, chữ i đọc là /iː/."),
+    word("commute", "/kəˈmjuːt/", "đi lại (giữa nhà và nơi làm)", "I'm used to commuting for an hour every day.", "com|mute", 1),
+    word("climate", "/ˈklaɪ.mət/", "khí hậu", "It took me a year to get used to the climate here.", "cli|mate", 0, "Âm sau đọc nhẹ /mət/, không đọc thành “mây”."),
+    word("unfamiliar", "/ˌʌn.fəˈmɪl.i.ə/", "xa lạ, chưa quen", "At first, everything in the city felt unfamiliar.", "un|fa|mil|i|ar", 2, "Âm cuối /ə/, không đọc âm r."),
+    word("accent", "/ˈæk.sənt/", "giọng (vùng miền, nước)", "People still find my accent hard to understand.", "ac|cent", 0, "Chữ cc đọc là /ks/."),
+  ],
+  exercises: [
+    mc("b1-n18-1", "I don't have a car, so I take the bus. I wish I ___ a car.", ["have", "had", "will have", "am having"], 1, "Ước điều trái với hiện tại: wish + quá khứ đơn (had)."),
+    mc("b1-n18-2", "I'm so tired today. I wish I ___ to bed so late last night.", ["didn't go", "don't go", "hadn't gone", "wouldn't go"], 2, "Last night là chuyện đã qua, nên tiếc về quá khứ dùng wish + had + V3: hadn't gone."),
+    fill("b1-n18-3", "I've lived in Hanoi for ten years, so I'm used to ___ in heavy traffic. (drive)", ["driving"], "Be used to + V-ing: đã quen với việc gì. To ở đây là giới từ."),
+    fill("b1-n18-4", "When I was a student, I ___ to cycle to school every day. (use)", ["used"], "Thói quen trong quá khứ, nay không còn: used to + V (cycle)."),
+    reorder("b1-n18-5", "It took me a long time to get used to the cold.", "It took me + thời gian + to get used to + danh từ: tôi mất bao lâu mới quen với điều gì."),
+    reorder("b1-n18-6", "I wish I could speak Korean.", "Ước về hiện tại với can: lùi thành could + V."),
+    listen("b1-n18-7", "I wish I had listened to my teacher.", ["Giá mà hồi đó tôi đã nghe lời thầy.", "Tôi rất thích nghe thầy giảng bài.", "Tôi mong thầy sẽ lắng nghe tôi."], 0, "Wish + had + V3: tiếc một việc trong quá khứ."),
+    listen("b1-n18-8", "She isn't used to working at night yet.", ["Cô ấy từng làm việc ban đêm.", "Cô ấy vẫn chưa quen làm việc ban đêm.", "Cô ấy không muốn làm việc ban đêm nữa."], 1, "Isn't used to + V-ing: chưa quen với việc gì. Yet: vẫn chưa."),
+    correct("b1-n18-9", "I wish I can visit my grandparents more often.", "I wish I could visit my grandparents more often.", "Điều ước ở hiện tại phải lùi thì: can → could."),
+    correct("b1-n18-10", "I'm slowly getting used to live in a big city.", "I'm slowly getting used to living in a big city.", "Get used to + V-ing: to là giới từ, nên phải là living."),
+  ],
+  speaking: [
+    say("I wish I lived closer to my family.", "Ước gì tôi sống gần gia đình hơn."),
+    say("If only I had saved more money last year!", "Giá mà năm ngoái tôi tiết kiệm được nhiều tiền hơn!"),
+    say("I'm used to getting up early, but I can't get used to the cold.", "Tôi đã quen dậy sớm, nhưng tôi không thể quen với cái lạnh."),
+  ],
+  freeSpeaking: free(
+    "What do you wish were different in your life, and what have you got used to?",
+    "Nói một điều bạn ước khác đi ở hiện tại, một việc bạn tiếc đã làm hoặc chưa làm, và một điều bạn đã quen hoặc đang dần quen.",
+    "I wish I had more free time, because I work six days a week. I also wish I had learnt to swim when I was a child. Last year I moved to a flat near the city centre. At first the noise was terrible, but now I'm used to sleeping with the windows closed, and I've got used to the busy streets.",
+  ),
+  dialogue: dialogue(
+    "Một năm sống ở Hà Nội",
+    "Emma, cô giáo người Anh, đã sống ở Hà Nội được một năm. Đức, bạn người Việt của cô, hỏi cô đã quen với cuộc sống ở đây chưa và cô còn ước điều gì.",
+    { A: "Đức", B: "Emma, cô giáo người Anh" },
+    A("So, Emma, how's life in Hanoi after one year?", "Emma này, sống ở Hà Nội một năm rồi thấy thế nào?"),
+    B("Much better now. At first I was really homesick. I wish my family lived closer.", "Giờ thì tốt hơn nhiều rồi. Lúc đầu mình nhớ nhà lắm. Ước gì gia đình mình ở gần hơn."),
+    A("I can imagine. Are you used to the traffic yet?", "Mình hiểu mà. Bạn đã quen với giao thông ở đây chưa?"),
+    B("Yes, I'm used to crossing the road now! In London I used to take the Tube everywhere, but here I ride a motorbike.", "Rồi, giờ mình quen băng qua đường rồi! Ở London mình toàn đi tàu điện ngầm, còn ở đây mình đi xe máy."),
+    A("Wow! Was it hard to get used to riding in the city?", "Chà! Tập quen chạy xe trong thành phố có khó không?"),
+    B("Very hard. I wish I had taken some lessons before I bought it. I fell off twice in the first week.", "Khó lắm. Giá mà mình học vài buổi trước khi mua xe. Tuần đầu mình ngã hai lần."),
+    A("Oh no! What about the food?", "Ôi trời! Còn đồ ăn thì sao?"),
+    B("I love it. But I'm still not used to eating rice three times a day.", "Mình rất thích. Nhưng mình vẫn chưa quen ăn cơm ba bữa một ngày."),
+    A("And the weather? The climate here is very different from England.", "Còn thời tiết? Khí hậu ở đây khác nước Anh lắm."),
+    B("I've got used to the heat, but I wish it weren't so humid in summer.", "Mình đã quen với cái nóng, nhưng ước gì mùa hè không ẩm thế."),
+    A("What do you miss most about home?", "Bạn nhớ gì nhất ở quê nhà?"),
+    B("My mum's cooking. If only I had asked her for her recipes before I left!", "Món mẹ mình nấu. Giá mà mình xin mẹ công thức trước khi đi!"),
+    A("Well, I wish I could cook English food for you, but I've never tried!", "Ước gì mình nấu được đồ ăn Anh cho bạn, nhưng mình chưa thử bao giờ!"),
+    B("Don't worry. I'll teach you one day, and you can teach me to speak Vietnamese without my accent!", "Đừng lo. Hôm nào mình sẽ dạy bạn, còn bạn dạy mình nói tiếng Việt cho khỏi lơ lớ nhé!"),
+  ),
+  dialogueQuestions: [
+    listenQ("b1-n18-d1", "How did Emma use to travel in London?", "Yes, I'm used to crossing the road now! In London I used to take the Tube everywhere, but here I ride a motorbike.", ["By motorbike", "By Tube", "On foot", "By car"], 1, "In London I used to take the Tube everywhere."),
+    mc("b1-n18-d2", "What does Emma regret about buying her motorbike?", ["She paid too much for it.", "She didn't take any lessons before she bought it.", "She bought it in the rainy season.", "She didn't buy a bigger one."], 1, "I wish I had taken some lessons before I bought it."),
+    mc("b1-n18-d3", "What is Emma still not used to?", ["The traffic", "The heat", "Eating rice three times a day"], 2, "I'm still not used to eating rice three times a day. Giao thông và cái nóng thì cô đã quen."),
+  ],
+  reading: reading({
+    title: "One year in Seoul: what I've learnt",
+    text: `When I arrived in Seoul last September to study for a master's degree, everything felt unfamiliar. I couldn't read the signs, I didn't know anyone, and the food tasted strange to me. For the first two months, I was terribly homesick. I used to call home every night and cry.
+
+The hardest thing was the winter. In Da Nang, I used to wear a T-shirt all year round, so I wasn't used to temperatures below zero. On my first snowy morning, I went out in a thin jacket and nearly froze. I wish someone had warned me! Now I own three thick coats and a pair of warm boots.
+
+Slowly, I got used to my new life. I'm used to taking the underground to university, and I've even got used to eating kimchi with every meal. My daily routine is busy, but I like it: classes in the morning, the library in the afternoon and part-time work at a café in the evening.
+
+Of course, I still have some regrets. I wish I had studied more Korean before I came, because I still can't understand people when they speak fast. And sometimes I wish my family were here to see the city with me.
+
+If you are going to study in another country, my advice is simple: be patient. Nobody gets used to a new place in a week. After a few months, the strange things become normal, and one day you realise that you feel at home.`,
+    glossary: [
+      ["master's degree", "bằng thạc sĩ"],
+      ["terribly", "vô cùng, rất"],
+      ["temperature", "nhiệt độ"],
+      ["freeze (froze)", "lạnh cóng, đóng băng"],
+      ["thick", "dày"],
+      ["underground", "tàu điện ngầm"],
+      ["patient", "kiên nhẫn"],
+      ["feel at home", "thấy thoải mái như ở nhà"],
+    ],
+    questions: [
+      mc("b1-n18-r1", "What is the blog post mainly about?", ["How to cook Korean food", "How the writer slowly got used to life in a new country", "Why winter in Seoul is dangerous", "The best universities in Korea"], 1, "Bài kể hành trình từ bỡ ngỡ, nhớ nhà đến dần quen với cuộc sống ở Seoul."),
+      mc("b1-n18-r2", "What did the writer use to do during the first two months?", ["Work at a café every evening", "Call home every night", "Take the underground to university", "Wear a T-shirt every day"], 1, "I used to call home every night and cry."),
+      fill("b1-n18-r3", "Da Nang is warm all year, so the writer wasn't ___ to temperatures below zero.", ["used"], "I wasn't used to temperatures below zero: chưa quen với nhiệt độ dưới không độ."),
+      mc("b1-n18-r4", "What does the sentence “I wish someone had warned me!” suggest?", ["Nobody told the writer how cold the winter would be.", "Someone warned the writer, but the writer didn't listen.", "The writer wanted to stay at home that morning."], 0, "Wish + had + V3 là tiếc về quá khứ: thực tế là không ai báo trước cho người viết về cái lạnh."),
+      mc("b1-n18-r5", "What is the writer's advice for people who are going to study in another country?", ["Learn to cook before leaving", "Be patient, because getting used to a new place takes time", "Buy warm clothes in Vietnam", "Call your family every night"], 1, "My advice is simple: be patient. Nobody gets used to a new place in a week."),
+    ],
+  }),
+  task: task({
+    prompt: "Bạn vừa chuyển đến một thành phố mới (hoặc bắt đầu một công việc mới) được vài tháng. Viết một email (khoảng 90–120 từ) cho một người bạn: bạn đã quen và chưa quen với điều gì, thói quen cũ nào đã thay đổi, bạn ước điều gì và tiếc điều gì.",
+    hints: [
+      "Thói quen cũ, nay không còn: used to + V (I used to walk to work).",
+      "Đã quen / dần quen: I'm used to + V-ing, I'm getting used to + danh từ hoặc V-ing.",
+      "Ước về hiện tại: I wish + quá khứ đơn (had, were, could).",
+      "Tiếc về quá khứ: I wish / If only + had + V3.",
+    ],
+    model: "Hi Nga, I'm sorry I haven't written for so long. I've been in Ho Chi Minh City for three months now, and life is getting better. At first, I was really homesick. I used to walk to work in my home town, but here I commute by bus for an hour every day. I wasn't used to the noise and the heat, but I'm slowly getting used to them. Now I'm used to getting up at six and eating breakfast on the bus! I wish my flat were bigger, and I wish I had brought more summer clothes with me. If only you lived here too! Write soon, Thao",
+    checklist: [
+      "Có ít nhất 1 câu wish + quá khứ đơn (had, were, could) cho điều ước ở hiện tại.",
+      "Có ít nhất 1 câu wish hoặc if only + had + V3 cho điều tiếc nuối.",
+      "Có 1 câu used to + V cho thói quen cũ đã thay đổi.",
+      "Có ít nhất 1 câu be used to hoặc get used to + V-ing hoặc danh từ.",
+      "Không có câu wish + can / will, hay be used to + động từ nguyên mẫu.",
+    ],
+    minWords: 90,
+  }),
+});

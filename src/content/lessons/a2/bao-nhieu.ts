@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "bao-nhieu",
   title: "Bao nhiêu là đủ?",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "Much, many, a lot of, a few, a little",
     blocks: [
@@ -18,7 +18,7 @@ export default lesson({
       ),
       ex("How many eggs do we need for the cake?", "Làm bánh cần bao nhiêu quả trứng?"),
       ex("How much sugar do you want in your coffee?", "Bạn muốn cho bao nhiêu đường vào cà phê?", "How much còn dùng để hỏi giá (How much is it?). Nếu sau How much có danh từ như sugar, money, time thì đó là hỏi số lượng."),
-      p("**Much** và **many** chủ yếu dùng trong **câu hỏi** và **câu phủ định**. Trong **câu khẳng định**, người bản xứ gần như luôn nói **a lot of** hoặc **lots of** (thân mật hơn), dùng được cho cả hai nhóm danh từ."),
+      p("**Much** và **many** chủ yếu dùng trong **câu hỏi** và **câu phủ định**. Trong **câu khẳng định** khi nói chuyện hằng ngày, người bản xứ thường nói **a lot of** hoặc **lots of** (thân mật hơn), dùng được cho cả hai nhóm danh từ. Much / many trong câu khẳng định vẫn đúng nhưng trang trọng hơn, hay gặp khi viết: **Many people think…**"),
       ex("We don't have much time. The bus leaves at eight.", "Chúng ta không có nhiều thời gian đâu. Xe buýt chạy lúc tám giờ."),
       ex("There are a lot of people at the market today.", "Hôm nay chợ đông người lắm."),
       p("**A few** (một vài) đi với danh từ đếm được số nhiều, **a little** (một chút, một ít) đi với danh từ không đếm được. Cả hai mang nghĩa tích cực: ít thôi nhưng **vẫn có**."),
@@ -28,11 +28,11 @@ export default lesson({
       mistake("How many money do you have?", "How much money do you have?", "Tiếng Việt đếm được “một đồng, hai đồng” nên người Việt tưởng money đếm được. Trong tiếng Anh, money không đếm được, ta đếm bằng dollars, dong."),
       mistake("I have many homeworks today.", "I have a lot of homework today.", "Homework không đếm được nên không thêm -s. Câu khẳng định lại dùng a lot of tự nhiên hơn many."),
       mistake("There are a lot people here.", "There are a lot of people here.", "Người Việt hay nuốt mất of vì nói nhanh. A lot of là một cụm, không bỏ of được."),
-      teacher("Học viên của tôi hay hỏi: “Sao câu khẳng định dùng much lại nghe sai?”. Không hẳn sai, nhưng nghe cứng và trang trọng như văn viết, người ta hầu như không nói vậy. Tôi dặn các bạn một quy tắc sống: **khẳng định thì a lot of, hỏi và phủ định thì much/many**. Mỗi lần đi chợ, các bạn hãy tự hỏi thầm bằng tiếng Anh từng món: How many tomatoes? How much rice? Chỉ cần một tháng như vậy, phản xạ đếm được hay không đếm được sẽ thành tự nhiên."),
+      teacher("Học viên của tôi hay hỏi: “Sao câu khẳng định dùng much lại nghe sai?”. Không sai, nhưng trong câu nói hằng ngày nghe cứng và trang trọng như văn viết. Tôi dặn các bạn một quy tắc dễ nhớ khi nói: **khẳng định thì thường a lot of, hỏi và phủ định thì much/many**. Mỗi lần đi chợ, các bạn hãy tự hỏi thầm bằng tiếng Anh từng món: How many tomatoes? How much rice? Chỉ cần một tháng như vậy, phản xạ đếm được hay không đếm được sẽ thành tự nhiên."),
       summary(
         "Trước khi nói số lượng, tự hỏi: danh từ này đếm được hay không đếm được?",
         "How many + danh từ đếm được số nhiều; How much + danh từ không đếm được.",
-        "Câu hỏi và phủ định dùng much / many; câu khẳng định dùng a lot of, không bỏ of.",
+        "Câu hỏi và phủ định dùng much / many; câu khẳng định khi nói thường dùng a lot of (không bỏ of); many trong câu khẳng định trang trọng hơn: Many people think…",
         "A few + danh từ đếm được số nhiều, a little + danh từ không đếm được: ít nhưng vẫn có.",
         "Money, homework, information, furniture không đếm được: không thêm -s, không dùng many.",
       ),
@@ -40,12 +40,12 @@ export default lesson({
   },
   words: [
     word("money", "/ˈmʌn.i/", "tiền", "I don't have much money this month.", "mon|ey", 0, "Đọc là /ˈmʌn.i/, chữ o đọc gần như “â”: “mân-ni”, không đọc là “mô-ney”."),
-    word("sugar", "/ˈʃʊɡ.ər/", "đường (ăn)", "How much sugar do you take?", "sug|ar", 0, "Chữ s ở đầu đọc là /ʃ/ như “sờ” uốn lưỡi, không đọc là /s/."),
+    word("sugar", "/ˈʃʊɡ.ə/", "đường (ăn)", "How much sugar do you take?", "sug|ar", 0, "Chữ s ở đầu đọc là /ʃ/ như “sờ” uốn lưỡi, không đọc là /s/."),
     word("salt", "/sɒlt/", "muối", "Add a little salt to the soup.", "salt", 0, "Nhớ âm /l/ và /t/ ở cuối, đừng đọc thành “xon”."),
     word("information", "/ˌɪn.fəˈmeɪ.ʃən/", "thông tin", "I need some information about the trip.", "in|for|ma|tion", 2, "Information không đếm được: không nói an information hay informations. Trọng âm ở âm thứ ba: in-phơ-MÂY-sần."),
     word("traffic", "/ˈtræf.ɪk/", "giao thông, xe cộ", "There's a lot of traffic in the morning.", "traf|fic", 0),
     word("homework", "/ˈhəʊm.wɜːk/", "bài tập về nhà", "We don't have much homework today.", "home|work", 0),
-    word("furniture", "/ˈfɜː.nɪ.tʃər/", "đồ đạc trong nhà", "There isn't much furniture in the room.", "fur|ni|ture", 0, "Furniture không đếm được: không nói furnitures. Một món đồ là a piece of furniture."),
+    word("furniture", "/ˈfɜː.nɪ.tʃə/", "đồ đạc trong nhà", "There isn't much furniture in the room.", "fur|ni|ture", 0, "Furniture không đếm được: không nói furnitures. Một món đồ là a piece of furniture."),
     word("kilo", "/ˈkiː.ləʊ/", "cân, ki-lô-gam", "I'd like two kilos of oranges, please.", "ki|lo", 0),
   ],
   exercises: [
@@ -54,10 +54,17 @@ export default lesson({
     fill("a2-n10-3", "How ___ money do you need for the trip?", ["much"], "Money không đếm được nên hỏi How much."),
     fill("a2-n10-4", "Can I have a ___ milk in my coffee, please?", ["little"], "Milk không đếm được nên dùng a little (một chút)."),
     reorder("a2-n10-5", "How much sugar do you want?", "How much + danh từ không đếm được + do you + động từ?"),
-    reorder("a2-n10-6", "My sister has a lot of friends.", "Câu khẳng định dùng a lot of, không bỏ of."),
+    reorder("a2-n10-6", "My sister has a lot of friends.", "Câu khẳng định khi nói thường dùng a lot of, không bỏ of."),
     listen("a2-n10-7", "We only have a few eggs left.", ["Chúng ta còn rất nhiều trứng.", "Chúng ta chỉ còn vài quả trứng.", "Chúng ta không còn quả trứng nào."], 1, "A few là một vài: vẫn còn, nhưng ít."),
     listen("a2-n10-8", "How much luggage do you have?", ["Bạn có bao nhiêu hành lý?", "Hành lý của bạn giá bao nhiêu?", "Hành lý của bạn ở đâu?"], 0, "Sau How much là danh từ luggage nên đây là hỏi số lượng, không phải hỏi giá."),
+    correct("a2-n10-9", "How many sugar do you need for the cake?", ["How much sugar do you need for the cake?"], "Sugar là danh từ không đếm được, nên hỏi How much, không dùng How many."),
+    correct("a2-n10-10", "She has a lot of informations about the course.", ["She has a lot of information about the course."], "Information không đếm được nên không bao giờ thêm -s."),
   ],
+  freeSpeaking: free(
+    "What do you usually buy when you go shopping for food?",
+    "Kể về một lần đi chợ hoặc đi siêu thị điển hình của bạn: mua những gì, mua bao nhiêu và thường tiêu khoảng bao nhiêu tiền.",
+    "I usually go to the supermarket on Sunday morning. I buy a lot of vegetables and five kilos of rice. I don't buy much meat, because I only eat a little. I also get some milk and a few eggs for breakfast. I don't spend much money, only about four hundred thousand dong.",
+  ),
   speaking: [
     say("How many people are coming to the party?", "Có bao nhiêu người đến dự tiệc?"),
     say("We don't have much time, so let's hurry.", "Chúng ta không có nhiều thời gian đâu, nhanh lên nào."),
@@ -80,22 +87,53 @@ export default lesson({
     A("Great. Oh, there are a lot of people at the market today!", "Tuyệt. Ôi, hôm nay chợ đông người quá!"),
     B("Yes. Let's be quick. We don't have much time.", "Ừ. Nhanh lên nào. Mình không có nhiều thời gian đâu."),
   ),
+  dialogueQuestions: [
+    listenQ("a2-n10-d1", "Mai và Anna cần khoảng bao nhiêu quả trứng?", "About twenty. We only have a few eggs at home.", ["Mười quả", "Khoảng hai mươi quả", "Vài quả", "Ba mươi quả"], 1, "About twenty: khoảng hai mươi quả. A few eggs là số trứng còn ở nhà."),
+    mc("a2-n10-d2", "Họ định mua bao nhiêu gạo?", ["Một cân", "Năm cân", "Hai cân"], 2, "Anna nói: Let's buy two kilos."),
+    mc("a2-n10-d3", "Vì sao hai người phải nhanh lên?", ["Vì chợ sắp đóng cửa", "Vì họ không có nhiều thời gian", "Vì trời sắp mưa"], 1, "Let's be quick. We don't have much time."),
+  ],
+  reading: reading({
+    title: "Blog của một sinh viên nước ngoài: đi chợ ở Hà Nội",
+    text: `When I first came to Hanoi, I didn't know how much food I needed for a week. Now I go to the market near my flat every Saturday, and I love it.
+
+There are a lot of stalls, and the sellers are very friendly. I usually buy a lot of vegetables, because they are fresh and cheap. I don't buy much meat. A kilo of pork costs about one hundred and twenty thousand dong, so I only buy a little. I also get a few eggs, some tofu and a lot of fruit.
+
+How much money do I spend? Usually about three hundred thousand dong. That isn't much!
+
+My advice: go early. At seven o'clock there aren't many people, and you can choose the best things. After nine, it gets very busy.`,
+    glossary: [
+      ["flat", "căn hộ"],
+      ["stalls", "sạp hàng"],
+      ["sellers", "người bán hàng"],
+      ["fresh", "tươi"],
+      ["pork", "thịt lợn"],
+      ["tofu", "đậu phụ"],
+      ["advice", "lời khuyên"],
+    ],
+    questions: [
+      mc("a2-n10-r1", "Bài blog nói về điều gì?", ["Cách nấu món ăn Việt Nam", "Kinh nghiệm đi chợ hằng tuần ở Hà Nội của tác giả", "Giá thuê nhà ở Hà Nội", "Một siêu thị mới mở"], 1, "Tác giả kể mình đi chợ mỗi thứ Bảy: mua gì, bao nhiêu, tiêu bao nhiêu tiền."),
+      mc("a2-n10-r2", "Vì sao tác giả mua nhiều rau?", ["Vì rau tươi và rẻ", "Vì tác giả không ăn thịt", "Vì người bán tặng rau", "Vì chợ chỉ bán rau"], 0, "I usually buy a lot of vegetables, because they are fresh and cheap."),
+      fill("a2-n10-r3", "Hoàn thành câu theo bài đọc: I don't buy ___ meat.", ["much"], "Meat không đếm được, câu phủ định nên dùng much."),
+      mc("a2-n10-r4", "Mỗi lần đi chợ, tác giả thường tiêu khoảng bao nhiêu tiền?", ["120.000 đồng", "300.000 đồng", "Một triệu đồng", "Bài không nói"], 1, "Usually about three hundred thousand dong. 120.000 đồng là giá một cân thịt lợn."),
+      mc("a2-n10-r5", "Tác giả khuyên người đọc điều gì?", ["Đi chợ sớm, vì lúc đó ít người", "Đi chợ sau chín giờ", "Chỉ nên mua thịt", "Mặc cả thật nhiều"], 0, "My advice: go early. At seven o'clock there aren't many people."),
+    ],
+  }),
   task: task({
-    prompt: "Cuối tuần bạn mời bạn bè đến nhà ăn tối. Viết tin nhắn 5–6 câu cho người bạn cùng nhà: nhà còn gì, cần mua gì, mua bao nhiêu.",
+    prompt: "Cuối tuần bạn mời bạn bè đến nhà ăn tối. Viết tin nhắn 6–7 câu (ít nhất 50 từ) cho người bạn cùng nhà: nhà còn gì, cần mua gì, mua bao nhiêu.",
     hints: [
       "Hỏi về số lượng với How many (đếm được) hoặc How much (không đếm được).",
       "Nhà còn ít: a few + danh từ đếm được, a little + danh từ không đếm được.",
-      "Câu khẳng định dùng a lot of, câu phủ định dùng much hoặc many.",
+      "Câu khẳng định thường dùng a lot of, câu phủ định dùng much hoặc many.",
       "Nói số cân bằng kilo: two kilos of chicken.",
     ],
     model: "Hi Tom, six friends are coming for dinner on Saturday. We only have a few eggs, so please buy ten more. We have a lot of rice, but we don't have many tomatoes. There's only a little salt, and we don't have much sugar. We need two kilos of chicken and a lot of vegetables. How much money do you need? I'll give it to you tonight.",
     checklist: [
       "Dùng many với danh từ đếm được, much với danh từ không đếm được.",
-      "Câu khẳng định dùng a lot of, không bỏ of.",
+      "Câu khẳng định khi nói thường dùng a lot of, không bỏ of.",
       "Có ít nhất 1 câu với a few và 1 câu với a little.",
       "Không thêm -s cho danh từ không đếm được (rice, sugar, money).",
       "Có ít nhất 1 câu hỏi How much hoặc How many.",
     ],
-    minWords: 30,
+    minWords: 50,
   }),
 });

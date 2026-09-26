@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "nhan-cau-noi-am-ngu-dieu",
   title: "Nhấn câu, nối âm và ngữ điệu",
-  minutes: 22,
+  minutes: 30,
   lecture: {
     title: "Nhịp điệu của câu tiếng Anh",
     blocks: [
@@ -16,7 +16,7 @@ export default lesson({
         ["từ để hỏi, từ phủ định: where, not, can't", "trợ động từ, đại từ: can, do, is, you"],
       ),
       ex("I want to go to the market.", "Tôi muốn đi chợ.", "Đọc là I WANT tə GO tə ðə MAR-ket: chỉ nhấn want, go và âm đầu của market; to và the đọc rất nhẹ: /tə/, /ðə/."),
-      p("Từ chức năng khi đọc nhẹ có **dạng yếu**: nguyên âm co lại thành /ə/. Người mới học thường đọc dạng mạnh ở mọi nơi, nên câu nghe cứng và chậm. Dạng mạnh chỉ dùng khi từ đứng cuối câu hoặc khi muốn nhấn mạnh."),
+      p("Từ chức năng khi đọc nhẹ có **dạng yếu**: nguyên âm co lại thành /ə/. Người mới học thường đọc dạng mạnh ở mọi nơi, nên câu nghe cứng và chậm. Dạng mạnh thường dùng khi từ đứng cuối câu, khi muốn nhấn mạnh hoặc so sánh đối lập (not to him but FOR him). Riêng to trước nguyên âm thường đọc /tu/: to eat /tu iːt/."),
       table(
         ["Từ", "Dạng mạnh", "Dạng yếu", "Ví dụ"],
         ["to", "/tuː/", "/tə/", "I want to go. /tə/"],
@@ -39,7 +39,7 @@ export default lesson({
         ["Câu kể", "xuống giọng", "I live in Da Nang."],
       ),
       tip("Đừng mang thanh điệu tiếng Việt vào từ tiếng Anh: không đọc “ready” thành “ré-đì” với dấu sắc, dấu huyền. Giọng chỉ **lên hoặc xuống ở từ được nhấn cuối cùng** trong câu. Tập nói **Are you READY?** với giọng đi lên ở READY, rồi **Where do you LIVE?** với giọng đi xuống ở LIVE."),
-      teacher("Sau nhiều năm dạy, tôi tin rằng nhịp điệu là bước cuối để các bạn nói **nghe như người thật**, chứ không phải đọc từ điển. Cách luyện tôi luôn giao cho học trò là **nói đuổi**: mở một đoạn ghi âm ngắn của người bản xứ, nghe một câu, dừng lại, rồi nói theo đúng nhịp, đúng chỗ nhấn, đúng chỗ nối. Mỗi ngày chỉ mười phút thôi. Các bạn đừng cố đọc to mọi từ; hãy để những từ nhỏ như to, and, of lướt qua thật nhẹ."),
+      teacher("Khi đứng lớp, tôi luôn thấy rằng nhịp điệu là bước cuối để các bạn nói **nghe như người thật**, chứ không phải đọc từ điển. Cách luyện tôi luôn giao cho học trò là **nói đuổi**: mở một đoạn ghi âm ngắn của người bản xứ, nghe một câu, dừng lại, rồi nói theo đúng nhịp, đúng chỗ nhấn, đúng chỗ nối. Mỗi ngày chỉ mười phút thôi. Các bạn đừng cố đọc to mọi từ; hãy để những từ nhỏ như to, and, of lướt qua thật nhẹ."),
       summary(
         "Nhấn **từ nội dung** (danh từ, động từ chính, tính từ, từ để hỏi), đọc nhẹ **từ chức năng** (a, the, to, of, and, can).",
         "Từ chức năng đọc nhẹ dùng **dạng yếu** có /ə/: to /tə/, of /əv/, and /ən/, can /kən/, for /fə/.",
@@ -51,7 +51,7 @@ export default lesson({
   },
   words: [
     word("and", "/ænd/", "và", "I'd like fish and chips.", "and", 0, "Trong câu thường đọc dạng yếu /ən/, rất nhẹ: fish ən chips."),
-    word("to", "/tuː/", "đến; để", "I want to go home.", "to", 0, "Trước động từ thường đọc yếu /tə/. Chỉ đọc mạnh /tuː/ khi đứng cuối câu hoặc khi muốn nhấn mạnh."),
+    word("to", "/tuː/", "đến; để", "I want to go home.", "to", 0, "Trước phụ âm thường đọc yếu /tə/; trước nguyên âm đọc /tu/ (to eat). Đọc mạnh /tuː/ khi đứng cuối câu, khi nhấn mạnh hoặc đối lập."),
     word("can", "/kæn/", "có thể", "I can speak English.", "can", 0, "Trong câu khẳng định đọc /kən/; câu trả lời ngắn Yes, I can mới đọc mạnh /kæn/."),
     word("of", "/ɒv/", "của", "I'd like a cup of tea.", "of", 0, "Dạng yếu /əv/, gần như chỉ nghe thấy /v/. Cuối từ là /v/, không phải /f/."),
     word("for", "/fɔː/", "cho, dành cho", "This is for you.", "for", 0, "Trong câu thường đọc yếu /fə/, âm rất ngắn. Kiểu Anh không đọc chữ r, trừ khi từ sau bắt đầu bằng nguyên âm (for an hour)."),
@@ -67,16 +67,37 @@ export default lesson({
     B("Yes, of course. Are you lost?", "Vâng, tất nhiên rồi. Anh bị lạc à?"),
     A("A bit. I want to go to the market.", "Hơi hơi. Tôi muốn đi chợ."),
     B("Which one? There are lots of markets in Hanoi.", "Chợ nào ạ? Ở Hà Nội có nhiều chợ lắm."),
-    A("The big old one. It sells fruit and flowers.", "Cái chợ to và cổ ấy. Ở đó bán hoa quả và hoa."),
-    B("Ah, Dong Xuan Market. Can you see the bus stop over there?", "À, chợ Đồng Xuân. Anh có thấy bến xe buýt đằng kia không?"),
+    A("The big old one. It sells clothes and food.", "Cái chợ to và cổ ấy. Ở đó bán quần áo và đồ ăn."),
+    B("Ah, Dong Xuan Market. Can you see the lake over there?", "À, chợ Đồng Xuân. Anh có thấy cái hồ đằng kia không?"),
     A("Yes, I can.", "Có, tôi thấy."),
-    B("Take the number nine bus and get off at the last stop.", "Anh đi xe buýt số chín và xuống ở bến cuối."),
+    B("Walk along this street and turn left at the lake.", "Anh đi dọc phố này rồi rẽ trái ở chỗ cái hồ."),
     A("How long does it take?", "Đi mất bao lâu?"),
     B("About twenty minutes. Is it your first time in Hanoi?", "Khoảng hai mươi phút. Đây là lần đầu anh đến Hà Nội à?"),
     A("Yes, it is. It's a lovely city.", "Đúng vậy. Thành phố đẹp lắm."),
     B("Have a good time, and look after your bag.", "Chúc anh chơi vui, và nhớ trông túi cẩn thận nhé."),
     A("Thanks for your help.", "Cảm ơn bạn đã giúp."),
   ),
+  dialogueQuestions: [
+    listenQ("pa-n08-d1", "Du khách phải đi thế nào?", "Walk along this street and turn left at the lake.", ["Đi dọc phố này rồi rẽ trái ở chỗ cái hồ", "Đi dọc phố này rồi rẽ phải ở chỗ cái hồ", "Đi xe buýt đến cái hồ"], 0, "“Walk along this street and turn left at the lake.” Nghe nối âm turn‿left, walk‿along."),
+    mc("pa-n08-d2", "Đi bộ đến chợ mất bao lâu?", ["Khoảng mười phút", "Khoảng hai mươi phút", "Khoảng một tiếng"], 1, "Lan trả lời “About twenty minutes.”"),
+    mc("pa-n08-d3", "Cuối cùng Lan dặn du khách điều gì?", ["Mua hoa ở chợ", "Đi taxi cho nhanh", "Trông túi cẩn thận"], 2, "“Have a good time, and look after your bag.” Look after nghĩa là trông nom, giữ gìn."),
+  ],
+  reading: reading({
+    title: "Câu lạc bộ nói tiếng Anh",
+    text: `Do you speak English like a robot? Many learners say every word in the same strong way. English does not work like that.
+
+In an English sentence, the important words are strong: nouns, main verbs and adjectives. Small words like a, the, to, of and and are weak and quick. Listen: "I want to go to the market." You hear WANT, GO and MAR, but to and the are very soft.
+
+Our club meets every Friday at seven in Room 12. We watch short videos, stop after each sentence and say it again. Come and practise with us. It is free!`,
+    glossary: [["robot", "người máy"], ["learner", "người học"], ["important", "quan trọng"], ["soft", "nhẹ"], ["club", "câu lạc bộ"]],
+    questions: [
+      mc("pa-n08-r1", "Ý chính của bài là gì?", ["Câu tiếng Anh có từ nhấn mạnh và từ đọc nhẹ, và câu lạc bộ giúp bạn luyện điều đó", "Người học nên đọc mọi từ thật to và rõ", "Câu lạc bộ dạy cách đi chợ ở Anh"], 0, "Bài giải thích nhịp câu tiếng Anh rồi mời bạn đến câu lạc bộ để luyện."),
+      mc("pa-n08-r2", "Theo bài, loại từ nào được đọc nhẹ và nhanh?", ["Danh từ và động từ chính", "Tính từ", "Các từ nhỏ như a, the, to, of, and"], 2, "“Small words like a, the, to, of and and are weak and quick.”"),
+      fill("pa-n08-r3", "Our club meets every ___ at seven. (ngày trong tuần)", ["Friday"], "“Our club meets every Friday at seven in Room 12.”"),
+      mc("pa-n08-r4", "Ở câu lạc bộ, các thành viên làm gì?", ["Viết bài luận ngắn", "Xem video ngắn, dừng sau mỗi câu và nói lại", "Đi chợ cùng người nước ngoài"], 1, "“We watch short videos, stop after each sentence and say it again.”"),
+      mc("pa-n08-r5", "Tham gia câu lạc bộ mất bao nhiêu tiền?", ["Mười hai đô", "Bảy đô", "Không mất tiền"], 2, "“It is free!”"),
+    ],
+  }),
   exercises: [
     mc("pa-n08-1", "Trong câu “I want to go home.”, từ nào thường được đọc nhẹ nhất?", ["want", "to", "go", "home"], 1, "To là từ chức năng, đọc dạng yếu /tə/. Want, go, home là từ nội dung nên được nhấn."),
     mc("pa-n08-2", "Câu hỏi nào thường lên giọng ở cuối?", ["Where do you live?", "What time is it?", "Are you ready?", "Why are you late?"], 2, "Are you ready? là câu hỏi Có/Không nên lên giọng. Ba câu còn lại bắt đầu bằng từ để hỏi Wh- nên xuống giọng."),
@@ -86,12 +107,19 @@ export default lesson({
     fill("pa-n08-6", "I'd like fish ___ chips, please. (và)", ["and"], "Fish and chips: and đọc yếu /ən/, nghe gần như fish ən chips."),
     reorder("pa-n08-7", "Could you turn it off?", "Could you + động từ…? là lời nhờ lịch sự. Nhớ nối âm turn‿it‿off."),
     reorder("pa-n08-8", "What time does the shop open?", "Câu hỏi Wh- nên xuống giọng ở cuối. Does và the đọc nhẹ, nhấn TIME, SHOP, O-pen."),
+    correct("pa-n08-9", "Would you like a cup tea?", "Would you like a cup of tea?", "Of đọc yếu /əv/ nên người Việt hay không nghe thấy và bỏ luôn khi viết. A cup of tea: không bỏ of."),
+    correct("pa-n08-10", "I want go to the market.", "I want to go to the market.", "Want + to + động từ. To đọc yếu /tə/, rất nhẹ, nhưng không được bỏ."),
   ],
   speaking: [
     say("I want to go to the market.", "Tôi muốn đi chợ."),
     say("Could you turn it off?", "Bạn tắt nó đi được không?"),
     say("Are you ready?", "Bạn sẵn sàng chưa?"),
   ],
+  freeSpeaking: free(
+    "How do you get to the market from your home?",
+    "Nói 3–4 câu chỉ đường từ nhà bạn đến một khu chợ hoặc cửa hàng. Nhấn vào từ nội dung, đọc nhẹ to, the, of, and, và nối âm ở những chỗ có thể.",
+    "I walk to the end of my street and turn left. Then I take the number two bus. I get off at the third stop, and the market is on the right.",
+  ),
   task: task({
     prompt: "Viết 5–6 câu một du khách có thể nói khi đi mua sắm, gồm ít nhất hai câu hỏi Có/Không và một câu hỏi Wh-. Viết hoa các từ được nhấn, đánh dấu chỗ nối âm (‿) và ghi “lên” hoặc “xuống” sau mỗi câu, rồi đọc to.",
     hints: [

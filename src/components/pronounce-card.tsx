@@ -65,7 +65,7 @@ export function PronounceCard({
               className={
                 stressed
                   ? `inline-block font-display text-5xl font-extrabold leading-none text-tangerine-deep sm:text-6xl ${speaking ? "stress-pop" : ""}`
-                  : "font-display text-3xl font-semibold leading-none text-ink/45 sm:text-4xl"
+                  : "font-display text-3xl font-semibold leading-none text-ink/65 sm:text-4xl"
               }
             >
               {stressed ? s.toUpperCase() : s}

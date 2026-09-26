@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "ngay-xua-toi-tung",
   title: "Ngày xưa tôi từng…",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "Used to: thói quen và trạng thái trong quá khứ",
     blocks: [
@@ -45,9 +45,9 @@ export default lesson({
     word("childhood", "/ˈtʃaɪld.hʊd/", "thời thơ ấu", "I had a happy childhood in the countryside.", "child|hood", 0),
     word("village", "/ˈvɪl.ɪdʒ/", "làng", "My grandparents used to live in a small village.", "vil|lage", 0, "Âm cuối là /ɪdʒ/ ngắn, đọc gần như “vi-lịch”. Đừng đọc theo chữ age thành “vi-lây-giơ”."),
     word("countryside", "/ˈkʌn.tri.saɪd/", "vùng nông thôn", "We used to spend our summers in the countryside.", "coun|try|side", 0),
-    word("neighbour", "/ˈneɪ.bər/", "hàng xóm", "Our neighbours used to give us fruit from their garden.", "neigh|bour", 0, "Chữ gh không đọc: /ˈneɪ.bər/."),
+    word("neighbour", "/ˈneɪ.bə/", "hàng xóm", "Our neighbours used to give us fruit from their garden.", "neigh|bour", 0, "Chữ gh không đọc: /ˈneɪ.bə/, nghe như “nây-bơ”."),
     word("shy", "/ʃaɪ/", "nhút nhát, ngại ngùng", "I used to be very shy at school.", "shy", 0),
-    word("remember", "/rɪˈmem.bər/", "nhớ", "I remember my first teacher very well.", "re|mem|ber", 1),
+    word("remember", "/rɪˈmem.bə/", "nhớ", "I remember my first teacher very well.", "re|mem|ber", 1),
     word("change", "/tʃeɪndʒ/", "thay đổi", "My village changed a lot after they built the new road.", "change", 0, "Kết thúc bằng âm /dʒ/, nhớ khép răng đọc rõ, đừng nuốt thành “chên”."),
   ],
   exercises: [
@@ -59,7 +59,14 @@ export default lesson({
     reorder("a2-n03-6", "Did you use to live in the countryside?", "Nghi vấn: Did + chủ ngữ + use to + động từ nguyên mẫu."),
     listen("a2-n03-7", "There used to be a big tree in front of my house.", ["Trước nhà tôi ngày xưa từng có một cái cây to.", "Trước nhà tôi sẽ có một cái cây to.", "Trước nhà tôi bây giờ có một cái cây to."], 0, "There used to be nghĩa là ngày xưa từng có, bây giờ không còn."),
     listen("a2-n03-8", "She didn't use to be shy.", ["Ngày xưa cô ấy rất nhút nhát.", "Bây giờ cô ấy không còn nhút nhát.", "Ngày xưa cô ấy đâu có nhút nhát."], 2, "Didn't use to be: ngày xưa không phải như vậy. Hàm ý là bây giờ cô ấy lại nhút nhát."),
+    correct("a2-n03-9", "Did your father used to smoke?", ["Did your father use to smoke?"], "Câu hỏi đã có did báo quá khứ, nên used to bỏ chữ d thành use to."),
+    correct("a2-n03-10", "My sister use to be very shy, but now she is very friendly.", ["My sister used to be very shy, but now she is very friendly.", "My sister used to be very shy, but now she's very friendly."], "Câu khẳng định nói về ngày xưa phải là used to, có chữ d. Chữ d không nghe rõ khi nói nhưng khi viết thì không được thiếu."),
   ],
+  freeSpeaking: free(
+    "How was your life different when you were a child?",
+    "Kể về cuộc sống của bạn hồi nhỏ: ngày xưa bạn hay làm gì, không làm gì, và nơi bạn sống đã thay đổi thế nào so với bây giờ.",
+    "When I was a child, I used to live in a small town near Thai Binh. I used to walk to school with my cousins, and we used to play football after class. I didn't use to like reading, but now I read every evening. There used to be a rice field behind my house, but now there are new houses there.",
+  ),
   speaking: [
     say("I used to live in a small village.", "Ngày xưa tôi sống ở một ngôi làng nhỏ."),
     say("I didn't use to like coffee, but now I love it.", "Ngày xưa tôi không thích cà phê, nhưng giờ tôi mê nó."),
@@ -82,8 +89,38 @@ export default lesson({
     A("That's a pity. Do you often go back?", "Tiếc thật. Bạn có hay về không?"),
     B("Yes, I usually go back at Tet. Last year I went there with my husband.", "Có, mình thường về vào dịp Tết. Năm ngoái mình về cùng chồng."),
   ),
+  dialogueQuestions: [
+    listenQ("a2-n03-d1", "Hồi nhỏ Lan đi học bằng gì?", "No, I didn't. I used to ride my bike to school with the children next door.", ["Đi bộ", "Đi xe đạp", "Đi xe buýt", "Được bố mẹ chở"], 1, "I used to ride my bike to school: ngày xưa Lan hay đạp xe đi học cùng con nhà hàng xóm."),
+    mc("a2-n03-d2", "Con sông nhỏ sau nhà Lan bây giờ ra sao?", ["Vẫn còn, trẻ con vẫn bơi ở đó", "Vẫn còn nhưng rất bẩn", "Không còn nữa, giờ ở đó là một con đường lớn"], 2, "Lan nói: No. The village changed a lot. Now there's a big road there."),
+    mc("a2-n03-d3", "Lan thường về quê vào dịp nào?", ["Mỗi cuối tuần", "Dịp Tết", "Mỗi mùa hè"], 1, "I usually go back at Tet: Lan thường về quê vào dịp Tết."),
+  ],
+  reading: reading({
+    title: "Hà Nội ngày xưa của ông tôi",
+    text: `My grandfather is seventy-five. He often tells me stories about his childhood in Hanoi, and I love them.
+
+When he was a boy, life was very different. There didn't use to be many cars in the city. People used to ride bicycles everywhere, and the streets were quiet at night. There used to be a small lake near his house. He and his friends used to catch fish there after school.
+
+His family didn't have a television, so in the evening they used to sit outside and talk with the neighbours. His mother used to cook on a small fire in the yard.
+
+Now the lake isn't there. There's a big shopping centre in its place, and the streets are full of motorbikes. My grandfather says life is easier now, but sometimes he misses the old days.`,
+    glossary: [
+      ["catch", "bắt (cá)"],
+      ["fire", "bếp lửa, ngọn lửa"],
+      ["yard", "sân nhà"],
+      ["shopping centre", "trung tâm thương mại"],
+      ["in its place", "ở đúng chỗ đó, thay cho nó"],
+      ["misses", "nhớ, tiếc nhớ (miss)"],
+    ],
+    questions: [
+      mc("a2-n03-r1", "Bài đọc chủ yếu nói về điều gì?", ["Cuộc sống ở Hà Nội hồi ông của tác giả còn nhỏ, so với bây giờ", "Cách bắt cá ở hồ", "Một trung tâm thương mại mới ở Hà Nội", "Chuyến đi chơi của hai ông cháu"], 0, "Bài kể ngày xưa (used to) rồi so với bây giờ (Now the lake isn't there...)."),
+      mc("a2-n03-r2", "Ngày xưa người Hà Nội chủ yếu đi lại bằng gì?", ["Ô tô", "Xe máy", "Xe đạp", "Xe buýt"], 2, "People used to ride bicycles everywhere. Xe máy là chuyện bây giờ."),
+      mc("a2-n03-r3", "Buổi tối, gia đình ông thường làm gì?", ["Xem ti vi", "Ngồi ngoài trời nói chuyện với hàng xóm", "Đi bắt cá", "Đi dạo phố"], 1, "They used to sit outside and talk with the neighbours, vì nhà không có ti vi."),
+      fill("a2-n03-r4", "Hoàn thành câu theo bài đọc: There used to be a small ___ near his house.", ["lake"], "There used to be a small lake near his house: gần nhà ông ngày xưa có một cái hồ nhỏ."),
+      mc("a2-n03-r5", "Bây giờ ở chỗ cái hồ ngày xưa có gì?", ["Một khu chợ", "Một trường học", "Một trung tâm thương mại lớn", "Một công viên"], 2, "There's a big shopping centre in its place."),
+    ],
+  }),
   task: task({
-    prompt: "Viết 5–6 câu so sánh cuộc sống của bạn ngày xưa (hồi nhỏ hoặc hồi sinh viên) với bây giờ.",
+    prompt: "Viết 5–7 câu (ít nhất 50 từ) so sánh cuộc sống của bạn ngày xưa (hồi nhỏ hoặc hồi sinh viên) với bây giờ.",
     hints: [
       "Thói quen ngày xưa: I used to + động từ nguyên mẫu.",
       "Điều ngày xưa không làm: I didn't use to...",
@@ -98,6 +135,6 @@ export default lesson({
       "Thói quen bây giờ dùng usually hoặc hiện tại đơn, không dùng used to",
       "Không dùng used to với số lần hay thời điểm cụ thể",
     ],
-    minWords: 35,
+    minWords: 50,
   }),
 });

@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "mo-ta-so-lieu",
   title: "Mô tả số liệu và biểu đồ",
-  minutes: 24,
+  minutes: 36,
   lecture: {
     title: "Động từ, danh từ chỉ xu hướng, trạng từ mức độ và giới từ đi với số liệu",
     blocks: [
@@ -59,7 +59,7 @@ export default lesson({
     word("peak", "/piːk/", "đạt đỉnh; đỉnh cao nhất", "Visitor numbers peaked at two million in August.", "peak", 0, "Bật âm /k/ ở cuối, nếu không sẽ nghe giống “pea”."),
     word("approximately", "/əˈprɒk.sɪ.mət.li/", "xấp xỉ, khoảng", "Approximately sixty per cent of users are under thirty.", "ap|prox|i|mate|ly", 1, "Trọng âm ở âm tiết thứ hai: ap-PROX-i-mate-ly."),
     word("proportion", "/prəˈpɔː.ʃən/", "tỷ lệ, phần", "A large proportion of our customers live in the south.", "pro|por|tion", 1),
-    word("figure", "/ˈfɪɡ.ər/", "con số, số liệu", "The latest figures show a slight fall in unemployment.", "fig|ure", 0, "Đọc là /ˈfɪɡ.ə/, không đọc thành “phi-gơ-rơ”."),
+    word("figure", "/ˈfɪɡ.ə/", "con số, số liệu", "The latest figures show a slight fall in unemployment.", "fig|ure", 0, "Đọc là /ˈfɪɡ.ə/, không đọc thành “phi-gơ-rơ”."),
     word("significant", "/sɪɡˈnɪf.ɪ.kənt/", "đáng kể", "There was a significant increase in online orders.", "sig|nif|i|cant", 1),
     word("gradual", "/ˈɡrædʒ.u.əl/", "dần dần, từ từ", "We expect a gradual recovery next year.", "grad|u|al", 0),
   ],
@@ -72,12 +72,19 @@ export default lesson({
     reorder("b2-n10-6", "The number of users rose to nine million.", "Rose to + con số: tăng lên đến mức nào."),
     listen("b2-n10-7", "Sales levelled off in the second half of the year.", ["Doanh số chững lại trong nửa cuối năm.", "Doanh số giảm mạnh trong nửa cuối năm.", "Doanh số tăng gấp đôi trong nửa cuối năm."], 0, "Level off: chững lại, đi ngang sau một thời gian tăng hoặc giảm."),
     listen("b2-n10-8", "Just over a third of the staff work from home.", ["Gần một phần ba số nhân viên làm việc ở nhà.", "Chỉ một phần ba số nhân viên đến văn phòng.", "Đúng một phần ba số nhân viên làm việc ở nhà.", "Nhỉnh hơn một phần ba số nhân viên làm việc ở nhà."], 3, "Just over: hơn một chút. Ngược lại là just under: hụt một chút."),
+    correct("b2-n10-9", "Sales increased dramatic in the second quarter.", ["Sales increased dramatically in the second quarter."], "Bổ nghĩa cho động từ increased phải là trạng từ có đuôi -ly: dramatically. Tính từ dramatic chỉ đứng trước danh từ: a dramatic increase."),
+    correct("b2-n10-10", "There was a rise by twelve per cent in online orders.", ["There was a rise of twelve per cent in online orders.", "There was a twelve per cent rise in online orders."], "Sau danh từ a rise dùng of để nêu mức thay đổi. By chỉ đi với động từ: Online orders rose by twelve per cent."),
   ],
   speaking: [
     say("Sales rose sharply in the first quarter.", "Doanh số tăng mạnh trong quý một."),
     say("There was a slight fall of two per cent in May.", "Tháng Năm có một đợt giảm nhẹ hai phần trăm."),
     say("The figure peaked at about nine thousand in July.", "Con số đạt đỉnh vào khoảng chín nghìn trong tháng Bảy."),
   ],
+  freeSpeaking: free(
+    "Think of a cost in your life that has changed over the last few years, such as rent, petrol or food. How has it changed?",
+    "Mô tả sự thay đổi của một khoản chi trong cuộc sống của bạn qua vài năm: tăng hay giảm, bao nhiêu, vì sao, và dự báo sắp tới. Dùng từ chỉ xu hướng, by và to, từ xấp xỉ và be expected to.",
+    "Over the last five years, the rent for flats in my area has risen steadily. In twenty twenty, a small flat cost about five million dong a month. Now the same flat costs roughly seven million, so the rent has gone up by around forty per cent. My salary has increased too, but only slightly. As a result, a much larger proportion of my income goes on rent. Prices are expected to keep rising next year, so I'm thinking of sharing a flat with a friend.",
+  ),
   dialogue: dialogue(
     "Báo cáo doanh số quý hai",
     "Trong buổi họp đầu tuần, chị Clark, giám đốc kinh doanh người Anh, hỏi Minh, nhân viên phân tích, về số liệu bán hàng của quý vừa qua.",
@@ -95,15 +102,48 @@ export default lesson({
     A("Great. Please put those figures in a chart for Friday's meeting.", "Tốt lắm. Em đưa các số liệu đó vào biểu đồ cho buổi họp thứ Sáu nhé."),
     B("Sure. I'll send it to you by Thursday afternoon.", "Vâng. Em sẽ gửi chị trước chiều thứ Năm."),
   ),
+  dialogueQuestions: [
+    listenQ("b2-n10-d1", "What happened to sales in the shops in May?", "There was a sharp fall in May, from nine thousand to just under seven thousand units.", ["They rose steadily to nine thousand units.", "They fell slightly by seven hundred units.", "They levelled off at around seven thousand units.", "They fell sharply to just under seven thousand units."], 3, "A sharp fall… from nine thousand to just under seven thousand: giảm mạnh, xuống còn chưa đến bảy nghìn."),
+    mc("b2-n10-d2", "According to Minh, what was the main reason for the fall?", ["The price increase", "Heavy rain", "Problems with the website", "Fewer shop staff"], 1, "Mainly because of the heavy rain. Việc tăng giá chỉ ảnh hưởng một chút."),
+    mc("b2-n10-d3", "How much did demand drop after the price rise?", ["By about fifteen per cent", "By three per cent", "By roughly one per cent", "It did not change at all"], 2, "We raised prices by three per cent, and demand dropped by roughly one per cent. Ba phần trăm là mức tăng giá, không phải mức giảm nhu cầu."),
+  ],
+  reading: reading({
+    title: "Annual report extract: Lantern Leaf Coffee in 2025",
+    text: `Lantern Leaf Coffee, a chain of forty cafés in Hanoi and Ho Chi Minh City, had a mixed year in 2025. Total revenue rose by eight per cent, to approximately 320 billion dong, but the figures behind this growth tell a more complicated story.
+
+Sales in the cafés themselves were fairly flat. In the first quarter, the number of customers fluctuated between 210,000 and 240,000 a month, mainly because of the Lunar New Year holiday, when many regular customers leave the cities. Numbers then rose gradually during the spring and peaked at just over 260,000 in July, helped by a hot summer and a popular new range of iced drinks. However, there was a sharp fall in September and October, when heavy rain and flooding kept people at home. By December, monthly visits had recovered to around 245,000, roughly the same level as in December 2024.
+
+The real growth came from online orders. Deliveries through food apps increased dramatically, from about 30,000 orders a month in January to nearly 75,000 in December. As a result, online sales now make up a significant proportion of the business: just under a quarter of total revenue, compared with only twelve per cent a year earlier.
+
+This change has not been entirely positive. Delivery apps charge a commission of up to twenty-five per cent, so each online order is less profitable than a sale in a café. Profits therefore grew by only three per cent, far less than revenue.
+
+Looking ahead, the company expects in-store sales to remain stable in 2026, while online orders are likely to continue rising, although probably more slowly. The management team is considering launching its own delivery app in order to reduce its dependence on the large platforms. A final decision is expected before the end of the first quarter.`,
+    glossary: [
+      ["revenue", "doanh thu"],
+      ["flat", "đi ngang, hầu như không đổi"],
+      ["range", "dòng sản phẩm"],
+      ["recover", "phục hồi"],
+      ["commission", "phí hoa hồng"],
+      ["profitable", "có lãi"],
+      ["dependence", "sự phụ thuộc"],
+    ],
+    questions: [
+      mc("b2-n10-r1", "What is the main point of the report?", ["Lantern Leaf Coffee's growth in 2025 came mostly from online orders, not from its cafés.", "Lantern Leaf Coffee lost money in 2025 because of the weather.", "Café customers prefer iced drinks to hot drinks.", "Delivery apps are the cheapest way to sell coffee."], 0, "Doanh thu tăng nhưng khách tại quán gần như đi ngang: The real growth came from online orders."),
+      mc("b2-n10-r2", "What proportion of total revenue came from online sales at the end of 2025?", ["Twelve per cent", "Just under a quarter", "Exactly a quarter", "Eight per cent"], 1, "Just under a quarter of total revenue: hụt một chút so với hai mươi lăm phần trăm. Mười hai phần trăm là con số của năm trước."),
+      fill("b2-n10-r3", "Café visits ___ at just over 260,000 in July. (đạt đỉnh)", ["peaked"], "Peak at + con số: đạt đỉnh ở mức nào; chuyện năm 2025 đã qua nên dùng quá khứ."),
+      mc("b2-n10-r4", "Why might the company want its own delivery app?", ["Because customers dislike ordering online", "To close some of its cafés", "To avoid paying high commissions to the large platforms", "Because the food apps have stopped working"], 2, "Các ứng dụng giao đồ ăn thu phí đến hai mươi lăm phần trăm, và công ty muốn reduce its dependence on the large platforms."),
+      mc("b2-n10-r5", "Which description best matches café visits from January to December 2025?", ["A steady rise throughout the year", "A dramatic fall followed by no recovery", "No change at all from month to month", "Ups and downs, ending at about the same level as a year earlier"], 3, "Lượng khách dao động, đạt đỉnh tháng Bảy, giảm mạnh tháng Chín, Mười rồi phục hồi về roughly the same level as in December 2024."),
+    ],
+  }),
   task: task({
-    prompt: "Viết một đoạn khoảng 70–90 từ mô tả lượng khách của một quán cà phê trong sáu tháng đầu năm: tháng Một khoảng 2.000 khách, tăng đều đến tháng Tư thì đạt đỉnh 3.000, tháng Năm giảm mạnh còn 2.400 vì sửa đường, tháng Sáu chững lại. Dự báo tháng Bảy tăng nhẹ.",
+    prompt: "Viết một bài báo cáo khoảng 140–180 từ mô tả tình hình của một quán cà phê trong sáu tháng đầu năm. Lượng khách: tháng Một khoảng 2.000 khách, tăng đều đến tháng Tư thì đạt đỉnh 3.000, tháng Năm giảm mạnh còn 2.400 vì sửa đường, tháng Sáu chững lại. Đơn mang đi: tăng từ khoảng 300 đơn mỗi tháng (tháng Một) lên 600 đơn (tháng Sáu). Dự báo tháng Bảy lượng khách tăng nhẹ.",
     hints: [
       "Mở bằng một câu giới thiệu: The chart shows…",
       "Dùng cả hai cách: động từ + trạng từ, và There was + tính từ + danh từ.",
       "Chú ý by (mức thay đổi) và to (con số đạt được); các tháng đã qua dùng thì quá khứ.",
       "Kết bằng một câu dự báo với be expected to.",
     ],
-    model: "The chart shows the number of customers at our café from January to June. In January, we had about two thousand customers. The figure then rose steadily and peaked at three thousand in April. However, there was a sharp fall in May, when numbers dropped by six hundred, to two thousand four hundred, mainly because of roadworks outside the café. In June, the number of customers levelled off at just over two thousand four hundred. Customer numbers are expected to rise slightly in July.",
+    model: "The charts show the number of customers at our café, and the number of takeaway orders, from January to June.\n\nIn January, we had about two thousand customers. The figure then rose steadily for three months and peaked at three thousand in April, helped by the warmer weather and our new menu. However, there was a sharp fall in May, when numbers dropped by six hundred, to two thousand four hundred. This was mainly because of roadworks outside the café, which made it difficult for customers to park. In June, the number of customers levelled off at just over two thousand four hundred.\n\nTakeaway orders, on the other hand, grew dramatically during the same period. They rose from roughly three hundred a month in January to six hundred in June, so they doubled in just six months. Takeaways now make up a significant proportion of our business.\n\nThe roadworks will finish at the end of June, so customer numbers are expected to rise slightly in July.",
     checklist: [
       "Có ít nhất ba từ chỉ xu hướng khác nhau (rise, fall, peak, level off…).",
       "Trạng từ đuôi -ly đi với động từ, tính từ đi với danh từ.",
@@ -112,6 +152,6 @@ export default lesson({
       "Không dùng bị động với rise hoặc fall.",
       "Có một câu dự báo với be expected to hoặc be likely to.",
     ],
-    minWords: 70,
+    minWords: 140,
   }),
 });

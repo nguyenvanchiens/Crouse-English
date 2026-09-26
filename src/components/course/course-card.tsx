@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Course } from "@/content/types";
-import { lessonCounts } from "@/lib/course-utils";
+import { contentHours, formatHours, lessonCounts } from "@/lib/course-utils";
 import { GOAL_META, LEVEL_LABEL } from "./goal-meta";
 
 export function CourseCard({ course }: { course: Course }) {
@@ -22,7 +22,7 @@ export function CourseCard({ course }: { course: Course }) {
       <h3 className="mt-5 font-display text-2xl font-extrabold leading-tight">{course.title}</h3>
       <p className="mt-2 text-ink">{course.summary}</p>
       <p className="mt-3 text-sm font-semibold text-ink-soft">
-        Trình độ {course.level} ({LEVEL_LABEL[course.level].toLowerCase()}), {course.durationWeeks} tuần
+        Trình độ {course.level} ({LEVEL_LABEL[course.level].toLowerCase()}){course.status === "open" ? `, khoảng ${formatHours(contentHours(course))} giờ bài học` : ""}
       </p>
       <p className="mt-auto pt-6 font-display text-xl font-bold">
         {course.status === "open" ? `Miễn phí, ${lessonCounts(course).lessons} bài học` : "Sắp ra mắt"}

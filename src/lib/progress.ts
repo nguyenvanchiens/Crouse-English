@@ -8,6 +8,8 @@ import {
   applyEnroll,
   applyLearnerName,
   applyPlacement,
+  applyReviewWord,
+  applyToggleTopic,
   emptyState,
   parseState,
   type ProgressState,
@@ -79,5 +81,11 @@ export const progress = {
   },
   savePlacement(level: Level, startLevel: Level, score: number) {
     write(applyPlacement(read(), level, startLevel, score, new Date()));
+  },
+  reviewWord(key: string, remembered: boolean) {
+    write(applyReviewWord(read(), key, remembered, new Date()));
+  },
+  toggleTopic(key: string) {
+    write(applyToggleTopic(read(), key));
   },
 };

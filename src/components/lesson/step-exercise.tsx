@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
-import type { Exercise, ExerciseStep } from "@/content/types";
+import type { Exercise } from "@/content/types";
 import { correctAnswerText, percentScore } from "@/lib/scoring";
+import { CorrectSentence } from "@/components/exercises/correct-sentence";
 import { FillBlank } from "@/components/exercises/fill-blank";
 import { ListenChoose } from "@/components/exercises/listen-choose";
 import { MultipleChoice } from "@/components/exercises/multiple-choice";
@@ -19,10 +20,12 @@ function ExerciseItem({ item, locked, onAnswer }: { item: Exercise; locked: bool
       return <FillBlank item={item} locked={locked} onAnswer={onAnswer} />;
     case "reorder":
       return <Reorder item={item} locked={locked} onAnswer={onAnswer} />;
+    case "correct":
+      return <CorrectSentence item={item} locked={locked} onAnswer={onAnswer} />;
   }
 }
 
-/** Where the learner is in an exercise step; kept by the lesson so leaving the step does not reset it. */
+/** Where the learner is in an exercise set; kept by the lesson so leaving the step does not reset it. */
 export interface ExerciseProgress {
   i: number;
   correct: number;
@@ -31,16 +34,22 @@ export interface ExerciseProgress {
   answered?: boolean | null;
 }
 
+export interface ExerciseResult { score: number; correct: number; total: number }
+
+/** A run of exercise items, one at a time, scored at the end. Used by the exercise step and by reading and dialogue checks. */
 export function StepExercise({
-  step,
+  items,
   saved,
   onProgress,
   onComplete,
+  flat = false,
 }: {
-  step: ExerciseStep;
+  items: Exercise[];
   saved?: ExerciseProgress;
   onProgress?: (p: ExerciseProgress) => void;
-  onComplete: (r: { score: number }) => void;
+  onComplete: (r: ExerciseResult) => void;
+  /** embedded in another card: no card frame of its own */
+  flat?: boolean;
 }) {
   const [i, setI] = useState(saved?.i ?? 0);
   const [result, setResult] = useState<boolean | null>(saved?.answered ?? null);
@@ -50,9 +59,10 @@ export function StepExercise({
   const nextRef = useRef<HTMLButtonElement>(null);
   const itemRef = useRef<HTMLDivElement>(null);
   const scoreRef = useRef<HTMLDivElement>(null);
-  const total = step.items.length;
-  const item = step.items[i];
+  const total = items.length;
+  const item = items[i];
   const last = i === total - 1;
+  const frame = flat ? "" : "clay p-6 sm:p-8";
 
   // Keep keyboard focus on the next action as the checked/next buttons unmount.
   useEffect(() => {
@@ -76,7 +86,7 @@ export function StepExercise({
       const s = percentScore(correct, total) ?? 0;
       setScore(s);
       onProgress?.({ i, correct, score: s });
-      onComplete({ score: s });
+      onComplete({ score: s, correct, total });
     } else {
       setI(i + 1);
       setResult(null);
@@ -95,7 +105,7 @@ export function StepExercise({
 
   if (score !== null) {
     return (
-      <div ref={scoreRef} tabIndex={-1} className="clay card-in p-8 text-center">
+      <div ref={scoreRef} tabIndex={-1} className={`card-in text-center ${flat ? "py-4" : "clay p-8"}`}>
         <p className="font-display text-5xl font-extrabold">{score}%</p>
         <p className="mt-2 text-lg">Bạn làm đúng {correct}/{total} câu.</p>
         <button type="button" className="btn btn-ghost mt-6" onClick={retry}>Làm lại</button>
@@ -104,7 +114,7 @@ export function StepExercise({
   }
 
   return (
-    <div className="clay p-6 sm:p-8">
+    <div className={frame}>
       <p className="mb-4 text-sm font-semibold text-ink-soft">Câu {i + 1}/{total}</p>
       <div ref={itemRef} tabIndex={-1} aria-label={`Câu ${i + 1}`}>
         <ExerciseItem key={`${attempt}-${item.id}`} item={item} locked={result !== null} onAnswer={onAnswer} />

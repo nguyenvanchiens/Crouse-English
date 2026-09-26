@@ -1,6 +1,6 @@
 import type { Course, Exercise, Lesson, Module } from "./types";
 
-const KINDS: Exercise["kind"][] = ["multiple-choice", "fill-blank", "reorder", "listen-choose"];
+const KINDS: Exercise["kind"][] = ["multiple-choice", "fill-blank", "reorder", "listen-choose", "correct"];
 const PER_LESSON = 3;
 
 function exercisesOf(l: Lesson): Exercise[] {
@@ -40,7 +40,17 @@ export function chapter(n: number, title: string, lessons: Lesson[]): Module {
 
 /** Minimum final-test score (%) for the certificate. */
 export const FINAL_PASS = 70;
-const FINAL_PER_CHAPTER = 5;
+export const FINAL_PER_CHAPTER = 5;
+
+function finalLesson(items: Exercise[]): Lesson {
+  return {
+    slug: "kiem-tra-cuoi-khoa",
+    title: "Kiểm tra cuối khóa",
+    minutes: 25,
+    final: true,
+    steps: [{ type: "exercise", items }],
+  };
+}
 
 /**
  * End-of-course test: 5 items per chapter, preferring items the chapter review did not
@@ -67,19 +77,18 @@ export function buildFinalTest(chapters: Module[]): Lesson {
     }
     items.push(...picked.map((e) => ({ ...e, id: `${e.id}-f` })));
   });
-  return {
-    slug: "kiem-tra-cuoi-khoa",
-    title: "Kiểm tra cuối khóa",
-    minutes: 25,
-    final: true,
-    steps: [{ type: "exercise", items }],
-  };
+  return finalLesson(items);
 }
 
-/** Returns a copy of the course with a closing "Kiểm tra cuối khóa" module. */
+/**
+ * Returns a copy of the course with a closing "Kiểm tra cuối khóa" module. A course with its own
+ * `finalTest` bank is tested on those unseen items, so the certificate measures skill, not memory
+ * of lesson answers; otherwise the test is drawn from the lessons.
+ */
 export function withFinalTest(course: Course): Course {
+  const final = course.finalTest?.length ? finalLesson(course.finalTest) : buildFinalTest(course.modules);
   return {
     ...course,
-    modules: [...course.modules, { id: "m-final", title: "Kiểm tra cuối khóa", lessons: [buildFinalTest(course.modules)] }],
+    modules: [...course.modules, { id: "m-final", title: "Kiểm tra cuối khóa", lessons: [final] }],
   };
 }

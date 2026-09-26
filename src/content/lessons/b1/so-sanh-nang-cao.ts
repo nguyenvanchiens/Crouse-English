@@ -1,11 +1,11 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "so-sanh-nang-cao",
   title: "So sánh tinh tế hơn",
-  minutes: 22,
+  minutes: 30,
   lecture: {
-    title: "Much/far/a bit + so sánh hơn, the… the…, not as… as, twice as… as",
+    title: "Much/far/a bit + so sánh hơn, the… the…, not as… as, twice as… as, so và such",
     blocks: [
       p("Bạn đi xem hai căn hộ ở Hà Nội. Căn thứ nhất rộng hơn **một chút**, căn thứ hai rẻ hơn **nhiều**, và giá thuê căn thứ hai chỉ bằng **một nửa** căn thứ nhất. Chỉ biết “cheaper than” thì chưa đủ để nói những sắc thái này. Bài hôm nay giúp bạn so sánh có mức độ, như người bản xứ vẫn nói hằng ngày."),
       p("Ở cấp A2, bạn đã học so sánh hơn: cheaper, bigger, more expensive. Muốn nói hơn **nhiều** hay hơn **một chút**, ta đặt một từ chỉ mức độ **ngay trước** tính từ so sánh hơn."),
@@ -28,31 +28,41 @@ export default lesson({
         ["three times as + adj + as", "gấp ba", "Rent in Hanoi is three times as high as in my hometown."],
         ["half as + adj + as", "chỉ bằng một nửa", "The small car is half as expensive as the big one."],
       ),
-      mistake("This flat is very cheaper than that one.", "This flat is much cheaper than that one.", "Tiếng Việt nói “rẻ hơn rất nhiều” nên người Việt hay dịch “rất” thành very. Very không đi với so sánh hơn. Hãy dùng much, far hoặc a lot."),
+      p("Khi muốn nhấn mạnh “quá… đến nỗi…”, dùng **so** hoặc **such**. **So** đứng trước **tính từ đứng một mình**; **such** đứng trước **cụm danh từ** (a / an + tính từ + danh từ). Thêm **that + mệnh đề** để nói kết quả."),
+      table(
+        ["Cấu trúc", "Ví dụ"],
+        ["so + tính từ", "The flat is so bright."],
+        ["such + a / an + tính từ + danh từ", "It's such a bright flat."],
+        ["such + tính từ + danh từ số nhiều / không đếm được", "They are such friendly people. / It was such good news."],
+        ["so + tính từ + that…", "The rent was so cheap that we signed the contract at once."],
+        ["such + a + tính từ + danh từ + that…", "It was such a cheap flat that we signed the contract at once."],
+      ),
+      mistake("This flat is very cheaper than that one.", "This flat is much cheaper than that one.", "Tiếng Việt nói “rẻ hơn rất nhiều” nên người Việt hay dịch “rất” thành very. Không dùng very một mình trước so sánh hơn. Hãy dùng much, far, a lot, hoặc very much (very much cheaper)."),
       mistake("The more I practise, the more I am confident.", "The more I practise, the more confident I am.", "Tính từ phải đi liền với the more: the more confident. Tiếng Việt nói “càng tự tin” nên ta dễ để tính từ lạc ra cuối câu."),
       mistake("My salary is twice more than his.", "My salary is twice as high as his.", "Với twice, three times, dùng cấu trúc as… as. Đừng dịch từng chữ “gấp đôi hơn”."),
       tip("Hai câu rút gọn rất hay dùng, học thuộc như thành ngữ: **The sooner, the better** (càng sớm càng tốt) và **The more, the merrier** (càng đông càng vui). Khi nói, nhấn giọng vào hai từ so sánh: the SOONer, the BETter."),
-      teacher("Sau nhiều năm dạy, tôi thấy chữ “very” là cái bẫy lớn nhất của người Việt khi so sánh. Tôi dặn các bạn: **hễ thấy đuôi -er hoặc chữ more, xóa very đi và thay bằng much**. Mỗi tối, các bạn thử so sánh hai thứ quen thuộc, hai quán cà phê, hai chiếc xe máy, hai thành phố, bằng ba mức: a bit, much, twice as… as. Nói to thành tiếng, chỉ năm phút thôi, nhưng làm đều đặn."),
+      teacher("Khi đứng lớp, tôi thấy chữ “very” là cái bẫy lớn nhất của người Việt khi so sánh. Tôi dặn các bạn: **hễ thấy đuôi -er hoặc chữ more, đừng để very đứng một mình, hãy thay bằng much**. Mỗi tối, các bạn thử so sánh hai thứ quen thuộc, hai quán cà phê, hai chiếc xe máy, hai thành phố, bằng ba mức: a bit, much, twice as… as. Nói to thành tiếng, chỉ năm phút thôi, nhưng làm đều đặn."),
       summary(
-        "Hơn nhiều: much / far / a lot + so sánh hơn. Hơn một chút: a bit / a little / slightly. Không dùng very với so sánh hơn.",
+        "Hơn nhiều: much / far / a lot + so sánh hơn. Hơn một chút: a bit / a little / slightly. Không dùng very một mình trước so sánh hơn (very much better thì được).",
         "Càng… càng…: the + so sánh hơn…, the + so sánh hơn…; tính từ đi liền với the more (the more confident).",
         "Không… bằng: not as + tính từ + as.",
         "Gấp đôi, gấp ba: twice / three times as + tính từ + as; chỉ bằng một nửa: half as + tính từ + as.",
+        "**so** + tính từ (so cheap), **such** + a / an + tính từ + danh từ (such a cheap flat); thêm **that** để nói kết quả.",
       ),
     ],
   },
   words: [
     word("slightly", "/ˈslaɪt.li/", "hơi, một chút", "The blue shirt is slightly cheaper.", "slight|ly", 0, "Chữ gh không đọc. Đọc như “slai-li” nhưng giữ âm /t/ nhẹ ở giữa."),
-    word("rent", "/rent/", "tiền thuê nhà; thuê", "The rent here is much higher than in my hometown.", "rent", 0, "Nhớ bật âm /t/ ở cuối."),
+    word("rent", "/rent/", "tiền thuê nhà; thuê", "The rent here is much higher than in my hometown.", "rent", 0, "Nhớ giữ âm /t/ ở cuối, đừng bỏ."),
     word("convenient", "/kənˈviː.ni.ənt/", "tiện lợi, thuận tiện", "Living near the office is far more convenient.", "con|ve|ni|ent", 1, "Trọng âm ở âm tiết thứ hai: con-VEE-ni-ent."),
-    word("crowded", "/ˈkraʊ.dɪd/", "đông đúc", "The market is more crowded at the weekend.", "crow|ded", 0, "Đuôi -ed sau âm /d/ đọc thành /ɪd/, thêm một âm tiết."),
+    word("affordable", "/əˈfɔː.də.bəl/", "vừa túi tiền, giá phải chăng", "Flats in the suburbs are much more affordable.", "af|for|da|ble", 1, "Trọng âm ở âm tiết thứ hai: ə-FOR-də-bəl. Chữ r không đọc trong giọng Anh-Anh."),
     word("spacious", "/ˈspeɪ.ʃəs/", "rộng rãi", "The new flat is much more spacious.", "spa|cious", 0),
     word("reliable", "/rɪˈlaɪ.ə.bəl/", "đáng tin cậy, bền", "This car is far more reliable than my old one.", "re|li|a|ble", 1),
     word("quality", "/ˈkwɒl.ə.ti/", "chất lượng", "The quality isn't as good as I expected.", "qual|i|ty", 0),
-    word("twice", "/twaɪs/", "gấp đôi; hai lần", "This bag is twice as expensive as that one.", "twice", 0, "Kết thúc bằng âm /s/, đừng đọc thành “thoai”."),
+    word("suburb", "/ˈsʌb.ɜːb/", "vùng ngoại ô", "Houses in the suburbs are twice as big as flats in the centre.", "sub|urb", 0, "Trọng âm ở âm đầu; âm sau là /ɜː/ kéo dài, không đọc chữ r. Hay dùng số nhiều: live in the suburbs."),
   ],
   exercises: [
-    mc("b1-n12-1", "This flat is ___ bigger than the old one.", ["very", "much", "more", "most"], 1, "Trước so sánh hơn, dùng much, far, a lot hoặc a bit. Không dùng very."),
+    mc("b1-n12-1", "This flat is ___ bigger than the old one.", ["very", "much", "more", "most"], 1, "Trước so sánh hơn, dùng much, far, a lot hoặc a bit. Không dùng very một mình (phải là very much)."),
     mc("b1-n12-2", "The more you practise, ___.", ["you speak better", "better you speak", "the better speak you", "the better you speak"], 3, "Cấu trúc càng… càng…: the + so sánh hơn + chủ ngữ + động từ."),
     fill("b1-n12-3", "My new phone is ___ as expensive as my old one. (gấp đôi)", ["twice"], "Gấp đôi: twice as + tính từ + as."),
     fill("b1-n12-4", "The bus is not ___ fast as the train.", ["as", "so"], "Không bằng: not as… as. Sau not, dùng so cũng được, nhưng as phổ biến hơn."),
@@ -60,12 +70,19 @@ export default lesson({
     reorder("b1-n12-6", "My brother is a bit taller than me.", "A bit đứng trước taller: cao hơn một chút."),
     listen("b1-n12-7", "The more I read, the more words I learn.", ["Tôi đọc nhiều nhưng không nhớ được từ nào.", "Tôi cần đọc nhiều hơn để học từ mới.", "Càng đọc nhiều, tôi càng học được nhiều từ."], 2, "The more…, the more…: càng… càng…"),
     listen("b1-n12-8", "This hotel isn't as comfortable as the one we stayed in last year.", ["Khách sạn này không thoải mái bằng khách sạn năm ngoái chúng tôi ở.", "Khách sạn này thoải mái hơn khách sạn năm ngoái.", "Năm ngoái chúng tôi cũng ở khách sạn này.", "Khách sạn này thoải mái gấp đôi khách sạn năm ngoái."], 0, "Not as… as: không… bằng."),
+    correct("b1-n12-9", "It was so a beautiful day that we went to the beach.", "It was such a beautiful day that we went to the beach.", "Trước cụm a + tính từ + danh từ (a beautiful day) dùng such, không dùng so. So chỉ đứng trước tính từ đứng một mình: The day was so beautiful that…"),
+    correct("b1-n12-10", "This phone is very cheaper than my old one.", ["This phone is much cheaper than my old one.", "This phone is far cheaper than my old one.", "This phone is a lot cheaper than my old one.", "This phone is a bit cheaper than my old one.", "This phone is cheaper than my old one.", "This phone is very much cheaper than my old one."], "Không dùng very một mình trước so sánh hơn (very much cheaper thì được). Dùng much, far hoặc a lot (hơn nhiều), hay a bit (hơn một chút)."),
   ],
   speaking: [
     say("Ho Chi Minh City is much bigger than Da Nang.", "Thành phố Hồ Chí Minh lớn hơn Đà Nẵng nhiều."),
     say("The more you practise, the more confident you become.", "Càng luyện tập nhiều, bạn càng trở nên tự tin."),
     say("My new flat is twice as big as my old one.", "Căn hộ mới của tôi rộng gấp đôi căn cũ."),
   ],
+  freeSpeaking: free(
+    "Which do you prefer: living in a big city or in a small town? Why?",
+    "So sánh cuộc sống ở thành phố lớn và ở thị trấn nhỏ (giá cả, giao thông, không khí, con người). Dùng much / far / a bit + so sánh hơn, not as… as và the… the…",
+    "I prefer living in a small town. Life in a big city is far more exciting, but it is also much more stressful. In my town, the air is a lot cleaner, and the rent isn't as high as in Hanoi. Of course, salaries are lower too. For me, the quieter my life is, the happier I feel.",
+  ),
   dialogue: dialogue(
     "Chọn căn hộ nào?",
     "Hai vợ chồng Quân và Thảo vừa đi xem hai căn hộ cho thuê ở Hà Nội và đang bàn nên chọn căn nào.",
@@ -81,14 +98,44 @@ export default lesson({
     A("So the second flat is a much better choice for us.", "Vậy căn thứ hai là lựa chọn tốt hơn nhiều cho mình."),
     B("Okay, let's call the landlord tonight. The sooner, the better!", "Được, tối nay gọi cho chủ nhà luôn. Càng sớm càng tốt!"),
   ),
+  dialogueQuestions: [
+    listenQ("b1-n12-d1", "How big is the living room in the first flat?", "The first one is much bigger. The living room is almost twice as big as ours.", ["About the same size as theirs", "Almost twice as big as theirs", "Half as big as theirs", "Three times as big as theirs"], 1, "The living room is almost twice as big as ours: rộng gần gấp đôi."),
+    mc("b1-n12-d2", "What is the problem with the second flat?", ["It is far from Quan's office.", "It isn't as bright as the first one.", "The rent is much higher."], 1, "Thảo nói: The second one isn't as bright as the first… It only has one small window."),
+    listenQ("b1-n12-d3", "Why does Thao want to spend less on rent?", "That's true. And the less we spend on rent, the more we can save for a car.", ["To save money for a car", "To pay for a holiday", "To buy new furniture", "To help her parents"], 0, "The less we spend on rent, the more we can save for a car."),
+  ],
+  reading: reading({
+    title: "City centre or suburbs? Two families, two choices",
+    text: `Every year, thousands of young families in Hanoi face the same question: should we live in the city centre or move to the suburbs? We talked to two families who made different choices.
+
+Minh and Lan live in a small flat in the Old Quarter. Their flat is only forty square metres, but it is a lot more convenient than their old one. Minh can walk to work in ten minutes, and their daughter's school is just around the corner. "The rent is far higher than in the suburbs," says Lan, "but we save so much time that it's worth it." The only problem is the noise. The streets are busy until midnight.
+
+Hung and Mai moved to a new area in the suburbs last year. Their house is twice as big as their old flat, and it has a small garden. The rent is slightly lower, too. However, Hung now spends almost an hour driving to work every morning. "The further you live from the centre, the more time you spend in traffic," he laughs. At the weekend, though, the family loves the quiet streets and the fresh air.
+
+So which is better? The answer depends on what matters most to you. For families who hate long journeys to work, the centre is the better choice. For those who want more space, the suburbs are hard to beat.`,
+    glossary: [
+      ["face", "đối mặt với"],
+      ["district", "quận"],
+      ["square metre", "mét vuông"],
+      ["worth it", "đáng (công, tiền)"],
+      ["matter", "quan trọng, có ý nghĩa"],
+      ["hard to beat", "khó có gì tốt hơn"],
+    ],
+    questions: [
+      mc("b1-n12-r1", "What is the article mainly about?", ["How to find a cheap flat in Hanoi", "Two families' different choices about where to live", "Traffic problems in the suburbs", "Why schools in the city centre are better"], 1, "Bài báo so sánh lựa chọn nơi ở của hai gia đình: trung tâm và ngoại ô."),
+      mc("b1-n12-r2", "How does Minh get to work?", ["He walks there in ten minutes.", "He drives for almost an hour.", "He takes a bus for thirty minutes."], 0, "Minh can walk to work in ten minutes."),
+      fill("b1-n12-r3", "Hung and Mai's house is ___ as big as their old flat.", ["twice"], "Their house is twice as big as their old flat: rộng gấp đôi."),
+      mc("b1-n12-r4", "What is the main disadvantage of Minh and Lan's flat?", ["It is far from the school.", "It has no windows.", "It is noisy until late at night.", "It is more expensive to heat."], 2, "The only problem is the noise. The streets are busy until midnight."),
+      mc("b1-n12-r5", "Which statement would Lan probably agree with?", ["Saving time is more important to her than saving money.", "The suburbs are better for children.", "Quiet streets matter more than anything.", "Rent in the centre is too cheap."], 0, "Câu suy luận: Lan chấp nhận tiền thuê cao hơn nhiều vì tiết kiệm được thời gian (we save so much time that it's worth it)."),
+    ],
+  }),
   task: task({
-    prompt: "Viết một đoạn văn 6–8 câu so sánh hai nơi bạn từng sống hoặc hai thành phố bạn biết rõ (giá cả, giao thông, không khí, con người).",
+    prompt: "Viết một đoạn văn (90–120 từ) so sánh hai nơi bạn từng sống hoặc hai thành phố bạn biết rõ (giá cả, giao thông, không khí, con người).",
     hints: [
       "Dùng much / far / a bit + so sánh hơn để nói mức độ.",
       "Có ít nhất một câu not as… as và một câu twice / three times as… as.",
       "Kết bằng một câu càng… càng…: the longer…, the more…",
     ],
-    model: "I have lived in both Hanoi and my hometown, Thai Binh. Hanoi is much bigger and far more exciting, but the traffic is a lot worse. In Thai Binh, the air is slightly cleaner and the streets are much quieter. Food in my hometown isn't as expensive as in Hanoi. In fact, a bowl of pho in Hanoi is almost twice as expensive as at home. However, salaries in Hanoi are also three times as high. For me, the longer I live in the city, the more I miss my quiet hometown.",
+    model: "I have lived in both Hanoi and my hometown, Thai Binh. Hanoi is much bigger and far more exciting, but the traffic is a lot worse. In Thai Binh, the air is slightly cleaner and the streets are much quieter. Food in my hometown isn't as expensive as in Hanoi. In fact, a bowl of pho in Hanoi is almost twice as expensive as at home. However, salaries in Hanoi are also three times as high. For me, the longer I live in the city, the more I miss my quiet hometown. It is such a peaceful place that I go back almost every month.",
     checklist: [
       "Có ít nhất hai câu dùng much / far / a lot / a bit trước so sánh hơn.",
       "Không dùng very trước so sánh hơn.",
@@ -96,6 +143,6 @@ export default lesson({
       "Có một câu twice / three times / half as + tính từ + as.",
       "Có một câu càng… càng… đúng cấu trúc the + so sánh hơn.",
     ],
-    minWords: 60,
+    minWords: 90,
   }),
 });

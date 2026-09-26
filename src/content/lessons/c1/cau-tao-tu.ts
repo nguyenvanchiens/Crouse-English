@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "cau-tao-tu",
   title: "Cấu tạo từ",
-  minutes: 24,
+  minutes: 35,
   lecture: {
     title: "Tiền tố, hậu tố, họ từ và trọng âm dịch chuyển",
     blocks: [
@@ -26,11 +26,11 @@ export default lesson({
         ["-ment", "danh từ", "develop → development, agree → agreement"],
         ["-ity", "danh từ (từ tính từ)", "creative → creativity, able → ability"],
         ["-ive", "tính từ", "create → creative, decide → decisive"],
-        ["-ise (Mỹ: -ize)", "động từ", "priority → prioritise, modern → modernise"],
+        ["-ise / -ize (Mỹ dùng -ize; Anh dùng cả hai, -ise phổ biến hơn)", "động từ", "priority → prioritise, modern → modernise"],
       ),
       ex("Her decision was quick and decisive.", "Quyết định của cô ấy nhanh chóng và dứt khoát.", "Decision là danh từ (chủ ngữ), decisive là tính từ (sau was). Cùng một họ từ, khác vị trí."),
       mistake("She is a very creativity person.", "She is a very creative person.", "Trước danh từ person cần tính từ. Vì tiếng Việt không đổi hình dạng từ, học viên hay lấy nhầm từ trong cùng họ. Hãy tự hỏi: chỗ trống cần danh từ, động từ, tính từ hay trạng từ?"),
-      p("Điểm khó nhất với người Việt là **trọng âm dịch chuyển**. Khi thêm hậu tố, trọng âm có thể chạy sang âm tiết khác. Quy tắc hữu ích: với **-tion**, **-ic**, **-ity**, **-ical**, trọng âm rơi vào âm tiết **ngay trước** hậu tố."),
+      p("Điểm khó nhất với người Việt là **trọng âm dịch chuyển**. Khi thêm hậu tố, trọng âm có thể chạy sang âm tiết khác. Hai quy tắc hữu ích. Một: với **-tion**, **-ic**, **-ity**, **-ical**, trọng âm thường rơi vào âm tiết **ngay trước** hậu tố (creAtion, ecoNOmic, creaTIvity, poLItical). Ngoại lệ đáng nhớ với -ic: **Arabic** /ˈær.ə.bɪk/, **Catholic** /ˈkæθ.əl.ɪk/, **politics** /ˈpɒl.ə.tɪks/, **rhetoric** /ˈret.ər.ɪk/, **lunatic**, và danh từ **arithmetic** /əˈrɪθ.mə.tɪk/. Hai: với **-graphy**, **-grapher**, **-logy**, **-logist** và phần lớn từ tận cùng bằng **-phy**, trọng âm rơi vào âm tiết **thứ ba tính từ cuối lên** (phoTOgraphy, phoTOgrapher, biOLogy, phiLOsophy)."),
       table(
         ["Từ gốc", "Cùng họ", "Cùng họ"],
         ["PHOtograph", "phoTOgrapher, phoTOgraphy", "photoGRAPHic"],
@@ -41,41 +41,50 @@ export default lesson({
       ex("Her photographs are stunning; she has been a professional photographer for years, and her photographic style is instantly recognisable.", "Ảnh của cô ấy tuyệt đẹp; cô ấy đã là nhiếp ảnh gia chuyên nghiệp nhiều năm, và phong cách nhiếp ảnh của cô ấy nhìn là nhận ra ngay.", "Ba từ cùng họ, ba vị trí trọng âm: PHOtographs, phoTOgrapher, photoGRAPHic. Đọc to cả câu để nghe trọng âm chạy từ âm tiết đầu sang âm tiết thứ hai rồi thứ ba."),
       mistake("I love PHOtography.", "I love phoTOgraphy.", "Người Việt đọc mỗi âm tiết mạnh như nhau, nên khi đã thuộc PHOtograph thì cứ giữ trọng âm đó cho cả họ từ. Người bản xứ nghe sai trọng âm còn khó hiểu hơn nghe sai một nguyên âm."),
       tip("Khi học một từ mới, hãy ghi **cả họ từ** thành một hàng, đánh dấu trọng âm bằng chữ in hoa: deCIDE, deCIsion, deCIsive. Đọc to cả hàng ba lần. Tai và miệng sẽ nhớ **sự dịch chuyển** trọng âm như nhớ một giai điệu."),
-      teacher("Sau nhiều năm dạy, tôi dám nói: học viên Việt mất điểm Writing và Speaking vì **sai từ loại** nhiều hơn vì thiếu từ. Tôi giao cho các bạn một bài tập mỗi ngày: chọn một gốc từ trong bài báo vừa đọc, viết ra họ từ của nó, rồi đặt bốn câu, mỗi câu dùng một từ loại khác nhau. Chỉ mười phút, nhưng làm đều đặn một học kỳ thì vốn từ tăng gấp ba mà không cần học thêm gốc mới nào."),
+      p("Trong đề thi C1 Advanced và nhiều đề thi tuyển sinh có hẳn một dạng bài **word formation**: cho một từ gốc viết hoa trong ngoặc, bạn phải biến đổi nó cho vừa chỗ trống. Làm theo ba bước: **một**, nhìn các từ xung quanh để biết chỗ trống cần từ loại gì; **hai**, đọc cả câu xem nghĩa cần khẳng định hay phủ định (có cần un-, dis-, in-, mis- không); **ba**, kiểm tra số nhiều, thì của động từ và chính tả khi ghép hậu tố."),
+      ex("The committee described the plan as completely unrealistic.", "Ủy ban nhận xét kế hoạch là hoàn toàn thiếu thực tế.", "Đề cho: completely ___ (REALISM). Sau completely cần tính từ: realism thành realistic. Nghĩa của câu là chê, nên thêm tiền tố un-: unrealistic. Hai thay đổi trong một chỗ trống là chuyện rất thường gặp ở C1."),
+      teacher("Khi chấm bài Writing và Speaking, lỗi tôi gặp nhiều nhất không phải là thiếu từ mà là **sai từ loại**. Tôi giao cho các bạn một bài tập mỗi ngày: chọn một gốc từ trong bài báo vừa đọc, viết ra họ từ của nó, rồi đặt bốn câu, mỗi câu dùng một từ loại khác nhau. Chỉ mười phút, nhưng làm đều đặn một học kỳ thì vốn từ các bạn dùng được sẽ tăng lên rõ rệt mà không cần học thêm nhiều gốc mới."),
       summary(
         "**Tiền tố** đổi nghĩa, thường giữ nguyên từ loại: un-, dis-, mis-, over-, under-. Mỗi gốc từ đi với một tiền tố cố định: disagree, không nói unagree.",
-        "**Hậu tố** đổi từ loại: -tion, -ment, -ity tạo danh từ; -ive tạo tính từ; -ise tạo động từ.",
+        "**Hậu tố** đổi từ loại: -tion, -ment, -ity tạo danh từ; -ive tạo tính từ; -ise/-ize tạo động từ.",
         "Trước khi chọn từ, tự hỏi: chỗ này cần **danh từ, động từ, tính từ hay trạng từ**? Trước danh từ là tính từ (a creative person), sau her là danh từ (her decision).",
-        "Với -tion, -ic, -ity, -ical, trọng âm rơi vào âm tiết **ngay trước hậu tố**: PHOtograph, phoTOgraphy, photoGRAPHic.",
+        "Với -tion, -ic, -ity, -ical, trọng âm thường rơi vào âm tiết **ngay trước hậu tố** (photoGRAPHic, creaTIvity; ngoại lệ: ARabic, CAtholic, POlitics, RHEtoric); với -graphy, -logy, -phy, trọng âm rơi vào âm tiết **thứ ba từ cuối lên** (phoTOgraphy, biOLogy).",
         "Học từ theo **cả họ từ**, đánh dấu trọng âm và đọc to: deCIDE, deCIsion, deCIsive.",
       ),
     ],
   },
   words: [
-    word("misinterpret", "/ˌmɪs.ɪnˈtɜː.prɪt/", "hiểu sai, diễn giải sai", "Journalists misinterpreted the minister's comments.", "mis|in|ter|pret", 2),
+    word("misinterpret", "/ˌmɪs.ɪnˈtɜː.prət/", "hiểu sai, diễn giải sai", "Journalists misinterpreted the minister's comments.", "mis|in|ter|pret", 2),
     word("underestimate", "/ˌʌn.dəˈres.tɪ.meɪt/", "đánh giá thấp", "Never underestimate your competitors.", "un|der|es|ti|mate", 2, "Trọng âm chính ở es, còn un mang trọng âm phụ. Âm cuối /t/ cần đọc rõ."),
     word("disproportionate", "/ˌdɪs.prəˈpɔː.ʃən.ət/", "không cân xứng, quá mức", "The punishment was disproportionate to the offence.", "dis|pro|por|tion|ate", 2),
     word("photography", "/fəˈtɒɡ.rə.fi/", "nghệ thuật nhiếp ảnh", "He took up photography after he retired.", "pho|tog|ra|phy", 1, "Trọng âm ở âm tiết thứ hai: pho-TOG-ra-phy, khác với PHO-to-graph."),
     word("decisive", "/dɪˈsaɪ.sɪv/", "quyết đoán, mang tính quyết định", "The manager was calm and decisive during the crisis.", "de|ci|sive", 1),
-    word("prioritise", "/praɪˈɒr.ɪ.taɪz/", "ưu tiên", "You need to prioritise the most urgent tasks.", "pri|or|i|tise", 1, "Anh-Mỹ viết là prioritize."),
+    word("prioritise", "/praɪˈɒr.ɪ.taɪz/", "ưu tiên", "You need to prioritise the most urgent tasks.", "pri|or|i|tise", 1, "Anh-Mỹ viết là prioritize; Anh-Anh dùng được cả hai cách, prioritise phổ biến hơn."),
     word("authenticity", "/ˌɔː.θenˈtɪs.ə.ti/", "tính xác thực, tính chân thật", "Experts questioned the authenticity of the painting.", "au|then|tic|i|ty", 2, "Hậu tố -ity kéo trọng âm về âm tiết ngay trước: auTHENtic thành authenTICity."),
     word("affix", "/ˈæf.ɪks/", "phụ tố (tiền tố hoặc hậu tố)", "Un- and -ment are both common affixes.", "af|fix", 0),
   ],
   exercises: [
     mc("c1-n04-1", "Từ nào có trọng âm rơi vào âm tiết thứ hai?", ["photograph", "photography", "photographic", "photocopy"], 1, "Photography: pho-TOG-ra-phy. Photograph và photocopy nhấn âm đầu, photographic nhấn âm thứ ba."),
     mc("c1-n04-2", "The instructions were so unclear that many users ___ them.", ["ununderstood", "disunderstood", "overunderstood", "misunderstood"], 3, "Mis- nghĩa là hiểu sai, làm sai. Các lựa chọn còn lại không phải là từ có thật."),
-    fill("c1-n04-3", "We completely ___estimated the cost of the project; it cost twice as much as we planned.", ["under"], "Chi phí thực tế gấp đôi dự kiến, tức là ta đã đánh giá thấp: underestimate."),
-    fill("c1-n04-4", "Her ___ to resign surprised the whole department. (decide)", ["decision"], "Sau her cần một danh từ: decide thành decision."),
+    fill("c1-n04-3", "We completely ___ the cost of the project; it cost twice as much as we had planned. (ESTIMATE)", ["underestimated"], "Dạng bài word formation: chi phí thực tế gấp đôi dự kiến, tức là ta đã đánh giá thấp. Cần thêm tiền tố under- và chia quá khứ: underestimated."),
+    fill("c1-n04-4", "Her ___ to resign surprised the whole department. (DECIDE)", ["decision"], "Sau tính từ sở hữu her cần một danh từ: decide thành decision."),
     reorder("c1-n04-5", "Her creativity impressed everyone on the team.", "Creativity là danh từ, làm chủ ngữ của câu."),
     reorder("c1-n04-6", "Many people underestimate the importance of sleep.", "Underestimate: under- nghĩa là dưới mức, đánh giá thấp."),
     listen("c1-n04-7", "The manager was very decisive during the crisis.", ["Người quản lý đã quyết định nghỉ việc trong cuộc khủng hoảng.", "Người quản lý do dự trong cuộc khủng hoảng.", "Người quản lý rất quyết đoán trong cuộc khủng hoảng."], 2, "Decisive là tính từ: quyết đoán."),
     listen("c1-n04-8", "His comments were completely misinterpreted by the press.", ["Báo chí đã hiểu sai hoàn toàn bình luận của anh ấy.", "Báo chí đã đăng đầy đủ bình luận của anh ấy.", "Anh ấy đã hiểu sai các bài báo."], 0, "Mis- + interpret: diễn giải sai. Câu bị động, người hiểu sai là báo chí."),
+    correct("c1-n04-9", "She gave a very convince argument in the debate.", ["She gave a very convincing argument in the debate."], "Trước danh từ argument (và sau very) cần một tính từ. Convince là động từ; tính từ cùng họ là convincing."),
+    correct("c1-n04-10", "It was unresponsible of him to leave the office unlocked.", ["It was irresponsible of him to leave the office unlocked."], "Responsible đi với tiền tố ir-, không đi với un-: irresponsible. Mỗi gốc từ có tiền tố phủ định cố định, giống disagree chứ không phải unagree."),
   ],
   speaking: [
     say("I studied photography at university.", "Tôi học nhiếp ảnh ở trường đại học."),
     say("We should never underestimate our competitors.", "Chúng ta không bao giờ nên đánh giá thấp đối thủ."),
     say("Her decision was quick and decisive.", "Quyết định của cô ấy nhanh chóng và dứt khoát."),
   ],
+  freeSpeaking: free(
+    "Describe a decision that you found difficult to make. Why was it difficult, and how did you finally decide?",
+    "Kể về một quyết định khó khăn của bạn. Dùng các từ cùng họ ở nhiều vị trí khác nhau (decide, decision, decisive, indecisive) và ít nhất hai từ có tiền tố (underestimate, overestimate, misunderstand...). Nhớ nhấn đúng trọng âm.",
+    "The hardest decision I've ever made was whether to leave a well-paid job at a bank and join a small start-up. I'm usually quite decisive, but this time I was completely indecisive for almost two months. Looking back, I think I underestimated how attached I was to the security of a monthly salary, and I probably overestimated the risks of the new job. In the end, my wife made a simple suggestion: write down what I would regret most in ten years' time. That made my choice obvious. I moved, and I've never regretted it, although the pay is lower.",
+  ),
   dialogue: dialogue(
     "Rút kinh nghiệm sau một chiến dịch thất bại",
     "Chị Hà, trưởng nhóm marketing của một công ty mỹ phẩm ở Hà Nội, ngồi với Mark, chuyên gia tư vấn người Anh, để phân tích vì sao chiến dịch ra mắt sản phẩm mới không đạt chỉ tiêu.",
@@ -91,21 +100,57 @@ export default lesson({
     A("Yes, but keep it realistic. Last time the photographers were underpaid, and the photos looked rushed.", "Có, nhưng hãy thực tế. Lần trước các nhiếp ảnh gia bị trả thấp, và ảnh trông rất vội vàng."),
     B("Point taken. This time every decision in the proposal will be backed by data.", "Tôi hiểu rồi. Lần này mọi quyết định trong đề xuất sẽ có số liệu làm cơ sở."),
   ),
+  dialogueQuestions: [
+    listenQ("c1-n04-d1", "According to Mark, what was wrong with the way the budget was spent?", "That's a fair assessment. I'd add that your ad spending was disproportionate to the results: you overspent on ads and underinvested in content.", ["Too much went on advertising and too little on content.", "Too much was spent on photography.", "The money was spent too slowly.", "Nothing: the budget was well balanced."], 0, "Overspent on ads and underinvested in content: chi quá tay cho quảng cáo, đầu tư chưa đủ cho nội dung."),
+    mc("c1-n04-d2", "Why did many customers misunderstand the slogan?", ["It was written only in English.", "It relied on wordplay, and they thought prices were going up.", "It was far too long to read.", "It mentioned a competitor by name."], 1, "Chị Hà nói khách tưởng công ty sắp tăng giá; Mark giải thích chuyện này hay xảy ra khi thông điệp dựa vào chơi chữ."),
+    mc("c1-n04-d3", "What went wrong with the photography in the last campaign?", ["The photographers missed the deadline.", "The photographers refused to work with the team.", "The photographers were underpaid, and the photos looked rushed.", "The photographers were paid far too much."], 2, "Last time the photographers were underpaid, and the photos looked rushed."),
+  ],
+  reading: reading({
+    title: "The hidden size of your vocabulary",
+    text: `Ask an advanced learner how many English words they know and the answer is usually a guess, and often a pessimistic one. Researchers who study vocabulary have a more encouraging message: most learners know far more words than they think, because they know, often without realising it, how words are built.
+
+English is unusually generous in this respect. A single root can generate a whole family of related forms, each suited to a different position in the sentence. From the verb decide we get decision, decisive, decisively, indecisive and indecision; from create we get creation, creative, creativity and creator. A learner who genuinely understands one member of such a family can often recognise the others on first encounter, even if nobody has ever taught them. This is why many linguists prefer to count word families rather than individual words when they estimate how much vocabulary a reader needs. By that measure, several thousand families are enough to follow most newspaper articles.
+
+The system is not perfectly regular, however, and this is where learners stumble. Prefixes that seem to mean the same thing are rarely interchangeable. English says unhappy but dishonest, impatient but irresponsible, and there is no reliable rule to predict which is correct. Suffixes cause a different problem, because they often move the stress. Photograph is stressed on the first syllable, photographer and photography on the second, and photographic on the third. Speakers of languages without word stress, such as Vietnamese, tend to keep the stress where they first learned it, which can make a perfectly chosen word surprisingly hard for listeners to catch.
+
+A further difficulty is that the meaning of a derived word is not always the sum of its parts. Priceless does not mean "without a price" but "extremely valuable", and an invaluable colleague is not a worthless one but someone you could hardly do without. Such exceptions are relatively few, but they are exactly the words that appear in advanced exams, precisely because they reward candidates who read widely rather than those who simply apply rules.
+
+What, then, is the most efficient way to learn? Teachers increasingly recommend recording words in families rather than in alphabetical lists, marking the stressed syllable in each form, and noting which negative prefix a root takes. Reading remains essential, since it is the only way to meet enough examples to absorb the exceptions. But the underlying lesson is reassuring. Every time you learn a new root properly, you are not learning one word. You may well be learning six.`,
+    glossary: [
+      ["generous", "(ở đây) dồi dào, cho nhiều"],
+      ["generate", "tạo ra, sinh ra"],
+      ["on first encounter", "ngay lần gặp đầu tiên"],
+      ["interchangeable", "thay thế cho nhau được"],
+      ["stumble", "vấp, mắc lỗi"],
+      ["derived word", "từ phái sinh (tạo từ một gốc)"],
+      ["priceless", "vô giá"],
+      ["absorb", "tiếp thu, thấm dần"],
+    ],
+    questions: [
+      mc("c1-n04-r1", "What is the writer's main message?", ["Learners should memorise vocabulary in alphabetical lists.", "Understanding how words are built greatly increases the vocabulary a learner can use.", "English word formation is completely regular.", "Vietnamese learners are unable to learn word stress."], 1, "Ý chính nằm ở đoạn đầu và đoạn cuối: người học biết nhiều từ hơn họ nghĩ vì họ hiểu cách từ được cấu tạo."),
+      mc("c1-n04-r2", "Why do many linguists count word families rather than individual words?", ["Because knowing one member of a family often allows learners to recognise the others", "Because dictionaries are organised by word family", "Because individual words are too difficult to count", "Because word families are easier to pronounce"], 0, "Đoạn hai: a learner who genuinely understands one member of such a family can often recognise the others."),
+      fill("c1-n04-r3", "The writer points out that prefixes which seem to mean the same thing are rarely ___. (CHANGE)", ["interchangeable"], "Word formation ngay trong bài đọc: change → changeable → interchangeable (thay thế cho nhau được). Đoạn ba: Prefixes that seem to mean the same thing are rarely interchangeable."),
+      mc("c1-n04-r4", "In paragraph 4, an “invaluable colleague” is someone who is", ["not worth very much", "new to the company", "extremely useful and hard to replace", "paid less than others"], 2, "Bài đọc giải thích: not a worthless one but someone you could hardly do without. In- vẫn là “không”, nhưng nghĩa là quý đến mức không định giá được, chứ không phải vô giá trị."),
+      mc("c1-n04-r5", "According to the writer, why do exceptions like “priceless” appear in advanced exams?", ["They are the most common words in English.", "They are easy to guess from their parts.", "They were invented by examiners.", "They reward candidates who read widely rather than just applying rules."], 3, "Đoạn bốn: because they reward candidates who read widely rather than those who simply apply rules."),
+      mc("c1-n04-r6", "Which word best describes the writer's attitude towards learners' chances of building a large vocabulary?", ["Pessimistic", "Encouraging", "Indifferent", "Sarcastic"], 1, "Tác giả nói a more encouraging message và the underlying lesson is reassuring: thái độ khích lệ."),
+    ],
+  }),
   task: task({
-    prompt: "Bạn vừa kết thúc một dự án không đạt mục tiêu. Hãy viết email ngắn gửi sếp để rút kinh nghiệm: nêu nguyên nhân và đề xuất cho lần sau. Dùng thật nhiều từ có tiền tố, hậu tố, và dùng các từ cùng họ ở những vị trí khác nhau trong câu.",
+    prompt: "Bạn vừa kết thúc một dự án không đạt mục tiêu. Hãy viết email (khoảng 230–280 từ) gửi sếp để rút kinh nghiệm: nêu kết quả, phân tích nguyên nhân và đưa ra ba đề xuất cho lần sau. Dùng thật nhiều từ có tiền tố, hậu tố, và dùng các từ cùng họ ở những vị trí khác nhau trong câu.",
     hints: [
-      "Nêu nguyên nhân bằng từ có tiền tố: underestimate, overestimate, misunderstand, unaware, unclear.",
+      "Nêu nguyên nhân bằng từ có tiền tố: underestimate, overestimate, misunderstand, unclear, disproportionate, indecision.",
       "Dùng ít nhất hai họ từ, mỗi họ hai từ loại: decision và decisive, rely và reliability.",
-      "Kết thúc bằng hai ba việc cần ưu tiên (prioritise) cho dự án sau.",
+      "Chia email thành bốn đoạn: mục đích, nguyên nhân, điểm yếu lớn nhất, đề xuất.",
+      "Kết thúc bằng ba việc cần ưu tiên (prioritise) cho dự án sau.",
     ],
-    model: "Dear Mr Tanaka,\n\nI am writing to reflect on the launch of our new mobile app, which did not meet its targets. Looking back, we clearly underestimated the time needed to test the product, and we overestimated how quickly users would adopt it. Several reviewers also misunderstood the subscription model, which suggests that our explanation was unclear. In addition, we spent a disproportionate share of the budget on advertising. Our biggest weakness, however, was indecision: we delayed several key decisions for weeks. Next time, I propose that we prioritise user testing, simplify our pricing and make faster, more decisive choices. Users need an app they can rely on, so reliability must come before new features. I am confident that these changes will make our next launch far more successful.\n\nBest regards,\nLinh",
+    model: "Dear Mr Tanaka,\n\nI am writing to reflect on the launch of our new mobile app, which, as you know, did not meet its targets for the first quarter. I have discussed the results with the team, and I would like to share our conclusions and some proposals for the future.\n\nLooking back, we clearly underestimated the time needed to test the product, and we overestimated how quickly users would adopt it. Several reviewers also misunderstood the subscription model, which suggests that our explanation was unclear. In addition, we spent a disproportionate share of the budget on advertising and too little on improving the product itself.\n\nOur biggest weakness, however, was indecision. We delayed several key decisions for weeks, mainly because the design and marketing teams disagreed about the direction of the app. This lack of coordination was frustrating for everyone and, in my view, entirely avoidable.\n\nNext time, I propose three changes. First, we should prioritise user testing and begin it at least two months before the launch. Second, we need to simplify our pricing so that customers can understand it at a glance. Third, a single project manager should be given the authority to make faster, more decisive choices whenever the teams cannot agree.\n\nUsers need an app they can rely on, so reliability must come before new features. I am confident that these changes will make our next launch far more successful, and I would welcome the chance to discuss them with you next week.\n\nBest regards,\nLinh",
     checklist: [
-      "Có ít nhất bốn từ dùng tiền tố (under-, over-, mis-, un-, dis-, in-).",
-      "Có ít nhất hai họ từ, mỗi họ dùng hai từ loại khác nhau (decision và decisive).",
+      "Có ít nhất năm từ dùng tiền tố (under-, over-, mis-, un-, dis-, in-).",
+      "Có ít nhất hai họ từ, mỗi họ dùng hai từ loại khác nhau (decision và decisive, rely và reliability).",
       "Mỗi từ đứng đúng vị trí từ loại: sau mạo từ hoặc tính từ sở hữu là danh từ, trước danh từ là tính từ.",
-      "Đọc to email và nhấn đúng trọng âm các từ có đuôi -tion, -ity, -ic.",
-      "Có ít nhất hai đề xuất cụ thể cho lần sau.",
+      "Đọc to email và nhấn đúng trọng âm các từ có đuôi -tion, -ity, -ic (decision, reliability, coordination).",
+      "Có đủ ba đề xuất cụ thể cho lần sau.",
     ],
-    minWords: 90,
+    minWords: 230,
   }),
 });

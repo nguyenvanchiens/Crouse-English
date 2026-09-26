@@ -26,6 +26,26 @@ export function lessonCounts(course: Course): { lessons: number; reviews: number
   return { lessons: all.length - reviews, reviews };
 }
 
+/** Hours of lesson content (lessons, reviews and test), rounded to the nearest half hour. */
+export function contentHours(course: Course): number {
+  const minutes = course.modules.flatMap((m) => m.lessons).reduce((n, l) => n + l.minutes, 0);
+  return Math.round((minutes / 60) * 2) / 2;
+}
+
+/**
+ * Cambridge English's estimate of guided learning hours needed to reach each CEFR level,
+ * counted from complete beginner (support.cambridgeenglish.org, "Guided learning hours").
+ */
+export const GUIDED_HOURS: Record<Level, [number, number]> = {
+  A1: [90, 100],
+  A2: [180, 200],
+  B1: [350, 400],
+  B2: [500, 600],
+  C1: [700, 800],
+};
+
+export const formatHours = (h: number) => h.toLocaleString("vi-VN", { maximumFractionDigits: 1 });
+
 export function suggestCourseSlug(level: Level): string {
   return `tieng-anh-${level.toLowerCase()}`;
 }

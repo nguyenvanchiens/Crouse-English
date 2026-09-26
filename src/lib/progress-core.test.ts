@@ -19,8 +19,8 @@ import {
 const lesson = (slug: string) => ({ slug, title: slug, minutes: 5, steps: [] });
 const course: Course = {
   slug: "c", title: "C", level: "A1", goal: "lo-trinh", summary: "", outcomes: [], audience: [],
-  teacher: { name: "", bio: "", initials: "" }, durationWeeks: 1, rating: 5,
-  reviews: [], faqs: [], status: "open",
+  teacher: { name: "", bio: "", initials: "" },   
+  faqs: [], status: "open",
   modules: [
     { id: "m1", title: "M1", lessons: [lesson("a"), lesson("b")] },
     { id: "m2", title: "M2", lessons: [lesson("c")] },

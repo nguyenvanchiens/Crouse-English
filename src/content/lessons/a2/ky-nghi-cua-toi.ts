@@ -1,9 +1,9 @@
-import { A, B, dialogue, ex, fill, lesson, listen, mc, mistake, p, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
 
 export default lesson({
   slug: "ky-nghi-cua-toi",
   title: "Kỳ nghỉ của tôi",
-  minutes: 20,
+  minutes: 30,
   lecture: {
     title: "Câu hỏi Wh- ở quá khứ đơn và động từ bất quy tắc",
     blocks: [
@@ -39,7 +39,7 @@ export default lesson({
       mistake("Where you went last summer?", "Where did you go last summer?", "Tiếng Việt hỏi “Bạn đã đi đâu?” mà không cần trợ động từ, nên học trò hay bỏ did. Câu hỏi quá khứ trong tiếng Anh bắt buộc có did đứng trước chủ ngữ."),
       mistake("How long did you stayed there?", "How long did you stay there?", "Đã có did báo quá khứ rồi thì động từ chính phải về nguyên mẫu. Quá khứ chỉ đánh dấu một lần."),
       mistake("I went to Nha Trang in holiday.", "I went to Nha Trang on holiday.", "Dịch từng chữ “trong kỳ nghỉ” sẽ ra in. Tiếng Anh nói đi nghỉ là on holiday."),
-      teacher("Sau nhiều năm dạy, tôi thấy học viên thuộc làu bảng động từ bất quy tắc, nhưng cứ đặt câu hỏi là quên did. Vì thế tôi dặn các bạn một câu: **“Có did thì động từ nghỉ”**. Mỗi tối trước khi ngủ, các bạn hãy tự hỏi mình năm câu về ngày hôm đó: Where did I go? What did I eat? Who did I talk to?... rồi tự trả lời bằng động từ quá khứ. Làm đều một tuần là miệng tự quen."),
+      teacher("Khi đứng lớp, tôi thấy nhiều học viên thuộc làu bảng động từ bất quy tắc, nhưng cứ đặt câu hỏi là quên did. Vì thế tôi dặn các bạn một câu: **“Có did thì động từ nghỉ”**. Mỗi tối trước khi ngủ, các bạn hãy tự hỏi mình năm câu về ngày hôm đó: Where did I go? What did I eat? Who did I talk to?... rồi tự trả lời bằng động từ quá khứ. Làm đều một tuần là miệng tự quen."),
       summary(
         "Hỏi chuyện đã qua: từ để hỏi + did + chủ ngữ + động từ nguyên mẫu? (Where did you go?)",
         "Có did thì động từ nghỉ: nói How long did you stay?, không nói did you stayed.",
@@ -51,13 +51,13 @@ export default lesson({
   },
   words: [
     word("holiday", "/ˈhɒl.ə.deɪ/", "kỳ nghỉ", "We had a wonderful holiday in Da Lat.", "hol|i|day", 0),
-    word("trip", "/trɪp/", "chuyến đi", "How was your trip to Hue?", "trip", 0, "Nhớ bật âm /p/ ở cuối bằng cách mím môi, đừng nuốt thành “tri”."),
-    word("beach", "/biːtʃ/", "bãi biển", "We spent every morning on the beach.", "beach", 0, "Nguyên âm /iː/ phải kéo dài. Đọc ngắn thành /ɪ/ sẽ ra một từ khác rất khó nghe."),
+    word("trip", "/trɪp/", "chuyến đi", "How was your trip to Hue?", "trip", 0, "Nhớ giữ âm /p/ ở cuối bằng cách mím môi, đừng nuốt thành “tri”."),
+    word("seafood", "/ˈsiː.fuːd/", "hải sản", "We ate a lot of seafood in Nha Trang.", "sea|food", 0, "Hai nguyên âm đều dài: /iː/ và /uː/. Seafood không đếm được, không nói seafoods."),
     word("island", "/ˈaɪ.lənd/", "hòn đảo", "Phu Quoc is a beautiful island.", "is|land", 0, "Chữ s không đọc: /ˈaɪ.lənd/."),
     word("hotel", "/həʊˈtel/", "khách sạn", "We stayed in a small hotel near the sea.", "ho|tel", 1, "Trọng âm rơi vào âm tiết sau: hơu-TEL. Người Việt hay đọc nhấn âm đầu thành “HÔ-ten”."),
     word("flight", "/flaɪt/", "chuyến bay", "Our flight left at six in the morning.", "flight", 0),
     word("luggage", "/ˈlʌɡ.ɪdʒ/", "hành lý", "I lost my luggage at the airport.", "lug|gage", 0, "Luggage là danh từ không đếm được: không nói “two luggages”."),
-    word("souvenir", "/ˌsuː.vənˈɪər/", "quà lưu niệm", "I brought some souvenirs for my colleagues.", "sou|ven|ir", 2),
+    word("souvenir", "/ˌsuː.vənˈɪə/", "quà lưu niệm", "I brought some souvenirs for my colleagues.", "sou|ven|ir", 2),
   ],
   exercises: [
     mc("a2-n02-1", "Where ___ you go last summer?", ["do", "did", "were", "went"], 1, "Hỏi về chuyện đã qua với động từ thường thì dùng did: Where did you go?"),
@@ -68,7 +68,14 @@ export default lesson({
     reorder("a2-n02-6", "How did you get to the island?", "How hỏi về cách đi lại. Get to + nơi chốn nghĩa là đến được nơi đó."),
     listen("a2-n02-7", "We left early and took a lot of photos.", ["Chúng tôi đến muộn và chụp nhiều ảnh.", "Chúng tôi rời đi sớm và mua nhiều quà.", "Chúng tôi rời đi sớm và chụp rất nhiều ảnh."], 2, "Left là quá khứ của leave (rời đi), took là quá khứ của take (chụp ảnh: take photos)."),
     listen("a2-n02-8", "How was your holiday?", ["Kỳ nghỉ của bạn thế nào?", "Bạn đi nghỉ ở đâu?", "Bạn đi nghỉ bao lâu?"], 0, "How was...? hỏi cảm nhận: thế nào. Câu này dùng was vì là động từ to be."),
+    correct("a2-n02-9", "Where you stayed in Da Lat?", ["Where did you stay in Da Lat?"], "Câu hỏi quá khứ với động từ thường cần did đứng trước chủ ngữ, và động từ chính về nguyên mẫu: Where did you stay?"),
+    correct("a2-n02-10", "What did you bought for your mother?", ["What did you buy for your mother?"], "Có did thì động từ nghỉ: buy, không phải bought. Quá khứ chỉ đánh dấu một lần."),
   ],
+  freeSpeaking: free(
+    "Tell me about a holiday you enjoyed. Where did you go, and what did you do?",
+    "Kể về một kỳ nghỉ bạn thích: đi đâu, với ai, đi bằng gì, ở bao lâu, làm gì và kỳ nghỉ thế nào.",
+    "Two years ago I went to Hoi An with my parents. We took the train from Hanoi to Da Nang, and the trip took about sixteen hours. We stayed in a small hotel near the old town for three days. We walked a lot, ate cao lau and took hundreds of photos. It was a lovely holiday.",
+  ),
   speaking: [
     say("Where did you go on holiday last year?", "Năm ngoái bạn đi nghỉ ở đâu?"),
     say("I flew to Phu Quoc with my family.", "Tôi bay ra Phú Quốc cùng gia đình."),
@@ -91,8 +98,38 @@ export default lesson({
     A("I didn't go anywhere. I stayed in Hanoi and slept a lot!", "Mình chẳng đi đâu cả. Mình ở Hà Nội và ngủ thật nhiều!"),
     B("That sounds nice, too!", "Nghe cũng thích đấy chứ!"),
   ),
+  dialogueQuestions: [
+    listenQ("a2-n02-d1", "Gia đình Hương đến Phú Quốc bằng cách nào?", "We flew from Hanoi. The flight took two hours.", ["Đi tàu hỏa", "Đi máy bay", "Đi xe khách", "Đi ô tô riêng"], 1, "We flew: chúng tôi bay, tức là đi máy bay. Chuyến bay mất hai tiếng."),
+    mc("a2-n02-d2", "Hương ở Phú Quốc bao lâu?", ["Năm ngày", "Hai ngày", "Một tuần"], 0, "Hương nói: We stayed for five days in a small hotel near the beach."),
+    mc("a2-n02-d3", "Kỳ nghỉ Tết, David đã làm gì?", ["Đi Phú Quốc cùng Hương", "Về Mỹ thăm gia đình", "Ở lại Hà Nội và ngủ thật nhiều"], 2, "David nói: I didn't go anywhere. I stayed in Hanoi and slept a lot!"),
+  ],
+  reading: reading({
+    title: "Blog du lịch: bốn ngày ở Hà Giang",
+    text: `Last October, my friend Tuan and I went to Ha Giang for four days. We took a night bus from Hanoi and arrived at six in the morning. We were tired, but the mountains were beautiful.
+
+On the first day, we rented two motorbikes. We rode over a high mountain pass to Dong Van and stopped many times to take photos. In the evening, we stayed at a homestay there. The owner cooked a big dinner for us, and we slept very well.
+
+On the third day, it rained all morning, so we didn't ride far. We visited a Sunday market and bought some souvenirs for our families.
+
+What did I like best? The people. They were very friendly and always smiled at us. The trip wasn't cheap, and the roads were difficult, but I want to go back next year.`,
+    glossary: [
+      ["mountains", "núi, vùng núi"],
+      ["rented", "đã thuê (quá khứ của rent)"],
+      ["rode", "đã đi xe, cưỡi (quá khứ của ride)"],
+      ["pass", "đèo"],
+      ["homestay", "nhà dân nhận khách ở lại"],
+      ["owner", "chủ nhà"],
+    ],
+    questions: [
+      mc("a2-n02-r1", "Bài blog chủ yếu kể về điều gì?", ["Cách thuê xe máy ở Hà Nội", "Chuyến đi Hà Giang bốn ngày của tác giả", "Một phiên chợ ở Đồng Văn", "Các món ăn của người vùng núi"], 1, "Câu đầu tiên đã nói ý chính: Last October, my friend Tuan and I went to Ha Giang for four days."),
+      mc("a2-n02-r2", "Tác giả và bạn đi từ Hà Nội đến Hà Giang bằng gì?", ["Xe máy", "Máy bay", "Xe khách đi đêm", "Tàu hỏa"], 2, "We took a night bus from Hanoi: họ đi xe khách đêm. Xe máy là thuê ở Hà Giang."),
+      mc("a2-n02-r3", "Vì sao ngày thứ ba họ không đi xa?", ["Vì xe máy bị hỏng", "Vì trời mưa cả buổi sáng", "Vì họ quá mệt", "Vì họ ở homestay cả ngày"], 1, "It rained all morning, so we didn't ride far."),
+      fill("a2-n02-r4", "Hoàn thành câu theo bài đọc: On the third day, they ___ a Sunday market. (visit)", ["visited"], "Kể chuyện đã qua nên dùng quá khứ: visit → visited."),
+      mc("a2-n02-r5", "Tác giả thích điều gì nhất trong chuyến đi?", ["Những con đèo", "Bữa tối ở homestay", "Người dân thân thiện", "Chợ phiên"], 2, "What did I like best? The people. They were very friendly."),
+    ],
+  }),
   task: task({
-    prompt: "Viết 5–6 câu kể về một kỳ nghỉ gần đây của bạn: đi đâu, với ai, đi bằng gì, ở bao lâu, làm gì và kỳ nghỉ thế nào. Kết thúc bằng một câu hỏi Wh- để hỏi lại người nghe.",
+    prompt: "Viết 6–8 câu (ít nhất 50 từ) kể về một kỳ nghỉ gần đây của bạn: đi đâu, với ai, đi bằng gì, ở bao lâu, làm gì và kỳ nghỉ thế nào. Kết thúc bằng một câu hỏi Wh- để hỏi lại người nghe.",
     hints: [
       "Trả lời lần lượt các câu hỏi Where, Who... with, How, How long, What.",
       "Dùng động từ bất quy tắc của bài: went, flew, took, swam, spent, brought.",
@@ -107,6 +144,6 @@ export default lesson({
       "Có 1 câu cảm nhận với was (It was...)",
       "Câu hỏi cuối có did + động từ nguyên mẫu (Where did you go?, không viết Where did you went?)",
     ],
-    minWords: 35,
+    minWords: 50,
   }),
 });
