@@ -41,7 +41,7 @@ export function WordBank({ courseSlug, topics }: { courseSlug: string; topics: W
                 {on ? "Đã thêm vào lịch ôn" : "Thêm vào lịch ôn"}
               </button>
             </div>
-            <div className="mt-5 overflow-x-auto">
+            <div className="mt-5 overflow-x-auto" tabIndex={0} role="region" aria-label="Bảng từ vựng, cuộn ngang để xem hết">
               <table className="w-full min-w-[34rem] border-collapse text-left">
                 <thead>
                   <tr className="border-b-2 border-ink">
