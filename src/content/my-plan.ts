@@ -7,6 +7,8 @@
 
 export interface SentenceDrill {
   id: string;
+  /** the level whose grammar the sentence needs; drills are taken in level order */
+  level: "A1" | "A2" | "B1" | "B2" | "C1";
   en: string;
   /** the main verb of the whole sentence */
   verb: string;
@@ -23,6 +25,7 @@ export interface SentenceDrill {
 export const SENTENCE_DRILLS: SentenceDrill[] = [
   {
     id: "since",
+    level: "B1",
     en: "My brother has lived in Da Nang since 2019.",
     verb: "has lived",
     subject: "My brother",
@@ -33,6 +36,7 @@ export const SENTENCE_DRILLS: SentenceDrill[] = [
   },
   {
     id: "when-was-doing",
+    level: "A2",
     en: "When I got home, my parents were watching TV.",
     verb: "got (vế đầu) và were watching (vế sau)",
     subject: "I (vế đầu), my parents (vế sau)",
@@ -43,6 +47,7 @@ export const SENTENCE_DRILLS: SentenceDrill[] = [
   },
   {
     id: "that-clause",
+    level: "B1",
     en: "The book that you gave me is really interesting.",
     verb: "is (không phải gave)",
     subject: "The book",
@@ -53,6 +58,7 @@ export const SENTENCE_DRILLS: SentenceDrill[] = [
   },
   {
     id: "if-will",
+    level: "A2",
     en: "If it rains tomorrow, we will stay at home.",
     verb: "rains (vế If) và will stay (vế chính)",
     subject: "it (vế If), we (vế chính)",
@@ -63,6 +69,7 @@ export const SENTENCE_DRILLS: SentenceDrill[] = [
   },
   {
     id: "didnt-because",
+    level: "A2",
     en: "She didn't go to work yesterday because she was ill.",
     verb: "didn't go (vế đầu) và was (vế sau)",
     subject: "She",
@@ -73,6 +80,7 @@ export const SENTENCE_DRILLS: SentenceDrill[] = [
   },
   {
     id: "going-to",
+    level: "A2",
     en: "We're going to visit our grandparents next weekend.",
     verb: "are going to visit",
     subject: "We",
@@ -83,6 +91,7 @@ export const SENTENCE_DRILLS: SentenceDrill[] = [
   },
   {
     id: "who-clause",
+    level: "B1",
     en: "The man who is talking to my teacher works at a bank.",
     verb: "works (không phải is talking)",
     subject: "The man",
@@ -93,6 +102,7 @@ export const SENTENCE_DRILLS: SentenceDrill[] = [
   },
   {
     id: "never-would-like",
+    level: "A2",
     en: "I have never eaten sushi, but I would like to try it one day.",
     verb: "have never eaten (vế đầu) và would like to try (vế sau)",
     subject: "I",
@@ -115,6 +125,9 @@ export const PLAN_COURSES = ["tieng-anh-a2", "tieng-anh-b1", "tieng-anh-b2", "ti
 
 /** time on this site every day; each course's weekly self-study comes on top of it */
 export const DAILY_MINUTES = 40;
+
+/** Day 1 of the owner's plan (a Monday). Before it the daily page shows a preview of that first day. */
+export const PLAN_START = "2026-10-05";
 
 export const DAILY_ROUTINE: { minutes: number; what: string; to: "vocab" | "grammar" | "lesson" | "reading" }[] = [
   { minutes: 5, what: "Ôn từ vựng đến hạn", to: "vocab" },
@@ -142,24 +155,28 @@ export interface OfficialCheck {
   writing: { max: number; pass: number; criteria: string[] };
   /** each criterion 0–5 (half marks allowed), multiplied by its weight */
   speaking: { max: number; pass: number; criteria: { id: string; label: string; weight: number }[] };
-  /** the free official sample tests on the preparation page; each one counts once */
+  /** the free official sample tests kept for the check that passes the level; each one counts once */
   samples: { id: string; label: string }[];
+  /**
+   * the "for Schools" sample tests, kept for the practice days so the samples above stay unseen until the
+   * check. Empty for C1 Advanced, which has no "for Schools" version.
+   */
+  practice: { id: string; label: string }[];
 }
 
 /**
- * The free sample tests listed on each Cambridge preparation page (checked 2026-09). The "for Schools"
- * versions are at the same CEFR level and follow the same format, with topics for school-age learners,
- * so they are fair extra checks. C1 Advanced has no "for Schools" version.
+ * The free sample tests listed on each Cambridge preparation page (checked 2026-09 and 2026-10-04). The
+ * "for Schools" versions are at the same CEFR level and follow the same format, with topics for school-age
+ * learners: the plan practises on them, and keeps the standard samples unseen for the check itself.
+ * C1 Advanced has no "for Schools" version.
  */
-const samples = (exam: string, paper: number, schools: boolean) => [
+const samples = (exam: string, paper: number) => [
   { id: "digital", label: `Đề mẫu làm trên máy (${exam})` },
   ...Array.from({ length: paper }, (_, i) => ({ id: `paper-${i + 1}`, label: `Đề mẫu giấy${paper > 1 ? ` ${i + 1}` : ""} (${exam})` })),
-  ...(schools
-    ? [
-        { id: "schools-digital", label: `Đề mẫu làm trên máy (${exam} for Schools)` },
-        ...Array.from({ length: paper }, (_, i) => ({ id: `schools-paper-${i + 1}`, label: `Đề mẫu giấy${paper > 1 ? ` ${i + 1}` : ""} (${exam} for Schools)` })),
-      ]
-    : []),
+];
+const practiceSets = (exam: string, paper: number) => [
+  { id: "schools-digital", label: `đề mẫu làm trên máy của ${exam} for Schools` },
+  ...Array.from({ length: paper }, (_, i) => ({ id: `schools-paper-${i + 1}`, label: `đề mẫu giấy${paper > 1 ? ` ${i + 1}` : ""} của ${exam} for Schools` })),
 ];
 
 /** Checked 2026-09 on cambridge.org: official practice-test books hold four authentic papers each (e.g. "B2 First 4"). */
@@ -187,7 +204,8 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
       { id: "listening", label: "Listening", max: 25, pass: 17 },
     ],
     writing: { max: 30, pass: 18, criteria: ["Content", "Organisation", "Language"] },
-    samples: samples("A2 Key", 1, true),
+    samples: samples("A2 Key", 1),
+    practice: practiceSets("A2 Key", 1),
     speaking: {
       max: 45,
       pass: 27,
@@ -202,7 +220,8 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
   B1: {
     exam: "B1 Preliminary",
     prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/preliminary/preparation/",
-    samples: samples("B1 Preliminary", 1, true),
+    samples: samples("B1 Preliminary", 1),
+    practice: practiceSets("B1 Preliminary", 1),
     scale: 140,
     sections: [
       { id: "reading", label: "Reading", max: 32, pass: 23 },
@@ -224,7 +243,8 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
   B2: {
     exam: "B2 First",
     prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/first/preparation/",
-    samples: samples("B2 First", 2, true),
+    samples: samples("B2 First", 2),
+    practice: practiceSets("B2 First", 2),
     scale: 160,
     sections: [
       { id: "reading", label: "Reading (Parts 1, 5, 6, 7)", max: 42, pass: 24 },
@@ -247,7 +267,8 @@ export const OFFICIAL_CHECKS: Record<string, OfficialCheck> = {
   C1: {
     exam: "C1 Advanced",
     prepUrl: "https://www.cambridgeenglish.org/exams-and-tests/qualifications/advanced/preparation/",
-    samples: samples("C1 Advanced", 2, false),
+    samples: samples("C1 Advanced", 2),
+    practice: [],
     scale: 180,
     sections: [
       { id: "reading", label: "Reading (Parts 1, 5, 6, 7, 8)", max: 50, pass: 32 },
@@ -296,3 +317,43 @@ export function speakingPrompt(c: OfficialCheck): string {
     `Bài nói: [đính kèm bản ghi âm hoặc dán bản chép lời]`,
   ].join("\n");
 }
+
+export interface ExamPaper {
+  id: string;
+  /** the paper's official name */
+  name: string;
+  minutes: number;
+  /** what the learner practises on that paper's day, in Vietnamese */
+  practice: string;
+}
+
+/**
+ * The papers of each official exam with their timing, from Cambridge's exam format pages (checked 2026-10-04,
+ * see sources-checked.ts). The plan gives
+ * each paper a practice day before the sample test, and splits a sample longer than SPLIT_MINUTES over two days.
+ */
+export const EXAM_PAPERS: Record<string, ExamPaper[]> = {
+  A2: [
+    { id: "reading-writing", name: "Reading and Writing", minutes: 60, practice: "Làm phần Reading and Writing trong 60 phút: 5 phần đọc, rồi viết email ngắn (25 từ trở lên) và kể chuyện theo 3 bức tranh (35 từ trở lên)." },
+    { id: "listening", name: "Listening", minutes: 30, practice: "Làm phần Listening (5 phần), nghe mỗi bài hai lần như thi thật." },
+    { id: "speaking", name: "Speaking", minutes: 10, practice: "Luyện 2 phần nói theo cặp (8–10 phút): trả lời câu hỏi về bản thân, rồi thảo luận theo tranh." },
+  ],
+  B1: [
+    { id: "reading", name: "Reading", minutes: 45, practice: "Làm phần Reading, đúng 45 phút." },
+    { id: "writing", name: "Writing", minutes: 45, practice: "Viết hai bài trong 45 phút: email khoảng 100 từ, rồi bài báo hoặc câu chuyện khoảng 100 từ." },
+    { id: "listening", name: "Listening", minutes: 30, practice: "Làm phần Listening (4 phần), nghe mỗi bài hai lần." },
+    { id: "speaking", name: "Speaking", minutes: 12, practice: "Luyện 4 phần nói theo cặp (10–12 phút), có tính giờ." },
+  ],
+  B2: [
+    { id: "reading", name: "Reading and Use of English", minutes: 75, practice: "Làm phần Reading and Use of English, đúng 75 phút." },
+    { id: "writing", name: "Writing", minutes: 80, practice: "Viết trong 80 phút: bài luận 140–190 từ (Part 1) và một bài Part 2 140–190 từ (bài báo, email hoặc thư, báo cáo hoặc bài đánh giá)." },
+    { id: "listening", name: "Listening", minutes: 40, practice: "Làm phần Listening, nghe mỗi bài hai lần." },
+    { id: "speaking", name: "Speaking", minutes: 14, practice: "Luyện bốn phần nói, có tính giờ." },
+  ],
+  C1: [
+    { id: "reading", name: "Reading and Use of English", minutes: 90, practice: "Làm phần Reading and Use of English, đúng 90 phút." },
+    { id: "writing", name: "Writing", minutes: 90, practice: "Viết trong 90 phút: bài luận 220–260 từ (Part 1) và một bài Part 2 220–260 từ (thư hoặc email, đề xuất, báo cáo hoặc bài đánh giá)." },
+    { id: "listening", name: "Listening", minutes: 40, practice: "Làm phần Listening, nghe mỗi bài hai lần." },
+    { id: "speaking", name: "Speaking", minutes: 15, practice: "Luyện bốn phần nói, có tính giờ." },
+  ],
+};

@@ -3,27 +3,16 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Check, RotateCcw } from "lucide-react";
-import type { VocabWord } from "@/content/types";
-import { isDue, todayKey } from "@/lib/progress-core";
+import { todayKey } from "@/lib/progress-core";
 import { progress, useProgress } from "@/lib/progress";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
 import { PronounceCard } from "@/components/pronounce-card";
 import { ProgressBar } from "@/components/ui/progress-bar";
+import { NEW_PER_DAY, buildReviewPlan, type ReviewWord } from "@/lib/review-queue";
 import { stopSpeaking } from "@/lib/speech";
 
-export interface ReviewWord {
-  /** vocabKey(course, word) */
-  key: string;
-  /** where it comes from: a lesson (reviewed once the lesson is done) or a word-bank topic (once added) */
-  source: { lesson: string } | { topic: string };
-  course: string;
-  word: VocabWord;
-}
-
-/** At most this many never-seen words join a day's session, so a finished course doesn't flood it. */
-const NEW_PER_DAY = 15;
-const SESSION_MAX = 30;
+export type { ReviewWord };
 
 export function VocabReview({ words }: { words: ReviewWord[] }) {
   const { state, ready } = useProgress();
@@ -37,17 +26,15 @@ export function VocabReview({ words }: { words: ReviewWord[] }) {
   if (!ready) return <div className="clay mt-10 h-72 animate-pulse bg-card" aria-hidden />;
 
   const today = todayKey();
-  const learned = words.filter((w) => ("lesson" in w.source ? state.lessons[w.source.lesson]?.done : state.topics.includes(w.source.topic)));
-  const dueOld = learned.filter((w) => state.srs[w.key] && isDue(state.srs[w.key], today));
-  const fresh = learned.filter((w) => !state.srs[w.key]);
-  const queue = [...dueOld, ...fresh.slice(0, NEW_PER_DAY)].slice(0, SESSION_MAX);
+  const { learned, fresh, queue } = buildReviewPlan(words, state, today);
 
   if (learned.length === 0) {
     return (
       <div className="mt-10">
-        <EmptyState title="Chưa có từ nào để ôn" body="Học xong một bài, hoặc thêm một chủ đề trong kho từ vựng, từ sẽ xuất hiện ở đây.">
+        <EmptyState title="Chưa có từ nào để ôn" body="Học xong một bài, thêm một chủ đề trong kho từ vựng, hoặc tự thêm từ của bạn ở mục bên dưới, từ sẽ xuất hiện ở đây.">
           <Link href="/khoa-hoc" className="btn btn-primary">Chọn khóa học</Link>
           <Link href="/tu-vung" className="btn btn-ghost">Mở kho từ vựng</Link>
+          <a href="#tu-cua-toi" className="btn btn-ghost">Thêm từ của bạn</a>
         </EmptyState>
       </div>
     );
@@ -62,7 +49,7 @@ export function VocabReview({ words }: { words: ReviewWord[] }) {
           {queue.length > 0 ? `Hôm nay có ${queue.length} từ cần ôn` : "Hôm nay bạn đã ôn xong"}
         </p>
         <p className="mt-2 text-ink-soft">
-          Có {learned.length} từ từ các bài đã học và chủ đề đã thêm; {inBox} từ trong số đó đã vào lịch ôn.
+          Có {learned.length} từ từ các bài đã học, chủ đề đã thêm và từ của bạn; {inBox} từ trong số đó đã vào lịch ôn.
           {fresh.length > NEW_PER_DAY && ` Còn ${fresh.length - NEW_PER_DAY} từ mới sẽ được thêm dần vào những ngày sau.`}
         </p>
         {queue.length > 0 ? (
@@ -110,7 +97,7 @@ export function VocabReview({ words }: { words: ReviewWord[] }) {
   return (
     <div className="mt-10 space-y-4">
       <ProgressBar value={(i / session.length) * 100} label={`Đã ôn ${i}/${session.length} từ`} />
-      <PronounceCard key={current.key} word={current.word} label={`${current.course}, từ ${i + 1}/${session.length}`}>
+      <PronounceCard key={current.key} word={current.word} plain={"custom" in current.source} label={`${current.course}, từ ${i + 1}/${session.length}`}>
         <p className="text-ink-soft">Nhớ nghĩa của từ trước, rồi bấm “Xem nghĩa” để kiểm tra.</p>
         <div className="mt-4 flex flex-wrap gap-3">
           <button type="button" className="btn btn-ghost" onClick={() => answer(false)}>

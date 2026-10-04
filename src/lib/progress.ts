@@ -13,8 +13,13 @@ import {
   applyToggleTopic,
   applyBuyReward,
   applyEquipReward,
+  applyAddCustomWord,
+  applyRemoveCustomWord,
+  checkCustomWord,
   emptyState,
   parseState,
+  type CustomWordError,
+  type CustomWordInput,
   type ProgressState,
 } from "./progress-core";
 
@@ -96,5 +101,15 @@ export const progress = {
   },
   equipReward(kind: Exclude<RewardKind, "freeze">, id: string | null) {
     write(applyEquipReward(read(), kind, id));
+  },
+  /** Adds (or updates) one of the learner's own words; returns why it was refused, or null once saved. */
+  addCustomWord(input: CustomWordInput): CustomWordError | null {
+    const state = read();
+    const error = checkCustomWord(state, input);
+    if (error === null) write(applyAddCustomWord(state, input, new Date()));
+    return error;
+  },
+  removeCustomWord(word: string) {
+    write(applyRemoveCustomWord(read(), word));
   },
 };

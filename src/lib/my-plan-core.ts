@@ -1,4 +1,5 @@
 import type { OfficialCheck } from "@/content/my-plan";
+import type { DayRecord } from "./today";
 
 export interface ExamRecord {
   /** raw marks: answer-key section ids, "writing" (both tasks) and "sp:<criterion>" for speaking */
@@ -17,6 +18,12 @@ export interface PlanData {
   exams: Record<string, ExamRecord>;
   /** sample tests already used, by plan level: each counts once */
   used: Record<string, string[]>;
+  /** today's plan: what it is built around and what was ticked */
+  day?: DayRecord;
+  /** earlier days, oldest first: what each was built around, for reviewing a past day */
+  history: { date: string; main: DayRecord["picks"]["main"] }[];
+  /** review quizzes taken, by the reviewed day */
+  reviews: Record<string, { score: number; at: string }>;
 }
 
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
@@ -24,7 +31,7 @@ const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "obj
 export const MAX_WEEK_HOURS = 100;
 
 export function parsePlan(raw: string | null): PlanData {
-  const empty: PlanData = { done: [], hours: {}, exams: {}, used: {} };
+  const empty: PlanData = { done: [], hours: {}, exams: {}, used: {}, history: [], reviews: {} };
   if (!raw) return empty;
   let d: unknown;
   try {
@@ -53,7 +60,33 @@ export function parsePlan(raw: string | null): PlanData {
   const used = isRecord(d.used)
     ? Object.fromEntries(Object.entries(d.used).flatMap(([k, v]) => (Array.isArray(v) ? [[k, [...new Set(v.filter((x): x is string => typeof x === "string"))]]] : [])))
     : {};
-  return { done, hours, exams, used };
+  const day = parseDay(d.day);
+  const history = Array.isArray(d.history)
+    ? d.history.flatMap((h) => {
+        const r = parseDay(isRecord(h) ? { date: h.date, picks: { main: h.main }, done: [] } : null);
+        return r ? [{ date: r.date, main: r.picks.main }] : [];
+      })
+    : [];
+  const reviews = isRecord(d.reviews)
+    ? Object.fromEntries(
+        Object.entries(d.reviews).filter(
+          (e): e is [string, { score: number; at: string }] => isRecord(e[1]) && typeof e[1].score === "number" && typeof e[1].at === "string",
+        ),
+      )
+    : {};
+  return { done, hours, exams, used, history, reviews, ...(day ? { day } : {}) };
+}
+
+const strings = (v: unknown): string[] => (Array.isArray(v) ? [...new Set(v.filter((x): x is string => typeof x === "string"))] : []);
+
+const DAY_KINDS = ["grammar", "base-review", "lesson", "consolidate", "weak", "paper", "final", "placement", "exam", "remedy", "week-review", "done"];
+
+function parseDay(v: unknown): DayRecord | null {
+  if (!isRecord(v) || typeof v.date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(v.date) || !isRecord(v.picks)) return null;
+  const main = v.picks.main;
+  // the main work is rebuilt from the calendar when it is not a known kind
+  if (!isRecord(main) || typeof main.kind !== "string" || !DAY_KINDS.includes(main.kind)) return null;
+  return { date: v.date, picks: { main: main as unknown as DayRecord["picks"]["main"] }, done: strings(v.done) };
 }
 
 /** The Monday of the date's week, in local time, as YYYY-MM-DD. */

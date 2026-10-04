@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { UserRound, UserRoundCheck } from "lucide-react";
 import { auth, useAuth } from "@/lib/auth";
-import { ITEM_CLASS, MY_PLAN, PANEL_CLASS, isActive, usePopover, type NavItem } from "./site-menu";
+import { ITEM_CLASS, MY_CALENDAR, MY_PLAN, MY_TODAY, PANEL_CLASS, isActive, usePopover, type NavItem } from "./site-menu";
 
 /** The account button on wide screens (xl and up); narrower screens get the same items in the site menu. */
 export function AccountMenu() {
   const { pathname, shown, buttonRef, panelRef, toggle, close } = usePopover();
   const { session } = useAuth();
   const links: NavItem[] = session
-    ? [MY_PLAN, { href: "/cua-toi", label: "Khóa học của tôi" }]
+    ? [MY_TODAY, MY_CALENDAR, MY_PLAN, { href: "/cua-toi", label: "Khóa học của tôi" }]
     : [{ href: "/cua-toi", label: "Khóa học của tôi" }, { href: "/dang-nhap", label: "Đăng nhập" }];
   const Icon = session ? UserRoundCheck : UserRound;
 
