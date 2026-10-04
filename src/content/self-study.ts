@@ -37,13 +37,13 @@ const cambridgeDictionary: StudyResource = {
 };
 const bbc6Minute: StudyResource = {
   name: "BBC Learning English: 6 Minute English",
-  url: "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english",
+  url: "https://feeds.bbci.co.uk/learningenglish/english/features/6-minute-english",
   how: "Mỗi tập 6 phút về một chủ đề, có bản ghi lời. Nghe một lần không nhìn chữ, rồi nghe lại có bản ghi và ghi 5 từ mới vào sổ.",
   kind: "listening",
 };
 const bbcEnglishWeSpeak: StudyResource = {
   name: "BBC Learning English: The English We Speak",
-  url: "https://www.bbc.co.uk/learningenglish/english/features/the-english-we-speak",
+  url: "https://feeds.bbci.co.uk/learningenglish/english/features/the-english-we-speak",
   how: "Mỗi tập vài phút giải thích một thành ngữ, cách nói thân mật của người Anh. Rất hợp để hiểu tiếng Anh đời thường.",
   kind: "listening",
 };
@@ -77,10 +77,10 @@ const guardianLongRead: StudyResource = {
   how: "Bài báo dài, văn phong báo chí chất lượng cao. Mỗi tuần đọc một bài, gạch chân lập luận chính và các kết hợp từ hay.",
   kind: "reading",
 };
-const gutenberg: StudyResource = {
-  name: "Project Gutenberg",
-  url: "https://www.gutenberg.org/",
-  how: "Gần 80.000 sách miễn phí, chủ yếu là văn học kinh điển đã hết bản quyền. Chọn tiểu thuyết ngắn để đọc mở rộng 20–30 phút mỗi ngày, không tra từ nào đoán được nghĩa.",
+const aeon: StudyResource = {
+  name: "Aeon: tiểu luận",
+  url: "https://aeon.co/essays",
+  how: "Tiểu luận dài, hiện đại, miễn phí về khoa học, triết học, xã hội. Mỗi tuần đọc 2 bài, gạch chân lập luận chính và tóm tắt 80–100 từ.",
   kind: "reading",
 };
 
@@ -173,7 +173,7 @@ export const SELF_STUDY: Record<string, SelfStudyPlan> = {
     ],
     resources: [
       guardianLongRead,
-      gutenberg,
+      aeon,
       ted,
       bc("listening", "c1", "Bài nghe học thuật và thảo luận chuyên sâu."),
       bc("reading", "c1", "Bài đọc dài, lập luận phức tạp."),

@@ -37,7 +37,10 @@ export interface ProgressState {
   points: PointsState;
   /** rewards bought with points: cosmetics and streak freezes */
   rewards: RewardsState;
+  /** the learner's own vocabulary cards, in the order added; reviewed under customWordKey(word) */
+  custom: CustomWord[];
 }
+export interface CustomWord { word: string; meaning: string; example: string; ipa: string; addedAt: string }
 export interface SrsCard { box: number; due: string }
 export interface CourseProgress { done: number; total: number; percent: number; nextLesson: Lesson | null }
 
@@ -53,6 +56,7 @@ export function emptyState(): ProgressState {
     topics: [],
     points: emptyPoints(),
     rewards: emptyRewards(),
+    custom: [],
   };
 }
 
@@ -96,6 +100,7 @@ export function parseState(raw: string | null): ProgressState {
     topics: Array.isArray(data.topics) ? [...new Set(data.topics.filter((t): t is string => typeof t === "string"))] : [],
     points: parsePoints(data.points),
     rewards: parseRewards(data.rewards),
+    custom: parseCustomWords(data.custom),
     streak:
       isRecord(streak) && Number.isInteger(streak.current) && (streak.current as number) >= 0
         ? { current: streak.current as number, lastDay: typeof streak.lastDay === "string" ? streak.lastDay : null }
@@ -348,4 +353,99 @@ export function topicKey(courseSlug: string, topicId: string): string {
 export function applyToggleTopic(state: ProgressState, key: string): ProgressState {
   const topics = state.topics.includes(key) ? state.topics.filter((t) => t !== key) : [...state.topics, key];
   return { ...state, topics };
+}
+
+// ---- the learner's own vocabulary cards ----
+
+/** The pseudo-course the learner's own words are filed under in `srs`. */
+export const CUSTOM_COURSE = "tu-cua-toi";
+
+/** Longest accepted text per field, and the most own words kept. */
+export const CUSTOM_LIMITS = { word: 60, meaning: 160, example: 240, ipa: 60, count: 2000 } as const;
+
+export interface CustomWordInput { word: string; meaning: string; example?: string; ipa?: string }
+
+/** Collapses runs of whitespace, trims and cuts to `max` characters. */
+function cleanText(v: unknown, max: number): string {
+  return typeof v === "string" ? v.replace(/\s+/g, " ").trim().slice(0, max).trim() : "";
+}
+
+/** The form a word is compared and keyed in: cleaned and lower-cased. */
+export function customWordId(word: string): string {
+  return cleanText(word, CUSTOM_LIMITS.word).toLowerCase();
+}
+
+/** The spaced-repetition key of one of the learner's own words. */
+export function customWordKey(word: string): string {
+  return vocabKey(CUSTOM_COURSE, customWordId(word));
+}
+
+function parseCustomWords(v: unknown): CustomWord[] {
+  if (!Array.isArray(v)) return [];
+  const seen = new Set<string>();
+  const out: CustomWord[] = [];
+  for (const e of v) {
+    if (out.length >= CUSTOM_LIMITS.count) break;
+    if (!isRecord(e) || !isIsoDate(e.addedAt)) continue;
+    const word = cleanText(e.word, CUSTOM_LIMITS.word);
+    const meaning = cleanText(e.meaning, CUSTOM_LIMITS.meaning);
+    const id = word.toLowerCase();
+    if (!word || !meaning || seen.has(id)) continue;
+    seen.add(id);
+    out.push({
+      word,
+      meaning,
+      example: cleanText(e.example, CUSTOM_LIMITS.example),
+      ipa: cleanText(e.ipa, CUSTOM_LIMITS.ipa),
+      addedAt: e.addedAt,
+    });
+  }
+  return out;
+}
+
+export type CustomWordError = "word" | "meaning" | "full";
+
+/** Why a word can't be added, or null when it can. Updating a word already in the list is never "full". */
+export function checkCustomWord(state: ProgressState, input: CustomWordInput): CustomWordError | null {
+  const id = customWordId(input.word);
+  if (!id) return "word";
+  if (!cleanText(input.meaning, CUSTOM_LIMITS.meaning)) return "meaning";
+  if (state.custom.length >= CUSTOM_LIMITS.count && !state.custom.some((c) => c.word.toLowerCase() === id)) return "full";
+  return null;
+}
+
+/**
+ * Adds one of the learner's own words. A word already in the list (ignoring case and extra spaces)
+ * is updated in place and keeps its place and review history (blank example/IPA keep the saved ones);
+ * an invalid word leaves the state unchanged.
+ */
+export function applyAddCustomWord(state: ProgressState, input: CustomWordInput, now: Date): ProgressState {
+  if (checkCustomWord(state, input) !== null) return state;
+  const word = cleanText(input.word, CUSTOM_LIMITS.word);
+  const fields = {
+    word,
+    meaning: cleanText(input.meaning, CUSTOM_LIMITS.meaning),
+    example: cleanText(input.example, CUSTOM_LIMITS.example),
+    ipa: cleanText(input.ipa, CUSTOM_LIMITS.ipa),
+  };
+  const id = word.toLowerCase();
+  const at = state.custom.findIndex((c) => c.word.toLowerCase() === id);
+  const custom =
+    at === -1
+      ? [...state.custom, { ...fields, addedAt: now.toISOString() }]
+      : state.custom.map((c, i) =>
+          // a blank optional field keeps what was saved before
+          i === at ? { ...fields, example: fields.example || c.example, ipa: fields.ipa || c.ipa, addedAt: c.addedAt } : c,
+        );
+  return { ...state, custom };
+}
+
+/** Removes one of the learner's own words together with its review card. */
+export function applyRemoveCustomWord(state: ProgressState, word: string): ProgressState {
+  const id = customWordId(word);
+  const key = customWordKey(word);
+  if (!state.custom.some((c) => c.word.toLowerCase() === id) && !(key in state.srs)) return state;
+  const srs = { ...state.srs };
+  delete srs[key];
+  return { ...state, custom: state.custom.filter((c) => c.word.toLowerCase() !== id), srs };
 }

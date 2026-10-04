@@ -11,43 +11,26 @@ import {
   OFFICIAL_CHECKS,
   OFFICIAL_EXAMS,
   READING_STEPS,
-  SENTENCE_DRILLS,
   speakingPrompt,
   writingPrompt,
   type OfficialCheck,
 } from "@/content/my-plan";
-import { FINAL_PASS } from "@/content/review";
-import type { Level, SelfStudyPlan } from "@/content/types";
+import { ALL_DRILLS } from "@/content/drills";
+import type { Level } from "@/content/types";
 import { useAuth } from "@/lib/auth";
 import { formatHours } from "@/lib/course-utils";
 import { formatDateVi } from "@/lib/format";
 import { plan, usePlan } from "@/lib/my-plan";
-import { MAX_WEEK_HOURS, judgeExam, speakingTotal, weekKey, type ExamRecord, type ExamVerdict } from "@/lib/my-plan-core";
-import { PLACEMENT_LEVELS } from "@/lib/placement";
-import { lessonKey, type ProgressState } from "@/lib/progress-core";
+import { MAX_WEEK_HOURS, speakingTotal, weekKey, type ExamRecord, type ExamVerdict } from "@/lib/my-plan-core";
+import { PLAN_FINAL_PASS, grammarDoneOf, planStage, type PlanGrammar, type PlanInput, type PlanLesson, type PlanLevel } from "@/lib/plan-stage";
+import { lessonKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
-export interface PlanGrammar { slug: string; title: string; chapter: string }
-export interface PlanLesson { slug: string; title: string; minutes: number; kind: "lesson" | "review" | "final" }
-export interface PlanLevel {
-  slug: string;
-  title: string;
-  level: Level;
-  contentHours: number;
-  /** Cambridge guided learning hours for this level alone */
-  band: [number, number];
-  weeks: [number, number];
-  /** site time plus self-study, per week */
-  weeklyHours: number;
-  selfStudy: SelfStudyPlan | null;
-  wordTopics: number;
-  finalSlug: string | null;
-  chapters: { title: string; lessons: PlanLesson[] }[];
-}
+export type { PlanGrammar, PlanLesson, PlanLevel };
 
 /** weeks for the grammar base and the sentence drills */
-const BASE_WEEKS: [number, number] = [1, 2];
+const BASE_WEEKS: [number, number] = [3, 4];
 
 function Tick({ id, ticks, label }: { id: string; ticks: string[]; label: string }) {
   return (
@@ -76,67 +59,8 @@ function Condition({ ok, children }: { ok: boolean; children: React.ReactNode })
   );
 }
 
-interface LevelStatus {
-  lessons: PlanLesson[];
-  /** lessons done, the final test not counted */
-  done: number;
-  /** lessons to study, the final test not counted */
-  toStudy: number;
-  nextLesson: PlanLesson | undefined;
-  finalScore: number | null;
-  finalPassed: boolean;
-  certificate: boolean;
-  placementPassed: boolean;
-  exam: ExamVerdict | null;
-  examPassed: boolean;
-  passed: boolean;
-  weak: { lesson: PlanLesson; score: number }[];
-}
-
-function levelStatus(l: PlanLevel, state: ProgressState, exams: Record<string, ExamRecord>): LevelStatus {
-  const lessons = l.chapters.flatMap((c) => c.lessons);
-  const rec = (slug: string) => state.lessons[lessonKey(l.slug, slug)];
-  const study = lessons.filter((x) => x.kind !== "final");
-  const done = study.filter((x) => rec(x.slug)?.done).length;
-  const finalScore = l.finalSlug ? (rec(l.finalSlug)?.score ?? null) : null;
-  const finalPassed = l.finalSlug ? (finalScore ?? 0) >= FINAL_PASS : true;
-  const certificate = done === study.length && finalPassed;
-  const placement = state.placement;
-  // the retest counts only when taken after the last lesson, so it measures the finished course
-  const lessonsDoneAt = done === study.length ? study.reduce((t, x) => (rec(x.slug)!.completedAt > t ? rec(x.slug)!.completedAt : t), "") : null;
-  // placement.level is the highest level passed with every lower one passed too
-  const placementPassed =
-    !!placement &&
-    lessonsDoneAt !== null &&
-    placement.takenAt > lessonsDoneAt &&
-    PLACEMENT_LEVELS.indexOf(placement.level as (typeof PLACEMENT_LEVELS)[number]) >= PLACEMENT_LEVELS.indexOf(l.level as (typeof PLACEMENT_LEVELS)[number]);
-  const exam = judgeExam(OFFICIAL_CHECKS[l.level], exams[l.level]);
-  // a result counts only when it names the official sample it came from
-  const examPassed = exam?.passed === true && !!exams[l.level]?.sample;
-  const weak = lessons
-    .filter((x) => x.kind !== "final")
-    .flatMap((x) => {
-      const s = rec(x.slug)?.score;
-      return rec(x.slug)?.done && s != null && s < 80 ? [{ lesson: x, score: s }] : [];
-    });
-  return {
-    lessons,
-    done,
-    toStudy: study.length,
-    // the final test comes last, after every lesson
-    nextLesson: lessons.find((x) => x.kind !== "final" && !rec(x.slug)?.done),
-    finalScore,
-    finalPassed,
-    certificate,
-    placementPassed,
-    exam,
-    examPassed,
-    passed: certificate && placementPassed && examPassed,
-    weak,
-  };
-}
-
-export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; grammar: PlanGrammar[]; levels: PlanLevel[] }) {
+export function MyPlan({ input }: { input: PlanInput }) {
+  const { baseCourse, grammar, levels, ipa, ipaCourse } = input;
   const { session, ready } = useAuth();
   const { state, ready: progressReady } = useProgress();
   const data = usePlan();
@@ -158,48 +82,39 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
     );
   }
 
-  const grammarDone = grammar.filter((g) => ticks.includes(`g:${g.slug}`)).length;
-  const drillsDone = SENTENCE_DRILLS.filter((d) => ticks.includes(`d:${d.id}`)).length;
-  const baseDone = grammarDone === grammar.length && drillsDone === SENTENCE_DRILLS.length;
-  const statuses = levels.map((l) => levelStatus(l, state, data.exams));
-  // stages are taken in order: the first one not passed is the current one
-  const currentLevel = baseDone ? statuses.findIndex((s) => !s.passed) : -1;
-  const allDone = baseDone && currentLevel === -1;
+  const { grammarDone, ipaDone, drillsDone, baseDone, statuses, current: currentLevel, allDone, levelsPassed } = planStage(input, state, data);
   // a stage counts only once every stage before it is passed
-  const levelsPassed = !baseDone ? 0 : currentLevel === -1 ? levels.length : currentLevel;
   const stagesPassed = (baseDone ? 1 : 0) + levelsPassed;
 
-  const nextGrammar = grammar.find((g) => !ticks.includes(`g:${g.slug}`));
-  const nextDrill = SENTENCE_DRILLS.find((d) => !ticks.includes(`d:${d.id}`));
+  const nextGrammar = grammar.find((g) => !grammarDoneOf(input, state, data, g.slug));
+  const nextIpa = ipa.find((x) => !state.lessons[lessonKey(ipaCourse, x.slug)]?.done);
   const cur = currentLevel >= 0 ? levels[currentLevel] : null;
   const curStatus = currentLevel >= 0 ? statuses[currentLevel] : null;
   const next = !baseDone
     ? nextGrammar
-      ? { what: `Ôn ngữ pháp A1: ${nextGrammar.title}`, href: `/ngu-phap/${baseCourse}/${nextGrammar.slug}`, why: "Chặng nền lấp chỗ hổng ngữ pháp, phải làm trước." }
-      : { what: `Tách câu: ${nextDrill!.en}`, href: `#drill-${nextDrill!.id}`, why: "Nền ngữ pháp đã ôn xong, giờ luyện đọc từng câu." }
+      ? { what: `Học bài A1: ${nextGrammar.title}`, href: `/hoc/${baseCourse}/${nextGrammar.slug}`, why: "Chặng nền lấp chỗ hổng ngữ pháp, phải làm trước." }
+      : { what: `Học bài phát âm: ${nextIpa?.title ?? ""}`, href: nextIpa ? `/hoc/${ipaCourse}/${nextIpa.slug}` : "#stage-0", why: "Ngữ pháp A1 đã xong, còn phần phát âm của chặng nền." }
     : cur && curStatus
       ? curStatus.nextLesson
         ? { what: `Học bài ${cur.level}: ${curStatus.nextLesson.title}`, href: `/hoc/${cur.slug}/${curStatus.nextLesson.slug}`, why: `Học ${cur.title} theo đúng thứ tự.` }
         : !curStatus.finalPassed && cur.finalSlug
           ? {
-              what: `Làm bài kiểm tra cuối khóa ${cur.level} (cần từ ${FINAL_PASS}%)`,
+              what: `Làm bài kiểm tra cuối khóa ${cur.level} (cần từ ${PLAN_FINAL_PASS}%)`,
               href: `/hoc/${cur.slug}/${cur.finalSlug}`,
               why: curStatus.finalScore != null ? `Lần trước đạt ${curStatus.finalScore}%. Ôn các bài dưới 80% rồi làm lại.` : "Đã học hết bài, giờ kiểm tra cả khóa.",
             }
-          : !curStatus.placementPassed
-            ? { what: `Làm lại bài kiểm tra trình độ để xác nhận đã vững ${cur.level}`, href: "/kiem-tra-trinh-do", why: "Có chứng chỉ rồi, kiểm tra lại cho chắc trước khi lên cấp." }
-            : {
-                what: `Làm đề mẫu chính thức ${OFFICIAL_CHECKS[cur.level].exam} và nhập điểm`,
-                href: `#exam-${cur.level}`,
-                why: "Bước kiểm chứng cuối: so với ngưỡng thật của Cambridge trước khi lên cấp.",
-              }
+          : {
+              what: `Làm đề mẫu chính thức ${OFFICIAL_CHECKS[cur.level].exam} và nhập điểm`,
+              href: `#exam-${cur.level}`,
+              why: "Bước kiểm chứng để lên cấp: so với ngưỡng thật của Cambridge.",
+            }
       : { what: "Thi chứng chỉ C1 quốc tế", href: "#c1", why: "Bạn đã đi hết lộ trình trên trang." };
 
   const weeksLo = BASE_WEEKS[0] + levels.reduce((n, l) => n + l.weeks[0], 0);
   const weeksHi = BASE_WEEKS[1] + levels.reduce((n, l) => n + l.weeks[1], 0);
   const monthsLo = Math.round(weeksLo / 4.35);
   const monthsHi = Math.round(weeksHi / 4.35);
-  const routineHref = { vocab: "/on-tap-tu-vung", grammar: baseDone ? "/ngu-phap" : `/ngu-phap/${baseCourse}/${nextGrammar?.slug ?? ""}`, lesson: next.href.startsWith("/hoc/") ? next.href : cur ? `/khoa-hoc/${cur.slug}` : "/khoa-hoc", reading: "#tach-cau" };
+  const routineHref = { vocab: "/on-tap-tu-vung", grammar: baseDone || !nextGrammar ? "/ngu-phap" : `/hoc/${baseCourse}/${nextGrammar.slug}`, lesson: next.href.startsWith("/hoc/") ? next.href : cur ? `/khoa-hoc/${cur.slug}` : "/khoa-hoc", reading: "#tach-cau" };
 
   return (
     <div className="space-y-14">
@@ -218,9 +133,9 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
             </p>
           )}
           <p className="mt-3 text-lg">
-            Lộ trình gồm 5 chặng đi theo thứ tự: <strong>chặng nền</strong> lấp ngữ pháp A1 và luyện tách câu, rồi <strong>A2 → B1 → B2 → C1</strong>.
-            Mỗi cấp chỉ tính là qua khi có đủ 4 điều kiện: học hết bài, đạt từ {FINAL_PASS}% bài kiểm tra cuối khóa, làm lại bài kiểm tra trình độ
-            thấy qua đúng cấp đó, và làm đề mẫu chính thức của Cambridge đạt ngưỡng của cấp. Chưa qua thì ôn lại, không nhảy cấp.
+            Lộ trình gồm 5 chặng đi theo thứ tự: <strong>chặng nền</strong> (ngữ pháp A1, phát âm, tách câu), rồi <strong>A2 → B1 → B2 → C1</strong>.
+            Mỗi cấp chỉ tính là qua khi có đủ 3 điều kiện: học hết bài, đạt từ {PLAN_FINAL_PASS}% bài kiểm tra cuối khóa, và đề mẫu chính thức của Cambridge
+            đạt ngưỡng của cấp ở mọi phần. Chưa qua thì lịch xếp học bù đúng phần yếu, không nhảy cấp.
           </p>
           <div className="mt-6">
             <p className="mb-2 font-semibold">Đã qua {stagesPassed}/5 chặng</p>
@@ -233,17 +148,21 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
         <h2 id="next" className="font-display text-2xl font-bold">Việc tiếp theo</h2>
         <p className="mt-2 text-lg font-semibold">{next.what}</p>
         <p className="mt-1">{next.why}</p>
-        <Link href={next.href} className="btn btn-ghost mt-5">
-          Làm ngay
-          <ArrowRight className="size-5" aria-hidden />
-        </Link>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link href={next.href} className="btn btn-ghost">
+            Làm ngay
+            <ArrowRight className="size-5" aria-hidden />
+          </Link>
+          <Link href="/hom-nay" className="btn btn-ghost">Xem việc chi tiết hôm nay</Link>
+          <Link href="/lich-hoc" className="btn btn-ghost">Lịch học từng ngày</Link>
+        </div>
       </section>
 
       <section aria-labelledby="overview">
         <h2 id="overview" className="font-display text-3xl font-extrabold">Cả chặng đường</h2>
         <ol className="mt-5 grid gap-3">
           <li className="clay flex flex-wrap items-center gap-x-4 gap-y-2 p-4">
-            <a href="#stage-0" className="min-w-48 flex-1 font-display text-lg font-bold underline-offset-4 hover:underline">Chặng nền: ngữ pháp A1 và tách câu</a>
+            <a href="#stage-0" className="min-w-48 flex-1 font-display text-lg font-bold underline-offset-4 hover:underline">Chặng nền: ngữ pháp A1, phát âm và tách câu</a>
             <span className="text-sm text-ink-soft">{BASE_WEEKS[0]}–{BASE_WEEKS[1]} tuần</span>
             <Status done={baseDone} current={!baseDone} />
           </li>
@@ -293,17 +212,17 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
 
       <section aria-labelledby="stage-0" className="scroll-mt-28">
         <div className="flex flex-wrap items-center gap-3">
-          <h2 id="stage-0" className="scroll-mt-28 font-display text-3xl font-extrabold">Chặng nền: ngữ pháp A1 và tách câu</h2>
+          <h2 id="stage-0" className="scroll-mt-28 font-display text-3xl font-extrabold">Chặng nền: ngữ pháp A1, phát âm và tách câu</h2>
           <Status done={baseDone} current={!baseDone} />
         </div>
         <details open={!baseDone} className="mt-4">
           <summary className="inline-flex min-h-11 cursor-pointer items-center font-semibold underline underline-offset-4">Việc cần làm ở chặng này</summary>
 
           <h3 className="mt-6 font-display text-2xl font-bold">
-            1. Ôn 16 chủ điểm ngữ pháp A1 <span className="text-base font-semibold text-ink-soft">({grammarDone}/{grammar.length})</span>
+            1. Học {grammar.length} bài ngữ pháp A1 <span className="text-base font-semibold text-ink-soft">({grammarDone}/{grammar.length})</span>
           </h3>
           <p className="mt-2 max-w-3xl text-ink-soft">
-            Mỗi ngày 2–3 chủ điểm. Đọc bài giảng trong Sổ tay, chỗ nào chưa chắc thì bấm Làm bài tập. Tự đặt được câu với cấu trúc đó rồi mới tích Đã ôn.
+            Mỗi ngày trọn một bài, đủ các bước; cứ bốn ngày có một ngày ôn cách quãng. Học xong bài là tự tính, hoặc tích Đã ôn nếu bạn chắc rồi.
           </p>
           <ol className="mt-4 divide-y divide-ink/15 rounded-2xl border-[2.5px] border-ink bg-card">
             {grammar.map((g, i) => (
@@ -314,18 +233,43 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
                   <span className="block text-sm text-ink-soft">{g.chapter}</span>
                 </span>
                 <Link href={`/hoc/${baseCourse}/${g.slug}`} className="inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-4">
-                  Làm bài tập
+                  Vào học
                 </Link>
-                <Tick id={`g:${g.slug}`} ticks={ticks} label="Đã ôn" />
+                {state.lessons[lessonKey(baseCourse, g.slug)]?.done ? (
+                  <span className="inline-flex min-h-11 items-center gap-1 px-2 font-semibold"><Check className="size-5 text-leaf" aria-hidden /> Đã học</span>
+                ) : (
+                  <Tick id={`g:${g.slug}`} ticks={ticks} label="Đã ôn" />
+                )}
               </li>
             ))}
           </ol>
 
-          <h3 id="tach-cau" className="mt-10 scroll-mt-28 font-display text-2xl font-bold">
-            2. Luyện tách câu khi đọc <span className="text-base font-semibold text-ink-soft">({drillsDone}/{SENTENCE_DRILLS.length})</span>
+          <h3 className="mt-10 font-display text-2xl font-bold">
+            2. Học {ipa.length} bài phát âm <span className="text-base font-semibold text-ink-soft">({ipaDone}/{ipa.length})</span>
           </h3>
+          <p className="mt-2 max-w-3xl text-ink-soft">Mỗi ngày một bài, song song với ngữ pháp trong 8 ngày đầu. Âm cuối, cặp âm dễ nhầm và trọng âm là phần người Việt hay sai nhất.</p>
+          <ol className="mt-4 divide-y divide-ink/15 rounded-2xl border-[2.5px] border-ink bg-card">
+            {ipa.map((x, n) => (
+              <li key={x.slug} className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-3">
+                <span className="w-6 shrink-0 font-display font-bold text-ink-soft">{n + 1}</span>
+                <Link href={`/hoc/${ipaCourse}/${x.slug}`} className="min-w-48 flex-1 font-semibold underline-offset-4 hover:underline">{x.title}</Link>
+                {state.lessons[lessonKey(ipaCourse, x.slug)]?.done ? (
+                  <span className="inline-flex min-h-11 items-center gap-1 px-2 font-semibold"><Check className="size-5 text-leaf" aria-hidden /> Đã học</span>
+                ) : (
+                  <span className="text-sm text-ink-soft">{x.minutes} phút</span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </details>
+      </section>
+
+      <section aria-labelledby="tach-cau">
+          <h2 id="tach-cau" className="scroll-mt-28 font-display text-3xl font-extrabold">
+            Tách câu khi đọc <span className="text-base font-semibold text-ink-soft">({drillsDone}/{ALL_DRILLS.length})</span>
+          </h2>
           <p className="mt-2 max-w-3xl text-ink-soft">
-            Gặp câu không hiểu, đừng dịch từng từ từ trái sang phải. Làm theo 4 bước này ở mọi chặng sau, kể cả khi đọc bài C1:
+            Chạy suốt lộ trình, mỗi ngày vài câu, khó dần từ A1 đến C1; lịch hằng ngày tự chọn câu đúng cấp. Gặp câu không hiểu, đừng dịch từng từ từ trái sang phải, làm theo 4 bước:
           </p>
           <ol className="mt-4 grid gap-3 sm:grid-cols-2">
             {READING_STEPS.map((s, i) => (
@@ -338,8 +282,17 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
             ))}
           </ol>
           <p className="mt-8 font-semibold">Câu luyện: tự tách trước, rồi mở cách tách để so.</p>
+          {(["A1", "A2", "B1", "B2", "C1"] as const).map((lvl) => {
+            const mine = ALL_DRILLS.filter((d) => d.level === lvl);
+            if (!mine.length) return null;
+            const done = mine.filter((d) => ticks.includes(`d:${d.id}`)).length;
+            return (
+          <details key={lvl} className="mt-4" open={done < mine.length && mine.some((d) => ticks.includes(`d:${d.id}`))}>
+            <summary className="inline-flex min-h-11 cursor-pointer items-center font-display text-xl font-bold">
+              Câu cấp {lvl} ({done}/{mine.length})
+            </summary>
           <ul className="mt-4 grid gap-4">
-            {SENTENCE_DRILLS.map((d) => (
+            {mine.map((d) => (
               <li key={d.id} id={`drill-${d.id}`} className="clay scroll-mt-28 p-5 sm:p-6">
                 <p lang="en" className="font-display text-xl font-bold leading-snug sm:text-2xl">{d.en}</p>
                 <details className="mt-3">
@@ -374,12 +327,9 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
               </li>
             ))}
           </ul>
-          <p className="mt-6 rounded-2xl border-2 border-ink bg-leaf-soft px-4 py-3">
-            Nên học song song: khóa{" "}
-            <Link href="/khoa-hoc/phat-am-ipa" className="font-semibold underline underline-offset-4">Bước 0: Phát âm chuẩn với IPA</Link> (khoảng 5 giờ). Nghe
-            và nói tốt ở B2, C1 cần phát âm đúng từ sớm.
-          </p>
-        </details>
+          </details>
+            );
+          })}
       </section>
 
       {levels.map((l, i) => {
@@ -409,7 +359,7 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
                     Học hết các bài theo thứ tự ({s.done}/{s.toStudy})
                   </Condition>
                   <Condition ok={s.finalPassed}>
-                    Đạt từ {FINAL_PASS}% bài kiểm tra cuối khóa{s.finalScore != null ? ` (lần gần nhất: ${s.finalScore}%)` : ""}
+                    Đạt từ {PLAN_FINAL_PASS}% bài kiểm tra cuối khóa{s.finalScore != null ? ` (lần gần nhất: ${s.finalScore}%)` : ""}
                     {l.finalSlug && s.nextLesson === undefined && !s.finalPassed && (
                       <>
                         {" "}
@@ -417,15 +367,14 @@ export function MyPlan({ baseCourse, grammar, levels }: { baseCourse: string; gr
                       </>
                     )}
                   </Condition>
-                  <Condition ok={s.placementPassed}>
-                    Học xong các bài rồi mới làm lại <Link href="/kiem-tra-trinh-do" className="font-semibold underline underline-offset-4">bài kiểm tra trình độ</Link> và
-                    qua cấp {l.level}, bấm Tôi không biết thay vì đoán
-                  </Condition>
                   <Condition ok={s.examPassed}>
                     <a href={`#exam-${l.level}`} className="font-semibold underline underline-offset-4">Đề mẫu chính thức {OFFICIAL_CHECKS[l.level].exam}</a> đạt
                     ngưỡng {l.level} ở mọi phần
                   </Condition>
                 </ul>
+                <p className="mt-3 text-sm text-ink-soft">
+                  Trong tuần kiểm tra còn có bài kiểm tra trình độ để soát lại{s.placementPassed ? " (đã qua)" : ""}; nó không phải điều kiện lên cấp.
+                </p>
                 {s.weak.length > 0 && (
                   <div className="mt-4 rounded-2xl border-2 border-ink bg-sun-soft px-4 py-3">
                     <p className="font-semibold">Bài dưới 80%, nên học lại trước khi làm bài kiểm tra:</p>

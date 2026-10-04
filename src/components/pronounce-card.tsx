@@ -10,11 +10,14 @@ export function PronounceCard({
   word,
   label,
   revealMeaning = false,
+  plain = false,
   children,
 }: {
   word: VocabWord;
   label?: string;
   revealMeaning?: boolean;
+  /** show the word as one piece with no stress mark (the learner's own words carry no syllable split) */
+  plain?: boolean;
   children?: ReactNode;
 }) {
   const [speaking, setSpeaking] = useState(false);
@@ -53,30 +56,36 @@ export function PronounceCard({
         )}
       </div>
 
-      <div
-        className="mt-6 flex flex-wrap items-end gap-x-1.5 gap-y-2"
-        aria-label={`Trọng âm ở âm tiết ${word.stress + 1}`}
-      >
-        {word.syllables.map((s, i) => {
-          const stressed = i === word.stress;
-          return (
-            <span
-              key={`${popKey}-${i}`}
-              className={
-                stressed
-                  ? `inline-block font-display text-5xl font-extrabold leading-none text-tangerine-deep sm:text-6xl ${speaking ? "stress-pop" : ""}`
-                  : "font-display text-3xl font-semibold leading-none text-ink/65 sm:text-4xl"
-              }
-            >
-              {stressed ? s.toUpperCase() : s}
-            </span>
-          );
-        })}
-      </div>
+      {plain ? (
+        <p lang="en" className="mt-6 break-words font-display text-4xl font-extrabold leading-tight text-tangerine-deep sm:text-5xl">
+          {word.word}
+        </p>
+      ) : (
+        <div
+          className="mt-6 flex flex-wrap items-end gap-x-1.5 gap-y-2"
+          aria-label={`Trọng âm ở âm tiết ${word.stress + 1}`}
+        >
+          {word.syllables.map((s, i) => {
+            const stressed = i === word.stress;
+            return (
+              <span
+                key={`${popKey}-${i}`}
+                className={
+                  stressed
+                    ? `inline-block font-display text-5xl font-extrabold leading-none text-tangerine-deep sm:text-6xl ${speaking ? "stress-pop" : ""}`
+                    : "font-display text-3xl font-semibold leading-none text-ink/65 sm:text-4xl"
+                }
+              >
+                {stressed ? s.toUpperCase() : s}
+              </span>
+            );
+          })}
+        </div>
+      )}
 
       <p className="mt-3 font-display text-xl text-ink-soft">
-        <span className="font-semibold text-ink">{word.word}</span> {word.ipa}
-        <Link href="/bang-ipa" className="ml-3 align-middle font-sans text-sm font-semibold text-ink underline underline-offset-4 hover:text-tangerine-deep">
+        {!plain && <span className="font-semibold text-ink">{word.word}</span>} {word.ipa}
+        <Link href="/bang-ipa" className={`${plain && !word.ipa ? "" : "ml-3 "}align-middle font-sans text-sm font-semibold text-ink underline underline-offset-4 hover:text-tangerine-deep`}>
           Tra bảng IPA
         </Link>
       </p>

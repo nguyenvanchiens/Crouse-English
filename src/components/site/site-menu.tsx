@@ -10,6 +10,8 @@ export interface NavItem { href: string; label: string }
 
 /** only shown to a signed-in learner */
 export const MY_PLAN: NavItem = { href: "/lo-trinh-cua-toi", label: "Lộ trình của tôi" };
+export const MY_TODAY: NavItem = { href: "/hom-nay", label: "Hôm nay học gì" };
+export const MY_CALENDAR: NavItem = { href: "/lich-hoc", label: "Lịch học tới C1" };
 
 export const isActive = (pathname: string, href: string) => pathname === href || pathname.startsWith(href + "/");
 
@@ -86,7 +88,7 @@ export const ITEM_CLASS = "flex min-h-11 w-full items-center rounded-xl px-4 tex
 export function SiteMenu({ items }: { items: NavItem[] }) {
   const { pathname, shown, buttonRef, panelRef, toggle, close } = usePopover();
   const { session } = useAuth();
-  const all = session ? [MY_PLAN, ...items] : items;
+  const all = session ? [MY_TODAY, MY_CALENDAR, MY_PLAN, ...items] : items;
 
   return (
     <div className="xl:hidden">

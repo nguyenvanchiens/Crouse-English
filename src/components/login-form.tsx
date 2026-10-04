@@ -22,7 +22,8 @@ export function LoginForm() {
           Bạn đang đăng nhập với tên <strong>{session.user}</strong>.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/lo-trinh-cua-toi" className="btn btn-primary">Mở lộ trình của tôi</Link>
+          <Link href="/hom-nay" className="btn btn-primary">Hôm nay học gì</Link>
+          <Link href="/lo-trinh-cua-toi" className="btn btn-ghost">Lộ trình của tôi</Link>
           <button type="button" className="btn btn-ghost" onClick={() => auth.logout()}>Đăng xuất</button>
         </div>
       </div>
@@ -37,7 +38,7 @@ export function LoginForm() {
         setBusy(true);
         const ok = await auth.login(user, password);
         setBusy(false);
-        if (ok) router.push("/lo-trinh-cua-toi");
+        if (ok) router.push("/hom-nay");
         else {
           setError(true);
           setPassword("");

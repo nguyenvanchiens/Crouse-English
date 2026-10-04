@@ -4,14 +4,14 @@ import { judgeExam, parsePlan, speakingTotal, weekKey } from "./my-plan-core";
 
 describe("parsePlan", () => {
   it("keeps the old tick-only format and drops bad data", () => {
-    expect(parsePlan(JSON.stringify({ done: ["g:a", "g:a", 3, "d:b"] }))).toEqual({ done: ["g:a", "d:b"], hours: {}, exams: {}, used: {} });
+    expect(parsePlan(JSON.stringify({ done: ["g:a", "g:a", 3, "d:b"] }))).toEqual({ done: ["g:a", "d:b"], hours: {}, exams: {}, used: {}, history: [], reviews: {} });
     const p = parsePlan(JSON.stringify({ done: [], hours: { "2026-09-21": 6, "2026-09-14": -1, bad: 3, "2026-09-07": 500 }, exams: { B1: { marks: { reading: 25, x: "y" }, at: "t" }, B2: "no" } }));
     expect(p.hours).toEqual({ "2026-09-21": 6 });
     expect(p.exams).toEqual({ B1: { marks: { reading: 25 }, at: "t" } });
     const u = parsePlan(JSON.stringify({ used: { B1: ["digital", "digital", 3], B2: "x" }, exams: { A2: { marks: {}, sample: "paper-1", at: "t" } } }));
     expect(u.used).toEqual({ B1: ["digital"] });
     expect(u.exams.A2.sample).toBe("paper-1");
-    expect(parsePlan("nope")).toEqual({ done: [], hours: {}, exams: {}, used: {} });
+    expect(parsePlan("nope")).toEqual({ done: [], hours: {}, exams: {}, used: {}, history: [], reviews: {} });
   });
 });
 
@@ -55,12 +55,16 @@ describe("official sample test check", () => {
 });
 
 describe("official samples", () => {
-  it("lists each exam's free samples with unique ids, For Schools versions except at C1", () => {
+  it("keeps the standard samples for the check and practises on the For Schools ones (none at C1)", () => {
     for (const [level, c] of Object.entries(OFFICIAL_CHECKS)) {
-      expect(new Set(c.samples.map((x) => x.id)).size, level).toBe(c.samples.length);
-      expect(c.samples.some((x) => x.id.startsWith("schools-")), level).toBe(level !== "C1");
+      const ids = [...c.samples, ...c.practice].map((x) => x.id);
+      expect(new Set(ids).size, level).toBe(ids.length);
+      expect(c.samples.some((x) => x.id.startsWith("schools-")), level).toBe(false);
+      expect(c.practice.every((x) => x.id.startsWith("schools-")), level).toBe(true);
+      expect(c.practice.length > 0, level).toBe(level !== "C1");
     }
-    expect(OFFICIAL_CHECKS.B2.samples).toHaveLength(6);
+    expect(OFFICIAL_CHECKS.B2.samples).toHaveLength(3);
+    expect(OFFICIAL_CHECKS.B2.practice).toHaveLength(3);
     expect(OFFICIAL_CHECKS.C1.samples).toHaveLength(3);
   });
 });

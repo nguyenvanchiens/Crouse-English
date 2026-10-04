@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CustomWords } from "@/components/custom-words";
 import { VocabReview, type ReviewWord } from "@/components/vocab-review";
 import { getCourses } from "@/lib/content";
 import { lessonKey, topicKey, vocabKey } from "@/lib/progress-core";
@@ -34,6 +35,7 @@ export default async function VocabReviewPage() {
         mới gặp lại; quên thì gặp lại ngay hôm sau. Mỗi ngày chỉ cần vài phút.
       </p>
       <VocabReview words={words} />
+      <CustomWords />
     </div>
   );
 }
