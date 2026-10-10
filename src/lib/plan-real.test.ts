@@ -11,6 +11,8 @@ import { SPLIT_MINUTES, buildSchedule, type DayMain } from "./schedule";
 import { addDayKey, describeDay, parseDayKey } from "./schedule-describe";
 import { checkChoice } from "./scoring";
 import { buildToday } from "./today";
+import { sprintOn } from "./work-sprint";
+import { WORK_SPRINTS } from "@/content/work-sprints";
 
 /** The real course content, walked day by day from day 1 to the end of the path. */
 describe("the owner's calendar on the real content", async () => {
@@ -138,6 +140,24 @@ describe("the owner's calendar on the real content", async () => {
     }
   });
 
+  it("runs the work-English sprints from the first week, one after another, done within about five months", () => {
+    const places = days.map((d) => ({ d, s: sprintOn(days, d.date, data) }));
+    expect(places[0].s).toMatchObject({ index: 0, session: 0 });
+    // a sprint never starts before the one before it ends
+    const order = places.flatMap((p) => (p.s ? [p.s.index] : []));
+    for (let i = 1; i < order.length; i++) expect(order[i]).toBeGreaterThanOrEqual(order[i - 1]);
+    expect(new Set(order).size).toBe(WORK_SPRINTS.length);
+    const last = places.filter((p) => p.s).pop()!.d.date;
+    expect(last <= addDayKey(PLAN_START, 160), last).toBe(true);
+    // the session takes the self-study's place: a day has one or the other
+    for (const p of places) {
+      if (!p.s) continue;
+      const ids = buildToday({ date: parseDayKey(p.d.date), picks: { main: p.d.main }, ticked: [], input, stage, state, data, dueWords: 0, dayStage: p.d.stage, sprint: p.s }).map((t) => t.id);
+      expect(ids.includes("sprint"), p.d.date).toBe(true);
+      expect(ids.some((x) => x.startsWith("self:")), p.d.date).toBe(false);
+    }
+  });
+
   it("is honest about the time: about a year at the fastest", () => {
     console.log(`plan length: ${days.length} days, ${(days.length / 7).toFixed(1)} weeks`);
     expect(days.length / 7).toBeGreaterThan(45);
@@ -146,7 +166,7 @@ describe("the owner's calendar on the real content", async () => {
 
   it("builds a sensible day for every date, at that day's level, with links only to pages that exist", () => {
     for (const d of days) {
-      const tasks = buildToday({ date: parseDayKey(d.date), picks: { main: d.main }, ticked: [], input, stage, state, data, dueWords: 0, dayStage: d.stage, recap: { date: d.date, done: false }, spaced: spacedDays(d.date, taughtAll.filter((x) => x < d.date)) });
+      const tasks = buildToday({ date: parseDayKey(d.date), picks: { main: d.main }, ticked: [], input, stage, state, data, dueWords: 0, dayStage: d.stage, recap: { date: d.date, done: false }, spaced: spacedDays(d.date, taughtAll.filter((x) => x < d.date)), sprint: sprintOn(days, d.date, data) });
       expect(describeDay(d.main, input), d.date).not.toMatch(/undefined|tieng-anh-/);
       expect(tasks[0].id, d.date).toBe("vocab");
       expect(tasks.length, d.date).toBeGreaterThanOrEqual(2);

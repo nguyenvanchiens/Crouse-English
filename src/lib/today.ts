@@ -10,10 +10,12 @@ import {
   REVIEW_HOW,
   type SelfStudySession,
 } from "@/content/today";
+import { SESSIONS_PER_SPRINT, SPRINT_END, SPRINT_HOURS, SPRINT_MINUTES, SPRINT_START, WORK_SPRINTS } from "@/content/work-sprints";
 import type { PlanData } from "./my-plan-core";
 import { PLAN_FINAL_PASS, grammarDoneOf, type PlanInput, type PlanLevel, type PlanStage } from "./plan-stage";
 import { lessonKey, todayKey, topicKey, type ProgressState } from "./progress-core";
 import { buildSchedule, daySelfStudy, type DayMain } from "./schedule";
+import type { SprintPlace } from "./work-sprint";
 
 /** What a day is built around; frozen on the day's first visit so ticking a topic doesn't swap it for the next. */
 export interface DayPicks {
@@ -66,6 +68,8 @@ export interface TodayInput {
   recap?: { date: string; done: boolean };
   /** study days due for a short spaced review: about 2, 7 and 21 days before (see spacedDays) */
   spaced?: { date: string; ago: number }[];
+  /** the work-English sprint session that takes the place of the weekday's self-study (see sprintOn) */
+  sprint?: SprintPlace | null;
 }
 
 const SKILL_VI: Record<string, string> = { reading: "Đọc", use: "Use of English", listening: "Nghe", writing: "Viết", speaking: "Nói" };
@@ -532,7 +536,22 @@ export function buildToday(t: TodayInput): TodayTask[] {
 
   // 5. self-study for the weekday (Sunday's is the week review), unless the day is full already
   const session = daySelfStudy(main, level?.level, date.getDay());
-  if (session)
+  const sp = t.sprint;
+  if (session && sp && date.getDay() !== 0) {
+    // 6. English for the job: a 20-hour sprint session in place of the weekday's self-study
+    const s = sp.sprint.sessions[sp.session % sp.sprint.sessions.length];
+    tasks.push({
+      id: "sprint",
+      minutes: SPRINT_MINUTES,
+      title: `Tiếng Anh cho công việc, đợt ${sp.index + 1}/${WORK_SPRINTS.length}: ${s.title}`,
+      why: `${sp.sprint.title}. Mục tiêu sau ${SPRINT_HOURS} giờ: ${sp.sprint.goal} Đã luyện ${sp.hours.toLocaleString("vi-VN")}/${SPRINT_HOURS} giờ (buổi ${sp.session + 1}/${SESSIONS_PER_SPRINT}). Buổi này thay cho phần tự học hôm nay.`,
+      steps: [SPRINT_START, ...s.steps, SPRINT_END],
+      links: sp.sprint.links.map((l) => ({ ...l, external: true })),
+      done: manual("sprint"),
+      auto: false,
+      essential: true,
+    });
+  } else if (session)
     tasks.push(selfStudyTask(session, `self:${date.getDay()}`, ticked, main.kind === "week-review"));
 
   return tasks;
