@@ -26,6 +26,8 @@ import { PLAN_FINAL_PASS, grammarDoneOf, planStage, type PlanGrammar, type PlanI
 import { lessonKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { ProgressBar } from "@/components/ui/progress-bar";
+import { SESSIONS_PER_SPRINT, SPRINT_HOURS, SPRINT_MINUTES, WORK_SPRINTS } from "@/content/work-sprints";
+import { sprintSessionsDone } from "@/lib/work-sprint";
 
 export type { PlanGrammar, PlanLesson, PlanLevel };
 
@@ -199,6 +201,30 @@ export function MyPlan({ input }: { input: PlanInput }) {
               <Link href={routineHref[r.to]} className="font-semibold underline-offset-4 hover:underline">{r.what}</Link>
             </li>
           ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="cong-viec" className="scroll-mt-28">
+        <h2 id="cong-viec" className="scroll-mt-28 font-display text-3xl font-extrabold">Tiếng Anh cho công việc: {WORK_SPRINTS.length} đợt {SPRINT_HOURS} giờ</h2>
+        <p className="mt-2 max-w-3xl text-ink-soft">
+          Theo phương pháp “20 giờ đầu” của Josh Kaufman: mỗi lần chỉ luyện một kỹ năng của công việc lập trình, {SPRINT_MINUTES} phút mỗi ngày thay cho phần tự học,
+          đủ {SPRINT_HOURS} giờ thì sang đợt sau. Đường tới C1 vẫn giữ nguyên; các đợt này giúp bạn dùng được tiếng Anh trong công việc sớm hơn.
+        </p>
+        <ol className="mt-5 grid gap-4 md:grid-cols-2">
+          {WORK_SPRINTS.map((s, i) => {
+            const sessions = sprintSessionsDone(data) + (data.day?.done.includes("sprint") ? 1 : 0);
+            const mine = Math.max(0, Math.min(SESSIONS_PER_SPRINT, sessions - i * SESSIONS_PER_SPRINT));
+            const hours = Math.round(((mine * SPRINT_MINUTES) / 60) * 10) / 10;
+            return (
+              <li key={s.id} className="clay p-5">
+                <p className="text-sm font-semibold text-ink-soft">Đợt {i + 1}</p>
+                <p className="font-display text-xl font-bold">{s.title}</p>
+                <p className="mt-1">{s.goal}</p>
+                <p className="mt-3 text-sm font-semibold">Đã luyện {hours.toLocaleString("vi-VN")}/{SPRINT_HOURS} giờ</p>
+                <ProgressBar className="mt-1.5" value={(mine / SESSIONS_PER_SPRINT) * 100} label={`Đợt ${i + 1}: ${hours.toLocaleString("vi-VN")}/${SPRINT_HOURS} giờ`} />
+              </li>
+            );
+          })}
         </ol>
       </section>
 

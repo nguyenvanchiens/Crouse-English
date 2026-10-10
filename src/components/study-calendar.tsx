@@ -10,6 +10,8 @@ import { usePlan } from "@/lib/my-plan";
 import { planStage, type PlanInput } from "@/lib/plan-stage";
 import { spacedDays, taughtDays } from "@/lib/review-day";
 import { buildToday } from "@/lib/today";
+import { sprintOn } from "@/lib/work-sprint";
+import { SPRINT_MINUTES } from "@/content/work-sprints";
 import { todayKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { buildSchedule, type DayMain, type ScheduleDay } from "@/lib/schedule";
@@ -76,10 +78,12 @@ export function StudyCalendar({ input }: { input: PlanInput }) {
   const weekNo = (monday: string) => Math.floor(daysBetween(PLAN_START, monday) / 7) + 1;
   // the same task list the day page shows, so the weekly hours match what the learner is asked to do
   const taught = taughtDays(days, input);
+  // the work-English sprint session each day holds in place of its self-study, while the sprints last
+  const sprints = new Map(days.map((d) => [d.date, sprintOn(days, d.date, data)]));
   const minutes = (d: ScheduleDay) =>
     buildToday({
       date: parseKey(d.date), picks: { main: d.main }, ticked: [], input, stage, state, data, dueWords: 0, dayStage: d.stage,
-      recap: { date: d.date, done: false }, spaced: spacedDays(d.date, taught.filter((x) => x < d.date)),
+      recap: { date: d.date, done: false }, spaced: spacedDays(d.date, taught.filter((x) => x < d.date)), sprint: sprints.get(d.date),
     }).reduce((n, t) => n + t.minutes, 0);
 
   return (
@@ -152,7 +156,9 @@ export function StudyCalendar({ input }: { input: PlanInput }) {
                           <span className={isTest(d.main) ? "font-bold" : ""}>{describe(d.main)}</span>
                           {d.selfStudy && d.main.kind !== "week-review" && (
                             <span className="block text-sm text-ink-soft">
-                              Tự học {d.selfStudy.minutes} phút: {d.selfStudy.title}
+                              {sprints.get(d.date)
+                                ? `Tiếng Anh cho công việc ${SPRINT_MINUTES} phút: ${sprints.get(d.date)!.sprint.title}`
+                                : `Tự học ${d.selfStudy.minutes} phút: ${d.selfStudy.title}`}
                             </span>
                           )}
                           {isToday && (

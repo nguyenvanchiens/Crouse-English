@@ -67,7 +67,7 @@ export const plan = {
     const now = read();
     if (now.day?.date === date) return;
     // the day being replaced goes into the history, so it can be reviewed later
-    const history = now.day && !now.history.some((h) => h.date === now.day!.date) ? [...now.history, { date: now.day.date, main: now.day.picks.main }].slice(-400) : now.history;
+    const history = now.day && !now.history.some((h) => h.date === now.day!.date) ? [...now.history, { date: now.day.date, main: now.day.picks.main, ...(now.day.done.length ? { done: now.day.done } : {}) }].slice(-400) : now.history;
     write({ ...now, history, day: { date, picks, done: [] } });
   },
   toggleDayTask(date: string, id: string) {

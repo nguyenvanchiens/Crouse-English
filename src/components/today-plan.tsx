@@ -16,6 +16,7 @@ import { spacedDays, studyDays, taughtDays } from "@/lib/review-day";
 import { buildSchedule, dayOf } from "@/lib/schedule";
 import { addDayKey, daysBetween, describeDay, parseDayKey } from "@/lib/schedule-describe";
 import { buildToday, pickDay, type TodayTask } from "@/lib/today";
+import { sprintOn } from "@/lib/work-sprint";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
 const dateVi = (key: string) => {
@@ -162,6 +163,7 @@ export function TodayPlan({ input }: { input: PlanInput }) {
   const pastDays = studyDays(data, state, null, input, today).map((d) => d.date);
   const tasks = buildToday({
     date: viewDate,
+    sprint: sprintOn(schedule, view, data),
     spaced: spacedDays(view, live ? pastDays.filter((d) => d < today) : [...new Set([...pastDays, ...taughtDays(schedule, input).filter((d) => d < view)])]),
     picks,
     ticked: live && !fresh ? data.day!.done : [],

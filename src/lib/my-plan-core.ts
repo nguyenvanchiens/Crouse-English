@@ -21,7 +21,7 @@ export interface PlanData {
   /** today's plan: what it is built around and what was ticked */
   day?: DayRecord;
   /** earlier days, oldest first: what each was built around, for reviewing a past day */
-  history: { date: string; main: DayRecord["picks"]["main"] }[];
+  history: { date: string; main: DayRecord["picks"]["main"]; /** tasks ticked that day */ done?: string[] }[];
   /** review quizzes taken, by the reviewed day */
   reviews: Record<string, { score: number; at: string }>;
 }
@@ -63,8 +63,8 @@ export function parsePlan(raw: string | null): PlanData {
   const day = parseDay(d.day);
   const history = Array.isArray(d.history)
     ? d.history.flatMap((h) => {
-        const r = parseDay(isRecord(h) ? { date: h.date, picks: { main: h.main }, done: [] } : null);
-        return r ? [{ date: r.date, main: r.picks.main }] : [];
+        const r = parseDay(isRecord(h) ? { date: h.date, picks: { main: h.main }, done: h.done ?? [] } : null);
+        return r ? [{ date: r.date, main: r.picks.main, ...(r.done.length ? { done: r.done } : {}) }] : [];
       })
     : [];
   const reviews = isRecord(d.reviews)
