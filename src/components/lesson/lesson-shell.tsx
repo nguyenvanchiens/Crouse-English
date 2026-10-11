@@ -12,6 +12,7 @@ import { percentScore } from "@/lib/scoring";
 import { addSeen, getSeen } from "@/lib/seen";
 import { drawFinal, resolveDrawn, type Drawn } from "@/lib/test-draw";
 import { setDefaultAccent } from "@/lib/speech";
+import { VoiceSettings } from "@/components/voice-settings";
 import type { PointEntry } from "@/lib/points";
 import { PointsEarned } from "@/components/points";
 import { progress, useProgress } from "@/lib/progress";
@@ -384,7 +385,8 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
           <p className="mt-2 text-sm font-semibold text-ink-soft">
             {currentModule.title}, bài {index + 1}/{total}
           </p>
-          <h1 className="mb-8 mt-1 font-display text-4xl font-extrabold leading-tight">{lesson.title}</h1>
+          <h1 className="mb-6 mt-1 font-display text-4xl font-extrabold leading-tight">{lesson.title}</h1>
+          <VoiceSettings compact accents={[course.goal === "phat-am" ? "GB" : "US"]} />
           {body()}
         </main>
       </div>
