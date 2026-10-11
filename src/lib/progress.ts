@@ -10,6 +10,7 @@ import {
   applyLearnerName,
   applyPlacement,
   applyReviewWord,
+  applyGameRound,
   applyToggleTopic,
   applyBuyReward,
   applyEquipReward,
@@ -89,6 +90,9 @@ export const progress = {
   },
   savePlacement(level: Level, startLevel: Level, score: number) {
     write(applyPlacement(read(), level, startLevel, score, new Date()));
+  },
+  gameRound(xp: number) {
+    write(applyGameRound(read(), xp, new Date()));
   },
   reviewWord(key: string, remembered: boolean) {
     write(applyReviewWord(read(), key, remembered, new Date()));
