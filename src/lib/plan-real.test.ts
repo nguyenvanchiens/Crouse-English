@@ -140,15 +140,19 @@ describe("the owner's calendar on the real content", async () => {
     }
   });
 
-  it("runs the work-English sprints from the first week, one after another, done within about five months", () => {
+  it("runs the work-English sprints from the first week, one after another, done within about six months", () => {
     const places = days.map((d) => ({ d, s: sprintOn(days, d.date, data) }));
-    expect(places[0].s).toMatchObject({ index: 0, session: 0 });
+    const firstSession = places.find((p) => p.s)!;
+    expect(firstSession.s).toMatchObject({ index: 0, session: 0 });
+    // sessions start in the first week, but never on a day that also has a pronunciation lesson (short self-study)
+    expect(firstSession.d.date <= addDayKey(PLAN_START, 6), firstSession.d.date).toBe(true);
+    for (const p of places) if (p.s) expect(p.d.main.kind === "grammar" && p.d.main.ipa, p.d.date).toBeFalsy();
     // a sprint never starts before the one before it ends
     const order = places.flatMap((p) => (p.s ? [p.s.index] : []));
     for (let i = 1; i < order.length; i++) expect(order[i]).toBeGreaterThanOrEqual(order[i - 1]);
     expect(new Set(order).size).toBe(WORK_SPRINTS.length);
     const last = places.filter((p) => p.s).pop()!.d.date;
-    expect(last <= addDayKey(PLAN_START, 160), last).toBe(true);
+    expect(last <= addDayKey(PLAN_START, 190), last).toBe(true);
     // the session takes the self-study's place: a day has one or the other
     for (const p of places) {
       if (!p.s) continue;

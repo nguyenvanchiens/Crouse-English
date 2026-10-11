@@ -17,6 +17,7 @@ import { buildSchedule, dayOf } from "@/lib/schedule";
 import { addDayKey, daysBetween, describeDay, parseDayKey } from "@/lib/schedule-describe";
 import { buildToday, pickDay, type TodayTask } from "@/lib/today";
 import { sprintOn } from "@/lib/work-sprint";
+import { SPRINT_MINUTES } from "@/content/work-sprints";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
 const dateVi = (key: string) => {
@@ -195,6 +196,7 @@ export function TodayPlan({ input }: { input: PlanInput }) {
   const dayNo = daysBetween(PLAN_START, view) + 1;
   const tomorrow = addDayKey(view, 1);
   const tomorrowEntry = dayOf(schedule, tomorrow);
+  const tomorrowSprint = sprintOn(schedule, tomorrow, data);
   const cur = stage.current >= 0 ? levels[stage.current] : null;
   const where = !stage.baseDone
     ? `Chặng nền: đã học ${stage.grammarDone}/${grammar.length} bài ngữ pháp A1 và ${stage.ipaDone}/${ipa.length} bài phát âm; đã hiểu ${stage.drillsDone}/${ALL_DRILLS.length} câu luyện tách câu.`
@@ -281,7 +283,9 @@ export function TodayPlan({ input }: { input: PlanInput }) {
           <p className="mt-2 text-lg">{describeDay(tomorrowEntry.main, input)}</p>
           {tomorrowEntry.selfStudy && tomorrowEntry.main.kind !== "week-review" && (
             <p className="mt-1">
-              Tự học {tomorrowEntry.selfStudy.minutes} phút: {tomorrowEntry.selfStudy.title}
+              {tomorrowSprint
+                ? `Tiếng Anh cho công việc ${SPRINT_MINUTES} phút: ${tomorrowSprint.sprint.title}`
+                : `Tự học ${tomorrowEntry.selfStudy.minutes} phút: ${tomorrowEntry.selfStudy.title}`}
             </p>
           )}
           <Link href={`/hom-nay?ngay=${tomorrow}`} className="btn btn-ghost mt-5">

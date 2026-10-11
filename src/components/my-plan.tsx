@@ -22,12 +22,12 @@ import { formatHours } from "@/lib/course-utils";
 import { formatDateVi } from "@/lib/format";
 import { plan, usePlan } from "@/lib/my-plan";
 import { MAX_WEEK_HOURS, speakingTotal, weekKey, type ExamRecord, type ExamVerdict } from "@/lib/my-plan-core";
-import { PLAN_FINAL_PASS, grammarDoneOf, planStage, type PlanGrammar, type PlanInput, type PlanLesson, type PlanLevel } from "@/lib/plan-stage";
+import { PLAN_FINAL_PASS, grammarDoneOf, planStage, weekTarget, type PlanGrammar, type PlanInput, type PlanLesson, type PlanLevel } from "@/lib/plan-stage";
 import { lessonKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { ProgressBar } from "@/components/ui/progress-bar";
-import { SESSIONS_PER_SPRINT, SPRINT_HOURS, SPRINT_MINUTES, WORK_SPRINTS } from "@/content/work-sprints";
-import { sprintSessionsDone } from "@/lib/work-sprint";
+import { SPRINT_HOURS, SPRINT_MINUTES, WORK_SPRINTS } from "@/content/work-sprints";
+import { sprintProgress } from "@/lib/work-sprint";
 
 export type { PlanGrammar, PlanLesson, PlanLevel };
 
@@ -212,16 +212,14 @@ export function MyPlan({ input }: { input: PlanInput }) {
         </p>
         <ol className="mt-5 grid gap-4 md:grid-cols-2">
           {WORK_SPRINTS.map((s, i) => {
-            const sessions = sprintSessionsDone(data) + (data.day?.done.includes("sprint") ? 1 : 0);
-            const mine = Math.max(0, Math.min(SESSIONS_PER_SPRINT, sessions - i * SESSIONS_PER_SPRINT));
-            const hours = Math.round(((mine * SPRINT_MINUTES) / 60) * 10) / 10;
+            const { hours, percent } = sprintProgress(data, i);
             return (
               <li key={s.id} className="clay p-5">
                 <p className="text-sm font-semibold text-ink-soft">Đợt {i + 1}</p>
                 <p className="font-display text-xl font-bold">{s.title}</p>
                 <p className="mt-1">{s.goal}</p>
                 <p className="mt-3 text-sm font-semibold">Đã luyện {hours.toLocaleString("vi-VN")}/{SPRINT_HOURS} giờ</p>
-                <ProgressBar className="mt-1.5" value={(mine / SESSIONS_PER_SPRINT) * 100} label={`Đợt ${i + 1}: ${hours.toLocaleString("vi-VN")}/${SPRINT_HOURS} giờ`} />
+                <ProgressBar className="mt-1.5" value={percent} label={`Đợt ${i + 1}: ${hours.toLocaleString("vi-VN")}/${SPRINT_HOURS} giờ`} />
               </li>
             );
           })}
@@ -230,7 +228,7 @@ export function MyPlan({ input }: { input: PlanInput }) {
 
       <HoursLog
         hours={data.hours}
-        target={cur ? cur.weeklyHours : Math.round((DAILY_MINUTES * 7) / 60)}
+        target={weekTarget(currentLevel, levels)}
         stageName={cur ? cur.title : "chặng nền"}
         needLo={levels.reduce((n, l) => n + l.band[0], 0)}
         needHi={levels.reduce((n, l) => n + l.band[1], 0)}

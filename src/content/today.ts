@@ -41,6 +41,8 @@ export const DRILL_HOW: string[] = [
 
 export interface SelfStudySession {
   title: string;
+  /** the skill it trains first; the work-English sprints keep the speaking and listening days */
+  skill: "listen" | "read" | "write" | "speak" | "pron" | "review";
   minutes: number;
   steps: string[];
   url?: string;
@@ -61,6 +63,7 @@ const PRON = BBC("english/features/pronunciation/");
 
 const listen = (where: string, url: string, minutes: number, extra?: string): SelfStudySession => ({
   title: `Nghe: ${where}`,
+  skill: "listen",
   minutes,
   url,
   urlLabel: `Mở ${where}`,
@@ -74,6 +77,7 @@ const listen = (where: string, url: string, minutes: number, extra?: string): Se
 });
 const read = (where: string, url: string, minutes: number, extra?: string): SelfStudySession => ({
   title: `Đọc: ${where}`,
+  skill: "read",
   minutes,
   url,
   urlLabel: `Mở ${where}`,
@@ -87,6 +91,7 @@ const read = (where: string, url: string, minutes: number, extra?: string): Self
 /** writing for the exam's own task types, at the exam's word count */
 const write = (genre: string, words: string, minutes: number): SelfStudySession => ({
   title: `Viết: ${genre} (${words})`,
+  skill: "write",
   minutes,
   url: WRITE,
   urlLabel: "Mở Write & Improve",
@@ -99,6 +104,7 @@ const write = (genre: string, words: string, minutes: number): SelfStudySession 
 });
 const speakAndImprove = (minutes: number, extra: string): SelfStudySession => ({
   title: "Nói: luyện trên Speak & Improve",
+  skill: "speak",
   minutes,
   url: SPEAK,
   urlLabel: "Mở Speak & Improve",
@@ -111,6 +117,7 @@ const speakAndImprove = (minutes: number, extra: string): SelfStudySession => ({
 });
 const talk = (minutes: number): SelfStudySession => ({
   title: "Nói với người thật",
+  skill: "speak",
   minutes,
   url: "https://tandem.net/en",
   urlLabel: "Mở Tandem",
@@ -123,6 +130,7 @@ const talk = (minutes: number): SelfStudySession => ({
 });
 const weekReview = (minutes: number): SelfStudySession => ({
   title: "Ôn tuần và ghi giờ học",
+  skill: "review",
   minutes,
   steps: [
     "Đọc lại sổ lỗi của cả tuần, tự sửa lại từng lỗi không nhìn câu đúng.",
@@ -133,6 +141,7 @@ const weekReview = (minutes: number): SelfStudySession => ({
 });
 const pron = (minutes: number): SelfStudySession => ({
   title: "Phát âm: một bài của BBC Learning English",
+  skill: "pron",
   minutes,
   url: PRON,
   urlLabel: "Mở bài phát âm BBC",
@@ -144,6 +153,7 @@ const pron = (minutes: number): SelfStudySession => ({
 });
 const combine = (a: SelfStudySession, b: SelfStudySession): SelfStudySession => ({
   title: `${a.title}, rồi ${b.title.charAt(0).toLowerCase()}${b.title.slice(1)}`,
+  skill: a.skill,
   minutes: a.minutes + b.minutes,
   url: a.url,
   urlLabel: a.urlLabel,
