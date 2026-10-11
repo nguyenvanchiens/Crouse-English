@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Baloo_2, Be_Vietnam_Pro } from "next/font/google";
+import { ServiceWorker } from "@/components/service-worker";
 import "./globals.css";
 
 const baloo = Baloo_2({
@@ -18,7 +19,12 @@ export const metadata: Metadata = {
   title: "Crouse English — Học tiếng Anh miễn phí từ A1 đến C1",
   description:
     "Lộ trình tiếng Anh miễn phí từ A1 đến C1 cho người Việt: bài giảng tiếng Việt, bài tập chấm ngay, luyện phát âm và chứng chỉ từng cấp.",
+  // installed to the home screen (see app/manifest.ts): the iPhone reads these instead of the manifest
+  appleWebApp: { capable: true, title: "Crouse", statusBarStyle: "default" },
+  icons: { apple: "/icons/apple-touch-icon.png" },
 };
+
+export const viewport: Viewport = { themeColor: "#ff8a3d" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -27,7 +33,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${baloo.variable} ${beVietnam.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ServiceWorker />
+      </body>
     </html>
   );
 }
