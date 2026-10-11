@@ -11,6 +11,7 @@ import { todayKey } from "@/lib/progress-core";
 import { progress, useProgress } from "@/lib/progress";
 import { addSeen } from "@/lib/seen";
 import { ProgressBar } from "@/components/ui/progress-bar";
+import { BattleStage, type BattleEvent } from "./battle";
 
 /** A game played as a step of the path: where its stars go, and where to go next. */
 export interface PathInfo { id: string; nextHref: string | null; mapHref: string }
@@ -29,7 +30,10 @@ export function useSession(total: number, withHearts = true) {
   const [correct, setCorrect] = useState(0);
   const [combo, setCombo] = useState(0);
   const [best, setBest] = useState(0);
+  // the last answer as a strike in the battle: a third right answer in a row is a critical hit
+  const [event, setEvent] = useState<BattleEvent>(null);
   const record = (ok: boolean) => {
+    setEvent((e) => ({ kind: ok ? (combo + 1 >= 3 ? "crit" : "hit") : "hurt", key: (e?.key ?? 0) + 1 }));
     if (ok) {
       setCorrect((n) => n + 1);
       setCombo((c) => {
@@ -45,7 +49,15 @@ export function useSession(total: number, withHearts = true) {
   // the round ends on "Tiếp tục" after the last heart, so the right answer is still shown first
   const [ended, setEnded] = useState(false);
   const next = () => (outOfHearts ? setEnded(true) : setIndex((i) => i + 1));
-  return { index, next, hearts, correct, combo, best, record, done: index >= total || ended, outOfHearts };
+  return { index, next, hearts, correct, combo, best, record, event, done: index >= total || ended, outOfHearts };
+}
+
+/**
+ * The top of a game, kept in view while the question scrolls: exit, progress, hearts and the battle. On a
+ * phone the question and its options are taller than the screen, and the strike must still be seen.
+ */
+export function GameTop({ children }: { children: ReactNode }) {
+  return <div className="sticky top-0 z-20 -mx-4 bg-sky/95 px-4 pb-2 pt-2 backdrop-blur sm:-mx-6 sm:px-6">{children}</div>;
 }
 
 export function GameHeader({ level, step, total, hearts, combo, right, exitHref }: { level: string; step: number; total: number; hearts?: number; combo?: number; right?: ReactNode; exitHref?: string }) {
@@ -93,7 +105,7 @@ export function CheckBar({
   useEffect(() => {
     if (status !== "idle") nextRef.current?.focus();
   }, [status]);
-  const tone = status === "right" ? "bg-leaf-soft" : status === "wrong" ? "bg-tangerine/25" : "bg-card";
+  const tone = status === "right" ? "bg-leaf-soft" : status === "wrong" ? "bg-[#ffe3d1]" : "bg-card";
   return (
     <div className={`sticky bottom-0 -mx-4 mt-8 border-t-[2.5px] border-ink px-4 py-4 sm:-mx-6 sm:px-6 ${tone}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -161,8 +173,10 @@ export function GameEnd({
   useEffect(() => headingRef.current?.focus(), []);
 
   return (
-    <div className="clay card-in mx-auto max-w-xl p-8 text-center">
-      <Sparkles className="mx-auto size-10 text-tangerine-deep" aria-hidden />
+    <div className="clay card-in mx-auto max-w-xl p-5 text-center sm:p-8">
+      {/* the round ends with the monster down, or the hero when the hearts ran out */}
+      <BattleStage level={level} hp={total - correct} maxHp={total} event={null} end={outOfHearts ? "lose" : "win"} />
+      <Sparkles className="mx-auto mt-5 size-10 text-tangerine-deep" aria-hidden />
       <h2 ref={headingRef} tabIndex={-1} className="mt-3 font-display text-4xl font-extrabold outline-none">
         {path ? (stars > 0 ? (stars === 3 ? "Hoàn hảo!" : "Qua bài!") : "Chưa qua bài") : outOfHearts ? "Hết tim rồi!" : correct === total ? "Hoàn hảo!" : "Xong lượt chơi!"}
       </h2>

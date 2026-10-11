@@ -8,7 +8,8 @@ import { speak } from "@/lib/speech";
 import { OptionList } from "@/components/ui/option-list";
 import { choiceStates } from "@/components/exercises/multiple-choice";
 import { AddWordButton } from "@/components/add-word-button";
-import { CheckBar, GameEnd, GameHeader, useSession, type PathInfo } from "./game-ui";
+import { BattleStage } from "./battle";
+import { CheckBar, GameEnd, GameHeader, GameTop, useSession, type PathInfo } from "./game-ui";
 import type { GameWord } from "@/lib/game";
 
 const toAdd = (w: GameWord, example?: string) => ({ word: w.word, meaning: w.meaning, ipa: w.ipa, example: example ?? w.example, courseKey: w.courseKey });
@@ -38,8 +39,11 @@ export function ListenGame({ level, data, onAgain, size = FREE_ROUND, path }: { 
   const locked = c.status !== "idle";
   return (
     <div>
-      <GameHeader level={level} step={s.index} total={round.length} hearts={s.hearts} combo={s.combo} exitHref={path?.mapHref} />
-      <h1 className="mt-8 font-display text-2xl font-extrabold sm:text-3xl">Bạn nghe thấy gì?</h1>
+      <GameTop>
+        <GameHeader level={level} step={s.index} total={round.length} hearts={s.hearts} combo={s.combo} exitHref={path?.mapHref} />
+        <BattleStage level={level} hp={round.length - s.correct} maxHp={round.length} event={s.event} combo={s.combo} />
+      </GameTop>
+      <h1 className="mt-6 font-display text-2xl font-extrabold sm:text-3xl">Bạn nghe thấy gì?</h1>
       <div className="mt-5 flex flex-wrap gap-3">
         <button type="button" className="btn btn-primary min-h-14 px-6 text-lg" onClick={() => speak(q.audio)}>
           <Volume2 className="size-6" aria-hidden />
@@ -93,8 +97,11 @@ export function BlankGame({ level, blanks, onAgain, size = FREE_ROUND, path }: {
   const filled = q.prompt.replace("___", q.options[q.answer]);
   return (
     <div>
-      <GameHeader level={level} step={s.index} total={round.length} hearts={s.hearts} combo={s.combo} exitHref={path?.mapHref} />
-      <h1 className="mt-8 font-display text-2xl font-extrabold sm:text-3xl">Chọn từ điền vào chỗ trống</h1>
+      <GameTop>
+        <GameHeader level={level} step={s.index} total={round.length} hearts={s.hearts} combo={s.combo} exitHref={path?.mapHref} />
+        <BattleStage level={level} hp={round.length - s.correct} maxHp={round.length} event={s.event} combo={s.combo} />
+      </GameTop>
+      <h1 className="mt-6 font-display text-2xl font-extrabold sm:text-3xl">Chọn từ điền vào chỗ trống</h1>
       <p className="mt-4 text-xl leading-relaxed">
         {before}
         <span className="mx-1 inline-block min-w-16 border-b-[3px] border-ink text-center font-bold">

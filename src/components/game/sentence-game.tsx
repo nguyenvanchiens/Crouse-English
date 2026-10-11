@@ -5,7 +5,8 @@ import { Volume2 } from "lucide-react";
 import { ROUND, checkSentence, sentenceRound, type GameSentence } from "@/lib/game";
 import { getSeen } from "@/lib/seen";
 import { speak } from "@/lib/speech";
-import { CheckBar, GameEnd, GameHeader, useSession, type PathInfo } from "./game-ui";
+import { BattleStage } from "./battle";
+import { CheckBar, GameEnd, GameHeader, GameTop, useSession, type PathInfo } from "./game-ui";
 
 /** Put the chunks of a sentence back in order, from its Vietnamese meaning. */
 export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { level: string; sentences: GameSentence[]; onAgain: () => void; n?: number; path?: PathInfo }) {
@@ -34,8 +35,11 @@ export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { l
 
   return (
     <div>
-      <GameHeader level={level} step={s.index} total={round.length} hearts={s.hearts} combo={s.combo} exitHref={path?.mapHref} />
-      <h1 className="mt-8 font-display text-2xl font-extrabold sm:text-3xl">Xếp thành câu tiếng Anh</h1>
+      <GameTop>
+        <GameHeader level={level} step={s.index} total={round.length} hearts={s.hearts} combo={s.combo} exitHref={path?.mapHref} />
+        <BattleStage level={level} hp={round.length - s.correct} maxHp={round.length} event={s.event} combo={s.combo} />
+      </GameTop>
+      <h1 className="mt-6 font-display text-2xl font-extrabold sm:text-3xl">Xếp thành câu tiếng Anh</h1>
       <p className="mt-3 rounded-2xl border-[2.5px] border-ink bg-sun-soft px-4 py-3 text-lg font-semibold">{q.item.vi}</p>
 
       <p className="sr-only" id="answer-label">Câu bạn đang xếp</p>

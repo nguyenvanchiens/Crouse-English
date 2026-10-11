@@ -31,7 +31,7 @@ export default async function GamePage(props: PageProps<"/tro-choi/[game]/[level
     blanks: game === "dien-tu" ? all.blanks : [],
   };
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-8 sm:px-6">
+    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-8 pt-2 sm:px-6 sm:pt-6">
       <GamePlay game={game as GameId} level={level} data={data} />
     </div>
   );

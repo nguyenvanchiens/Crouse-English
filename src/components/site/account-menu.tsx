@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { UserRound, UserRoundCheck } from "lucide-react";
 import { auth, useAuth } from "@/lib/auth";
-import { ITEM_CLASS, MY_CALENDAR, MY_OVERVIEW, MY_PLAN, MY_TODAY, PANEL_CLASS, isActive, usePopover, type NavItem } from "./site-menu";
+import { ITEM_CLASS, InstallMenuItem, MY_CALENDAR, MY_OVERVIEW, MY_PLAN, MY_TODAY, PANEL_CLASS, isActive, usePopover, type NavItem } from "./site-menu";
 
 /** The account button on wide screens (xl and up); narrower screens get the same items in the site menu. */
 export function AccountMenu() {
@@ -39,8 +39,11 @@ export function AccountMenu() {
                 </Link>
               </li>
             ))}
+            <li className="mt-1 border-t-2 border-ink/15 pt-1">
+              <InstallMenuItem pathname={pathname} onClick={close} />
+            </li>
             {session && (
-              <li className="mt-1 border-t-2 border-ink/15 pt-1">
+              <li>
                 <button
                   type="button"
                   className={ITEM_CLASS}
