@@ -16,6 +16,7 @@ import { buildSchedule, type DayMain } from "@/lib/schedule";
 import { daysBetween, describeDay, parseDayKey } from "@/lib/schedule-describe";
 import { sprintProgress } from "@/lib/work-sprint";
 import { InstallApp } from "@/components/install-app";
+import { VoiceSettings } from "@/components/voice-settings";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
 const dmy = (k: string) => `${k.slice(8, 10)}/${k.slice(5, 7)}/${k.slice(0, 4)}`;
@@ -117,6 +118,13 @@ export function PlanOverview({ input }: { input: PlanInput }) {
       </section>
 
       <InstallApp />
+
+      <section aria-labelledby="ov-voice" className="clay p-6 sm:p-8">
+        <h2 id="ov-voice" className="font-display text-2xl font-bold">Giọng đọc trên máy này</h2>
+        <div className="mt-4">
+          <VoiceSettings />
+        </div>
+      </section>
 
       <section aria-labelledby="ov-habits">
         <h2 id="ov-habits" className="font-display text-3xl font-extrabold">Thói quen</h2>
