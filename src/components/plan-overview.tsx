@@ -15,6 +15,7 @@ import { useProgress } from "@/lib/progress";
 import { buildSchedule, type DayMain } from "@/lib/schedule";
 import { daysBetween, describeDay, parseDayKey } from "@/lib/schedule-describe";
 import { sprintProgress } from "@/lib/work-sprint";
+import { InstallApp } from "@/components/install-app";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
 const dmy = (k: string) => `${k.slice(8, 10)}/${k.slice(5, 7)}/${k.slice(0, 4)}`;
@@ -114,6 +115,8 @@ export function PlanOverview({ input }: { input: PlanInput }) {
           <ArrowRight className="size-5" aria-hidden />
         </Link>
       </section>
+
+      <InstallApp />
 
       <section aria-labelledby="ov-habits">
         <h2 id="ov-habits" className="font-display text-3xl font-extrabold">Thói quen</h2>
