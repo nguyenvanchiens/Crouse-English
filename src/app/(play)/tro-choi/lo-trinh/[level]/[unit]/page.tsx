@@ -26,7 +26,7 @@ export default async function UnitPage(props: PageProps<"/tro-choi/lo-trinh/[lev
   // the unlock order needs only each unit's slug and games
   const units = (await loadPath(lvl)).units.map(({ slug, games }) => ({ slug, games }));
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-8 sm:px-6">
+    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-8 pt-2 sm:px-6 sm:pt-6">
       <Suspense fallback={<div className="clay h-96 animate-pulse bg-card" aria-hidden />}>
         <UnitPlay level={level} unit={u.unit} units={units} data={u.data} />
       </Suspense>

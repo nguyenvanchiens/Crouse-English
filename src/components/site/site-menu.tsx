@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Smartphone, X } from "lucide-react";
 import { auth, useAuth } from "@/lib/auth";
 
 export interface NavItem { href: string; label: string }
@@ -13,6 +13,16 @@ export const MY_OVERVIEW: NavItem = { href: "/tong-quan", label: "Tổng quan" }
 export const MY_PLAN: NavItem = { href: "/lo-trinh-cua-toi", label: "Lộ trình của tôi" };
 export const MY_TODAY: NavItem = { href: "/hom-nay", label: "Hôm nay học gì" };
 export const MY_CALENDAR: NavItem = { href: "/lich-hoc", label: "Lịch học tới C1" };
+
+/** Install the site as an app: in both account menus, for everyone, signed in or not. */
+export function InstallMenuItem({ pathname, onClick }: { pathname: string; onClick: () => void }) {
+  return (
+    <Link href="/cai-app" onClick={onClick} aria-current={isActive(pathname, "/cai-app") ? "page" : undefined} className={`${ITEM_CLASS} gap-2`}>
+      <Smartphone className="size-5 shrink-0" aria-hidden />
+      Cài app lên điện thoại
+    </Link>
+  );
+}
 
 export const isActive = (pathname: string, href: string) => pathname === href || pathname.startsWith(href + "/");
 
@@ -82,7 +92,7 @@ export function usePopover() {
 }
 
 export const PANEL_CLASS =
-  "absolute inset-x-4 top-full mt-2 rounded-[1.5rem] border-[2.5px] border-ink bg-card p-3 shadow-[0_6px_0_0_var(--color-ink)] sm:left-auto sm:right-6 sm:w-72";
+  "absolute inset-x-4 top-full mt-2 rounded-[1.5rem] border-[2.5px] border-ink bg-card p-3 shadow-[0_6px_0_0_var(--color-ink)] sm:left-auto sm:right-6 sm:w-72 max-h-[calc(100dvh-6.5rem)] overflow-y-auto overscroll-contain";
 export const ITEM_CLASS = "flex min-h-11 w-full items-center rounded-xl px-4 text-left font-semibold hover:bg-sun-soft aria-[current=page]:bg-sun";
 
 /** Menu button and drop-down panel for screens narrower than xl. */
@@ -115,7 +125,8 @@ export function SiteMenu({ items }: { items: NavItem[] }) {
               </li>
             ))}
           </ul>
-          <div className="mt-2 border-t-2 border-ink/15 pt-2">
+          <div className="mt-2 grid gap-1 border-t-2 border-ink/15 pt-2">
+            <InstallMenuItem pathname={pathname} onClick={close} />
             {session ? (
               <button
                 type="button"

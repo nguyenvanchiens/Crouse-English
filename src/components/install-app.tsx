@@ -23,7 +23,7 @@ const isIos = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.p
  * How to put the site on the phone's home screen as an app. Chrome and Edge on Android offer an install
  * button; Safari on iPhone has no prompt, so it gets the steps. Hidden when already opened as the app.
  */
-export function InstallApp() {
+export function InstallApp({ showWhenInstalled = false, withSteps = true }: { showWhenInstalled?: boolean; withSteps?: boolean }) {
   const standalone = useSyncExternalStore(subscribeStandalone, isStandalone, () => true);
   const ios = useSyncExternalStore(noop, isIos, () => false);
   const [prompt, setPrompt] = useState<InstallPrompt | null>(null);
@@ -46,7 +46,10 @@ export function InstallApp() {
     };
   }, []);
 
-  if (standalone) return null;
+  if (standalone)
+    return showWhenInstalled ? (
+      <p role="status" className="clay p-6 text-lg font-semibold">Bạn đang mở Crouse English bằng app rồi. Học vui nhé!</p>
+    ) : null;
 
   return (
     <section aria-labelledby="install-app" className="clay p-6 sm:p-8">
@@ -74,6 +77,8 @@ export function InstallApp() {
           <Download className="size-5" aria-hidden />
           Cài app
         </button>
+      ) : !withSteps ? (
+        <p className="mt-4 font-semibold">{ios ? "Trên iPhone: làm theo các bước “Trên iPhone, iPad” bên dưới." : "Làm theo các bước bên dưới cho máy của bạn."}</p>
       ) : ios ? (
         <ol className="mt-4 list-decimal space-y-1.5 pl-6">
           <li>Mở trang này bằng Safari.</li>
