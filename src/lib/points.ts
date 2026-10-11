@@ -19,6 +19,8 @@ export const POINTS = {
   /** each word remembered in the vocabulary review, up to a daily cap */
   vocab: 1,
   vocabDailyCap: 20,
+  /** points a day from the games (/tro-choi), so play tops up study instead of replacing it */
+  gameDailyCap: 40,
   /** first placement test */
   placement: 10,
   /** streak milestones in days */
@@ -36,6 +38,8 @@ export interface PointsState {
   log: PointEntry[];
   /** words that earned points today (for the daily cap) */
   vocabToday: { day: string; n: number };
+  /** points earned from the games today (for the daily cap) */
+  gameToday: { day: string; n: number };
 }
 
 export interface RewardsState {
@@ -51,7 +55,7 @@ export const MAX_FREEZES = 3;
 const LOG_SIZE = 50;
 
 export function emptyPoints(): PointsState {
-  return { earned: 0, spent: 0, awarded: [], log: [], vocabToday: { day: "", n: 0 } };
+  return { earned: 0, spent: 0, awarded: [], log: [], vocabToday: { day: "", n: 0 }, gameToday: { day: "", n: 0 } };
 }
 
 export function emptyRewards(): RewardsState {
@@ -68,6 +72,20 @@ function addLog(p: PointsState, amount: number, reason: string, now: Date): Poin
 export function award(p: PointsState, key: string, amount: number, reason: string, now: Date): PointsState {
   if (amount <= 0 || p.awarded.includes(key)) return p;
   return { ...p, earned: p.earned + amount, awarded: [...p.awarded, key], log: addLog(p, amount, reason, now) };
+}
+
+/** A game round's XP as points, up to POINTS.gameDailyCap a day; returns the points actually paid too. */
+export function awardGame(p: PointsState, xp: number, today: string, now: Date): { points: PointsState; paid: number } {
+  const n = p.gameToday.day === today ? p.gameToday.n : 0;
+  const paid = Math.max(0, Math.min(Math.floor(xp), POINTS.gameDailyCap - n));
+  if (paid === 0) return { points: p, paid };
+  const [head, ...rest] = p.log;
+  const reason = "Chơi trò chơi";
+  const log =
+    head && head.reason === reason && head.at.slice(0, 10) === now.toISOString().slice(0, 10)
+      ? [{ ...head, amount: head.amount + paid, at: now.toISOString() }, ...rest]
+      : addLog(p, paid, reason, now);
+  return { points: { ...p, earned: p.earned + paid, log, gameToday: { day: today, n: n + paid } }, paid };
 }
 
 /** One point per remembered word, at most POINTS.vocabDailyCap a day. */
@@ -127,6 +145,7 @@ const strOrNull = (v: unknown) => (typeof v === "string" ? v : null);
 export function parsePoints(v: unknown): PointsState {
   if (!isRecord(v)) return emptyPoints();
   const vt = isRecord(v.vocabToday) ? v.vocabToday : {};
+  const gt = isRecord(v.gameToday) ? v.gameToday : {};
   return {
     earned: nonNeg(v.earned),
     spent: Math.min(nonNeg(v.spent), nonNeg(v.earned)),
@@ -137,6 +156,7 @@ export function parsePoints(v: unknown): PointsState {
           .slice(0, LOG_SIZE)
       : [],
     vocabToday: { day: typeof vt.day === "string" ? vt.day : "", n: nonNeg(vt.n) },
+    gameToday: { day: typeof gt.day === "string" ? gt.day : "", n: nonNeg(gt.n) },
   };
 }
 

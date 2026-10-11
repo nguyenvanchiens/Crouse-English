@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AddWordButton } from "@/components/add-word-button";
 import { BookOpen, Check, Square, Volume2 } from "lucide-react";
 import type { ReadingStep } from "@/content/types";
 import { speak, stopSpeaking, useSpeechSupport } from "@/lib/speech";
@@ -62,9 +63,12 @@ export function StepReading({
             <h3 id="glossary" className="font-display text-lg font-bold">Từ khó trong bài</h3>
             <dl className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
               {step.glossary.map((g) => (
-                <div key={g.word} className="flex flex-wrap gap-x-2">
+                <div key={g.word} className="flex flex-wrap items-center gap-x-2">
                   <dt lang="en" className="font-semibold">{g.word}</dt>
                   <dd className="text-ink-soft">{g.meaning}</dd>
+                  <dd>
+                    <AddWordButton small word={{ word: g.word, meaning: g.meaning, example: step.paragraphs.join(" ").split(/(?<=[.!?])\s+/).find((s) => s.toLowerCase().includes(g.word.toLowerCase())) }} />
+                  </dd>
                 </div>
               ))}
             </dl>

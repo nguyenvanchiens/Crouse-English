@@ -10,6 +10,7 @@ export const NAV: NavItem[] = [
   { href: "/ngu-phap", label: "Ngữ pháp" },
   { href: "/bang-ipa", label: "Bảng IPA" },
   { href: "/tu-vung", label: "Từ vựng" },
+  { href: "/tro-choi", label: "Trò chơi" },
   { href: "/kiem-tra-trinh-do", label: "Kiểm tra trình độ" },
   { href: "/cua-toi", label: "Khóa học của tôi" },
   { href: "/doi-qua", label: "Đổi quà" },

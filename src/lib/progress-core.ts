@@ -4,6 +4,7 @@ import { isLevel } from "./course-utils";
 import {
   POINTS,
   award,
+  awardGame,
   awardVocab,
   buy,
   emptyPoints,
@@ -334,6 +335,12 @@ export function applyReviewWord(state: ProgressState, key: string, remembered: b
   const due = addDays(today, remembered ? SRS_INTERVALS[box - 1] : 1);
   const next = recordActivity({ ...state, srs: { ...state.srs, [key]: { box, due } } }, now);
   return remembered ? { ...next, points: awardVocab(next.points, today, now) } : next;
+}
+
+/** A finished game round: counts as a day of study and pays its XP as points (capped a day). */
+export function applyGameRound(state: ProgressState, xp: number, now: Date): ProgressState {
+  const next = recordActivity(state, now);
+  return { ...next, points: awardGame(next.points, xp, todayKey(now), now).points };
 }
 
 export function applyBuyReward(state: ProgressState, reward: Reward, now: Date): ProgressState {
