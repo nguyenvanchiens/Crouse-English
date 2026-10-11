@@ -1,8 +1,11 @@
 /**
  * English for the owner's job (a programmer), learned in 20-hour sprints after Josh Kaufman's "The first 20
  * hours" (TEDxCSU): deconstruct the skill, learn just enough to self-correct, remove the barriers to practice,
- * and commit to 20 hours of focused practice. One sprint at a time, in the order the job needs them; each
- * session replaces that weekday's self-study, so the day stays about two hours.
+ * and commit to 20 hours of focused practice. One sprint at a time: reading first (it carries the learner's
+ * main weakness), then speaking and listening for meetings, then writing. Each session replaces that weekday's
+ * self-study, so the day stays about two hours. The level's speaking self-study is always kept, and so is its
+ * Friday listening until the listening sprint begins; days that also teach a pronunciation lesson (their
+ * self-study is cut short) take no session.
  *
  * Every link was loaded live on 2026-10-10 (HTTP 200, content read); both podcasts publish transcripts and
  * had episodes in September–October 2026.
@@ -22,6 +25,10 @@ export interface WorkSprint {
 export const SPRINT_HOURS = 20;
 export const SPRINT_MINUTES = 45;
 export const SESSIONS_PER_SPRINT = Math.ceil((SPRINT_HOURS * 60) / SPRINT_MINUTES);
+/** the weekday whose listening self-study stays until the listening sprint begins: Friday */
+export const LISTENING_KEPT_ON = 5;
+/** the sprint whose sessions are listening practice */
+export const LISTENING_SPRINT = "listen-work";
 
 /** Kaufman's third step: take the friction out before starting */
 export const SPRINT_START = "Trước khi bắt đầu: để điện thoại ở phòng khác, tắt thông báo, mở sẵn tài liệu và một tab AI để hỏi. Hẹn giờ 45 phút.";
@@ -79,62 +86,6 @@ export const WORK_SPRINTS: WorkSprint[] = [
           "Nói to bằng tiếng Anh trong 1 phút: câu hỏi là gì, câu trả lời giải quyết thế nào.",
           "Tách 2 câu dài trong câu trả lời theo 4 bước.",
           "Thêm 5 cụm từ mới vào Từ của tôi.",
-        ],
-      },
-    ],
-  },
-  {
-    id: "write-work",
-    title: "Viết trong công việc: commit, PR, ticket, tin nhắn, email",
-    goal: "Viết commit, mô tả PR, báo lỗi và tin nhắn công việc ngắn gọn, đúng và lịch sự.",
-    links: [COMMIT, TECH_WRITING],
-    sessions: [
-      {
-        title: "commit message",
-        steps: [
-          "Đọc 7 quy tắc trong bài How to Write a Git Commit Message (lần đầu đọc kỹ, các lần sau chỉ xem lại).",
-          "Viết lại bằng tiếng Anh 5 commit gần nhất của bạn theo đúng quy tắc: dòng đầu là câu mệnh lệnh, dưới 50 ký tự.",
-          "Nhờ AI sửa, chép các lỗi lặp lại vào sổ lỗi.",
-        ],
-      },
-      {
-        title: "mô tả pull request",
-        steps: [
-          "Chọn một PR gần đây của bạn, viết mô tả tiếng Anh theo 3 phần: Summary, Changes, How to test.",
-          "Viết thêm 2 câu bình luận review lịch sự cho code người khác (gợi ý sửa, hỏi lý do).",
-          "Nhờ AI sửa và giải thích từng lỗi, chép lỗi vào sổ.",
-        ],
-      },
-      {
-        title: "báo lỗi (bug ticket)",
-        steps: [
-          "Viết một ticket báo lỗi bằng tiếng Anh cho một lỗi bạn từng gặp: Title, Steps to reproduce, Expected result, Actual result, Environment.",
-          "Viết lại tiêu đề 3 lần, mỗi lần ngắn và rõ hơn.",
-          "Nhờ AI sửa, chép lỗi vào sổ.",
-        ],
-      },
-      {
-        title: "tin nhắn Slack/Teams",
-        steps: [
-          "Viết 4 tin nhắn tiếng Anh: báo tiến độ, nhờ giúp một vấn đề, xin thêm thời gian, từ chối lịch sự một yêu cầu.",
-          "Mỗi tin không quá 3 câu, có đủ bối cảnh để người đọc không phải hỏi lại.",
-          "Nhờ AI sửa cho tự nhiên hơn, ghi lại các cụm hay dùng.",
-        ],
-      },
-      {
-        title: "email công việc",
-        steps: [
-          "Viết một email tiếng Anh khoảng 100 từ: gửi cập nhật dự án hoặc hỏi lại một yêu cầu chưa rõ.",
-          "Kiểm tra: tiêu đề rõ, câu đầu nói ngay mục đích, kết thúc bằng việc cần người nhận làm.",
-          "Nhờ AI sửa, chép lỗi vào sổ.",
-        ],
-      },
-      {
-        title: "một bài của Google Technical Writing One",
-        steps: [
-          "Làm bài tiếp theo của khóa Technical Writing One (miễn phí, của Google), gồm cả phần bài tập.",
-          "Áp dụng ngay: viết lại một đoạn README hoặc tài liệu của dự án bạn theo điều vừa học.",
-          "Ghi lại 3 quy tắc viết bạn sẽ dùng từ nay.",
         ],
       },
     ],
@@ -218,6 +169,62 @@ export const WORK_SPRINTS: WorkSprint[] = [
           "Nghe từng câu và chép lại từng chữ, nghe lại tối đa 3 lần mỗi câu.",
           "So với bản ghi lời, đánh dấu các từ bị nuốt âm, nối âm mà bạn nghe sai.",
           "Đọc to đoạn đó theo đúng nhịp của người nói.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "write-work",
+    title: "Viết trong công việc: commit, PR, ticket, tin nhắn, email",
+    goal: "Viết commit, mô tả PR, báo lỗi và tin nhắn công việc ngắn gọn, đúng và lịch sự.",
+    links: [COMMIT, TECH_WRITING],
+    sessions: [
+      {
+        title: "commit message",
+        steps: [
+          "Đọc 7 quy tắc trong bài How to Write a Git Commit Message (lần đầu đọc kỹ, các lần sau chỉ xem lại).",
+          "Viết lại bằng tiếng Anh 5 commit gần nhất của bạn theo đúng quy tắc: dòng đầu là câu mệnh lệnh, dưới 50 ký tự.",
+          "Nhờ AI sửa, chép các lỗi lặp lại vào sổ lỗi.",
+        ],
+      },
+      {
+        title: "mô tả pull request",
+        steps: [
+          "Chọn một PR gần đây của bạn, viết mô tả tiếng Anh theo 3 phần: Summary, Changes, How to test.",
+          "Viết thêm 2 câu bình luận review lịch sự cho code người khác (gợi ý sửa, hỏi lý do).",
+          "Nhờ AI sửa và giải thích từng lỗi, chép lỗi vào sổ.",
+        ],
+      },
+      {
+        title: "báo lỗi (bug ticket)",
+        steps: [
+          "Viết một ticket báo lỗi bằng tiếng Anh cho một lỗi bạn từng gặp: Title, Steps to reproduce, Expected result, Actual result, Environment.",
+          "Viết lại tiêu đề 3 lần, mỗi lần ngắn và rõ hơn.",
+          "Nhờ AI sửa, chép lỗi vào sổ.",
+        ],
+      },
+      {
+        title: "tin nhắn Slack/Teams",
+        steps: [
+          "Viết 4 tin nhắn tiếng Anh: báo tiến độ, nhờ giúp một vấn đề, xin thêm thời gian, từ chối lịch sự một yêu cầu.",
+          "Mỗi tin không quá 3 câu, có đủ bối cảnh để người đọc không phải hỏi lại.",
+          "Nhờ AI sửa cho tự nhiên hơn, ghi lại các cụm hay dùng.",
+        ],
+      },
+      {
+        title: "email công việc",
+        steps: [
+          "Viết một email tiếng Anh khoảng 100 từ: gửi cập nhật dự án hoặc hỏi lại một yêu cầu chưa rõ.",
+          "Kiểm tra: tiêu đề rõ, câu đầu nói ngay mục đích, kết thúc bằng việc cần người nhận làm.",
+          "Nhờ AI sửa, chép lỗi vào sổ.",
+        ],
+      },
+      {
+        title: "một bài của Google Technical Writing One",
+        steps: [
+          "Làm bài tiếp theo của khóa Technical Writing One (miễn phí, của Google), gồm cả phần bài tập.",
+          "Áp dụng ngay: viết lại một đoạn README hoặc tài liệu của dự án bạn theo điều vừa học.",
+          "Ghi lại 3 quy tắc viết bạn sẽ dùng từ nay.",
         ],
       },
     ],

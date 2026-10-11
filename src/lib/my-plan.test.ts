@@ -4,14 +4,14 @@ import { judgeExam, parsePlan, speakingTotal, weekKey } from "./my-plan-core";
 
 describe("parsePlan", () => {
   it("keeps the old tick-only format and drops bad data", () => {
-    expect(parsePlan(JSON.stringify({ done: ["g:a", "g:a", 3, "d:b"] }))).toEqual({ done: ["g:a", "d:b"], hours: {}, exams: {}, used: {}, history: [], reviews: {} });
+    expect(parsePlan(JSON.stringify({ done: ["g:a", "g:a", 3, "d:b"] }))).toEqual({ done: ["g:a", "d:b"], hours: {}, exams: {}, used: {}, history: [], reviews: {}, sprints: [] });
     const p = parsePlan(JSON.stringify({ done: [], hours: { "2026-09-21": 6, "2026-09-14": -1, bad: 3, "2026-09-07": 500 }, exams: { B1: { marks: { reading: 25, x: "y" }, at: "t" }, B2: "no" } }));
     expect(p.hours).toEqual({ "2026-09-21": 6 });
     expect(p.exams).toEqual({ B1: { marks: { reading: 25 }, at: "t" } });
     const u = parsePlan(JSON.stringify({ used: { B1: ["digital", "digital", 3], B2: "x" }, exams: { A2: { marks: {}, sample: "paper-1", at: "t" } } }));
     expect(u.used).toEqual({ B1: ["digital"] });
     expect(u.exams.A2.sample).toBe("paper-1");
-    expect(parsePlan("nope")).toEqual({ done: [], hours: {}, exams: {}, used: {}, history: [], reviews: {} });
+    expect(parsePlan("nope")).toEqual({ done: [], hours: {}, exams: {}, used: {}, history: [], reviews: {}, sprints: [] });
   });
 });
 

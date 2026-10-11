@@ -128,6 +128,9 @@ export interface PlanStage {
   allDone: boolean;
 }
 
+/** Hours a week the plan asks for now: the current level's, or the first level's while on the base stage. */
+export const weekTarget = (current: number, levels: PlanLevel[]) => (current >= 0 ? levels[current] : levels[0])?.weeklyHours ?? 0;
+
 export const grammarDoneOf = (input: PlanInput, state: ProgressState, data: PlanData, slug: string) =>
   data.done.includes(`g:${slug}`) || state.lessons[lessonKey(input.baseCourse, slug)]?.done === true;
 

@@ -68,7 +68,9 @@ export const plan = {
     if (now.day?.date === date) return;
     // the day being replaced goes into the history, so it can be reviewed later
     const history = now.day && !now.history.some((h) => h.date === now.day!.date) ? [...now.history, { date: now.day.date, main: now.day.picks.main, ...(now.day.done.length ? { done: now.day.done } : {}) }].slice(-400) : now.history;
-    write({ ...now, history, day: { date, picks, done: [] } });
+    // a sprint session done that day is kept for good: the history above drops its oldest days
+    const sprints = now.day?.done.includes("sprint") && !now.sprints.includes(now.day.date) ? [...now.sprints, now.day.date] : now.sprints;
+    write({ ...now, history, sprints, day: { date, picks, done: [] } });
   },
   toggleDayTask(date: string, id: string) {
     const now = read();

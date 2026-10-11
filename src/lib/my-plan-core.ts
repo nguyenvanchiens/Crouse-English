@@ -24,6 +24,8 @@ export interface PlanData {
   history: { date: string; main: DayRecord["picks"]["main"]; /** tasks ticked that day */ done?: string[] }[];
   /** review quizzes taken, by the reviewed day */
   reviews: Record<string, { score: number; at: string }>;
+  /** days a work-English sprint session was done; kept apart from the history, which is capped */
+  sprints: string[];
 }
 
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
@@ -31,7 +33,7 @@ const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "obj
 export const MAX_WEEK_HOURS = 100;
 
 export function parsePlan(raw: string | null): PlanData {
-  const empty: PlanData = { done: [], hours: {}, exams: {}, used: {}, history: [], reviews: {} };
+  const empty: PlanData = { done: [], hours: {}, exams: {}, used: {}, history: [], reviews: {}, sprints: [] };
   if (!raw) return empty;
   let d: unknown;
   try {
@@ -74,7 +76,8 @@ export function parsePlan(raw: string | null): PlanData {
         ),
       )
     : {};
-  return { done, hours, exams, used, history, reviews, ...(day ? { day } : {}) };
+  const sprints = strings(d.sprints).filter((x) => /^\d{4}-\d{2}-\d{2}$/.test(x));
+  return { done, hours, exams, used, history, reviews, sprints, ...(day ? { day } : {}) };
 }
 
 const strings = (v: unknown): string[] => (Array.isArray(v) ? [...new Set(v.filter((x): x is string => typeof x === "string"))] : []);
