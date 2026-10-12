@@ -118,15 +118,34 @@ export const UNIT_GAMES: GameId[] = ["ghep-cap", "nghe-chon", "dien-tu", "xep-ca
 const mainCourse = async (level: Level) => (await levelCourses(level)).find((c) => c.goal === "lo-trinh") ?? null;
 
 /** the level's sentence drills shared out over the units, so every unit has sentences to build */
-function unitDrills(level: Level, unitIndex: number, unitCount: number): GameSentence[] {
-  const drills = drillSentences(level);
-  return drills.filter((_, j) => Math.floor((j * unitCount) / drills.length) === unitIndex);
+/**
+ * The level's sentence drills shared out over the units, never before the lesson that teaches the grammar
+ * they need: a drill goes to its share of the path or to that lesson, whichever comes later.
+ */
+function unitDrills(level: Level, course: Course, unitIndex: number, unitCount: number): GameSentence[] {
+  const drills = ALL_DRILLS.filter((d) => d.level === level);
+  const slugs = studyLessons(course).map((x) => x.lesson.slug);
+  return drills
+    .filter((d, j) => {
+      const taught = d.review.course === course.slug ? slugs.indexOf(d.review.lesson) : -1;
+      return Math.max(taught, Math.floor((j * unitCount) / drills.length)) === unitIndex;
+    })
+    .map((d) => ({ id: `s:${d.id}`, en: d.en, vi: d.meaning, tiles: d.chunks }));
+}
+
+/** At A1 and A2 the first units build short sentences: at most 6 pieces in units 1–3, 8 in units 4–8. */
+const tileCap = (level: Level, unitIndex: number) => (level === "A1" || level === "A2" ? (unitIndex < 3 ? 6 : unitIndex < 8 ? 8 : Infinity) : Infinity);
+
+function easyFirst(sentences: GameSentence[], cap: number): GameSentence[] {
+  const short = sentences.filter((x) => x.tiles.length <= cap);
+  // a unit always keeps three sentences to build, the shortest it has
+  return short.length >= 3 ? short : [...sentences].sort((a, b) => a.tiles.length - b.tiles.length).slice(0, 3);
 }
 
 async function unitData(level: Level, course: Course, index: number, count: number, pool: GameWord[]): Promise<GameData> {
   const { lesson } = studyLessons(course)[index];
   const x = lessonContent(course, lesson);
-  const sentences = [...x.sentences, ...unitDrills(level, index, count)];
+  const sentences = easyFirst([...x.sentences, ...unitDrills(level, course, index, count)], tileCap(level, index));
   return { words: x.words, sentences, blanks: [...x.grammar, ...vocabBlanks(x.words, pool.map((w) => w.word), index * 11)] };
 }
 

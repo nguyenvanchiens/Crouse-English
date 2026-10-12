@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Volume2 } from "lucide-react";
-import { ROUND, checkSentence, sentenceRound, type GameSentence } from "@/lib/game";
+import { Lightbulb, Volume2 } from "lucide-react";
+import { ROUND, checkSentence, nextHint, sentenceRound, type GameSentence } from "@/lib/game";
 import { getSeen } from "@/lib/seen";
 import { speak } from "@/lib/speech";
 import { BattleStage } from "./battle";
 import { CheckBar, GameEnd, GameHeader, GameTop, useSession, type PathInfo } from "./game-ui";
+
+/** pieces the hint button may place for the learner in one sentence */
+const MAX_HINTS = 2;
 
 /** Put the chunks of a sentence back in order, from its Vietnamese meaning. */
 export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { level: string; sentences: GameSentence[]; onAgain: () => void; n?: number; path?: PathInfo }) {
@@ -15,6 +18,7 @@ export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { l
   // indexes into the question's tiles, in the order chosen
   const [chosen, setChosen] = useState<number[]>([]);
   const [status, setStatus] = useState<"idle" | "right" | "wrong">("idle");
+  const [hints, setHints] = useState(0);
 
   if (s.done)
     return <GameEnd game="xep-cau" level={level} correct={s.correct} total={round.length} best={s.best} outOfHearts={s.outOfHearts} seenIds={round.map((q) => q.item.id)} onAgain={onAgain} path={path} />;
@@ -29,6 +33,7 @@ export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { l
   };
   const next = () => {
     setChosen([]);
+    setHints(0);
     setStatus("idle");
     s.next();
   };
@@ -41,6 +46,27 @@ export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { l
       </GameTop>
       <h1 className="mt-6 font-display text-2xl font-extrabold sm:text-3xl">Xếp thành câu tiếng Anh</h1>
       <p className="mt-3 rounded-2xl border-[2.5px] border-ink bg-sun-soft px-4 py-3 text-lg font-semibold">{q.item.vi}</p>
+      {!locked && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button type="button" className="btn btn-ghost min-h-11 px-3 text-sm" onClick={() => speak(q.item.en)}>
+            <Volume2 className="size-5" aria-hidden />
+            Nghe câu
+          </button>
+          <button
+            type="button"
+            className="btn btn-ghost min-h-11 px-3 text-sm"
+            disabled={hints >= MAX_HINTS || chosen.length === q.tiles.length}
+            onClick={() => {
+              setChosen((c) => nextHint(q.tiles, c, q.item));
+              setHints((h) => h + 1);
+            }}
+          >
+            <Lightbulb className="size-5" aria-hidden />
+            Gợi ý ({MAX_HINTS - hints})
+          </button>
+        </div>
+      )}
+
 
       <p className="sr-only" id="answer-label">Câu bạn đang xếp</p>
       <div role="group" aria-labelledby="answer-label" className="mt-6 flex min-h-16 flex-wrap gap-2 border-b-[2.5px] border-dashed border-ink/40 pb-3">
