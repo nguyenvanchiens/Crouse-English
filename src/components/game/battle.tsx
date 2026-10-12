@@ -167,7 +167,7 @@ export function BattleStage({ level, hp, maxHp, event, end = null, combo = 0 }: 
 
         {/* monster with its health */}
         <div className="relative flex flex-col items-end">
-          <div className="mb-1 w-24 sm:w-36">
+          <div className="mb-1 w-[7.5rem] sm:w-36">
             <div className="flex items-baseline justify-between text-xs font-extrabold">
               <span className="truncate">{monster.name}</span>
               <span>

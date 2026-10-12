@@ -114,6 +114,22 @@ const norm = (s: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
+/**
+ * A hint: keeps the pieces placed so far while they are right, takes the wrong ones back, and places the next
+ * right one. `shown` is the question's shuffled tiles, `chosen` indexes into them.
+ */
+export function nextHint(shown: readonly string[], chosen: readonly number[], item: GameSentence): number[] {
+  const right: number[] = [];
+  for (const i of chosen) {
+    if (shown[i] !== item.tiles[right.length]) break;
+    right.push(i);
+  }
+  if (right.length >= item.tiles.length) return right;
+  const want = item.tiles[right.length];
+  const i = shown.findIndex((t, k) => t === want && !right.includes(k));
+  return i < 0 ? right : [...right, i];
+}
+
 /** The tiles in the order the learner put them make the sentence (punctuation and case aside). */
 export function checkSentence(answer: readonly string[], item: GameSentence): boolean {
   return norm(answer.join(" ")) === norm(item.tiles.join(" "));

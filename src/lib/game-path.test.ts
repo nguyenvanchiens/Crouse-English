@@ -65,3 +65,23 @@ describe("the game path on the real courses", async () => {
     }
   });
 });
+
+describe("sentences on the path come in a sensible order", async () => {
+  const { ALL_DRILLS } = await import("@/content/drills");
+  it.each(["A1", "A2"] as const)("%s: no drill before the lesson that teaches it, and short sentences first", async (l) => {
+    const p = await loadPath(l);
+    const slugs = p.units.map((u) => u.slug);
+    for (const [i, u] of p.units.entries()) {
+      const { data } = (await loadUnit(l, u.slug))!;
+      for (const s of data.sentences) {
+        const d = ALL_DRILLS.find((x) => `s:${x.id}` === s.id);
+        if (d && slugs.includes(d.review.lesson)) expect(slugs.indexOf(d.review.lesson), `${u.slug} ${d.id}`).toBeLessThanOrEqual(i);
+      }
+      // the first units keep to short sentences; one a little longer only when a unit has too few
+      if (i < 3) {
+        expect(Math.max(...data.sentences.map((x) => x.tiles.length)), u.slug).toBeLessThanOrEqual(7);
+        expect(data.sentences.filter((x) => x.tiles.length <= 6).length, u.slug).toBeGreaterThanOrEqual(2);
+      }
+    }
+  });
+});

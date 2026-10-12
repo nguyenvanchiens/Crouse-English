@@ -89,3 +89,23 @@ describe("game content on the real courses", async () => {
     }
   });
 });
+
+describe("the hint in the sentence game", () => {
+  const item = { id: "h", en: "I am a student.", vi: "", tiles: ["I", "am", "a", "student."] };
+  // the tiles as shown, shuffled
+  const shown = ["student.", "a", "I", "am"];
+  it("places the next right piece, keeping the right ones and taking back the wrong ones", async () => {
+    const { nextHint } = await import("./game");
+    expect(nextHint(shown, [], item)).toEqual([2]);
+    expect(nextHint(shown, [2], item)).toEqual([2, 3]);
+    // "I a" is wrong after "I": the hint keeps "I" and places "am"
+    expect(nextHint(shown, [2, 1], item)).toEqual([2, 3]);
+    expect(nextHint(shown, [2, 3, 1, 0], item)).toEqual([2, 3, 1, 0]);
+  });
+  it("copes with the same word twice", async () => {
+    const { nextHint } = await import("./game");
+    const twice = { id: "t", en: "I'm Tom. I'm your teacher.", vi: "", tiles: ["I'm", "Tom.", "I'm", "your", "teacher."] };
+    const shownTwice = ["I'm", "your", "I'm", "Tom.", "teacher."];
+    expect(nextHint(shownTwice, [0, 3], twice)).toEqual([0, 3, 2]);
+  });
+});
