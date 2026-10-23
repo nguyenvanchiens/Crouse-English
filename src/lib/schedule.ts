@@ -26,7 +26,7 @@ import { lessonKey, todayKey, type ProgressState } from "./progress-core";
  */
 export type ConsolidateFocus = "redo" | "spaced" | "produce" | "words" | "input";
 /** the order the days between lessons take, run on through the level */
-const ROTATION: ConsolidateFocus[] = ["input", "spaced", "redo", "produce", "input", "words", "spaced", "input"];
+const ROTATION: ConsolidateFocus[] = ["input", "spaced", "redo", "produce", "spaced", "words", "input", "spaced"];
 /** full revisits of a lesson on a consolidation day, in days after it was learned */
 const INTERVALS = [7, 21];
 const BASE_REVIEW_EVERY = 4;

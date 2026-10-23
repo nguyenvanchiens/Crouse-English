@@ -1,0 +1,155 @@
+import { A, B, correct, dialogue, ex, fill, free, lesson, listen, listenQ, mc, mistake, p, reading, reorder, say, summary, table, task, teacher, tip, word } from "../../builders";
+
+export default lesson({
+  slug: "gia-dinh-cua-toi",
+  title: "Gia đình của tôi",
+  minutes: 28,
+  lecture: {
+    title: "my, your, his, her…, sở hữu 's và have/has",
+    blocks: [
+      p("Khi cho đồng nghiệp nước ngoài xem ảnh gia đình trên điện thoại, bạn sẽ cần những câu như: This is my mother. Her name is Hanh. My brother's name is Nam. He has two children. Bài này gom ba công cụ để nói về gia đình: **tính từ sở hữu** (my, your, his, her…), **'s** sau tên người và **have/has** để nói ai có ai, có gì."),
+      p("Ở bài Chào hỏi và giới thiệu, các bạn đã dùng **my** và **your** (my name, your teacher). Tiếng Việt nói “mẹ **tôi**”, “tên **anh ấy**”: chữ chỉ người sở hữu đứng **sau**. Tiếng Anh thì ngược lại: tính từ sở hữu luôn đứng **trước** danh từ, và đổi theo người sở hữu."),
+      table(
+        ["Chủ ngữ", "Tính từ sở hữu", "Ví dụ"],
+        ["I", "my", "This is my mother."],
+        ["you", "your", "Is that your sister?"],
+        ["he", "his", "His name is Nam."],
+        ["she", "her", "Her name is Hoa."],
+        ["it", "its", "This is our dog. Its name is Lucky."],
+        ["we", "our", "These are our children."],
+        ["they", "their", "Their son is a doctor."],
+      ),
+      ex("This is my brother. His name is Nam.", "Đây là anh trai tôi. Tên anh ấy là Nam.", "Chọn his hay her theo người được nói đến (anh trai là nam nên dùng his), không theo người đang nói."),
+      mistake("This is brother my.", "This is my brother.", "Tiếng Việt nói “anh trai tôi”, chữ “tôi” đứng sau. Dịch từng chữ sẽ thành brother my. Trong tiếng Anh, my, your, his, her luôn đứng trước danh từ."),
+      mistake("She is my sister. His name is Hoa.", "She is my sister. Her name is Hoa.", "Tiếng Việt nói “tên bạn ấy” cho cả nam lẫn nữ, nên người Việt hay lẫn his và her. His dùng cho nam, her dùng cho nữ."),
+      p("Muốn nói đồ vật hay người thân **của một người có tên**, thêm **'s** vào sau tên hoặc sau danh từ chỉ người: **Lan's phone** (điện thoại của Lan), **my brother's name** (tên của anh trai tôi). Thứ tự giống tính từ sở hữu: người sở hữu đứng trước, vật đứng sau."),
+      ex("That is Lan's bag, and this is Nam's umbrella.", "Kia là túi của Lan, còn đây là ô của Nam."),
+      ex("My sister's husband is a teacher.", "Chồng của chị gái tôi là giáo viên.", "My sister's husband: chồng của chị gái tôi. Đọc từ phải sang trái mới ra đúng thứ tự tiếng Việt."),
+      mistake("This is the phone of Lan.", "This is Lan's phone.", "Người Việt dịch thẳng “điện thoại của Lan” thành the phone of Lan. Với người, tiếng Anh dùng 's: Lan's phone, my mother's car."),
+      p("Để nói ai **có** ai hoặc có cái gì, dùng **have** với I, you, we, they và **has** với he, she, it: I have a brother. She has two daughters. Ở bài này các bạn chỉ cần câu khẳng định; câu hỏi và câu phủ định (Do you have…? She doesn't have…) sẽ học ở bài Một ngày của tôi."),
+      table(
+        ["Chủ ngữ", "Động từ", "Ví dụ"],
+        ["I / you / we / they", "have", "We have a small house."],
+        ["he / she / it", "has", "My uncle has three sons."],
+        ["tên một người, my mother…", "has", "Lan has a big family."],
+      ),
+      mistake("My mother have two sisters.", "My mother has two sisters.", "Động từ tiếng Việt không đổi theo người, nên người Việt hay dùng have cho mọi chủ ngữ. My mother là she, nên phải dùng has."),
+      p("Tiếng Việt nói “tôi” ở mọi vị trí: tôi yêu mẹ, mẹ yêu tôi. Tiếng Anh thì khi người đứng **sau động từ** hoặc **sau giới từ** (for, with, to), ta đổi sang **đại từ tân ngữ**: I thành **me**, he thành **him**, she thành **her**, we thành **us**, they thành **them** (you và it giữ nguyên). Vì vậy nói **for me**, **with her**, không nói for I, with she."),
+      ex("Nam is my brother. I love him.", "Nam là em trai tôi. Tôi rất thương em ấy.", "Him đứng sau động từ love. Lưu ý her vừa là “của cô ấy” (her name) vừa là tân ngữ (with her)."),
+      tip("**His** đọc /hɪz/, âm /ɪ/ ngắn, khác với **he's** /hiːz/ kéo dài. Còn **'s** sau tên đọc theo âm cuối của tên: **Nam's** /z/, **Kate's** /s/, **Rose's** /ɪz/. Đừng nuốt mất âm này, vì không có nó người nghe không biết bạn nói “của Nam”."),
+      teacher("Bài tập tôi giao cho mọi lớp mới: các bạn mở ảnh gia đình trên điện thoại, chỉ vào từng người và nói **hai câu**: This is my aunt. Her name is Mai. Rồi thêm một câu với has: She has two sons. Khi nói, các bạn tự hỏi: người này là nam hay nữ? Nam thì **his**, nữ thì **her**, nhiều người thì **their**. Làm mỗi tối năm phút, một tuần sau his và her sẽ không còn lẫn nữa."),
+      summary(
+        "Tính từ sở hữu đứng **trước** danh từ: **my brother**, không nói brother my.",
+        "**His** cho nam, **her** cho nữ, **their** cho nhiều người: She is my sister. **Her** name is Hoa.",
+        "Của một người có tên: **'s**: Lan's phone, my brother's name (không nói the phone of Lan).",
+        "Nói ai có gì: I, you, we, they **have**; he, she, it **has**: My mother has two sisters.",
+        "Sau động từ và giới từ dùng **me, you, him, her, it, us, them**: for me, with him.",
+      ),
+    ],
+  },
+  words: [
+    word("family", "/ˈfæm.əl.i/", "gia đình", "I have a big family.", "fam|i|ly", 0, "Người bản xứ thường nói nhanh thành hai âm tiết: /ˈfæm.li/."),
+    word("mother", "/ˈmʌð.ə/", "mẹ", "My mother is a teacher.", "moth|er", 0, "Âm /ð/ đặt đầu lưỡi giữa hai hàm răng, đừng đọc thành /d/ hay /z/."),
+    word("father", "/ˈfɑː.ðə/", "bố", "His father is a doctor.", "fa|ther", 0),
+    word("brother", "/ˈbrʌð.ə/", "anh trai, em trai", "These are my two brothers.", "broth|er", 0),
+    word("sister", "/ˈsɪs.tə/", "chị gái, em gái", "Her sister is a student.", "sis|ter", 0),
+    word("son", "/sʌn/", "con trai", "Their son is ten years old.", "son", 0, "Đọc giống hệt sun /sʌn/ (mặt trời), không đọc “xon”."),
+    word("daughter", "/ˈdɔː.tə/", "con gái", "My uncle has two daughters.", "daugh|ter", 0, "“gh” câm: đọc /ˈdɔː.tə/."),
+  ],
+  exercises: [
+    mc("a1-n17-1", "Kate is my aunt. ___ husband is a doctor.", ["His", "She", "Her"], 2, "Kate là nữ nên “chồng của cô ấy” là her husband. Người Việt hay chọn his vì nghĩ đến người chồng, nhưng tính từ sở hữu đổi theo người sở hữu (Kate), không theo danh từ đứng sau."),
+    mc("a1-n17-2", "Chọn câu đúng:", ["This is the phone of Lan.", "This is Lan's phone.", "This is Lan phone.", "This is phone Lan's."], 1, "Với người có tên, dùng 's: Lan's phone. The phone of Lan là dịch từng chữ “điện thoại của Lan”; thiếu 's hoặc đặt sai chỗ đều sai."),
+    fill("a1-n17-3", "She is my sister. ___ name is Hoa.", ["Her", "her"], "Chủ ngữ là she (nữ) nên dùng her."),
+    fill("a1-n17-4", "My brother ___ two daughters. (have)", ["has"], "My brother là he nên dùng has, không dùng have."),
+    reorder("a1-n17-5", "My parents have three children.", "Tính từ sở hữu my đứng trước danh từ; my parents là they nên dùng have; child có số nhiều bất quy tắc là children."),
+    reorder("a1-n17-6", "What is your mother's name?", "Hỏi tên người thân: What + is + your mother's + name? Sở hữu 's đứng ngay sau người sở hữu (mother), rồi mới đến vật (name)."),
+    listen("a1-n17-7", "That is Nam's phone.", ["Đây là điện thoại của Nam.", "Đó là điện thoại của Nam.", "Đó là Nam và điện thoại của anh ấy."], 1, "That là cái ở xa (đó, kia); Nam's phone là điện thoại của Nam: 's sau tên người chỉ sở hữu."),
+    listen("a1-n17-8", "These are our children.", ["Đây là con của họ.", "Kia là các con của chúng tôi.", "Đây là các con của chúng tôi."], 2, "These là những người ở gần (đây); our là của chúng tôi, their mới là của họ."),
+    correct("a1-n17-9", "Is this bag for I?", ["Is this bag for me?"], "Sau giới từ for phải dùng đại từ tân ngữ: for me, không nói for I."),
+    correct("a1-n17-10", "My sister have a small dog.", ["My sister has a small dog."], "My sister là she nên dùng has. Động từ tiếng Việt không đổi theo người, nên đây là lỗi rất hay gặp."),
+    fill("a1-n17-11", "Mr and Mrs Tran have a son. ___ son is a driver.", ["Their", "their"], "Mr and Mrs Tran là hai người (they) nên “con trai của họ” là their son."),
+    fill("a1-n17-12", "This is my brother. I love ___ very much.", ["him"], "Người đứng sau động từ love phải ở dạng tân ngữ: he đổi thành him."),
+    reorder("a1-n17-13", "Are these your father's books?", "Câu hỏi với these: Are + these + vật? Your father's books là sách của bố bạn; 's đứng sau father."),
+    correct("a1-n17-14", "She is my sister. His name is Mai.", ["She is my sister. Her name is Mai.", "She's my sister. Her name is Mai."], "Người được nói đến là nữ (she) nên tên của cô ấy là her name, không phải his name."),
+  ],
+  speaking: [
+    say("This is my mother.", "Đây là mẹ tôi."),
+    say("These are my two brothers. Their names are Nam and Duc.", "Đây là hai em trai tôi. Tên các em ấy là Nam và Đức."),
+    say("She is my sister. Her name is Lan.", "Cô ấy là chị gái tôi. Tên chị ấy là Lan."),
+  ],
+  freeSpeaking: free(
+    "Tell me about your family, please.",
+    "Hãy nói về gia đình bạn: có những ai, tên và nghề của họ, và gia đình bạn có gì.",
+    "This is my family. My father is a driver, and my mother is a nurse. I have a sister. Her name is Lan. She's a student. We have a small house and two cats.",
+  ),
+  dialogueQuestions: [
+    listenQ("a1-n17-d1", "Mẹ của Mai làm nghề gì?", "Is your mother a teacher? Yes, she is. And my father is a doctor.", ["Bác sĩ", "Giáo viên", "Y tá"], 1, "Anna hỏi Is your mother a teacher? và Mai trả lời Yes, she is. Người làm bác sĩ là bố của Mai."),
+    mc("a1-n17-d2", "Cô gái tên Linh trong ảnh là ai?", ["Em gái của Mai", "Bạn của em trai Mai", "Đồng nghiệp của Anna"], 1, "Mai nói: She's my brother's friend. My brother's friend là bạn của em trai tôi, không phải em gái."),
+    mc("a1-n17-d3", "Cái ô trên bàn có lẽ là của ai?", ["Của Anna", "Của Mai", "Của Tom"], 2, "Anna nói ô của cô ở trong túi, rồi đoán: Maybe it's Tom's umbrella. Tom's umbrella là ô của Tom."),
+  ],
+  reading: reading({
+    title: "Tin nhắn gửi ảnh gia đình",
+    text: `Hi Anna,
+
+Thanks for your message. Here is a photo of my family for you. This is my father, Binh. He's a doctor. This is my mother, Hanh. She's a teacher.
+
+These are my two brothers, Nam and Duc. They're students. Nam has a big dog. Its name is Lucky.
+
+And this is me with my grandmother. She isn't in Hanoi. She has a small house in Nam Dinh. She's very kind.
+
+Is that your family in your photo? Please send me a photo of them!
+
+Love,
+Mai`,
+    glossary: [
+      ["thanks for your message", "cảm ơn tin nhắn của bạn"],
+      ["here is", "đây là (khi đưa cho ai cái gì)"],
+      ["photo", "bức ảnh"],
+      ["dog", "con chó"],
+      ["grandmother", "bà"],
+      ["kind", "tốt bụng"],
+      ["send", "gửi"],
+    ],
+    questions: [
+      mc("a1-n17-r1", "Mai viết tin nhắn này để làm gì?", ["Gửi ảnh và giới thiệu gia đình mình", "Kể về chuyến đi thăm bà ở Nam Định", "Nhờ Anna chăm sóc con chó Lucky"], 0, "Mai viết Here is a photo of my family for you, rồi giới thiệu từng người trong ảnh."),
+      mc("a1-n17-r2", "Bố của Mai làm nghề gì?", ["Giáo viên", "Bác sĩ", "Sinh viên"], 1, "This is my father, Binh. He's a doctor."),
+      fill("a1-n17-r3", "Hoàn thành câu theo bài đọc: Nam and Duc are Mai's ___.", ["brothers"], "These are my two brothers, Nam and Duc. Hai người nên brother thêm -s."),
+      mc("a1-n17-r4", "Bà của Mai có một ngôi nhà nhỏ ở đâu?", ["Hà Nội", "Đà Nẵng", "Nam Định"], 2, "She isn't in Hanoi. She has a small house in Nam Dinh."),
+      mc("a1-n17-r5", "Mai muốn Anna làm gì?", ["Gọi điện cho Mai", "Gửi ảnh gia đình của Anna", "Đến thăm bà của Mai"], 1, "Please send me a photo of them! Them ở đây là gia đình của Anna."),
+    ],
+  }),
+  dialogue: dialogue(
+    "Xem ảnh gia đình giờ nghỉ trưa",
+    "Giờ nghỉ trưa ở văn phòng, Mai cho Anna, đồng nghiệp người Úc, xem ảnh gia đình trên điện thoại.",
+    { A: "Anna, đồng nghiệp", B: "Mai" },
+    A("Is that your family in the photo?", "Kia là gia đình bạn trong ảnh à?"),
+    B("Yes, it is. This is my mother, and this is my father.", "Đúng rồi. Đây là mẹ tôi, còn đây là bố tôi."),
+    A("Oh, nice! Is your mother a teacher?", "Ồ, hay quá! Mẹ bạn là giáo viên à?"),
+    B("Yes, she is. And my father is a doctor.", "Đúng vậy. Còn bố tôi là bác sĩ."),
+    A("And these two boys? Are they your brothers?", "Còn hai cậu bé này? Họ là em trai bạn à?"),
+    B("Yes, they are. Their names are Nam and Duc. They're students.", "Đúng vậy. Tên các em ấy là Nam và Đức. Các em ấy là học sinh."),
+    A("Is that girl your sister?", "Cô gái kia là em gái bạn à?"),
+    B("No, she isn't. She's my brother's friend. Her name is Linh.", "Không phải. Cô ấy là bạn của em trai tôi. Tên cô ấy là Linh."),
+    A("You have a big family!", "Bạn có một gia đình đông người thật!"),
+    B("Yes, it's a big family. Oh, is this your umbrella?", "Vâng, gia đình tôi đông lắm. À, đây có phải ô của bạn không?"),
+    A("No, it isn't. My umbrella is in my bag. Maybe it's Tom's umbrella.", "Không phải. Ô của tôi ở trong túi. Có lẽ đó là ô của Tom."),
+  ),
+  task: task({
+    prompt: "Hãy viết 6–8 câu giới thiệu gia đình bạn cho một người bạn nước ngoài, như khi cho họ xem ảnh trên điện thoại.",
+    hints: [
+      "Dùng This is my... cho một người, These are my... cho nhiều người.",
+      "Nói tên bằng his, her hoặc their: Her name is...",
+      "Dùng 's một lần: My brother's name is...",
+      "Nói ai có gì bằng have hoặc has: My sister has a son.",
+    ],
+    model: "This is my father. His name is Hung, and he is a doctor. This is my mother. Her name is Thu. These are my two sisters. Their names are Lan and Hoa. My sister's son is three. We have a small house and a cat.",
+    checklist: [
+      "Tính từ sở hữu đứng trước danh từ (my father, không viết father my)",
+      "Dùng his cho nam, her cho nữ, their cho nhiều người",
+      "Có ít nhất một câu với 's (My sister's son…)",
+      "He, she và tên một người đi với has; I, we, they đi với have",
+      "This đi với is, these đi với are",
+    ],
+    minWords: 25,
+  }),
+});

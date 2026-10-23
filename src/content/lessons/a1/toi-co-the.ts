@@ -21,7 +21,7 @@ export default lesson({
       p("Dùng **Can I…?** để xin phép. Dùng **You can…** để cho phép và **You can't…** để nói điều không được làm. Muốn nhờ người khác, dùng **Can you…?**"),
       ex("Can I sit here? Yes, of course.", "Tôi ngồi đây được không? Được chứ, bạn cứ ngồi."),
       ex("You can't park here.", "Bạn không được đỗ xe ở đây.", "Ở đây can't không nói về khả năng mà là lệnh cấm: xe vẫn đỗ được, nhưng không được phép."),
-      ex("Sorry, can you say that again, please?", "Xin lỗi, bạn nói lại được không?", "Câu cứu cánh khi nghe không kịp. Muốn người ta nói chậm lại thì hỏi: Can you speak slowly, please?"),
+      ex("Sorry, can you say that again, please?", "Xin lỗi, bạn nói lại được không?", "Câu cứu cánh khi nghe không kịp. Muốn người ta nói chậm lại thì hỏi: Can you speak more slowly, please? (more slowly là chậm hơn, vì người kia đang nói nhanh)."),
       mistake("You can speak English?", "Can you speak English?", "Tiếng Việt hỏi bằng cách thêm “không” ở cuối câu, trật tự từ giữ nguyên. Tiếng Anh phải đảo can lên đầu câu."),
       table(
         ["Câu", "Can đọc là", "Cách nghe"],
@@ -53,7 +53,7 @@ export default lesson({
   exercises: [
     mc("a1-n11-1", "My brother ___ speak three languages.", ["cans", "can", "can to"], 1, "Can giữ nguyên với mọi chủ ngữ và không có to phía sau."),
     mc("a1-n11-2", "Bạn muốn xin phép mở cửa sổ. Câu nào đúng?", ["I can open the window?", "Do I can open the window?", "Can I to open the window?", "Can I open the window?"], 3, "Xin phép: Can I + động từ nguyên mẫu? Không dùng do với can, không thêm to."),
-    fill("a1-n11-3", "She ___ drive, so she goes to work by bus. (không biết)", ["can't", "cannot"], "Phủ định của can là can't hoặc cannot (viết liền)."),
+    fill("a1-n11-3", "She ___ drive, so she goes to work by bus. (can, phủ định)", ["can't", "cannot"], "Phủ định của can là can't hoặc cannot (viết liền)."),
     fill("a1-n11-4", "___ you swim? Yes, I can.", ["Can", "can"], "Câu trả lời ngắn Yes, I can cho biết câu hỏi bắt đầu bằng Can."),
     reorder("a1-n11-5", "What languages can you speak?", "Câu hỏi với từ để hỏi: What languages + can + chủ ngữ + động từ nguyên mẫu?"),
     reorder("a1-n11-6", "Where can I park my car?", "Where đứng đầu, sau đó đảo can lên trước I."),
@@ -61,6 +61,10 @@ export default lesson({
     listen("a1-n11-8", "Can I use your phone?", ["Tôi dùng điện thoại của bạn được không?", "Bạn có biết dùng điện thoại không?", "Bạn dùng điện thoại của tôi đi."], 0, "Can I…? là câu xin phép cho chính mình."),
     correct("a1-n11-9", "My father can drives a car.", ["My father can drive a car."], "Sau can là động từ nguyên mẫu: can drive. Không thêm -s cho động từ sau can, dù chủ ngữ là he."),
     correct("a1-n11-10", "Your sister can play the guitar?", ["Can your sister play the guitar?"], "Câu hỏi với can phải đảo can lên đầu câu, không giữ trật tự câu kể như tiếng Việt."),
+    fill("a1-n11-11", "___ I borrow your pen, please?", ["Can", "can", "Could", "could", "May", "may"], "Xin phép làm gì: Can I + động từ nguyên mẫu, please?"),
+    fill("a1-n11-12", "My son can ___ a bike. (đi xe)", ["ride"], "Đi xe đạp, xe máy là ride a bike, ride a motorbike; lái ô tô mới là drive a car. Sau can, ride giữ nguyên."),
+    reorder("a1-n11-13", "Can you speak more slowly, please?", "Nhờ người khác: Can you + động từ nguyên mẫu? More slowly (chậm hơn) đứng sau speak, please đứng cuối câu."),
+    correct("a1-n11-14", "Do you can swim?", ["Can you swim?"], "Câu hỏi với can không dùng do: chỉ cần đảo can lên trước chủ ngữ."),
   ],
   freeSpeaking: free(
     "What can you do, and what can't you do?",
@@ -118,7 +122,7 @@ Questions? Please ask our staff at the front desk.`,
       ["front desk", "quầy lễ tân"],
     ],
     questions: [
-      mc("a1-n11-r1", "Đây là loại văn bản gì?", ["Nội quy của một bể bơi", "Quảng cáo bán đồ bơi", "Tin nhắn của một người bạn"], 0, "Please read our rules: đây là nội quy của bể bơi Green Park."),
+      mc("a1-n11-r1", "Đây là loại văn bản gì?", ["Nội quy của một bể bơi", "Quảng cáo một cửa hàng bán đồ bơi", "Thông báo bể bơi đóng cửa vào cuối tuần"], 0, "Please read our rules: đây là nội quy của bể bơi Green Park."),
       mc("a1-n11-r2", "Bể bơi mở cửa từ mấy giờ đến mấy giờ?", ["Từ 8 giờ sáng đến 6 giờ chiều", "Từ 6 giờ sáng đến 8 giờ tối", "Từ 6 giờ sáng đến 10 giờ tối"], 1, "From six o'clock in the morning to eight o'clock in the evening."),
       mc("a1-n11-r3", "Trẻ em dưới mười tuổi phải làm gì?", ["Mua vé riêng", "Đi bơi cùng một người lớn", "Học bơi trước khi xuống bể"], 1, "Children under ten can't swim alone. They need an adult with them."),
       mc("a1-n11-r4", "Việc nào KHÔNG được làm ở bể bơi?", ["Mua nước ở quán cà phê", "Học bơi vào cuối tuần", "Chụp ảnh trong phòng thay đồ"], 2, "You can't take photos in the changing rooms. Mua nước ở quán cà phê thì được (you can buy water)."),

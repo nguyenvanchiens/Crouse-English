@@ -66,13 +66,17 @@ export default lesson({
     mc("a1-n04-1", "My brother is ___ engineer.", ["a", "an", "(không dùng mạo từ)"], 1, "Engineer bắt đầu bằng âm nguyên âm /e/ nên dùng an. Nói nghề của một người thì luôn phải có a hoặc an."),
     mc("a1-n04-2", "Chọn câu đúng:", ["I am Vietnam.", "I am from Vietnamese.", "I am Vietnamese."], 2, "Sau am dùng quốc tịch Vietnamese; sau from dùng tên nước Vietnam."),
     fill("a1-n04-3", "She is ___ nurse. (một)", ["a"], "Nurse bắt đầu bằng âm phụ âm /n/ nên dùng a. Đừng bỏ a như khi nói tiếng Việt."),
-    fill("a1-n04-4", "___ is that woman? She's my teacher. (ai)", ["Who", "who"], "Hỏi người đó là ai dùng Who."),
+    fill("a1-n04-4", "___ is that woman? She's my teacher.", ["Who", "who"], "Hỏi người đó là ai dùng Who."),
     reorder("a1-n04-5", "What is your sister's job?", "Hỏi nghề: What + is + ...'s job? Từ để hỏi luôn đứng đầu câu."),
     reorder("a1-n04-6", "Who is the woman in the photo?", "Who + is + người được hỏi; cụm in the photo đứng sau danh từ the woman."),
     listen("a1-n04-7", "He's an engineer from Korea.", ["Anh ấy là kỹ sư người Hàn Quốc.", "Anh ấy là kỹ sư làm việc ở Nhật Bản.", "Cô ấy là kế toán người Hàn Quốc."], 0, "He's là anh ấy; engineer là kỹ sư; Korea là Hàn Quốc."),
     listen("a1-n04-8", "How is your father?", ["Bố bạn làm nghề gì?", "Bố bạn có khỏe không?", "Bố bạn là ai?"], 1, "How hỏi về sức khỏe, tình trạng. Hỏi nghề phải là What's his job?"),
     correct("a1-n04-9", "My father is engineer.", ["My father is an engineer.", "My father's an engineer."], "Nói nghề của một người phải có a hoặc an. Engineer bắt đầu bằng âm nguyên âm /e/ nên dùng an."),
     correct("a1-n04-10", "Where your boss is from?", ["Where is your boss from?", "Where's your boss from?"], "Câu hỏi Wh- với to be: từ để hỏi + is + chủ ngữ. Is phải đứng ngay sau Where, không nằm sau chủ ngữ như câu kể."),
+    fill("a1-n04-11", "They're ___. They work in a big hospital. (nurse)", ["nurses"], "Nhiều người thì bỏ a và thêm -s vào tên nghề: They're nurses."),
+    fill("a1-n04-12", "Kenji is from Japan. He's ___.", ["Japanese"], "Sau to be dùng quốc tịch, không dùng tên nước: Japanese, viết hoa chữ cái đầu và không có a."),
+    reorder("a1-n04-13", "Where are your colleagues from?", "Câu hỏi Wh- với to be: Where + are + chủ ngữ số nhiều + from? Giới từ from đứng cuối câu."),
+    correct("a1-n04-14", "My sisters are a teachers.", ["My sisters are teachers."], "A nghĩa là “một”, nên không đi với danh từ số nhiều. Nhiều người thì bỏ a: are teachers."),
   ],
   speaking: [
     say("I'm an accountant. I'm Vietnamese.", "Tôi là kế toán. Tôi là người Việt Nam."),
@@ -110,7 +114,7 @@ export default lesson({
     title: "Thông báo: đồng nghiệp mới",
     text: `Welcome to our new colleagues!
 
-This is Linh. She's twenty-six years old. She's from Hue, and she's an accountant. Her office is on the second floor.
+This is Linh. She's twenty-six years old. She's from Hue, and she's an accountant. Her office is on the ground floor.
 
 This is Mr Sato. He's Japanese. He's an engineer, and he's forty-two. His office is Room 305.
 
@@ -120,7 +124,7 @@ Questions? Ask Ms Pham, our manager. Her phone number is 0903 456 789.`,
     glossary: [
       ["colleague", "đồng nghiệp"],
       ["office", "văn phòng"],
-      ["second floor", "tầng hai"],
+      ["ground floor", "tầng trệt, tầng một (người Anh gọi tầng hai là first floor)"],
       ["club", "câu lạc bộ"],
       ["friendly", "thân thiện"],
       ["manager", "người quản lý"],

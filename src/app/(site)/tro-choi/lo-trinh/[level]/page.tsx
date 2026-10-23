@@ -24,7 +24,7 @@ export default async function PathPage(props: PageProps<"/tro-choi/lo-trinh/[lev
   return (
     <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6">
       <p className="font-semibold text-ink-soft">
-        <Link href={`/tro-choi?cap=${level}`} className="underline underline-offset-4">Trò chơi</Link> / {lvl}
+        <Link href={`/tro-choi?cap=${level}`} className="-my-2 inline-flex min-h-11 items-center underline underline-offset-4 hover:text-tangerine-deep">Trò chơi</Link> / {lvl}
       </p>
       <h1 className="mt-2 font-display text-4xl font-extrabold leading-tight sm:text-5xl">Lộ trình chinh phục {lvl}</h1>
       <p className="mt-3 text-lg text-ink-soft">

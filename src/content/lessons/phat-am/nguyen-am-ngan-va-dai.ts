@@ -95,8 +95,12 @@ Tickets are forty dollars for adults and twenty dollars for children. The ship i
     fill("pa-n02-6", "Can I have a ___ of water, please? (cốc thủy tinh, có âm /ɑː/)", ["glass"], "Trong tiếng Anh-Anh, glass đọc là /ɡlɑːs/, âm dài giống cart."),
     reorder("pa-n02-7", "The sheep is on the ship.", "Chủ ngữ + is + on the + nơi chốn. Đọc to để phân biệt sheep dài và ship ngắn."),
     reorder("pa-n02-8", "Put the bag on the bed.", "Câu mệnh lệnh: Put + vật + on the + nơi chốn. Bag mở miệng rộng, bed mở vừa."),
-    correct("pa-n02-9", "There are six sheeps on the farm.", "There are six sheep on the farm.", "Sheep có số nhiều giống số ít: one sheep, six sheep. Đọc /ʃiːp/ với /iː/ dài, đừng thêm /s/."),
+    correct("pa-n02-9", "Please come in and take a sit.", "Please come in and take a seat.", "Mời ngồi là take a seat /siːt/, với /iː/ dài và môi căng. Sit /sɪt/ ngắn là động từ ngồi. Người Việt đọc mọi chữ i dài như nhau nên hay lẫn hai từ này cả khi nói lẫn khi viết."),
     correct("pa-n02-10", "I can't eat any more. I'm fool.", ["I can't eat any more. I'm full.", "I can't eat anymore. I'm full."], "No bụng là full /fʊl/ (ngắn), còn fool /fuːl/ (dài) là kẻ ngốc. Đọc sai nguyên âm thì viết cũng dễ nhầm."),
+    fill("pa-n02-11", "Ship /ʃɪp/ là con tàu, còn ___ /ʃiːp/ là con cừu.", ["sheep"], "/iː/ có dấu kéo dài ː, viết bằng hai chữ ee: sheep. Đọc phiên âm ra từ là kỹ năng các bạn sẽ dùng mỗi lần mở từ điển."),
+    fill("pa-n02-12", "Phiên âm /kʌt/ là từ ___ (cắt), còn /kɑːt/ là cart.", ["cut"], "/ʌ/ ngắn, gần “ă”, thường viết bằng chữ u: cut, cup, bus. /ɑː/ dài, miệng mở to: cart, car, glass."),
+    correct("pa-n02-13", "Can I have a cap of coffee, please?", "Can I have a cup of coffee, please?", "Tách cà phê là cup /kʌp/ với /ʌ/ ngắn gần “ă”. Cap /kæp/ (mũ lưỡi trai) có /æ/ mở rộng miệng. Hai từ chỉ khác nhau ở nguyên âm."),
+    listen("pa-n02-14", "full", ["fool", "full", "fall"], 1, "Full /fʊl/ ngắn, môi tròn nhẹ. Fool /fuːl/ dài, môi chu ra; fall /fɔːl/ có /ɔː/ dài, môi tròn hơn và miệng mở hơn."),
   ],
   speaking: [
     say("The sheep are on the ship.", "Những con cừu ở trên con tàu."),

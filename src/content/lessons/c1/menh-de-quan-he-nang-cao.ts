@@ -30,7 +30,7 @@ export default lesson({
         ["She wrote four novels. Two of them became films.", "She wrote four novels, two of which became films."],
       ),
       mistake("I invited ten friends, most of them came late.", "I invited ten friends, most of whom came late.", "Tiếng Việt nối hai câu bằng dấu phẩy rất thoải mái, nhưng tiếng Anh coi đó là lỗi nối câu. Hoặc dùng most of whom, hoặc tách thành hai câu: I invited ten friends. Most of them came late."),
-      p("**Which** còn có thể thay cho **cả mệnh đề** phía trước, không chỉ một danh từ. Loại này luôn có dấu phẩy phía trước và không dùng that hay what thay được."),
+      p("Ở B2, các bạn đã dùng **dấu phẩy + which** để thay cho **cả mệnh đề** phía trước (…, which means / suggests…). Nhắc lại hai điều: luôn có dấu phẩy, và không dùng that hay what thay được. Ở C1, ta đi xa hơn: đưa which vào sau giới từ hoặc đặt nó trước một danh từ để nối ý chặt chẽ hơn."),
       ex("The train was cancelled, which meant we had to take a taxi.", "Chuyến tàu bị hủy, điều đó có nghĩa là chúng tôi phải đi taxi.", "Which ở đây là “việc tàu bị hủy”. Người Việt hay viết nhầm what meant, vì dịch “điều mà”."),
       p("Văn trang trọng còn dùng **which** như một từ hạn định đứng trước danh từ để nối cả ý phía trước: **at which point** (đến lúc đó thì), **in which case** (nếu vậy thì), **by which time** (đến lúc ấy thì). Các cụm **the extent to which** (mức độ mà) và **the way in which** (cách mà) cũng rất hay gặp trong bài luận và báo cáo."),
       ex("The client may reject the design, in which case we will have to start again.", "Khách hàng có thể từ chối bản thiết kế, nếu vậy thì chúng ta sẽ phải làm lại từ đầu.", "In which case thay cho if that happens. Luôn có dấu phẩy phía trước, và which ở đây thay cho cả vế the client may reject the design."),
@@ -49,9 +49,9 @@ export default lesson({
   words: [
     word("whereby", "/weəˈbaɪ/", "mà theo đó, nhờ đó (trang trọng)", "We have an arrangement whereby my neighbour feeds the cat when I travel.", "where|by", 1),
     word("respondent", "/rɪˈspɒn.dənt/", "người trả lời khảo sát", "The survey had five hundred respondents, most of whom were under thirty.", "re|spon|dent", 1),
-    word("scheme", "/skiːm/", "chương trình, kế hoạch (của tổ chức)", "The company runs a scheme whereby staff can buy shares at a discount.", "scheme", 0, "Chữ ch đọc là /k/: /skiːm/, không đọc “xờ-chim”."),
+    word("eligible", "/ˈel.ɪ.dʒə.bəl/", "đủ điều kiện, đủ tư cách", "Only staff with two years' service are eligible for the bonus, most of whom work in sales.", "el|i|gi|ble", 0, "Trọng âm ở âm đầu: EL-i-gi-ble; chữ g đọc /dʒ/."),
     word("entitle", "/ɪnˈtaɪ.təl/", "cho quyền, cho phép hưởng", "All employees are entitled to twenty days of paid leave.", "en|ti|tle", 1),
-    word("applicant", "/ˈæp.lɪ.kənt/", "người nộp đơn, ứng viên", "We interviewed six applicants, none of whom had enough experience.", "ap|pli|cant", 0),
+    word("allocate", "/ˈæl.ə.keɪt/", "phân bổ, cấp phát", "The council has allocated funds to the schools, all of which need new roofs.", "al|lo|cate", 0),
     word("incentive", "/ɪnˈsen.tɪv/", "sự khuyến khích, động lực", "Lower taxes are an incentive for companies to invest.", "in|cen|tive", 1),
     word("framework", "/ˈfreɪm.wɜːk/", "khuôn khổ, khung", "This is the framework within which all decisions are made.", "frame|work", 0),
     word("beneficiary", "/ˌben.ɪˈfɪʃ.ər.i/", "người thụ hưởng, người được hưởng lợi", "The main beneficiaries of the scheme, most of whom are farmers, receive free training.", "ben|e|fic|iar|y", 2, "Trọng âm ở âm tiết thứ ba: ben-e-FISH-er-y; chữ c đọc là /ʃ/."),
@@ -67,6 +67,10 @@ export default lesson({
     listen("c1-n12-8", "He apologised in front of everyone, which I didn't expect.", ["Anh ấy không xin lỗi, đúng như tôi dự đoán.", "Anh ấy muốn tôi xin lỗi trước mặt mọi người.", "Tôi đã không ngờ anh ấy lại xin lỗi trước mặt mọi người."], 2, "Which thay cho cả mệnh đề trước: việc anh ấy xin lỗi trước mặt mọi người."),
     correct("c1-n12-9", "The colleague on who I rely most is leaving the company.", ["The colleague on whom I rely most is leaving the company.", "The colleague I rely on most is leaving the company.", "The colleague who I rely on most is leaving the company.", "The colleague whom I rely on most is leaving the company.", "The colleague that I rely on most is leaving the company."], "Ngay sau giới từ on chỉ được dùng whom (cho người), không dùng who hay that. Nếu muốn dùng who hoặc that thì phải đưa on về cuối: the colleague who I rely on most."),
     correct("c1-n12-10", "We received fifty applications, most of them were excellent.", ["We received fifty applications, most of which were excellent.", "We received fifty applications, and most of them were excellent."], "Hai mệnh đề độc lập không được nối bằng một dấu phẩy trơn. Dùng lượng từ + of which (vì applications là vật), hoặc thêm từ nối and."),
+    fill("c1-n12-11", "The talks may collapse, in ___ case the strike will go ahead.", ["which"], "In which case: và trong trường hợp đó. Which ở đây đứng trước danh từ case, gói lại cả vế trước. Đây là bước tiếp theo sau mệnh đề quan hệ , which means… đã học ở B2."),
+    fill("c1-n12-12", "We didn't land until midnight, by which ___ the last bus had left.", ["time"], "By which time: đến lúc đó thì… Động từ phía sau thường ở quá khứ hoàn thành (had left)."),
+    reorder("c1-n12-13", "The manager resigned, at which point the talks collapsed.", "At which point: đúng lúc đó thì. Cụm này luôn nối tiếp vế đứng trước, không đảo lên đầu câu."),
+    correct("c1-n12-14", "She gave a long speech, during that several people left.", ["She gave a long speech, during which several people left."], "Sau giới từ during và sau dấu phẩy chỉ dùng which, không dùng that. During which: trong lúc đó."),
   ],
   speaking: [
     say("She is the person on whom I rely most.", "Cô ấy là người mà tôi dựa vào nhiều nhất."),
@@ -98,7 +102,7 @@ export default lesson({
   dialogueQuestions: [
     listenQ("c1-n12-d1", "What was the main complaint in the staff survey?", "The conditions under which the night shift works. Many respondents, half of whom work at night, mentioned poor lighting and a lack of hot meals.", ["Low pay on the day shift", "Working conditions on the night shift", "The distance to the factory", "The new shift-swapping app"], 1, "The conditions under which the night shift works: điều kiện làm việc của ca đêm, cụ thể là ánh sáng kém và thiếu bữa ăn nóng."),
     mc("c1-n12-d2", "What is surprising about the prototype of the shift-swapping app?", ["It was bought from another company.", "It was designed by Ms Kim herself.", "It was designed by staff who do not work in IT.", "It has already been launched."], 2, "Three colleagues, none of whom works in IT, have even designed a prototype: ba người không ai làm công nghệ thông tin."),
-    mc("c1-n12-d3", "Why is it almost impossible for the only night manager to respond quickly?", ["She is responsible for two hundred people.", "She works only during the day.", "She has just joined the company.", "She does not speak Korean."], 0, "She's responsible for two hundred people, which makes it almost impossible for her to respond quickly."),
+    mc("c1-n12-d3", "What does the fact that three non-IT colleagues built a prototype suggest?", ["The IT department refused to help them.", "The company has too many staff with free time.", "Staff care enough about swapping shifts to act on their own initiative.", "The app is not likely to work properly."], 2, "Không ai giao việc, cũng không ai làm công nghệ thông tin, vậy mà họ vẫn tự làm bản mẫu: điều đó cho thấy nhu cầu đổi ca rất thật và nhân viên chủ động. Đây là câu hỏi suy luận, không có sẵn trong lời thoại."),
   ],
   reading: reading({
     title: "Evaluation of the Mekong Rural Skills Scheme: summary of findings",

@@ -44,9 +44,9 @@ export default lesson({
     ],
   },
   words: [
-    word("repair", "/rɪˈpeə/", "sửa chữa", "The lift will be repaired tomorrow.", "re|pair", 1),
-    word("cancel", "/ˈkæn.səl/", "hủy bỏ", "The flight has been cancelled.", "can|cel", 0, "Trọng âm ở âm đầu: CAN-cel. Chữ c thứ hai đọc là /s/."),
-    word("deliver", "/dɪˈlɪv.ə/", "giao hàng, chuyển đến", "Your order will be delivered on Monday.", "de|liv|er", 1),
+    word("construction", "/kənˈstrʌk.ʃən/", "việc xây dựng, công trình", "Construction of the new hospital will be finished next year.", "con|struc|tion", 1, "Trọng âm ở âm thứ hai: kən-STRUK-shən. Đuôi -tion đọc nhẹ là /ʃən/."),
+    word("resident", "/ˈrez.ɪ.dənt/", "cư dân, người sống ở một nơi", "All residents have been asked to move their motorbikes.", "res|i|dent", 0, "Chữ s ở đây đọc là /z/, trọng âm ở âm đầu: REZ-i-dənt."),
+    word("inspect", "/ɪnˈspekt/", "kiểm tra kỹ, thanh tra", "The lifts must be inspected every six months.", "in|spect", 1, "Giữ đủ cụm /kt/ ở cuối, đừng nuốt mất âm /t/."),
     word("replace", "/rɪˈpleɪs/", "thay thế", "The old windows have been replaced.", "re|place", 1),
     word("renovate", "/ˈren.ə.veɪt/", "cải tạo, sửa sang lại", "Our school will be renovated this summer.", "ren|o|vate", 0),
     word("hairdresser", "/ˈheəˌdres.ə/", "thợ làm tóc; tiệm làm tóc", "I had my hair cut at the hairdresser's.", "hair|dress|er", 0),
@@ -54,8 +54,8 @@ export default lesson({
     word("complete", "/kəmˈpliːt/", "hoàn thành, điền đầy đủ", "The form must be completed in English.", "com|plete", 1),
   ],
   exercises: [
-    mc("b1-n14-1", "The meeting ___ until next Monday.", ["has postponed", "has been postponed", "has being postponed", "was postpone"], 1, "Cuộc họp không tự hoãn, nên cần bị động: has been + V3."),
-    mc("b1-n14-2", "I ___ my motorbike repaired yesterday.", ["made", "did", "had"], 2, "Thuê người khác sửa xe: have something done. Quá khứ của have là had."),
+    mc("b1-n14-1", "The meeting ___ until next Monday.", ["has postponed", "is postponing", "has been postponed", "postponed"], 2, "Cuộc họp không tự hoãn, nên cần bị động: has been + V3."),
+    mc("b1-n14-2", "I ___ my motorbike repaired yesterday.", ["had", "made", "did"], 0, "Thuê người khác sửa xe: have something done. Quá khứ của have là had."),
     fill("b1-n14-3", "The results will ___ sent to you by email.", ["be"], "Tương lai bị động: will be + V3."),
     fill("b1-n14-4", "This form must be ___ before Friday. (complete)", ["completed"], "Sau must be phải là V3: completed."),
     reorder("b1-n14-5", "Your parcel has been sent to the wrong address.", "Hiện tại hoàn thành bị động: has been + V3 (sent)."),
@@ -64,6 +64,10 @@ export default lesson({
     listen("b1-n14-8", "Mobile phones must be switched off during the exam.", ["Điện thoại di động phải được tắt trong giờ thi.", "Bạn có thể dùng điện thoại trong giờ thi.", "Điện thoại sẽ được trả lại sau giờ thi."], 0, "Must be + V3: bắt buộc phải được làm."),
     correct("b1-n14-9", "The new bridge will be build next year.", "The new bridge will be built next year.", "Sau be luôn là V3. V3 của build là built."),
     correct("b1-n14-10", "My bike has stolen from the car park.", "My bike has been stolen from the car park.", "Chiếc xe không tự lấy trộm được, nên cần bị động: has been + V3. Thiếu been là thiếu mảnh be."),
+    fill("b1-n14-11", "The new lifts haven't ___ yet, so please use the stairs. (inspect)", ["been inspected"], "Hiện tại hoàn thành bị động ở thể phủ định: haven't been + V3. Thang máy không tự kiểm tra được, nên cần cả been lẫn inspected."),
+    fill("b1-n14-12", "We ___ our kitchen painted last month. (thuê thợ làm)", ["had", "got"], "Thuê người khác làm: have / get + đồ vật + V3. Việc đã xảy ra tháng trước nên dùng quá khứ had hoặc got."),
+    correct("b1-n14-13", "The car park must is cleaned every week.", "The car park must be cleaned every week.", "Sau must, be giữ nguyên là be, không chia thành is: must be + V3."),
+    reorder("b1-n14-14", "Has the broken lift been repaired?", "Câu hỏi ở hiện tại hoàn thành bị động: Has + chủ ngữ + been + V3. Tính từ broken đứng trước danh từ lift."),
   ],
   speaking: [
     say("The meeting has been cancelled.", "Cuộc họp đã bị hủy."),
@@ -93,36 +97,36 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("b1-n14-d1", "When will the projector be ready?", "Not yet, I'm afraid. It will be fixed by lunchtime. The technician is on his way.", ["It has already been repaired.", "By lunchtime", "At two o'clock", "Tomorrow morning"], 1, "It will be fixed by lunchtime: máy sẽ được sửa xong trước giờ trưa."),
-    mc("b1-n14-d2", "Which job has already been done?", ["The reports have been printed.", "The projector has been repaired.", "The flowers have been brought up."], 0, "They've already been printed: báo cáo đã được in. Máy chiếu chưa sửa xong, hoa một giờ mới mang lên."),
+    mc("b1-n14-d2", "What can we guess about the flowers?", ["Mai hasn't ordered them yet.", "Duc will have to collect them from the shop.", "They will arrive before the clients do.", "They will be delivered after the meeting."], 2, "Câu suy luận: hoa được mang lên lúc một giờ, còn khách hai giờ mới đến, nên hoa sẽ có trước khi khách tới."),
     listenQ("b1-n14-d3", "What does Mai ask Duc to do at the end?", "Thanks, Duc. And please get your suit ironed. We want to look professional!", ["Buy a new suit", "Clean the big meeting room", "Have his suit ironed", "Meet the clients at the airport"], 2, "Get your suit ironed: mang bộ vest đi là (nhờ người khác là)."),
   ],
   reading: reading({
-    title: "Hoa Binh Market to reopen next month",
-    text: `After eighteen months of work, the old Hoa Binh Market in the city centre will be reopened to the public on the first of June, the city council announced yesterday.
+    title: "Our market is coming back!",
+    text: `If you grew up in this part of the city, you probably have memories of the old Hoa Binh Market. My grandmother, Mrs Bui, has sold fruit there since she was a young woman, and I spent most of my school holidays sitting behind her stall, eating more mangoes than I sold. So when a fire badly damaged the building two years ago, our whole family felt that we had lost a second home.
 
-The market, which was built more than a hundred years ago, was badly damaged by a fire two years ago. Since then, the building has been completely renovated. The old roof has been replaced, and new fire alarms have been fitted in every corridor. More than three hundred stalls have been rebuilt, and each one has been given its own water supply.
+Yesterday the city council finally announced the good news: the market will be reopened on the first of June. I went along for a quick look last weekend, and honestly, I hardly recognised the place. The old roof has been replaced with a lighter one that lets in much more sunshine, and there are fire alarms in every corridor now. More than three hundred stalls have been rebuilt, and each one has its own water supply, so traders won't have to carry heavy buckets across the market any more.
 
-However, not everything has been finished yet. The car park still hasn't been completed, and the new lifts must be checked before they can be used. According to the council, the car park will be opened in July.
+Not everything is ready, though. The car park still hasn't been completed, and the workers told me that the new lifts must be checked by safety inspectors before anyone can use them. If you are planning to drive, wait until July, when the car park is supposed to open.
 
-Traders who had stalls in the old market will be offered the same places in the new building, and their rent will not be increased for the first year. "We've waited a long time for this," said Mrs Bui, who has sold fruit at the market since she was a young woman. "I've already had a new sign made for my stall."
+The best news for people like my grandmother is that traders from the old market will be offered their old places, and their rent won't go up for the first year. She didn't even wait for the official letter. Last week she had a new sign made for her stall, with her name painted in big red letters.
 
-Some changes have also been planned for shoppers. Plastic bags will not be given out for free, and all rubbish must be put into special bins. Visitors can be fined if they smoke inside the building.
+Shoppers should expect a few changes. Plastic bags won't be given out for free any more, so bring your own. Rubbish goes into special bins, and anyone who smokes inside the building can be fined.
 
-The opening ceremony will be held at nine o'clock and will be shown live on local television.`,
+The opening ceremony starts at nine and will be shown live on local TV. Come early, and say hello to the little old lady selling the sweetest mangoes in town!`,
     glossary: [
       ["council", "hội đồng (thành phố)"],
       ["damage", "làm hư hại"],
-      ["fit", "lắp đặt"],
+      ["inspector", "thanh tra viên, người kiểm định"],
       ["stall", "sạp hàng, quầy hàng"],
       ["trader", "tiểu thương, người buôn bán"],
       ["fine", "phạt tiền"],
     ],
     questions: [
-      mc("b1-n14-r1", "What is the news report mainly about?", ["A fire in the city centre last week", "The reopening of a renovated market", "How to rent a stall at a market", "A new television programme"], 1, "Bản tin nói về việc chợ Hòa Bình được cải tạo xong và sắp mở cửa lại."),
+      mc("b1-n14-r1", "What is the blog post mainly about?", ["A fire in the city centre last week", "The reopening of a renovated market", "How to rent a stall at a market", "A new television programme"], 1, "Bài blog kể về việc chợ Hòa Bình được cải tạo sau vụ cháy và sắp mở cửa lại. Chuyện người bà chỉ là phần minh họa."),
       mc("b1-n14-r2", "Which part of the market has NOT been finished yet?", ["The roof", "The fire alarms", "The car park", "The stalls"], 2, "The car park still hasn't been completed… will be opened in July."),
-      fill("b1-n14-r3", "Traders from the old market will ___ offered the same places in the new building.", ["be"], "Tương lai bị động: will be + V3 (offered)."),
+      fill("b1-n14-r3", "Traders from the old market will ___ offered their old places in the new market.", ["be"], "Tương lai bị động: will be + V3 (offered)."),
       mc("b1-n14-r4", "What will happen to plastic bags?", ["They will be sold at every stall.", "They won't be given out for free.", "They will be collected by the council."], 1, "Plastic bags will not be given out for free."),
-      mc("b1-n14-r5", "Why has Mrs Bui probably had a new sign made?", ["She is moving to another city.", "She wants to sell flowers instead of fruit.", "The council paid for all the signs.", "She is sure that she will sell at the new market."], 3, "Câu suy luận: bà Bùi biết tiểu thương cũ sẽ được giữ chỗ, nên đã chuẩn bị biển hiệu mới cho sạp của mình."),
+      mc("b1-n14-r5", "Why has Mrs Bui probably had a new sign made?", ["She is moving to another city.", "She wants to sell flowers instead of fruit.", "The council paid for all the signs.", "She is sure that she will sell at the new market."], 3, "Câu suy luận: bà Bùi biết tiểu thương cũ sẽ được giữ chỗ, nên không đợi thư chính thức mà đã làm biển hiệu mới cho sạp."),
     ],
   }),
   task: task({

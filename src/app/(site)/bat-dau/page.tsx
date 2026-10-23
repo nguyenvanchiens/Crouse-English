@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NextStep } from "@/components/next-step";
+import { FaqItem } from "@/components/ui/faq-item";
 import { GUIDED_HOURS, contentHours, formatHours } from "@/lib/course-utils";
 import { getCourses } from "@/lib/content";
 
@@ -155,15 +156,9 @@ export default async function StartHerePage() {
 
       <section aria-labelledby="start-faq">
         <h2 id="start-faq" className="font-display text-3xl font-extrabold">Câu hỏi của người mới</h2>
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-3">
           {FAQS.map(([q, a]) => (
-            <details key={q} className="clay group p-0 [box-shadow:var(--shadow-clay-sm)]">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-[1.5rem] px-6 py-5 font-display text-xl font-bold">
-                {q}
-                <span aria-hidden className="grid size-8 shrink-0 place-items-center rounded-full border-[2.5px] border-ink bg-sun text-lg transition-transform duration-200 group-open:rotate-45">+</span>
-              </summary>
-              <p className="px-6 pb-6 text-ink-soft">{a}</p>
-            </details>
+            <FaqItem key={q} q={q} a={a} />
           ))}
         </div>
       </section>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Flame, List, PartyPopper, X } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Flame, List, Lock, PartyPopper, X } from "lucide-react";
 import type { Exercise, Lesson, Step } from "@/content/types";
 import type { LessonContext } from "@/lib/content";
 import { FINAL_PASS, FINAL_PER_CHAPTER } from "@/content/review";
@@ -40,7 +40,7 @@ const STEP_LABEL: Record<Step["type"], string> = {
   speaking: "Luyện nói",
 };
 const STEP_HINT: Record<Step["type"], string> = {
-  lecture: "Đọc bài giảng rồi bấm “Đã đọc xong” để tiếp tục.",
+  lecture: "Đọc bài giảng rồi bấm “Tôi đã đọc xong” để tiếp tục.",
   dialogue: "Nghe và đóng vai hội thoại, rồi trả lời các câu hỏi hoặc bấm “Đã luyện xong hội thoại”.",
   reading: "Đọc bài rồi trả lời hết các câu hỏi để tiếp tục.",
   task: "Viết bài, xem bài mẫu và tự chấm để hoàn thành.",
@@ -82,6 +82,20 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const menuCloseRef = useRef<HTMLButtonElement>(null);
   const menuWasOpen = useRef(false);
   const finishRef = useRef<HTMLDivElement>(null);
+  const stepsRef = useRef<HTMLOListElement>(null);
+
+  // the step row scrolls sideways on a phone: keep the current step in view, and show the new step from its top
+  // (also on `ready`: the row only renders then, and a lesson reopened from a draft starts on a later step)
+  const shownStep = useRef(stepIndex);
+  useEffect(() => {
+    const row = stepsRef.current;
+    const current = row?.querySelector<HTMLElement>("[aria-current=step]");
+    if (!row || !current) return;
+    const left = row.scrollLeft + current.getBoundingClientRect().left - row.getBoundingClientRect().left - 16;
+    row.scrollTo({ left, behavior: shownStep.current === stepIndex ? "instant" : "smooth" });
+    if (shownStep.current !== stepIndex && row.getBoundingClientRect().top < 80) row.scrollIntoView({ block: "start" });
+    shownStep.current = stepIndex;
+  }, [stepIndex, ready]);
 
   // Opening a lesson of an open course puts that course in "Khóa học của tôi".
   useEffect(() => {
@@ -291,21 +305,32 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     const isLast = stepIndex === steps.length - 1;
     return (
       <>
-        <ol className="mb-6 flex flex-wrap gap-2" aria-label="Các bước của bài">
+        {/* one row that scrolls sideways on a phone (wrapping took three lines), the current step kept in view */}
+        {/* relative: the buttons' sr-only labels are absolute and would otherwise escape the row's clipping and widen the page */}
+        <ol ref={stepsRef} className="relative -mx-4 mb-6 flex scroll-mt-24 snap-x gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden" aria-label="Các bước của bài">
           {steps.map((s, k) => {
             const reachable = k === 0 || completed[k - 1];
             return (
-              <li key={k}>
+              <li key={k} className="shrink-0 snap-start">
                 <button
                   type="button"
                   disabled={!reachable}
                   onClick={() => setStepIndex(k)}
                   aria-current={k === stepIndex ? "step" : undefined}
-                  className={`inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-ink px-4 text-sm font-semibold disabled:opacity-50 ${
-                    k === stepIndex ? "bg-ink text-card" : completed[k] ? "bg-leaf-soft" : "bg-card"
+                  className={`inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border-2 px-4 text-sm font-semibold disabled:cursor-not-allowed disabled:border-ink/25 disabled:text-ink-soft ${
+                    k === stepIndex ? "border-ink bg-ink text-card" : completed[k] ? "border-ink bg-leaf-soft" : "border-ink bg-card"
                   }`}
                 >
-                  {k + 1}. {STEP_LABEL[s.type]}
+                  {completed[k] && k !== stepIndex ? (
+                    <>
+                      <Check className="size-4" strokeWidth={3} aria-hidden />
+                      <span className="sr-only">{k + 1}.</span>
+                    </>
+                  ) : (
+                    <span>{k + 1}.</span>
+                  )}
+                  {STEP_LABEL[s.type]}
+                  {completed[k] && <span className="sr-only"> (xong)</span>}
                 </button>
               </li>
             );
@@ -314,19 +339,30 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
 
         <div key={stepIndex}>{renderStep(step, stepIndex)}</div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t-2 border-ink/15 pt-6">
-          <button type="button" className="btn btn-ghost" disabled={stepIndex === 0} onClick={() => setStepIndex(stepIndex - 1)}>
-            Bước trước
-          </button>
-          <div className="flex flex-wrap items-center gap-4">
-            {!completed[stepIndex] && <p className="text-sm text-ink-soft">{STEP_HINT[step.type]}</p>}
+        {/* stays at the bottom of the screen: a lecture is long, and the way on should not be at its very end */}
+        <div className="sticky bottom-0 z-20 -mx-4 mt-10 border-t-[2.5px] border-ink bg-card/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur sm:-mx-6 sm:px-6">
+          {!completed[stepIndex] && <p className="mb-2 text-sm text-ink-soft sm:hidden">{STEP_HINT[step.type]}</p>}
+          <div className="flex items-center justify-between gap-3">
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-ghost px-4"
+              disabled={stepIndex === 0}
+              onClick={() => setStepIndex(stepIndex - 1)}
+              aria-label="Bước trước"
+            >
+              <ChevronLeft className="size-5" aria-hidden />
+              <span className="hidden sm:inline">Bước trước</span>
+            </button>
+            <p className="hidden flex-1 text-right text-sm text-ink-soft sm:block">{!completed[stepIndex] && STEP_HINT[step.type]}</p>
+            <button
+              type="button"
+              className="btn btn-primary flex-1 sm:flex-none"
               disabled={!completed[stepIndex]}
               onClick={() => (isLast ? finishLesson() : setStepIndex(stepIndex + 1))}
             >
+              {!completed[stepIndex] && <Lock className="size-4" aria-hidden />}
               {isLast ? "Hoàn thành bài học" : "Tiếp tục"}
+              {completed[stepIndex] && !isLast && <ChevronRight className="size-5" aria-hidden />}
             </button>
           </div>
         </div>
@@ -351,7 +387,7 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
             aria-controls="lesson-menu"
           >
             <List className="size-5" aria-hidden />
-            Mục lục
+            <span className="max-[399px]:sr-only">Mục lục</span>
           </button>
           <div className="min-w-0 flex-1">
             <p className="truncate font-display font-bold">{course.title}</p>

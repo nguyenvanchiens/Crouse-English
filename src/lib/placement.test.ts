@@ -27,10 +27,17 @@ describe("scorePlacement", () => {
     expect(r.startLevel).toBe("B2");
     expect(r.perLevel.B2).toEqual({ correct: 1, total: 2 });
   });
-  it("does not skip a failed lower level", () => {
-    const r = scorePlacement(questions, answer(["a1", "a2", "c1", "c2", "d1", "d2"]));
-    expect(r.level).toBe("A1");
-    expect(r.startLevel).toBe("A2");
+  it("forgives a near miss on a lower level when the levels above are passed, and reports it as a gap", () => {
+    const r = scorePlacement(questions, answer(["a1", "a2", "b1", "c1", "c2", "d1", "d2"]));
+    expect(r).toMatchObject({ level: "B2", startLevel: "C1", gaps: ["A2"] });
+  });
+  it("does not forgive a level answered mostly wrong", () => {
+    const r = scorePlacement(questions, answer(["a1", "a2", "c1", "c2", "d1", "d2", "e1", "e2"]));
+    expect(r).toMatchObject({ level: "A1", startLevel: "A2", gaps: [] });
+  });
+  it("stops at two failed levels in a row", () => {
+    const r = scorePlacement(questions, answer(["a1", "a2", "b1", "c1", "d1", "d2", "e1", "e2"]));
+    expect(r).toMatchObject({ level: "A1", startLevel: "A2", gaps: [] });
   });
   it("starts at C1 after passing B2", () => {
     const r = scorePlacement(questions, answer(["a1", "a2", "b1", "b2", "c1", "c2", "d1", "d2"]));

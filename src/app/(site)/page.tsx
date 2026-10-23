@@ -1,10 +1,15 @@
 import Link from "next/link";
-import { BookOpenCheck, Gauge, Mic, PencilLine } from "lucide-react";
-import { CourseCard } from "@/components/course/course-card";
+import { ArrowRight, BookOpenCheck, Check, Gauge, Mic, PencilLine, Volume2 } from "lucide-react";
+import { CourseCard, CourseSoonRow } from "@/components/course/course-card";
+import { LEVEL_TONE } from "@/components/course/goal-meta";
+import type { Level } from "@/content/types";
 import { getCourses } from "@/lib/content";
+import { FaqItem } from "@/components/ui/faq-item";
 import { WordCard } from "@/components/word-card";
 
-const LEVELS = [
+const PROMISES = ["Không cần tài khoản", "Chấm bài ngay", "Chứng chỉ từng cấp"];
+
+const LEVELS: { code: Level; name: string; can: string }[] = [
   { code: "A1", name: "Mất gốc", can: "Chào hỏi, giới thiệu bản thân, gọi món" },
   { code: "A2", name: "Sơ cấp", can: "Hỏi đường, mua sắm, kể về một ngày của bạn" },
   { code: "B1", name: "Trung cấp", can: "Trò chuyện với người nước ngoài khi đi du lịch" },
@@ -60,20 +65,20 @@ export default async function Home() {
   return (
     <>
         {/* Hero */}
-        <section className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:pt-20">
+        <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:pt-20">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border-[2.5px] border-ink bg-card px-4 py-1.5 font-semibold">
+            <p className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-card px-3.5 py-1 text-[0.9375rem] font-semibold">
               <span className="size-2.5 rounded-full bg-leaf" aria-hidden />
-              Khóa học tiếng Anh miễn phí cho người Việt
+              Miễn phí trọn lộ trình A1–C1
             </p>
-            <h1 className="mt-6 font-display text-[2.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-[4.25rem]">
+            <h1 className="mt-5 text-balance font-display text-[2.5rem] font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-[4.25rem]">
               Nói tiếng Anh tự tin, bắt đầu từ cách đọc đúng từng từ.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-ink-soft">
-              Lộ trình hơn 80 bài từ A1 đến C1: bài giảng bằng tiếng Việt, đọc hiểu, bài tập chấm ngay
-              và luyện nói với nhận diện giọng nói. Hoàn toàn miễn phí.
+            <p className="mt-5 max-w-xl text-lg text-ink-soft">
+              Hơn 80 bài từ A1 đến C1: bài giảng bằng tiếng Việt, bài tập chấm ngay
+              và luyện nói với nhận diện giọng nói.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link href="/kiem-tra-trinh-do" className="btn btn-primary text-lg">
                 Kiểm tra trình độ trong 20 phút
               </Link>
@@ -81,13 +86,19 @@ export default async function Home() {
                 Người mới: bắt đầu từ đâu?
               </Link>
             </div>
-            <p className="mt-10 text-ink-soft">
-              Miễn phí, không cần tài khoản: tiến độ lưu ngay trên trình duyệt của bạn.
-            </p>
+            <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[0.9375rem] font-semibold text-ink-soft">
+              {PROMISES.map((p) => (
+                <li key={p} className="flex items-center gap-1.5">
+                  <Check className="size-4 shrink-0 text-leaf" strokeWidth={3} aria-hidden />
+                  {p}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mx-auto w-full max-w-md lg:max-w-none">
-            <p className="mb-4 font-display text-lg font-semibold text-ink-soft">
+            <p className="mb-4 flex items-center gap-2 font-display text-lg font-semibold text-ink-soft">
+              <Volume2 className="size-5" aria-hidden />
               Thử ngay: bấm để nghe
             </p>
             <WordCard />
@@ -113,16 +124,14 @@ export default async function Home() {
                 aria-hidden
                 className="absolute bottom-7 left-7 top-7 w-[3px] bg-[repeating-linear-gradient(180deg,var(--color-ink)_0_12px,transparent_12px_22px)] md:hidden"
               />
-              {LEVELS.map((l, i) => (
+              {LEVELS.map((l) => (
                 <li key={l.code} className="relative">
                   <Link
                     href={`/khoa-hoc/tieng-anh-${l.code.toLowerCase()}`}
                     className="group flex gap-4 rounded-2xl md:flex-col"
                   >
                   <span
-                    className={`z-10 grid size-14 shrink-0 place-items-center rounded-full border-[2.5px] border-ink font-display text-xl font-extrabold shadow-[0_4px_0_0_var(--color-ink)] ${
-                      ["bg-sun", "bg-tangerine", "bg-leaf-soft", "bg-grape-soft", "bg-sky-deep"][i]
-                    }`}
+                    className={`z-10 grid size-14 shrink-0 place-items-center rounded-full border-[2.5px] border-ink font-display text-xl font-extrabold shadow-[0_4px_0_0_var(--color-ink)] ${LEVEL_TONE[l.code].strong}`}
                   >
                     {l.code}
                   </span>
@@ -152,24 +161,26 @@ export default async function Home() {
             ))}
             <Link
               href="/kiem-tra-trinh-do"
-              className="clay flex flex-col justify-between bg-tangerine p-6 transition-transform duration-200 hover:-translate-y-1"
+              className="clay group flex flex-col justify-between bg-ink p-6 text-card transition-transform duration-200 hover:-translate-y-1"
             >
-              <span className="grid size-12 place-items-center rounded-2xl border-[2.5px] border-ink bg-card">
+              <span className="grid size-12 place-items-center rounded-2xl border-[2.5px] border-card/80 bg-sun text-ink">
                 <Gauge className="size-6" aria-hidden />
               </span>
               <span>
                 <span className="mt-5 block font-display text-2xl font-extrabold leading-tight">Chưa biết bắt đầu từ đâu?</span>
-                <span className="mt-2 block">Làm bài kiểm tra 20 phút, hệ thống gợi ý cấp phù hợp.</span>
+                <span className="mt-2 block text-card/80">Làm bài kiểm tra 20 phút, hệ thống gợi ý cấp phù hợp.</span>
+                <span className="mt-5 inline-flex items-center gap-1.5 font-display text-lg font-bold text-sun">
+                  Làm bài kiểm tra
+                  <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden />
+                </span>
               </span>
             </Link>
           </div>
           {otherCourses.length > 0 && (
             <>
-              <h3 className="mt-16 font-display text-2xl font-extrabold">Khóa luyện thi và tiếng Anh trẻ em</h3>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {otherCourses.map((c) => (
-                  <CourseCard key={c.slug} course={c} />
-                ))}
+              <h3 className="mt-14 font-display text-xl font-extrabold">Sắp ra mắt</h3>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {otherCourses.map((c) => (c.status === "open" ? <CourseCard key={c.slug} course={c} /> : <CourseSoonRow key={c.slug} course={c} />))}
               </div>
             </>
           )}
@@ -222,20 +233,9 @@ export default async function Home() {
           <h2 className="font-display text-4xl font-extrabold leading-tight sm:text-5xl">
             Câu hỏi thường gặp
           </h2>
-          <div className="mt-10 space-y-4">
+          <div className="mt-10 space-y-3">
             {FAQS.map((f) => (
-              <details key={f.q} className="clay group p-0 [box-shadow:var(--shadow-clay-sm)]">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-[1.5rem] px-6 py-5 font-display text-xl font-bold">
-                  {f.q}
-                  <span
-                    aria-hidden
-                    className="grid size-8 shrink-0 place-items-center rounded-full border-[2.5px] border-ink bg-sun text-lg transition-transform duration-200 group-open:rotate-45"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="px-6 pb-6 text-ink-soft">{f.a}</p>
-              </details>
+              <FaqItem key={f.q} q={f.q} a={f.a} />
             ))}
           </div>
         </section>

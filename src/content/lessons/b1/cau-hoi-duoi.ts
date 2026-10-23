@@ -31,6 +31,7 @@ export default lesson({
         ["this / that; everyone, somebody", "it; they", "Everyone is here, aren't they?"],
       ),
       ex("Nothing happened while I was away, did it?", "Trong lúc tôi đi vắng không có chuyện gì xảy ra, phải không?", "Nothing đã mang nghĩa phủ định, nên câu chính được coi là phủ định và đuôi phải khẳng định: did it."),
+      ex("If we leave now, we'll catch the last train, won't we?", "Nếu đi ngay bây giờ thì mình sẽ kịp chuyến tàu cuối, phải không?", "Câu điều kiện học ở chương trước: đuôi đi theo mệnh đề chính (we'll catch), không theo mệnh đề if, nên đuôi là won't we."),
       p("**Ngữ điệu** quyết định nghĩa của câu hỏi đuôi. **Lên giọng** ở đuôi: bạn thật sự không chắc và đang hỏi. **Xuống giọng** ở đuôi: bạn gần như chắc chắn, chỉ muốn người kia xác nhận hoặc đồng ý. Khi trả lời, hãy trả lời theo **sự thật**, không theo câu hỏi: You don't smoke, do you? Nếu bạn không hút thì nói **No, I don't**; nếu có hút thì nói **Yes, I do**."),
       tip("Mẹo nhớ: câu chính và đuôi như hai đầu cái cân, **một bên có not thì bên kia không có**. Mẹo phát âm: đuôi đọc lướt và liền như một từ: isn't it đọc gần như /ˈɪz.nɪt/, doesn't he đọc gần như /ˈdʌz.ən.ti/ (âm h bị nuốt). Đừng tách rời từng chữ, nghe sẽ rất cứng."),
       mistake("You're a new student, isn't it?", "You're a new student, aren't you?", "Tiếng Việt dùng “phải không?” cho mọi câu, nên người học gắn isn't it vào bất cứ đâu. Đuôi phải lặp lại động từ của câu chính (are) và đại từ của chủ ngữ (you)."),
@@ -57,7 +58,7 @@ export default lesson({
   ],
   exercises: [
     mc("b1-n19-1", "You're coming to the party tonight, ___?", ["isn't it", "don't you", "aren't you", "are you"], 2, "Câu chính khẳng định với are và chủ ngữ you, nên đuôi là aren't you."),
-    mc("b1-n19-2", "Nobody called while I was out, ___?", ["didn't they", "did they", "did nobody", "didn't he"], 1, "Nobody đã mang nghĩa phủ định, nên đuôi khẳng định. Nobody, everyone, somebody dùng đại từ they ở đuôi."),
+    mc("b1-n19-2", "Nobody called while I was out, ___?", ["didn't they", "did they", "did he", "didn't he"], 1, "Nobody đã mang nghĩa phủ định, nên đuôi khẳng định. Nobody, everyone, somebody dùng đại từ they ở đuôi."),
     fill("b1-n19-3", "Your sister works in a bank, ___?", ["doesn't she", "does she not"], "Câu chính có động từ thường ở hiện tại đơn (works), không có trợ động từ, nên mượn doesn't ở đuôi."),
     fill("b1-n19-4", "Let's order some bubble tea, ___?", ["shall we"], "Câu bắt đầu bằng Let's thì đuôi luôn là shall we."),
     reorder("b1-n19-5", "You haven't seen my keys, have you?", "Câu chính phủ định ở hiện tại hoàn thành (haven't seen), nên đuôi khẳng định: have you."),
@@ -66,6 +67,10 @@ export default lesson({
     listen("b1-n19-8", "There isn't any milk left, is there?", ["Không còn chút sữa nào, phải không?", "Còn nhiều sữa lắm, đúng không?", "Bạn mua thêm sữa nhé?"], 0, "There isn't… is there?: câu chính phủ định, đuôi khẳng định với there."),
     correct("b1-n19-9", "Your brother lives in Da Nang, isn't he?", "Your brother lives in Da Nang, doesn't he?", "Lives là động từ thường ở hiện tại đơn, không có be, nên đuôi phải là doesn't he, không phải isn't he."),
     correct("b1-n19-10", "She has never been to Hue, hasn't she?", "She has never been to Hue, has she?", "Never đã là phủ định, nên đuôi phải khẳng định: has she."),
+    fill("b1-n19-11", "Everyone has finished the test, ___?", ["haven't they", "have they not"], "Câu chính khẳng định ở hiện tại hoàn thành (has finished), nên đuôi phủ định với have. Everyone ở đuôi đổi thành they, nên dùng haven't, không dùng hasn't."),
+    correct("b1-n19-12", "There's a meeting at three, isn't it?", ["There's a meeting at three, isn't there?", "There is a meeting at three, isn't there?"], "Câu bắt đầu bằng there is thì đuôi giữ there: isn't there. Người Việt quen gắn isn't it vào mọi câu như chữ “phải không”."),
+    reorder("b1-n19-13", "Nobody has told the boss, have they?", "Nobody mang nghĩa phủ định nên đuôi khẳng định, và nobody đổi thành they: have they."),
+    correct("b1-n19-14", "If it rains tomorrow, we'll stay at the hotel, isn't it?", "If it rains tomorrow, we'll stay at the hotel, won't we?", "Với câu điều kiện, đuôi đi theo mệnh đề chính (we'll stay), nên lặp lại will và chủ ngữ we: won't we. Isn't it là thói quen dịch chữ “phải không”."),
   ],
   speaking: [
     say("It's a gorgeous day, isn't it?", "Hôm nay trời đẹp quá, nhỉ?"),
@@ -96,7 +101,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("b1-n19-d1", "Why does Sarah need her passport?", "Yes, seven o'clock sharp. You haven't forgotten your passport, have you? The hotel needs it.", ["The hotel needs it.", "She is flying to Ha Long.", "The boat company needs it.", "She wants to change money."], 0, "Minh nói: The hotel needs it."),
-    mc("b1-n19-d2", "When is the boat trip?", ["On Friday", "On Saturday", "On Sunday", "On Monday"], 1, "The boat trip is on Saturday, isn't it? – That's right."),
+    mc("b1-n19-d2", "Which day of the trip will probably be the least pleasant?", ["Friday, because the bus leaves very early", "Sunday, because it is going to rain", "Saturday, because Sarah gets seasick", "Friday evening, because Sarah has to pack"], 1, "Câu suy luận: Sarah hỏi it's going to rain on Sunday, isn't it? và Minh đáp I'm afraid so, tức là đúng vậy (một tin không vui). Sarah không say sóng, còn giờ xe chạy sớm không phải là vấn đề lớn."),
     mc("b1-n19-d3", "Why isn't Sarah afraid of boats?", ["She has been on many boat trips in Vietnam.", "She never gets seasick.", "She grew up by the sea."], 2, "Sarah nói: No, I'm not. I grew up by the sea."),
   ],
   reading: reading({
@@ -106,6 +111,8 @@ export default lesson({
 In English, question tags like isn't it, don't you or have you help people to start a conversation and to sound polite. When the voice goes down at the end, the speaker is almost sure and only wants you to agree. The best answer is short: "Yes, it is!" When the voice goes up, it is a real question, and the speaker needs an answer.
 
 My biggest problem was answering negative questions. My flatmate once asked, "You don't eat pork, do you?" I eat pork, but I answered "No", because in Vietnamese that means "You're wrong". She heard "No, I don't eat pork", and for a whole week she didn't cook pork when I was at home. In English, you answer about the facts: "Yes, I do" or "No, I don't".
+
+Tags confused me at work, too. In my part-time job at a café, my manager once said, "You couldn't stay an extra hour tonight, could you?" I thought she was angry with me, so I apologised. In fact, it was just a very polite way to ask for help. Now I simply say, "Sure, no problem," and she smiles.
 
 Now, after two years, tags feel natural. I use them at work every day: "You've sent the report, haven't you?" or "Let's have a break, shall we?" My advice is simple: listen to the music of the voice, not only the words. A tag with a falling voice is often just a small, friendly way of saying hello.`,
     glossary: [

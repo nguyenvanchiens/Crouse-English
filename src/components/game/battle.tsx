@@ -87,7 +87,8 @@ export const MONSTERS: Record<string, { name: string; art: ReactNode }> = {
   },
 };
 
-function Hero() {
+/** The game's knight, also the site's mascot (the not-found page). */
+export function Hero() {
   return (
     <svg viewBox="0 0 100 100" className="size-full">
       {/* shield */}

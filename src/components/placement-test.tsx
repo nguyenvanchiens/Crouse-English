@@ -99,6 +99,12 @@ export function PlacementTest({ bank, courses }: { bank: PlacementQuestion[]; co
             Đúng {result.score}% tổng số câu.
             {result.dontKnow > 0 && ` Bạn chọn “Tôi không biết” ở ${result.dontKnow} câu, các câu này được tính là chưa đúng.`}
           </p>
+          {result.gaps.length > 0 && (
+            <p className="mt-3 text-ink-soft">
+              Cấp {result.gaps.join(", ")} bạn làm chưa đạt 60% nhưng các cấp trên lại đạt, nên có thể chỉ là sơ suất. Hãy
+              xem lại bài ôn tập chương của cấp {result.gaps.join(", ")} để lấp lỗ hổng.
+            </p>
+          )}
           {firstTime && <p className="mt-2 font-display text-lg font-bold">+{POINTS.placement} điểm học cho lần kiểm tra đầu tiên</p>}
           <dl className="mx-auto mt-8 grid max-w-md gap-3 text-left">
             {PLACEMENT_LEVELS.map((l) => {

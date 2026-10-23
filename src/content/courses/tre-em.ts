@@ -7,7 +7,7 @@ export const treEm: Course = {
   title: "Tiếng Anh cho trẻ 6–12 tuổi",
   level: "A1",
   goal: "tre-em",
-  summary: "Học qua trò chơi, bài hát và truyện tranh, có báo cáo hằng tuần cho phụ huynh.",
+  summary: "Khóa đang soạn: trẻ học từ vựng và câu ngắn qua trò chơi, bài hát và truyện tranh.",
   outcomes: ["Từ vựng về gia đình, trường học, con vật", "Nghe và hát theo bài hát tiếng Anh", "Tự tin nói câu ngắn"],
   audience: ["Trẻ từ 6 đến 12 tuổi", "Phụ huynh muốn con học tiếng Anh tại nhà"],
   teacher: { name: "Cô Mai Linh", initials: "ML", bio: "Người dẫn dắt khóa tiếng Anh trẻ em (đang soạn)." },

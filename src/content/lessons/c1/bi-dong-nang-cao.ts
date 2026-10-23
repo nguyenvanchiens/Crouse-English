@@ -46,11 +46,11 @@ export default lesson({
   words: [
     word("allegedly", "/əˈledʒ.ɪd.li/", "bị cho là, theo lời cáo buộc", "The director allegedly accepted bribes from suppliers.", "al|leg|ed|ly", 1, "Đọc đủ bốn âm tiết, đuôi ed đọc là /ɪd/: a-LEDGE-id-ly."),
     word("reportedly", "/rɪˈpɔː.tɪd.li/", "theo như tin tức đưa", "The singer has reportedly cancelled her world tour.", "re|port|ed|ly", 1),
-    word("suspect", "/ˈsʌs.pekt/", "nghi phạm", "The suspect is believed to have been living abroad for years.", "sus|pect", 0, "Danh từ nhấn âm đầu SUS-pect; động từ nhấn âm sau: /səˈspekt/."),
-    word("fraud", "/frɔːd/", "sự gian lận, lừa đảo", "The manager is alleged to have committed fraud.", "fraud", 0, "Nguyên âm /ɔː/ dài, cuối từ là /d/ rõ ràng, không đọc “phờ-rau”."),
+    word("perpetrator", "/ˈpɜː.pə.treɪ.tə/", "thủ phạm", "The perpetrators are believed to have escaped by boat.", "per|pe|tra|tor", 0, "Trọng âm ở âm đầu: PER-pe-tra-tor; chữ r không đọc."),
+    word("deem", "/diːm/", "cho là, coi là (trang trọng)", "The bridge was deemed to be unsafe and closed immediately.", "deem", 0, "Deem thường dùng ở bị động: be deemed (to be) + tính từ."),
     word("casualty", "/ˈkæʒ.ju.əl.ti/", "thương vong, người bị thương hoặc thiệt mạng", "No casualties have been reported so far.", "cas|u|al|ty", 0),
     word("evacuate", "/ɪˈvæk.ju.eɪt/", "sơ tán", "Thousands of residents are reported to have been evacuated before the storm.", "e|vac|u|ate", 1),
-    word("authority", "/ɔːˈθɒr.ə.ti/", "chính quyền, cơ quan chức năng", "The local authorities are expected to issue a warning.", "au|thor|i|ty", 1, "Âm /θ/ đặt lưỡi giữa hai hàm răng, không đọc thành /t/ hay /s/."),
+    word("custody", "/ˈkʌs.tə.di/", "sự tạm giam; quyền nuôi con", "Two men are being held in custody after the robbery.", "cus|to|dy", 0),
     word("detain", "/dɪˈteɪn/", "tạm giữ, giam giữ", "Two men are being detained in connection with the robbery.", "de|tain", 1, "Trọng âm ở âm sau: de-TAIN; nguyên âm đôi /eɪ/, không đọc thành “đi-ten”."),
   ],
   exercises: [
@@ -64,6 +64,10 @@ export default lesson({
     listen("c1-n11-8", "Thousands of residents are expected to be evacuated tonight.", ["Hàng nghìn cư dân đã được sơ tán tối qua.", "Hàng nghìn cư dân từ chối sơ tán.", "Chính quyền không có kế hoạch sơ tán cư dân.", "Dự kiến hàng nghìn cư dân sẽ được sơ tán tối nay."], 3, "Are expected to be evacuated: dự kiến sẽ được sơ tán, việc chưa xảy ra."),
     correct("c1-n11-9", "The paintings are believed to have stolen during the night.", ["The paintings are believed to have been stolen during the night."], "Tranh là thứ bị lấy cắp, nên phải là bị động: to have been + V3. Thiếu been, câu thành ra những bức tranh đã đi ăn trộm."),
     correct("c1-n11-10", "The official is thought to be accepting bribes since 2020.", ["The official is thought to have been accepting bribes since 2020."], "Since 2020 cho biết việc kéo dài từ quá khứ đến lúc có nhận định, nên dùng to have been + V-ing, không dùng to be V-ing."),
+    fill("c1-n11-11", "The suspect is understood ___ left the country on Monday, before the warrant was issued. (đã rời đi)", ["to have"], "Việc rời đi xảy ra trước thời điểm nhận định: is understood to have + V3. Understood ở đây là “theo nguồn tin được biết”."),
+    fill("c1-n11-12", "Several ministers are said to be ___ resigning over the scandal. (cân nhắc)", ["considering", "contemplating"], "Be said to be + V-ing: việc đang diễn ra lúc có tin đồn. Consider và contemplate đều đi với V-ing."),
+    reorder("c1-n11-13", "The fire is thought to have started in the kitchen.", "Bị động cá nhân với to have + V3: đám cháy bắt đầu trước thời điểm người ta nhận định."),
+    correct("c1-n11-14", "It is believed the minister to have resigned.", ["The minister is believed to have resigned.", "It is believed that the minister has resigned.", "It is believed that the minister resigned.", "It is believed the minister has resigned."], "Hai mẫu không được trộn: It is believed that + mệnh đề, hoặc chủ ngữ + is believed + to have + V3. It is believed the minister to have… là lai giữa hai mẫu."),
   ],
   speaking: [
     say("It is said that the old bridge is over two hundred years old.", "Người ta nói rằng cây cầu cũ đã hơn hai trăm năm tuổi."),

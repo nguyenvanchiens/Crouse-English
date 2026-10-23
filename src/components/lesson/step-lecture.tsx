@@ -30,12 +30,14 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
           <Rich text={block.body} />
         </p>
       );
-    case "table":
+    case "table": {
+      // Three or more columns don't fit a phone: there each row becomes a small card, its cells labelled
+      // with their column (the header row stays for screen readers). Two columns stay a table everywhere.
+      const stack = block.headers.length >= 3;
       return (
-        // a wide table scrolls sideways on phones; focusable so it can be scrolled with the keyboard too
-        <div className="overflow-x-auto rounded-2xl border-[2.5px] border-ink bg-card" tabIndex={0} role="region" aria-label="Bảng, cuộn ngang để xem hết">
-          <table className="w-full min-w-[28rem] border-collapse text-left">
-            <thead className="bg-sun-soft">
+        <div className="overflow-hidden rounded-2xl border-[2.5px] border-ink bg-card">
+          <table className={`w-full border-collapse text-left ${stack ? "max-sm:block" : ""}`}>
+            <thead className={`bg-sun-soft ${stack ? "max-sm:sr-only" : ""}`}>
               <tr>
                 {block.headers.map((h, i) => (
                   <th key={i} scope="col" className="border-b-2 border-ink px-4 py-2.5 font-display font-bold">
@@ -44,11 +46,21 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className={stack ? "max-sm:block" : ""}>
               {block.rows.map((row, r) => (
-                <tr key={r} className="border-b border-ink/15 last:border-0">
+                <tr key={r} className={`border-b border-ink/15 last:border-0 ${stack ? "max-sm:block max-sm:px-4 max-sm:py-3" : ""}`}>
                   {row.map((cell, c) => (
-                    <td key={c} className={`px-4 py-2.5 ${c === 0 ? "font-semibold" : ""}`}>
+                    <td
+                      key={c}
+                      data-label={block.headers[c]}
+                      className={`px-4 py-2.5 ${c === 0 ? "font-semibold" : ""} ${
+                        stack
+                          ? c === 0
+                            ? "max-sm:block max-sm:px-0 max-sm:pb-1 max-sm:pt-0 max-sm:font-display max-sm:text-lg max-sm:font-bold"
+                            : "max-sm:flex max-sm:gap-3 max-sm:px-0 max-sm:py-0.5 max-sm:before:w-[38%] max-sm:before:shrink-0 max-sm:before:text-sm max-sm:before:font-semibold max-sm:before:leading-6 max-sm:before:text-ink-soft max-sm:before:content-[attr(data-label)]"
+                          : ""
+                      }`}
+                    >
                       {cell}
                     </td>
                   ))}
@@ -58,9 +70,11 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
           </table>
         </div>
       );
+    }
     case "example":
       return (
-        <div className="flex items-start gap-3 rounded-2xl bg-sky px-4 py-3">
+        // white on a phone, where the lecture has no card of its own and sits on the sky-blue page
+        <div className="flex items-start gap-3 rounded-2xl bg-card px-4 py-3 sm:bg-sky">
           <button
             type="button"
             onClick={() => speak(block.en, { rate: 0.85 })}
@@ -156,15 +170,23 @@ export function LectureContent({ step, headingLevel = 2 }: { step: LectureStep; 
 
 export function StepLecture({ step, media, done, onComplete }: { step: LectureStep; media?: LessonMedia; done: boolean; onComplete: () => void }) {
   return (
-    <div className="space-y-6">
-      {media && <LessonMediaCard media={media} />}
-      <article className="clay p-6 sm:p-8">
+    <div className="space-y-8">
+      {/* on a phone the lecture sits straight on the page: a frame inside the page's own margins would leave a narrow column */}
+      {/* .clay spelled out: a component class takes no breakpoint variant */}
+      <article className="sm:rounded-[var(--radius-clay)] sm:border-[2.5px] sm:border-ink sm:bg-card sm:p-8 sm:shadow-[var(--shadow-clay)]">
         <LectureContent step={step} />
-        <button type="button" className="btn btn-ghost mt-8" onClick={onComplete} disabled={done}>
+        <button type="button" className={`btn mt-8 w-full sm:w-auto ${done ? "btn-ghost" : "btn-primary"}`} onClick={onComplete} disabled={done}>
           {done && <Check className="size-5 text-leaf" aria-hidden />}
-          Đã đọc xong
+          {done ? "Đã đọc xong" : "Tôi đã đọc xong"}
         </button>
       </article>
+      {/* the lesson's own explanation comes first; an outside video is there to go further */}
+      {media && (
+        <section aria-label="Học thêm">
+          <h3 className="mb-3 font-display text-xl font-bold">Xem thêm</h3>
+          <LessonMediaCard media={media} />
+        </section>
+      )}
     </div>
   );
 }

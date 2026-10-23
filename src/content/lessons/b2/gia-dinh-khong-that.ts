@@ -48,7 +48,7 @@ export default lesson({
     word("hypothetical", "/ˌhaɪ.pəˈθet.ɪ.kəl/", "mang tính giả định", "It's only a hypothetical question, so don't worry.", "hy|po|thet|i|cal", 2, "Trọng âm chính ở âm tiết thứ ba: hy-po-THET-i-cal. Âm /θ/ đặt đầu lưỡi giữa hai hàm răng."),
   ],
   exercises: [
-    mc("b2-n08-1", "I'd rather you ___ your phone during the meeting.", ["don't use", "didn't use", "not to use", "won't use"], 1, "Would rather + người khác + quá khứ đơn: I'd rather you didn't use… (tôi mong anh đừng dùng…). Don't use đôi khi nghe trong văn nói thân mật, nhưng didn't use mới là dạng chuẩn."),
+    mc("b2-n08-1", "I'd rather you ___ your phone during the meeting.", ["won't use", "didn't use", "not to use", "mustn't use"], 1, "Would rather + người khác + quá khứ đơn: I'd rather you didn't use… (tôi mong anh đừng dùng…). Won't use là lỗi dịch từ “sẽ”, not to use là lỗi lẫn với would like you not to use, còn mustn't không đứng sau would rather + chủ ngữ."),
     mc("b2-n08-2", "It's already midnight. It's high time we ___ home.", ["go", "will go", "went"], 2, "It's high time + S + quá khứ đơn, mang ý đáng lẽ phải về từ trước rồi."),
     fill("b2-n08-3", "He acts as if he ___ the boss, but he's just an intern. (be)", ["were", "was"], "Điều không có thật sau as if dùng quá khứ. Were là dạng trang trọng cho mọi ngôi, was dùng trong văn nói."),
     fill("b2-n08-4", "I'd rather ___ at home tonight than go to the party. (stay)", ["stay"], "Cùng chủ ngữ: would rather + V nguyên mẫu, không thêm to."),
@@ -58,6 +58,10 @@ export default lesson({
     listen("b2-n08-8", "I wish I had more free time.", ["Ước gì tôi có nhiều thời gian rảnh hơn.", "Giá mà hồi đó tôi có nhiều thời gian rảnh hơn.", "Tôi sẽ có nhiều thời gian rảnh hơn."], 0, "Wish + quá khứ đơn là ước về hiện tại. Tiếc về quá khứ phải là I wish I had had…"),
     correct("b2-n08-9", "It's high time the company gives us a proper meeting room.", ["It's high time the company gave us a proper meeting room.", "It is high time the company gave us a proper meeting room."], "Sau It's (high) time + chủ ngữ phải dùng quá khứ đơn: gave, dù đang nói về chuyện bây giờ."),
     correct("b2-n08-10", "I'd rather to stay at home tonight.", ["I'd rather stay at home tonight.", "I would rather stay at home tonight."], "Would rather đi thẳng với động từ nguyên mẫu, không có to."),
+    fill("b2-n08-11", "Would you rather we ___ the meeting to Friday, or is Thursday still fine? (move)", ["moved"], "Would you rather + một người khác (we) + quá khứ đơn: moved, dù cuộc họp nằm ở tương lai."),
+    fill("b2-n08-12", "Your laptop is ten years old. It's about time you ___ a new one. (buy)", ["bought"], "It's about time + chủ ngữ + quá khứ đơn: bought. Câu mang ý lẽ ra phải mua từ lâu rồi."),
+    correct("b2-n08-13", "I wish I have a bigger flat, but we can't afford one.", ["I wish I had a bigger flat, but we can't afford one."], "Ước điều trái với hiện tại thì lùi một thì: have thành had."),
+    reorder("b2-n08-14", "Would you rather I called you tomorrow?", "Hỏi ý người khác một cách lịch sự: Would you rather + I + quá khứ đơn (called), dù việc gọi là ngày mai."),
   ],
   speaking: [
     say("I'd rather you didn't call me after ten o'clock.", "Tôi mong anh đừng gọi cho tôi sau mười giờ."),
@@ -87,7 +91,7 @@ export default lesson({
   dialogueQuestions: [
     mc("b2-n08-d1", "What is the main problem in the office?", ["The air conditioning is broken.", "There aren't enough desks.", "Tuan arrives late every day.", "The new manager talks very loudly on the phone."], 3, "Tuấn nói: Our new manager talks on the phone as if he were alone in the room. Ông ấy nói to như thể không có ai khác."),
     listenQ("b2-n08-d2", "What does Tuan ask Huong not to do?", "Then would you rather I spoke to him? Yes, please. But I'd rather you didn't mention my name.", ["Speak to the manager", "Mention his name", "Work from home", "Complain to the company"], 1, "I'd rather you didn't mention my name: tôi mong chị đừng nhắc tên tôi. Tuấn vẫn muốn Hương nói chuyện với quản lý."),
-    mc("b2-n08-d3", "Why does Tuan say he can't work from home?", ["His manager won't allow it.", "He doesn't have a quiet room at home.", "His team needs him in the office.", "He prefers working in the office."], 2, "I wish I could, but my team needs me in the office."),
+    mc("b2-n08-d3", "Why does Tuan probably not want to speak to the manager himself?", ["He is afraid of losing his job.", "The manager is new, and Tuan doesn't want to upset him so soon.", "He thinks the noise is not a real problem.", "He has already complained twice."], 1, "Câu suy luận: Tuấn nói He's only been here a week. Ông quản lý mới đến, nên Tuấn ngại góp ý sớm kẻo mất lòng. Hội thoại không nhắc gì đến chuyện mất việc hay đã phàn nàn trước đó."),
   ],
   reading: reading({
     title: "It's time we rethought the open-plan office",
@@ -97,9 +101,11 @@ I understand the theory. If everyone sits together, ideas should flow more freel
 
 Noise is the most common complaint. In a typical open office, you can hear phone calls, keyboards and the coffee machine all day long. Some colleagues speak on the phone as though they were alone in a field. It is hardly surprising that many employees say they wish they had somewhere quiet to think, or that they would rather work from home on days when they need to write a report.
 
+The cost is not only measured in stress. Researchers who study concentration have found that after an interruption, it can take more than twenty minutes to return fully to a difficult task. In an office where a colleague stops by your desk every quarter of an hour, deep work simply never happens. One software developer I interviewed told me that she now arrives at seven in the morning, two hours before most of her team, because the early hours are the only time she can write code without being disturbed. By ten o'clock, she said, the room sounds like a railway station.
+
 I am not suggesting that we go back to long corridors of small, closed rooms. Teams do need space to meet and talk. But it is high time companies accepted that different tasks need different environments. A well-designed office might include an open area for team discussions, a few quiet rooms for focused work and small booths for video calls.
 
-Some firms are already moving in this direction, and their staff say they feel less stressed and more productive. Others still act as if one large room were the answer to every problem. If you are a manager, ask your team where they do their best work. You may not like the answer, but it's time you heard it.`,
+Some firms are already moving in this direction. A bank in Singapore, for example, removed a third of its desks and replaced them with "library zones", where phone calls and conversations are not allowed. Its staff, like those at other firms that have made similar changes, say they feel less stressed and more productive. Others still act as if one large room were the answer to every problem. If you are a manager, ask your team where they do their best work. You may not like the answer, but it's time you heard it.`,
     glossary: [
       ["open-plan", "không gian mở, không có vách ngăn"],
       ["encourage", "khuyến khích"],
@@ -107,11 +113,12 @@ Some firms are already moving in this direction, and their staff say they feel l
       ["concentrate", "tập trung"],
       ["corridor", "hành lang"],
       ["booth", "buồng nhỏ, bốt"],
+      ["interruption", "sự gián đoạn, bị cắt ngang"],
       ["productive", "làm việc hiệu quả, năng suất"],
     ],
     questions: [
       mc("b2-n08-r1", "What is the writer's main argument?", ["Open-plan offices should be replaced by small, closed rooms.", "Companies should offer different spaces for different kinds of work.", "Employees should always work from home.", "Open-plan offices are cheaper, so they are the best choice."], 1, "It is high time companies accepted that different tasks need different environments. Người viết nói rõ không muốn quay lại kiểu phòng kín."),
-      mc("b2-n08-r2", "What happened to face-to-face conversations in the American study?", ["They increased slightly.", "They stayed the same.", "They fell by about seventy per cent.", "They doubled."], 2, "Face-to-face conversations actually fell by around seventy per cent."),
+      mc("b2-n08-r2", "What happened to face-to-face conversations in the study the writer mentions?", ["They increased slightly.", "They stayed the same.", "They fell by about seventy per cent.", "They doubled."], 2, "Face-to-face conversations actually fell by around seventy per cent."),
       mc("b2-n08-r3", "What does the writer suggest about people who wear headphones at work?", ["They are rude to their colleagues.", "They are listening to music instead of working.", "They want to leave the company.", "They are trying to focus, not to be unfriendly."], 3, "They were not being rude. They were simply trying to concentrate."),
       fill("b2-n08-r4", "The writer says it is high time companies ___ that different tasks need different environments. (accept)", ["accepted"], "Sau It's high time + chủ ngữ dùng quá khứ đơn: accepted."),
       mc("b2-n08-r5", "How would you describe the writer's tone in the last paragraph?", ["Direct and slightly challenging", "Humorous and uncertain", "Angry and aggressive", "Neutral and uninterested"], 0, "Người viết nói thẳng với các nhà quản lý: You may not like the answer, but it's time you heard it. Giọng thẳng thắn, hơi thách thức nhưng không giận dữ."),

@@ -61,6 +61,10 @@ export default lesson({
     listen("b1-n04-8", "We've been waiting for an hour, but the doctor hasn't come yet.", ["Bác sĩ đến muộn một tiếng nên chúng tôi đã về.", "Chúng tôi sẽ gặp bác sĩ sau một tiếng nữa.", "Chúng tôi đợi một tiếng rồi mà bác sĩ vẫn chưa đến."], 2, "Have been waiting: vẫn đang đợi; hasn't come yet: vẫn chưa đến."),
     correct("b1-n04-9", "I'm living in Da Nang since 2020.", ["I've been living in Da Nang since 2020.", "I've lived in Da Nang since 2020."], "Việc bắt đầu từ 2020 và kéo dài đến giờ, có since, nên không dùng hiện tại tiếp diễn. Dùng have been + V-ing (hoặc have lived, vì live dùng được cả hai dạng)."),
     correct("b1-n04-10", "I've been knowing Minh since we were at school.", "I've known Minh since we were at school.", "Know là động từ chỉ trạng thái, không dùng dạng tiếp diễn. Dùng hiện tại hoàn thành đơn: I've known."),
+    fill("b1-n04-11", "Why are your clothes so wet? ___ in the rain? (you / walk)", ["Have you been walking"], "Người nói thấy dấu vết (quần áo ướt) nên hỏi về hoạt động vừa diễn ra: Have you been walking. Have you walked in the rain? lại là hỏi về trải nghiệm, không hợp ngữ cảnh."),
+    correct("b1-n04-12", "I've waiting for you since six o'clock.", ["I've been waiting for you since six o'clock.", "I've waited for you since six o'clock."], "Đừng quên been: have + been + V-ing. Viết I've waiting là thiếu mất been."),
+    reorder("b1-n04-13", "Who have you been talking to?", "Câu hỏi với who: Who + have + you + been + V-ing, giới từ to đứng cuối câu."),
+    correct("b1-n04-14", "She's been writing three reports this week.", ["She's written three reports this week.", "She has written three reports this week."], "Có con số đếm được (three reports) là nói kết quả đã xong, nên dùng hiện tại hoàn thành đơn: has written."),
   ],
   speaking: [
     say("I've been learning English for two years.", "Tôi học tiếng Anh được hai năm rồi."),
@@ -92,30 +96,34 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b1-n04-d1", "Why is Nam late?", "I'm so sorry. I've been sitting in traffic since five o'clock.", ["He had to finish a report.", "He has been stuck in traffic.", "He forgot about the meeting.", "His motorbike has broken down."], 1, "Nam nói: I've been sitting in traffic since five o'clock, tức là bị kẹt xe từ năm giờ."),
     mc("b1-n04-d2", "What has Ha been doing every evening?", ["Working late at the office", "Drinking tea at this café", "Revising for her exam"], 2, "Hà nói: I've been revising every evening, vì Nam hỏi Have you been revising for your exam?"),
-    listenQ("b1-n04-d3", "How long have Nam and Ha known each other?", "I promise. I've known you for ten years, and I don't want to lose my best friend!", ["For ten years", "For two years", "Since last week", "For forty minutes"], 0, "I've known you for ten years: hai người quen nhau mười năm rồi."),
+    mc("b1-n04-d3", "Why does Nam suggest ordering tea?", ["The café has run out of coffee.", "He thinks Ha has already had too much coffee.", "Tea is cheaper than coffee at this café.", "He has never tried their coffee."], 1, "Nam không nói thẳng lý do, nhưng ngay sau khi Hà kể ngủ không ngon và đã uống ba cốc cà phê, Nam đề nghị gọi trà. Ta suy ra Nam thấy Hà uống cà phê quá nhiều rồi."),
   ],
   reading: reading({
     title: "Six months of running: what I've learnt",
-    text: `Hi everyone! It's been a while since my last post. I've been very busy lately, and today I want to tell you why.
+    text: `Hi everyone! It's been a while since my last post, and a few of you have messaged me to ask if I'm OK. I'm fine, I promise. I've just been very busy, and today I want to tell you why.
 
-Six months ago, my doctor told me that I needed more exercise. I was sitting at a desk for ten hours a day and I rarely moved. So I started running. At first, I could only run for five minutes without stopping. I've been running three times a week since March, and last Sunday I ran ten kilometres for the first time!
+Six months ago, my doctor told me that I needed more exercise. I sat at a desk for ten hours a day, I hardly ever walked anywhere, and my back hurt all the time. So one evening in March, I put on an old pair of trainers and went out. I could only run for five minutes before I had to stop. It was a little embarrassing.
 
-I've also been getting up earlier. My alarm goes off at half past five, and I run around the lake near my flat before work. It hasn't always been easy. On some rainy mornings I've stayed in bed, and I've hurt my knee twice. But I've been feeling much less stressed, and I've been sleeping better too.
+Since then, I've been running three times a week, and last Sunday I ran ten kilometres without stopping for the first time. I was so happy that I sent a photo to my doctor!
 
-Lately, a few colleagues have been asking me for advice, so I've started a small running group at work. We've been meeting every Saturday for a month now, and so far eight people have joined.
+The early mornings were the hardest part. Now my alarm goes off at half past five, and I run around the lake near my flat before work. It hasn't always been easy. On some rainy mornings I stayed in bed, and I hurt my knee twice because I tried to go too fast. But I feel much less stressed than before, and I sleep better too.
 
-If you've been thinking about starting a sport, my advice is simple: start slowly, buy good shoes, and don't give up after one bad week. Next month I'm running my first race, so I'll tell you all about it!`,
+Lately, a few colleagues have been asking me for advice, so I started a small running group at work. We meet every Saturday morning, and so far eight people have joined. Last week our manager came along too, which surprised everyone, and she was faster than all of us.
+
+If you've been thinking about starting a sport, my advice is simple: start slowly, buy good shoes, and don't give up after one bad week. Next month I'm running my first race, a five-kilometre fun run in the park. Wish me luck, and I'll tell you all about it!`,
     glossary: [
-      ["rarely", "hiếm khi"],
+      ["hardly ever", "hầu như không bao giờ"],
+      ["trainers", "giày thể thao"],
+      ["embarrassing", "ngượng, xấu hổ"],
       ["knee", "đầu gối"],
       ["advice", "lời khuyên"],
       ["race", "cuộc thi chạy, cuộc đua"],
     ],
     questions: [
       mc("b1-n04-r1", "What is the main purpose of the post?", ["To sell running shoes to readers", "To share how running has changed the writer's life", "To complain about the writer's doctor", "To invite readers to a race next Sunday"], 1, "Cả bài kể người viết bắt đầu chạy bộ ra sao và cuộc sống thay đổi thế nào."),
-      mc("b1-n04-r2", "When does the writer usually run?", ["After work in the evening", "At lunchtime with colleagues", "Early in the morning before work"], 2, "My alarm goes off at half past five, and I run around the lake… before work."),
-      fill("b1-n04-r3", "The running group at work has been meeting every ___ for a month.", ["Saturday"], "We've been meeting every Saturday for a month now."),
-      mc("b1-n04-r4", "Which change has the writer noticed?", ["The writer feels less stressed and sleeps better.", "The writer has started to enjoy rainy mornings.", "The writer now works fewer hours.", "The writer no longer needs an alarm."], 0, "I've been feeling much less stressed, and I've been sleeping better too."),
+      mc("b1-n04-r2", "When does the writer usually run on weekdays?", ["After work in the evening", "At lunchtime with colleagues", "Early in the morning before work"], 2, "My alarm goes off at half past five, and I run around the lake near my flat before work."),
+      fill("b1-n04-r3", "The writer's running group at work meets every ___ morning.", ["Saturday"], "We meet every Saturday morning."),
+      mc("b1-n04-r4", "Which change has the writer noticed?", ["The writer feels less stressed and sleeps better.", "The writer has started to enjoy rainy mornings.", "The writer now works fewer hours.", "The writer no longer needs an alarm."], 0, "I feel much less stressed than before, and I sleep better too."),
       mc("b1-n04-r5", "What can we infer from the post?", ["The writer ran ten kilometres in the first week.", "The writer's doctor runs in the same group.", "The writer has not taken part in a race yet.", "The writer only runs when the weather is good."], 2, "Câu suy luận: Next month I'm running my first race, nghĩa là người viết chưa từng chạy giải nào."),
     ],
   }),

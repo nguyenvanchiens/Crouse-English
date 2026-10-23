@@ -34,7 +34,7 @@ const PLACEMENT_BASE: PlacementQuestion[] = [
 
   // ---- B1 ----
   { id: "p17", level: "B1", skill: "grammar", prompt: "I've lived here ___ 2019.", options: ["for", "since", "from", "in"], answer: 1 },
-  { id: "p18", level: "B1", skill: "grammar", prompt: "If it rains tomorrow, we ___ at home.", options: ["stay", "stayed", "would stay", "will stay"], answer: 3 },
+  { id: "p18", level: "B1", skill: "grammar", prompt: "If it rains tomorrow, we ___ at home.", options: ["would have stayed", "stayed", "would stay", "will stay"], answer: 3 },
   { id: "p19", level: "B1", skill: "vocab", prompt: "Từ gần nghĩa nhất với “reliable”:", options: ["dependable", "expensive", "famous", "careful"], answer: 0 },
   { id: "p20", level: "B1", skill: "listening", prompt: "Người nói muốn gì?", audioText: "Sorry, I can't make it tonight. Can we reschedule for Friday?", options: ["Hủy hẳn cuộc hẹn", "Dời cuộc hẹn sang thứ Sáu", "Đến sớm hơn", "Mời thêm người"], answer: 1 },
   { id: "p21", level: "B1", skill: "grammar", prompt: "The report ___ by the manager yesterday.", options: ["wrote", "has written", "was written", "is writing"], answer: 2 },

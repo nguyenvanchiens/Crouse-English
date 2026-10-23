@@ -7,7 +7,7 @@ export default lesson({
   lecture: {
     title: "Động từ khuyết thiếu chỉ sự suy đoán ở hiện tại",
     blocks: [
-      p("Đồng nghiệp nhìn đồng hồ, ngáp liên tục, mắt thâm quầng. Bạn nghĩ: “Chắc là anh ấy mệt lắm.” Khi **không biết chắc** mà phải **đoán dựa trên dấu hiệu**, tiếng Anh dùng các động từ khuyết thiếu: **must**, **might**, **could**, **can't**. Mỗi từ cho biết bạn chắc chắn đến mức nào. Ở A2, bạn đã gặp must với nghĩa “phải” và might để dự đoán tương lai; hôm nay chúng mang một nghĩa mới: **đoán về hiện tại**."),
+      p("Đồng nghiệp nhìn đồng hồ, ngáp liên tục, mắt thâm quầng. Bạn nghĩ: “Chắc là anh ấy mệt lắm.” Khi **không biết chắc** mà phải **đoán dựa trên dấu hiệu**, tiếng Anh dùng các động từ khuyết thiếu: **must**, **might**, **could**, **can't**. Mỗi từ cho biết bạn chắc chắn đến mức nào. Bài trước bạn vừa dùng must, have to, mustn't để nói về quy định, và từ A2 bạn đã biết might để dự đoán tương lai. Hôm nay must và might mang thêm một nghĩa mới: **đoán về hiện tại**."),
       table(
         ["Mức độ chắc chắn", "Cấu trúc", "Nghĩa", "Ví dụ"],
         ["Gần như chắc chắn đúng", "must + V", "chắc hẳn là", "He must be tired."],
@@ -19,8 +19,16 @@ export default lesson({
       ex("That can't be Minh. He's in Japan this week.", "Người đó không thể là Minh được. Tuần này anh ấy đang ở Nhật.", "Có bằng chứng ngược lại (Minh đang ở Nhật) nên ta loại bỏ khả năng này."),
       p("Muốn đoán về việc **đang diễn ra ngay lúc này**, dùng **must / might / can't + be + V-ing**."),
       ex("The lights are off. They must be sleeping.", "Đèn tắt rồi. Chắc họ đang ngủ."),
+      p("Cùng **một bằng chứng** có thể dẫn tới những lời đoán khác nhau, tùy **bạn đang khẳng định điều gì** và bối cảnh xung quanh. Hãy xem chuyện đèn nhà hàng xóm tắt hết:"),
+      table(
+        ["Bối cảnh thêm", "Lời đoán", "Vì sao"],
+        ["Mười hai giờ đêm, xe vẫn đỗ trước cửa", "They must be asleep.", "Đêm khuya mà xe còn đó: gần như chắc họ đang ngủ."],
+        ["Bảy giờ tối, cổng khóa ngoài, xe không có", "They can't be at home.", "Cổng khóa từ bên ngoài: gần như chắc không có ai trong nhà."],
+        ["Chưa có dấu hiệu nào khác", "They might be out.", "Bằng chứng còn yếu: chỉ là một khả năng."],
+      ),
       p("Khi đoán, người bản xứ hay nêu **bằng chứng** đi kèm: **He's wearing a uniform, so he must be a guard.** (Anh ấy mặc đồng phục, nên chắc là bảo vệ.) Hoặc dùng **judging by** (căn cứ vào): Judging by her accent, she might be from the north."),
       tip("Mẹo nhớ: **must** và **can't** là hai đầu đối nghịch của cùng một cái cân. Must = 90% đúng, can't = 90% sai. Might, may, could nằm ở giữa, khoảng 50%. Khi nói, **can't** trong tiếng Anh-Anh đọc là /kɑːnt/, âm dài và rõ /t/ cuối để người nghe không nhầm với can."),
+      p("Đừng lẫn với bài trước: **must** = phải (quy định: You must wear a helmet) khác **must** = chắc hẳn (đoán: You must be cold). **Mustn't** = cấm (You mustn't park here), còn đoán phủ định thì dùng **can't** (He can't be at home)."),
       mistake("He mustn't be at home. His car isn't here.", "He can't be at home. His car isn't here.", "Người Việt nghĩ ngược của must là mustn't. Nhưng mustn't nghĩa là “cấm, không được phép”. Trong tiếng Anh-Anh, đoán phủ định dùng can't. (Tiếng Anh-Mỹ đôi khi nghe must not với nghĩa đoán; bài này dùng can't.)"),
       mistake("She maybe is at the office.", "She may be at the office. / Maybe she is at the office.", "Maybe (một từ) là trạng từ, thường đứng đầu câu. May be (hai từ) là động từ khuyết thiếu + be, đứng sau chủ ngữ. Tiếng Việt chỉ có một chữ “có lẽ” nên người Việt hay trộn hai cách."),
       mistake("You must to be tired.", "You must be tired.", "Sau must, might, could, can't là động từ nguyên mẫu không có to."),
@@ -48,13 +56,17 @@ export default lesson({
     mc("b1-n06-1", "Nam has worked all night. He ___ be very tired.", ["can't", "must", "mustn't"], 1, "Có bằng chứng rõ ràng (làm cả đêm), nên đoán gần như chắc chắn: must."),
     mc("b1-n06-2", "That ___ be Minh. He's in Japan this week.", ["must", "might", "can't", "could"], 2, "Minh đang ở Nhật, nên người kia gần như chắc chắn không phải Minh: can't."),
     fill("b1-n06-3", "I'm not sure where Lan is. She ___ be at the gym. (có lẽ)", ["might", "may", "could"], "Không chắc chắn, chỉ là một khả năng: might, may hoặc could."),
-    fill("b1-n06-4", "All the lights are off. They ___ be at home. (chắc chắn không)", ["can't", "cannot", "couldn't"], "Đoán phủ định dựa trên bằng chứng dùng can't, không dùng mustn't."),
+    fill("b1-n06-4", "I've just seen Nam and Hoa at the cinema. They ___ be at home now. (chắc chắn không)", ["can't", "cannot", "couldn't"], "Bạn vừa thấy họ ở rạp phim, bằng chứng rất mạnh, nên đoán phủ định gần như chắc chắn: can't. Không dùng mustn't, vì mustn't nghĩa là cấm."),
     reorder("b1-n06-5", "You must be very proud of her.", "Must be + tính từ: lời đoán lịch sự về cảm xúc của người khác."),
     reorder("b1-n06-6", "You can't be serious about this.", "Can't be + tính từ: đoán gần như chắc chắn là không đúng. Câu này nghĩa là “Chắc bạn đùa thôi, không thể nào bạn nói thật được”."),
     listen("b1-n06-7", "Someone's knocking. It might be the postman.", ["Có người gõ cửa. Có lẽ là người đưa thư.", "Có người gõ cửa. Chắc chắn là người đưa thư.", "Người đưa thư không bao giờ gõ cửa."], 0, "Might: chỉ là một khả năng, không chắc chắn."),
     listen("b1-n06-8", "She can't be hungry. She's just had lunch.", ["Cô ấy chắc là đói lắm vì chưa ăn trưa.", "Cô ấy không được phép ăn trưa.", "Cô ấy không thể đói được. Cô ấy vừa ăn trưa xong."], 2, "Can't be: không thể nào, dựa trên bằng chứng vừa ăn trưa."),
     correct("b1-n06-9", "She mustn't be the manager. She looks too young.", ["She can't be the manager. She looks too young.", "She couldn't be the manager. She looks too young."], "Mustn't nghĩa là “cấm, không được phép”. Đoán rằng điều gì đó gần như chắc chắn sai thì dùng can't."),
     correct("b1-n06-10", "He must to be at home. His car is outside.", "He must be at home. His car is outside.", "Sau must là động từ nguyên mẫu không có to: must be."),
+    fill("b1-n06-11", "Minh isn't answering his phone. He must ___ right now. (drive)", ["be driving"], "Đoán việc đang diễn ra ngay lúc này: must + be + V-ing, nên điền be driving."),
+    correct("b1-n06-12", "She maybe is stuck in traffic.", ["She may be stuck in traffic.", "Maybe she is stuck in traffic.", "Maybe she's stuck in traffic.", "She might be stuck in traffic.", "She could be stuck in traffic."], "Maybe (một từ) là trạng từ, đứng đầu câu: Maybe she is… Còn may be (hai từ) đứng sau chủ ngữ: She may be…"),
+    reorder("b1-n06-13", "She must be waiting for the bus.", "Đoán việc đang diễn ra: must + be + V-ing. Chủ ngữ she, rồi must be waiting, cuối cùng là for the bus."),
+    correct("b1-n06-14", "That must is Lan's bag. It has her name on it.", "That must be Lan's bag. It has her name on it.", "Sau must là động từ nguyên mẫu, nên is phải đổi về be: must be. Người Việt hay giữ nguyên is vì tiếng Việt không chia động từ."),
   ],
   speaking: [
     say("You must be tired after that long flight.", "Chắc hẳn bạn mệt lắm sau chuyến bay dài như vậy."),
@@ -82,7 +94,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("b1-n06-d1", "Why does Ha think the phone isn't Mr Vu's?", "It can't be his. He always uses a black phone, and this one is pink.", ["He wasn't at the meeting.", "His phone is a different colour.", "He has already gone home."], 1, "Ông Vũ luôn dùng điện thoại màu đen, còn chiếc này màu hồng, nên Hà nói It can't be his."),
-    mc("b1-n06-d2", "Why can't the phone be Linh's?", ["She doesn't like pink.", "She always keeps her phone in her bag.", "She is on holiday this week.", "She was sitting next to Mr Vu."], 2, "Linh is on holiday this week: Linh không có mặt ở văn phòng tuần này."),
+    mc("b1-n06-d2", "Who does the phone most probably belong to?", ["Mr Vu", "Linh", "Tuan", "The new intern"], 3, "Câu suy luận: ông Vũ dùng điện thoại đen, Linh đang nghỉ phép, Hà đoán It could be the new intern's, rồi cả hai nói về chủ nhân là her và nghe thấy cô ấy chạy về. Vậy gần như chắc đó là điện thoại của bạn thực tập sinh mới."),
     listenQ("b1-n06-d3", "What makes Tuan think the owner is coming?", "Wait, I can hear someone running down the corridor. That must be her.", ["The phone stops ringing.", "The owner's mother calls again.", "The new intern sends a message.", "He hears someone running in the corridor."], 3, "Tuấn nghe thấy có người chạy ngoài hành lang nên đoán: That must be her."),
   ],
   reading: reading({
@@ -93,9 +105,11 @@ She walked slowly into the kitchen. There were two dirty cups on the table, and 
 
 Hoa looked for more clues. Next to the cups, there was a paper bag from a bakery in Hai Phong, her hometown. A pair of small pink shoes was lying by the sofa. "They might be my niece's," she thought, "but she's only six, so she can't be here on her own."
 
+In the living room, the TV was on with the sound turned off, and a cartoon was playing. Hoa never watched cartoons. A child's drawing of a cat was lying on the floor next to a box of coloured pencils. Slowly, Hoa began to feel less frightened and more curious. Whoever was in her house, they were clearly not trying to hide.
+
 Then she heard water upstairs. Someone was having a shower. Hoa picked up her phone and was ready to call the police when she noticed a message from her sister: "Surprise! Mai and I are in Hanoi for the weekend. I used the spare key under the plant pot. Hope you don't mind! We've eaten all your yoghurt."
 
-Hoa laughed. Her sister must be the only person in the world who still remembers where that key is.`,
+Hoa laughed. Her sister must be the only person in the world who still remembers where that key is. Ten minutes later, her sister came downstairs with wet hair, and little Mai ran across the room to give her aunt a hug. That evening the three of them went out for dinner, and this time her sister paid.`,
     glossary: [
       ["unlocked", "không khóa"],
       ["thief", "kẻ trộm"],

@@ -66,9 +66,9 @@ export default lesson({
     word("exaggerate", "/ɪɡˈzædʒ.ə.reɪt/", "phóng đại, nói quá", "He said he had waited for five hours, but I think he was exaggerating.", "ex|ag|ge|rate", 1, "Chữ x đọc là /ɡz/; hai chữ g chỉ đọc một âm /dʒ/: ig-ZA-jə-rate."),
   ],
   exercises: [
-    mc("b1-n17-1", "“I'm hungry,” Nam said an hour ago. Then he ate two bowls of phở. → Nam said he ___ hungry.", ["is", "was", "had", "be"], 1, "Nam giờ đã no, điều đó không còn đúng nữa, nên phải lùi thì: am → was."),
+    mc("b1-n17-1", "“I'm hungry,” Nam said an hour ago. Then he ate two bowls of phở. → Nam said he ___ hungry.", ["was", "is", "has been", "were"], 0, "Nam giờ đã no, điều đó không còn đúng nữa, nên phải lùi thì: am → was."),
     mc("b1-n17-2", "Last Friday, Hoa said, “I'll finish the report tomorrow.” → Hoa said she would finish the report ___.", ["tomorrow", "the next day", "yesterday", "the day before"], 1, "Thứ Sáu tuần trước đã qua, nên tomorrow của hôm đó phải đổi thành the next day (hoặc the following day)."),
-    fill("b1-n17-3", "The doctor ___ me to drink more water. (say / tell)", ["told"], "Có người nghe (me) và kể lại một lời khuyên: told + người + to V. Say không đi với me ngay sau."),
+    fill("b1-n17-3", "The doctor ___ me to drink more water. (say / tell)", ["told", "tells"], "Có người nghe (me) và kể lại một lời khuyên: told + người + to V. Say không đi với me ngay sau."),
     fill("b1-n17-4", "“I have lost my keys.” → Linh said she ___ lost her keys.", ["had", "'d"], "Hiện tại hoàn thành lùi thành quá khứ hoàn thành: have lost → had lost."),
     reorder("b1-n17-5", "She told me that she was leaving.", "Told + người nghe (me) + that + câu đã lùi thì (was leaving)."),
     reorder("b1-n17-6", "They asked us if we needed help.", "Câu hỏi Có / Không tường thuật: asked + người + if + trật tự câu kể (we needed), không đảo ngữ."),
@@ -76,6 +76,10 @@ export default lesson({
     listen("b1-n17-8", "He told me not to worry about the test.", ["Anh ấy nói anh ấy rất lo về bài kiểm tra.", "Anh ấy hỏi tôi có lo về bài kiểm tra không.", "Anh ấy bảo tôi đừng lo về bài kiểm tra.", "Anh ấy không kể với tôi về bài kiểm tra."], 2, "Told me not to + V: bảo tôi đừng làm gì."),
     correct("b1-n17-9", "She said me that she was busy.", ["She told me that she was busy.", "She told me she was busy.", "She said that she was busy.", "She said she was busy.", "She said to me that she was busy."], "Say không có người nghe đứng ngay sau. Có me thì dùng told me, hoặc giữ said và bỏ me (said to me cũng được)."),
     correct("b1-n17-10", "He said that he will call me the next day.", ["He said that he would call me the next day.", "He said he would call me the next day."], "Động từ tường thuật ở quá khứ (said) và đã đổi thành the next day, nên will phải lùi thành would."),
+    fill("b1-n17-11", "“What are you doing?” my boss asked when he walked in. → He asked me what I ___ doing.", ["was"], "Câu hỏi đã được nói trong quá khứ (asked, walked in), nên are doing lùi thành was doing. Chủ ngữ là I nên dùng was."),
+    fill("b1-n17-12", "“Don't be late,” the teacher said to us. → The teacher told us ___ late.", ["not to be"], "Kể lại lời dặn phủ định: told + người + not to + V. Không viết don't be hay to not be."),
+    correct("b1-n17-13", "She asked me what time did the meeting start.", ["She asked me what time the meeting started.", "She asked me what time the meeting starts."], "Câu hỏi tường thuật theo trật tự câu kể và bỏ did: what time the meeting started. Nếu cuộc họp vẫn chưa diễn ra thì giữ starts cũng được."),
+    reorder("b1-n17-14", "She asked whether the train had left.", "Câu hỏi Có / Không tường thuật: asked whether + chủ ngữ + động từ. Has the train left? lùi thành the train had left, không đảo trợ động từ."),
   ],
   speaking: [
     say("She said she was tired and wanted to go home.", "Cô ấy nói cô ấy mệt và muốn về nhà."),
@@ -108,7 +112,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("b1-n17-d1", "What did Ms Lee say?", "Yes. Ms Lee from the Singapore office called. She said she was waiting for your report.", ["She was waiting for Mr Brown's report.", "She was coming to the office.", "She had already sent the report.", "She was angry with Mai."], 0, "She said she was waiting for your report: chị Lee đang chờ báo cáo của ông Brown."),
-    mc("b1-n17-d2", "What did the technician tell Mai to do?", ["Repair the printer herself", "Order a new printer", "Call him again tomorrow", "Move the printer to another room"], 1, "He told me to order a new one."),
+    mc("b1-n17-d2", "Why does Mr Brown probably say “Oh no” when he hears about Ms Lee's call?", ["He doesn't like Ms Lee.", "He has lost her phone number.", "He hasn't finished the report yet.", "He wanted to call her first."], 2, "Bài không nói thẳng, nhưng ông Brown phản ứng “Ôi không” rồi vội hỏi chị Lee cần báo cáo khi nào. Điều đó cho thấy ông chưa làm xong báo cáo."),
     mc("b1-n17-d3", "What did the director say about the office move?", ["The office was moving to Thu Thiem.", "She hadn't made a decision yet.", "The move was cancelled."], 1, "The director told us that she hadn't made a decision yet. Chuyện chuyển sang Thủ Thiêm chỉ là lời Nam thì thầm."),
   ],
   reading: reading({
@@ -118,6 +122,8 @@ export default lesson({
 The original message was simple: "The bus will leave at five, so please be in the car park by a quarter to five."
 
 At first, everything went well. Hung told Linh that the bus would leave at five. Linh told Quan that everyone had to be in the car park at a quarter to five. But then things started to go wrong. Quan was laughing so much that he told Mai the bus was leaving at nine. Mai wasn't listening carefully, and she told the next person that there was no bus at all.
+
+By the middle of the line, the message was getting shorter and stranger. One colleague said she had heard something about a party on the beach. Another wanted to ask whether the trip was still happening, but the rules said that nobody could ask questions, so he just guessed.
 
 When the last person, our manager, finally spoke, everyone laughed. He said that we were staying at the beach until nine and that dinner was free!
 
@@ -129,7 +135,7 @@ That evening, we all arrived in the car park at a quarter to five. Nobody wanted
       ["trainer", "người hướng dẫn, huấn luyện viên"],
       ["original", "ban đầu, gốc"],
       ["out loud", "thành tiếng, to lên"],
-      ["pass through", "đi qua, truyền qua"],
+      ["passes through","đi qua, truyền qua"],
     ],
     questions: [
       mc("b1-n17-r1", "What is the story mainly about?", ["A company trip that was cancelled", "A game that shows how a message changes when it passes through many people", "A manager who gave everyone a free dinner", "Why the bus left late"], 1, "Cả bài kể trò chơi truyền tin và bài học người hướng dẫn rút ra."),

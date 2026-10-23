@@ -62,9 +62,9 @@ export default lesson({
     word("suburb", "/ˈsʌb.ɜːb/", "vùng ngoại ô", "Houses in the suburbs are twice as big as flats in the centre.", "sub|urb", 0, "Trọng âm ở âm đầu; âm sau là /ɜː/ kéo dài, không đọc chữ r. Hay dùng số nhiều: live in the suburbs."),
   ],
   exercises: [
-    mc("b1-n12-1", "This flat is ___ bigger than the old one.", ["very", "much", "more", "most"], 1, "Trước so sánh hơn, dùng much, far, a lot hoặc a bit. Không dùng very một mình (phải là very much)."),
-    mc("b1-n12-2", "The more you practise, ___.", ["you speak better", "better you speak", "the better speak you", "the better you speak"], 3, "Cấu trúc càng… càng…: the + so sánh hơn + chủ ngữ + động từ."),
-    fill("b1-n12-3", "My new phone is ___ as expensive as my old one. (gấp đôi)", ["twice"], "Gấp đôi: twice as + tính từ + as."),
+    mc("b1-n12-1", "This flat is ___ bigger than the old one.", ["very", "more", "much", "many"], 2, "Trước so sánh hơn, dùng much, far, a lot hoặc a bit. Không dùng very một mình (phải là very much)."),
+    mc("b1-n12-2", "The more you practise, ___.", ["the more better you speak", "you speak better", "better you speak", "the better you speak"], 3, "Cấu trúc càng… càng…: the + so sánh hơn + chủ ngữ + động từ. Better đã là so sánh hơn, không thêm more."),
+    fill("b1-n12-3", "My new flat is eighty square metres and my old one was forty, so the new one is ___ as big.", ["twice"], "Tám mươi so với bốn mươi là gấp đôi: twice as + tính từ + as."),
     fill("b1-n12-4", "The bus is not ___ fast as the train.", ["as", "so"], "Không bằng: not as… as. Sau not, dùng so cũng được, nhưng as phổ biến hơn."),
     reorder("b1-n12-5", "The rent was far higher than we expected.", "Far đứng ngay trước so sánh hơn higher để nhấn mạnh “cao hơn nhiều”. Sau than có thể là cả một mệnh đề: than we expected (so với chúng tôi dự tính)."),
     reorder("b1-n12-6", "My brother is a bit taller than me.", "A bit đứng trước taller: cao hơn một chút."),
@@ -72,6 +72,10 @@ export default lesson({
     listen("b1-n12-8", "This hotel isn't as comfortable as the one we stayed in last year.", ["Khách sạn này không thoải mái bằng khách sạn năm ngoái chúng tôi ở.", "Khách sạn này thoải mái hơn khách sạn năm ngoái.", "Năm ngoái chúng tôi cũng ở khách sạn này.", "Khách sạn này thoải mái gấp đôi khách sạn năm ngoái."], 0, "Not as… as: không… bằng."),
     correct("b1-n12-9", "It was so a beautiful day that we went to the beach.", "It was such a beautiful day that we went to the beach.", "Trước cụm a + tính từ + danh từ (a beautiful day) dùng such, không dùng so. So chỉ đứng trước tính từ đứng một mình: The day was so beautiful that…"),
     correct("b1-n12-10", "This phone is very cheaper than my old one.", ["This phone is much cheaper than my old one.", "This phone is far cheaper than my old one.", "This phone is a lot cheaper than my old one.", "This phone is a bit cheaper than my old one.", "This phone is cheaper than my old one.", "This phone is very much cheaper than my old one."], "Không dùng very một mình trước so sánh hơn (very much cheaper thì được). Dùng much, far hoặc a lot (hơn nhiều), hay a bit (hơn một chút)."),
+    fill("b1-n12-11", "A train ticket costs two hundred thousand dong and a plane ticket costs six hundred thousand, so the plane is ___ as expensive as the train.", ["three times"], "Sáu trăm so với hai trăm là gấp ba: three times as + tính từ + as."),
+    fill("b1-n12-12", "It was ___ hot day that we stayed inside until the evening.", ["such a"], "Trước cụm a + tính từ + danh từ (a hot day) dùng such: such a hot day that…"),
+    correct("b1-n12-13", "The bus isn't as faster as the train.", "The bus isn't as fast as the train.", "Trong cấu trúc as… as, tính từ giữ nguyên dạng gốc (fast), không dùng dạng so sánh hơn faster."),
+    reorder("b1-n12-14", "The weather was so bad that we stayed at home.", "So + tính từ đứng một mình (so bad), rồi that + mệnh đề chỉ kết quả."),
   ],
   speaking: [
     say("Ho Chi Minh City is much bigger than Da Nang.", "Thành phố Hồ Chí Minh lớn hơn Đà Nẵng nhiều."),
@@ -101,17 +105,17 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b1-n12-d1", "How big is the living room in the first flat?", "The first one is much bigger. The living room is almost twice as big as ours.", ["About the same size as theirs", "Almost twice as big as theirs", "Half as big as theirs", "Three times as big as theirs"], 1, "The living room is almost twice as big as ours: rộng gần gấp đôi."),
     mc("b1-n12-d2", "What is the problem with the second flat?", ["It is far from Quan's office.", "It isn't as bright as the first one.", "The rent is much higher."], 1, "Thảo nói: The second one isn't as bright as the first… It only has one small window."),
-    listenQ("b1-n12-d3", "Why does Thao want to spend less on rent?", "That's true. And the less we spend on rent, the more we can save for a car.", ["To save money for a car", "To pay for a holiday", "To buy new furniture", "To help her parents"], 0, "The less we spend on rent, the more we can save for a car."),
+    listenQ("b1-n12-d3", "What can we guess about Quan and Thao?", "That's true. And the less we spend on rent, the more we can save for a car.", ["They already have two cars.", "They want to sell their car.", "They don't have a car at the moment.", "They plan to buy a flat next year."], 2, "Câu suy luận: Thảo muốn để dành tiền mua ô tô, nghĩa là hiện giờ hai vợ chồng chưa có xe."),
   ],
   reading: reading({
     title: "City centre or suburbs? Two families, two choices",
-    text: `Every year, thousands of young families in Hanoi face the same question: should we live in the city centre or move to the suburbs? We talked to two families who made different choices.
+    text: `Every year, thousands of young families in Hanoi face the same question: should we stay in the city centre or move out to the suburbs? We talked to two families who made very different choices.
 
-Minh and Lan live in a small flat in the Old Quarter. Their flat is only forty square metres, but it is a lot more convenient than their old one. Minh can walk to work in ten minutes, and their daughter's school is just around the corner. "The rent is far higher than in the suburbs," says Lan, "but we save so much time that it's worth it." The only problem is the noise. The streets are busy until midnight.
+Minh and Lan rent a small flat in Hoan Kiem, the oldest district in the city. The flat is only forty square metres, but it is a lot more convenient than their old one. Minh can walk to work in ten minutes, and their daughter's school is just around the corner. "The rent is far higher than in the suburbs," says Lan, "but we save so much time that it's worth it. I'd rather pay more and have dinner with my family every evening." The only real problem is the noise. The street below their window is busy until midnight, and their daughter often falls asleep with headphones on.
 
-Hung and Mai moved to a new area in the suburbs last year. Their house is twice as big as their old flat, and it has a small garden. The rent is slightly lower, too. However, Hung now spends almost an hour driving to work every morning. "The further you live from the centre, the more time you spend in traffic," he laughs. At the weekend, though, the family loves the quiet streets and the fresh air.
+Hung and Mai moved to a new housing area on the edge of the city last year. Their house is twice as big as their old flat, and it has a small garden where their two sons play football after school. The rent is slightly lower, too. However, Hung now spends almost an hour driving to work every morning. "The further you live from the centre, the more time you spend in traffic," he laughs. Mai works from home three days a week, so the journey is less of a problem for her. At the weekend, the whole family enjoys the quiet streets and the fresh air.
 
-So which is better? The answer depends on what matters most to you. For families who hate long journeys to work, the centre is the better choice. For those who want more space, the suburbs are hard to beat.`,
+So which choice is better? Experts say there is no single answer. It depends on what matters most to you: time, space or money. For families who hate long journeys, the centre is the obvious choice. For those who need more room, the suburbs are hard to beat.`,
     glossary: [
       ["face", "đối mặt với"],
       ["district", "quận"],

@@ -29,6 +29,8 @@ export function Avatar({ id, size = "size-14" }: { id: string | null; size?: str
 export function PointsPill() {
   const { state, ready } = useProgress();
   const n = ready ? balance(state.points) : 0;
+  // a first-time visitor has nothing to spend yet: a "0" in the header only adds noise (the shop is in the menu)
+  if (n === 0) return null;
   return (
     <Link
       href="/doi-qua"

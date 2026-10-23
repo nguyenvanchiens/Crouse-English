@@ -2,17 +2,16 @@ import type { SentenceDrill } from "../my-plan";
 
 const B1 = "tieng-anh-b1";
 const FOR_SINCE = { course: B1, lesson: "da-duoc-bao-lau", title: "Hiện tại hoàn thành với for và since" };
-const ED_ING = { course: B1, lesson: "cong-viec-va-phong-van", title: "Tính từ -ed và -ing, nói về kinh nghiệm" };
-const WOULD = { course: B1, lesson: "would-va-used-to", title: "Would + V cho thói quen trong quá khứ, used to và quá khứ đơn khi kể chuyện" };
+const QUANTIFIERS = { course: B1, lesson: "cong-viec-va-phong-van", title: "Each, every, both, either, neither và few, most, none" };
+const WOULD = { course: B1, lesson: "would-va-used-to", title: "Used to, would và quá khứ đơn cho thói quen cũ; be used to, get used to + V-ing cho chuyện đã quen, đang quen" };
 const PAST_PERFECT = { course: B1, lesson: "qua-khu-hoan-thanh", title: "Quá khứ hoàn thành: had + V3" };
 const PPC = { course: B1, lesson: "hien-tai-hoan-thanh-tiep-dien", title: "Hiện tại hoàn thành tiếp diễn: have been + V-ing" };
 const DEDUCTION = { course: B1, lesson: "suy-doan-hien-tai", title: "Động từ khuyết thiếu chỉ sự suy đoán ở hiện tại" };
 const TAGS = { course: B1, lesson: "cau-hoi-duoi", title: "Question tags: đuôi phủ định, đuôi khẳng định và ngữ điệu" };
 const FUTURE = { course: B1, lesson: "tuong-lai-tiep-dien-hoan-thanh", title: "Will be doing, will have done, by + thời gian, this time next week" };
-const CONDITIONALS = { course: B1, lesson: "neu-thi", title: "Câu điều kiện loại 1 và loại 2" };
-const WISH = { course: B1, lesson: "wish-va-used-to", title: "Wish / if only + quá khứ đơn và quá khứ hoàn thành; be used to và get used to + V-ing" };
+const CONDITIONALS = { course: B1, lesson: "neu-thi", title: "Câu điều kiện loại 1, loại 2 và câu ước wish / if only + quá khứ đơn" };
 const VERB_PATTERNS = { course: B1, lesson: "dong-tu-theo-sau", title: "Động từ + to V và động từ + V-ing" };
-const PHRASAL = { course: B1, lesson: "cum-dong-tu-thong-dung", title: "Cụm động từ: get up, look for, give up, turn on/off, find out, pick up" };
+const PHRASAL = { course: B1, lesson: "cum-dong-tu-thong-dung", title: "Cụm động từ B1: put off, turn down, deal with, run out of, come up with" };
 const PASSIVE_BASIC = { course: B1, lesson: "tin-tuc-va-su-viec", title: "Câu bị động ở hiện tại đơn và quá khứ đơn" };
 const PASSIVE_ALL = { course: B1, lesson: "bi-dong-moi-thi", title: "Bị động với hiện tại hoàn thành, tương lai, động từ khuyết thiếu và have something done" };
 const INDIRECT = { course: B1, lesson: "cau-hoi-gian-tiep", title: "Câu hỏi gián tiếp: Could you tell me…, Do you know if…" };
@@ -61,10 +60,10 @@ export const DRILLS_B1: SentenceDrill[] = [
     en: "The new manager's speech was inspiring, but most of the staff still felt worried about their jobs.",
     verb: "was (vế đầu) và felt (vế sau)",
     subject: "The new manager's speech (vế đầu), most of the staff (vế sau)",
-    sign: "Tính từ đuôi -ing (inspiring) tả cái gây ra cảm xúc: bài phát biểu truyền cảm hứng. Tính từ đuôi -ed (worried) tả cảm xúc của người: nhân viên thấy lo. Cắt câu ở but.",
+    sign: "Most of + the + danh từ xác định (most of the staff: phần lớn nhân viên của công ty này), không nói most of staff. Cắt câu ở but: vế đầu có động từ was, vế sau có felt. Inspiring (-ing) tả bài phát biểu gây ra cảm xúc, worried (-ed) tả cảm xúc của người.",
     chunks: ["The new manager's speech", "was", "inspiring,", "but most of the staff", "still felt", "worried", "about their jobs"],
     meaning: "Bài phát biểu của vị quản lý mới rất truyền cảm hứng, nhưng phần lớn nhân viên vẫn thấy lo lắng cho công việc của mình.",
-    review: ED_ING,
+    review: QUANTIFIERS,
   },
   {
     id: "b1-train-had-left",
@@ -152,7 +151,7 @@ export const DRILLS_B1: SentenceDrill[] = [
     sign: "Get used to + V-ing: dần quen với việc gì. To ở đây là giới từ nên theo sau là eating, không phải eat. Đừng lẫn với used to + V (hồi trước hay làm, nay không còn).",
     chunks: ["After two months in Seoul,", "she", "is slowly getting used to", "eating breakfast", "at six in the morning"],
     meaning: "Sau hai tháng ở Seoul, cô ấy đang dần quen với việc ăn sáng lúc sáu giờ.",
-    review: WISH,
+    review: WOULD,
   },
   {
     id: "b1-if-had-more-time",
@@ -177,15 +176,15 @@ export const DRILLS_B1: SentenceDrill[] = [
     review: CONDITIONALS,
   },
   {
-    id: "b1-wish-hadnt-agreed",
+    id: "b1-wish-didnt-have-to",
     level: "B1",
-    en: "I wish I hadn't agreed to work this weekend, because my friends are going to the beach without me.",
-    verb: "wish (động từ chính); hadn't agreed nằm trong điều ước, are going ở vế because",
+    en: "I wish I didn't have to work this weekend, because my friends are going to the beach without me.",
+    verb: "wish (động từ chính); didn't have to nằm trong điều ước, are going ở vế because",
     subject: "I (vế chính), my friends (vế because)",
-    sign: "Wish + had + V3 (hadn't agreed): tiếc một việc đã làm trong quá khứ; thực tế là tôi đã nhận lời. Agree + to V (agreed to work). Are going là hiện tại tiếp diễn chỉ kế hoạch đã định.",
-    chunks: ["I wish", "I hadn't agreed", "to work this weekend,", "because my friends", "are going", "to the beach", "without me"],
-    meaning: "Giá mà tôi đã không nhận lời đi làm cuối tuần này, vì bạn bè tôi sẽ đi biển mà không có tôi.",
-    review: WISH,
+    sign: "Wish + quá khứ đơn (didn't have to): ước điều trái với hiện tại; thực tế là cuối tuần này tôi phải đi làm. Quá khứ về hình thức nhưng nói về bây giờ. Are going là hiện tại tiếp diễn chỉ kế hoạch đã định.",
+    chunks: ["I wish", "I didn't have to work", "this weekend,", "because my friends", "are going", "to the beach", "without me"],
+    meaning: "Ước gì cuối tuần này tôi không phải đi làm, vì bạn bè tôi sẽ đi biển mà không có tôi.",
+    review: CONDITIONALS,
   },
   {
     id: "b1-library-was-opened",

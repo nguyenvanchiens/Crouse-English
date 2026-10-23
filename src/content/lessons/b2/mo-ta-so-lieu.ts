@@ -65,7 +65,7 @@ export default lesson({
   ],
   exercises: [
     mc("b2-n10-1", "Profits fell ___ ten per cent, from two million to one point eight million dollars.", ["to", "by", "of", "at"], 1, "Mười phần trăm là mức giảm, nên dùng by. To đi với con số còn lại sau khi giảm."),
-    mc("b2-n10-2", "There was a ___ increase in sales after the advertising campaign.", ["sharpen", "sharply", "sharp"], 2, "Trước danh từ increase phải là tính từ: a sharp increase."),
+    mc("b2-n10-2", "There was a ___ increase in sales after the advertising campaign.", ["sharply", "sharpness", "sharp"], 2, "Trước danh từ increase phải là tính từ: a sharp increase."),
     fill("b2-n10-3", "Unemployment rose ___ five per cent in January to six per cent in June. (từ)", ["from"], "From… to: nêu điểm đầu và điểm cuối của sự thay đổi."),
     fill("b2-n10-4", "Sales ___ at twelve thousand units in August and then began to fall. (đạt đỉnh)", ["peaked"], "Peak at + con số: đạt đỉnh ở mức nào. Chuyện đã qua nên dùng quá khứ đơn."),
     reorder("b2-n10-5", "There was a slight fall in prices.", "There was + a + tính từ + danh từ + in + thứ thay đổi."),
@@ -74,6 +74,10 @@ export default lesson({
     listen("b2-n10-8", "Just over a third of the staff work from home.", ["Gần một phần ba số nhân viên làm việc ở nhà.", "Chỉ một phần ba số nhân viên đến văn phòng.", "Đúng một phần ba số nhân viên làm việc ở nhà.", "Nhỉnh hơn một phần ba số nhân viên làm việc ở nhà."], 3, "Just over: hơn một chút. Ngược lại là just under: hụt một chút."),
     correct("b2-n10-9", "Sales increased dramatic in the second quarter.", ["Sales increased dramatically in the second quarter."], "Bổ nghĩa cho động từ increased phải là trạng từ có đuôi -ly: dramatically. Tính từ dramatic chỉ đứng trước danh từ: a dramatic increase."),
     correct("b2-n10-10", "There was a rise by twelve per cent in online orders.", ["There was a rise of twelve per cent in online orders.", "There was a twelve per cent rise in online orders."], "Sau danh từ a rise dùng of để nêu mức thay đổi. By chỉ đi với động từ: Online orders rose by twelve per cent."),
+    fill("b2-n10-11", "The price of rice remained ___ at around twenty thousand dong a kilo all year. (không thay đổi, ổn định)", ["stable", "steady", "constant", "unchanged", "flat"], "Remain + tính từ: remained stable / steady / constant / unchanged: giữ nguyên, không lên không xuống."),
+    fill("b2-n10-12", "There was a gradual ___ in the number of visitors, from five hundred to eight hundred a day. (sự tăng lên)", ["increase", "rise"], "Sau a gradual cần một danh từ: a gradual increase / rise. Không dùng động từ increased."),
+    correct("b2-n10-13", "The number of tourists have doubled since twenty twenty.", ["The number of tourists has doubled since twenty twenty."], "Chủ ngữ là the number (con số), số ít, nên dùng has. Đừng để danh từ tourists đứng gần làm bạn chia theo số nhiều. Ngược lại: A number of tourists have… (nhiều du khách)."),
+    reorder("b2-n10-14", "The price of petrol has almost doubled.", "Almost đứng giữa has và V3: has almost doubled, nghĩa là tăng gần gấp đôi."),
   ],
   speaking: [
     say("Sales rose sharply in the first quarter.", "Doanh số tăng mạnh trong quý một."),
@@ -105,19 +109,21 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b2-n10-d1", "What happened to sales in the shops in May?", "There was a sharp fall in May, from nine thousand to just under seven thousand units.", ["They rose steadily to nine thousand units.", "They fell slightly by seven hundred units.", "They levelled off at around seven thousand units.", "They fell sharply to just under seven thousand units."], 3, "A sharp fall… from nine thousand to just under seven thousand: giảm mạnh, xuống còn chưa đến bảy nghìn."),
     mc("b2-n10-d2", "According to Minh, what was the main reason for the fall?", ["The price increase", "Heavy rain", "Problems with the website", "Fewer shop staff"], 1, "Mainly because of the heavy rain. Việc tăng giá chỉ ảnh hưởng một chút."),
-    mc("b2-n10-d3", "How much did demand drop after the price rise?", ["By about fifteen per cent", "By three per cent", "By roughly one per cent", "It did not change at all"], 2, "We raised prices by three per cent, and demand dropped by roughly one per cent. Ba phần trăm là mức tăng giá, không phải mức giảm nhu cầu."),
+    mc("b2-n10-d3", "What can we infer about the price increase?", ["It caused most of the fall in shop sales.", "It did not seriously hurt demand.", "It will be cancelled next quarter.", "It made online sales fall."], 1, "Câu suy luận: giá tăng ba phần trăm mà nhu cầu chỉ giảm khoảng một phần trăm (Only slightly), và lý do chính của đợt giảm tháng Năm là mưa lớn. Vậy việc tăng giá không ảnh hưởng nhiều."),
   ],
   reading: reading({
     title: "Annual report extract: Lantern Leaf Coffee in 2025",
     text: `Lantern Leaf Coffee, a chain of forty cafés in Hanoi and Ho Chi Minh City, had a mixed year in 2025. Total revenue rose by eight per cent, to approximately 320 billion dong, but the figures behind this growth tell a more complicated story.
 
-Sales in the cafés themselves were fairly flat. In the first quarter, the number of customers fluctuated between 210,000 and 240,000 a month, mainly because of the Lunar New Year holiday, when many regular customers leave the cities. Numbers then rose gradually during the spring and peaked at just over 260,000 in July, helped by a hot summer and a popular new range of iced drinks. However, there was a sharp fall in September and October, when heavy rain and flooding kept people at home. By December, monthly visits had recovered to around 245,000, roughly the same level as in December 2024.
+Sales in the cafés themselves were fairly flat. In the first quarter, the number of customers fluctuated between 210,000 and 240,000 a month, mainly because of the Lunar New Year holiday, when many regular customers leave the cities. Numbers then rose gradually during the spring and peaked at just over 260,000 in July, helped by a hot summer and a popular new range of iced drinks. However, there was a sharp fall in September and October, when heavy rain and flooding kept people at home. By December, monthly visits had recovered to around 245,000, roughly the same level as in December 2024. The chain also opened three new cafés during the year, all in new residential areas on the edge of Ho Chi Minh City.
+
+A closer look at the menu shows how customer tastes are changing. Traditional drinks such as black coffee and coffee with condensed milk still accounted for around forty per cent of café sales, but this share has been falling slowly for three years. Tea-based drinks, by contrast, grew by almost a fifth and are especially popular with customers under twenty-five. Cold brew, introduced in only ten cafés in March, sold so well that it was available in all forty branches by the end of August.
 
 The real growth came from online orders. Deliveries through food apps increased dramatically, from about 30,000 orders a month in January to nearly 75,000 in December. As a result, online sales now make up a significant proportion of the business: just under a quarter of total revenue, compared with only twelve per cent a year earlier.
 
 This change has not been entirely positive. Delivery apps charge a commission of up to twenty-five per cent, so each online order is less profitable than a sale in a café. Profits therefore grew by only three per cent, far less than revenue.
 
-Looking ahead, the company expects in-store sales to remain stable in 2026, while online orders are likely to continue rising, although probably more slowly. The management team is considering launching its own delivery app in order to reduce its dependence on the large platforms. A final decision is expected before the end of the first quarter.`,
+Looking ahead, the company expects in-store sales to remain stable in 2026, while online orders are likely to continue rising, although probably more slowly. The management team is considering launching its own delivery app in order to reduce its dependence on the large platforms. A final decision is expected before the end of the first quarter, and investors will be watching closely.`,
     glossary: [
       ["revenue", "doanh thu"],
       ["flat", "đi ngang, hầu như không đổi"],
@@ -126,6 +132,7 @@ Looking ahead, the company expects in-store sales to remain stable in 2026, whil
       ["commission", "phí hoa hồng"],
       ["profitable", "có lãi"],
       ["dependence", "sự phụ thuộc"],
+      ["condensed milk", "sữa đặc"],
     ],
     questions: [
       mc("b2-n10-r1", "What is the main point of the report?", ["Lantern Leaf Coffee's growth in 2025 came mostly from online orders, not from its cafés.", "Lantern Leaf Coffee lost money in 2025 because of the weather.", "Café customers prefer iced drinks to hot drinks.", "Delivery apps are the cheapest way to sell coffee."], 0, "Doanh thu tăng nhưng khách tại quán gần như đi ngang: The real growth came from online orders."),

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Check } from "lucide-react";
+import { Check, ExternalLink } from "lucide-react";
+import { FaqItem } from "@/components/ui/faq-item";
 import { EnrollPanel } from "@/components/course/enroll-panel";
 import { GOAL_META, LEVEL_LABEL } from "@/components/course/goal-meta";
 import { Syllabus } from "@/components/course/syllabus";
@@ -39,7 +40,7 @@ export default async function CoursePage(props: PageProps<"/khoa-hoc/[slug]">) {
             <span className="rounded-full border-2 border-ink bg-sun px-3 py-1 text-sm font-semibold">Sắp ra mắt</span>
           )}
         </p>
-        <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl">{course.title}</h1>
+        <h1 className="mt-5 text-balance font-display text-[2.5rem] font-extrabold leading-[1.05] sm:text-6xl">{course.title}</h1>
         <p className="mt-5 max-w-2xl text-lg text-ink-soft">{course.summary}</p>
       </header>
 
@@ -54,8 +55,8 @@ export default async function CoursePage(props: PageProps<"/khoa-hoc/[slug]">) {
           <h2 id="outcomes" className="font-display text-3xl font-extrabold">Học xong bạn làm được</h2>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {course.outcomes.map((o) => (
-              <li key={o} className="flex items-start gap-3 rounded-2xl border-[2.5px] border-ink bg-card px-4 py-3 font-medium">
-                <Check className="mt-0.5 size-5 shrink-0 text-leaf" aria-hidden />
+              <li key={o} className="clay-soft flex items-start gap-3 px-4 py-3 font-medium">
+                <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-leaf-soft"><Check className="size-4 text-leaf" strokeWidth={3} aria-hidden /></span>
                 {o}
               </li>
             ))}
@@ -98,14 +99,19 @@ export default async function CoursePage(props: PageProps<"/khoa-hoc/[slug]">) {
               {course.selfStudy.routine.map((r) => <li key={r}>{r}</li>)}
             </ul>
             <h3 className="mt-6 font-display text-xl font-bold">Tài liệu miễn phí nên dùng</h3>
-            <ul className="mt-3 grid gap-4 sm:grid-cols-2">
+            <ul className="mt-3 grid gap-3 sm:grid-cols-2">
               {course.selfStudy.resources.map((r) => (
-                <li key={r.url} className="rounded-2xl border-[2.5px] border-ink bg-card p-4">
-                  <a href={r.url} target="_blank" rel="noopener noreferrer" className="font-display text-lg font-bold underline underline-offset-4 hover:text-tangerine-deep">
-                    {r.name}
+                <li key={r.url}>
+                  {/* the whole card is the link: an easy target on a phone */}
+                  <a href={r.url} target="_blank" rel="noopener noreferrer" className="clay-soft group flex h-full flex-col p-4 hover:bg-sun-soft">
+                    <span className="flex items-start justify-between gap-3">
+                      <span className="font-display text-lg font-bold leading-snug underline-offset-4 group-hover:underline">{r.name}</span>
+                      <ExternalLink className="mt-1 size-4 shrink-0 text-ink-soft" aria-hidden />
+                    </span>
+                    <span className="mt-1 w-fit rounded-full bg-sky px-2 py-0.5 text-sm font-semibold">{RESOURCE_KIND[r.kind]}</span>
+                    <span className="mt-2 text-ink-soft">{r.how}</span>
+                    <span className="sr-only"> (mở trang mới)</span>
                   </a>
-                  <span className="ml-2 rounded-full bg-sky px-2 py-0.5 text-xs font-semibold">{RESOURCE_KIND[r.kind]}</span>
-                  <p className="mt-1 text-ink-soft">{r.how}</p>
                 </li>
               ))}
             </ul>
@@ -119,20 +125,15 @@ export default async function CoursePage(props: PageProps<"/khoa-hoc/[slug]">) {
           <div>
             <h2 id="teacher" className="font-display text-2xl font-extrabold">{course.teacher.name}</h2>
             <p className="mt-1 text-ink-soft">{course.teacher.bio}</p>
+            <p className="mt-2 text-sm text-ink-soft">Đây là nhân vật dẫn dắt của khóa học, không phải một giáo viên có thật.</p>
           </div>
         </section>
 
         <section aria-labelledby="faq">
           <h2 id="faq" className="font-display text-3xl font-extrabold">Câu hỏi thường gặp</h2>
-          <div className="mt-6 space-y-4">
+          <div className="mt-6 space-y-3">
             {course.faqs.map((f) => (
-              <details key={f.q} className="clay group p-0 [box-shadow:var(--shadow-clay-sm)]">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-[1.5rem] px-6 py-5 font-display text-xl font-bold">
-                  {f.q}
-                  <span aria-hidden className="grid size-8 shrink-0 place-items-center rounded-full border-[2.5px] border-ink bg-sun text-lg transition-transform duration-200 group-open:rotate-45">+</span>
-                </summary>
-                <p className="px-6 pb-6 text-ink-soft">{f.a}</p>
-              </details>
+              <FaqItem key={f.q} q={f.q} a={f.a} />
             ))}
           </div>
         </section>

@@ -66,6 +66,10 @@ export default lesson({
     listen("b1-n08-8", "That's the restaurant where we had our first date.", ["Chúng tôi định hẹn hò lần đầu ở nhà hàng đó.", "Nhà hàng đó đã đóng cửa sau buổi hẹn đầu tiên.", "Đó là nhà hàng nơi chúng tôi có buổi hẹn hò đầu tiên."], 2, "Where + mệnh đề: nơi xảy ra sự việc."),
     correct("b1-n08-9", "My brother, that lives in Hue, is a doctor.", "My brother, who lives in Hue, is a doctor.", "Mệnh đề giữa hai dấu phẩy là mệnh đề không xác định (chỉ thêm thông tin), nên không dùng that. Anh trai là người, dùng who."),
     correct("b1-n08-10", "The man who he fixed my motorbike was very kind.", "The man who fixed my motorbike was very kind.", "Who đã làm chủ ngữ của fixed rồi, không thêm he nữa."),
+    fill("b1-n08-11", "Do you remember the café ___ first met? (chúng ta gặp nhau lần đầu ở quán đó)", ["where we"], "Nơi xảy ra sự việc: where + chủ ngữ + động từ. Không dùng which hay that ở đây vì met không có giới từ at đi kèm."),
+    correct("b1-n08-12", "The village which my father grew up is very small now.", ["The village where my father grew up is very small now.", "The village which my father grew up in is very small now.", "The village that my father grew up in is very small now.", "The village my father grew up in is very small now."], "Nói về nơi chốn mà sau đó không có giới từ thì dùng where. Nếu muốn giữ which / that, phải thêm in ở cuối: grew up in."),
+    correct("b1-n08-13", "I met a man who his daughter studies in Japan.", "I met a man whose daughter studies in Japan.", "Con gái của người đàn ông đó: dùng whose + danh từ, thay cho who his. Tiếng Việt nói “người mà con gái ông ấy” nên dễ ghép who với his."),
+    reorder("b1-n08-14", "We visited the village where my mother was born.", "Where đứng ngay sau danh từ chỉ nơi chốn the village, theo sau là chủ ngữ my mother và động từ was born."),
   ],
   speaking: [
     say("My sister is a teacher who works in a village school.", "Chị gái tôi là giáo viên dạy ở một trường làng."),
@@ -82,7 +86,7 @@ export default lesson({
     "Minh là hướng dẫn viên du lịch, đang dẫn chị Sarah, một du khách người Úc, đi dạo phố cổ Hà Nội.",
     { A: "Minh", B: "Sarah" },
     A("This is the street where you can buy traditional silk.", "Đây là con phố nơi chị có thể mua lụa truyền thống."),
-    B("Lovely! Who is the old man who is sitting outside that shop?", "Đẹp quá! Ông cụ đang ngồi trước cửa hàng kia là ai vậy?"),
+    B("Lovely! Who's that old man outside the shop? The one who's drinking tea.", "Đẹp quá! Ông cụ trước cửa tiệm kia là ai vậy? Ông đang uống trà ấy."),
     A("He's the owner. He's a man whose family has run the shop for a hundred years.", "Ông ấy là chủ tiệm. Gia đình ông đã mở tiệm này suốt một trăm năm."),
     B("Amazing. And what's the dish that everyone is eating over there?", "Tuyệt thật. Còn món mà mọi người đang ăn đằng kia là gì?"),
     A("That's bun cha. It's the dish which President Obama tried in Hanoi.", "Đó là bún chả. Đó là món mà Tổng thống Obama đã ăn thử ở Hà Nội."),
@@ -94,22 +98,27 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("b1-n08-d1", "Who is the old man sitting outside the shop?", "He's the owner. He's a man whose family has run the shop for a hundred years.", ["A tourist from Australia", "The owner, whose family has run the shop for a long time", "A famous cook from another street", "Minh's grandfather"], 1, "He's the owner… whose family has run the shop for a hundred years."),
-    mc("b1-n08-d2", "Why is bun cha special, according to Minh?", ["President Obama tried it in Hanoi.", "It is only sold on this street.", "It is the cheapest dish in the old quarter.", "Sarah's friends asked her to try it."], 0, "It's the dish which President Obama tried in Hanoi."),
+    mc("b1-n08-d2", "What can we guess about Minh?", ["He has never eaten bun cha.", "He owns one of the silk shops.", "He knows a lot of local people in the old quarter.", "He is visiting Hanoi for the first time."], 2, "Câu suy luận: Minh biết lai lịch ông chủ tiệm lụa, quen chị chủ quán cà phê gần hồ, và Sarah khen anh là hướng dẫn viên cái gì cũng biết."),
     listenQ("b1-n08-d3", "Why does Sarah want to buy coffee?", "Great. I also need a shop that sells good coffee. It's for my friends at home.", ["She wants to drink it at her hotel.", "Minh asked her to buy some.", "It's a present for her friends at home."], 2, "It's for my friends at home: Sarah mua cà phê làm quà cho bạn bè."),
   ],
   reading: reading({
     title: "A weekend in Hoi An",
-    text: `Hoi An, which is about thirty kilometres from the centre of Da Nang, is one of the most popular towns in Vietnam. Last month I spent a weekend there with my friend Anna, who was visiting from Germany.
+    text: `Hi Tom,
 
-We stayed in a small guesthouse that was run by a family of four. The owner, whose name was Mrs Dang, cooked breakfast for us every morning. Her cao lau, which is a noodle dish you can only find in Hoi An, was the best thing I ate all weekend.
+You asked me for ideas for your trip to Vietnam next spring, so here's my advice: don't miss Hoi An. It's about thirty kilometres from Da Nang, and a taxi gets you there in under an hour. I spent a weekend there last month with my friend Anna, who was visiting from Germany, and we both want to go back.
 
-On the first day, we walked around the old town, where many of the houses are more than two hundred years old. We visited the Japanese Covered Bridge, which appears on the twenty-thousand-dong note. Anna, who loves taking photos, took about three hundred pictures!
+We stayed in a small guesthouse run by a family of four. The owner, whose name was Mrs Dang, cooked breakfast for us every morning. Her cao lau, a noodle dish you can only find in Hoi An, was the best thing I ate all weekend. She also drew us a map of the town by hand, and it was far more useful than the one on my phone.
 
-In the afternoon, we went to a tailor's shop that makes clothes in twenty-four hours. The woman who measured us was fast and friendly. Anna ordered a dress, and I ordered a shirt. Both were ready the next evening, which surprised us.
+On the first day, we walked around the old town, where many of the houses are more than two hundred years old. Try to go early, before the tour groups arrive. We saw the Japanese Covered Bridge, which appears on the twenty-thousand-dong note, so have a look in your wallet before you go! Anna loves taking photos, and she took about three hundred pictures.
 
-At night, the streets are full of lanterns. You can buy a small paper lantern with a candle and put it on the river, which people believe brings good luck.
+In the afternoon, we found a tailor's shop that makes clothes in twenty-four hours. The woman who measured us was fast and friendly, and her English was excellent. Anna ordered a dress and I ordered a shirt. Both were ready the next evening, which surprised us, and they fitted perfectly.
 
-If you are looking for a place where history, food and shopping meet, Hoi An is perfect. Just remember to bring an empty suitcase!`,
+At night, the streets are full of colourful lanterns. You can buy a small paper lantern with a candle inside and put it on the river. Local people believe it brings good luck.
+
+If you like history, good food and shopping, you'll love it. Just remember to bring an empty suitcase!
+
+Best wishes,
+Linh`,
     glossary: [
       ["guesthouse", "nhà nghỉ, nhà trọ nhỏ"],
       ["note", "tờ tiền giấy"],
@@ -119,7 +128,7 @@ If you are looking for a place where history, food and shopping meet, Hoi An is 
       ["candle", "cây nến"],
     ],
     questions: [
-      mc("b1-n08-r1", "What is the text mainly about?", ["The history of the Japanese Covered Bridge", "The writer's weekend in Hoi An", "How to open a guesthouse", "Anna's life in Germany"], 1, "Cả bài kể về chuyến đi cuối tuần ở Hội An của người viết."),
+      mc("b1-n08-r1", "What is the email mainly about?", ["The history of the Japanese Covered Bridge", "Linh's advice on visiting Hoi An, based on her weekend there", "How to open a guesthouse", "Anna's life in Germany"], 1, "Linh viết thư khuyên Tom nên đến Hội An và kể lại chuyến đi cuối tuần của mình để làm ví dụ."),
       mc("b1-n08-r2", "Who cooked breakfast every morning?", ["Anna", "The woman at the tailor's shop", "Mrs Dang, the owner of the guesthouse"], 2, "The owner, whose name was Mrs Dang, cooked breakfast for us every morning."),
       fill("b1-n08-r3", "Cao lau is a noodle dish which you can only find in ___.", ["Hoi An"], "Her cao lau, which is a noodle dish you can only find in Hoi An…"),
       mc("b1-n08-r4", "What surprised the writer and Anna?", ["The price of the lanterns", "The number of tourists in the old town", "That Mrs Dang could speak German", "That their clothes were ready the next evening"], 3, "Both were ready the next evening, which surprised us: which thay cho cả vế trước."),

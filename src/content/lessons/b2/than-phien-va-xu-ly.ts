@@ -56,6 +56,10 @@ export default lesson({
     listen("b2-n16-8", "As a gesture of goodwill, we would like to offer you a free night.", ["Chúng tôi muốn quý khách trả thêm một đêm.", "Quý khách được giảm giá một nửa.", "Chúng tôi không thể hoàn tiền cho quý khách.", "Để thể hiện thiện chí, chúng tôi xin tặng quý khách một đêm nghỉ miễn phí."], 3, "As a gesture of goodwill: để thể hiện thiện chí, thường đi kèm một món đền bù."),
     correct("b2-n16-9", "I am writing to complain for the poor service at your restaurant.", ["I am writing to complain about the poor service at your restaurant."], "Complain đi với about (phàn nàn về điều gì). Tiếng Việt “phàn nàn vì…” dễ khiến học trò dùng for."),
     correct("b2-n16-10", "The parcel was deliver to the wrong address.", ["The parcel was delivered to the wrong address."], "Câu bị động là be + V3: was delivered. Người Việt hay nuốt âm cuối nên viết cũng quên đuôi -ed."),
+    fill("b2-n16-11", "Thank you for ___ this matter to our attention. (bring)", ["bringing"], "Thank you for + V-ing, vì for là giới từ. Bring something to someone's attention: báo cho ai biết một vấn đề."),
+    fill("b2-n16-12", "If you return the item within thirty days, we will give you a full ___. (tiền hoàn lại)", ["refund"], "A full refund: hoàn lại toàn bộ tiền. Refund vừa là danh từ vừa là động từ."),
+    correct("b2-n16-13", "I look forward to hear from you soon.", ["I look forward to hearing from you soon."], "To trong look forward to là giới từ, nên theo sau là V-ing: hearing. Đây là câu kết thư khiếu nại hay bị viết sai nhất."),
+    reorder("b2-n16-14", "Your complaint has been passed on to our manager.", "Bị động thì hiện tại hoàn thành: has been + V3. Pass on to: chuyển tiếp cho ai."),
   ],
   speaking: [
     say("I am writing to complain about the late delivery of my order.", "Tôi viết thư để khiếu nại về việc đơn hàng của tôi bị giao chậm."),
@@ -87,7 +91,7 @@ export default lesson({
   dialogueQuestions: [
     mc("b2-n16-d1", "What are Mr Weber's two complaints?", ["His room is too small and too noisy.", "His room smells of cigarettes, and the air conditioning hasn't been fixed.", "The breakfast is poor and the staff are rude.", "His bill is wrong and the Wi-Fi doesn't work."], 1, "Phòng không hút thuốc lại có mùi thuốc lá, và điều hòa được hứa sửa hôm qua nhưng nothing has been done."),
     listenQ("b2-n16-d2", "Why can't Mr Weber move to another standard room?", "I would like to move to another room today, please. I'm afraid all our standard rooms are full tonight.", ["The hotel doesn't allow guests to change rooms.", "The standard rooms are being cleaned.", "He booked the cheapest room.", "All the standard rooms are full tonight."], 3, "I'm afraid all our standard rooms are full tonight. Vì vậy khách sạn chuyển ông sang phòng hạng sang mà không tính thêm tiền."),
-    mc("b2-n16-d3", "What does the hotel offer as a gesture of goodwill?", ["A full refund", "A free airport transfer", "Free breakfast for the rest of his stay", "A discount on his next visit"], 2, "As a gesture of goodwill, we would also like to offer you free breakfast for the rest of your stay."),
+    mc("b2-n16-d3", "How does Mr Weber probably feel at the end of the conversation?", ["Still angry, because his room hasn't been changed", "Satisfied with the way the problem was handled", "Embarrassed, because he complained too much", "Worried about paying extra for the suite"], 1, "Câu suy luận: ông nói That's very kind. I appreciate how quickly this was handled. Phòng hạng sang không tính thêm phí (at no extra cost), nên ông không phải lo trả thêm."),
   ],
   reading: reading({
     title: "A reply from customer relations",
@@ -97,9 +101,11 @@ Thank you for your email of 14 October regarding your flight from Hanoi to Seoul
 
 I have looked into the matter carefully. Our records show that the flight was delayed by just over five hours because of a technical problem with the aircraft. You mentioned in your email that passengers were given very little information at the airport. You are quite right. Updates should have been given every thirty minutes, but I understand that this did not happen, and I have passed your comments on to our airport team.
 
+You also mentioned that the staff at the transfer desk were unhelpful when you asked about meals for your children. I have spoken to the supervisor on duty that evening, and she has confirmed that meal vouchers should have been offered to all passengers after the first three hours. I can only apologise that this was not done. Since your flight, we have introduced a new procedure: whenever a delay is longer than two hours, a member of staff makes an announcement at the gate every half hour, and passengers receive text messages with the latest information.
+
 I also noted that your suitcase was damaged during the journey. I am afraid that we are unable to replace the suitcase itself, as it was more than five years old. However, we would be happy to pay for it to be repaired at any repair shop of your choice. Please send us the receipt, and the full cost will be refunded within ten working days.
 
-Under our passenger policy, delays of more than five hours entitle passengers to compensation. I am therefore pleased to confirm that a payment of 250 US dollars per passenger has been approved for you and your two children. The money will be transferred to your bank account by the end of this month.
+Under our passenger policy, delays of more than five hours entitle passengers to compensation. I am therefore pleased to confirm that a payment of 250 US dollars per passenger has been approved for you and your two children, in line with the rules that apply to all our international flights. The money will be transferred to your bank account by the end of this month.
 
 In addition, as a gesture of goodwill, we would like to offer you a voucher worth 100 US dollars, which can be used for any future booking within the next twelve months.
 
@@ -116,6 +122,7 @@ Daniel Hart, Customer Relations Manager, SkyLotus Airways`,
       ["voucher", "phiếu quà tặng, phiếu mua hàng"],
       ["custom", "sự ủng hộ, việc mua hàng của khách"],
       ["hesitate", "ngần ngại"],
+      ["procedure", "quy trình"],
     ],
     questions: [
       mc("b2-n16-r1", "What is the main purpose of this letter?", ["To respond to a complaint and explain what the airline will do", "To advertise new flights to Seoul", "To ask Ms Pham for more information about the delay", "To refuse all of Ms Pham's requests"], 0, "Thư cảm ơn, xin lỗi, giải thích nguyên nhân và nêu các giải pháp: đúng công thức trả lời khiếu nại."),

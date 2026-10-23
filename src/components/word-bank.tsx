@@ -41,9 +41,10 @@ export function WordBank({ courseSlug, topics }: { courseSlug: string; topics: W
                 {on ? "Đã thêm vào lịch ôn" : "Thêm vào lịch ôn"}
               </button>
             </div>
-            <div className="mt-5 overflow-x-auto" tabIndex={0} role="region" aria-label="Bảng từ vựng, cuộn ngang để xem hết">
-              <table className="w-full min-w-[34rem] border-collapse text-left">
-                <thead>
+            {/* a table from sm up; on a phone each word is a small card (word and IPA, then meaning, then example) */}
+            <div className="mt-5">
+              <table className="w-full border-collapse text-left max-sm:block">
+                <thead className="max-sm:sr-only">
                   <tr className="border-b-2 border-ink">
                     <th scope="col" className="py-2 pr-3 font-display">Từ</th>
                     <th scope="col" className="py-2 pr-3 font-display">Phiên âm</th>
@@ -51,24 +52,24 @@ export function WordBank({ courseSlug, topics }: { courseSlug: string; topics: W
                     <th scope="col" className="py-2 font-display">Ví dụ</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="max-sm:block">
                   {t.words.map((w) => (
-                    <tr key={w.word} className="border-b border-ink/15 align-top last:border-0">
-                      <td className="py-2 pr-3">
+                    <tr key={w.word} className="border-b border-ink/15 align-top last:border-0 max-sm:flex max-sm:flex-wrap max-sm:items-center max-sm:gap-x-3 max-sm:py-2.5">
+                      <td className="py-1 pr-3 max-sm:p-0">
                         <button
                           type="button"
                           onClick={() => speak(w.word)}
                           disabled={!tts}
-                          className="inline-flex items-center gap-1.5 font-semibold hover:text-tangerine-deep"
+                          className="-ml-2 inline-flex min-h-11 items-center gap-1.5 rounded-xl px-2 font-semibold hover:bg-sun-soft hover:text-tangerine-deep max-sm:font-display max-sm:text-lg"
                         >
                           <Volume2 className="size-4 shrink-0" aria-hidden />
                           <span lang="en">{w.word}</span>
                           <span className="sr-only">, bấm để nghe</span>
                         </button>
                       </td>
-                      <td className="py-2 pr-3 text-ink-soft">{w.ipa}</td>
-                      <td className="py-2 pr-3">{w.meaning}</td>
-                      <td lang="en" className="py-2 text-ink-soft">{w.example}</td>
+                      <td className="py-3 pr-3 text-ink-soft max-sm:p-0">{w.ipa}</td>
+                      <td className="py-3 pr-3 max-sm:w-full max-sm:p-0 max-sm:font-medium">{w.meaning}</td>
+                      <td lang="en" className="py-3 text-ink-soft max-sm:w-full max-sm:p-0 max-sm:pt-0.5 max-sm:text-[0.9375rem]">{w.example}</td>
                     </tr>
                   ))}
                 </tbody>
