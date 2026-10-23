@@ -52,15 +52,19 @@ export default lesson({
   ],
   exercises: [
     mc("a2-n11-1", "This bag is ___. I can't carry it.", ["too heavy", "heavy enough", "enough heavy"], 0, "Nặng quá mức nên không mang được: too heavy."),
-    mc("a2-n11-2", "Is the room ___ for four people?", ["enough big", "too big enough", "big enough", "too enough"], 2, "Enough đứng sau tính từ: big enough."),
+    mc("a2-n11-2", "Is the room ___ for four people?", ["enough big", "too big enough", "big enough"], 2, "Enough đứng sau tính từ: big enough."),
     fill("a2-n11-3", "There are too ___ people on this bus.", ["many"], "People là danh từ đếm được số nhiều nên dùng too many."),
-    fill("a2-n11-4", "I don't have ___ money to buy a new car. (đủ)", ["enough"], "Enough đứng trước danh từ: enough money."),
+    fill("a2-n11-4", "I don't have ___ money to buy a new car. (tiền chưa đạt mức cần có)", ["enough"], "Enough đứng trước danh từ: enough money."),
     reorder("a2-n11-5", "My suitcase is too heavy to carry.", "Too + tính từ + to + động từ nguyên mẫu: nặng quá, không mang được."),
     reorder("a2-n11-6", "She isn't old enough to drive.", "Not + tính từ + enough + to + động từ nguyên mẫu."),
     listen("a2-n11-7", "The soup is too spicy for me.", ["Món canh này cay vừa đủ với tôi.", "Món canh này không cay lắm.", "Món canh này cay quá đối với tôi."], 2, "Too spicy là cay quá mức, người nói thấy khó ăn."),
     listen("a2-n11-8", "Excuse me, this coffee is too sweet. Could I have another one, please?", ["Xin lỗi, cà phê này ngọt quá. Cho tôi cốc khác được không?", "Xin lỗi, cà phê này chưa đủ ngọt. Cho tôi thêm đường nhé?", "Cà phê này ngọt thật. Cho tôi thêm một cốc nữa nhé."], 0, "Too sweet là ngọt quá mức, đây là lời phàn nàn lịch sự: Excuse me + vấn đề + Could I have another one?"),
     correct("a2-n11-9", "This room isn't enough big for us.", ["This room isn't big enough for us."], "Enough đứng sau tính từ: big enough, không phải enough big."),
     correct("a2-n11-10", "There are too much cars in the city centre.", ["There are too many cars in the city centre."], "Cars là danh từ đếm được số nhiều nên dùng too many. Too much chỉ đi với danh từ không đếm được."),
+    fill("a2-n11-11", "This coffee is too hot ___ drink. Let's wait a minute.", ["to"], "Too + tính từ + to + động từ nguyên mẫu: nóng quá, chưa uống được."),
+    fill("a2-n11-12", "There's too ___ sugar in my tea. It's too sweet.", ["much"], "Sugar không đếm được nên dùng too much. Too many chỉ đi với danh từ đếm được số nhiều."),
+    reorder("a2-n11-13", "These jeans aren't big enough for me.", "Not + tính từ + enough: không đủ rộng. Enough đứng sau tính từ big."),
+    correct("a2-n11-14", "Your new house is too nice! I love it.", ["Your new house is very nice! I love it.", "Your new house is really nice! I love it.", "Your new house is so nice! I love it."], "Khen thì dùng very, really hoặc so. Too nice nghe như đẹp quá mức đến thành vấn đề."),
   ],
   freeSpeaking: free(
     "Tell me about a hotel, a restaurant or a shop that wasn't very good.",
@@ -93,7 +97,7 @@ export default lesson({
   dialogueQuestions: [
     listenQ("a2-n11-d1", "Đôi giày cỡ ba mươi tám có vấn đề gì?", "Hmm, they're too tight. Do you have a bigger size?", ["Rộng quá", "Chật quá", "Đắt quá", "Không đẹp"], 1, "They're too tight: chật quá, nên chị Hà hỏi cỡ lớn hơn."),
     mc("a2-n11-d2", "Vì sao chị Hà không mua đôi giày màu trắng?", ["Vì đôi đó chật", "Vì chị không thích màu trắng", "Vì đôi đó đắt quá và chị không mang đủ tiền"], 2, "They're too expensive for me. I don't have enough money today."),
-    mc("a2-n11-d3", "Cuối cùng chị Hà mua đôi nào?", ["Đôi màu trắng", "Đôi màu đen đang giảm giá", "Không mua đôi nào"], 1, "These black ones are on sale... I'll take them."),
+    mc("a2-n11-d3", "Hôm nay chị Hà không mang đủ tiền, vậy vì sao chị vẫn mua được giày?", ["Vì người bán cho chị nợ", "Vì đôi màu đen đang giảm giá, rẻ hơn đôi trắng một nửa", "Vì chị trả bằng thẻ", "Vì chị mua đôi trắng cỡ nhỏ hơn"], 1, "Đôi trắng giá một triệu hai, chị không đủ tiền. Đôi đen are on sale, only six hundred thousand: rẻ hơn hẳn, nên chị mua được (I'll take them)."),
   ],
   reading: reading({
     title: "Nhận xét về một homestay trên mạng",
@@ -103,7 +107,7 @@ My husband and I stayed at Green Hill Homestay in Da Lat for three nights last m
 
 The good things first. The garden was really beautiful, and the owner, Mrs Nguyen, was very kind. She cooked breakfast for us every morning. The coffee was strong enough to wake me up!
 
-But there were some problems. Our room was too small for two big suitcases, and there wasn't enough space for a table. The bed was comfortable, but the walls were too thin, so we heard everything from the next room. At night, it was too noisy to sleep because of the street outside. There were also too many steps up to our room, so the homestay isn't good for old people.
+But there were some problems. Our room was too small for two big suitcases, and there wasn't enough space for a table. The bed was comfortable, but the walls were too thin, so we heard everything from the next room. At night, it was too noisy to sleep because of the street outside. There were also too many steps up to our room, so the homestay isn't good for older people.
 
 Will we go back? Maybe. It's cheap, and the breakfast is great, but ask for a quiet room.`,
     glossary: [
@@ -120,7 +124,7 @@ Will we go back? Maybe. It's cheap, and the breakfast is great, but ask for a qu
       mc("a2-n11-r2", "Người viết khen điều gì?", ["Phòng rộng và yên tĩnh", "Đường phố bên ngoài yên tĩnh", "Có nhiều chỗ để đồ", "Khu vườn đẹp và chủ nhà tốt bụng"], 3, "The garden was really beautiful, and the owner, Mrs Nguyen, was very kind."),
       fill("a2-n11-r3", "Hoàn thành câu theo bài đọc: There wasn't enough ___ for a table.", ["space"], "Enough đứng trước danh từ: enough space, không đủ chỗ."),
       mc("a2-n11-r4", "Vì sao họ nghe thấy mọi thứ từ phòng bên cạnh?", ["Vì tường quá mỏng", "Vì cửa sổ luôn mở", "Vì phòng bên có trẻ con", "Vì giường không êm"], 0, "The walls were too thin, so we heard everything from the next room."),
-      mc("a2-n11-r5", "Theo người viết, homestay này không hợp với ai?", ["Người già, vì có quá nhiều bậc thang", "Trẻ em", "Người thích cà phê", "Khách đi một mình"], 0, "There were also too many steps up to our room, so the homestay isn't good for old people."),
+      mc("a2-n11-r5", "Theo người viết, homestay này không hợp với ai?", ["Người lớn tuổi, vì có quá nhiều bậc thang", "Trẻ em", "Người thích cà phê", "Khách đi một mình"], 0, "There were also too many steps up to our room, so the homestay isn't good for older people."),
     ],
   }),
   task: task({

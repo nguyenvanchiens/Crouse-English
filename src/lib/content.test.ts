@@ -118,8 +118,8 @@ const SPEC: Record<string, { reading: [number, number]; task: [number, number]; 
   "phat-am-ipa": { reading: [50, 150], task: [15, 40], speak: 15 },
   "tieng-anh-a1": { reading: [60, 130], task: [20, 45], speak: 20 },
   "tieng-anh-a2": { reading: [100, 190], task: [35, 70], speak: 30 },
-  "tieng-anh-b1": { reading: [180, 300], task: [80, 130], speak: 45 },
-  "tieng-anh-b2": { reading: [280, 420], task: [140, 200], speak: 60 },
+  "tieng-anh-b1": { reading: [230, 380], task: [80, 130], speak: 45 },
+  "tieng-anh-b2": { reading: [400, 600], task: [140, 200], speak: 60 },
   "tieng-anh-c1": { reading: [400, 650], task: [220, 300], speak: 80 },
 };
 
@@ -277,8 +277,11 @@ describe("A1 to C1 path", () => {
           expect(reading.glossary.length).toBeGreaterThanOrEqual(2);
 
           if (exercise.type !== "exercise") throw new Error("exercise step");
-          expect(exercise.items).toHaveLength(10);
+          expect(exercise.items).toHaveLength(14);
           for (const k of kinds) expect(exercise.items.filter((e) => e.kind === k).length, `${l.slug} needs 2 x ${k}`).toBeGreaterThanOrEqual(2);
+          // most practice makes the learner produce English, not just recognise it
+          const produced = exercise.items.filter((e) => e.kind === "fill-blank" || e.kind === "correct" || e.kind === "reorder").length;
+          expect(produced, `${l.slug} needs 9+ fill/correct/reorder items`).toBeGreaterThanOrEqual(9);
 
           if (task.type !== "task") throw new Error("task step");
           expect(task.hints.length).toBeGreaterThanOrEqual(2);

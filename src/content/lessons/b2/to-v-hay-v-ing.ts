@@ -58,6 +58,10 @@ export default lesson({
     listen("b2-n15-8", "Taking the new job will mean moving to another city.", ["Tôi định chuyển đến thành phố khác để tìm việc.", "Nhận công việc mới đồng nghĩa với việc phải chuyển đến thành phố khác.", "Tôi không muốn chuyển đến thành phố khác."], 1, "Mean + V-ing: kéo theo, đồng nghĩa với việc."),
     correct("b2-n15-9", "I stopped to eat fast food last year, and I've lost five kilos.", ["I stopped eating fast food last year, and I've lost five kilos."], "Bỏ hẳn một thói quen là stop + V-ing. Stop to eat nghĩa là dừng việc đang làm lại để ăn."),
     correct("b2-n15-10", "Remember sending me the report before Friday.", ["Remember to send me the report before Friday."], "Việc gửi báo cáo chưa xảy ra, cần nhớ để làm, nên dùng remember + to V."),
+    fill("b2-n15-11", "I really regret not ___ harder when I was at university. (study)", ["studying"], "Regret + V-ing: hối tiếc về việc đã làm (hoặc đã không làm) trong quá khứ. Regret + to V chỉ dùng khi báo tin không vui."),
+    fill("b2-n15-12", "Sorry, I forgot ___ you back yesterday. It was a crazy day. (call)", ["to call"], "Forget + to V: quên không làm một việc cần làm. Cuộc gọi đã không diễn ra."),
+    correct("b2-n15-13", "I'll never forget to see the sea for the first time.", ["I'll never forget seeing the sea for the first time.", "I will never forget seeing the sea for the first time."], "Nhớ mãi một trải nghiệm đã xảy ra thì dùng never forget + V-ing. Never forget to see lại nghĩa là “không bao giờ quên phải đi ngắm biển”."),
+    reorder("b2-n15-14", "Don't forget to lock the door.", "Forget + to V: lời nhắc về một việc cần làm sắp tới."),
   ],
   speaking: [
     say("Don't forget to call me when you arrive.", "Đừng quên gọi cho tôi khi bạn đến nơi nhé."),
@@ -88,17 +92,19 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b2-n15-d1", "How does Duc know that he has booked the hotel?", "Yes, I remember booking it last Monday. I got a confirmation email.", ["Thao reminded him.", "The hotel called him.", "He received a confirmation email.", "He wrote it in his diary."], 2, "I got a confirmation email: anh ấy nhận được email xác nhận, nên nhớ chắc là đã đặt (remember booking)."),
     mc("b2-n15-d2", "What does Duc suggest Thao should do about the booking website?", ["Call the hotel instead", "Try resetting her password", "Use his account", "Book a different hotel"], 1, "Try resetting your password. That worked for me. Try + V-ing: thử một cách xem có được không."),
-    mc("b2-n15-d3", "What happened on their last business trip?", ["They missed their flight.", "Duc forgot to book the hotel.", "The client cancelled the meeting.", "Thao forgot to pack the samples."], 3, "Last time I forgot to pack them: lần trước Thảo quên đóng gói hàng mẫu."),
+    mc("b2-n15-d3", "Why does Thao say “Please stop reminding me” at the end?", ["She is still embarrassed about forgetting the samples last time.", "She thinks Duc booked the wrong hotel.", "She doesn't want to go on the trip.", "Duc keeps reminding her about the early flight."], 0, "Câu suy luận: lần trước Thảo quên mang hàng mẫu (I still regret making that mistake), và Đức vừa nhắc lại nét mặt chị trong buổi họp đó. Chị ngượng nên bảo Đức đừng nhắc nữa."),
   ],
   reading: reading({
     title: "Did I remember to lock the door?",
     text: `Have you ever left home, walked to the end of the street and then stopped, suddenly unsure whether you had locked the door? You remember locking it, or at least you think you do, but you cannot be certain. So you go back to check, and of course it is locked. If this sounds familiar, you are not alone.
 
+Forgetting can be expensive. A survey by an insurance company in Britain found that one in five people had come home at least once to find a window or a door left open, and every year thousands of burglaries happen without anyone having to break in. Others pay in different ways: missed flights, parking fines, or a kitchen full of smoke because someone forgot to switch off the cooker before going to work. My own neighbour once drove all the way to the airport before realising that his passport was still on the kitchen table.
+
 According to psychologists, the problem is not that we are becoming more forgetful. It is that we do many everyday actions on autopilot. Locking a door, switching off the cooker or picking up our keys are part of a daily routine, so the brain does not bother to store a clear memory of them. We did the action, but we did not notice doing it.
 
 One simple solution is to try saying the action out loud. "I'm locking the front door" sounds silly, but studies show that people who describe what they are doing are much more likely to remember doing it later. Another trick is to add a small unusual detail, such as touching the lock twice. The brain notices anything unusual and stores it.
 
-Forgetting to do things in the future is a different problem. Here, the most effective method is a reminder that appears at exactly the right moment. A note on the fridge saying "Remember to call the dentist" works much better than a long list of tasks on your phone that you never open. Some people even put the bag they need in front of the door, so that they cannot leave without it.
+Forgetting to do things in the future is a different problem. Here, the most effective method is a reminder that appears at exactly the right moment. A note on the fridge saying "Remember to call the dentist" works much better than a long list of tasks on your phone that you never open. Some people even put the bag they need in front of the door, so that they cannot leave without it. These are small habits, but they save a surprising amount of time and stress.
 
 Of course, nobody remembers everything. If you often forget appointments, you might want to stop trying to keep everything in your head. Writing things down is not a sign of weakness. In fact, many successful people say they regret not starting the habit earlier. After all, a good system means spending less time worrying and more time on the things that really matter.`,
     glossary: [
@@ -108,6 +114,7 @@ Of course, nobody remembers everything. If you often forget appointments, you mi
       ["store", "lưu giữ"],
       ["effective", "hiệu quả"],
       ["appointment", "cuộc hẹn"],
+      ["burglary", "vụ trộm đột nhập"],
     ],
     questions: [
       mc("b2-n15-r1", "What is the article mainly about?", ["Why we forget everyday actions, and how to remember things better", "How to choose a good lock for your front door", "Why successful people never forget anything", "How the brain stores memories of childhood"], 0, "Bài giải thích vì sao ta không nhớ những việc làm theo thói quen và đưa ra các mẹo để nhớ tốt hơn."),

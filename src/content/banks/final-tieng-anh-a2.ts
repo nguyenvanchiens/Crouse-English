@@ -34,7 +34,7 @@ export const FINAL_EXTRA_TIENG_ANH_A2: Exercise[][] = [
     mc("a2-f41", "It's raining and very cold today. The weather is ___ than yesterday.", ["bad", "worse", "worst", "more bad"], 1, "Bad là tính từ bất quy tắc: bad → worse → the worst. Có than nên dùng so sánh hơn: worse than."),
     mc("a2-f42", "Wait for me, please. I only need ___ minutes to get ready.", ["much", "a little", "a lot", "a few"], 3, "Minutes là danh từ đếm được số nhiều nên dùng a few (một vài). A little đi với danh từ không đếm được; a lot phải có of."),
     fill("a2-f43", "This isn't Nam's jacket. ___ is grey. (của anh ấy)", ["His", "Nam's"], "His thay cho his jacket, sau nó không có danh từ. Cũng có thể nói Nam's."),
-    fill("a2-f44", "How ___ bottles of water do we need for the picnic?", ["many"], "Bottles là danh từ đếm được số nhiều nên hỏi How many."),
+    fill("a2-f44", "A: I'm not very interested in football. B: ___ am I. I never watch it.", ["Neither", "neither"], "A nói câu phủ định với am (I'm not), nên B đồng ý bằng Neither am I. So am I chỉ dùng cho câu khẳng định."),
     reorder("a2-f45", "These jeans are too tight to wear.", "Too + tính từ + to + động từ nguyên mẫu: chật quá, không mặc được."),
     reorder("a2-f46", "Is this blue umbrella yours?", "Yours đứng một mình ở cuối câu, thay cho your umbrella."),
     listenQ("a2-f47", "Người nói chọn cái túi nào, vì sao?", "The red bag is cheaper, but the black one is bigger and stronger. I think I'll take the black one.", ["Túi đen, vì nó to hơn và chắc hơn", "Túi đỏ, vì nó rẻ hơn", "Túi đen, vì nó rẻ hơn", "Túi đỏ, vì nó to hơn"], 0, "The black one is bigger and stronger. I'll take the black one: chọn túi đen vì to hơn và chắc hơn. Túi đỏ chỉ rẻ hơn."),
@@ -46,7 +46,7 @@ export const FINAL_EXTRA_TIENG_ANH_A2: Exercise[][] = [
   [
     mc("a2-f51", "Tomorrow is a holiday, so the children ___ go to school.", ["mustn't", "should", "don't have to", "has to"], 2, "Ngày nghỉ thì không bắt buộc đi học: don't have to (không cần). Mustn't là bị cấm, nghĩa khác hẳn."),
     mc("a2-f52", "My parents ___ to Singapore in 2019.", ["went", "have been", "have gone", "has been"], 0, "Có thời điểm cụ thể (in 2019) thì dùng quá khứ đơn: went, không dùng hiện tại hoàn thành."),
-    fill("a2-f53", "The bank is ___ the cinema, on the other side of the road. (đối diện)", ["opposite"], "Đối diện, ở phía bên kia đường là opposite: opposite the cinema."),
+    fill("a2-f53", "There was a lot of traffic, so I ___ get to the station on time. I missed my train.", ["couldn't", "could not", "wasn't able to", "was not able to"], "Không làm được việc gì trong quá khứ: couldn't + động từ nguyên mẫu (hoặc wasn't able to). I missed my train cho biết là đã không kịp."),
     fill("a2-f54", "My grandmother has ___ been on a plane, so she's a bit worried about her first flight. (chưa bao giờ)", ["never"], "Chưa bao giờ: have / has + never + V3. Never đứng giữa has và been."),
     reorder("a2-f55", "Do I have to take this medicine every day?", "Câu hỏi với have to cần do / does đứng trước chủ ngữ: Do I have to + động từ nguyên mẫu?"),
     reorder("a2-f56", "Has the film started yet?", "Câu hỏi “đã... chưa?”: Has + chủ ngữ + V3 + yet? Yet đứng cuối câu."),

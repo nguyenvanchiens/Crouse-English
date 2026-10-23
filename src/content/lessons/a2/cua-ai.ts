@@ -53,8 +53,8 @@ export default lesson({
   ],
   exercises: [
     mc("a2-n12-1", "___ bag is this? It's Hoa's.", ["Who's", "Who", "Whose"], 2, "Hỏi của ai dùng whose. Who's là who is, nghĩa khác hẳn."),
-    mc("a2-n12-2", "This isn't my pen. ___ is blue.", ["My", "Mine", "Me", "I"], 1, "Mine thay cho my pen; sau mine không có danh từ."),
-    fill("a2-n12-3", "My brother lives in Da Nang. I often visit ___ at the weekend. (anh ấy)", ["him"], "Sau động từ visit, he đổi thành tân ngữ him."),
+    mc("a2-n12-2", "This isn't my pen. ___ is blue.", ["My", "Mine", "Me"], 1, "Mine thay cho my pen; sau mine không có danh từ."),
+    fill("a2-n12-3", "My brother lives in Da Nang. I often visit ___ at the weekend.", ["him"], "Sau động từ visit, he đổi thành tân ngữ him."),
     fill("a2-n12-4", "This is my ___ car. (father)", ["father's"], "Với người sở hữu, thêm 's: my father's car."),
     reorder("a2-n12-5", "Whose bag is on the chair?", "Whose + danh từ + động từ: Whose bag is...? Whose đứng ngay trước danh từ cần hỏi."),
     reorder("a2-n12-6", "Can you lend me your pen?", "Lend + người (tân ngữ me) + vật: lend me your pen."),
@@ -62,6 +62,10 @@ export default lesson({
     listen("a2-n12-8", "Those glasses are hers, not his.", ["Cặp kính đó là của anh ấy, không phải của cô ấy.", "Cặp kính đó là của cô ấy, không phải của anh ấy.", "Cặp kính đó là của họ."], 1, "Hers là của cô ấy, his là của anh ấy."),
     correct("a2-n12-9", "Please give this book to she.", ["Please give this book to her."], "Sau giới từ to phải dùng tân ngữ: her, không dùng she."),
     correct("a2-n12-10", "Is this umbrella your?", ["Is this umbrella yours?", "Is this your umbrella?"], "Your luôn cần danh từ theo sau (your umbrella). Đứng một mình ở cuối câu thì dùng yours."),
+    fill("a2-n12-11", "Is this notebook ___? It has your name on it.", ["yours"], "Đứng một mình ở cuối câu, thay cho your notebook: yours. Không có dấu '."),
+    fill("a2-n12-12", "___ shoes are these? Are they Lan's?", ["Whose", "whose"], "Hỏi của ai: Whose + danh từ + are these? Không viết Who's (= who is)."),
+    reorder("a2-n12-13", "This laptop belongs to my brother.", "Belong to + người: thuộc về ai. Chủ ngữ số ít nên belongs có s."),
+    correct("a2-n12-14", "This is my parents's house.", ["This is my parents' house."], "Parents đã có -s nên chỉ thêm dấu ': my parents' house, không viết parents's."),
   ],
   freeSpeaking: free(
     "Look around your room. What things are yours, and what things belong to other people?",
@@ -92,7 +96,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("a2-n12-d1", "Cái ô trên bàn là của ai?", "It isn't mine. Mine is black. I think it's Lan's.", ["Của David", "Của chị Hạnh", "Của anh Tuấn", "Của Lan"], 3, "I think it's Lan's: David nghĩ là của Lan. Ô của David màu đen."),
-    mc("a2-n12-d2", "Chùm chìa khóa là của ai?", ["Của David", "Của Nam", "Của anh Tuấn"], 0, "Oh, they're mine!: của David, anh ấy tìm khắp nơi."),
+    mc("a2-n12-d2", "Sau cuộc trò chuyện, David sẽ mang cái ví đi đâu?", ["Đến quầy lễ tân", "Đến phòng ông Phan, ngay cạnh phòng của David", "Về nhà, vì đó là ví của anh ấy", "Đưa cho Lan"], 1, "David nghĩ cái ví belongs to Mr Phan, chị Hạnh nhờ Can you take it to him? His office is next to yours, và David trả lời Sure."),
     mc("a2-n12-d3", "Cái điện thoại màu đen là của ai?", ["Của chị Hạnh", "Của Nam", "Của David"], 1, "The white one is mine, and the black one is Nam's."),
   ],
   reading: reading({

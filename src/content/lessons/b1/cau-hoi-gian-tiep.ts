@@ -12,7 +12,7 @@ export default lesson({
         ["Cụm mở đầu", "Mức độ", "Ví dụ"],
         ["Could you tell me…?", "lịch sự, dùng nhiều nhất", "Could you tell me where the lift is?"],
         ["Do you know…?", "thân thiện, tự nhiên", "Do you know what time it is?"],
-        ["Would you mind telling me…?", "rất lịch sự, trang trọng", "Would you mind telling me how old you are?"],
+        ["Would you mind telling me…?", "rất lịch sự, trang trọng", "Would you mind telling me how you heard about us?"],
         ["I wonder… / I was wondering…", "hỏi khéo, như nói một mình", "I wonder why the bus is late."],
       ),
       p("Quy tắc vàng: sau cụm mở đầu, phần câu hỏi **trở về trật tự câu kể**: chủ ngữ đứng trước, động từ đứng sau. Trợ động từ **do / does / did** biến mất, động từ chính chia lại như câu bình thường."),
@@ -55,8 +55,8 @@ export default lesson({
     word("exactly", "/ɪɡˈzækt.li/", "chính xác", "Do you know exactly when the film starts?", "ex|act|ly", 1),
   ],
   exercises: [
-    mc("b1-n11-1", "Could you tell me where ___?", ["is the post office", "the post office is", "does the post office", "the post office does"], 1, "Sau Could you tell me where, phần sau theo trật tự câu kể: chủ ngữ the post office rồi mới đến is."),
-    mc("b1-n11-2", "Do you know ___ the shop opens on Sundays?", ["that", "is", "if"], 2, "Câu hỏi Có / Không (cửa hàng có mở chủ nhật không) nên dùng if hoặc whether."),
+    mc("b1-n11-1", "Could you tell me where ___?", ["is the post office", "the post office is", "the post office"], 1, "Sau Could you tell me where, phần sau theo trật tự câu kể: chủ ngữ the post office rồi mới đến is."),
+    mc("b1-n11-2", "Do you know ___ the shop opens on Sundays?", ["that", "if", "what"], 1, "Câu hỏi Có / Không (cửa hàng có mở chủ nhật không) nên dùng if hoặc whether."),
     fill("b1-n11-3", "Do you know what time the train ___? (leave)", ["leaves"], "Câu trực tiếp là What time does the train leave? Khi gián tiếp, bỏ does và trả đuôi -s cho động từ: leaves."),
     fill("b1-n11-4", "I wonder ___ she will come to the party. (liệu… có… không)", ["if", "whether"], "Hỏi Có / Không một cách gián tiếp: if hoặc whether đều đúng."),
     reorder("b1-n11-5", "Could you tell me where the bank is?", "Cụm mở đầu Could you tell me + where + câu kể the bank is. Không đảo is lên trước the bank."),
@@ -65,6 +65,10 @@ export default lesson({
     listen("b1-n11-8", "Would you mind telling me how much this costs?", ["Bạn có phiền cho tôi biết cái này giá bao nhiêu không?", "Bạn có muốn mua cái này không?", "Cái này đắt quá, bạn có thể giảm giá không?"], 0, "Would you mind telling me… là cách hỏi rất lịch sự, hợp khi hỏi giá hoặc hỏi thông tin riêng."),
     correct("b1-n11-9", "Could you tell me what time does the museum open?", "Could you tell me what time the museum opens?", "Sau Could you tell me, phần câu hỏi trở về trật tự câu kể: bỏ does và trả đuôi -s cho động từ: the museum opens."),
     correct("b1-n11-10", "Do you know is there a pharmacy near here?", ["Do you know if there is a pharmacy near here?", "Do you know whether there is a pharmacy near here?"], "Câu hỏi Có / Không khi gián tiếp phải có if hoặc whether, và phần sau theo trật tự câu kể: there is."),
+    fill("b1-n11-11", "Could you tell me how long ___ to get to the airport? (it / take)", ["it takes"], "Câu trực tiếp là How long does it take…? Khi gián tiếp, bỏ does, đưa chủ ngữ it lên trước và thêm -s: it takes."),
+    correct("b1-n11-12", "I wonder why did she leave so early.", "I wonder why she left so early.", "Sau I wonder why là câu kể: bỏ did và đưa động từ về quá khứ: she left. Câu bắt đầu bằng I wonder kết thúc bằng dấu chấm."),
+    reorder("b1-n11-13", "Do you know whether the lift is working?", "Câu hỏi Có / Không gián tiếp: Do you know + whether + câu kể the lift is working. Không đảo is lên trước the lift."),
+    correct("b1-n11-14", "Could you tell me where can I park my car?", "Could you tell me where I can park my car?", "Sau Could you tell me where, chủ ngữ I đứng trước can: where I can park. Đảo can lên trước là trật tự của câu hỏi trực tiếp."),
   ],
   speaking: [
     say("Excuse me, could you tell me where the nearest bus stop is?", "Xin lỗi, anh có thể cho tôi biết trạm xe buýt gần nhất ở đâu không?"),
@@ -94,7 +98,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("b1-n11-d1", "What time does breakfast start?", "Of course. Breakfast starts at half past six on the second floor.", ["At six o'clock", "At half past six", "At seven o'clock", "At half past seven"], 1, "Breakfast starts at half past six: sáu rưỡi."),
-    mc("b1-n11-d2", "How can Huong get to the conference centre?", ["By hotel bus", "On foot", "By metro", "Only by taxi"], 2, "Lễ tân nói: You can take the metro."),
+    mc("b1-n11-d2", "What can we guess about Huong's stay?", ["She has stayed at this hotel before.", "She is going to a conference during her stay.", "She is not interested in sport.", "She wants to pay for everything in cash."], 1, "Câu suy luận: Hương hỏi đường tới trung tâm hội nghị (conference centre), nên chắc chị ấy đi dự hội nghị. Chị hỏi về phòng tập và bể bơi, nên không phải người không thích thể thao, và chị muốn trả taxi bằng thẻ chứ không phải tiền mặt."),
     listenQ("b1-n11-d3", "What will the receptionist do about the swimming pool?", "I'm not sure exactly, but I'll check and call your room.", ["Check when it closes and call her room", "Open the pool early for her", "Give her a map of the hotel"], 0, "I'll check and call your room: lễ tân sẽ kiểm tra giờ đóng cửa rồi gọi lên phòng."),
   ],
   reading: reading({
@@ -103,7 +107,7 @@ export default lesson({
 
 I saw your advertisement for evening English courses on your website, and I am writing to ask for some more details.
 
-I work in a bank from Monday to Friday, so I can only study after six o'clock. Could you tell me which days the evening classes take place? I would also like to know how many students there are in each class, because I learn better in small groups.
+I work in a bank from Monday to Friday, so I can only study after six o'clock. Next year my bank is opening a branch in Singapore, and I hope to work there for a while. I can read emails in English quite well, but I get nervous in meetings, so I mainly want to practise speaking. Could you tell me which days the evening classes take place? I would also like to know how many students there are in each class, because I learn better in small groups.
 
 My company may pay for part of the course. Do you know if you can send the invoice directly to my company? I also wonder whether there is a test before the course starts. My English is not bad, but I haven't used it much since I left university, so I am not sure which level I should choose.
 
@@ -115,7 +119,7 @@ Yours faithfully, Pham Thi Thu
 
 Dear Ms Pham,
 
-Thank you for your email. Our evening classes take place on Tuesdays and Thursdays, and there are no more than twelve students in each class. Yes, we can send the invoice to your company. There is a free level test, and you are welcome to join a trial lesson next Tuesday at half past six.
+Thank you for your email. Our evening classes take place on Tuesdays and Thursdays, and there are no more than twelve students in each class. Yes, we can send the invoice to your company. There is a free level test, and you are welcome to join a trial lesson next Tuesday at half past six. Many of our evening students work in banks and offices, and our speaking classes focus on meetings and presentations. Please arrive fifteen minutes early so that you can do the level test first.
 
 Best regards, Nguyen Van Hai, Student Services`,
     glossary: [

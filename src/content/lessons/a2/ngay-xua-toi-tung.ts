@@ -53,7 +53,7 @@ export default lesson({
   exercises: [
     mc("a2-n03-1", "When I was a child, I ___ climb trees in my village.", ["use to", "was use to", "used to", "uses to"], 2, "Câu khẳng định nói về thói quen ngày xưa: used to + động từ nguyên mẫu."),
     mc("a2-n03-2", "Chọn câu đúng.", ["I used to go to Da Lat three times last year.", "I went to Da Lat three times last year.", "I didn't went to Da Lat last year."], 1, "Có số lần cụ thể (three times) và thời điểm (last year) thì dùng quá khứ đơn, không dùng used to."),
-    fill("a2-n03-3", "My grandfather ___ smoke, but he stopped ten years ago. (từng hay)", ["used to"], "Ông từng có thói quen hút thuốc, giờ đã bỏ: used to smoke."),
+    fill("a2-n03-3", "My grandfather ___ smoke, but he stopped ten years ago.", ["used to"], "Ông từng có thói quen hút thuốc, giờ đã bỏ: used to smoke. Thói quen ngày xưa, bây giờ không còn, thì dùng used to."),
     fill("a2-n03-4", "Did you ___ to walk to school?", ["use"], "Trong câu hỏi đã có did, nên dùng use to, không có d."),
     reorder("a2-n03-5", "I didn't use to like vegetables.", "Phủ định: didn't use to + động từ nguyên mẫu."),
     reorder("a2-n03-6", "Did you use to live in the countryside?", "Nghi vấn: Did + chủ ngữ + use to + động từ nguyên mẫu."),
@@ -61,6 +61,10 @@ export default lesson({
     listen("a2-n03-8", "She didn't use to be shy.", ["Ngày xưa cô ấy rất nhút nhát.", "Bây giờ cô ấy không còn nhút nhát.", "Ngày xưa cô ấy đâu có nhút nhát."], 2, "Didn't use to be: ngày xưa không phải như vậy. Hàm ý là bây giờ cô ấy lại nhút nhát."),
     correct("a2-n03-9", "Did your father used to smoke?", ["Did your father use to smoke?"], "Câu hỏi đã có did báo quá khứ, nên used to bỏ chữ d thành use to."),
     correct("a2-n03-10", "My sister use to be very shy, but now she is very friendly.", ["My sister used to be very shy, but now she is very friendly.", "My sister used to be very shy, but now she's very friendly."], "Câu khẳng định nói về ngày xưa phải là used to, có chữ d. Chữ d không nghe rõ khi nói nhưng khi viết thì không được thiếu."),
+    fill("a2-n03-11", "My father ___ use to cook, but now he cooks every Sunday.", ["didn't", "did not"], "Phủ định của used to: didn't use to + động từ nguyên mẫu. Chữ use trong câu đã bỏ d vì có didn't."),
+    fill("a2-n03-12", "When I was a student, I ___ to get up at five to study. (use)", ["used"], "Câu khẳng định về thói quen ngày xưa: used to, có chữ d."),
+    reorder("a2-n03-13", "My grandmother used to sell fish at the market.", "Used to + động từ nguyên mẫu (sell), tân ngữ fish đứng ngay sau động từ, nơi chốn at the market ở cuối."),
+    correct("a2-n03-14", "I used to living in Hue when I was a child.", ["I used to live in Hue when I was a child.", "When I was a child, I used to live in Hue."], "Sau used to là động từ nguyên mẫu: used to live, không phải used to living."),
   ],
   freeSpeaking: free(
     "How was your life different when you were a child?",
@@ -91,7 +95,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("a2-n03-d1", "Hồi nhỏ Lan đi học bằng gì?", "No, I didn't. I used to ride my bike to school with the children next door.", ["Đi bộ", "Đi xe đạp", "Đi xe buýt", "Được bố mẹ chở"], 1, "I used to ride my bike to school: ngày xưa Lan hay đạp xe đi học cùng con nhà hàng xóm."),
-    mc("a2-n03-d2", "Con sông nhỏ sau nhà Lan bây giờ ra sao?", ["Vẫn còn, trẻ con vẫn bơi ở đó", "Vẫn còn nhưng rất bẩn", "Không còn nữa, giờ ở đó là một con đường lớn"], 2, "Lan nói: No. The village changed a lot. Now there's a big road there."),
+    mc("a2-n03-d2", "Vì sao bây giờ trẻ con trong làng không thể bơi ở chỗ Lan bơi ngày xưa?", ["Vì nước sông quá lạnh", "Vì con sông không còn nữa, ở đó giờ là một con đường lớn", "Vì trẻ con bây giờ không biết bơi", "Vì Lan không cho"], 1, "There used to be a small river (ngày xưa có, giờ không còn), rồi Lan nói Now there's a big road there. Ghép hai câu này mới ra câu trả lời."),
     mc("a2-n03-d3", "Lan thường về quê vào dịp nào?", ["Mỗi cuối tuần", "Dịp Tết", "Mỗi mùa hè"], 1, "I usually go back at Tet: Lan thường về quê vào dịp Tết."),
   ],
   reading: reading({

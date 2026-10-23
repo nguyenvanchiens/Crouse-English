@@ -62,6 +62,10 @@ export default lesson({
     reorder("b2-n07-6", "You could have told me the truth.", "Could have + V3 dùng làm lời trách nhẹ: anh hoàn toàn có thể nói thật với tôi."),
     listen("b2-n07-7", "We should have left home earlier.", ["Ngày mai chúng ta nên ra khỏi nhà sớm hơn.", "Lẽ ra chúng ta nên ra khỏi nhà sớm hơn.", "Chúng ta đã ra khỏi nhà rất sớm."], 1, "Should have left: lẽ ra nên đi sớm hơn, sự thật là đã đi muộn."),
     listen("b2-n07-8", "I needn't have cooked so much food.", ["Tôi biết không cần nấu nhiều nên đã không nấu.", "Tôi phải nấu thêm thức ăn.", "Tôi nấu ít quá nên mọi người vẫn đói.", "Tôi đã nấu rất nhiều nhưng hóa ra không cần thiết."], 3, "Needn't have cooked: đã nấu rồi, sau đó mới thấy là thừa."),
+    fill("b2-n07-11", "I ___ have shouted at my sister like that. I'm going to apologise tonight. (lẽ ra không nên)", ["shouldn't", "should not", "oughtn't to", "ought not to"], "Shouldn't have + V3: lẽ ra không nên làm, nhưng đã làm rồi và giờ thấy hối hận."),
+    fill("b2-n07-12", "Why did you stay up all night? You could have ___ me for help. I was free all evening. (ask)", ["asked"], "Could have + V3: lẽ ra đã có thể nhờ (có khả năng mà không làm). Sau have luôn là V3."),
+    correct("b2-n07-13", "We shouldn't have leave so late. We missed the first part of the show.", ["We shouldn't have left so late. We missed the first part of the show.", "We should not have left so late. We missed the first part of the show."], "Sau should/shouldn't have phải là V3: left, không dùng nguyên mẫu leave."),
+    reorder("b2-n07-14", "We needn't have printed all the slides.", "Needn't have + V3: đã in rồi, hóa ra không cần."),
   ],
   speaking: [
     say("I should have checked the email more carefully.", "Lẽ ra tôi nên kiểm tra email cẩn thận hơn."),
@@ -101,11 +105,13 @@ The main cause of the delay was the late delivery of the shelving system. The su
 
 Communication was another weak point. The IT team found out about the new launch date from a customer, not from us. They should have been informed as soon as the delay was known. Several staff also felt that the weekly progress meetings were too long and that the key problems were not discussed clearly.
 
+In a short survey after the launch, the warehouse staff were asked what had made their first weeks difficult. The most common answer was the scanning software, which many of them had used for the first time on opening day. Training had been planned for the last week of February but was cancelled when the shelving was delayed. It could have gone ahead anyway, since the software did not depend on the shelves. One supervisor commented that her team had spent the first morning "learning by guessing", and that a two-hour session beforehand would have saved a great deal of stress.
+
 Not everything was negative, however. We had hired forty temporary workers for the first week, expecting a large number of orders. In the end, we needn't have hired so many, as demand was lower than forecast, but the extra staff helped us clear the backlog quickly. We also didn't need to rent extra trucks, because our regular transport partner was able to lend us two of theirs at no cost.
 
 We have three recommendations. First, equipment with long delivery times must be ordered at least eight weeks before any launch. Second, one person should be responsible for sharing changes in the schedule with every department on the same day. Finally, progress meetings should last no more than thirty minutes and should end with a clear list of actions.
 
-The delay was avoidable, and it cost us around four hundred million dong in lost business. However, if we follow these recommendations, we can make sure that it does not happen again.`,
+The delay was avoidable, and it cost us around four hundred million dong in lost business. However, if we follow these recommendations, we can make sure that it does not happen again. Next year's openings in Da Nang and Can Tho will be the first real test of these changes.`,
     glossary: [
       ["logistics", "hậu cần, kho vận"],
       ["warehouse", "nhà kho"],
@@ -114,6 +120,7 @@ The delay was avoidable, and it cost us around four hundred million dong in lost
       ["temporary", "tạm thời, thời vụ"],
       ["backlog", "lượng việc, đơn hàng tồn đọng"],
       ["forecast", "dự báo"],
+      ["supervisor", "tổ trưởng, người giám sát"],
     ],
     questions: [
       mc("b2-n07-r1", "What is the main purpose of this report?", ["To blame the supplier for the delay", "To review what went wrong with the launch and suggest improvements", "To announce the opening of a new warehouse", "To ask for money to hire more staff"], 1, "Câu cuối đoạn đầu: This report looks at what went wrong, what went well and what we should do differently next time."),

@@ -58,7 +58,7 @@ export default lesson({
   exercises: [
     mc("a1-n12-1", "My sister ___ got long hair.", ["have", "has", "is"], 1, "My sister là she nên dùng has got."),
     mc("a1-n12-2", "Chọn câu đúng:", ["She has black long hair.", "She has hair long black.", "She has long black hair.", "She has a long black hair."], 2, "Độ dài trước, màu sau, danh từ cuối cùng; hair không đếm được nên không dùng a."),
-    fill("a1-n12-3", "He ___ got a beard. (không có)", ["hasn't", "has not"], "He đi với has got; phủ định là hasn't got."),
+    fill("a1-n12-3", "He ___ got a beard. (phủ định)", ["hasn't", "has not"], "He đi với has got; phủ định là hasn't got."),
     fill("a1-n12-4", "What does your brother look ___?", ["like"], "Hỏi về ngoại hình: What does + chủ ngữ + look like?"),
     reorder("a1-n12-5", "My mother has long black hair.", "Tính từ đứng trước danh từ: long (độ dài) rồi black (màu) rồi hair."),
     reorder("a1-n12-6", "What does your new teacher look like?", "What does + chủ ngữ + look like? Tính từ new đứng trước teacher."),
@@ -66,6 +66,10 @@ export default lesson({
     listen("a1-n12-8", "Has she got brown eyes?", ["Cô ấy có mắt xanh không?", "Cô ấy có mắt nâu không?", "Cô ấy có đeo kính không?"], 1, "Has she got…? là câu hỏi về cái cô ấy có; brown eyes là mắt nâu."),
     correct("a1-n12-9", "My grandmother has got a long white hair.", ["My grandmother has got long white hair.", "My grandmother's got long white hair."], "Hair (mái tóc) là danh từ không đếm được nên không dùng a. A hair chỉ là một sợi tóc."),
     correct("a1-n12-10", "What does your sister look?", ["What does your sister look like?"], "Hỏi ngoại hình phải có like ở cuối: What does + chủ ngữ + look like?"),
+    fill("a1-n12-11", "My brother ___ tall and slim.", ["is", "'s", "looks"], "Chiều cao và dáng người là tính từ, nên dùng to be: is tall. Has chỉ đi với danh từ (has short hair)."),
+    fill("a1-n12-12", "___ your father got a beard? No, he hasn't.", ["Has", "has"], "Câu trả lời No, he hasn't cho biết câu hỏi dùng has got: Has + chủ ngữ + got…?"),
+    reorder("a1-n12-13", "She's got big brown eyes.", "Kích cỡ (big) đứng trước, màu (brown) đứng sát danh từ eyes."),
+    correct("a1-n12-14", "He has very tall.", ["He is very tall.", "He's very tall."], "Tall là tính từ đứng một mình sau chủ ngữ nên cần to be, không dùng has."),
   ],
   freeSpeaking: free(
     "What does your best friend look like?",
@@ -117,7 +121,7 @@ Mai`,
       ["backpack", "ba lô"],
     ],
     questions: [
-      mc("a1-n12-r1", "Mai nhắn tin cho Tuấn để làm gì?", ["Để nhờ Tuấn đón em họ của Mai ở bến xe", "Để mời Tuấn đi ăn tối", "Để hỏi đường đến bến xe"], 0, "Mai cảm ơn Tuấn đã giúp và tả Lily để Tuấn đón ở Da Nang bus station."),
+      mc("a1-n12-r1", "Mai nhắn tin cho Tuấn để làm gì?", ["Để nhờ Tuấn đón em họ của Mai ở bến xe", "Để giới thiệu Lily làm bạn với Tuấn", "Để hỏi Tuấn giờ xe khách đến Đà Nẵng"], 0, "Mai cảm ơn Tuấn đã giúp và tả Lily để Tuấn đón ở Da Nang bus station."),
       mc("a1-n12-r2", "Lily đến bến xe lúc mấy giờ?", ["3:00", "3:30", "2:30"], 1, "At half past three: ba giờ rưỡi."),
       mc("a1-n12-r3", "Tóc của Lily thế nào?", ["Ngắn, xoăn, màu đỏ", "Dài, thẳng, màu đen", "Dài, thẳng, màu đỏ"], 2, "She's got long straight red hair: dài, thẳng, màu đỏ."),
       fill("a1-n12-r4", "Lily không đeo kính: She ___ got glasses.", ["hasn't", "has not"], "She đi với has got; phủ định là hasn't got."),

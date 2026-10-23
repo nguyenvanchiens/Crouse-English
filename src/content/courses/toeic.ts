@@ -5,7 +5,7 @@ const soon = (slug: string, title: string, minutes: number) => ({ slug, title, m
 export const toeic: Course = {
   slug: "toeic",
   title: "TOEIC 750+",
-  level: "A2",
+  level: "B1",
   goal: "toeic",
   summary: "Cho sinh viên sắp ra trường và người cần chứng chỉ để thăng tiến trong công việc.",
   outcomes: [

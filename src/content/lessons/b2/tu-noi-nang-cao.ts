@@ -75,6 +75,10 @@ export default lesson({
     listen("b2-n11-8", "Moreover, the new software is easier to use.", ["Tuy nhiên, phần mềm mới khó dùng hơn.", "Hơn nữa, phần mềm mới dễ sử dụng hơn.", "Vì vậy, chúng ta cần phần mềm mới."], 1, "Moreover dùng để thêm một ý cùng chiều với ý trước."),
     correct("b2-n11-9", "Although the price was high, but we decided to buy it.", ["Although the price was high, we decided to buy it.", "The price was high, but we decided to buy it."], "Although và but không đi cùng nhau trong một câu. Giữ although thì bỏ but, hoặc bỏ although và giữ but."),
     correct("b2-n11-10", "The new laptop is lighter. On the other hand, its battery lasts longer.", ["The new laptop is lighter. Moreover, its battery lasts longer.", "The new laptop is lighter. Furthermore, its battery lasts longer.", "The new laptop is lighter. In addition, its battery lasts longer.", "The new laptop is lighter. Also, its battery lasts longer."], "Nhẹ hơn và pin lâu hơn là hai ưu điểm cùng chiều, nên cần từ nối bổ sung (moreover, furthermore). On the other hand chỉ dùng cho ý đối lập."),
+    fill("b2-n11-11", "The new system is faster than the old one. ___, it is cheaper to run. (hơn nữa)", ["Moreover", "Furthermore", "In addition", "What's more", "Also", "Besides"], "Hai ưu điểm cùng chiều: thêm ý bằng moreover, furthermore, in addition hoặc what's more, đặt đầu câu mới và có dấu phẩy phía sau."),
+    fill("b2-n11-12", "The main ___ of working from home is that you can feel lonely. (nhược điểm)", ["drawback", "disadvantage", "downside"], "The main drawback / disadvantage of… is that…: cách nêu mặt hại rõ ràng trong bài lập luận."),
+    correct("b2-n11-13", "The flat is cheap. In the other hand, it is far from the city centre.", ["The flat is cheap. On the other hand, it is far from the city centre."], "Cụm cố định là on the other hand (giới từ on), không phải in. Lỗi này đến từ việc dịch “mặt khác” từng chữ."),
+    reorder("b2-n11-14", "It is true that the plan has some weaknesses.", "It is true that…: thừa nhận một ý của phía bên kia trước khi phản bác, rất hay dùng trong bài luận."),
   ],
   speaking: [
     say("The project was difficult. Nevertheless, we finished it on time.", "Dự án rất khó. Dù vậy, chúng tôi vẫn hoàn thành đúng hạn."),
@@ -105,7 +109,7 @@ export default lesson({
   dialogueQuestions: [
     mc("b2-n11-d1", "What is Mr Brown's main concern about working from home?", ["Teamwork might suffer.", "Staff will waste time travelling.", "The IT team will not agree.", "The survey results are wrong."], 0, "Ông Brown nói: I'm worried that teamwork will suffer."),
     listenQ("b2-n11-d2", "Which team does Lan suggest starting with?", "The sales team needs to see clients in person, whereas the IT team can work anywhere. Exactly. Therefore, we could start with the IT team only.", ["The sales team", "All the team leaders", "The human resources team", "The IT team"], 3, "Nhóm kinh doanh cần gặp khách trực tiếp, còn nhóm IT làm ở đâu cũng được, nên Lan đề xuất bắt đầu với nhóm IT."),
-    mc("b2-n11-d3", "What does Mr Brown finally decide?", ["To reject the idea completely", "To let every team work from home at once", "To try the plan for three months", "To wait for another survey next year"], 2, "I think it's worth trying for three months. Ông vẫn thận trọng nhưng đồng ý thử."),
+    mc("b2-n11-d3", "What can we infer about Mr Brown's attitude to the plan?", ["He is completely against it.", "He is enthusiastic and wants to start immediately.", "He is cautious but willing to try it.", "He has no opinion and lets Lan decide."], 2, "Câu suy luận: ông lo tinh thần làm nhóm giảm, muốn thấy bằng chứng (Nevertheless, I'd like to see some evidence first), nhưng cuối cùng nói it's worth trying for three months. Vậy ông thận trọng nhưng sẵn sàng thử."),
   ],
   reading: reading({
     title: "A four-day week: bold idea or expensive mistake?",
@@ -113,9 +117,13 @@ export default lesson({
 
 The main benefit is obvious: staff who work fewer days are less tired. In one British trial, the majority of employees said they felt less stressed, and sick days fell significantly. Moreover, companies that offer a shorter week find it easier to attract and keep talented people. In a competitive job market, that alone may justify the change.
 
+Interest is growing in Asia, too. A software company in Ho Chi Minh City that introduced a four-day week for its eighty developers last year reported that the number of staff leaving fell by half. Its director admits, however, that the first three months were difficult. Some clients complained that they could not reach anyone on Fridays, and the company eventually had to create a small team that works a different schedule to answer urgent requests.
+
 However, the picture is not entirely positive. On the one hand, office workers who deal mainly with emails and reports can often finish the same work in four longer days. On the other hand, a hospital, a factory or a restaurant cannot simply close on Fridays. Their staff work in shifts, whereas office workers can plan their own time. For these employers, a four-day week means hiring more people, and their costs consequently rise.
 
 Another drawback is that some employees may simply feel more pressure. When the same amount of work has to be done in less time, days become longer and more intense. As a result, the stress that the scheme was meant to remove may come back in a different form.
+
+Customers are another factor that is often forgotten. A shop or a call centre that reduces its opening hours may lose business to competitors who stay open. Therefore, any company considering the change should ask not only what its staff want, but also what its customers expect.
 
 While it is true that the evidence so far is limited, I would argue that the trials deserve to be taken seriously. Companies should not introduce the change overnight. Instead, they should start with one department, measure the results carefully and ask staff for honest feedback. On balance, I believe that for many office-based businesses, the benefits are likely to outweigh the costs.`,
     glossary: [

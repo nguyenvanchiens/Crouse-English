@@ -63,6 +63,10 @@ export default lesson({
     listen("b2-n06-8", "You can work from home provided that you're online by nine.", ["Bạn phải lên văn phòng trước chín giờ.", "Bạn được làm ở nhà nếu chín giờ mới lên mạng.", "Bạn không được làm ở nhà sau chín giờ.", "Bạn được làm ở nhà với điều kiện là có mặt trên mạng trước chín giờ."], 3, "Provided that: với điều kiện là. By nine: muộn nhất là chín giờ."),
     correct("b2-n06-9", "Unless the payment doesn't arrive by Friday, we will cancel the order.", ["Unless the payment arrives by Friday, we will cancel the order.", "If the payment doesn't arrive by Friday, we will cancel the order."], "Unless đã mang nghĩa phủ định (= if… not), nên bỏ doesn't. Hoặc giữ doesn't và đổi unless thành if."),
     correct("b2-n06-10", "Please book a bigger room in case more people will come.", ["Please book a bigger room in case more people come."], "Sau in case dùng hiện tại đơn để nói về tương lai, không dùng will: in case more people come."),
+    fill("b2-n06-11", "Write down the hotel address ___ your phone battery dies. (phòng khi)", ["in case"], "Ghi lại địa chỉ trước để phòng hờ: in case. Không dùng if, vì việc ghi địa chỉ làm ngay bây giờ, dù pin có hết hay không."),
+    fill("b2-n06-12", "We'll launch the new app on Monday ___ the tests show a serious problem. (trừ khi)", ["unless"], "Unless = if… not: sẽ ra mắt, trừ khi kiểm thử phát hiện lỗi nghiêm trọng."),
+    correct("b2-n06-13", "As long as you will finish the report by Friday, you can take Monday off.", ["As long as you finish the report by Friday, you can take Monday off."], "Sau as long as (cũng như if, unless, provided that) dùng hiện tại đơn để nói về tương lai: you finish, không dùng will."),
+    reorder("b2-n06-14", "Hurry up, otherwise we'll miss the train.", "Otherwise (nếu không thì) luôn mở đầu phần kết quả, nên đứng sau lời khuyên hoặc mệnh lệnh."),
   ],
   speaking: [
     say("I'll send you a copy in case you need it.", "Tôi sẽ gửi anh một bản phòng khi anh cần đến."),
@@ -92,17 +96,19 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b2-n06-d1", "When do they have to cancel to get their deposit back?", "The hotel will return our deposit provided that we cancel before Thursday.", ["After the workshop", "Before Monday", "On Saturday morning", "Before Thursday"], 3, "Provided that we cancel before Thursday: khách sạn chỉ trả cọc với điều kiện hủy trước thứ Năm."),
     mc("b2-n06-d2", "Why is Tom bringing a second projector?", ["Because the hotel has asked him to", "In case the hotel's projector doesn't work", "Because the workshop has moved to the garden", "So that the speaker can show her slides online"], 1, "Tom nói: I'll bring a second projector in case the hotel projector doesn't work. Mang theo để phòng hờ."),
-    mc("b2-n06-d3", "What will they do if the internet goes down during the speaker's talk?", ["Cancel the rest of the workshop", "Ask the speaker to fly in from Singapore", "Play a recording of her talk", "Move the audience into the garden"], 2, "Mai trả lời: We'd play her recorded talk. Chị đã sao lưu bản ghi trên máy tính."),
+    mc("b2-n06-d3", "What can we infer about Mai from the conversation?", ["She is worried that the workshop will be cancelled.", "She doesn't trust Tom to prepare anything.", "She has never organised an event before.", "She is well organised and plans for problems in advance."], 3, "Câu suy luận: Mai đã có phương án cho trời mưa, tiền cọc, và đã sao lưu sẵn bài nói của diễn giả (just in case). Tom còn khen: You've thought of everything."),
   ],
   reading: reading({
     title: "Before you sign: reading the small print",
-    text: `Most of us sign contracts without reading them properly. We rent flats, buy travel insurance and accept warranties on new phones, and we only look at the conditions when something goes wrong. By then, of course, it is usually too late.
+    text: `Most of us sign contracts without reading them properly. We rent flats, buy travel insurance and accept warranties on new phones, and we only look at the conditions when something goes wrong. By then, of course, it is usually too late. A friend of mine learned this the hard way when she moved out of a flat in Ho Chi Minh City after two years. The landlord kept almost half of her deposit to pay for repainting, a cost she had agreed to, without realising it, on page six of the agreement.
 
 Take a typical rental agreement. It may say that your deposit will be returned in full provided that the flat is left in good condition. That sounds fair, but what does "good condition" mean? Unless the contract defines it, you and your landlord may disagree. Experts therefore recommend taking dated photos of every room on the day you move in, in case there is an argument later.
 
 Travel insurance is another area where the wording matters. Many policies will pay for medical treatment abroad as long as you tell the company about any existing health problems. If you do not mention them, the insurer may refuse to pay, even for an illness that has nothing to do with your condition. Read the list of exclusions carefully; otherwise, you might discover that your "full cover" does not include the activities you had planned, such as diving or motorcycling.
 
 Warranties on electronic goods can also surprise buyers. A two-year warranty sounds generous, but it often applies only if the product is repaired by an authorised service centre. Suppose your laptop stops working and you take it to a cheaper local shop. The warranty may then no longer be valid.
+
+Gym memberships and phone contracts deserve special attention, because many of them renew automatically. A one-year membership may continue for another year unless you cancel in writing at least thirty days before it ends. Consumer organisations in several countries receive thousands of complaints every year from people who forgot this date and were charged for a further twelve months. A simple solution is to put a reminder in your phone calendar on the day you sign.
 
 None of this means that companies are trying to trick you. Most conditions exist for good reasons. However, it is your responsibility to understand what you are agreeing to. Before you sign anything, ask yourself three questions. What exactly do I have to do? What happens if I don't do it? And what will I have to pay if I change my mind?
 
@@ -115,6 +121,7 @@ If you cannot answer all three, do not sign until you can.`,
       ["exclusion", "điều khoản loại trừ (không được bảo hiểm)"],
       ["authorised", "được ủy quyền, chính hãng"],
       ["valid", "còn hiệu lực"],
+      ["renew", "gia hạn"],
     ],
     questions: [
       mc("b2-n06-r1", "What is the writer's main message?", ["Most contracts are designed to trick customers.", "You should understand the conditions of a contract before you sign it.", "Travel insurance is usually a waste of money.", "Landlords rarely return deposits."], 1, "Cả bài khuyên đọc kỹ điều khoản trước khi ký; đoạn cuối nói rõ công ty không cố lừa khách."),

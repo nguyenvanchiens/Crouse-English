@@ -65,6 +65,10 @@ export default lesson({
     listen("b2-n14-8", "I went to the school to talk to my daughter's teacher.", ["Tôi đi học cùng con gái.", "Con gái tôi là giáo viên ở trường.", "Tôi dạy ở trường của con gái.", "Tôi đến trường để nói chuyện với cô giáo của con gái tôi."], 3, "The school: người nói chỉ đến tòa nhà trường học, không phải đi học."),
     correct("b2-n14-9", "My sister is accountant at a bank in Hanoi.", ["My sister is an accountant at a bank in Hanoi."], "Nghề nghiệp số ít phải có mạo từ. Accountant bắt đầu bằng nguyên âm /ə/ nên dùng an."),
     correct("b2-n14-10", "I need an advice about my career.", ["I need some advice about my career.", "I need advice about my career.", "I need a piece of advice about my career."], "Advice là danh từ không đếm được: không dùng a/an. Nói some advice, advice, hoặc a piece of advice."),
+    fill("b2-n14-11", "This soup is cold, and we've waited forty minutes. I'd like to speak to ___ manager, please.", ["the"], "Ai cũng hiểu đó là người quản lý của chính nhà hàng này, chỉ có một người, nên dùng the."),
+    fill("b2-n14-12", "Could you give me ___ information about the course fees? (một ít)", ["some"], "Information không đếm được, không dùng an. Muốn nói “một ít” thì dùng some."),
+    correct("b2-n14-13", "The life in Ho Chi Minh City is very busy.", ["Life in Ho Chi Minh City is very busy."], "Nói về cuộc sống nói chung (danh từ trừu tượng) thì không dùng the, dù có cụm in Ho Chi Minh City phía sau. Tiếng Việt “cuộc sống ở Sài Gòn” khiến học trò nghĩ cần the."),
+    reorder("b2-n14-14", "My father is an engineer at a big factory.", "Nghề nghiệp số ít cần an (an engineer); nơi làm việc nhắc lần đầu dùng a (a big factory)."),
   ],
   speaking: [
     say("Honesty is the best policy.", "Trung thực là thượng sách."),
@@ -101,9 +105,11 @@ export default lesson({
     title: "The smallest words cause the biggest problems",
     text: `If you ask English teachers in Vietnam, Japan or China which mistake their students make most often, many will give the same answer: articles. The words a, an and the are among the most common words in English, yet learners at every level find them difficult. Even people who have lived in an English-speaking country for years still leave them out or add them in the wrong places.
 
-The reason is simple. Many Asian languages, including Vietnamese, Chinese and Japanese, have no articles at all. In Vietnamese, you can say the equivalent of "I bought book yesterday" without any problem, because the listener understands from the situation which book is meant. In English, however, the speaker must decide every time: is this the first time I have mentioned the book, or does the listener already know which one I mean?
+The reason is simple. Many Asian languages, including Vietnamese, Chinese and Japanese, have no articles at all. In Vietnamese, you can say the equivalent of "I bought book yesterday" without any problem, because the listener understands from the situation which book is meant. In English, however, the speaker must decide every time: is this the first time I have mentioned the book, or does the listener already know which one I mean? Speakers of Spanish or French, whose languages do have articles, make different mistakes: they tend to use the too often, as in "The life is beautiful".
 
 Linguists point out that this is not really a question of grammar rules but of knowledge shared between the speaker and the listener. When a teacher says "Open the window", the students know exactly which window she means, because there is only one in the room. When a friend says "I've found a flat", you have no idea which flat it is, so a is needed.
+
+The difference is not just a matter of style. Articles can change the meaning of a sentence completely. In British English, "My uncle is in hospital" means that he is ill and receiving treatment, while "My uncle is at the hospital" may simply mean that he is visiting someone or working there. In a business email, "We have received a complaint" introduces a new problem, whereas "We have received the complaint" tells the reader that you are talking about one they already know about. Small words, in other words, carry a surprising amount of information.
 
 Research also suggests that learners who read a lot improve faster than those who only study rules. By seeing thousands of examples in context, they slowly develop a feeling for what sounds right. This takes time. One study of university students found that their accuracy with articles was still improving after six years of study.
 

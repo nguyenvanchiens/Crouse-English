@@ -125,6 +125,7 @@ export default async function CoursePage(props: PageProps<"/khoa-hoc/[slug]">) {
           <div>
             <h2 id="teacher" className="font-display text-2xl font-extrabold">{course.teacher.name}</h2>
             <p className="mt-1 text-ink-soft">{course.teacher.bio}</p>
+            <p className="mt-2 text-sm text-ink-soft">Đây là nhân vật dẫn dắt của khóa học, không phải một giáo viên có thật.</p>
           </div>
         </section>
 

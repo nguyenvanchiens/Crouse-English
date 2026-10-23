@@ -27,7 +27,7 @@ export default lesson({
       p("Will be + V-ing còn là cách **hỏi lịch sự về kế hoạch** của người khác, nghe nhẹ nhàng hơn will thường, vì bạn chỉ hỏi dự định chứ không phải đang nhờ vả."),
       ex("Will you be using the car tonight?", "Tối nay anh có định dùng xe không?", "Người hỏi có thể đang muốn mượn xe, nhưng hỏi về kế hoạch trước cho khéo."),
       mistake("This time tomorrow, I will lie on the beach.", "This time tomorrow, I will be lying on the beach.", "Tiếng Việt chỉ cần chữ “đang” mà không đổi động từ. Tiếng Anh cần will be + V-ing để diễn tả việc đang diễn ra tại thời điểm đó."),
-      mistake("By the time you will arrive, I will have left.", "By the time you arrive, I will have left.", "Giống mệnh đề if trong câu điều kiện loại 1 (bài Nếu… thì…), sau by the time dùng hiện tại đơn dù đang nói về tương lai. Người Việt nghĩ “tương lai thì phải có will” nên thêm will ở cả hai vế."),
+      mistake("By the time you will arrive, I will have left.", "By the time you arrive, I will have left.", "Giống mệnh đề if trong câu điều kiện loại 1 mà bạn đã học ở A2 (cuối chương này, bài Nếu… thì… sẽ ôn lại), sau by the time dùng hiện tại đơn dù đang nói về tương lai. Người Việt nghĩ “tương lai thì phải có will” nên thêm will ở cả hai vế."),
       mistake("By Friday, I will have finish the project.", "By Friday, I will have finished the project.", "Sau will have phải là V3. Người Việt nói nhanh hay nuốt đuôi -ed nên viết cũng quên luôn."),
       tip("Mẹo phân biệt: nghĩ tới **một bức ảnh chụp** tại thời điểm tương lai. Trong ảnh việc **đang làm dở** thì dùng will be + V-ing. Trong ảnh việc **đã xong xuôi** thì dùng will have + V3. Khi nói, will have rút gọn thành **I'll have**, đọc lướt như /aɪl əv/."),
       teacher("Khi đứng lớp, tôi thấy người học hiểu hai thì này rất nhanh nhưng lại ít khi dám dùng, cứ quay về will cho an toàn. Tôi giao cho các bạn bài này: **mỗi sáng viết hai câu về ngày hôm đó**, một câu “At three this afternoon, I'll be…” và một câu “By tonight, I'll have…”. Tối về đối chiếu xem mình nói có đúng không. Vừa luyện ngữ pháp, vừa luyện sắp xếp công việc."),
@@ -51,8 +51,8 @@ export default lesson({
     word("conference", "/ˈkɒn.fər.əns/", "hội nghị, hội thảo", "This time next month, I'll be attending a conference in Singapore.", "con|fer|ence", 0, "Trọng âm ở âm đầu: CON-fer-ence, không nhấn vào âm giữa."),
   ],
   exercises: [
-    mc("b1-n15-1", "This time next week, I ___ on a beach in Phu Quoc.", ["will be lying", "will lie", "lie", "will have lying"], 0, "This time next week: việc đang diễn ra tại thời điểm đó trong tương lai, dùng will be + V-ing."),
-    mc("b1-n15-2", "By the end of this year, we ___ this project.", ["will be finishing", "finish", "will have finished", "are finished"], 2, "By + mốc thời gian: việc sẽ xong trước mốc đó, dùng will have + V3."),
+    mc("b1-n15-1", "This time next week, I ___ on a beach in Phu Quoc.", ["will be lying", "will lie", "lie", "was lying"], 0, "This time next week: việc đang diễn ra tại thời điểm đó trong tương lai, dùng will be + V-ing."),
+    mc("b1-n15-2", "By the end of this year, we ___ this project.", ["will be finishing", "finish", "will have finished", "finished"], 2, "By + mốc thời gian: việc sẽ xong trước mốc đó, dùng will have + V3."),
     fill("b1-n15-3", "By the time you get home, I will ___ cooked dinner.", ["have"], "Tương lai hoàn thành: will have + V3."),
     fill("b1-n15-4", "Don't call me at nine tonight. I'll be ___ my daughter to her piano lesson. (take)", ["taking"], "Lúc chín giờ việc đưa con đi học đang diễn ra: will be + V-ing."),
     reorder("b1-n15-5", "Will you be using the car tonight?", "Will + chủ ngữ + be + V-ing: hỏi lịch sự về kế hoạch của người khác."),
@@ -61,6 +61,10 @@ export default lesson({
     listen("b1-n15-8", "By the time we arrive, the film will have started.", ["Chúng ta sẽ đến trước khi phim bắt đầu.", "Phim sẽ bắt đầu khi chúng ta đến.", "Đến lúc chúng ta tới nơi thì phim đã bắt đầu rồi."], 2, "Will have started: phim sẽ bắt đầu trước lúc chúng ta đến."),
     correct("b1-n15-9", "By the time we will get there, the shop will have closed.", "By the time we get there, the shop will have closed.", "Sau by the time dùng hiện tại đơn dù đang nói về tương lai: by the time we get there."),
     correct("b1-n15-10", "By next month, she will have save enough money for the trip.", "By next month, she will have saved enough money for the trip.", "Sau will have phải là V3: saved."),
+    fill("b1-n15-11", "This time tomorrow, we ___ over the sea to Japan. (fly)", ["will be flying", "'ll be flying"], "This time tomorrow: việc đang diễn ra tại thời điểm đó trong tương lai, dùng will be + V-ing."),
+    fill("b1-n15-12", "By the time she retires next year, she ___ at the bank for forty years. (work)", ["will have worked", "'ll have worked", "will have been working"], "By the time + mốc tương lai, tính tổng thời gian đến mốc đó: will have + V3 (worked)."),
+    correct("b1-n15-13", "Don't call me at eight tonight. I will watch the football match then.", ["Don't call me at eight tonight. I will be watching the football match then.", "Don't call me at eight tonight. I'll be watching the football match then."], "Lúc tám giờ trận đấu đang diễn ra, nên dùng will be + V-ing, không dùng will + V."),
+    reorder("b1-n15-14", "My sister won't have finished her exams.", "Phủ định của tương lai hoàn thành: won't have + V3."),
   ],
   speaking: [
     say("This time next week, I'll be lying on the beach.", "Giờ này tuần sau, tôi đang nằm trên bãi biển."),
@@ -90,7 +94,7 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b1-n15-d1", "What will Linh be doing at nine on Friday?", "I'm sorry, I can't. At nine on Friday, I'll be flying to Singapore.", ["Meeting the partners", "Flying to Singapore", "Writing the report", "Talking to the board"], 1, "At nine on Friday, I'll be flying to Singapore: lúc đó Linh đang ở trên máy bay."),
     mc("b1-n15-d2", "By when will Linh have finished the report?", ["Friday morning", "Monday at ten", "Thursday afternoon", "Saturday evening"], 2, "I'll have finished it by Thursday afternoon."),
-    listenQ("b1-n15-d3", "What will Robert have done before the Monday meeting?", "Yes, I will. Let's meet at ten. I'll have spoken to the board by then.", ["He will have flown to Singapore.", "He will have written a new report.", "He will have spoken to the board."], 2, "I'll have spoken to the board by then: trước giờ họp, anh Robert đã nói chuyện với ban giám đốc."),
+    mc("b1-n15-d3", "Why does Linh suggest meeting on Monday?", ["She will be back from Singapore by then.", "Robert won't have read the report before Monday.", "She will be meeting the partners on Thursday.", "She hasn't started the report yet."], 0, "Câu suy luận: Linh bay đi Singapore thứ Sáu và gặp đối tác thứ Bảy, nên đến thứ Hai cô đã về và có thể họp ở văn phòng. Anh Robert sẽ đọc xong báo cáo trước khi cô về."),
   ],
   reading: reading({
     title: "A letter to myself in five years",
@@ -100,16 +104,18 @@ Today is my twenty-fifth birthday, and my English teacher has asked us to write 
 
 Five years from now, you will be thirty. I hope you will have finished your master's degree by then. You started it this autumn and it takes two years, so you will have got that qualification long before your thirtieth birthday. By the time you read this, you will probably have changed jobs at least once. Maybe you will be working for an international company, and you will be using English every day.
 
+At work, I hope you will be leading a small team. Right now you are the youngest person in the office, and you are still learning. By then, you will have made plenty of mistakes, and that's fine, as long as you have learnt from them.
+
 I also hope you will have saved enough money for a small flat. You won't have paid off the mortgage, of course. That will take twenty years! But you will be living in your own home, not in a rented room with three flatmates.
 
-What about your free time? I hope you will still be running every weekend, and that you will have run at least one marathon. And please don't forget Mum and Dad. This time in five years, they will be celebrating their thirty-fifth wedding anniversary. Plan something special for them.
+What about your free time? I hope you will still be running every weekend, and that you will have run at least one marathon. I also hope you will have visited Japan at last. You have been talking about it since you were fifteen! And please don't forget Mum and Dad. This time in five years, they will be celebrating their thirty-fifth wedding anniversary. Plan something special for them.
 
 Finally, be kind to yourself. If you haven't achieved everything, that's fine. Life doesn't always follow a plan.
 
 Love, Me at twenty-five`,
     glossary: [
       ["master's degree", "bằng thạc sĩ"],
-      ["pay off", "trả hết (nợ)"],
+      ["paid off", "trả hết (nợ), quá khứ của pay off"],
       ["rented", "đi thuê"],
       ["flatmate", "bạn cùng thuê nhà"],
       ["marathon", "cuộc chạy marathon (42 km)"],

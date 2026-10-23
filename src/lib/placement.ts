@@ -20,6 +20,8 @@ export interface PlacementResult {
   /** questions answered with "Tôi không biết" */
   dontKnow: number;
   perLevel: Record<PlacementLevel, { correct: number; total: number }>;
+  /** lower levels failed but forgiven because the levels above them were passed: worth reviewing */
+  gaps: PlacementLevel[];
 }
 
 export function scorePlacement(questions: PlacementQuestion[], answers: Record<string, number>): PlacementResult {
@@ -36,14 +38,27 @@ export function scorePlacement(questions: PlacementQuestion[], answers: Record<s
       correct++;
     }
   }
+  // With 8 items a level, one bad level can be a slip: it is forgiven when the levels above it are passed and
+  // the answers up to the placed level are still 60% right overall. Two failed levels in a row end the climb.
   let passed = 0;
-  for (const l of PLACEMENT_LEVELS) {
-    const { correct: c, total } = perLevel[l];
-    if (total > 0 && c / total >= 0.6) passed++;
-    else break;
+  let failedInRow = 0;
+  let upToC = 0;
+  let upToT = 0;
+  for (let i = 0; i < PLACEMENT_LEVELS.length; i++) {
+    const { correct: c, total } = perLevel[PLACEMENT_LEVELS[i]];
+    upToC += c;
+    upToT += total;
+    if (total > 0 && c / total >= PASS) {
+      failedInRow = 0;
+      if (upToC / upToT >= PASS) passed = i + 1;
+    } else if (++failedInRow >= 2) break;
   }
   const level = PLACEMENT_LEVELS[Math.max(0, passed - 1)];
   const startLevel = START_LEVELS[passed];
+  const gaps = PLACEMENT_LEVELS.slice(0, passed).filter((l) => {
+    const { correct: c, total } = perLevel[l];
+    return total > 0 && c / total < PASS;
+  });
   return {
     level,
     startLevel,
@@ -51,5 +66,8 @@ export function scorePlacement(questions: PlacementQuestion[], answers: Record<s
     score: percentScore(correct, questions.length) ?? 0,
     dontKnow,
     perLevel,
+    gaps,
   };
 }
+
+const PASS = 0.6;

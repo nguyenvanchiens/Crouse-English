@@ -5,9 +5,9 @@ const soon = (slug: string, title: string, minutes: number) => ({ slug, title, m
 export const ielts: Course = {
   slug: "ielts",
   title: "Luyện thi IELTS 6.5+",
-  level: "B1",
+  level: "B2",
   goal: "ielts",
-  summary: "Đủ 4 kỹ năng, chấm Writing và Speaking theo đúng tiêu chí của kỳ thi thật.",
+  summary: "Khóa đang soạn: đủ 4 kỹ năng, luyện Writing và Speaking theo tiêu chí chấm của kỳ thi thật.",
   outcomes: [
     "Nắm cấu trúc đề và chiến lược làm từng phần",
     "Viết Task 1 và Task 2 đạt band 6.5",

@@ -63,7 +63,7 @@ export default lesson({
   exercises: [
     mc("a1-n10-1", "How much ___ these sports shoes?", ["is", "are", "do"], 1, "These sports shoes là số nhiều nên dùng are."),
     mc("a1-n10-2", "Chọn cách nói đúng:", ["a shirt white", "a whites shirt", "a white shirt"], 2, "Màu sắc đứng trước danh từ và không thêm -s."),
-    fill("a1-n10-3", "___ jacket is very nice. (cái này)", ["This", "this"], "Jacket là số ít, ở gần nên dùng this."),
+    fill("a1-n10-3", "___ jacket is very nice. (ở gần tay bạn)", ["This", "this"], "Jacket là số ít, ở gần nên dùng this."),
     fill("a1-n10-4", "I'd like the ___ jeans, not the black ones. (xanh da trời)", ["blue"], "Xanh da trời là blue; xanh lá cây mới là green."),
     reorder("a1-n10-5", "How much are these black trousers?", "Trousers luôn số nhiều nên dùng are và these; màu black đứng trước trousers."),
     reorder("a1-n10-6", "What colour is your new car?", "Hỏi màu: What colour + is + đồ vật? Tính từ new đứng trước danh từ car."),
@@ -71,6 +71,10 @@ export default lesson({
     listen("a1-n10-8", "How much is this green T-shirt?", ["Những cái áo phông xanh lá này bao nhiêu tiền?", "Cái áo phông xanh lá này bao nhiêu tiền?", "Cái áo phông xanh da trời này bao nhiêu tiền?"], 1, "Is và this cho biết chỉ có một cái; green là xanh lá cây."),
     correct("a1-n10-9", "I'd like a dress yellow, please.", ["I'd like a yellow dress, please.", "I would like a yellow dress, please."], "Màu sắc đứng trước danh từ: a yellow dress, không nói a dress yellow như “váy vàng” trong tiếng Việt."),
     correct("a1-n10-10", "This jacket is five hundred thousands dong.", ["This jacket is five hundred thousand dong."], "Sau một con số, thousand không thêm -s: five hundred thousand dong."),
+    fill("a1-n10-11", "How much ___ this black jacket?", ["is"], "This black jacket là một món (số ít) nên hỏi giá bằng How much is…?"),
+    fill("a1-n10-12", "A: What ___ is your bag? B: It's brown.", ["colour", "color"], "Hỏi màu: What colour + is + đồ vật? Kiểu Anh viết colour, kiểu Mỹ viết color."),
+    reorder("a1-n10-13", "I'd like two white T-shirts, please.", "Màu white đứng trước danh từ và không thêm -s; chỉ T-shirts mới ở số nhiều."),
+    correct("a1-n10-14", "How much is these jeans?", ["How much are these jeans?"], "Jeans luôn là số nhiều (đi với these), nên hỏi giá bằng How much are…?"),
   ],
   freeSpeaking: free(
     "What do you usually buy at a clothes shop?",
@@ -128,7 +132,7 @@ Buy two T-shirts and get one free!`,
       ["get one free", "được tặng một cái"],
     ],
     questions: [
-      mc("a1-n10-r1", "Đây là loại văn bản gì?", ["Quảng cáo giảm giá của một cửa hàng quần áo", "Tin nhắn của một người bạn", "Thực đơn của một nhà hàng"], 0, "BIG SALE AT LOTUS FASHION: một cửa hàng quần áo quảng cáo đợt giảm giá."),
+      mc("a1-n10-r1", "Đây là loại văn bản gì?", ["Quảng cáo giảm giá của một cửa hàng quần áo", "Thông báo tuyển nhân viên bán hàng", "Hóa đơn mua quần áo của một khách hàng"], 0, "BIG SALE AT LOTUS FASHION: một cửa hàng quần áo quảng cáo đợt giảm giá."),
       mc("a1-n10-r2", "Một chiếc áo phông trắng giá bao nhiêu?", ["18.000 đồng", "800.000 đồng", "80.000 đồng"], 2, "Only eighty thousand dong: tám mươi nghìn đồng."),
       mc("a1-n10-r3", "Bây giờ một chiếc áo khoác đen giá bao nhiêu?", ["400.000 đồng", "600.000 đồng", "250.000 đồng"], 0, "Four hundred thousand dong, not six hundred thousand: giá mới là bốn trăm nghìn."),
       fill("a1-n10-r4", "Váy mới có màu vàng và xanh lá: Our new dresses are yellow and ___.", ["green"], "Xanh lá cây là green; blue là xanh da trời."),

@@ -69,6 +69,10 @@ export default lesson({
     listen("a1-n07-8", "Does she like reading? No, she doesn't.", ["Cô ấy có thích đọc sách không? Có.", "Cô ấy có thích viết không? Không.", "Cô ấy có thích đọc sách không? Không."], 2, "No, she doesn't là câu trả lời không."),
     correct("a1-n07-9", "I like listen to music.", ["I like listening to music.", "I like to listen to music."], "Không để hai động từ nguyên mẫu đứng liền nhau: like listening (hoặc like to listen)."),
     correct("a1-n07-10", "I very like dancing.", ["I really like dancing.", "I like dancing very much."], "Very không đứng trước like. Dùng really trước động từ, hoặc very much ở cuối câu."),
+    fill("a1-n07-11", "My grandfather ___ walking in the park. (love)", ["loves"], "My grandfather là he nên love thêm -s: loves. Sau loves là V-ing: walking."),
+    fill("a1-n07-12", "We hate ___ for the bus. (wait)", ["waiting", "to wait"], "Sau hate dùng V-ing (waiting); hate to wait cũng đúng."),
+    reorder("a1-n07-13", "Do your children like swimming?", "Your children là they nên câu hỏi dùng Do; sau like là V-ing, swim gấp đôi m thành swimming."),
+    correct("a1-n07-14", "Does she like cooking? Yes, she likes.", ["Does she like cooking? Yes, she does."], "Trả lời ngắn không lặp lại like: câu hỏi bắt đầu bằng Does thì trả lời Yes, she does."),
   ],
   freeSpeaking: free(
     "What do you like doing at the weekend?",
@@ -117,7 +121,7 @@ I want to practise my English. Do you like swimming or reading? Please write to 
       ["practise", "luyện tập"],
     ],
     questions: [
-      mc("a1-n07-r1", "Thảo viết đoạn này để làm gì?", ["Để tìm bạn luyện tiếng Anh", "Để xin việc làm y tá", "Để bán sách du lịch"], 0, "Cuối bài: I want to practise my English... Please write to me!"),
+      mc("a1-n07-r1", "Thảo viết đoạn này để làm gì?", ["Để tìm bạn luyện tiếng Anh", "Để giới thiệu một câu lạc bộ bơi ở Đà Nẵng", "Để kể về món cơm rang của anh trai"], 0, "Cuối bài: I want to practise my English... Please write to me!"),
       mc("a1-n07-r2", "Thảo đi bơi khi nào?", ["Mỗi tối thứ Bảy", "Mỗi sáng Chủ nhật", "Mỗi ngày sau giờ làm"], 1, "I swim in the sea every Sunday morning."),
       mc("a1-n07-r3", "Thảo không thích việc gì?", ["Đọc sách", "Bơi ở biển", "Xem ti vi"], 2, "I don't like watching TV."),
       fill("a1-n07-r4", "Huy rất thích chơi bóng đá: He loves ___ football. (play)", ["playing", "to play"], "Sau love dùng V-ing: loves playing (to play cũng đúng)."),

@@ -27,10 +27,18 @@ describe("scorePlacement", () => {
     expect(r.startLevel).toBe("B2");
     expect(r.perLevel.B2).toEqual({ correct: 1, total: 2 });
   });
-  it("does not skip a failed lower level", () => {
+  it("forgives one failed lower level when the levels above are passed, and reports it as a gap", () => {
     const r = scorePlacement(questions, answer(["a1", "a2", "c1", "c2", "d1", "d2"]));
-    expect(r.level).toBe("A1");
-    expect(r.startLevel).toBe("A2");
+    expect(r).toMatchObject({ level: "B2", startLevel: "C1", gaps: ["A2"] });
+  });
+  it("stops at two failed levels in a row", () => {
+    const r = scorePlacement(questions, answer(["a1", "a2", "d1", "d2", "e1", "e2"]));
+    expect(r).toMatchObject({ level: "A1", startLevel: "A2", gaps: [] });
+  });
+  it("does not place above a level when the answers up to it are under 60% overall", () => {
+    // A1 0/2 then A2 2/2: A2 is passed, but only 2/4 = 50% are right up to it
+    const r = scorePlacement(questions, answer(["b1", "b2"]));
+    expect(r).toMatchObject({ level: "A1", startLevel: "A1" });
   });
   it("starts at C1 after passing B2", () => {
     const r = scorePlacement(questions, answer(["a1", "a2", "b1", "b2", "c1", "c2", "d1", "d2"]));

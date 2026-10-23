@@ -57,6 +57,10 @@ export default lesson({
     listen("b2-n12-8", "Having lost his keys, he couldn't get into the flat.", ["Anh ấy tìm thấy chìa khóa và vào được căn hộ.", "Anh ấy để quên chìa khóa trong căn hộ của bạn.", "Vì đã làm mất chìa khóa nên anh ấy không vào được căn hộ."], 2, "Having lost: việc mất chìa khóa xảy ra trước và là lý do của việc không vào được nhà."),
     correct("b2-n12-9", "The report writing by our team was sent to the client yesterday.", ["The report written by our team was sent to the client yesterday.", "The report which was written by our team was sent to the client yesterday.", "The report that was written by our team was sent to the client yesterday."], "Bản báo cáo được viết (bị động), nên rút gọn bằng V3: written = which was written."),
     correct("b2-n12-10", "Anyone want to join the tour should sign up by Friday.", ["Anyone wanting to join the tour should sign up by Friday.", "Anyone who wants to join the tour should sign up by Friday."], "Rút gọn mệnh đề quan hệ chủ động thì dùng V-ing: anyone wanting = anyone who wants. Không để động từ nguyên mẫu đứng ngay sau danh từ."),
+    fill("b2-n12-11", "The new office, ___ by a young Vietnamese architect, uses a lot of natural light. (design)", ["designed"], "Văn phòng được thiết kế (bị động), nên dùng V3: designed = which was designed."),
+    fill("b2-n12-12", "___ worked in Japan for five years, Ms Hoa speaks Japanese fluently. (have)", ["Having"], "Having + V3 (having worked) nói việc đã xảy ra trước và giải thích vì sao bây giờ cô ấy nói giỏi."),
+    correct("b2-n12-13", "Customers buy our products online can track their orders.", ["Customers buying our products online can track their orders.", "Customers who buy our products online can track their orders.", "Customers that buy our products online can track their orders."], "Câu có hai động từ chia (buy, can track) mà không có từ nối. Rút gọn mệnh đề quan hệ chủ động bằng V-ing: customers buying = customers who buy."),
+    reorder("b2-n12-14", "The parts ordered last week have just arrived.", "Ordered last week = which were ordered last week: V3 đứng ngay sau danh từ mang nghĩa bị động."),
   ],
   speaking: [
     say("Having finished my work, I went home early.", "Làm xong việc, tôi về nhà sớm."),
@@ -72,22 +76,24 @@ export default lesson({
     "Dẫn khách tham quan công ty",
     "Ông Lee, khách hàng từ Hàn Quốc, đến thăm trụ sở công ty. Vy, nhân viên phòng kinh doanh, dẫn ông đi tham quan và giới thiệu công ty.",
     { A: "Vy, nhân viên kinh doanh", B: "Ông Lee, khách hàng" },
-    A("Welcome to our head office, Mr Lee. Founded in two thousand and five, our company now has three factories.", "Chào mừng ông Lee đến trụ sở chính. Được thành lập năm hai nghìn không trăm linh năm, công ty chúng tôi hiện có ba nhà máy."),
-    B("Impressive. Who is the man standing by the window?", "Ấn tượng thật. Người đàn ông đang đứng cạnh cửa sổ là ai vậy?"),
-    A("That's Mr Pham, our director. Having worked in Korea for ten years, he knows your market very well.", "Đó là ông Phạm, giám đốc của chúng tôi. Đã làm việc ở Hàn Quốc mười năm, ông ấy rất hiểu thị trường của ông."),
-    B("That's useful. Are the products shown in this room made here?", "Hay quá. Các sản phẩm trưng bày trong phòng này có được sản xuất ở đây không?"),
-    A("Yes. Most of the items displayed here are produced in our Binh Duong factory.", "Có ạ. Phần lớn sản phẩm trưng bày ở đây được sản xuất tại nhà máy Bình Dương."),
-    B("And what about the packaging? It looks very good.", "Còn bao bì thì sao? Trông rất đẹp."),
-    A("Designed by a local team, it is made from recycled paper.", "Do một nhóm trong nước thiết kế, bao bì này được làm từ giấy tái chế."),
-    B("I like that. Customers buying our products in Korea care a lot about the environment.", "Tôi thích điều đó. Khách mua sản phẩm của chúng tôi ở Hàn Quốc rất quan tâm đến môi trường."),
-    A("Then you'll enjoy the next part. Having seen the showroom, we'll now visit the design studio.", "Vậy chắc ông sẽ thích phần tiếp theo. Xem xong phòng trưng bày, giờ chúng ta sẽ đi thăm phòng thiết kế."),
-    B("Great. Feeling a bit tired after my flight, I'd love a coffee first, if possible.", "Tuyệt. Vì hơi mệt sau chuyến bay, tôi muốn uống một tách cà phê trước, nếu được."),
-    A("Of course. The café located on the ground floor makes excellent Vietnamese coffee.", "Tất nhiên rồi. Quán cà phê nằm ở tầng trệt pha cà phê Việt Nam rất ngon."),
+    A("Welcome to our head office, Mr Lee. Did you find us easily?", "Chào mừng ông Lee đến trụ sở chính. Ông tìm đường đến đây có dễ không ạ?"),
+    B("Yes, the driver knew the way. So how long has the company been here?", "Dễ thôi, tài xế biết đường. Thế công ty ở đây được bao lâu rồi?"),
+    A("We were founded in two thousand and five, and now we have three factories.", "Chúng tôi thành lập năm hai nghìn không trăm linh năm, và giờ đã có ba nhà máy."),
+    B("Impressive. Who's the man standing by the window?", "Ấn tượng thật. Người đàn ông đang đứng cạnh cửa sổ là ai vậy?"),
+    A("That's Mr Pham, our director. He worked in Korea for ten years, so he knows your market very well.", "Đó là ông Phạm, giám đốc của chúng tôi. Ông ấy làm việc ở Hàn Quốc mười năm nên rất hiểu thị trường của ông."),
+    B("That's useful. Are all the products in this room made here?", "Hay quá. Tất cả sản phẩm trong phòng này đều sản xuất ở đây à?"),
+    A("Most of them, yes. Everything on this shelf comes from our Binh Duong factory.", "Phần lớn là vậy ạ. Mọi thứ trên kệ này đều từ nhà máy Bình Dương của chúng tôi."),
+    B("The packaging looks great. What's it made of?", "Bao bì trông đẹp quá. Nó làm bằng gì vậy?"),
+    A("Recycled paper. A local team designed it last year.", "Giấy tái chế ạ. Một nhóm trong nước đã thiết kế nó hồi năm ngoái."),
+    B("I like that. People buying our products in Korea really care about the environment.", "Tôi thích điều đó. Người mua sản phẩm của chúng tôi ở Hàn Quốc rất quan tâm đến môi trường."),
+    A("Then you'll enjoy the design studio. Shall we have a coffee before we go up?", "Vậy chắc ông sẽ thích phòng thiết kế. Mình uống cà phê trước rồi hãy lên nhé?"),
+    B("Yes, please. I'm still a bit tired after my flight.", "Vâng, được thế thì tốt. Tôi vẫn còn hơi mệt sau chuyến bay."),
+    A("The café on the ground floor makes excellent Vietnamese coffee. It's this way.", "Quán cà phê ở tầng trệt pha cà phê Việt Nam rất ngon. Lối này ạ."),
   ),
   dialogueQuestions: [
-    mc("b2-n12-d1", "Why does the director know the Korean market well?", ["He is Korean.", "He worked in Korea for ten years.", "He studied Korean at university.", "He visits Korea every month."], 1, "Having worked in Korea for ten years, he knows your market very well."),
-    listenQ("b2-n12-d2", "What is the packaging made from?", "And what about the packaging? It looks very good. Designed by a local team, it is made from recycled paper.", ["Recycled paper", "Plastic from Korea", "Wood from Binh Duong", "Glass"], 0, "It is made from recycled paper. Designed by a local team cho biết ai thiết kế, không phải chất liệu."),
-    mc("b2-n12-d3", "What does Mr Lee want to do before visiting the design studio?", ["Meet the director", "See the factory in Binh Duong", "Have a coffee", "Buy some products"], 2, "Feeling a bit tired after my flight, I'd love a coffee first."),
+    mc("b2-n12-d1", "Why does the director know the Korean market well?", ["He is Korean.", "He worked in Korea for ten years.", "He studied Korean at university.", "He visits Korea every month."], 1, "He worked in Korea for ten years, so he knows your market very well. Trong văn viết, câu này có thể rút gọn thành Having worked in Korea for ten years, he…, nhưng khi nói chuyện, câu đầy đủ nghe tự nhiên hơn."),
+    listenQ("b2-n12-d2", "What is the packaging made of?", "The packaging looks great. What's it made of? Recycled paper. A local team designed it last year.", ["Recycled paper", "Plastic from Korea", "Wood from Binh Duong", "Glass"], 0, "Vy trả lời ngay: Recycled paper. A local team designed it chỉ cho biết ai thiết kế, không phải chất liệu."),
+    mc("b2-n12-d3", "What can we infer about Mr Lee?", ["He has visited this office many times before.", "He arrived in Vietnam quite recently.", "He got lost on the way to the office.", "He doesn't drink coffee."], 1, "Câu suy luận: ông nói I'm still a bit tired after my flight, nên nhiều khả năng ông vừa mới bay đến. Vy hỏi Did you find us easily?, cho thấy đây là lần đầu ông đến, và tài xế biết đường nên ông không bị lạc."),
   ],
   reading: reading({
     title: "From a garage to three factories: the story of Mai Lan Woodcraft",
@@ -95,9 +101,13 @@ export default lesson({
 
 The early years were difficult. Having borrowed money from relatives to buy their first machines, the brothers worked sixteen hours a day, delivering orders themselves on a motorbike. Their big chance came in 2004, when a Japanese buyer visiting a trade fair in Ho Chi Minh City noticed a simple wooden chair made by their team. Impressed by its quality, he ordered five thousand of them.
 
+For the first six years, the company had no office at all. Orders were written in a school notebook, and the brothers' mother kept the accounts at her kitchen table. "We didn't know anything about exporting," the younger brother remembers. "We learned by making mistakes, and some of them were very expensive."
+
 Today, most of the furniture produced by Mai Lan is made from wood grown on certified plantations. Customers buying from the company can scan a code on each product to see exactly where the wood came from. Introduced in 2019, this system has helped the company win contracts with several large European retailers, who are under pressure to prove that their products are sustainable.
 
 The company's head office, located on the outskirts of Thu Dau Mot, was refurbished last year. Designed by a young Vietnamese architect, the new building uses natural light and ventilation, cutting electricity costs by almost a third. Visitors arriving at the entrance are greeted by the original wooden chair that started it all, displayed in a glass case.
+
+The company is also known for the way it treats its workers. Every year it takes on around forty school leavers from the province and trains them for two years before they join the production line. Many of today's supervisors started as trainees, and staff turnover is less than half the industry average. In a sector where factories often struggle to keep skilled carpenters, this has become one of Mai Lan's biggest advantages.
 
 Not everything has gone smoothly. Faced with rising wood prices and strong competition from other countries, Mai Lan had to close one of its four factories in 2023. Nevertheless, the managing director, the daughter of one of the founders, remains optimistic. "Having survived those difficult early years, we are not afraid of challenges," she says. "Our customers want furniture that is beautiful, strong and responsibly made, and that is exactly what we do."`,
     glossary: [
@@ -109,6 +119,7 @@ Not everything has gone smoothly. Faced with rising wood prices and strong compe
       ["sustainable", "bền vững, thân thiện với môi trường"],
       ["ventilation", "sự thông gió"],
       ["optimistic", "lạc quan"],
+      ["turnover (staff)", "tỉ lệ nhân viên nghỉ việc"],
     ],
     questions: [
       mc("b2-n12-r1", "What is the text mainly about?", ["How a small family workshop grew into a major furniture exporter", "Why wood prices are rising in Vietnam", "How to design an energy-saving office", "Why European retailers prefer Japanese furniture"], 0, "Bài kể lại chặng đường từ một gara nhỏ năm 1998 đến một công ty xuất khẩu hơn một nghìn hai trăm nhân viên."),

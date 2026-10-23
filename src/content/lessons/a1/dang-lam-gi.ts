@@ -59,7 +59,7 @@ export default lesson({
   ],
   exercises: [
     mc("a1-n15-1", "Look! It ___.", ["rains", "is raining", "raining"], 1, "Look! báo hiệu việc đang diễn ra trước mắt: dùng is + V-ing."),
-    mc("a1-n15-2", "Chọn cách viết đúng của sit + -ing:", ["siting", "sitteing", "sitting"], 2, "Sit kết thúc bằng phụ âm, nguyên âm, phụ âm nên gấp đôi t: sitting."),
+    mc("a1-n15-2", "Chọn cách viết đúng của sit + -ing:", ["siting", "sitin", "sitting"], 2, "Sit kết thúc bằng phụ âm, nguyên âm, phụ âm nên gấp đôi t: sitting. Siting là lỗi quên gấp đôi; sitin là lỗi viết theo cách nghe, nuốt mất âm /ŋ/."),
     fill("a1-n15-3", "She ___ her homework at the moment. (do)", ["is doing", "'s doing"], "At the moment là ngay lúc này; she đi với is: is doing."),
     fill("a1-n15-4", "I ___ to work by bus every day. (go)", ["go"], "Every day là thói quen nên dùng hiện tại đơn, không dùng -ing."),
     reorder("a1-n15-5", "What are your children doing?", "What + are + chủ ngữ + V-ing? Your children là số nhiều nên dùng are."),
@@ -68,6 +68,10 @@ export default lesson({
     listen("a1-n15-8", "She isn't sleeping. She's reading.", ["Cô ấy đang ngủ chứ không đọc sách.", "Cô ấy không ngủ. Cô ấy đang đọc sách.", "Cô ấy không đọc sách. Cô ấy đang ngủ."], 1, "Isn't sleeping là không ngủ; she's reading là đang đọc."),
     correct("a1-n15-9", "My mother cooking dinner now.", ["My mother is cooking dinner now.", "My mother's cooking dinner now."], "Thiếu to be: hiện tại tiếp diễn luôn cần đủ hai phần, is + V-ing."),
     correct("a1-n15-10", "Look! The children play in the garden.", ["Look! The children are playing in the garden."], "Look! báo hiệu việc đang diễn ra trước mắt, nên dùng hiện tại tiếp diễn: are playing."),
+    fill("a1-n15-11", "Look! The children ___ in the rain. (run)", ["are running", "'re running"], "Look! là việc đang diễn ra; the children là số nhiều nên dùng are. Run gấp đôi n: running."),
+    fill("a1-n15-12", "My father ___ the newspaper every morning. (read)", ["reads"], "Every morning là thói quen nên dùng hiện tại đơn; my father là he nên read thêm -s."),
+    reorder("a1-n15-13", "Are you listening to me?", "Câu hỏi tiếp diễn: Are + you + V-ing? Listen luôn đi với to khi có người hoặc vật được nghe."),
+    correct("a1-n15-14", "She is writeing an email.", ["She is writing an email.", "She's writing an email."], "Write tận cùng bằng e câm: bỏ e rồi mới thêm -ing, thành writing (chỉ một chữ t)."),
   ],
   freeSpeaking: free(
     "What are you doing now, and what are the people near you doing?",
@@ -124,7 +128,7 @@ Linh: OK. See you at twelve!`,
       ["Let's…", "Chúng ta hãy…"],
     ],
     questions: [
-      mc("a1-n15-r1", "Đây là loại văn bản gì?", ["Tin nhắn trong nhóm chat của một gia đình", "Một email công việc", "Một bài báo về chợ"], 0, "Bố, mẹ, Linh và Nam nhắn cho nhau xem mỗi người đang ở đâu, đang làm gì."),
+      mc("a1-n15-r1", "Đây là loại văn bản gì?", ["Tin nhắn trong nhóm chat của một gia đình", "Lịch làm việc nhà của cả gia đình", "Tin nhắn mời cả nhà đi ăn tiệc"], 0, "Bố, mẹ, Linh và Nam nhắn cho nhau xem mỗi người đang ở đâu, đang làm gì."),
       mc("a1-n15-r2", "Linh đang làm gì?", ["Đang đi chợ với bà", "Đang ôn bài ở thư viện", "Đang dọn phòng"], 1, "I'm at the library. I'm studying for my English test."),
       mc("a1-n15-r3", "Mẹ đang ở đâu, với ai?", ["Ở nhà với Nam", "Ở thư viện với Linh", "Ở chợ với bà"], 2, "I'm at the market with Grandma."),
       fill("a1-n15-r4", "Nam không ngủ, Nam đang dọn phòng: I'm ___ my room. (clean)", ["cleaning"], "Hiện tại tiếp diễn: am + V-ing, clean thêm -ing thành cleaning."),

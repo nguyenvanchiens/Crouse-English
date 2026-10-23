@@ -28,7 +28,7 @@ export default lesson({
         ["She had been writing reports all morning.", "Thời lượng", "Cả buổi sáng ngồi viết."],
       ),
       ex("By next June, I will have been working here for ten years.", "Đến tháng Sáu năm sau là tôi làm ở đây được tròn mười năm.", "Will have been + V-ing: mốc tương lai đi với by, thời lượng đi với for. Tiếng Việt nói “được mười năm”, tiếng Anh cần cả hai phần."),
-      mistake("She was drenched because she has been walking in the rain.", "She was drenched because she had been walking in the rain.", "Tiếng Việt không chia thì, chỉ cần “vì cô ấy đi dưới mưa” là đủ. Trong tiếng Anh, mốc ở đây là was (quá khứ), nên việc kéo dài đến mốc đó phải lùi về had been, không dùng has been."),
+      mistake("She was soaked because she has been walking in the rain.", "She was soaked because she had been walking in the rain.", "Tiếng Việt không chia thì, chỉ cần “vì cô ấy đi dưới mưa” là đủ. Trong tiếng Anh, mốc ở đây là was (quá khứ), nên việc kéo dài đến mốc đó phải lùi về had been, không dùng has been."),
       mistake("We had been knowing each other for years before we worked together.", "We had known each other for years before we worked together.", "Know, believe, own, have (sở hữu), like là động từ chỉ trạng thái, không dùng ở dạng tiếp diễn. Người Việt dịch “đã quen nhau” theo khuôn “đã đang” nên thêm -ing. Với các động từ này, dùng had + V3."),
       mistake("Next month I will be working here for five years.", "Next month I will have been working here for five years.", "Câu tiếng Việt “tháng sau tôi làm ở đây được năm năm” không có chữ nào tương ứng với have been. Nhưng muốn nói thời lượng tính đến mốc tương lai, tiếng Anh bắt buộc dùng will have been + V-ing."),
       tip("Khi nói nhanh, **had been** rút thành **I'd been** /aɪd bɪn/, còn **will have been** thành **I'll have been** /aɪl əv bɪn/, chữ have chỉ còn /əv/. Chữ **been** trong các thì này đọc nhẹ /bɪn/, trọng âm dồn vào động từ chính: I'd been **wait**ing for ages."),
@@ -44,10 +44,10 @@ export default lesson({
   },
   words: [
     word("exhaustion", "/ɪɡˈzɔːs.tʃən/", "sự kiệt sức", "After twelve hours on the road, he was close to exhaustion.", "ex|haus|tion", 1, "Chữ h câm, x đọc là /ɡz/: ig-ZAWS-chần."),
-    word("drenched", "/drentʃt/", "ướt sũng", "We were drenched because we had been waiting for a taxi in the rain.", "drenched", 0, "Đuôi -ed sau âm /tʃ/ đọc là /t/: nhớ bật cụm /ntʃt/ ở cuối, đừng nuốt thành “đren”."),
+    word("soaked", "/səʊkt/", "ướt sũng, ướt đẫm", "We were soaked because we had been waiting for a taxi in the rain.", "soaked", 0, "Đuôi -ed sau âm /k/ đọc là /t/: /səʊkt/, một âm tiết. Đừng đọc thành “sâu-kít”."),
     word("breathless", "/ˈbreθ.ləs/", "hụt hơi, thở không ra hơi", "She arrived breathless because she had been running up the stairs.", "breath|less", 0, "Âm /θ/ đặt đầu lưỡi giữa hai răng, không đọc thành “brét”."),
-    word("hoarse", "/hɔːs/", "khàn giọng", "His voice was hoarse because he had been shouting at the match.", "hoarse", 0, "Đọc giống hệt horse (con ngựa); chữ r không đọc."),
-    word("drowsy", "/ˈdraʊ.zi/", "buồn ngủ, lơ mơ", "This medicine may make you drowsy, so don't drive.", "drow|sy", 0),
+    word("pale", "/peɪl/", "nhợt nhạt, xanh xao", "You look pale. Have you been working all night again?", "pale", 0, "Nguyên âm đôi /eɪ/ trượt từ e sang i, và bật rõ âm /l/ cuối: “pêu”."),
+    word("yawn", "/jɔːn/", "ngáp; cái ngáp", "He kept yawning because he had been studying until three in the morning.", "yawn", 0, "Chữ aw đọc là /ɔː/ dài như trong law. Không đọc chữ w ở cuối."),
     word("stamina", "/ˈstæm.ɪ.nə/", "sức bền, sức dẻo dai", "You need a lot of stamina to work night shifts for months.", "stam|i|na", 0, "Trọng âm ở âm đầu: STAM-i-na."),
     word("sleepless", "/ˈsliːp.ləs/", "mất ngủ, không ngủ được (đêm)", "I had spent three sleepless nights before the interview.", "sleep|less", 0, "Nguyên âm dài /iː/ trong sleep phải kéo dài, và bật rõ âm /p/ trước /l/."),
     word("strain", "/streɪn/", "sự căng thẳng, áp lực quá sức", "The nurses had been working under enormous strain all winter.", "strain", 0, "Cụm phụ âm /str/ ở đầu đọc liền, không chêm nguyên âm thành “sờ-trên”."),
@@ -60,9 +60,13 @@ export default lesson({
     reorder("b2-n17-5", "How long had you been waiting for the bus?", "Câu hỏi thời lượng tính đến một mốc quá khứ: How long + had + chủ ngữ + been + V-ing."),
     reorder("b2-n17-6", "What had you been doing all morning?", "Hỏi về việc đã diễn ra suốt một khoảng thời gian trước một mốc quá khứ: What + had + chủ ngữ + been + V-ing."),
     listen("b2-n17-7", "By next June, I'll have been working here for five years.", ["Tôi đã làm ở đây năm năm rồi mới nghỉ.", "Tháng Sáu năm ngoái tôi bắt đầu làm ở đây.", "Đến tháng Sáu năm sau là tôi làm ở đây được năm năm.", "Tôi sẽ làm ở đây thêm năm năm nữa."], 2, "I'll have been working: tương lai hoàn thành tiếp diễn, tính đến mốc By next June."),
-    listen("b2-n17-8", "His voice was hoarse because he had been shouting at the match.", ["Anh ấy khàn giọng vì đã hò hét suốt trận đấu.", "Anh ấy sẽ hò hét ở trận đấu tối nay.", "Anh ấy không hét được vì bị ốm.", "Anh ấy khàn giọng nên không đi xem bóng đá."], 0, "Had been shouting: việc kéo dài trước mốc quá khứ, để lại dấu vết là giọng khàn (hoarse)."),
+    listen("b2-n17-8", "He looked pale because he had been working all night.", ["Anh ấy trông xanh xao vì đã làm việc suốt đêm.", "Anh ấy sẽ làm việc suốt đêm nay.", "Anh ấy trông xanh xao nên không đi làm.", "Anh ấy thường làm việc vào ban đêm."], 0, "Had been working: việc kéo dài trước mốc quá khứ (looked), để lại dấu vết là vẻ xanh xao (pale)."),
     correct("b2-n17-9", "His hands were black because he has been repairing his motorbike.", ["His hands were black because he had been repairing his motorbike.", "His hands were black because he'd been repairing his motorbike.", "His hands were black because he was repairing his motorbike."], "Mốc là were (quá khứ), nên việc kéo dài ngay trước đó và để lại dấu vết phải dùng had been repairing, không dùng has been."),
     correct("b2-n17-10", "By the time we arrived, they had been knowing about the problem for a week.", ["By the time we arrived, they had known about the problem for a week.", "By the time we arrived, they'd known about the problem for a week."], "Know là động từ trạng thái, không chia tiếp diễn. Dùng had known cho thời lượng tính đến mốc quá khứ."),
+    fill("b2-n17-11", "By the time the ambulance arrived, the injured man ___ lying in the road for almost an hour. (be)", ["had been"], "Mốc quá khứ là arrived, việc nằm trên đường kéo dài đến lúc đó: had been lying."),
+    fill("b2-n17-12", "By the end of next month, we ___ been living in Da Nang for two years.", ["will have", "'ll have"], "Mốc tương lai by the end of next month và thời lượng for two years: will have been living."),
+    correct("b2-n17-13", "I was exhausted because I had been work in the garden all afternoon.", ["I was exhausted because I had been working in the garden all afternoon.", "I was exhausted because I'd been working in the garden all afternoon."], "Sau had been phải là V-ing: had been working. Thiếu -ing là lỗi rất hay gặp vì tiếng Việt không biến đổi động từ."),
+    reorder("b2-n17-14", "How long will you have been living here?", "Câu hỏi thời lượng tính đến một mốc tương lai: How long + will + chủ ngữ + have been + V-ing."),
   ],
   speaking: [
     say("She was out of breath because she had been running.", "Cô ấy thở hổn hển vì vừa chạy một lúc lâu."),
@@ -72,37 +76,41 @@ export default lesson({
   freeSpeaking: free(
     "Tell me about a time when you were extremely tired. Why were you so tired, and what had you been doing?",
     "Kể về một lần bạn cực kỳ mệt (sau kỳ thi, chuyến đi, dự án gấp…): lúc đó bạn trông thế nào, bạn đã làm gì trong bao lâu trước đó (had been + V-ing), và kết bằng một câu về tương lai với will have been + V-ing.",
-    "I remember the night before my university entrance exam very clearly. By the time my mother came into my room at two in the morning, I had been studying maths for almost seven hours without a break. My eyes were red, and I was so drowsy that I couldn't read the questions properly. I had been drinking coffee all evening, so I couldn't sleep either. Now I work as an accountant, and next year I will have been doing this job for five years, but I still never study late at night.",
+    "I remember the night before my university entrance exam very clearly. By the time my mother came into my room at two in the morning, I had been studying maths for almost seven hours without a break. My eyes were red, and I kept yawning, so I couldn't read the questions properly. I had been drinking coffee all evening, so I couldn't sleep either. Now I work as an accountant, and next year I will have been doing this job for five years, but I still never study late at night.",
   ),
   dialogue: dialogue(
     "Sáng thứ Hai ở văn phòng",
     "Anh Nam, nhân viên phân tích, vào họp với vẻ mặt mệt mỏi. Chị Sarah, trưởng nhóm người Anh, hỏi han và cùng anh tìm cách giảm tải cho cả nhóm, vì dự án đã kéo dài nhiều tháng.",
     { A: "Sarah, trưởng nhóm", B: "Nam, nhân viên phân tích" },
     A("Nam, you look exhausted. Is everything all right?", "Nam này, trông anh kiệt sức quá. Mọi chuyện ổn chứ?"),
-    B("I'm fine, thanks. I was working on the Nova report until two in the morning, so I'm a bit drowsy.", "Em ổn, cảm ơn chị. Em làm báo cáo Nova đến hai giờ sáng nên giờ hơi buồn ngủ."),
+    B("I'm fine, thanks. I was working on the Nova report until two in the morning, so I can't stop yawning.", "Em ổn, cảm ơn chị. Em làm báo cáo Nova đến hai giờ sáng nên giờ cứ ngáp mãi."),
     A("Until two? How long had you been working on it when you finally stopped?", "Đến hai giờ sáng á? Lúc anh dừng thì anh đã làm liền bao lâu rồi?"),
     B("About fourteen hours. I'd been trying to fix the sales figures since lunchtime.", "Khoảng mười bốn tiếng ạ. Em cố sửa số liệu doanh số từ giờ ăn trưa."),
     A("That's far too long. Why didn't you ask Minh for help?", "Thế thì lâu quá. Sao anh không nhờ Minh giúp?"),
     B("He had offered, but he'd been doing overtime all week too, so I didn't want to bother him.", "Cậu ấy có ngỏ ý rồi, nhưng cả tuần cậu ấy cũng làm thêm giờ, nên em ngại làm phiền."),
-    A("I see. And on the client call on Friday, your voice sounded hoarse.", "Chị hiểu. Còn cuộc gọi với khách hôm thứ Sáu, giọng anh nghe khàn lắm."),
-    B("Yes, I'd been talking to suppliers on the phone all morning before that.", "Vâng, trước đó em đã gọi điện cho các nhà cung cấp suốt cả buổi sáng."),
+    A("I see. And on the client call on Friday, you looked really pale.", "Chị hiểu. Còn cuộc gọi với khách hôm thứ Sáu, trông anh xanh xao lắm."),
+    B("Yes, I'd been talking to suppliers on the phone all morning, and I hadn't eaten anything.", "Vâng, trước đó em đã gọi điện cho các nhà cung cấp suốt cả buổi sáng, mà chưa ăn gì."),
     A("Look, by the end of this month, the team will have been working on this project for six months without a real break.", "Anh xem, đến cuối tháng này là cả nhóm làm dự án này được sáu tháng mà chưa được nghỉ ngơi thực sự."),
     B("I know. And by Friday, I'll have been doing overtime for three weeks.", "Em biết. Và đến thứ Sáu là em làm thêm giờ được ba tuần rồi."),
     A("Then let's change that. From tomorrow, nobody stays after seven, and I'll ask HR for a temporary assistant.", "Vậy thì mình thay đổi thôi. Từ mai không ai ở lại sau bảy giờ, và chị sẽ đề nghị phòng nhân sự tuyển một trợ lý tạm thời."),
     B("Thank you, Sarah. That would really help all of us.", "Cảm ơn chị Sarah. Như vậy sẽ giúp cả nhóm rất nhiều."),
   ),
   dialogueQuestions: [
-    listenQ("b2-n17-d1", "Why is Nam drowsy?", "I'm fine, thanks. I was working on the Nova report until two in the morning, so I'm a bit drowsy.", ["He worked on a report until two in the morning.", "He was at a party with clients.", "He was travelling all night.", "He was looking after a sick child."], 0, "I was working on the Nova report until two in the morning: anh làm báo cáo đến hai giờ sáng."),
+    listenQ("b2-n17-d1", "Why does Nam keep yawning?", "I'm fine, thanks. I was working on the Nova report until two in the morning, so I can't stop yawning.", ["He worked on a report until two in the morning.", "He was at a party with clients.", "He was travelling all night.", "He was looking after a sick child."], 0, "I was working on the Nova report until two in the morning: anh làm báo cáo đến hai giờ sáng."),
     mc("b2-n17-d2", "Why didn't Nam accept Minh's offer of help?", ["Minh was on holiday.", "Minh had been doing overtime all week too.", "Minh did not understand the figures.", "Sarah had told him to work alone."], 1, "He'd been doing overtime all week too: Minh cũng đã làm thêm giờ cả tuần, nên Nam ngại làm phiền."),
     mc("b2-n17-d3", "What does Sarah decide to do?", ["Give Nam the rest of the week off", "Move the project deadline to next month", "Stop anyone staying after seven and ask HR for an assistant", "Ask Minh to finish the Nova report"], 2, "From tomorrow, nobody stays after seven, and I'll ask HR for a temporary assistant."),
   ],
   reading: reading({
     title: "Eleven hours at Gate 14",
-    text: `By the time the flight to Seoul finally took off at six o'clock on Sunday morning, its two hundred passengers had been waiting at Gate 14 for more than eleven hours. Many of them had been sitting on the floor since midnight, because every seat in the area was taken. When I spoke to them, several were hoarse from arguing with staff, and almost all of them were drowsy and irritable.
+    text: `By the time the flight to Seoul finally took off at six o'clock on Sunday morning, its two hundred passengers had been waiting at Gate 14 for more than eleven hours. Many of them had been sitting on the floor since midnight, because every seat in the area was taken. When I spoke to them, several had almost lost their voices from arguing with staff, and almost all of them were pale, yawning and irritable.
 
 The official explanation was a technical problem. A spokesperson told reporters that engineers had been checking the aircraft "for most of the night" and that safety had to come first. Nobody disputes that. What angered the passengers was not the delay itself, but the silence. For the first six hours, nobody from the airline had spoken to them at all. One young mother told me that she had been trying to get information for her elderly father, who needed his medicine, and had simply been told to "wait for an announcement".
 
+Among the passengers was Tran Minh Duc, a sales manager from Hanoi who was flying to Seoul to sign a contract. He had been preparing for the meeting for weeks, and he missed it by four hours. "I don't blame the engineers," he told me. "I blame the people who knew the plane wasn't going anywhere and let us sit here anyway." His company has since paid for his Korean partner to fly to Hanoi instead.
+
 This is not the first time. Passengers on the same route had been complaining about late departures for months before Sunday's incident, and a local consumer group had been collecting their stories since the spring. The airline, however, had not published a single report on the problem.
+
+Aviation experts say that delays of this kind are not unusual on busy routes, where one aircraft may fly four or five times a day and a single fault can affect thousands of travellers. What is unusual, they say, is leaving passengers without information for so long. Most large airlines now send updates by text message every thirty minutes.
 
 To be fair, the airline has now apologised and offered each passenger a voucher. But a voucher is not an answer. The staff at the gate were clearly under enormous strain; some of them had been working since the previous afternoon, and they had no more information than the passengers did.
 
@@ -115,6 +123,7 @@ Next month, the airline will have been flying this route for ten years, and it p
       ["consumer group", "hội bảo vệ người tiêu dùng"],
       ["voucher", "phiếu quà tặng, phiếu giảm giá"],
       ["anniversary", "ngày kỷ niệm"],
+      ["aviation", "ngành hàng không"],
     ],
     questions: [
       mc("b2-n17-r1", "What is the writer's main point?", ["The flight was delayed because of bad weather.", "The airline's real failure was not keeping passengers informed.", "Airport staff behaved rudely to the passengers.", "Passengers should never accept vouchers."], 1, "Tác giả nói rõ: What angered the passengers was not the delay itself, but the silence. Cả bài xoay quanh việc hãng không thông tin cho khách."),
@@ -132,7 +141,7 @@ Next month, the airline will have been flying this route for ten years, and it p
       "Thêm một câu had + V3 cho việc đã xong hoặc đếm được số lần, để thấy rõ sự khác biệt.",
       "Kết bằng By + mốc tương lai, I will have been + V-ing + for + khoảng thời gian.",
     ],
-    model: "Last December I had the most exhausting week of my working life. Our team had been preparing a bid for a hospital project since October, and the deadline was Friday at noon.\n\nBy Wednesday evening, I had been working twelve hours a day for almost three weeks, and I had spent several sleepless nights in a row. I would lie in bed, but my mind kept going over the figures. On Thursday it rained heavily, and I arrived at the office completely drenched because I had been waiting for a taxi for twenty minutes. My voice was hoarse, too, since I had been talking to suppliers on the phone all morning.\n\nAt ten o'clock on Friday, our manager discovered a mistake in the budget. We had checked the table three times, but nobody had noticed it. We fixed it quickly and submitted the bid at five to twelve.\n\nWe won the contract, but I learned an important lesson about stamina. Next month I will have been working for this company for five years, and I have promised myself that I will never work like that again.",
+    model: "Last December I had the most exhausting week of my working life. Our team had been preparing a bid for a hospital project since October, and the deadline was Friday at noon.\n\nBy Wednesday evening, I had been working twelve hours a day for almost three weeks, and I had spent several sleepless nights in a row. I would lie in bed, but my mind kept going over the figures. On Thursday it rained heavily, and I arrived at the office completely soaked because I had been waiting for a taxi for twenty minutes. I looked pale, too, since I had been living on coffee and instant noodles all week.\n\nAt ten o'clock on Friday, our manager discovered a mistake in the budget. We had checked the table three times, but nobody had noticed it. We fixed it quickly and submitted the bid at five to twelve.\n\nWe won the contract, but I learned an important lesson about stamina. Next month I will have been working for this company for five years, and I have promised myself that I will never work like that again.",
     checklist: [
       "Có ít nhất ba câu had been + V-ing, mỗi câu giải thích một dấu vết hoặc nói một khoảng thời gian.",
       "Có ít nhất một câu had been + V-ing đi với for hoặc since, tính đến một mốc quá khứ rõ ràng (By Wednesday evening…).",

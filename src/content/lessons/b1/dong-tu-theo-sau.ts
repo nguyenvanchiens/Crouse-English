@@ -54,7 +54,7 @@ export default lesson({
     word("hesitate", "/ˈhez.ɪ.teɪt/", "do dự, ngần ngại", "Please don't hesitate to contact me.", "hes|i|tate", 0, "Chữ s ở đây đọc là /z/."),
   ],
   exercises: [
-    mc("b1-n07-1", "I've decided ___ a new job.", ["looking for", "to look for", "look for", "to looking for"], 1, "Decide đi với to + V: decided to look for."),
+    mc("b1-n07-1", "I've decided ___ a new job.", ["looking for", "to look for", "look for"], 1, "Decide đi với to + V: decided to look for."),
     mc("b1-n07-2", "Would you mind ___ the window?", ["to open", "open", "opening"], 2, "Mind luôn đi với V-ing: Would you mind opening…?"),
     fill("b1-n07-3", "She finished ___ the report at midnight. (write)", ["writing"], "Finish đi với V-ing: finished writing."),
     fill("b1-n07-4", "I'm looking forward to ___ you next week. (see)", ["seeing"], "To trong look forward to là giới từ, nên theo sau là V-ing."),
@@ -64,6 +64,10 @@ export default lesson({
     listen("b1-n07-8", "Thank you for coming to my birthday party.", ["Cảm ơn bạn đã đến dự tiệc sinh nhật của tôi.", "Bạn có đến dự tiệc sinh nhật của tôi không?", "Tôi xin lỗi vì không đến dự tiệc sinh nhật của bạn."], 0, "Thank you for + V-ing: cảm ơn vì đã làm gì."),
     correct("b1-n07-9", "We're thinking of to open a small shop next year.", "We're thinking of opening a small shop next year.", "Of là giới từ, mà sau giới từ (trừ but, except) là V-ing: thinking of opening."),
     correct("b1-n07-10", "She promised calling me when she got home.", "She promised to call me when she got home.", "Promise đi với to + V: promised to call."),
+    fill("b1-n07-11", "Both companies have agreed ___ the price again next week. (discuss)", ["to discuss"], "Agree đi với to + V: agreed to discuss. Người Việt hay bỏ to vì tiếng Việt nói “đồng ý bàn lại” không cần từ nối."),
+    correct("b1-n07-12", "Please don't hesitate contacting me if you have any questions.", "Please don't hesitate to contact me if you have any questions.", "Hesitate đi với to + V: don't hesitate to contact. Đây là câu kết email rất hay gặp, nên học thuộc cả cụm."),
+    reorder("b1-n07-13", "We managed to finish the project on time.", "Manage đi với to + V: managed to finish, nghĩa là xoay xở làm được một việc khó."),
+    correct("b1-n07-14", "My father gave up to smoke last year.", "My father gave up smoking last year.", "Give up (bỏ, từ bỏ) luôn đi với V-ing: gave up smoking. Người Việt hay nghĩ “bỏ hút thuốc” là việc chưa làm nên chọn to V, nhưng give up nằm trong nhóm V-ing."),
   ],
   speaking: [
     say("I enjoy walking in the park after dinner.", "Tôi thích đi dạo trong công viên sau bữa tối."),
@@ -93,21 +97,21 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b1-n07-d1", "Why has Vy decided to learn Japanese?", "Yes, I do. And I've decided to learn Japanese, because my company is planning to open an office in Osaka.", ["She is going to Japan on holiday.", "Her company is planning to open an office in Osaka.", "Her manager only speaks Japanese.", "She wants to watch Japanese films."], 1, "Vy nói: because my company is planning to open an office in Osaka."),
     mc("b1-n07-d2", "What does Nam want to avoid?", ["Working from home", "Designing websites", "Asking friends for help", "Spending two hours in traffic every day"], 3, "Nam nói: I really want to avoid spending two hours in traffic every day."),
-    listenQ("b1-n07-d3", "What does Nam promise to do?", "Thanks for offering. I promise to buy you dinner when I find a new job!", ["Buy Vy dinner when he finds a new job", "Help Vy write her CV", "Visit Vy in Osaka next year"], 0, "I promise to buy you dinner when I find a new job: Nam hứa mời Vy ăn tối khi tìm được việc mới."),
+    mc("b1-n07-d3", "Why does Nam promise to buy Vy dinner?", ["To thank her for offering to help him", "Because it is her birthday", "Because she has already found him a new job", "To celebrate her move to Osaka"], 0, "Câu suy luận: Vy vừa ngỏ ý giúp Nam viết CV, Nam đáp Thanks for offering rồi hứa mời ăn tối. Bữa tối là để cảm ơn. Vy chưa tìm việc giúp Nam, và cũng chưa chắc chuyển sang Osaka."),
   ],
   reading: reading({
     title: "Ask Linh: should I leave my job?",
     text: `Dear Linh,
 
-I'm twenty-six and I work as an accountant for a big company in Ho Chi Minh City. The salary is good, but I don't enjoy doing the same thing every day. I've always been interested in cooking, and my dream is to open a small restaurant. My parents keep telling me to stay in my job. They say I can't afford to lose a stable income. I've considered taking a cooking course at the weekend, but I keep delaying it. What should I do? Tuan
+I'm twenty-six and I work as an accountant for a big company in Ho Chi Minh City. The salary is good, but I don't enjoy doing the same thing every day. I've always been interested in cooking, and my dream is to open a small restaurant. My parents keep telling me to stay in my job. They say I can't afford to lose a stable income. I've considered taking a cooking course at the weekend, but I keep delaying it. Every Sunday my friends come to my flat for lunch, and they always say my food is better than in most restaurants. Last month I even sold forty boxes of spring rolls to my colleagues. But I'm scared of making the wrong choice. What should I do? Tuan
 
 Dear Tuan,
 
-Thank you for writing to me. Many young people feel the same way, so you are not alone.
+Thank you for writing to me. Many young people feel the same way, so you are not alone. Wanting a different life is not a crazy idea.
 
-First, don't rush. I suggest keeping your job for now and trying a weekend cooking course. That way, you won't risk losing your income, and you can find out whether you really enjoy cooking every day, not just for friends at home.
+First, don't rush. I suggest keeping your job for now and trying a weekend cooking course. That way, you won't risk losing your income, and you can test your dream before you spend any money on it. Cooking for happy friends on a Sunday is very different from cooking for hungry strangers six days a week.
 
-Second, stop delaying. Choose a course this week and promise yourself that you will finish it. After that, try working in a restaurant kitchen for a few evenings. It's hard, hot work, and many people give up quickly.
+Second, stop delaying. Choose a course this week and promise yourself that you will finish it. After that, try working in a restaurant kitchen for a few evenings. It's hard, hot work, and many people give up quickly. If you still love it after a month, that tells you a lot.
 
 Finally, talk to your parents again. Avoid arguing with them. Instead, show them a clear plan. Parents usually worry less when they can see that their child has thought carefully.
 

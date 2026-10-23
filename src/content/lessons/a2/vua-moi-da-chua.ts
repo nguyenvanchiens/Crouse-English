@@ -62,14 +62,18 @@ export default lesson({
   exercises: [
     mc("a2-n16-1", "I've ___ finished my homework. Can I go out now?", ["just", "yet", "ever"], 0, "Vừa mới làm xong: just, đứng giữa have và V3."),
     mc("a2-n16-2", "Have you sent the email ___?", ["just", "never", "yet"], 2, "Câu hỏi “đã... chưa?” dùng yet ở cuối câu."),
-    fill("a2-n16-3", "I haven't had lunch ___. (chưa)", ["yet"], "Câu phủ định với nghĩa “chưa” dùng yet ở cuối câu."),
-    fill("a2-n16-4", "The train has ___ left. We missed it by one minute. (vừa mới)", ["just"], "Vừa mới xảy ra dùng just, đứng giữa has và V3."),
+    fill("a2-n16-3", "I'm hungry. I haven't had lunch ___.", ["yet"], "Câu phủ định với nghĩa “chưa” dùng yet ở cuối câu."),
+    fill("a2-n16-4", "The train has ___ left. We missed it by one minute. (mới cách đây một chút)", ["just"], "Việc mới xảy ra cách đây một chút dùng just, đứng giữa has và V3."),
     reorder("a2-n16-5", "Have you finished your homework yet?", "Have + chủ ngữ + V3 + tân ngữ + yet?"),
     reorder("a2-n16-6", "I have just arrived at the station.", "Just đứng giữa have và quá khứ phân từ arrived."),
     listen("a2-n16-7", "I haven't tidied my room yet.", ["Tôi đã dọn phòng rồi.", "Tôi vừa mới dọn phòng.", "Tôi chưa dọn phòng."], 2, "Haven't... yet nghĩa là chưa làm."),
     listen("a2-n16-8", "They've already booked the tickets.", ["Họ đã đặt vé rồi.", "Họ chưa đặt vé.", "Họ sắp đặt vé."], 0, "Already nghĩa là đã... rồi."),
     correct("a2-n16-9", "I didn't send the email yet.", ["I haven't sent the email yet."], "“Chưa làm” đi với yet thì dùng hiện tại hoàn thành: haven't + V3 (sent), không dùng didn't. (Tiếng Anh-Mỹ thân mật đôi khi nói didn't… yet, nhưng bài này theo tiếng Anh-Anh.)"),
     correct("a2-n16-10", "Have you yet had lunch?", ["Have you had lunch yet?"], "Trong câu hỏi và câu phủ định, yet thường đứng cuối câu. Just và already mới chen vào giữa have và V3."),
+    fill("a2-n16-11", "Have you ___ the report yet? The meeting starts at ten. (write)", ["written"], "Hiện tại hoàn thành: have + V3. Write → wrote → written."),
+    fill("a2-n16-12", "She hasn't ___ the email yet. (send)", ["sent"], "Send → sent → sent. Hasn't + V3 + yet: chưa làm."),
+    reorder("a2-n16-13", "We haven't booked the tickets yet.", "Phủ định “chưa”: haven't + V3 + yet. Yet đứng cuối câu."),
+    correct("a2-n16-14", "I've already finished the report yesterday.", ["I finished the report yesterday.", "I've already finished the report."], "Có thời điểm cụ thể (yesterday) thì dùng quá khứ đơn: I finished... Muốn giữ I've already finished thì phải bỏ yesterday."),
   ],
   freeSpeaking: free(
     "What have you done today, and what haven't you done yet?",
@@ -100,7 +104,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("a2-n16-d1", "Thảo đã gửi địa chỉ cho khách chưa?", "I've just sent it. They've already replied.", ["Chưa gửi", "Gửi từ hôm qua", "Quên gửi", "Vừa gửi xong, và khách đã trả lời rồi"], 3, "I've just sent it: vừa gửi xong. They've already replied: khách đã trả lời rồi."),
-    mc("a2-n16-d2", "Việc nào Thảo chưa làm xong?", ["Đặt phòng họp", "Viết phần cuối bản báo cáo", "Gửi địa chỉ cho khách"], 1, "I haven't written the last part yet."),
+    mc("a2-n16-d2", "Trước khi khách đến, Thảo còn phải làm những việc gì?", ["Đặt phòng họp và dọn phòng họp", "Viết nốt phần cuối rồi in bản báo cáo", "Gửi địa chỉ cho khách", "Mua bánh cho khách"], 1, "Thảo nói I haven't written the last part yet, và anh Quang dặn You only need to finish and print the report. Phòng họp thì đã đặt và anh Quang đã dọn rồi."),
     mc("a2-n16-d3", "Ai đã dọn phòng họp?", ["Thảo", "Anh Quang", "Khách hàng"], 1, "Anh Quang nói: Don't worry. I've already tidied it."),
   ],
   reading: reading({
@@ -129,7 +133,7 @@ Ha`,
     questions: [
       mc("a2-n16-r1", "Hà viết thư cho mẹ để làm gì?", ["Mời mẹ đến ăn tối", "Báo cho mẹ việc chuẩn bị chuyển nhà đã đến đâu", "Nhờ mẹ tìm trường cho Bin", "Kể về căn hộ cũ"], 1, "Just a quick update about the move: Hà kể việc gì đã xong, việc gì chưa."),
       mc("a2-n16-r2", "Việc nào đã xong rồi?", ["Dọn dẹp căn hộ mới", "Tìm trường mới cho Bin", "Đặt xe tải cho sáng Chủ nhật", "Công ty mạng gọi lại"], 2, "I've already booked a small truck for Sunday morning. Ba việc còn lại đều là haven't / hasn't... yet."),
-      fill("a2-n16-r3", "Hoàn thành câu theo bài đọc: Khoa has ___ finished packing the kitchen. (vừa mới)", ["just"], "Vừa mới xong: has just + V3."),
+      fill("a2-n16-r3", "Hoàn thành câu theo bài đọc: Khoa has ___ finished packing the kitchen.", ["just"], "Vừa mới xong: has just + V3."),
       mc("a2-n16-r4", "Ngày mai Hà sẽ làm gì?", ["Gọi lại cho công ty mạng", "Dọn căn hộ mới", "Đi mua rèm cửa", "Xếp quần áo vào thùng"], 0, "The internet company hasn't called us back yet. I'll phone them again tomorrow."),
       mc("a2-n16-r5", "Câu nào đúng theo bức thư?", ["Cả nhà đã chuyển sang căn hộ mới", "Họ chưa dọn dẹp căn hộ mới", "Bin đã có trường mới", "Mẹ đã mua rèm cửa rồi"], 1, "We haven't cleaned the new flat yet. Họ sẽ chuyển nhà vào Chủ nhật, và Hà còn đang hỏi mẹ về rèm cửa."),
     ],

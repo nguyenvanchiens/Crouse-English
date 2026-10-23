@@ -20,7 +20,7 @@ export default lesson({
       ),
       ex("Where did you go last summer?", "Hè năm ngoái bạn đi đâu?"),
       ex("How long did you stay in Sa Pa?", "Bạn ở Sa Pa bao lâu?", "How long hỏi khoảng thời gian. Trả lời gọn: For three days. hoặc chỉ Three days."),
-      ex("Who did you go with?", "Bạn đi với ai?", "Giới từ with nằm ở cuối câu. Người Việt quen nói “đi với ai” nên hay đưa with lên đầu thành “With who did you go?”, nghe rất cứng."),
+      ex("Who did you go with?", "Bạn đi với ai?", "Giới từ with nằm ở cuối câu: đây là cách nói tự nhiên. Người Việt quen nói “đi với ai” nên hay đưa with lên đầu thành “With who did you go?”: câu này không chuẩn. Dạng trang trọng đúng ngữ pháp là “With whom did you go?”, gần như chỉ gặp trong văn viết."),
       p("Riêng câu hỏi với **to be** thì không dùng did, mà dùng **was / were** như bạn đã học ở bài Cuối tuần vừa rồi (A1) và bài Hôm qua bạn làm gì: **How was your holiday?** – **It was great!**, **How was the weather?** – **It was sunny every day.**"),
       table(
         ["Nguyên mẫu", "Quá khứ", "Nghĩa"],
@@ -70,6 +70,10 @@ export default lesson({
     listen("a2-n02-8", "How was your holiday?", ["Kỳ nghỉ của bạn thế nào?", "Bạn đi nghỉ ở đâu?", "Bạn đi nghỉ bao lâu?"], 0, "How was...? hỏi cảm nhận: thế nào. Câu này dùng was vì là động từ to be."),
     correct("a2-n02-9", "Where you stayed in Da Lat?", ["Where did you stay in Da Lat?"], "Câu hỏi quá khứ với động từ thường cần did đứng trước chủ ngữ, và động từ chính về nguyên mẫu: Where did you stay?"),
     correct("a2-n02-10", "What did you bought for your mother?", ["What did you buy for your mother?"], "Có did thì động từ nghỉ: buy, không phải bought. Quá khứ chỉ đánh dấu một lần."),
+    fill("a2-n02-11", "A: Who did you go ___? B: With my sister and her husband.", ["with"], "Hỏi đi cùng ai: Who did you go with? Giới từ with đứng ở cuối câu hỏi."),
+    fill("a2-n02-12", "We ___ a lot of money on souvenirs in Hoi An. (spend)", ["spent"], "Spend là động từ bất quy tắc: spend → spent, cùng nhóm với sleep → slept, leave → left."),
+    reorder("a2-n02-13", "What did you do on your holiday?", "What + did + chủ ngữ + do...? Động từ do thứ hai là động từ chính “làm”, giữ nguyên mẫu. Đi nghỉ là on holiday."),
+    correct("a2-n02-14", "When you left Hanoi?", ["When did you leave Hanoi?"], "Câu hỏi quá khứ với động từ thường cần did trước chủ ngữ, và động từ chính về nguyên mẫu: When did you leave...?"),
   ],
   freeSpeaking: free(
     "Tell me about a holiday you enjoyed. Where did you go, and what did you do?",
@@ -100,7 +104,7 @@ export default lesson({
   ),
   dialogueQuestions: [
     listenQ("a2-n02-d1", "Gia đình Hương đến Phú Quốc bằng cách nào?", "We flew from Hanoi. The flight took two hours.", ["Đi tàu hỏa", "Đi máy bay", "Đi xe khách", "Đi ô tô riêng"], 1, "We flew: chúng tôi bay, tức là đi máy bay. Chuyến bay mất hai tiếng."),
-    mc("a2-n02-d2", "Hương ở Phú Quốc bao lâu?", ["Năm ngày", "Hai ngày", "Một tuần"], 0, "Hương nói: We stayed for five days in a small hotel near the beach."),
+    mc("a2-n02-d2", "Vì sao David nói “Oh, thank you!”?", ["Vì Hương mời anh ấy đi Phú Quốc", "Vì Hương mang quà lưu niệm về cho cả nhóm, trong đó có anh ấy", "Vì Hương hỏi thăm kỳ nghỉ của anh ấy", "Vì Hương đặt khách sạn giúp anh ấy"], 1, "Ngay trước đó Hương nói I brought some souvenirs for the team. David làm cùng nhóm nên anh ấy cảm ơn: món quà có cả phần của anh."),
     mc("a2-n02-d3", "Kỳ nghỉ Tết, David đã làm gì?", ["Đi Phú Quốc cùng Hương", "Về Mỹ thăm gia đình", "Ở lại Hà Nội và ngủ thật nhiều"], 2, "David nói: I didn't go anywhere. I stayed in Hanoi and slept a lot!"),
   ],
   reading: reading({

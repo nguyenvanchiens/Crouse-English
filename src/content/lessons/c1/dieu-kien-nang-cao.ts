@@ -42,7 +42,7 @@ export default lesson({
   words: [
     word("proviso", "/prəˈvaɪ.zəʊ/", "điều kiện kèm theo (trong một thỏa thuận)", "They signed the contract with the proviso that prices stay fixed for two years.", "pro|vi|so", 1, "Chữ s đọc là /z/: prə-VAI-zəʊ. Hay đi thành cụm with the proviso that + mệnh đề."),
     word("contingency", "/kənˈtɪn.dʒən.si/", "tình huống bất ngờ, phương án dự phòng", "We need a contingency plan in case the supplier fails.", "con|tin|gen|cy", 1),
-    word("scenario", "/sɪˈnɑː.ri.əʊ/", "kịch bản, tình huống", "In the worst-case scenario, we would lose the contract.", "sce|na|ri|o", 1, "Âm thứ hai là /nɑː/ kéo dài, không đọc là “xê-na-ri-ô” như tiếng Việt."),
+    word("eventuality", "/ɪˌven.tʃuˈæl.ə.ti/", "tình huống có thể xảy ra (thường là xấu)", "We have prepared for every eventuality, including a power cut.", "e|ven|tu|al|i|ty", 3, "Trọng âm chính ở AL: i-ven-chu-AL-i-ty."),
     word("unforeseen", "/ˌʌn.fɔːˈsiːn/", "không lường trước được", "The event was cancelled due to unforeseen circumstances.", "un|fore|seen", 2),
     word("retrospect", "/ˈret.rə.spekt/", "sự hồi tưởng, nhìn lại (in retrospect: giờ nhìn lại thì)", "In retrospect, had we waited a month, we would have paid far less.", "ret|ro|spect", 0, "Trọng âm ở âm đầu: RET-ro-spect. Cụm cố định: in retrospect."),
     word("speculate", "/ˈspek.jə.leɪt/", "suy đoán, phỏng đoán", "It's too early to speculate about the cause of the accident.", "spec|u|late", 0),
@@ -59,6 +59,10 @@ export default lesson({
     listen("c1-n07-8", "Had it not been for the map, we would have got lost.", ["Nếu không nhờ tấm bản đồ, chúng tôi đã bị lạc rồi.", "Vì không có bản đồ nên chúng tôi bị lạc.", "Chúng tôi bị lạc dù có bản đồ.", "Chúng tôi làm mất tấm bản đồ."], 0, "Had it not been for = if it hadn't been for: nếu không nhờ. Thực tế là họ có bản đồ và không bị lạc."),
     correct("c1-n07-9", "Should you needed any help with the forms, please call me.", ["Should you need any help with the forms, please call me.", "If you need any help with the forms, please call me."], "Đảo ngữ với Should: Should + chủ ngữ + động từ nguyên mẫu. Không chia quá khứ (needed), không thêm -s."),
     correct("c1-n07-10", "But for they helped us, we would have lost the contract.", ["But for their help, we would have lost the contract.", "Had they not helped us, we would have lost the contract.", "If they hadn't helped us, we would have lost the contract.", "If it hadn't been for their help, we would have lost the contract.", "Had it not been for their help, we would have lost the contract."], "But for là giới từ, chỉ đi với danh từ: but for their help. Muốn giữ mệnh đề they helped us thì phải đổi sang Had they not helped us hoặc If they hadn't helped us."),
+    fill("c1-n07-11", "___ it not been for the volunteers, the festival would have been cancelled.", ["Had"], "Had it not been for + danh từ: đảo ngữ của If it hadn't been for, nếu không nhờ."),
+    fill("c1-n07-12", "___ the event of a fire, do not use the lifts.", ["In"], "In the event of + danh từ: trong trường hợp xảy ra. Cụm điều kiện trang trọng của biển báo và hợp đồng."),
+    reorder("c1-n07-13", "I'd prefer it if you didn't smoke here.", "I'd prefer it if + quá khứ đơn: lời đề nghị lịch sự về hiện tại, động từ lùi về quá khứ dù nói về bây giờ."),
+    correct("c1-n07-14", "Were I known about the problem, I would have told you.", ["Had I known about the problem, I would have told you.", "If I had known about the problem, I would have told you."], "Vế sau là would have told nên đây là điều kiện loại ba, việc trong quá khứ. Đảo ngữ loại ba dùng Had + chủ ngữ + V3; Were chỉ dùng cho điều kiện loại hai."),
   ],
   speaking: [
     say("Should you need anything, just let me know.", "Nếu bạn cần gì, cứ báo cho tôi biết."),
@@ -88,7 +92,7 @@ export default lesson({
   dialogueQuestions: [
     listenQ("c1-n07-d1", "What will the supplier do if the shipment is held up at the port?", "Supposing the shipment is held up at the port, what happens? Should that happen, we would cover the storage costs. It's all in clause seven.", ["Pay the storage costs", "Cancel the contract", "Send the goods by air instead", "Lower the price by five per cent"], 0, "Should that happen, we would cover the storage costs: nếu chuyện đó xảy ra, bên cung cấp chịu phí lưu kho."),
     mc("c1-n07-d2", "Why did Mr Nguyen's company lose nearly two weeks last year?", ["The supplier's main factory closed.", "They did not know about a strike in time, so they ordered too late.", "The exchange rate changed sharply.", "A shipment failed the quality inspection."], 1, "Had we known about the strike last year, we would have ordered much earlier: thực tế là họ không biết trước nên đặt hàng muộn."),
-    mc("c1-n07-d3", "What have the two sides agreed about the exchange rate?", ["The contract will be cancelled if it changes.", "Mr Nguyen's company will always pay the difference.", "They will discuss the price again if it moves by more than five per cent.", "The price will never change."], 2, "Were it to move by more than five per cent, we'd reopen the price discussion."),
+    mc("c1-n07-d3", "What can we infer about the relationship between the two companies?", ["They are meeting for the very first time.", "They have worked together before and appreciate each other's support.", "They no longer trust each other after last year's strike.", "The supplier is trying to end the partnership."], 1, "Hai bên nhắc lại vụ đình công năm ngoái và khen nhau: But for your team's flexibility… và if it hadn't been for your engineers… Có thể suy ra họ đã hợp tác từ trước và quý trọng sự hỗ trợ của nhau."),
   ],
   reading: reading({
     title: "Planning for the storm you cannot see",

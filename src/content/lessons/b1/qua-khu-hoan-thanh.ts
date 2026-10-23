@@ -49,7 +49,7 @@ export default lesson({
     word("luckily", "/ˈlʌk.əl.i/", "may mắn thay", "Luckily, I had brought an umbrella.", "luck|i|ly", 0),
   ],
   exercises: [
-    mc("b1-n03-1", "When we got to the cinema, the film ___.", ["already started", "had already started", "has already started", "was already start"], 1, "Phim bắt đầu trước khi chúng tôi đến: had already started. Has already started là hiện tại hoàn thành, không hợp với câu kể quá khứ."),
+    mc("b1-n03-1", "When we got to the cinema, the film ___.", ["already started", "had already started", "has already started", "already start"], 1, "Phim bắt đầu trước khi chúng tôi đến: had already started. Has already started là hiện tại hoàn thành, không hợp với câu kể quá khứ; already start thì quên chia động từ."),
     mc("b1-n03-2", "I couldn't pay for lunch because I ___ my wallet at home.", ["leave", "have left", "had left"], 2, "Để quên ví xảy ra trước lúc không trả được tiền, nên lùi thêm một bậc: had left."),
     fill("b1-n03-3", "By the time the police arrived, the thief ___ escaped.", ["had"], "By the time + quá khứ đơn, vế còn lại dùng had + V3: tên trộm đã chạy thoát trước khi cảnh sát đến."),
     fill("b1-n03-4", "She was very tired because she ___ all night. (not sleep)", ["hadn't slept", "had not slept", "hadn't been sleeping", "had not been sleeping"], "Không ngủ cả đêm xảy ra trước lúc thấy mệt: hadn't slept (sleep có V3 là slept). Bài này mong đợi dạng đơn hadn't slept; viết hadn't been sleeping cũng được chấp nhận, nhưng đó là một thì khác, không phải trọng tâm hôm nay."),
@@ -59,6 +59,10 @@ export default lesson({
     listen("b1-n03-8", "I hadn't met her before the wedding.", ["Trước đám cưới, tôi chưa từng gặp cô ấy.", "Tôi đã gặp cô ấy trước đám cưới.", "Tôi gặp cô ấy sau đám cưới một tuần."], 0, "Hadn't met … before: chưa từng gặp trước thời điểm đó."),
     correct("b1-n03-9", "When we arrived at the party, most of the guests already went home.", "When we arrived at the party, most of the guests had already gone home.", "Khách về trước lúc chúng tôi đến, nên việc về phải lùi thêm một bậc: had already gone. Nhớ V3 của go là gone, không phải went."),
     correct("b1-n03-10", "I had visited Hoi An with my family last summer.", "I visited Hoi An with my family last summer.", "Chỉ kể một việc đơn lẻ trong quá khứ, không có mốc quá khứ thứ hai để so sánh, nên dùng quá khứ đơn: visited."),
+    fill("b1-n03-11", "I ___ such a beautiful beach before I went to Phu Quoc. (chưa từng / see)", ["had never seen", "'d never seen"], "Chưa từng thấy tính đến trước chuyến đi Phú Quốc: had never seen. See có V3 là seen."),
+    correct("b1-n03-12", "By the time I arrived, everyone has gone home.", ["By the time I arrived, everyone had gone home.", "By the time I arrived, everyone had already gone home."], "Câu chuyện ở quá khứ (arrived), mọi người về trước đó nên lùi một bậc: had gone. Has gone là hiện tại hoàn thành, không dùng cho chuyện đã qua."),
+    reorder("b1-n03-13", "Nobody had told me about the meeting.", "Câu phủ định với nobody: nobody + had + V3, không thêm not. Told là V3 của tell."),
+    correct("b1-n03-14", "I was hungry because I hadn't eat all day.", "I was hungry because I hadn't eaten all day.", "Sau had (hoặc hadn't) phải là V3: eaten, không dùng động từ nguyên mẫu eat."),
   ],
   speaking: [
     say("By the time I got to the station, the train had already left.", "Lúc tôi đến ga thì tàu đã chạy mất rồi."),
@@ -90,32 +94,37 @@ export default lesson({
   dialogueQuestions: [
     listenQ("b1-n03-d1", "Why was Phong late for the airport?", "I had forgotten my passport, so I went back home to get it.", ["His taxi had broken down.", "He had left his passport at home.", "He had got up too late.", "He had gone to the wrong airport."], 1, "Phong nói: I had forgotten my passport, so I went back home to get it."),
     mc("b1-n03-d2", "Why didn't Phong miss his flight?", ["The flight had been moved two hours later.", "His colleague had checked in for him.", "He had bought a ticket for a later flight."], 0, "The airline had delayed the flight by two hours: chuyến bay bị lùi hai tiếng, nên quầy thủ tục vẫn mở."),
-    listenQ("b1-n03-d3", "How did Phong feel at the meeting, and why?", "A little. But I was relieved because she had prepared everything very well.", ["Angry, because his colleague had started without him.", "Nervous, because he hadn't prepared anything.", "Relieved, because his colleague had prepared well."], 2, "Phong hơi bực lúc đầu, nhưng thấy nhẹ nhõm (relieved) vì đồng nghiệp đã chuẩn bị rất kỹ."),
+    mc("b1-n03-d3", "Why was Phong only a little upset about the meeting?", ["He had not wanted to give the presentation anyway.", "The meeting had been moved to the next day.", "His colleague had told him to come late.", "His colleague had done the work well, so the meeting went fine without him."], 3, "Phong không nói thẳng, nhưng anh thấy nhẹ nhõm vì she had prepared everything very well. Ta suy ra cuộc họp vẫn ổn dù anh đến muộn, nên anh chỉ hơi bực."),
   ],
   reading: reading({
-    title: "The day I nearly missed my sister's wedding",
-    text: `Last spring, my sister Lan got married in Hue, and I nearly missed the whole thing.
+    title: "Lost wallet comes home after twenty years",
+    text: `When Mr Pham Quoc Hung opened his front door in Da Nang last Tuesday, he did not expect to see a piece of his past.
 
-I had booked an early flight from Ho Chi Minh City, so I set two alarms on my phone and went to bed early. When I woke up, the room was very bright. My phone had died during the night, and neither alarm had rung. It was already eight o'clock, and my flight left at nine.
+A young builder was standing outside with a small brown wallet in his hand. He explained that his team was repairing an old cinema on Bach Dang Street. That morning, they had taken up the floor of the projection room and found the wallet under the old wooden boards. Inside were Mr Pham's student card, a bus ticket from 2004 and a photo of a smiling young woman.
 
-I jumped into a taxi, but by the time I reached the airport, the gate had closed. The woman at the desk was very kind. She told me that another passenger had cancelled his ticket for the eleven o'clock flight, so I could take his seat. I was so relieved that I almost cried.
+Mr Pham, now forty-six, remembered the evening immediately. "I'd taken my girlfriend to see a film there," he said. "When we came out, I realised that my wallet had disappeared. I thought someone had stolen it, so I went to the police, but nobody ever found it."
 
-The second flight landed on time, but I still had one problem. I had packed my suit in my brother's suitcase the week before, and he had already gone to the hotel. I called him, and luckily he answered and met me at the door.
+The builder, Mr Le Van Toan, had seen the address on the student card, but the card was more than twenty years old. He wasn't sure if the family still lived there. "I almost gave up," he said. "Then an old lady at the market told me that the Phams had never moved."
 
-When I finally walked into the restaurant, the ceremony had just finished. My sister laughed and said, "I knew you would come. You've never been on time in your life!" Since that day, I always charge my phone before I go to bed.`,
+Nobody knows exactly how the wallet got under the floor. Mr Toan believes it fell through a gap between two boards. Mr Pham has another idea. "That evening the cinema was full, and I couldn't find a seat downstairs, so a friend who worked there let us watch from the projection room," he said. "I'd completely forgotten that until last week."
+
+The wallet also held two old notes worth fifty thousand dong. At the time, that was enough for two cinema tickets and dinner.
+
+And the woman in the photo? "She's in the kitchen," Mr Pham laughed. "We got married two years after that evening. She still says that I owe her dinner."`,
     glossary: [
-      ["neither", "không cái nào (trong hai cái)"],
-      ["gate", "cửa ra máy bay"],
-      ["suit", "bộ com-lê, bộ vest"],
-      ["ceremony", "buổi lễ, nghi lễ"],
-      ["charge", "sạc (pin)"],
+      ["builder", "thợ xây"],
+      ["projection room", "phòng máy chiếu (trong rạp phim)"],
+      ["boards", "tấm ván sàn"],
+      ["disappeared", "biến mất"],
+      ["gap", "khe hở"],
+      ["owe", "nợ"],
     ],
     questions: [
-      mc("b1-n03-r1", "What is the blog post mainly about?", ["How the writer helped to plan a wedding", "Why the writer is afraid of flying", "A day when the writer nearly missed an important family event", "How to choose a good hotel in Hue"], 2, "Cả bài kể về ngày người viết suýt lỡ đám cưới của chị gái."),
-      mc("b1-n03-r2", "Why didn't the alarms ring?", ["The writer's phone had run out of battery.", "The writer had set them for the wrong time.", "The writer had turned them off by mistake."], 0, "My phone had died during the night: điện thoại hết pin nên không báo thức nào reo."),
-      fill("b1-n03-r3", "By the time the writer reached the airport, the gate had ___.", ["closed"], "Câu trong bài: by the time I reached the airport, the gate had closed."),
-      mc("b1-n03-r4", "How did the writer get a seat on the eleven o'clock flight?", ["The airline added extra seats.", "The writer's brother had bought a second ticket.", "The writer paid for a more expensive ticket.", "Another passenger had cancelled his ticket."], 3, "Another passenger had cancelled his ticket, so I could take his seat."),
-      mc("b1-n03-r5", "What can we guess about the writer from the sister's words at the end?", ["The writer often goes to weddings.", "The writer is usually late.", "The writer had never been to Hue before.", "The writer doesn't like the sister's husband."], 1, "Câu suy luận: chị gái nói You've never been on time in your life, nghĩa là người viết lúc nào cũng trễ."),
+      mc("b1-n03-r1", "What is the article mainly about?", ["A cinema that closed after twenty years", "A man who got back a wallet that he had lost long ago", "How to stop thieves at the cinema", "A builder who found some money and kept it"], 1, "Cả bài kể chuyện ông Phạm nhận lại chiếc ví đã mất hơn hai mươi năm trước."),
+      mc("b1-n03-r2", "Where did the builders find the wallet?", ["In a seat downstairs", "At the police station", "Under the floor of the projection room", "In a bag at the market"], 2, "Đoạn hai: they had taken up the floor of the projection room and found the wallet under the old wooden boards."),
+      fill("b1-n03-r3", "Back in 2004, Mr Pham thought that someone had ___ his wallet.", ["stolen"], "Đoạn ba: I thought someone had stolen it. Steal có V3 là stolen."),
+      mc("b1-n03-r4", "How did Mr Toan know that the Pham family still lived at the address?", ["Mr Pham had called the cinema.", "An old lady at the market told him.", "The police gave him a phone number.", "He saw Mr Pham's name on the door."], 1, "Đoạn bốn: an old lady at the market told me that the Phams had never moved."),
+      mc("b1-n03-r5", "Who is the woman in the photo?", ["Mr Toan's mother", "The friend who worked at the cinema", "The old lady at the market", "Mr Pham's wife"], 3, "Bài không nói thẳng, nhưng ông Phạm từng đưa bạn gái đi xem phim, cưới hai năm sau đó, và nói She's in the kitchen. Ta suy ra người trong ảnh nay là vợ ông."),
     ],
   }),
   task: task({
