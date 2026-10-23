@@ -13,7 +13,16 @@ export interface VocabWord {
   tip?: string;
 }
 
-export interface MultipleChoiceExercise {
+export interface SentenceMeaning {
+  en: string;
+  vi: string;
+}
+interface ExerciseBase {
+  /** the full, right English sentence and what it means, shown once the item is checked; added to the lesson
+   *  being served from content/meanings (never authored in the lesson files) */
+  meaning?: SentenceMeaning;
+}
+export interface MultipleChoiceExercise extends ExerciseBase {
   kind: "multiple-choice";
   id: string;
   prompt: string;
@@ -21,7 +30,7 @@ export interface MultipleChoiceExercise {
   answer: number;
   explain?: string;
 }
-export interface FillBlankExercise {
+export interface FillBlankExercise extends ExerciseBase {
   kind: "fill-blank";
   id: string;
   /** contains exactly one "___" */
@@ -29,7 +38,7 @@ export interface FillBlankExercise {
   answers: string[];
   explain?: string;
 }
-export interface ReorderExercise {
+export interface ReorderExercise extends ExerciseBase {
   kind: "reorder";
   id: string;
   prompt: string;
@@ -37,7 +46,7 @@ export interface ReorderExercise {
   words: string[];
   explain?: string;
 }
-export interface ListenChooseExercise {
+export interface ListenChooseExercise extends ExerciseBase {
   kind: "listen-choose";
   id: string;
   /** a question about what was heard (comprehension); without it the learner picks what the audio means */
@@ -48,7 +57,7 @@ export interface ListenChooseExercise {
   explain?: string;
 }
 /** Error correction: the learner rewrites a sentence that contains one typical mistake. */
-export interface ErrorCorrectionExercise {
+export interface ErrorCorrectionExercise extends ExerciseBase {
   kind: "correct";
   id: string;
   /** the sentence with the mistake */

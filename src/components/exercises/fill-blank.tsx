@@ -24,7 +24,8 @@ export function FillBlank({
         if (!text.trim()) return;
         onAnswer(checkFillBlank(item.answers, text));
         // typed, so nothing to read while choosing: hear the right sentence once it is checked
-        speak(fillGap(item.prompt, item.answers[0]));
+        // the sentence from the meanings is clean (no "(have)" hint or Vietnamese instruction around it)
+        speak(item.meaning?.en ?? fillGap(item.prompt, item.answers[0]));
       }}
     >
       <h3 className="mb-5 font-display text-2xl font-bold">Điền từ còn thiếu</h3>

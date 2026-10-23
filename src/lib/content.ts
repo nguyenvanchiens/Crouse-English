@@ -1,4 +1,5 @@
 import { COURSES } from "@/content";
+import { lessonWithMeanings } from "@/content/meanings";
 import { PLACEMENT_QUESTIONS } from "@/content/placement";
 import type { Course, Lesson, Module, PlacementQuestion } from "@/content/types";
 import { filterCourses, flattenLessons, type CourseFilter } from "./course-utils";
@@ -33,7 +34,8 @@ export async function getLesson(courseSlug: string, lessonSlug: string): Promise
   return {
     course,
     module: flat[index].module,
-    lesson: flat[index].lesson,
+    // only the lesson being opened carries the meanings: the course travels to the page too (for the contents)
+    lesson: lessonWithMeanings(flat[index].lesson),
     index,
     total: flat.length,
     prev: ref(index - 1),

@@ -20,7 +20,10 @@ export function BlankSentence({
   return (
     <Tag lang="en" className={className}>
       {before}
-      <span className={`mx-1 inline-block min-w-16 border-b-[3px] border-ink px-1 text-center font-bold ${word ? "rounded-t-md bg-sun-soft" : ""}`}>
+      {/* no space after the gap when the sentence goes on with punctuation: "aren't you?", not "aren't you ?" */}
+      <span
+        className={`ml-1 inline-block min-w-16 border-b-[3px] border-ink px-1 text-center font-bold ${/^[.,!?;:]/.test(after) ? "" : "mr-1"} ${word ? "rounded-t-md bg-sun-soft" : ""}`}
+      >
         {word ?? <span className="sr-only">chỗ trống</span>}
       </span>
       {after}
