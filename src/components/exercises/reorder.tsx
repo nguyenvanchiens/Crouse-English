@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { ReorderExercise } from "@/content/types";
 import { checkReorder, chipText, shuffleAvoidingAnswer } from "@/lib/scoring";
+import { speakIfEnglish } from "@/lib/speech";
 
 export function Reorder({
   item,
@@ -58,7 +59,16 @@ export function Reorder({
       <div role="group" className="mt-4 flex flex-wrap gap-2" aria-label="Các từ để chọn">
         {order.map((_, pos) =>
           picked.includes(pos) ? null : (
-            <button key={pos} type="button" disabled={locked} className={`${chip} bg-card`} onClick={() => setPicked([...picked, pos])}>
+            <button
+              key={pos}
+              type="button"
+              disabled={locked}
+              className={`${chip} bg-card`}
+              onClick={() => {
+                setPicked([...picked, pos]);
+                speakIfEnglish(wordAt(pos));
+              }}
+            >
               {wordAt(pos)}
             </button>
           ),

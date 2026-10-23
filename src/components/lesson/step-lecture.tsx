@@ -4,7 +4,7 @@ import { Check, GraduationCap, Lightbulb, ListChecks, TriangleAlert, Volume2 } f
 import type { LectureBlock, LectureStep, LessonMedia } from "@/content/types";
 import { LessonMediaCard } from "./lesson-media";
 import { parseBold } from "@/lib/rich-text";
-import { speak, useSpeechSupport } from "@/lib/speech";
+import { isEnglish, speak, useSpeechSupport } from "@/lib/speech";
 
 function Rich({ text }: { text: string }) {
   return (
@@ -19,6 +19,22 @@ function Rich({ text }: { text: string }) {
         ),
       )}
     </>
+  );
+}
+
+/** English inside a table or a correction: tap it to hear it. Vietnamese and IPA stay plain text. */
+function Hear({ text, tts }: { text: string; tts: boolean }) {
+  if (!tts || !isEnglish(text)) return <>{text}</>;
+  return (
+    <button
+      type="button"
+      lang="en"
+      onClick={() => speak(text, { rate: 0.85 })}
+      className="-my-2 cursor-pointer py-2 text-left underline decoration-ink/30 decoration-dotted decoration-2 underline-offset-4 hover:text-tangerine-deep hover:decoration-tangerine-deep"
+    >
+      {text}
+      <span className="sr-only">, bấm để nghe</span>
+    </button>
   );
 }
 
@@ -61,7 +77,7 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
                           : ""
                       }`}
                     >
-                      {cell}
+                      <Hear text={cell} tts={tts} />
                     </td>
                   ))}
                 </tr>
@@ -144,7 +160,7 @@ function Block({ block, tts }: { block: LectureBlock; tts: boolean }) {
           </p>
           <p lang="en" className="text-lg font-semibold">
             <span className="sr-only">Đúng: </span>
-            {block.right}
+            <Hear text={block.right} tts={tts} />
           </p>
           <p className="mt-1 text-ink-soft">{block.why}</p>
         </div>

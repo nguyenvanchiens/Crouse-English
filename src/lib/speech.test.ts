@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { listenOnce, pickVoice, rankVoices } from "./speech";
+import { isEnglish, listenOnce, pickVoice, rankVoices } from "./speech";
 
 type Handlers = { onerror: ((e: { error: string }) => void) | null; onend: (() => void) | null };
 
@@ -90,5 +90,14 @@ describe("pickVoice", () => {
     expect(pickVoice(iphone, "GB", "gone")?.name).toBe("Serena (Enhanced)");
     // a poor voice cannot be chosen even if stored
     expect(pickVoice(iphone, "GB", "com.apple.eloquence.en-GB.Grandpa")?.name).toBe("Serena (Enhanced)");
+  });
+});
+
+describe("isEnglish", () => {
+  it("reads English words, options and sentences", () => {
+    for (const t of ["friend", "I'm", "He isn't here.", "he / she / it", "Yes, I am.", "living room"]) expect(isEnglish(t)).toBe(true);
+  });
+  it("leaves Vietnamese, IPA and numbers silent", () => {
+    for (const t of ["bạn bè", "Một tách trà", "Khẳng định", "I (tôi)", "/iː/ (i)", "/eɪ/ (ây)", "ˈkʌmf.tə.bəl", "15", ""]) expect(isEnglish(t)).toBe(false);
   });
 });
