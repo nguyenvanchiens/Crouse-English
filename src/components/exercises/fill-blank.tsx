@@ -3,6 +3,8 @@
 import { useState } from "react";
 import type { FillBlankExercise } from "@/content/types";
 import { checkFillBlank } from "@/lib/scoring";
+import { speak } from "@/lib/speech";
+import { fillGap } from "@/components/ui/blank-sentence";
 
 export function FillBlank({
   item,
@@ -19,7 +21,10 @@ export function FillBlank({
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (text.trim()) onAnswer(checkFillBlank(item.answers, text));
+        if (!text.trim()) return;
+        onAnswer(checkFillBlank(item.answers, text));
+        // typed, so nothing to read while choosing: hear the right sentence once it is checked
+        speak(fillGap(item.prompt, item.answers[0]));
       }}
     >
       <h3 className="mb-5 font-display text-2xl font-bold">Điền từ còn thiếu</h3>

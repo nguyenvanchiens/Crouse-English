@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { ReorderExercise } from "@/content/types";
 import { checkReorder, chipText, shuffleAvoidingAnswer } from "@/lib/scoring";
 import { speakIfEnglish } from "@/lib/speech";
+import { useDragReorder } from "@/components/ui/use-drag-reorder";
 
 export function Reorder({
   item,
@@ -16,6 +17,7 @@ export function Reorder({
 }) {
   const [order] = useState(() => shuffleAvoidingAnswer(item.words));
   const [picked, setPicked] = useState<number[]>([]); // positions in `order`
+  const arrange = useDragReorder(picked, setPicked, (k) => setPicked((p) => p.filter((_, j) => j !== k)));
   const wordAt = (pos: number) => chipText(item.words[order[pos]], order[pos] === 0);
   // chips hide punctuation, so show how the sentence ends: tells a question from a statement
   const endMark = /[?!.]$/.exec(item.words[item.words.length - 1])?.[0] ?? null;
@@ -37,14 +39,14 @@ export function Reorder({
         aria-label="Câu trả lời của bạn"
       >
         {picked.length === 0 && <p className="px-2 text-ink-soft">Bấm các từ bên dưới theo đúng thứ tự</p>}
-        {picked.map((pos) => (
+        {picked.map((pos, k) => (
           <button
             key={pos}
             type="button"
             disabled={locked}
-            className={`${chip} bg-sun`}
-            onClick={() => setPicked(picked.filter((p) => p !== pos))}
-            aria-label={`Bỏ từ ${wordAt(pos)}`}
+            {...(locked ? {} : arrange.itemProps(k, wordAt(pos)))}
+            className={`${chip} cursor-grab select-none transition-transform active:cursor-grabbing disabled:cursor-default ${arrange.dragging === k ? "z-10 scale-105 bg-tangerine" : "bg-sun"}`}
+            aria-label={`${wordAt(pos)}, bấm để bỏ ra, kéo hoặc dùng phím mũi tên để đổi chỗ`}
           >
             {wordAt(pos)}
           </button>
@@ -56,6 +58,8 @@ export function Reorder({
           </span>
         )}
       </div>
+      {!locked && picked.length > 1 && <p className="mt-2 text-sm text-ink-soft">Kéo một từ để đổi chỗ, bấm để bỏ ra.</p>}
+      <p role="status" className="sr-only">{arrange.status}</p>
       <div role="group" className="mt-4 flex flex-wrap gap-2" aria-label="Các từ để chọn">
         {order.map((_, pos) =>
           picked.includes(pos) ? null : (

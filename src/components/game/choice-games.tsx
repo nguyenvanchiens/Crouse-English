@@ -5,6 +5,7 @@ import { Turtle, Volume2 } from "lucide-react";
 import { FREE_ROUND, blankRound, listenRound, type GameBlank, type GameData, type RoundSize } from "@/lib/game";
 import { getSeen } from "@/lib/seen";
 import { speak } from "@/lib/speech";
+import { BlankSentence, fillGap } from "@/components/ui/blank-sentence";
 import { OptionList } from "@/components/ui/option-list";
 import { choiceStates } from "@/components/exercises/multiple-choice";
 import { AddWordButton } from "@/components/add-word-button";
@@ -94,8 +95,7 @@ export function BlankGame({ level, blanks, onAgain, size = FREE_ROUND, path }: {
 
   const q = round[s.index];
   const locked = c.status !== "idle";
-  const [before, after] = q.prompt.split("___");
-  const filled = q.prompt.replace("___", q.options[q.answer]);
+  const filled = fillGap(q.prompt, q.options[q.answer]);
   return (
     <div>
       <GameTop>
@@ -103,15 +103,22 @@ export function BlankGame({ level, blanks, onAgain, size = FREE_ROUND, path }: {
         <BattleStage level={level} hp={round.length - s.correct} maxHp={round.length} event={s.event} combo={s.combo} />
       </GameTop>
       <h1 className="mt-6 font-display text-2xl font-extrabold sm:text-3xl">Chọn từ điền vào chỗ trống</h1>
-      <p className="mt-4 text-xl leading-relaxed">
-        {before}
-        <span className="mx-1 inline-block min-w-16 border-b-[3px] border-ink text-center font-bold">
-          {locked ? q.options[q.answer] : <span className="sr-only">chỗ trống</span>}
-        </span>
-        {after}
-      </p>
+      {/* the picked word goes into the gap and the whole sentence is read; once checked, the gap shows the answer */}
+      <BlankSentence
+        prompt={q.prompt}
+        word={locked ? q.options[q.answer] : c.choice !== null ? q.options[c.choice] : null}
+        className="mt-4 text-xl leading-relaxed"
+      />
       <div className="mt-6">
-        <OptionList name={q.id} options={q.options} value={c.choice} onChange={c.setChoice} disabled={locked} states={choiceStates(q.options, q.answer, c.choice, locked)} />
+        <OptionList
+          name={q.id}
+          options={q.options}
+          value={c.choice}
+          onChange={c.setChoice}
+          disabled={locked}
+          states={choiceStates(q.options, q.answer, c.choice, locked)}
+          speakText={(o) => fillGap(q.prompt, o)}
+        />
       </div>
       <CheckBar
         status={c.status}
