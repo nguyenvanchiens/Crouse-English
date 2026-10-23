@@ -5,8 +5,12 @@ import { Lightbulb, Volume2 } from "lucide-react";
 import { ROUND, checkSentence, nextHint, sentenceRound, type GameSentence } from "@/lib/game";
 import { getSeen } from "@/lib/seen";
 import { speak, speakIfEnglish } from "@/lib/speech";
+import { useDragReorder } from "@/components/ui/use-drag-reorder";
 import { BattleStage } from "./battle";
 import { CheckBar, GameEnd, GameHeader, GameTop, useSession, type PathInfo } from "./game-ui";
+
+const PLACED =
+  "min-h-11 cursor-grab select-none rounded-xl border-[2.5px] border-ink px-3 py-1.5 text-lg font-semibold shadow-[0_3px_0_0_var(--color-ink)] transition-transform active:cursor-grabbing disabled:cursor-default disabled:shadow-none";
 
 /** pieces the hint button may place for the learner in one sentence */
 const MAX_HINTS = 2;
@@ -19,6 +23,7 @@ export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { l
   const [chosen, setChosen] = useState<number[]>([]);
   const [status, setStatus] = useState<"idle" | "right" | "wrong">("idle");
   const [hints, setHints] = useState(0);
+  const arrange = useDragReorder(chosen, setChosen, (k) => setChosen((c) => c.filter((_, j) => j !== k)));
 
   if (s.done)
     return <GameEnd game="xep-cau" level={level} correct={s.correct} total={round.length} best={s.best} outOfHearts={s.outOfHearts} seenIds={round.map((q) => q.item.id)} onAgain={onAgain} path={path} />;
@@ -72,17 +77,20 @@ export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { l
       <div role="group" aria-labelledby="answer-label" className="mt-6 flex min-h-16 flex-wrap gap-2 border-b-[2.5px] border-dashed border-ink/40 pb-3">
         {chosen.map((ti, k) => (
           <button
-            key={`${ti}-${k}`}
+            // keyed by the tile, so a piece keeps its element while it is dragged to another place
+            key={ti}
             type="button"
             disabled={locked}
-            onClick={() => setChosen((c) => c.filter((_, j) => j !== k))}
-            className="min-h-11 rounded-xl border-[2.5px] border-ink bg-card px-3 py-1.5 text-lg font-semibold shadow-[0_3px_0_0_var(--color-ink)] disabled:shadow-none"
-            aria-label={`${q.tiles[ti]}, bấm để bỏ ra`}
+            {...(locked ? {} : arrange.itemProps(k, q.tiles[ti]))}
+            className={`${PLACED} ${arrange.dragging === k ? "z-10 scale-105 bg-sun shadow-[0_6px_0_0_var(--color-ink)]" : "bg-card"}`}
+            aria-label={`${q.tiles[ti]}, bấm để bỏ ra, kéo hoặc dùng phím mũi tên để đổi chỗ`}
           >
             {q.tiles[ti]}
           </button>
         ))}
       </div>
+      {!locked && chosen.length > 1 && <p className="mt-2 text-sm text-ink-soft">Kéo một mảnh để đổi chỗ, bấm để bỏ ra.</p>}
+      <p role="status" className="sr-only">{arrange.status}</p>
 
       <p className="sr-only" id="bank-label">Các mảnh câu còn lại</p>
       <div role="group" aria-labelledby="bank-label" className="mt-5 flex flex-wrap gap-2">

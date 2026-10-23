@@ -1,6 +1,6 @@
 "use client";
 
-import { speakIfEnglish } from "@/lib/speech";
+import { isEnglish, speak } from "@/lib/speech";
 
 export type OptionState = "idle" | "correct" | "wrong";
 
@@ -19,6 +19,7 @@ export function OptionList({
   disabled = false,
   states,
   speakOptions = true,
+  speakText = (o) => o,
 }: {
   name: string;
   options: string[];
@@ -28,6 +29,8 @@ export function OptionList({
   states?: OptionState[];
   /** read an English option aloud when it is picked; off for listening questions, where it would give the answer away */
   speakOptions?: boolean;
+  /** what to read for an option: the option itself, or e.g. the sentence with the option in its gap */
+  speakText?: (option: string) => string;
 }) {
   return (
     <fieldset disabled={disabled} className="grid gap-3">
@@ -47,7 +50,7 @@ export function OptionList({
               checked={value === i}
               onChange={() => onChange(i)}
               // on click, not change: tapping the picked option again reads it again
-              onClick={() => speakOptions && speakIfEnglish(o)}
+              onClick={() => speakOptions && isEnglish(o) && speak(speakText(o))}
               className="size-5 shrink-0 accent-[var(--color-grape)]"
             />
             <span>{o}</span>
