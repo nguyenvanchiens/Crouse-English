@@ -9,6 +9,7 @@ import { FillBlank } from "@/components/exercises/fill-blank";
 import { ListenChoose } from "@/components/exercises/listen-choose";
 import { MultipleChoice } from "@/components/exercises/multiple-choice";
 import { Reorder } from "@/components/exercises/reorder";
+import { SentenceMeaning } from "@/components/ui/sentence-meaning";
 
 function ExerciseItem({ item, locked, onAnswer }: { item: Exercise; locked: boolean; onAnswer: (ok: boolean) => void }) {
   switch (item.kind) {
@@ -126,6 +127,7 @@ export function StepExercise({
               {result ? <CheckCircle2 className="size-6" aria-hidden /> : <XCircle className="size-6" aria-hidden />}
               {result ? "Chính xác!" : `Chưa đúng. Đáp án: ${correctAnswerText(item)}`}
             </p>
+            {item.meaning && <SentenceMeaning en={item.meaning.en} vi={item.meaning.vi} className="mt-3" />}
             {item.explain && <p className="mt-2">{item.explain}</p>}
           </div>
         )}

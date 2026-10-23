@@ -7,6 +7,7 @@ import { getSeen } from "@/lib/seen";
 import { speak } from "@/lib/speech";
 import { BlankSentence, fillGap } from "@/components/ui/blank-sentence";
 import { OptionList } from "@/components/ui/option-list";
+import { SentenceMeaning } from "@/components/ui/sentence-meaning";
 import { choiceStates } from "@/components/exercises/multiple-choice";
 import { AddWordButton } from "@/components/add-word-button";
 import { BattleStage } from "./battle";
@@ -135,7 +136,16 @@ export function BlankGame({ level, blanks, onAgain, size = FREE_ROUND, path }: {
         }}
         message={
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            {q.explain ? <p>{q.explain}</p> : <p className="font-semibold">{filled}</p>}
+            {q.meaning ? (
+              <>
+                <SentenceMeaning en={filled} vi={q.meaning} className="w-full" />
+                {q.explain && <p>{q.explain}</p>}
+              </>
+            ) : q.explain ? (
+              <p>{q.explain}</p>
+            ) : (
+              <p className="font-semibold">{filled}</p>
+            )}
             {q.word && <AddWordButton word={toAdd(q.word, filled)} />}
           </div>
         }

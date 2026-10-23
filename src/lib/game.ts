@@ -30,6 +30,8 @@ export interface GameBlank {
   answer: number;
   /** Vietnamese meaning of the sentence or why the answer is right */
   explain?: string;
+  /** what the whole sentence (with the right answer) means, shown once checked */
+  meaning?: string;
   /** for a word taken out of its example sentence: the word, to add to the learner's own review */
   word?: GameWord;
 }

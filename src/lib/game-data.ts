@@ -1,4 +1,5 @@
 import { ALL_DRILLS } from "@/content/drills";
+import { exampleMeaning, exerciseMeaning } from "@/content/meanings";
 import type { Course, Exercise, Lesson, Level } from "@/content/types";
 import { getCourses } from "./content";
 import { vocabKey } from "./progress-core";
@@ -19,7 +20,10 @@ function lessonContent(course: Course, lesson: Lesson): LessonContent {
   const sentences: GameSentence[] = [];
   const grammar: GameBlank[] = [];
   const takeChoice = (x: Exercise) => {
-    if (x.kind === "multiple-choice" && x.prompt.includes(BLANK) && x.options.length >= 2) grammar.push({ id: `g:${x.id}`, prompt: x.prompt, options: x.options, answer: x.answer, explain: x.explain });
+    if (x.kind === "multiple-choice" && x.prompt.includes(BLANK) && x.options.length >= 2) {
+      const meaning = exerciseMeaning(x.id)?.vi;
+      grammar.push({ id: `g:${x.id}`, prompt: x.prompt, options: x.options, answer: x.answer, explain: x.explain, ...(meaning ? { meaning } : {}) });
+    }
   };
   lesson.steps.forEach((s, si) => {
     if (s.type === "vocab")
@@ -54,7 +58,8 @@ function vocabBlanks(words: readonly GameWord[], pool: readonly string[], offset
       .filter((x, j, a) => x && x.toLowerCase() !== e.word.toLowerCase() && a.indexOf(x) === j)
       .slice(0, 3);
     if (picks.length < 3) return;
-    out.push({ id: `v:${e.word.toLowerCase()}`, prompt: e.example.replace(re, BLANK), options: [e.word, ...picks], answer: 0, explain: `${e.word}: ${e.meaning}`, word: e });
+    const meaning = exampleMeaning(e.example);
+    out.push({ id: `v:${e.word.toLowerCase()}`, prompt: e.example.replace(re, BLANK), options: [e.word, ...picks], answer: 0, explain: `${e.word}: ${e.meaning}`, word: e, ...(meaning ? { meaning } : {}) });
   });
   return out;
 }
