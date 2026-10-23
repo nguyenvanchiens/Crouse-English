@@ -85,14 +85,17 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
   const stepsRef = useRef<HTMLOListElement>(null);
 
   // the step row scrolls sideways on a phone: keep the current step in view, and show the new step from its top
+  // (also on `ready`: the row only renders then, and a lesson reopened from a draft starts on a later step)
   const shownStep = useRef(stepIndex);
   useEffect(() => {
     const row = stepsRef.current;
     const current = row?.querySelector<HTMLElement>("[aria-current=step]");
-    if (row && current) row.scrollTo({ left: current.offsetLeft - row.offsetLeft - 16, behavior: "smooth" });
-    if (shownStep.current !== stepIndex && row && row.getBoundingClientRect().top < 80) row.scrollIntoView({ block: "start" });
+    if (!row || !current) return;
+    const left = row.scrollLeft + current.getBoundingClientRect().left - row.getBoundingClientRect().left - 16;
+    row.scrollTo({ left, behavior: shownStep.current === stepIndex ? "instant" : "smooth" });
+    if (shownStep.current !== stepIndex && row.getBoundingClientRect().top < 80) row.scrollIntoView({ block: "start" });
     shownStep.current = stepIndex;
-  }, [stepIndex]);
+  }, [stepIndex, ready]);
 
   // Opening a lesson of an open course puts that course in "Khóa học của tôi".
   useEffect(() => {
@@ -303,7 +306,8 @@ export function LessonShell({ ctx }: { ctx: LessonContext }) {
     return (
       <>
         {/* one row that scrolls sideways on a phone (wrapping took three lines), the current step kept in view */}
-        <ol ref={stepsRef} className="-mx-4 mb-6 flex scroll-mt-24 snap-x gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden" aria-label="Các bước của bài">
+        {/* relative: the buttons' sr-only labels are absolute and would otherwise escape the row's clipping and widen the page */}
+        <ol ref={stepsRef} className="relative -mx-4 mb-6 flex scroll-mt-24 snap-x gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden" aria-label="Các bước của bài">
           {steps.map((s, k) => {
             const reachable = k === 0 || completed[k - 1];
             return (
