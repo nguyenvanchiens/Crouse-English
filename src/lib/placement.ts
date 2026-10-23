@@ -38,8 +38,9 @@ export function scorePlacement(questions: PlacementQuestion[], answers: Record<s
       correct++;
     }
   }
-  // With 8 items a level, one bad level can be a slip: it is forgiven when the levels above it are passed and
-  // the answers up to the placed level are still 60% right overall. Two failed levels in a row end the climb.
+  // With 8 items a level, one bad level can be a slip: a near miss (40% or more) is forgiven when the levels
+  // above it are passed and the answers up to the placed level are still 60% right overall. A level far below
+  // that, or two failed levels in a row, end the climb.
   let passed = 0;
   let failedInRow = 0;
   let upToC = 0;
@@ -48,10 +49,11 @@ export function scorePlacement(questions: PlacementQuestion[], answers: Record<s
     const { correct: c, total } = perLevel[PLACEMENT_LEVELS[i]];
     upToC += c;
     upToT += total;
-    if (total > 0 && c / total >= PASS) {
+    const rate = total > 0 ? c / total : 0;
+    if (rate >= PASS) {
       failedInRow = 0;
       if (upToC / upToT >= PASS) passed = i + 1;
-    } else if (++failedInRow >= 2) break;
+    } else if (rate < SLIP || ++failedInRow >= 2) break;
   }
   const level = PLACEMENT_LEVELS[Math.max(0, passed - 1)];
   const startLevel = START_LEVELS[passed];
@@ -71,3 +73,5 @@ export function scorePlacement(questions: PlacementQuestion[], answers: Record<s
 }
 
 const PASS = 0.6;
+/** the least a failed level can score and still count as a slip */
+const SLIP = 0.4;
