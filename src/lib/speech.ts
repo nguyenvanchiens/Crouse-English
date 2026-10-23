@@ -167,6 +167,24 @@ export function speak(
   synth.speak(u);
 }
 
+const VIETNAMESE = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+/** IPA between slashes ("/iː/", not the spaced "he / she / it"), or IPA's own letters and marks */
+const IPA = /\/[^/\s][^/]*\/|[ɪʊəɜɒʌæɑɔθðʃʒŋɡˈˌː]/;
+
+/**
+ * Whether a piece of text is English, so tapping it should read it aloud: it has Latin letters, none of
+ * Vietnamese's own and no IPA (a meaning such as "bạn bè", a transcription such as "/iː/ (i)" and a bare "15"
+ * are left silent).
+ */
+export function isEnglish(text: string) {
+  return /[a-z]/i.test(text) && !VIETNAMESE.test(text) && !IPA.test(text);
+}
+
+/** Read a tapped word, option or sentence if it is English; anything else stays silent. */
+export function speakIfEnglish(text: string) {
+  if (isEnglish(text)) speak(text);
+}
+
 export function stopSpeaking() {
   if (canSpeak()) window.speechSynthesis.cancel();
 }

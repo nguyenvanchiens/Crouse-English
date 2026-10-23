@@ -64,9 +64,10 @@ export function MatchGame({ level, words, onAgain, boardCount = BOARDS, path }: 
 
   const tap = (side: Side, text: string) => {
     setWrong([]);
+    // an English word is read every time it is tapped, also when it completes a pair
+    if (side === "left") speak(text);
     if (!picked || picked.side === side) {
       setPicked({ side, text });
-      if (side === "left") speak(text);
       return;
     }
     const left = side === "left" ? text : picked.text;
@@ -74,6 +75,8 @@ export function MatchGame({ level, words, onAgain, boardCount = BOARDS, path }: 
     const pair = pairOf("left", left);
     setPicked(null);
     if (pair.meaning === right) {
+      // matched from the meaning side: still hear the word that was paired
+      if (side === "right") speak(left);
       setEvent((e) => ({ kind: run + 1 >= 3 ? "crit" : "hit", key: (e?.key ?? 0) + 1 }));
       setRun((r) => r + 1);
       setHits((h) => h + 1);

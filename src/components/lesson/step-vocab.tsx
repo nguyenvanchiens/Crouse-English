@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import type { VocabStep } from "@/content/types";
 import { PronounceCard } from "@/components/pronounce-card";
-import { stopSpeaking } from "@/lib/speech";
+import { speak, stopSpeaking } from "@/lib/speech";
 
 export function StepVocab({ step, onComplete }: { step: VocabStep; onComplete: () => void }) {
   const [i, setI] = useState(0);
@@ -24,7 +24,10 @@ export function StepVocab({ step, onComplete }: { step: VocabStep; onComplete: (
           <li key={w.word}>
             <button
               type="button"
-              onClick={() => go(k)}
+              onClick={() => {
+                go(k);
+                speak(w.word);
+              }}
               aria-current={k === i ? "true" : undefined}
               className={`min-h-11 rounded-full border-2 border-ink px-4 font-semibold ${k === i ? "bg-ink text-card" : "bg-card hover:bg-sun-soft"}`}
             >

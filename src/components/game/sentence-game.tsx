@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Lightbulb, Volume2 } from "lucide-react";
 import { ROUND, checkSentence, nextHint, sentenceRound, type GameSentence } from "@/lib/game";
 import { getSeen } from "@/lib/seen";
-import { speak } from "@/lib/speech";
+import { speak, speakIfEnglish } from "@/lib/speech";
 import { BattleStage } from "./battle";
 import { CheckBar, GameEnd, GameHeader, GameTop, useSession, type PathInfo } from "./game-ui";
 
@@ -93,7 +93,10 @@ export function SentenceGame({ level, sentences, onAgain, n = ROUND, path }: { l
               key={i}
               type="button"
               disabled={used || locked}
-              onClick={() => setChosen((c) => [...c, i])}
+              onClick={() => {
+                setChosen((c) => [...c, i]);
+                speakIfEnglish(t);
+              }}
               className={`min-h-11 rounded-xl border-[2.5px] px-3 py-1.5 text-lg font-semibold ${used ? "border-ink/20 bg-ink/5 text-transparent" : "border-ink bg-card shadow-[0_3px_0_0_var(--color-ink)] hover:bg-sun-soft"}`}
               aria-hidden={used || undefined}
               tabIndex={used ? -1 : undefined}

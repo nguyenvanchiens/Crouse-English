@@ -55,7 +55,8 @@ export function ListenGame({ level, data, onAgain, size = FREE_ROUND, path }: { 
         </button>
       </div>
       <div className="mt-6">
-        <OptionList name={q.id} options={q.options} value={c.choice} onChange={c.setChoice} disabled={locked} states={choiceStates(q.options, q.answer, c.choice, locked)} />
+        {/* silent options: hearing them would give the answer away */}
+        <OptionList name={q.id} options={q.options} value={c.choice} onChange={c.setChoice} disabled={locked} states={choiceStates(q.options, q.answer, c.choice, locked)} speakOptions={false} />
       </div>
       <CheckBar
         status={c.status}

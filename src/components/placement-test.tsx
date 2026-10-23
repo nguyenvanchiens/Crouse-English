@@ -165,6 +165,7 @@ export function PlacementTest({ bank, courses }: { bank: PlacementQuestion[]; co
           options={q.options}
           value={choice}
           onChange={(k) => setAnswers({ ...answers, [q.id]: k })}
+          speakOptions={q.skill !== "listening"}
         />
       </div>
       <div className="mt-8 flex flex-wrap gap-3">

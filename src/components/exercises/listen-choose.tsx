@@ -51,6 +51,7 @@ export function ListenChoose({
         onChange={setChoice}
         disabled={locked}
         states={choiceStates(item.options, item.answer, choice, locked)}
+        speakOptions={false}
       />
       {!locked && (
         <button type="submit" className="btn btn-primary mt-6" disabled={choice === null}>Kiểm tra</button>

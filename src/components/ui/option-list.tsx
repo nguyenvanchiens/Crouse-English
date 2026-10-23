@@ -1,5 +1,7 @@
 "use client";
 
+import { speakIfEnglish } from "@/lib/speech";
+
 export type OptionState = "idle" | "correct" | "wrong";
 
 const STYLE: Record<OptionState | "selected", string> = {
@@ -16,6 +18,7 @@ export function OptionList({
   onChange,
   disabled = false,
   states,
+  speakOptions = true,
 }: {
   name: string;
   options: string[];
@@ -23,6 +26,8 @@ export function OptionList({
   onChange: (i: number) => void;
   disabled?: boolean;
   states?: OptionState[];
+  /** read an English option aloud when it is picked; off for listening questions, where it would give the answer away */
+  speakOptions?: boolean;
 }) {
   return (
     <fieldset disabled={disabled} className="grid gap-3">
@@ -41,6 +46,8 @@ export function OptionList({
               value={i}
               checked={value === i}
               onChange={() => onChange(i)}
+              // on click, not change: tapping the picked option again reads it again
+              onClick={() => speakOptions && speakIfEnglish(o)}
               className="size-5 shrink-0 accent-[var(--color-grape)]"
             />
             <span>{o}</span>
