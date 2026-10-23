@@ -4,6 +4,7 @@ import { Volume2 } from "lucide-react";
 import { pickVoice, rankVoices, setVoicePref, speak, useVoices, type Accent } from "@/lib/speech";
 
 const ACCENT_VI: Record<Accent, string> = { GB: "Anh–Anh (khóa phát âm, bảng IPA)", US: "Anh–Mỹ (các khóa học khác)" };
+const ACCENT_SHORT: Record<Accent, string> = { GB: "Anh–Anh", US: "Anh–Mỹ" };
 const SAMPLE: Record<Accent, string> = { GB: "Hello. This is how I sound. Think, three, ship, sheep.", US: "Hello. This is how I sound. I'd like a cup of coffee, please." };
 // keeps quality hints such as "(Enhanced)"; drops a repeated language name such as "(English (UK))"
 const label = (v: SpeechSynthesisVoice) => `${v.name.replace(/\s*\(English.*$/, "")} (${v.lang.replace("_", "-")})`;
@@ -54,11 +55,18 @@ export function VoiceSettings({ accents = ["GB", "US"], compact = false }: { acc
   );
 
   if (!compact) return body;
+  // the summary names the accent, not the device's engine ("Microsoft David - English (United States)"):
+  // the voice's own name is inside, for whoever wants to change it
   return (
-    <details className="mb-6 rounded-2xl border-2 border-ink/20 bg-card px-4 py-1">
-      <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-semibold">
-        <Volume2 className="size-4" aria-hidden />
-        Giọng đọc: {current[0] ? label(current[0]) : "mặc định của máy"} · Đổi giọng
+    <details className="group mb-6 w-fit max-w-full rounded-full border-2 border-ink/15 bg-card px-4 open:w-full open:rounded-2xl">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-sm font-semibold text-ink-soft [&::-webkit-details-marker]:hidden">
+        <Volume2 className="size-4 shrink-0" aria-hidden />
+        <span>
+          Giọng đọc {ACCENT_SHORT[accents[0]]}
+          {!current[0] && " (mặc định của máy)"}
+        </span>
+        <span aria-hidden>·</span>
+        <span className="text-ink underline underline-offset-4">Đổi giọng</span>
       </summary>
       <div className="pb-4 pt-2">{body}</div>
     </details>

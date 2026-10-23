@@ -166,7 +166,7 @@ export function PathMap({ level, units }: { level: string; units: PathUnit[] }) 
                                   <Icon className="size-7" aria-hidden />
                                 </Link>
                               )}
-                              <span className={`mt-1 text-center text-xs font-semibold leading-tight sm:text-sm ${s === "current" ? "font-extrabold" : ""}`}>{SHORT[g]}</span>
+                              <span className={`mt-1 text-center text-[0.8125rem] font-semibold leading-tight sm:text-sm ${s === "current" ? "font-extrabold" : ""}`}>{SHORT[g]}</span>
                               <span className="flex h-4 gap-0.5" aria-hidden>
                                 {s === "done" && [1, 2, 3].map((n) => <Star key={n} className={`size-3.5 ${n <= got ? "fill-sun text-ink" : "text-ink/25"}`} />)}
                               </span>

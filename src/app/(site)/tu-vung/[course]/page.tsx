@@ -22,7 +22,7 @@ export default async function CourseWordBankPage(props: PageProps<"/tu-vung/[cou
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
       <p className="font-semibold text-ink-soft">
-        <Link href="/tu-vung" className="underline underline-offset-4">Kho từ vựng</Link> / {course.level}
+        <Link href="/tu-vung" className="-my-2 inline-flex min-h-11 items-center underline underline-offset-4 hover:text-tangerine-deep">Kho từ vựng</Link> / {course.level}
       </p>
       <h1 className="mt-2 font-display text-5xl font-extrabold leading-tight">Từ vựng {course.level}</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-soft">

@@ -67,7 +67,7 @@ export function LessonMediaCard({ media }: { media: LessonMedia }) {
       <figcaption className="flex flex-col gap-2 px-5 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <span className="min-w-0 sm:flex-1">
           <span className="block text-sm font-semibold text-ink-soft">
-            Video minh họa, {media.source}, {media.minutes} phút
+            Video tham khảo · {media.source} · {media.minutes} phút
           </span>
           <span className="block font-display text-lg font-bold">{media.title}</span>
           <span className="mt-1 block text-ink-soft">

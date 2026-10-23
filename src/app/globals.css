@@ -9,6 +9,7 @@
   --color-ink-soft: #46506b;
   --color-tangerine: #ff8a3d;
   --color-tangerine-deep: #f06f1c;
+  --color-tangerine-soft: #ffe6d5;
   --color-leaf: #23a866;
   --color-leaf-soft: #d6f5e3;
   --color-sun: #ffd43b;
@@ -16,6 +17,10 @@
   --color-grape: #6c5ce7;
   --color-grape-soft: #e7e3ff;
   --color-card: #ffffff;
+  /* card surfaces for the B1, B2 and C1 levels (A1 and A2 use sun-soft and tangerine-soft) */
+  --color-leaf-tint: #e9f9f0;
+  --color-grape-tint: #f1efff;
+  --color-sky-tint: #dcedff;
 
   --font-display: var(--font-baloo);
   --font-sans: var(--font-be-vietnam);
@@ -51,6 +56,13 @@ body {
     border: 2.5px solid var(--color-ink);
     border-radius: var(--radius-clay);
     box-shadow: var(--shadow-clay);
+  }
+  /* Secondary surfaces (checklists, FAQ, syllabus, resource lists): a hairline instead of the chunky
+     outline and drop shadow, which stay for the main cards and for things that can be pressed. */
+  .clay-soft {
+    background: var(--color-card);
+    border: 2px solid color-mix(in srgb, var(--color-ink) 14%, transparent);
+    border-radius: 1.25rem;
   }
 
   .btn {

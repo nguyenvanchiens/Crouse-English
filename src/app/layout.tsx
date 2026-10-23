@@ -24,7 +24,8 @@ export const metadata: Metadata = {
   icons: { apple: "/icons/apple-touch-icon.png" },
 };
 
-export const viewport: Viewport = { themeColor: "#ff8a3d" };
+// cover: the phone tab bar pads itself by the home-indicator inset (env(safe-area-inset-bottom))
+export const viewport: Viewport = { themeColor: "#ff8a3d", viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
