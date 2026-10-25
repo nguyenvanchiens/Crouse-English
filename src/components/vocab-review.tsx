@@ -11,10 +11,12 @@ import { PronounceCard } from "@/components/pronounce-card";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { NEW_PER_DAY, buildReviewPlan, type ReviewWord } from "@/lib/review-queue";
 import { stopSpeaking } from "@/lib/speech";
+import { useStudyTimer } from "@/lib/use-study-timer";
 
 export type { ReviewWord };
 
 export function VocabReview({ words }: { words: ReviewWord[] }) {
+  useStudyTimer();
   const { state, ready } = useProgress();
   // the session is fixed when it starts, so answering a card doesn't reshuffle the queue under the learner
   const [session, setSession] = useState<ReviewWord[] | null>(null);

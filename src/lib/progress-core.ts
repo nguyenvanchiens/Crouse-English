@@ -40,7 +40,18 @@ export interface ProgressState {
   rewards: RewardsState;
   /** the learner's own vocabulary cards, in the order added; reviewed under customWordKey(word) */
   custom: CustomWord[];
+  /** seconds of active study per day (todayKey), for the daily goal and the week report; last STUDY_KEEP_DAYS days */
+  study: Record<string, number>;
+  /** minutes a day the learner aims for, one of DAILY_GOALS */
+  dailyGoal: number;
+  /** the longest streak so far (the current one breaks; badges keep this) */
+  bestStreak: number;
 }
+
+/** the daily goals to choose from, in minutes */
+export const DAILY_GOALS = [5, 10, 15, 20, 30] as const;
+export const DEFAULT_DAILY_GOAL = 10;
+const STUDY_KEEP_DAYS = 120;
 export interface CustomWord { word: string; meaning: string; example: string; ipa: string; addedAt: string }
 export interface SrsCard { box: number; due: string }
 export interface CourseProgress { done: number; total: number; percent: number; nextLesson: Lesson | null }
@@ -58,6 +69,9 @@ export function emptyState(): ProgressState {
     points: emptyPoints(),
     rewards: emptyRewards(),
     custom: [],
+    study: {},
+    dailyGoal: DEFAULT_DAILY_GOAL,
+    bestStreak: 0,
   };
 }
 
@@ -102,6 +116,13 @@ export function parseState(raw: string | null): ProgressState {
     points: parsePoints(data.points),
     rewards: parseRewards(data.rewards),
     custom: parseCustomWords(data.custom),
+    study: isRecord(data.study)
+      ? Object.fromEntries(
+          Object.entries(data.study).filter((e): e is [string, number] => /^\d{4}-\d{2}-\d{2}$/.test(e[0]) && typeof e[1] === "number" && e[1] >= 0),
+        )
+      : {},
+    dailyGoal: (DAILY_GOALS as readonly unknown[]).includes(data.dailyGoal) ? (data.dailyGoal as number) : DEFAULT_DAILY_GOAL,
+    bestStreak: Number.isInteger(data.bestStreak) && (data.bestStreak as number) >= 0 ? (data.bestStreak as number) : 0,
     streak:
       isRecord(streak) && Number.isInteger(streak.current) && (streak.current as number) >= 0
         ? { current: streak.current as number, lastDay: typeof streak.lastDay === "string" ? streak.lastDay : null }
@@ -205,8 +226,55 @@ function recordActivity(state: ProgressState, now: Date): ProgressState {
   for (const [days, amount] of Object.entries(POINTS.streak)) {
     if (next.streak.current >= Number(days)) points = award(points, `streak:${days}`, amount, `Chuỗi ${days} ngày học liên tiếp`, now);
   }
-  return { ...next, points };
+  return { ...next, points, bestStreak: Math.max(next.bestStreak, next.streak.current) };
 }
+
+/** Seconds of study on a day. */
+export const studySeconds = (state: ProgressState, day: string): number => state.study[day] ?? 0;
+
+/** The `n` days up to and including `today`, oldest first. */
+export function lastDays(today: string, n: number): string[] {
+  return Array.from({ length: n }, (_, i) => addDays(today, i - n + 1));
+}
+
+/**
+ * Adds active study time (the timer on lessons, games and reviews reports it in small slices). Reaching the
+ * daily goal also counts as a day of study for the streak, as finishing a lesson does.
+ */
+export function applyStudyTime(state: ProgressState, seconds: number, now: Date): ProgressState {
+  const add = Math.max(0, Math.min(Math.round(seconds), 300));
+  if (add === 0) return state;
+  const today = todayKey(now);
+  const before = studySeconds(state, today);
+  const after = before + add;
+  const oldest = addDays(today, -STUDY_KEEP_DAYS);
+  const study = Object.fromEntries([...Object.entries(state.study).filter(([d]) => d > oldest), [today, after]]);
+  const next = { ...state, study };
+  const goal = state.dailyGoal * 60;
+  return before < goal && after >= goal ? recordActivity(next, now) : next;
+}
+
+export function applyDailyGoal(state: ProgressState, minutes: number): ProgressState {
+  return (DAILY_GOALS as readonly number[]).includes(minutes) ? { ...state, dailyGoal: minutes } : state;
+}
+
+/** Vocabulary due for review today: words of finished lessons and of word-bank topics the learner added. */
+export function dueWordCount(courses: Course[], state: ProgressState, today: string): number {
+  return courses.reduce(
+    (n, c) =>
+      n +
+      c.modules
+        .flatMap((m) => m.lessons)
+        .filter((l) => state.lessons[lessonKey(c.slug, l.slug)]?.done)
+        .flatMap((l) => l.steps.flatMap((s) => (s.type === "vocab" ? s.words : [])))
+        .concat((c.wordBank ?? []).filter((t) => state.topics.includes(topicKey(c.slug, t.id))).flatMap((t) => t.words))
+        .filter((w) => isDue(state.srs[vocabKey(c.slug, w.word)], today)).length,
+    0,
+  );
+}
+
+/** Words the learner has remembered at least twice in a row in the review (box 2 and up). */
+export const wordsRemembered = (state: ProgressState): number => Object.values(state.srs).filter((c) => c.box >= 2).length;
 
 export function lessonKey(courseSlug: string, lessonSlug: string): string {
   return `${courseSlug}/${lessonSlug}`;

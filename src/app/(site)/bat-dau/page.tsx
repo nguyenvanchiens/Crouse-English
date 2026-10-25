@@ -3,7 +3,7 @@ import Link from "next/link";
 import { NextStep } from "@/components/next-step";
 import { FaqItem } from "@/components/ui/faq-item";
 import { GUIDED_HOURS, contentHours, formatHours } from "@/lib/course-utils";
-import { getCourses } from "@/lib/content";
+import { getCourseSummaries } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Bắt đầu từ đâu? Hướng dẫn học cho người mới | Crouse English",
@@ -37,7 +37,7 @@ const FAQS = [
 ];
 
 export default async function StartHerePage() {
-  const courses = await getCourses();
+  const courses = await getCourseSummaries();
   const pronunciation = courses.find((c) => c.goal === "phat-am");
   const path = courses.filter((c) => c.goal === "lo-trinh");
   const a1 = path.find((c) => c.level === "A1");

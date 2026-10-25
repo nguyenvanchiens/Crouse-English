@@ -36,7 +36,8 @@ export function PointsPill() {
       href="/doi-qua"
       aria-label={`Điểm học của bạn: ${n}. Mở trang đổi quà`}
       title="Điểm học, bấm để đổi quà"
-      className="inline-flex min-h-11 items-center gap-1.5 rounded-full border-2 border-ink bg-card px-3 font-display font-bold hover:bg-sun-soft"
+      // phones keep the header for the streak; the points are on "Của tôi" and in the menu's "Đổi quà"
+      className="hidden min-h-11 items-center gap-1.5 rounded-full border-2 border-ink bg-card px-3 font-display font-bold hover:bg-sun-soft sm:inline-flex"
     >
       <Coins className="size-5 text-tangerine-deep" aria-hidden />
       <span className="tabular-nums">{n.toLocaleString("vi-VN")}</span>

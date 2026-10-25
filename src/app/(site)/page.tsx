@@ -3,7 +3,8 @@ import { ArrowRight, BookOpenCheck, Check, Gauge, Mic, PencilLine, Volume2 } fro
 import { CourseCard, CourseSoonRow } from "@/components/course/course-card";
 import { LEVEL_TONE } from "@/components/course/goal-meta";
 import type { Level } from "@/content/types";
-import { getCourses } from "@/lib/content";
+import { getCourses, summarizeCourse } from "@/lib/content";
+import { HomeGate } from "@/components/learner/home-gate";
 import { FaqItem } from "@/components/ui/faq-item";
 import { WordCard } from "@/components/word-card";
 
@@ -60,11 +61,13 @@ const FAQS = [
 
 export default async function Home() {
   const courses = await getCourses();
+  const summaries = courses.map(summarizeCourse);
   const pathCourses = courses.filter((c) => c.goal === "phat-am" || c.goal === "lo-trinh");
   const otherCourses = courses.filter((c) => c.goal !== "phat-am" && c.goal !== "lo-trinh");
   return (
     <>
-        {/* Hero */}
+        {/* Hero: a returning learner sees their dashboard here instead */}
+        <HomeGate courses={summaries}>
         <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-20 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:pt-20">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-card px-3.5 py-1 text-[0.9375rem] font-semibold">
@@ -104,6 +107,7 @@ export default async function Home() {
             <WordCard />
           </div>
         </section>
+        </HomeGate>
 
         {/* Level path */}
         <section id="lo-trinh" className="border-y-[2.5px] border-ink bg-card py-20">

@@ -28,6 +28,7 @@ import { StepTask, type TaskProgress } from "./step-task";
 import { StepSpeaking } from "./step-speaking";
 import { StepVideo } from "./step-video";
 import { StepVocab } from "./step-vocab";
+import { useStudyTimer } from "@/lib/use-study-timer";
 
 const STEP_LABEL: Record<Step["type"], string> = {
   lecture: "Bài giảng",
@@ -54,6 +55,7 @@ const STEP_HINT: Record<Step["type"], string> = {
 const bankOf = (lesson: Lesson): Exercise[] => (lesson.final ? lesson.steps.flatMap((s) => (s.type === "exercise" ? s.items : [])) : []);
 
 export function LessonShell({ ctx }: { ctx: LessonContext }) {
+  useStudyTimer();
   const { course, module: currentModule, lesson, index, total, next } = ctx;
   const { state, ready } = useProgress();
   // A saved draft is only read on the client; the step UI renders after `ready`, so it never hydrates against it.

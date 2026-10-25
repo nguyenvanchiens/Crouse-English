@@ -7,11 +7,12 @@ import { balance } from "@/lib/points";
 import { Avatar } from "@/components/points";
 import type { Course } from "@/content/types";
 import { suggestCourseSlug } from "@/lib/course-utils";
-import { certificateStatus, courseProgress, displayStreak, isDue, lessonKey, todayKey, topicKey, vocabKey } from "@/lib/progress-core";
+import { certificateStatus, courseProgress, displayStreak, dueWordCount, todayKey } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 import { GOAL_META } from "@/components/course/goal-meta";
 import { EmptyState } from "@/components/ui/empty-state";
 import { PersistNotice } from "@/components/ui/persist-notice";
+import { BadgeShelf, DailyGoal, WeekChart } from "@/components/learner/progress-widgets";
 import { ProgressBar } from "@/components/ui/progress-bar";
 
 export function MyCourses({ courses }: { courses: Course[] }) {
@@ -24,17 +25,7 @@ export function MyCourses({ courses }: { courses: Course[] }) {
   const placement = state.placement;
   const suggested = placement ? courses.find((c) => c.slug === suggestCourseSlug(placement.startLevel)) : null;
   const today = todayKey();
-  const dueWords = courses.reduce(
-    (n, c) =>
-      n +
-      c.modules
-        .flatMap((m) => m.lessons)
-        .filter((l) => state.lessons[lessonKey(c.slug, l.slug)]?.done)
-        .flatMap((l) => l.steps.flatMap((s) => (s.type === "vocab" ? s.words : [])))
-        .concat((c.wordBank ?? []).filter((t) => state.topics.includes(topicKey(c.slug, t.id))).flatMap((t) => t.words))
-        .filter((w) => isDue(state.srs[vocabKey(c.slug, w.word)], today)).length,
-    0,
-  );
+  const dueWords = dueWordCount(courses, state, today);
 
   return (
     <div className="mt-10 space-y-10">
@@ -90,6 +81,12 @@ export function MyCourses({ courses }: { courses: Course[] }) {
           )}
         </div>
       </div>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <DailyGoal state={state} today={today} />
+        <WeekChart state={state} today={today} />
+      </div>
+      <BadgeShelf state={state} nextCount={20} />
 
       {mine.length === 0 ? (
         <EmptyState
