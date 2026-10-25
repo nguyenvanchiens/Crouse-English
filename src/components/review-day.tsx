@@ -15,6 +15,7 @@ import { drawReview, studyDays, type ReviewBank } from "@/lib/review-day";
 import { daysBetween, parseDayKey } from "@/lib/schedule-describe";
 import { StepExercise } from "@/components/lesson/step-exercise";
 import { EmptyState } from "@/components/ui/empty-state";
+import { useStudyTimer } from "@/lib/use-study-timer";
 
 /** pass mark for a day's review; below it the day's lessons are worth going over again */
 const REVIEW_PASS = 70;
@@ -61,6 +62,7 @@ function Quiz({ date, lessons, bank }: { date: string; lessons: string[]; bank: 
 }
 
 export function ReviewDay({ bank, input }: { bank: ReviewBank; input: PlanInput }) {
+  useStudyTimer();
   const { session, ready } = useAuth();
   const { state, ready: progressReady } = useProgress();
   const data = usePlan();

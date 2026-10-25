@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { HeaderCta } from "@/components/learner/header-cta";
 import { AccountMenu } from "./account-menu";
 import { Logo } from "./logo";
 import { PointsPill } from "@/components/points";
@@ -26,10 +26,7 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <PointsPill />
           <AccountMenu />
-          <Link href="/bat-dau" className="btn btn-primary min-h-11 whitespace-nowrap px-3 text-base sm:px-4">
-            <span className="sm:hidden">Bắt đầu</span>
-            <span className="hidden sm:inline">Bắt đầu học</span>
-          </Link>
+          <HeaderCta />
           <SiteMenu items={NAV} />
         </div>
       </nav>

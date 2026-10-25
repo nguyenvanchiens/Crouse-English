@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PlacementTest } from "@/components/placement-test";
-import { getCourses, getPlacementTest } from "@/lib/content";
+import { getCourseSummaries, getPlacementTest } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Kiểm tra trình độ tiếng Anh miễn phí | Crouse English",
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default async function PlacementPage() {
-  const [questions, courses] = await Promise.all([getPlacementTest(), getCourses()]);
+  const [questions, courses] = await Promise.all([getPlacementTest(), getCourseSummaries()]);
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <PlacementTest bank={questions} courses={courses} />

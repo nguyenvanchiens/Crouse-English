@@ -4,10 +4,10 @@ import Link from "next/link";
 import { ArrowRight, Compass } from "lucide-react";
 import type { Course } from "@/content/types";
 import { suggestCourseSlug } from "@/lib/course-utils";
-import { courseProgress, isDue, lessonKey, todayKey, topicKey, vocabKey } from "@/lib/progress-core";
+import { courseProgress, dueWordCount, lessonKey, todayKey, type CourseProgress, type ProgressState } from "@/lib/progress-core";
 import { useProgress } from "@/lib/progress";
 
-interface Step {
+export interface Step {
   title: string;
   body: string;
   href: string;
@@ -19,7 +19,37 @@ interface Step {
 export function NextStep({ courses }: { courses: Course[] }) {
   const { state, ready } = useProgress();
   if (!ready) return <div className="clay h-44 animate-pulse bg-card" aria-hidden />;
+  const { step, dueWords } = planNextStep(courses, state);
+  return (
+    <section className="clay bg-sun-soft p-6 sm:p-8" aria-labelledby="next-step">
+      <p className="flex items-center gap-2 text-sm font-semibold text-ink-soft">
+        <Compass className="size-4" aria-hidden />
+        Bước tiếp theo của bạn
+      </p>
+      <h2 id="next-step" className="mt-2 font-display text-3xl font-extrabold leading-tight">{step.title}</h2>
+      <p className="mt-2 max-w-2xl text-lg">{step.body}</p>
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <Link href={step.href} className="btn btn-primary">
+          {step.cta}
+          <ArrowRight className="size-5" aria-hidden />
+        </Link>
+        {step.alt && <Link href={step.alt.href} className="btn btn-ghost">{step.alt.label}</Link>}
+      </div>
+      {dueWords > 0 && (
+        <p className="mt-5 rounded-2xl border-2 border-ink bg-card px-4 py-3">
+          Hôm nay có <strong>{dueWords} từ</strong> đến lượt ôn.{" "}
+          <Link href="/on-tap-tu-vung" className="font-semibold underline underline-offset-4">Ôn ngay (vài phút)</Link>
+        </p>
+      )}
+    </section>
+  );
+}
 
+/**
+ * The single most useful next action from the learner's progress, with the course being studied (if any) and
+ * the words due for review today. Shared by the start guide and the home dashboard.
+ */
+export function planNextStep(courses: Course[], state: ProgressState): { step: Step; current: { c: Course; p: CourseProgress } | undefined; dueWords: number } {
   const pronunciation = courses.find((c) => c.goal === "phat-am");
   const started = courses
     .filter((c) => state.enrolled.includes(c.slug))
@@ -31,17 +61,7 @@ export function NextStep({ courses }: { courses: Course[] }) {
   const current = started.sort((a, b) => lastDone(b.c) - lastDone(a.c))[0];
 
   const today = todayKey();
-  const dueWords = courses.reduce(
-    (n, c) =>
-      n +
-      c.modules
-        .flatMap((m) => m.lessons)
-        .filter((l) => state.lessons[lessonKey(c.slug, l.slug)]?.done)
-        .flatMap((l) => l.steps.flatMap((s) => (s.type === "vocab" ? s.words : [])))
-        .concat((c.wordBank ?? []).filter((t) => state.topics.includes(topicKey(c.slug, t.id))).flatMap((t) => t.words))
-        .filter((w) => isDue(state.srs[vocabKey(c.slug, w.word)], today)).length,
-    0,
-  );
+  const dueWords = dueWordCount(courses, state, today);
 
   let step: Step;
   if (current?.p.nextLesson) {
@@ -86,27 +106,5 @@ export function NextStep({ courses }: { courses: Course[] }) {
     };
   }
 
-  return (
-    <section className="clay bg-sun-soft p-6 sm:p-8" aria-labelledby="next-step">
-      <p className="flex items-center gap-2 text-sm font-semibold text-ink-soft">
-        <Compass className="size-4" aria-hidden />
-        Bước tiếp theo của bạn
-      </p>
-      <h2 id="next-step" className="mt-2 font-display text-3xl font-extrabold leading-tight">{step.title}</h2>
-      <p className="mt-2 max-w-2xl text-lg">{step.body}</p>
-      <div className="mt-6 flex flex-wrap items-center gap-3">
-        <Link href={step.href} className="btn btn-primary">
-          {step.cta}
-          <ArrowRight className="size-5" aria-hidden />
-        </Link>
-        {step.alt && <Link href={step.alt.href} className="btn btn-ghost">{step.alt.label}</Link>}
-      </div>
-      {dueWords > 0 && (
-        <p className="mt-5 rounded-2xl border-2 border-ink bg-card px-4 py-3">
-          Hôm nay có <strong>{dueWords} từ</strong> đến lượt ôn.{" "}
-          <Link href="/on-tap-tu-vung" className="font-semibold underline underline-offset-4">Ôn ngay (vài phút)</Link>
-        </p>
-      )}
-    </section>
-  );
+  return { step, current, dueWords };
 }

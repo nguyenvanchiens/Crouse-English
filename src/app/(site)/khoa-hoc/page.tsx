@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { CourseCatalog } from "@/components/course/course-catalog";
-import { getCourses } from "@/lib/content";
+import { getCourseSummaries } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Khóa học tiếng Anh | Crouse English",
@@ -24,7 +24,7 @@ function CatalogSkeleton({ count }: { count: number }) {
 }
 
 export default async function CoursesPage() {
-  const courses = await getCourses();
+  const courses = await getCourseSummaries();
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <h1 className="font-display text-5xl font-extrabold leading-tight">Khóa học tiếng Anh</h1>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Baloo_2, Be_Vietnam_Pro } from "next/font/google";
 import { ServiceWorker } from "@/components/service-worker";
+import { GoalToast } from "@/components/learner/goal-toast";
 import "./globals.css";
 
 const baloo = Baloo_2({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         {children}
+        <GoalToast />
         <ServiceWorker />
       </body>
     </html>

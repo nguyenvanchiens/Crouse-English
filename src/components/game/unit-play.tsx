@@ -13,9 +13,11 @@ import { BlankGame, ListenGame } from "./choice-games";
 import { GAME_NAMES, type PathInfo } from "./game-ui";
 import { MatchGame } from "./match-game";
 import { SentenceGame } from "./sentence-game";
+import { useStudyTimer } from "@/lib/use-study-timer";
 
 /** One game of a path unit (?tro=…), open only once the game before it is passed. */
 export function UnitPlay({ level, unit, units, data }: { level: string; unit: PathUnit; units: Pick<PathUnit, "slug" | "games">[]; data: GameData }) {
+  useStudyTimer();
   const { ready } = useProgress();
   const stars = usePathStars();
   const asked = useSearchParams().get("tro") as GameId | null;

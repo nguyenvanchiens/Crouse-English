@@ -10,7 +10,9 @@ import {
   applyLearnerName,
   applyPlacement,
   applyReviewWord,
+  applyDailyGoal,
   applyGameRound,
+  applyStudyTime,
   applyToggleTopic,
   applyBuyReward,
   applyEquipReward,
@@ -90,6 +92,13 @@ export const progress = {
   },
   savePlacement(level: Level, startLevel: Level, score: number) {
     write(applyPlacement(read(), level, startLevel, score, new Date()));
+  },
+  /** active study time from the study timer (lessons, games, reviews) */
+  addStudyTime(seconds: number) {
+    write(applyStudyTime(read(), seconds, new Date()));
+  },
+  setDailyGoal(minutes: number) {
+    write(applyDailyGoal(read(), minutes));
   },
   gameRound(xp: number) {
     write(applyGameRound(read(), xp, new Date()));
